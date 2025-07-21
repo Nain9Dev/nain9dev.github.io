@@ -1,131 +1,137 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Página con Sidebar | Nain9Dev</title>
+		<title data-key="page_title">Nain9Dev | .NET Developer Portfolio</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
-	<body class="right-sidebar is-preload">
+	<body class="homepage is-preload">
 		<div id="page-wrapper">
 
 			<section id="header" class="wrapper">
 
 				<div id="logo">
 					<h1><a href="index.html">Nain9Dev</a></h1>
-					<p>Desarrollador Web y Creador de Soluciones Digitales</p>
+					<p data-key="logo_subtitle">Web Developer & .NET Specialist</p>
 				</div>
 
 				<nav id="nav">
 					<ul>
-						<li><a href="index.html">Inicio</a></li>
-						<li><a href="index.html#main">Proyectos</a></li>
-						<li><a href="index.html#highlights">Habilidades</a></li>
-						<li><a href="index.html#footer">Contacto</a></li>
+						<li class="current"><a href="index.html" data-key="nav_home">Home</a></li>
+						<li><a href="#main" data-key="nav_projects">Projects</a></li>
+						<li><a href="#highlights" data-key="nav_skills">Skills</a></li>
+						<li><a href="#footer" data-key="nav_contact">Contact</a></li>
+					</ul>
+					<ul class="language-switcher">
+						<li><a href="#" data-lang="es">ES</a></li>
+						<li><a href="#" data-lang="en">EN</a></li>
 					</ul>
 				</nav>
 
 			</section>
 
-			<section id="main" class="wrapper style2">
-				<div class="title">Contenido Adicional</div>
+			<section id="intro" class="wrapper style1">
+				<div class="title" data-key="about_me_title">About Me</div>
 				<div class="container">
-					<div class="row gtr-150">
-						<div class="col-8 col-12-medium">
+					<p class="style1" data-key="about_me_p1">
+						Hello! I'm Nain, a .NET Developer specializing in building robust and scalable web applications.
+					</p>
+					<p class="style2" data-key="about_me_p2">
+						 My focus is on engineering efficient backend solutions and secure APIs within the Microsoft ecosystem.
+					</p>
+					<p class="style3" data-key="about_me_p3">
+						I am dedicated to transforming business requirements into clean, maintainable code using C# and ASP.NET Core to develop high-quality software. Currently, I am focused on deepening my skills in service-oriented architectures and implementing cloud solutions with Azure.
+					</p>
+				</div>
+			</section>
 
-							<div id="content">
-									<article class="box post">
-										<header class="style1">
-											<h2>Página con barra lateral a la derecha</h2>
-											<p>Perfecta para otro tipo de contenido o diseño.</p>
-										</header>
-										<a href="#" class="image featured">
-											<img src="images/pic01.jpg" alt="" />
-										</a>
-										<p>Esta es la versión con la barra lateral a la derecha. Puedes usarla para destacar información diferente, como una biografía más extensa, una galería de imágenes o enlaces a tus publicaciones más recientes.</p>
-										<p>La flexibilidad de estas plantillas te permite crear diferentes secciones en tu sitio web manteniendo un estilo visual consistente. Adapta el contenido de esta página para lo que necesites: un blog, la descripción detallada de un servicio o cualquier otra cosa que se te ocurra.</p>
-									</article>
-								</div>
+			<section id="main" class="wrapper style2">
+				<div class="title" data-key="projects_title">My Projects</div>
+				<div class="container">
+					<div class="row aln-center">
 
-						</div>
 						<div class="col-4 col-12-medium">
+							<section class="highlight">
+								<a href="proyecto-ecommerce.html" class="image featured"><img src="images/ecommerce-net.jpg" alt="E-commerce site built with ASP.NET Core" /></a>
+								<h3><a href="proyecto-ecommerce.html" data-key="project1_title">E-commerce Platform</a></h3>
+								<p data-key="project1_desc">A complete e-commerce system with a product catalog, shopping cart, and user management, built with <strong>ASP.NET Core MVC</strong> and <strong>Entity Framework</strong>.</p>
+								<ul class="actions">
+									<li><a href="https://github.com/Nain9Dev/TiendaOnline-ASPNET" class="button style1" target="_blank" data-key="view_code_btn">View Code</a></li>
+								</ul>
+							</section>
+						</div>
 
-							<div id="sidebar">
-									<section class="box">
-										<header>
-											<h2>Recursos Destacados</h2>
-										</header>
-										<p>Usa este espacio para listar herramientas, libros, o cursos que recomiendes. Es una excelente forma de aportar valor a quienes visitan tu portafolio.</p>
-										<a href="#" class="button style1">Ver todos</a>
-									</section>
-									<section class="box">
-										<header>
-											<h2>Últimos Tweets</h2>
-										</header>
-										<ul class="style3">
-											<li><a href="#">Un tweet sobre un nuevo proyecto.</a></li>
-											<li><a href="#">Compartiendo un artículo interesante.</a></li>
-											<li><a href="#">Mi opinión sobre una nueva tecnología.</a></li>
-											<li><a href="#">Interactuando con la comunidad.</a></li>
-										</ul>
-									</section>
-								</div>
+						<div class="col-4 col-12-medium">
+							<section class="highlight">
+								<a href="proyecto-webapi.html" class="image featured"><img src="images/web-api-net.jpg" alt="RESTful API with .NET" /></a>
+								<h3><a href="proyecto-webapi.html" data-key="project2_title">Appointment Booking API</a></h3>
+								<p data-key="project2_desc">A backend for a medical appointment app, exposing secure endpoints to manage patients and schedules. Built with <strong>ASP.NET Core Web API</strong> and secured with <strong>JWT</strong>.</p>
+								<ul class="actions">
+									 <li><a href="https://github.com/Nain9Dev/CitasMedicas-API" class="button style1" target="_blank" data-key="view_code_btn">View Code</a></li>
+								</ul>
+							</section>
+						</div>
 
+						<div class="col-4 col-12-medium">
+							<section class="highlight">
+								<a href="proyecto-blazor.html" class="image featured"><img src="images/blazor-app.jpg" alt="Interactive application with Blazor" /></a>
+								<h3><a href="proyecto-blazor.html" data-key="project3_title">Real-Time Task Manager</a></h3>
+								<p data-key="project3_desc">An interactive Single-Page Application (SPA) for project management, using <strong>Blazor WebAssembly</strong> for a fluid, reload-free user experience.</p>
+								<ul class="actions">
+									 <li><a href="https://github.com/Nain9Dev/GestorTareas-Blazor" class="button style1" target="_blank" data-key="view_code_btn">View Code</a></li>
+								</ul>
+							</section>
+						</div>
+
+					</div>
+				</div>
+			</section>
+
+			<section id="highlights" class="wrapper style3">
+				<div class="title" data-key="skills_title">Core Competencies</div>
+				<div class="container">
+					<div class="feature-list">
+						<div class="row">
+							<div class="col-6 col-12-medium">
+								<section>
+									<h3 class="icon solid fa-code" data-key="skills1_title">Languages & Frameworks</h3>
+									<p>C#, <strong>ASP.NET Core (MVC, Web API)</strong>, <strong>Blazor</strong>, Entity Framework Core, LINQ, JavaScript, HTML5, CSS3.</p>
+								</section>
+							</div>
+							<div class="col-6 col-12-medium">
+								<section>
+									<h3 class="icon solid fa-database" data-key="skills2_title">Databases</h3>
+									<p data-key="skills2_desc"><strong>SQL Server</strong>, PostgreSQL, T-SQL. Experience with relational databases and data modeling with EF Core.</p>
+								</section>
+							</div>
+							<div class="col-6 col-12-medium">
+								<section>
+									<h3 class="icon solid fa-wrench" data-key="skills3_title">Tools & Platforms</h3>
+									<p data-key="skills3_desc">Git, GitHub, <strong>Azure (DevOps, App Service)</strong>, Docker, Visual Studio, Postman.</p>
+								</section>
+							</div>
+							<div class="col-6 col-12-medium">
+								<section>
+									<h3 class="icon fa-lightbulb" data-key="skills4_title">Key Concepts</h3>
+									<p data-key="skills4_desc">Object-Oriented Programming (OOP), SOLID Principles, RESTful API Architecture, Dependency Injection.</p>
+								</section>
+							</div>
 						</div>
 					</div>
 				</div>
 			</section>
 
 			<section id="footer" class="wrapper">
-				<div class="title">Contacto</div>
+				<div class="title" data-key="contact_title">Get In Touch</div>
 				<div class="container">
 					<header class="style1">
-						<h2>¿Interesado en colaborar?</h2>
-						<p>
-							Estoy disponible para nuevos proyectos y siempre abierto a conectar con otros profesionales.<br />
-							¡No dudes en contactarme!
+						<h2 data-key="contact_h2">Interested in collaborating?</h2>
+						<p data-key="contact_p">
+							I'm currently available for new projects and always open to connecting with other professionals.<br />
+							Feel free to reach out!
 						</p>
 					</header>
-					<div class="row">
-						<div class="col-6 col-12-medium">
-							<section>
-								<form method="post" action="#">
-									<div class="row gtr-50">
-										<div class="col-6 col-12-small"><input type="text" name="name" id="contact-name" placeholder="Nombre" /></div>
-										<div class="col-6 col-12-small"><input type="text" name="email" id="contact-email" placeholder="Email" /></div>
-										<div class="col-12"><textarea name="message" id="contact-message" placeholder="Mensaje" rows="4"></textarea></div>
-										<div class="col-12">
-											<ul class="actions">
-												<li><input type="submit" class="style1" value="Enviar" /></li>
-												<li><input type="reset" class="style2" value="Limpiar" /></li>
-											</ul>
-										</div>
-									</div>
-								</form>
-							</section>
-						</div>
-						<div class="col-6 col-12-medium">
-							<section class="feature-list small">
-								<div class="row">
-									<div class="col-6 col-12-small">
-										<section>
-											<h3 class="icon solid fa-envelope">Email</h3>
-											<p><a href="mailto:tu-email@ejemplo.com">tu-email@ejemplo.com</a></p>
-										</section>
-									</div>
-									<div class="col-6 col-12-small">
-										<section>
-											<h3 class="icon solid fa-comment">Social</h3>
-											<p>
-												<a href="https://github.com/Nain9Dev">GitHub</a><br />
-												<a href="https://www.linkedin.com/in/aitor-nain-mendoza-vallejo/">LinkedIn</a><br />
-											</p>
-										</section>
-									</div>
-								</div>
-							</section>
-						</div>
-					</div>
 					<div id="copyright">
 						<ul>
 							<li>&copy; Nain9Dev 2025.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
@@ -137,11 +143,12 @@
 		</div>
 
 		<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.dropotron.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+		<script src="assets/js/jquery.dropotron.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script src="assets/js/translate.js" defer></script>
 
 	</body>
 </html>

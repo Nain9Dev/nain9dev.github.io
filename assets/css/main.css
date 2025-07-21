@@ -2983,3 +2983,31 @@ input, select, textarea {
 						}
 
 	}
+/* --- Language Switcher Styles --- */
+#nav .language-switcher {
+    margin-left: 2em;
+    align-self: center;
+}
+
+#nav .language-switcher li {
+    display: inline-block;
+    padding: 0 0.5em;
+    border-right: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+#nav .language-switcher li:last-child {
+    border-right: 0;
+    padding-right: 0;
+}
+
+#nav .language-switcher li a {
+    font-weight: 700;
+    font-size: 0.9em;
+    color: #fff;
+    opacity: 0.7;
+    transition: opacity 0.2s ease-in-out;
+}
+
+#nav .language-switcher li a:hover {
+    opacity: 1.0;
+}
