@@ -2987,27 +2987,59 @@ input, select, textarea {
 #nav .language-switcher {
     margin-left: 2em;
     align-self: center;
+    display: flex;
+    gap: 0.5em;
 }
 
 #nav .language-switcher li {
     display: inline-block;
-    padding: 0 0.5em;
-    border-right: 1px solid rgba(255, 255, 255, 0.25);
-}
-
-#nav .language-switcher li:last-child {
-    border-right: 0;
-    padding-right: 0;
+    position: relative;
 }
 
 #nav .language-switcher li a {
-    font-weight: 700;
-    font-size: 0.9em;
+    font-weight: 600;
+    font-size: 0.85em;
     color: #fff;
     opacity: 0.7;
-    transition: opacity 0.2s ease-in-out;
+    transition: all 0.3s ease;
+    padding: 0.4em 0.8em;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    text-decoration: none;
+    display: block;
+    backdrop-filter: blur(5px);
 }
 
 #nav .language-switcher li a:hover {
-    opacity: 1.0;
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#nav .language-switcher li a.active {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Smooth transition for language change */
+body {
+    transition: opacity 0.2s ease-in-out;
+}
+
+/* Mobile responsive styles for language switcher */
+@media screen and (max-width: 736px) {
+    #nav .language-switcher {
+        margin-left: 1em;
+        gap: 0.3em;
+    }
+    
+    #nav .language-switcher li a {
+        padding: 0.3em 0.6em;
+        font-size: 0.8em;
+    }
 }
