@@ -19,6 +19,7 @@
     "view_code_btn": "View Code",
     "skills_title": "Core Competencies",
     "skills1_title": "Languages & Frameworks",
+    "skills1_desc": "C#, ASP.NET Core (MVC, Web API), Blazor, Entity Framework Core, LINQ, JavaScript, HTML5, CSS3.",
     "skills2_title": "Databases",
     "skills2_desc": "SQL Server, PostgreSQL, T-SQL. Experience with relational databases and data modeling with EF Core.",
     "skills3_title": "Tools & Platforms",
@@ -27,5 +28,11 @@
     "skills4_desc": "Object-Oriented Programming (OOP), SOLID Principles, RESTful API Architecture, Dependency Injection.",
     "contact_title": "Get In Touch",
     "contact_h2": "Interested in collaborating?",
-    "contact_p": "I'm currently available for new projects and always open to connecting with other professionals. Feel free to reach out!"
+    "contact_p": "I'm currently available for new projects and always open to connecting with other professionals. Feel free to reach out!",
+    "contact_name": "Name",
+    "contact_email": "Email",
+    "contact_message": "Message",
+    "contact_send": "Send Message",
+    "contact_clear": "Clear",
+    "social_title": "Social"
 }
