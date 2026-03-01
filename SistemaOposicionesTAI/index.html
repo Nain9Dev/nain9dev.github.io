@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sistema Oposiciones TAI</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="container">
+    <h1>Sistema Oposiciones TAI</h1>
+    <p class="muted">Plataforma online de test Oposiciones TAI</p>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Configurar simulacro</h2>
+
+      <div class="grid">
+        <label>
+          Bloque
+          <select id="blockSelect"></select>
+        </label>
+
+        <label>
+          Tema
+          <select id="topicSelect"></select>
+        </label>
+
+        <label>
+          Dificultad
+          <select id="difficultySelect">
+            <option value="0">Todas</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </label>
+
+        <label>
+          Nº preguntas
+          <select id="countSelect">
+            <option value="10">10</option>
+            <option value="20">20</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="row">
+        <button id="generateBtn">Generar simulacro</button>
+        <span id="modeBadge" class="badge">modo: cargando...</span>
+      </div>
+    </section>
+
+    <section id="testSection" class="card hidden">
+      <h2 id="testTitle">Simulacro</h2>
+      <div id="questionHost"></div>
+
+      <div class="row">
+        <button id="finishBtn">Finalizar</button>
+        <span id="scoreText" class="muted"></span>
+      </div>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>

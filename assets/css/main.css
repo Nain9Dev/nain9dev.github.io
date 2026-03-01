@@ -3043,3 +3043,25 @@ body {
         font-size: 0.8em;
     }
 }
+ul.actions.actions-fixed {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 3em;
+  align-items: center;
+  justify-content: center;
+}
+
+ul.actions.actions-fixed li {
+  display: block;
+  margin: 0;
+  width: 100%;
+  max-width: 360px;
+}
+
+ul.actions.actions-fixed li a.button {
+  display: block;
+  width: 100%;
+  text-align: center;
+  white-space: normal;
+}
