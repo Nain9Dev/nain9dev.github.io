@@ -1,0 +1,20 @@
+﻿# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Node/build
+node_modules/
+dist/
+build/
+
+# Logs
+*.log
+
+# Local dev
+.env
+.env.*
+
+# caché
+*.tmp
