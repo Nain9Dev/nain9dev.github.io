@@ -1,0 +1,27 @@
+:root { font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif; }
+body { margin: 0; background: #0b1220; color: #e6e6e6; }
+.container { max-width: 960px; margin: 0 auto; padding: 16px; }
+h1, h2 { margin: 0 0 8px; }
+p { margin: 0 0 12px; }
+.card { background: #111a2e; border: 1px solid #1f2a44; border-radius: 12px; padding: 16px; margin-bottom: 16px; }
+.grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+label { display: flex; flex-direction: column; gap: 6px; font-size: 14px; }
+select, button { padding: 10px; border-radius: 10px; border: 1px solid #2b3a5c; background: #0e1730; color: #e6e6e6; }
+button { cursor: pointer; background: #1b3a8a; border-color: #2d5bd1; }
+button:hover { filter: brightness(1.1); }
+.row { display: flex; align-items: center; gap: 12px; margin-top: 12px; }
+.muted { color: #a8b3cf; }
+.badge { padding: 6px 10px; border-radius: 999px; border: 1px solid #2b3a5c; background: #0e1730; font-size: 12px; }
+.hidden { display: none; }
+
+.question { padding: 12px; border: 1px solid #1f2a44; border-radius: 12px; margin-top: 12px; }
+.options { display: grid; gap: 8px; margin-top: 10px; }
+.option { display: flex; gap: 8px; align-items: center; }
+.option input { transform: scale(1.1); }
+@media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+.actions.actions-fixed {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: stretch;
+}
