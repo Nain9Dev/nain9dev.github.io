@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html lang="es">
+    <head>
+        <title>Simulador ADE | NainDev</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="../assets/css/main.css" />
+        <style>
+            .opcion-btn { margin-bottom: 10px; text-align: left !important; height: auto !important; white-space: normal !important; padding: 1em !important; line-height: 1.4 !important; }
+            #feedback { padding: 1em; border-radius: 5px; margin: 1em 0; display: none; }
+            .uax-green { background-color: #28a745 !important; color: white !important; }
+            .uax-red { background-color: #dc3545 !important; color: white !important; }
+        </style>
+    </head>
+    <body class="homepage is-preload">
+        <div id="page-wrapper">
+
+            <section id="header" class="wrapper">
+                <div id="logo">
+                    <h1><a href="../index.html">Simulador ADE</a></h1>
+                    <p>Preparación Examen Ordinario - Grado Ingeniería Informática</p>
+                </div>
+                <nav id="nav">
+                    <ul>
+                        <li><a href="../index.html">Volver al Portafolio</a></li>
+                    </ul>
+                </nav>
+            </section>
+
+            <section id="main" class="wrapper style2">
+                <div class="title">Test de Autoevaluación</div>
+                <div class="container">
+                    <header class="style1">
+                        <h2 id="pregunta-texto">Cargando banco de preguntas...</h2>
+                        <p id="info-unidad">Selecciona la respuesta correcta basándote en los materiales de las Unidades 1-6.</p>
+                    </header>
+
+                    <div id="quiz-area" class="row aln-center">
+                        <div class="col-10 col-12-medium">
+                            <div id="opciones-container" class="row">
+                                </div>
+                            
+                            <div id="feedback"></div>
+
+                            <ul class="actions special" style="margin-top: 3em;">
+                                <li><button id="btn-siguiente" class="button style1 large" onclick="siguientePregunta()" style="display:none;">Siguiente Pregunta</button></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="footer" class="wrapper">
+                <div id="copyright">
+                    <ul>
+                        <li>&copy; NainDev 2026.</li><li>UAX - Administración de Empresas</li>
+                    </ul>
+                </div>
+            </section>
+
+        </div>
+
+        <script src="../assets/js/jquery.min.js"></script>
+        <script src="../assets/js/browser.min.js"></script>
+        <script src="../assets/js/breakpoints.min.js"></script>
+        <script src="../assets/js/util.js"></script>
+        <script src="../assets/js/main.js"></script>
+
+        <script src="preguntas.js"></script>
+
+        <script>
+            let preguntaActual = {};
+
+            function cargarPregunta() {
+                const feedbackDiv = document.getElementById('feedback');
+                const btnSiguiente = document.getElementById('btn-siguiente');
+                
+                feedbackDiv.style.display = "none";
+                btnSiguiente.style.display = "none";
+                
+                // Seleccionar pregunta aleatoria del archivo preguntas.js
+                preguntaActual = bancoPreguntas[Math.floor(Math.random() * bancoPreguntas.length)];
+                
+                document.getElementById('pregunta-texto').innerText = preguntaActual.pregunta;
+                document.getElementById('info-unidad').innerText = "Fuente: " + preguntaActual.unidad + " | Banco Oficial UAX";
+                
+                const contenedorOpciones = document.getElementById('opciones-container');
+                contenedorOpciones.innerHTML = "";
+                
+                preguntaActual.opciones.forEach((opcion, index) => {
+                    const col = document.createElement('div');
+                    col.className = "col-6 col-12-small";
+                    col.innerHTML = `<button class="button style3 fit opcion-btn" onclick="verificarRespuesta(${index}, this)">${opcion}</button>`;
+                    contenedorOpciones.appendChild(col);
+                });
+            }
+
+            function verificarRespuesta(indiceSeleccionado, elemento) {
+                const feedbackDiv = document.getElementById('feedback');
+                const btnSiguiente = document.getElementById('btn-siguiente');
+                const botones = document.querySelectorAll('.opcion-btn');
+
+                // Bloquear otros clics
+                botones.forEach(btn => btn.disabled = true);
+
+                if (indiceSeleccionado === preguntaActual.correcta) {
+                    elemento.classList.add('uax-green');
+                    feedbackDiv.innerHTML = "🎯 ¡Correcto! " + (preguntaActual.explicacion || "");
+                    feedbackDiv.style.display = "block";
+                    feedbackDiv.className = "uax-green";
+                } else {
+                    elemento.classList.add('uax-red');
+                    // Resaltar la correcta para aprender
+                    botones[preguntaActual.correcta].classList.add('uax-green');
+                    feedbackDiv.innerHTML = "❌ Incorrecto. La respuesta correcta era: " + preguntaActual.opciones[preguntaActual.correcta];
+                    feedbackDiv.style.display = "block";
+                    feedbackDiv.className = "uax-red";
+                }
+                
+                btnSiguiente.style.display = "inline-block";
+            }
+
+            function siguientePregunta() {
+                cargarPregunta();
+            }
+
+            // Iniciar al cargar la página
+            window.onload = cargarPregunta;
+        </script>
+    </body>
+</html>
