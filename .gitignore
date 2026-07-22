@@ -18,3 +18,7 @@ build/
 
 # caché
 *.tmp
+# Para tu caso específico de portafolio:
+public/hot-reload* 
+*.compiled.*
+*LocalIA.yaml
