@@ -5,7 +5,8 @@ import process from "node:process";
 import { fileURLToPath } from "node:url";
 
 const rootDirectory = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const requiredProjectFields = ["id", "title", "status", "summary", "proof", "technologies", "links", "order"];
+const requiredProjectFields = ["id", "title", "status", "summary", "proof", "technologies", "categories", "links", "order"];
+const supportedProjectCategories = new Set(["backend", "data", "demo"]);
 const ignoredDirectories = new Set([".git", ".continue", ".portfolio-private", "node_modules"]);
 const errors = [];
 let inlineJavaScriptCount = 0;
@@ -62,6 +63,16 @@ function validateProjectCatalog(projects) {
 
     if (!Array.isArray(project.technologies) || project.technologies.length === 0) {
       errors.push(`Project ${project.id} must declare technologies.`);
+    }
+
+    if (!Array.isArray(project.categories) || project.categories.length === 0) {
+      errors.push(`Project ${project.id} must declare at least one category.`);
+    } else {
+      for (const category of project.categories) {
+        if (!supportedProjectCategories.has(category)) {
+          errors.push(`Project ${project.id} contains unsupported category: ${category}.`);
+        }
+      }
     }
 
     if (!Array.isArray(project.links) || project.links.length === 0) {

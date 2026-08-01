@@ -6,6 +6,7 @@
     "summary": "Proyecto personal de una API con ASP.NET Core y SQL Server para practicar una estructura por capas y contratos REST.",
     "proof": "El repositorio contiene la estructura inicial y la documentación del proyecto. Todavía no tiene una demo ni un flujo completo publicado.",
     "technologies": ["C#", ".NET 8", "ASP.NET Core", "SQL Server"],
+    "categories": ["backend", "data"],
     "links": [
       {
         "label": "Revisar repositorio",
@@ -22,6 +23,7 @@
     "summary": "Worker Service personal para aprender a procesar notificaciones de forma asíncrona con RabbitMQ.",
     "proof": "El repositorio contiene una primera estructura y un consumidor básico. El proyecto sigue en desarrollo.",
     "technologies": ["C#", ".NET 8", "Worker Service", "RabbitMQ"],
+    "categories": ["backend"],
     "links": [
       {
         "label": "Revisar repositorio",
@@ -38,6 +40,7 @@
     "summary": "Demo de estudio que permite filtrar preguntas por bloque, tema y dificultad y generar un simulacro.",
     "proof": "Incluye una demo pública con datos de prueba y scripts T-SQL para revisar el modelo relacional.",
     "technologies": ["SQL Server", "T-SQL", "JavaScript", "Modelado de datos"],
+    "categories": ["data", "demo"],
     "links": [
       {
         "label": "Abrir demo",
@@ -58,6 +61,7 @@
     "summary": "Versión de Pong hecha con Canvas y JavaScript, con varios niveles de dificultad y modo para dos jugadores.",
     "proof": "La demo se puede jugar en el navegador y el código está dentro de este repositorio.",
     "technologies": ["HTML", "CSS", "JavaScript", "Canvas"],
+    "categories": ["demo"],
     "links": [
       {
         "label": "Jugar demo",
