@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Portfolio de Aitor Nain, desarrollador .NET junior centrado en backend, APIs y SQL Server.">
     <meta name="author" content="Aitor Nain">
-    <meta name="theme-color" content="#07111f">
+    <meta name="theme-color" content="#080b12">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; connect-src 'self'; font-src 'self'; form-action 'self'; frame-src 'none'; img-src 'self' data:; object-src 'none'; script-src 'self'; style-src 'self'; upgrade-insecure-requests">
 
@@ -14,35 +14,38 @@
     <meta property="og:title" content="Aitor Nain | Desarrollador backend .NET">
     <meta property="og:description" content="Experiencia profesional con .NET Framework y SQL Server, junto con proyectos personales en ASP.NET Core.">
     <meta property="og:url" content="https://www.naindev.com/">
-    <meta property="og:image" content="https://www.naindev.com/assets/images/og-cover.png">
-    <meta property="og:image:width" content="1730">
+    <meta property="og:image" content="https://www.naindev.com/assets/images/og-cover-v2.png">
+    <meta property="og:image:width" content="1731">
     <meta property="og:image:height" content="909">
-    <meta property="og:image:alt" content="NainDev, portfolio de desarrollo backend .NET">
+    <meta property="og:image:alt" content="Representación visual de API, lógica de negocio y datos para NainDev">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Aitor Nain | Desarrollador backend .NET">
     <meta name="twitter:description" content="Experiencia profesional con .NET Framework y SQL Server, junto con proyectos personales en ASP.NET Core.">
-    <meta name="twitter:image" content="https://www.naindev.com/assets/images/og-cover.png">
+    <meta name="twitter:image" content="https://www.naindev.com/assets/images/og-cover-v2.png">
 
     <link rel="canonical" href="https://www.naindev.com/">
     <link rel="stylesheet" href="/assets/css/main.css">
     <title>Aitor Nain | Desarrollador backend .NET</title>
   </head>
-  <body>
+  <body id="top">
     <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
 
     <header class="site-header" data-site-header>
       <div class="shell header-layout">
-        <a class="brand" href="/" aria-label="NainDev, inicio">
-          <span class="brand-mark" aria-hidden="true">N</span>
+        <a class="brand" href="#top" aria-label="NainDev, volver al inicio" title="Volver al inicio">
+          <span class="brand-mark" aria-hidden="true">
+            <span>N</span>
+            <progress class="brand-progress" max="100" value="0" data-scroll-progress aria-hidden="true"></progress>
+          </span>
           <span>NainDev</span>
         </a>
 
         <nav class="primary-navigation" aria-label="Navegación principal">
-          <a href="#services">Servicios</a>
-          <a href="#projects">Proyectos</a>
-          <a href="#method">Cómo trabajo</a>
-          <a href="#about">Sobre mí</a>
+          <a href="#services" data-section-link>Servicios</a>
+          <a href="#projects" data-section-link>Proyectos</a>
+          <a href="#method" data-section-link>Cómo trabajo</a>
+          <a href="#about" data-section-link>Sobre mí</a>
         </nav>
 
         <a class="button button-small button-outline" href="mailto:contact@naindev.com?subject=Consulta%20desde%20naindev.com">Hablemos</a>
@@ -50,11 +53,11 @@
     </header>
 
     <main id="main-content">
-      <section class="hero section">
+      <section class="hero section" aria-labelledby="hero-title">
         <div class="shell hero-grid">
-          <div class="hero-copy">
-            <p class="eyebrow">Aitor Nain · Desarrollador .NET junior · Madrid / Remoto</p>
-            <h1>Desarrollo backend con .NET y SQL Server.</h1>
+          <div class="hero-copy" data-reveal>
+            <p class="eyebrow">Aitor Nain · Backend .NET · Madrid / Remoto</p>
+            <h1 id="hero-title">Backend .NET para <span class="title-accent">lógica y datos.</span></h1>
             <p class="hero-summary">
               Trabajo principalmente con APIs, lógica de negocio y bases de datos. En este portfolio comparto proyectos personales y demos que muestran lo que sé hacer y lo que sigo aprendiendo.
             </p>
@@ -63,28 +66,36 @@
               <a class="button button-secondary" href="#projects">Ver proyectos</a>
             </div>
             <p class="availability">Disponible los fines de semana para proyectos pequeños y colaboraciones puntuales.</p>
+            <a class="scroll-cue" href="#services">
+              <span>Explorar el portfolio</span>
+              <span aria-hidden="true">↓</span>
+            </a>
           </div>
 
-          <aside class="hero-panel" aria-label="Especialización técnica">
-            <p class="panel-label">Foco técnico</p>
-            <dl class="capability-list">
-              <div>
-                <dt>Trabajo actual</dt>
-                <dd>C# 7.3 · .NET Framework 4.7.2</dd>
-              </div>
-              <div>
-                <dt>Backend</dt>
-                <dd>ASP.NET MVC 5 · Web API 2</dd>
-              </div>
-              <div>
-                <dt>Datos</dt>
-                <dd>SQL Server · consultas · modelado</dd>
-              </div>
-              <div>
-                <dt>Proyectos personales</dt>
-                <dd>ASP.NET Core · APIs REST · Git</dd>
-              </div>
-            </dl>
+          <aside class="hero-panel" aria-label="Mapa de capacidades técnicas" data-reveal>
+            <div class="panel-heading">
+              <p class="panel-label">Cómo conecto el backend</p>
+              <span class="panel-state">Disponible</span>
+            </div>
+            <div class="system-map">
+              <a class="system-node system-node-api" href="#services">
+                <span>01</span>
+                <strong>API</strong>
+                <small>Contratos y validación</small>
+              </a>
+              <a class="system-node system-node-domain" href="#method">
+                <span>02</span>
+                <strong>Lógica</strong>
+                <small>Reglas y casos de uso</small>
+              </a>
+              <a class="system-node system-node-data" href="#projects">
+                <span>03</span>
+                <strong>Datos</strong>
+                <small>SQL Server y consistencia</small>
+              </a>
+            </div>
+            <p class="panel-stack">C# · ASP.NET · SQL Server</p>
+            <p class="panel-hint">Cada bloque te lleva a una evidencia relacionada.</p>
           </aside>
         </div>
       </section>
@@ -99,7 +110,7 @@
 
       <section class="section" id="services">
         <div class="shell">
-          <div class="section-heading">
+          <div class="section-heading" data-reveal>
             <div>
               <p class="eyebrow">En qué puedo ayudarte</p>
               <h2>Proyectos pequeños de backend .NET</h2>
@@ -108,7 +119,7 @@
           </div>
 
           <div class="card-grid card-grid-three">
-            <article class="service-card">
+            <article class="service-card" data-reveal>
               <span class="card-number" aria-hidden="true">01</span>
               <h3>APIs y mantenimiento .NET</h3>
               <p>Desarrollo y mantenimiento de endpoints, validaciones y lógica de negocio en aplicaciones .NET.</p>
@@ -119,7 +130,7 @@
               </ul>
             </article>
 
-            <article class="service-card">
+            <article class="service-card" data-reveal>
               <span class="card-number" aria-hidden="true">02</span>
               <h3>SQL Server</h3>
               <p>Consultas, cambios de esquema y revisión de acceso a datos para aplicaciones .NET.</p>
@@ -130,7 +141,7 @@
               </ul>
             </article>
 
-            <article class="service-card">
+            <article class="service-card" data-reveal>
               <span class="card-number" aria-hidden="true">03</span>
               <h3>Mejoras acotadas</h3>
               <p>Puedo ocuparme de una tarea concreta dentro de un proyecto existente y dejar documentado el cambio.</p>
@@ -146,12 +157,22 @@
 
       <section class="section section-muted" id="projects">
         <div class="shell">
-          <div class="section-heading">
+          <div class="section-heading" data-reveal>
             <div>
               <p class="eyebrow">Portfolio</p>
               <h2>Proyectos personales y demos</h2>
             </div>
             <p>Indico el estado real de cada proyecto para que sepas qué está terminado y qué sigue en desarrollo.</p>
+          </div>
+
+          <div class="project-toolbar" data-project-toolbar hidden>
+            <div class="filter-group" role="group" aria-label="Filtrar proyectos">
+              <button class="filter-button is-active" type="button" data-project-filter="all" aria-pressed="true">Todos</button>
+              <button class="filter-button" type="button" data-project-filter="backend" aria-pressed="false">Backend</button>
+              <button class="filter-button" type="button" data-project-filter="data" aria-pressed="false">Datos</button>
+              <button class="filter-button" type="button" data-project-filter="demo" aria-pressed="false">Demos</button>
+            </div>
+            <p class="project-count" data-project-count aria-live="polite"></p>
           </div>
 
           <div class="project-grid" data-project-list aria-live="polite" aria-busy="true">
@@ -166,13 +187,13 @@
 
       <section class="section" id="method">
         <div class="shell method-grid">
-          <div>
+          <div data-reveal>
             <p class="eyebrow">Cómo trabajo</p>
             <h2>Así organizo un trabajo pequeño</h2>
             <p class="section-intro">Primero aclaro qué hay que resolver y qué queda fuera. Después divido el trabajo en cambios que se puedan probar y revisar.</p>
           </div>
 
-          <ol class="step-list">
+          <ol class="step-list" data-reveal>
             <li>
               <span>01</span>
               <div><h3>Entender la tarea</h3><p>Objetivo, contexto, restricciones y resultado esperado.</p></div>
@@ -195,12 +216,12 @@
 
       <section class="section section-accent" id="about">
         <div class="shell about-grid">
-          <div>
+          <div data-reveal>
             <p class="eyebrow">Sobre mí</p>
             <h2>Desarrollador .NET centrado en backend</h2>
           </div>
-          <div class="about-copy">
-            <p>Soy Aitor Nain, desarrollador .NET junior. Actualmente trabajo en Avalisto con C# 7.3, ASP.NET MVC 5, Web API 2, .NET Framework 4.7.2 y SQL Server. Mi trabajo se centra principalmente en backend.</p>
+          <div class="about-copy" data-reveal>
+            <p>Soy Aitor Nain, desarrollador .NET junior. Actualmente trabajo en Avalisto con C#, ASP.NET MVC 5, Web API, y SQL Server. Mi trabajo se centra principalmente en backend.</p>
             <p>Antes trabajé como desarrollador .NET en Alten. Entre ambos puestos sumo más de un año y medio de experiencia profesional con .NET. En mis proyectos personales practico ASP.NET Core y tecnologías más recientes.</p>
             <div class="text-links">
               <a href="https://github.com/Nain9Dev" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
@@ -211,13 +232,17 @@
       </section>
 
       <section class="section contact-section" id="contact">
-        <div class="shell contact-panel">
+        <div class="shell contact-panel" data-reveal>
           <div>
             <p class="eyebrow">Contacto</p>
             <h2>¿Necesitas ayuda con una tarea de backend .NET?</h2>
             <p>Cuéntame qué necesitas, qué tecnología utiliza el proyecto y qué plazo tienes. Respondo durante el fin de semana.</p>
           </div>
-          <a class="button button-primary" href="mailto:contact@naindev.com?subject=Consulta%20de%20proyecto%20.NET">contact@naindev.com</a>
+          <div class="contact-actions">
+            <a class="button button-primary contact-email" href="mailto:contact@naindev.com?subject=Consulta%20de%20proyecto%20.NET">contact@naindev.com</a>
+            <button class="button button-secondary" type="button" data-copy-email>Copiar email</button>
+            <p class="copy-status" data-copy-status role="status"></p>
+          </div>
         </div>
       </section>
     </main>
@@ -225,7 +250,7 @@
     <footer class="site-footer">
       <div class="shell footer-layout">
         <p>© <span data-current-year>2026</span> NainDev. Construido sin cookies, analítica ni dependencias de terceros en el navegador.</p>
-        <a href="#main-content">Volver arriba</a>
+        <a href="#top">Volver arriba</a>
       </div>
     </footer>
 

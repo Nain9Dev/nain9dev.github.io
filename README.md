@@ -20,7 +20,7 @@ assets/
 ├── css/                 # Design system and responsive layout
 ├── data/projects.json   # Public project catalog
 ├── images/              # Public visual assets
-└── js/                  # Catalog loading and DOM rendering
+└── js/                  # Catalog, filters, rendering and page interactions
 scripts/                 # Local server and validation
 index.html               # Main commercial page
 404.html                 # Custom not-found page
@@ -31,6 +31,8 @@ El contenido de los proyectos está separado de la presentación:
 - `projects.json` contiene el catálogo de proyectos;
 - `project-catalog.js` carga y valida los datos;
 - `project-view.js` crea la presentación usando APIs seguras del DOM;
+- `project-filters.js` filtra el catálogo mediante categorías estables;
+- `site-interactions.js` gestiona navegación activa, progreso, movimiento y copia del email;
 - `app.js` compone el comportamiento de la página;
 - `main.css` contiene tokens, layout y componentes visuales.
 
@@ -40,9 +42,20 @@ La web se mantiene deliberadamente sencilla: HTML, CSS y JavaScript sin dependen
 
 1. Añade una entrada a `assets/data/projects.json`.
 2. Describe únicamente el trabajo que se pueda revisar y declara el estado real.
-3. Usa enlaces `https://` o rutas internas que comiencen por `/`.
-4. Ejecuta `npm run check`.
-5. Revisa que el proyecto muestre una habilidad útil para el tipo de trabajo que buscas.
+3. Asigna una o varias categorías soportadas: `backend`, `data` o `demo`.
+4. Usa enlaces `https://` o rutas internas que comiencen por `/`.
+5. Ejecuta `npm run check`.
+6. Revisa que el proyecto muestre una habilidad útil para el tipo de trabajo que buscas.
+
+## Sistema visual e interacción
+
+- Paleta propia basada en fondo grafito, cobalto técnico y cobre cálido.
+- La marca vuelve al inicio y su indicador muestra el progreso de lectura.
+- La navegación destaca la sección activa.
+- El mapa del hero enlaza capacidades con evidencia de la página.
+- El catálogo permite filtrar proyectos sin recargar.
+- Las entradas progresivas se desactivan si el sistema solicita reducir movimiento.
+- No se cargan tipografías, animaciones ni componentes desde terceros.
 
 ## Desarrollo local
 

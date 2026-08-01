@@ -28,6 +28,9 @@ function createProjectLink(link) {
 function createProjectCard(project, index) {
   const article = createElement("article", "project-card");
   article.dataset.featured = String(Boolean(project.featured));
+  article.dataset.projectCard = "";
+  article.dataset.categories = project.categories.join(" ");
+  article.dataset.reveal = "";
 
   const header = createElement("div", "project-card-header");
   header.append(
