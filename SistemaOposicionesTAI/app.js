@@ -3,10 +3,9 @@ const state = {
   blocks: [],
   topics: [],
   questions: [],
-    answersKey: {}, // questionId (string), correctOptionId
+  answersKey: {}, // Maps question id strings to correct option ids.
   currentTest: null,
-  answers: new Map() // questionId, optionId
-
+  answers: new Map() // Maps question ids to selected option ids.
 };
 
 const els = {
@@ -61,8 +60,7 @@ function setMode(mode) {
 }
 
 function fillBlocks() {
-  els.blockSelect.innerHTML = "";
-  els.blockSelect.append(new Option("Todos", "0"));
+  els.blockSelect.replaceChildren(new Option("Todos", "0"));
   for (const b of state.blocks) {
     els.blockSelect.append(new Option(`${b.code} - ${b.name}`, String(b.id)));
   }
@@ -77,8 +75,7 @@ function fillTopics() {
   const blockId = Number(els.blockSelect.value);
   const topics = getTopicsForBlock(blockId);
 
-  els.topicSelect.innerHTML = "";
-  els.topicSelect.append(new Option("Todos", "0"));
+  els.topicSelect.replaceChildren(new Option("Todos", "0"));
   for (const t of topics) {
     els.topicSelect.append(new Option(`${t.topicNumber}. ${t.title}`, String(t.id)));
   }
@@ -91,6 +88,50 @@ function shuffle(arr) {
     [a[i], a[j]] = [a[j], a[i]];
   }
   return a;
+}
+
+function createQuestionElement(question, questionNumber, questionId) {
+  const wrapper = document.createElement("div");
+  wrapper.className = "question";
+
+  const title = document.createElement("div");
+  const number = document.createElement("strong");
+  number.textContent = `${questionNumber}.`;
+  title.append(number, document.createTextNode(` ${question.statement}`));
+  wrapper.appendChild(title);
+
+  const options = document.createElement("div");
+  options.className = "options";
+
+  for (const option of question.options) {
+    const row = document.createElement("label");
+    row.className = "option";
+
+    const input = document.createElement("input");
+    input.type = "radio";
+    input.name = `q_${questionId}`;
+    input.value = String(option.id);
+    input.addEventListener("change", () => {
+      state.answers.set(questionId, option.id);
+    });
+
+    row.append(input, document.createTextNode(` ${option.sortOrder}. ${option.text}`));
+    options.appendChild(row);
+  }
+
+  wrapper.appendChild(options);
+  return wrapper;
+}
+
+function renderQuestions(questions, getQuestionId) {
+  state.answers.clear();
+  els.scoreText.textContent = "";
+  els.questionHost.replaceChildren();
+
+  questions.forEach((question, index) => {
+    const questionId = getQuestionId(question);
+    els.questionHost.appendChild(createQuestionElement(question, index + 1, questionId));
+  });
 }
 
 function filterQuestionsStatic() {
@@ -121,36 +162,7 @@ function filterQuestionsStatic() {
 }
 
 function renderTestStatic(questions) {
-  state.answers.clear();
-  els.scoreText.textContent = "";
-  els.questionHost.innerHTML = "";
-
-  let idx = 1;
-  for (const q of questions) {
-    const wrap = document.createElement("div");
-    wrap.className = "question";
-
-    const title = document.createElement("div");
-    title.innerHTML = `<strong>${idx}.</strong> ${q.statement}`;
-    wrap.appendChild(title);
-
-    const opts = document.createElement("div");
-    opts.className = "options";
-
-    for (const o of q.options) {
-      const row = document.createElement("label");
-      row.className = "option";
-      row.innerHTML = `<input type="radio" name="q_${q.id}" value="${o.id}"/> ${o.sortOrder}. ${o.text}`;
-      row.querySelector("input").addEventListener("change", () => {
-        state.answers.set(q.id, o.id);
-      });
-      opts.appendChild(row);
-    }
-
-    wrap.appendChild(opts);
-    els.questionHost.appendChild(wrap);
-    idx++;
-  }
+  renderQuestions(questions, question => question.id);
 
   els.testTitle.textContent = "Simulacro (demo estática)";
   els.testSection.classList.remove("hidden");
@@ -180,7 +192,7 @@ async function generate() {
     return;
   }
 
-  // modo local (simplificado): por ahora solo 1 topic seleccionado
+  // Local mode currently supports one selected topic.
   const topicId = Number(els.topicSelect.value);
   if (topicId === 0) {
     alert("En modo local, selecciona un tema concreto (por simplicidad).");
@@ -207,36 +219,7 @@ async function generate() {
   const test = await fetch(`http://localhost:5298/api/tests/${j.testId}`).then(x => x.json());
   state.currentTest = test;
 
-  state.answers.clear();
-  els.scoreText.textContent = "";
-  els.questionHost.innerHTML = "";
-
-  let idx = 1;
-  for (const q of test.questions) {
-    const wrap = document.createElement("div");
-    wrap.className = "question";
-
-    const title = document.createElement("div");
-    title.innerHTML = `<strong>${idx}.</strong> ${q.statement}`;
-    wrap.appendChild(title);
-
-    const opts = document.createElement("div");
-    opts.className = "options";
-
-    for (const o of q.options) {
-      const row = document.createElement("label");
-      row.className = "option";
-      row.innerHTML = `<input type="radio" name="q_${q.questionId}" value="${o.id}"/> ${o.sortOrder}. ${o.text}`;
-      row.querySelector("input").addEventListener("change", () => {
-        state.answers.set(q.questionId, o.id);
-      });
-      opts.appendChild(row);
-    }
-
-    wrap.appendChild(opts);
-    els.questionHost.appendChild(wrap);
-    idx++;
-  }
+  renderQuestions(test.questions, question => question.questionId);
 
   els.testTitle.textContent = `Simulacro (local) testId=${j.testId}`;
   els.testSection.classList.remove("hidden");
@@ -250,7 +233,7 @@ async function finish() {
     return;
   }
 
-  // Modo local: start, answer, finish
+  // Local mode: start, answer, finish.
   const startBody = { testId: state.currentTest.testId, userName: "demo" };
   const start = await fetch("http://localhost:5298/api/attempts/start", {
     method: "POST",

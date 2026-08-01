@@ -1,0 +1,14 @@
+{
+  "name": "nain9dev-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static portfolio for NainDev.",
+  "type": "module",
+  "scripts": {
+    "check": "node scripts/validate-site.mjs",
+    "start": "node scripts/serve.mjs"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}
