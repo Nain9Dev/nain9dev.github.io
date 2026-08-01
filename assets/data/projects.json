@@ -1,0 +1,74 @@
+[
+  {
+    "id": "financial-management-api",
+    "title": "API de Gestión Financiera",
+    "status": "Base técnica",
+    "summary": "Proyecto personal de una API con ASP.NET Core y SQL Server para practicar una estructura por capas y contratos REST.",
+    "proof": "El repositorio contiene la estructura inicial y la documentación del proyecto. Todavía no tiene una demo ni un flujo completo publicado.",
+    "technologies": ["C#", ".NET 8", "ASP.NET Core", "SQL Server"],
+    "links": [
+      {
+        "label": "Revisar repositorio",
+        "url": "https://github.com/Nain9Dev/API-Gestion-Financiera"
+      }
+    ],
+    "featured": true,
+    "order": 1
+  },
+  {
+    "id": "notification-worker",
+    "title": "Servicio de Notificaciones",
+    "status": "En desarrollo",
+    "summary": "Worker Service personal para aprender a procesar notificaciones de forma asíncrona con RabbitMQ.",
+    "proof": "El repositorio contiene una primera estructura y un consumidor básico. El proyecto sigue en desarrollo.",
+    "technologies": ["C#", ".NET 8", "Worker Service", "RabbitMQ"],
+    "links": [
+      {
+        "label": "Revisar repositorio",
+        "url": "https://github.com/Nain9Dev/Microservicio-Notificaciones"
+      }
+    ],
+    "featured": false,
+    "order": 2
+  },
+  {
+    "id": "tai-study-system",
+    "title": "Sistema Oposiciones TAI",
+    "status": "Demo y diseño de datos",
+    "summary": "Demo de estudio que permite filtrar preguntas por bloque, tema y dificultad y generar un simulacro.",
+    "proof": "Incluye una demo pública con datos de prueba y scripts T-SQL para revisar el modelo relacional.",
+    "technologies": ["SQL Server", "T-SQL", "JavaScript", "Modelado de datos"],
+    "links": [
+      {
+        "label": "Abrir demo",
+        "url": "/SistemaOposicionesTAI/"
+      },
+      {
+        "label": "Revisar repositorio",
+        "url": "https://github.com/Nain9Dev/SistemaOposicionesTAI"
+      }
+    ],
+    "featured": true,
+    "order": 3
+  },
+  {
+    "id": "pong-arcade",
+    "title": "Pong Arcade",
+    "status": "Demo interactiva",
+    "summary": "Versión de Pong hecha con Canvas y JavaScript, con varios niveles de dificultad y modo para dos jugadores.",
+    "proof": "La demo se puede jugar en el navegador y el código está dentro de este repositorio.",
+    "technologies": ["HTML", "CSS", "JavaScript", "Canvas"],
+    "links": [
+      {
+        "label": "Jugar demo",
+        "url": "/pong-game/"
+      },
+      {
+        "label": "Ver código",
+        "url": "https://github.com/Nain9Dev/nain9dev.github.io/tree/main/pong-game"
+      }
+    ],
+    "featured": false,
+    "order": 4
+  }
+]

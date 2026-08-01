@@ -1,40 +1,21 @@
-# 🏓 Pong Arcade
+# Pong Arcade
 
-Videojuego clásico de **Ping Pong** desarrollado con **HTML5 Canvas + JavaScript vanilla**. 
-Sin dependencias externas, sin frameworks. ¡Un solo archivo!
+Versión de Pong desarrollada con HTML5 Canvas y JavaScript, sin frameworks ni dependencias externas.
 
----
+## Funciones
 
-## ✨ Características
+- Modo para un jugador contra la CPU y modo para dos jugadores.
+- Cuatro niveles de dificultad: fácil, medio, difícil e imposible.
+- Efectos visuales, partículas y sonido generado con Web Audio API.
+- Ajuste del área de juego al tamaño de la pantalla.
+- Aumento gradual de la velocidad de la pelota.
 
-| Feature | Descripción |
-|---------|-------------|
-| 🎮 **Modos** | 1 Jugador (vs CPU) / 2 Jugadores |
-| 🤖 **4 Niveles de IA** | Fácil, Medio, Difícil, Imposible |
-| 🎨 **Efectos visuales** | Trails, glow, partículas, gradientes |
-| 🔊 **Sonidos** | Generados con Web Audio API (sin archivos) |
-| 📱 **Responsive** | Se adapta a cualquier pantalla |
-| ⚡ **Velocidad dinámica** | La pelota acelera con cada golpe |
-
-## 🎮 Controles
+## Controles
 
 | Acción | Tecla |
 |--------|-------|
-| Mover Jugador 1 | `W` / `S` ó Mouse |
-| Mover Jugador 2 | `↑` / `↓` |
+| Mover jugador 1 | `W` / `S` o ratón |
+| Mover jugador 2 | `↑` / `↓` |
 | Pausar | `Espacio` |
 
-## 🚀 Desplegar en GitHub Pages
-
-```bash
-# 1. Clona tu repo
-git clone https://github.com/Nain9Dev/pong-game.git
-
-# 2. Sube los archivos
-cd pong-game
-git add .
-git commit -m "🏓 Pong Arcade game"
-git push origin main
-
-# 3. Activa GitHub Pages:
-#    Settings → Pages → Source: main branch → Save
+La demo se puede abrir desde [naindev.com/pong-game](https://www.naindev.com/pong-game/).
