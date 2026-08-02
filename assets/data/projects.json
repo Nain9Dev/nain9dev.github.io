@@ -23,18 +23,22 @@
   {
     "id": "notification-worker",
     "title": "Servicio de Notificaciones",
-    "status": "En desarrollo",
-    "summary": "Worker Service personal para aprender a procesar notificaciones de forma asíncrona con RabbitMQ.",
-    "proof": "El repositorio contiene una primera estructura y un consumidor básico. El proyecto sigue en desarrollo.",
-    "technologies": ["C#", ".NET 8", "Worker Service", "RabbitMQ"],
-    "categories": ["backend"],
+    "status": "Demo interactiva en vivo",
+    "summary": "Microservicio .NET 10 con Clean Architecture, RabbitMQ (CloudAMQP) y despachador de correos responsive HTML.",
+    "proof": "Incluye simulación en vivo conectada al clúster RabbitMQ en la nube con procesamiento en <350ms sin instalación externa.",
+    "technologies": ["C#", ".NET 10", "Clean Architecture", "MassTransit", "RabbitMQ"],
+    "categories": ["backend", "demo"],
     "links": [
+      {
+        "label": "Probar API",
+        "url": "#demo-notificaciones"
+      },
       {
         "label": "Revisar repositorio",
         "url": "https://github.com/Nain9Dev/Microservicio-Notificaciones"
       }
     ],
-    "featured": false,
+    "featured": true,
     "order": 2
   },
   {

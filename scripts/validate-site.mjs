@@ -79,7 +79,7 @@ function validateProjectCatalog(projects) {
       errors.push(`Project ${project.id} must declare at least one link.`);
     } else {
       for (const link of project.links) {
-        if (typeof link.url !== "string" || (!link.url.startsWith("/") && !link.url.startsWith("https://"))) {
+        if (typeof link.url !== "string" || (!link.url.startsWith("/") && !link.url.startsWith("https://") && !link.url.startsWith("#"))) {
           errors.push(`Project ${project.id} contains a link with an unsafe URL.`);
         }
       }
