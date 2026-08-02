@@ -82,5 +82,26 @@
     ],
     "featured": false,
     "order": 4
+  },
+  {
+    "id": "driving-school-management",
+    "title": "Gestión Autoescuela NainDev",
+    "status": "Demo interactiva disponible",
+    "summary": "Dashboard Web contable y operativo para autoescuelas desarrollado en Python 3.12 con Clean Architecture, modelado de dominio Pydantic v2 y SQLite.",
+    "proof": "Demo web operativa 24/7 en Streamlit Cloud. Permite simular inscripciones, imputar clases y emitir facturas oficiales descargables al instante en formato PDF (0€ coste y almacenamiento RAM in-memory).",
+    "technologies": ["Python", "Clean Architecture", "Streamlit", "Pydantic", "SQLAlchemy"],
+    "categories": ["backend", "data", "demo"],
+    "links": [
+      {
+        "label": "Probar Demo Web",
+        "url": "https://gestion-autoescuela-nain9dev.streamlit.app/"
+      },
+      {
+        "label": "Revisar código",
+        "url": "https://github.com/Nain9Dev/Gestion-Autoescuela-Python"
+      }
+    ],
+    "featured": true,
+    "order": 5
   }
 ]
