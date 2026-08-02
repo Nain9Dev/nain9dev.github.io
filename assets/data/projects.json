@@ -2,15 +2,15 @@
   {
     "id": "financial-management-api",
     "title": "API de Operaciones de Pólizas",
-    "status": "Demo pública preparada",
+    "status": "Demo pública disponible",
     "summary": "API .NET que aplica el ciclo Draft → Active → Cancelled, aislamiento por organización, control de concurrencia con ETag y auditoría en SQL Server.",
-    "proof": "La solución compila sin advertencias y supera 43 pruebas, 21 contra SQL Server real. La demo de un clic funciona en local; su publicación está pendiente de una suscripción Azure activa.",
+    "proof": "Demo HTTPS desplegada en Azure F1 y Azure SQL Free. El recorrido crea una póliza, valida concurrencia con ETag, la cancela y muestra dos transiciones de auditoría con datos sintéticos.",
     "technologies": ["C#", ".NET 10", "ASP.NET Core", "EF Core", "SQL Server"],
     "categories": ["backend", "data", "demo"],
     "links": [
       {
-        "label": "Ver el flujo de demo",
-        "url": "https://github.com/Nain9Dev/API-Gestion-Financiera/blob/main/docs/public-demo.md"
+        "label": "Probar API",
+        "url": "https://nain-policy-demo-api.azurewebsites.net/demo/"
       },
       {
         "label": "Revisar código",
