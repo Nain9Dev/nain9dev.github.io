@@ -1,4 +1,5 @@
 import { loadProjects } from "./project-catalog.js";
+import { initializeDemoModal } from "./demo-modal.js";
 import { initializeProjectFilters } from "./project-filters.js";
 import { renderProjectError, renderProjects } from "./project-view.js";
 import {
@@ -12,6 +13,8 @@ const projectContainer = document.querySelector("[data-project-list]");
 const projectToolbar = document.querySelector("[data-project-toolbar]");
 const projectCount = document.querySelector("[data-project-count]");
 const yearElement = document.querySelector("[data-current-year]");
+
+initializeDemoModal(document);
 
 initializeHeaderState({
   header: document.querySelector("[data-site-header]"),

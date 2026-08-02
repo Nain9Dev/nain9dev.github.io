@@ -5,7 +5,7 @@ function isValidLink(link) {
   return Boolean(link)
     && typeof link.label === "string"
     && typeof link.url === "string"
-    && (link.url.startsWith("/") || link.url.startsWith("https://"));
+    && (link.url.startsWith("/") || link.url.startsWith("https://") || link.url.startsWith("#"));
 }
 
 function isValidProject(project) {
