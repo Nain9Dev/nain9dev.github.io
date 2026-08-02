@@ -1,15 +1,19 @@
 [
   {
     "id": "financial-management-api",
-    "title": "API de Gestión Financiera",
-    "status": "Base técnica",
-    "summary": "Proyecto personal de una API con ASP.NET Core y SQL Server para practicar una estructura por capas y contratos REST.",
-    "proof": "El repositorio contiene la estructura inicial y la documentación del proyecto. Todavía no tiene una demo ni un flujo completo publicado.",
-    "technologies": ["C#", ".NET 8", "ASP.NET Core", "SQL Server"],
-    "categories": ["backend", "data"],
+    "title": "API de Operaciones de Pólizas",
+    "status": "Demo pública preparada",
+    "summary": "API .NET que aplica el ciclo Draft → Active → Cancelled, aislamiento por organización, control de concurrencia con ETag y auditoría en SQL Server.",
+    "proof": "La solución compila sin advertencias y supera 43 pruebas, 21 contra SQL Server real. La demo de un clic funciona en local; su publicación está pendiente de una suscripción Azure activa.",
+    "technologies": ["C#", ".NET 10", "ASP.NET Core", "EF Core", "SQL Server"],
+    "categories": ["backend", "data", "demo"],
     "links": [
       {
-        "label": "Revisar repositorio",
+        "label": "Ver el flujo de demo",
+        "url": "https://github.com/Nain9Dev/API-Gestion-Financiera/blob/main/docs/public-demo.md"
+      },
+      {
+        "label": "Revisar código",
         "url": "https://github.com/Nain9Dev/API-Gestion-Financiera"
       }
     ],
