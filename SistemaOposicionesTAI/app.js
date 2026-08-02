@@ -116,7 +116,6 @@ async function loadLocalData() {
   const blocks = await fetch("http://localhost:5298/api/syllabus/blocks").then(r => r.json());
   const topics = await fetch("http://localhost:5298/api/syllabus/topics").then(r => r.json());
   const questions = await fetch("http://localhost:5298/api/tests/all").then(r => r.json()).catch(async () => {
-    // If backend doesn't have an endpoint for all static questions yet, read local data
     return await fetch("./data/questions.json").then(r => r.json());
   });
   const answersKey = await fetch("./data/answers.json").then(r => r.json());
@@ -195,7 +194,7 @@ function startSimulation() {
   }
 
   if (filtered.length === 0) {
-    alert("⚠️ No hay preguntas registradas con esa combinación exacta de filtros. Prueba ampliando la dificultad o el bloque.");
+    alert("No hay preguntas registradas con esa combinación exacta de filtros. Prueba ampliando la dificultad o el bloque.");
     return;
   }
 
@@ -206,7 +205,7 @@ function startSimulation() {
   els.configSection.classList.add("hidden");
   els.resultSection.classList.add("hidden");
   els.testSection.classList.remove("hidden");
-  els.testTitle.textContent = state.isStudyMode ? `📖 Práctica Activa (${filtered.length} preguntas)` : `⏱️ Simulacro Oficial INAP (${filtered.length} preguntas)`;
+  els.testTitle.textContent = state.isStudyMode ? `Práctica Activa (${filtered.length} preguntas)` : `Simulacro Oficial INAP (${filtered.length} preguntas)`;
 
   if (!state.isStudyMode) {
     startExamTimer(filtered.length * 60);
@@ -264,7 +263,7 @@ function createQuestionCard(question, questionNumber) {
   const blockObj = topicObj ? state.blocks.find(b => b.id === topicObj.blockId) : null;
   const blockName = blockObj ? `${blockObj.code} (${blockObj.name})` : "Temario TAI";
 
-  explanationDiv.innerHTML = `💡 <b>Fundamento y Repaso:</b> La respuesta correcta en las convocatorias oficiales corresponde a la opción señalada en verde. Tema de estudio asociado: <i>${blockName}</i>.`;
+  explanationDiv.innerHTML = `<b>Fundamento y Repaso:</b> La respuesta correcta en las convocatorias oficiales corresponde a la opción señalada en verde. Tema de estudio asociado: <i>${blockName}</i>.`;
 
   wrapper.append(title, optionsList, explanationDiv);
   return wrapper;
@@ -273,7 +272,6 @@ function createQuestionCard(question, questionNumber) {
 function handleOptionClick(question, clickedOptionId, cardElement, correctOptionId) {
   const allBtns = cardElement.querySelectorAll(".option-btn");
 
-  // In study mode, once answered, lock further clicks to preserve initial feedback
   if (state.isStudyMode && state.userSelections.has(question.id)) {
     return;
   }
@@ -294,7 +292,6 @@ function handleOptionClick(question, clickedOptionId, cardElement, correctOption
     const explanationDiv = document.getElementById(`explain_${question.id}`);
     if (explanationDiv) explanationDiv.classList.remove("hidden");
   } else {
-    // In Official Exam Mode, just highlight selection without grading
     allBtns.forEach(b => {
       b.classList.toggle("selected", Number(b.dataset.optionId) === clickedOptionId);
     });
@@ -316,7 +313,7 @@ function startExamTimer(seconds) {
 
     if (state.secondsRemaining <= 0) {
       clearInterval(state.timerId);
-      alert("⏳ ¡Tiempo agotado! El examen se evaluará automáticamente según las normas del INAP.");
+      alert("Tiempo agotado. El examen se evaluará automáticamente según las normas del INAP.");
       finishAndGradeTest();
     }
   }, 1000);
@@ -361,7 +358,6 @@ function finishAndGradeTest() {
     }
   });
 
-  // Official INAP formula: +1 per correct, -0.33 per incorrect
   const netPoints = (correctCount * 1.0) - (wrongCount * 0.33);
   const maxPossible = state.currentTest.length * 1.0;
   const officialGrade = Math.max(0.0, (netPoints / maxPossible) * 10.0);
@@ -394,15 +390,15 @@ function renderGradeSummary(grade, correct, wrong, blank, netPoints) {
   let adviceHTML = "";
   if (grade >= 7.0) {
     adviceHTML = `<div style="padding: 16px; border-radius: 8px; background: rgba(22, 101, 52, 0.3); border: 1px solid #22c55e; color: #86efac;">
-      🎯 <b>¡Nivel Sobresaliente de Oposición!</b> Con esta puntuación obtendrías una plaza competitiva con holgura. Mantén el ritmo de repaso en tu portafolio y simulacros diarios.
+      <b>Nivel Sobresaliente de Oposición:</b> Con esta puntuación obtendrías una plaza competitiva. Mantén el ritmo de repaso en tu portafolio y simulacros diarios.
     </div>`;
   } else if (grade >= 5.0) {
     adviceHTML = `<div style="padding: 16px; border-radius: 8px; background: rgba(37, 99, 235, 0.2); border: 1px solid #3b82f6; color: #93c5fd;">
-      📈 <b>Aprobado Competitivo.</b> Has superado el corte del 5, pero en la Administración General cada décima cuenta. Te recomendamos ir al Panel de Analítica para repasar tu bloque más débil.
+      <b>Aprobado Competitivo:</b> Has superado el corte del 5, pero en la Administración General cada décima cuenta. Te recomendamos ir al Panel de Analítica para repasar tu bloque más débil.
     </div>`;
   } else {
     adviceHTML = `<div style="padding: 16px; border-radius: 8px; background: rgba(153, 27, 27, 0.3); border: 1px solid #ef4444; color: #fca5a5;">
-      ⚠️ <b>Atención al Baremo:</b> Recuerda que los errores restan 0,33 puntos en el examen oficial TAI. Utiliza el Modo Estudio sin cronómetro para memorizar primero los artículos de ley y protocolos de red sin arriesgar en exceso.
+      <b>Atención al Baremo:</b> Recuerda que los errores restan 0,33 puntos en el examen oficial TAI. Utiliza el Modo Estudio sin cronómetro para memorizar primero los artículos de ley y protocolos de red sin arriesgar en exceso.
     </div>`;
   }
   els.examAdviceBox.innerHTML = adviceHTML;
@@ -412,11 +408,10 @@ function reviewTestSolutions() {
   els.resultSection.classList.add("hidden");
   els.testSection.classList.remove("hidden");
   els.timerBanner.classList.add("hidden");
-  els.testTitle.textContent = "🔍 Revisión de Soluciones del Examen";
+  els.testTitle.textContent = "Revisión de Soluciones del Examen";
 
   state.isStudyMode = true;
 
-  // Render questions with all answers revealed
   state.currentTest.forEach(question => {
     const card = document.getElementById(`q_card_${question.id}`);
     if (!card) return;
@@ -472,7 +467,7 @@ function loadAnalyticsFromStorage() {
       totalQuestions: 0,
       totalCorrect: 0,
       totalWrong: 0,
-      blockStats: {} // map of blockId to { total, correct, wrong }
+      blockStats: {}
     };
   }
 }
@@ -515,7 +510,6 @@ function renderAnalyticsView() {
 
   els.kpiTotalQuestions.textContent = String(ana.totalQuestions);
 
-  // Build Block stats table
   if (Object.keys(ana.blockStats).length === 0) {
     els.blockStatsTableBody.innerHTML = `<tr><td colspan="4" class="muted">No hay suficientes datos registrados todavía. Realiza un simulacro para generar estadísticas.</td></tr>`;
     return;
@@ -542,12 +536,12 @@ function renderAnalyticsView() {
 }
 
 function resetAnalyticsHistory() {
-  if (confirm("⚠️ ¿Estás seguro de que deseas borrar todo tu historial y estadísticas de estudio guardadas en este navegador?")) {
+  if (confirm("¿Estás seguro de que deseas borrar todo tu historial y estadísticas de estudio guardadas en este navegador?")) {
     localStorage.removeItem(STORAGE_KEY);
     state.analytics = null;
     loadAnalyticsFromStorage();
     renderAnalyticsView();
-    alert("✨ Historial reiniciado correctamente. ¡A por una nueva marca!");
+    alert("Historial reiniciado correctamente.");
   }
 }
 
