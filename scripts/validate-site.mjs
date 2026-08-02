@@ -7,7 +7,7 @@ import { fileURLToPath } from "node:url";
 const rootDirectory = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const requiredProjectFields = ["id", "title", "status", "summary", "proof", "technologies", "categories", "links", "order"];
 const supportedProjectCategories = new Set(["backend", "data", "demo"]);
-const ignoredDirectories = new Set([".git", ".continue", ".portfolio-private", "node_modules"]);
+const ignoredDirectories = new Set([".git", ".continue", ".agents", ".portfolio-private", "node_modules"]);
 const errors = [];
 let inlineJavaScriptCount = 0;
 

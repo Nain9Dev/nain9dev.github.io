@@ -64,6 +64,11 @@ __pycache__/
 .venv/
 venv/
 
+# Artificial Intelligence Agents and IDE Customizations
+.agents/
+.continue/
+.gemini/
+
 # Private Portfolio Planning and Context (Restricted Internal Access)
 .portfolio-private/
 
