@@ -1,6 +1,9 @@
 # Operating System and Editor Artifacts
 .DS_Store
+._*
 Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
 .vscode/
 .idea/
 .vs/
@@ -40,6 +43,17 @@ appsettings.*.json
 *.key
 *.cer
 
+# Network Traces and HTTP Session Archives (Prevent Session Hijacking)
+*.har
+*.pcap
+*.pcapng
+
+# API REST Testing and HTTP Environment Tokens (.NET / Postman / Thunder Client)
+*.http-env.json
+*.rest-client.env.json
+.postman/
+*_access_token.json
+
 # Cloud Provider Configurations
 .aws/
 .azure/
@@ -56,13 +70,37 @@ terraform.tfstate
 *.orig
 *.dump
 
-# Compiled Code and Framework Environments
+# Compiled Code, Frameworks, and Unity 3D Environments
 bin/
 obj/
 __pycache__/
 *.pyc
 .venv/
 venv/
+/Library/
+/Temp/
+/UserSettings/
+/Logs/
+*.pidb.meta
+*.csproj
+*.unityproj
+*.sln.docstates
+
+# System Binaries and Installers
+*.exe
+*.dll
+*.so
+*.dylib
+*.cab
+*.msi
+
+# Test Coverage Reports and Automated Testing Artifacts
+coverage/
+.nyc_output/
+.test_output/
+.eslintcache
+junit.xml
+*.test.log
 
 # Artificial Intelligence Agents and IDE Customizations
 .agents/
@@ -77,3 +115,4 @@ venv/
 public/hot-reload*
 *.compiled.*
 *LocalIA.yaml
+
