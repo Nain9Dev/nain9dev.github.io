@@ -18,4 +18,4 @@ Versión de Pong desarrollada con HTML5 Canvas y JavaScript, sin frameworks ni d
 | Mover jugador 2 | `↑` / `↓` |
 | Pausar | `Espacio` |
 
-La demo se puede abrir desde [naindev.com/pong-game](https://www.naindev.com/pong-game/).
+La demo se puede abrir desde [naindev.com/demos/pong-arcade](https://www.naindev.com/demos/pong-arcade/).

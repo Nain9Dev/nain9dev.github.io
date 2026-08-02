@@ -52,7 +52,7 @@
     "links": [
       {
         "label": "Abrir demo",
-        "url": "/SistemaOposicionesTAI/"
+        "url": "/demos/tai-study-system/"
       },
       {
         "label": "Revisar repositorio",
@@ -73,11 +73,11 @@
     "links": [
       {
         "label": "Jugar demo",
-        "url": "/pong-game/"
+        "url": "/demos/pong-arcade/"
       },
       {
         "label": "Ver código",
-        "url": "https://github.com/Nain9Dev/nain9dev.github.io/tree/main/pong-game"
+        "url": "https://github.com/Nain9Dev/nain9dev.github.io/tree/main/demos/pong-arcade"
       }
     ],
     "featured": false,

@@ -1,28 +1,74 @@
-﻿# OS/editor
+# Operating System and Editor Artifacts
 .DS_Store
 Thumbs.db
 .vscode/
 .idea/
+.vs/
+*.user
+*.swp
+*~
 
-# Node/build
+# Node and Frontend Build Output
 node_modules/
 dist/
 build/
 
-# Logs
+# Application and System Logs
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
-# Local dev
+# Crash Reports and Memory Dumps
+*.stackdump
+*.dmp
+core
+
+# Environment Variables and Secrets
 .env
 .env.*
+secrets.json
+appsettings.Development.json
+appsettings.*.json
+*.publishsettings
 
-# Private portfolio planning and context (never publish from this public repo)
+# Security Keys and Digital Certificates
+*.pem
+*.pfx
+*.p12
+*.key
+*.cer
+
+# Cloud Provider Configurations
+.aws/
+.azure/
+terraform.tfstate
+
+# Local Databases and Backups
+*.db
+*.sqlite
+*.sqlite3
+*.bak
+*.mdf
+*.ldf
+*.old
+*.orig
+*.dump
+
+# Compiled Code and Framework Environments
+bin/
+obj/
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Private Portfolio Planning and Context (Restricted Internal Access)
 .portfolio-private/
 
-# Cache
+# Temporary and Cache Files
 *.tmp
-
-# Local development helpers
 public/hot-reload*
 *.compiled.*
 *LocalIA.yaml
