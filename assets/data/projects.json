@@ -2,7 +2,7 @@
   {
     "id": "nainorder-ecommerce-api",
     "title": "NainOrder (Motor E-Commerce)",
-    "status": "Demo pública en proceso de despliegue",
+    "status": "Demo pública activa",
     "summary": "Core financiero y logístico para un E-Commerce usando Clean Architecture. Implementa patrones CQRS (a nivel servicios), validación pura en el Dominio y transacciones seguras con SQLite in-memory para latencia cero.",
     "proof": "API REST robusta capaz de manejar carritos de compra, deducción de stock transaccional y pasarela de estados de pedido. Todo con 0 acoplamiento de infraestructura.",
     "technologies": ["C#", ".NET 10", "Clean Architecture", "EF Core", "SQLite", "Swagger"],
@@ -19,27 +19,6 @@
     ],
     "featured": true,
     "order": 1
-  },
-  {
-    "id": "financial-management-api",
-    "title": "API de Operaciones de Pólizas",
-    "status": "Demo pública disponible",
-    "summary": "API .NET que aplica el ciclo Draft → Active → Cancelled, aislamiento por organización, control de concurrencia con ETag y auditoría en SQL Server.",
-    "proof": "Demo HTTPS desplegada en Azure F1 y Azure SQL Free. El recorrido crea una póliza, valida concurrencia con ETag, la cancela y muestra dos transiciones de auditoría con datos sintéticos.",
-    "technologies": ["C#", ".NET 10", "ASP.NET Core", "EF Core", "SQL Server"],
-    "categories": ["backend", "data", "demo"],
-    "links": [
-      {
-        "label": "Probar API",
-        "url": "https://nain-policy-demo-api.azurewebsites.net/demo/"
-      },
-      {
-        "label": "Revisar código",
-        "url": "https://github.com/Nain9Dev/API-Gestion-Financiera"
-      }
-    ],
-    "featured": true,
-    "order": 2
   },
   {
     "id": "notification-worker",
@@ -60,49 +39,28 @@
       }
     ],
     "featured": true,
-    "order": 3
+    "order": 2
   },
   {
-    "id": "tai-study-system",
-    "title": "Sistema Oposiciones TAI",
-    "status": "Demo y diseño de datos",
-    "summary": "Demo de estudio que permite filtrar preguntas por bloque, tema y dificultad y generar un simulacro.",
-    "proof": "Incluye una demo pública con datos de prueba y scripts T-SQL para revisar el modelo relacional.",
-    "technologies": ["SQL Server", "T-SQL", "JavaScript", "Modelado de datos"],
-    "categories": ["data", "demo"],
+    "id": "financial-management-api",
+    "title": "API de Operaciones de Pólizas",
+    "status": "Demo pública disponible",
+    "summary": "API .NET que aplica el ciclo Draft → Active → Cancelled, aislamiento por organización, control de concurrencia con ETag y auditoría en SQL Server.",
+    "proof": "Demo HTTPS desplegada en Azure F1 y Azure SQL Free. El recorrido crea una póliza, valida concurrencia con ETag, la cancela y muestra dos transiciones de auditoría con datos sintéticos.",
+    "technologies": ["C#", ".NET 10", "ASP.NET Core", "EF Core", "SQL Server"],
+    "categories": ["backend", "data", "demo"],
     "links": [
       {
-        "label": "Abrir demo",
-        "url": "/demos/tai-study-system/"
+        "label": "Probar API",
+        "url": "https://nain-policy-demo-api.azurewebsites.net/demo/"
       },
       {
-        "label": "Revisar repositorio",
-        "url": "https://github.com/Nain9Dev/SistemaOposicionesTAI"
+        "label": "Revisar código",
+        "url": "https://github.com/Nain9Dev/API-Gestion-Financiera"
       }
     ],
     "featured": true,
-    "order": 4
-  },
-  {
-    "id": "pong-arcade",
-    "title": "Pong Arcade",
-    "status": "Demo interactiva",
-    "summary": "Versión de Pong hecha con Canvas y JavaScript, con varios niveles de dificultad y modo para dos jugadores.",
-    "proof": "La demo se puede jugar en el navegador y el código está dentro de este repositorio.",
-    "technologies": ["HTML", "CSS", "JavaScript", "Canvas"],
-    "categories": ["demo"],
-    "links": [
-      {
-        "label": "Jugar demo",
-        "url": "/demos/pong-arcade/"
-      },
-      {
-        "label": "Ver código",
-        "url": "https://github.com/Nain9Dev/nain9dev.github.io/tree/main/demos/pong-arcade"
-      }
-    ],
-    "featured": false,
-    "order": 5
+    "order": 3
   },
   {
     "id": "driving-school-management",
@@ -123,6 +81,48 @@
       }
     ],
     "featured": true,
+    "order": 4
+  },
+  {
+    "id": "tai-study-system",
+    "title": "Sistema Oposiciones TAI",
+    "status": "Demo y diseño de datos",
+    "summary": "Demo de estudio que permite filtrar preguntas por bloque, tema y dificultad y generar un simulacro.",
+    "proof": "Incluye una demo pública con datos de prueba y scripts T-SQL para revisar el modelo relacional.",
+    "technologies": ["SQL Server", "T-SQL", "JavaScript", "Modelado de datos"],
+    "categories": ["data", "demo"],
+    "links": [
+      {
+        "label": "Abrir demo",
+        "url": "/demos/tai-study-system/"
+      },
+      {
+        "label": "Revisar repositorio",
+        "url": "https://github.com/Nain9Dev/SistemaOposicionesTAI"
+      }
+    ],
+    "featured": true,
+    "order": 5
+  },
+  {
+    "id": "pong-arcade",
+    "title": "Pong Arcade",
+    "status": "Demo interactiva",
+    "summary": "Versión de Pong hecha con Canvas y JavaScript, con varios niveles de dificultad y modo para dos jugadores.",
+    "proof": "La demo se puede jugar en el navegador y el código está dentro de este repositorio.",
+    "technologies": ["HTML", "CSS", "JavaScript", "Canvas"],
+    "categories": ["demo"],
+    "links": [
+      {
+        "label": "Jugar demo",
+        "url": "/demos/pong-arcade/"
+      },
+      {
+        "label": "Ver código",
+        "url": "https://github.com/Nain9Dev/nain9dev.github.io/tree/main/demos/pong-arcade"
+      }
+    ],
+    "featured": false,
     "order": 6
   }
 ]
