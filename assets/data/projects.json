@@ -1,5 +1,26 @@
 [
   {
+    "id": "nainorder-ecommerce-api",
+    "title": "NainOrder (Motor E-Commerce)",
+    "status": "Demo pública en proceso de despliegue",
+    "summary": "Core financiero y logístico para un E-Commerce usando Clean Architecture. Implementa patrones CQRS (a nivel servicios), validación pura en el Dominio y transacciones seguras con SQLite in-memory para latencia cero.",
+    "proof": "API REST robusta capaz de manejar carritos de compra, deducción de stock transaccional y pasarela de estados de pedido. Todo con 0 acoplamiento de infraestructura.",
+    "technologies": ["C#", ".NET 10", "Clean Architecture", "EF Core", "SQLite", "Swagger"],
+    "categories": ["backend", "demo"],
+    "links": [
+      {
+        "label": "Probar API",
+        "url": "https://nainorder-api.onrender.com/index.html"
+      },
+      {
+        "label": "Revisar Arquitectura",
+        "url": "https://github.com/Nain9Dev/NainOrder"
+      }
+    ],
+    "featured": true,
+    "order": 1
+  },
+  {
     "id": "financial-management-api",
     "title": "API de Operaciones de Pólizas",
     "status": "Demo pública disponible",
@@ -18,7 +39,7 @@
       }
     ],
     "featured": true,
-    "order": 1
+    "order": 2
   },
   {
     "id": "notification-worker",
@@ -39,7 +60,7 @@
       }
     ],
     "featured": true,
-    "order": 2
+    "order": 3
   },
   {
     "id": "tai-study-system",
@@ -60,7 +81,7 @@
       }
     ],
     "featured": true,
-    "order": 3
+    "order": 4
   },
   {
     "id": "pong-arcade",
@@ -81,7 +102,7 @@
       }
     ],
     "featured": false,
-    "order": 4
+    "order": 5
   },
   {
     "id": "driving-school-management",
@@ -102,6 +123,6 @@
       }
     ],
     "featured": true,
-    "order": 5
+    "order": 6
   }
 ]
