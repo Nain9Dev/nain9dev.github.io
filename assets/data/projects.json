@@ -21,6 +21,27 @@
     "order": 1
   },
   {
+    "id": "gamehaven-blazor-store",
+    "title": "GameHaven (E-Commerce Web)",
+    "status": "Demo interactiva en vivo",
+    "summary": "Tienda de videojuegos Full-Stack. Frontend moderno y dinámico en Blazor WebAssembly que consume Minimal APIs ultrarrápidas gestionadas por SQLite in-memory.",
+    "proof": "Demo web alojada en GitHub Pages consumiendo una API alojada en Render con 0€ de coste. Permite explorar catálogo masivo y añadir juegos al carrito sin latencia.",
+    "technologies": ["C#", ".NET 8", "Blazor WASM", "Minimal APIs", "SQLite"],
+    "categories": ["backend", "demo"],
+    "links": [
+      {
+        "label": "Probar Tienda",
+        "url": "https://nain9dev.github.io/GameHaven/"
+      },
+      {
+        "label": "Revisar código",
+        "url": "https://github.com/Nain9Dev/GameHaven"
+      }
+    ],
+    "featured": true,
+    "order": 2
+  },
+  {
     "id": "notification-worker",
     "title": "Servicio de Notificaciones",
     "status": "Demo interactiva en vivo",
@@ -39,7 +60,7 @@
       }
     ],
     "featured": true,
-    "order": 2
+    "order": 3
   },
   {
     "id": "financial-management-api",
@@ -60,7 +81,7 @@
       }
     ],
     "featured": true,
-    "order": 3
+    "order": 4
   },
   {
     "id": "driving-school-management",
@@ -81,7 +102,7 @@
       }
     ],
     "featured": true,
-    "order": 4
+    "order": 5
   },
   {
     "id": "tai-study-system",
@@ -102,7 +123,7 @@
       }
     ],
     "featured": true,
-    "order": 5
+    "order": 6
   },
   {
     "id": "pong-arcade",
@@ -123,6 +144,6 @@
       }
     ],
     "featured": false,
-    "order": 6
+    "order": 7
   }
 ]
