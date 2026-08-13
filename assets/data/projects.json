@@ -158,10 +158,6 @@
       {
         "label": "Probar Demo Web",
         "url": "https://3d-ai-conformance-demo.streamlit.app/"
-      },
-      {
-        "label": "Revisar código",
-        "url": "https://github.com/Nain9Dev/3d-ai-conformance-demo"
       }
     ],
     "featured": false,
