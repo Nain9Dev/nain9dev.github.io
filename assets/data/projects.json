@@ -145,5 +145,26 @@
     ],
     "featured": false,
     "order": 7
+  },
+  {
+    "id": "3d-ai-conformance-demo",
+    "title": "AI-Driven 3D Conformance Gateway",
+    "status": "Prototipo experimental",
+    "summary": "Microservicio de validación 3D que utiliza un modelo LLM (Ollama) con fallback a Scikit-Learn para clasificar activos basándose en características geométricas.",
+    "proof": "Demo web alojada en Streamlit Cloud. Permite simular el flujo 'La IA Propone, El Contrato Dispone' donde un motor determinista (Trimesh) valida o veta la inferencia.",
+    "technologies": ["Python", "Streamlit", "Trimesh", "Ollama", "Scikit-Learn"],
+    "categories": ["backend", "demo"],
+    "links": [
+      {
+        "label": "Probar Demo Web",
+        "url": "https://3d-ai-conformance-demo.streamlit.app/"
+      },
+      {
+        "label": "Revisar código",
+        "url": "https://github.com/Nain9Dev/3d-ai-conformance-demo"
+      }
+    ],
+    "featured": false,
+    "order": 8
   }
 ]
