@@ -1,13 +1,26 @@
 [
   {
     "id": "stealth-3d-ai",
-    "title": "Stealth European 3D/AI Startup",
-    "status": "Desarrollo Activo (Stealth Mode)",
-    "summary": "Diseño y liderazgo de una arquitectura Open Core en Python para la validación determinista de modelos generados por IA. Implementación de un estándar europeo de validación 3D/CAD.",
+    "title": "3D/AI Startup",
+    "status": "Desarrollo Activo (Oculto temporalmente)",
+    "summary": "Diseño y liderazgo de una arquitectura Open Core en Python para la validación determinista de modelos generados por IA.",
     "proof": "Como Lead Software Architect, traduzco lógicas de negocio altamente complejas en código matemático puro, asegurando integraciones Human-in-the-loop mediante Model Context Protocol (MCP) y pipelines CI/CD automatizados.",
-    "technologies": ["Python", "Trustworthy AI", "MCP", "CI/CD", "Open Core"],
-    "categories": ["backend"],
-    "links": [],
+    "technologies": [
+      "Python",
+      "Trustworthy AI",
+      "MCP",
+      "CI/CD",
+      "Open Core"
+    ],
+    "categories": [
+      "backend"
+    ],
+    "links": [
+      {
+        "label": "Modo Stealth",
+        "url": "#"
+      }
+    ],
     "featured": true,
     "order": 0
   },
@@ -17,8 +30,18 @@
     "status": "Demo pública activa",
     "summary": "Core financiero y logístico para un E-Commerce de alta escalabilidad. Implementación de CQRS, validación pura en la capa de Dominio y transacciones aisladas, garantizando consistencia absoluta.",
     "proof": "Demuestra el diseño de APIs inmutables y resilientes, eliminando el acoplamiento de infraestructura. Operaciones ACID con latencia cero usando bases de datos in-memory.",
-    "technologies": ["C#", ".NET 10", "Clean Architecture", "EF Core", "SQLite", "Swagger"],
-    "categories": ["backend", "demo"],
+    "technologies": [
+      "C#",
+      ".NET 10",
+      "Clean Architecture",
+      "EF Core",
+      "SQLite",
+      "Swagger"
+    ],
+    "categories": [
+      "backend",
+      "demo"
+    ],
     "links": [
       {
         "label": "Probar API",
@@ -38,8 +61,17 @@
     "status": "Demo interactiva en vivo",
     "summary": "Arquitectura Full-Stack orientada a rendimiento. Integración de Minimal APIs ultrarrápidas con un frontend determinista en Blazor WebAssembly.",
     "proof": "Demo web alojada en GitHub Pages consumiendo una API alojada en Render con 0€ de coste. Permite explorar catálogo masivo y añadir juegos al carrito sin latencia.",
-    "technologies": ["C#", ".NET 8", "Blazor WASM", "Minimal APIs", "SQLite"],
-    "categories": ["backend", "demo"],
+    "technologies": [
+      "C#",
+      ".NET 8",
+      "Blazor WASM",
+      "Minimal APIs",
+      "SQLite"
+    ],
+    "categories": [
+      "backend",
+      "demo"
+    ],
     "links": [
       {
         "label": "Probar Tienda",
@@ -59,8 +91,17 @@
     "status": "Demo interactiva en vivo",
     "summary": "Arquitectura orientada a eventos para el despacho de alta concurrencia. Clean Architecture pura integrando RabbitMQ y despachadores asíncronos.",
     "proof": "Incluye simulación en vivo conectada al clúster RabbitMQ en la nube con procesamiento en <350ms sin instalación externa.",
-    "technologies": ["C#", ".NET 10", "Clean Architecture", "MassTransit", "RabbitMQ"],
-    "categories": ["backend", "demo"],
+    "technologies": [
+      "C#",
+      ".NET 10",
+      "Clean Architecture",
+      "MassTransit",
+      "RabbitMQ"
+    ],
+    "categories": [
+      "backend",
+      "demo"
+    ],
     "links": [
       {
         "label": "Probar API",
@@ -80,8 +121,18 @@
     "status": "Demo pública disponible",
     "summary": "Sistema de control transaccional estricto. Implementa patrones de estado (Draft → Active), control de concurrencia optimista (ETag) y trazabilidad completa de auditoría en SQL Server.",
     "proof": "Demo HTTPS desplegada en Azure F1 y Azure SQL Free. El recorrido crea una póliza, valida concurrencia con ETag, la cancela y muestra dos transiciones de auditoría con datos sintéticos.",
-    "technologies": ["C#", ".NET 10", "ASP.NET Core", "EF Core", "SQL Server"],
-    "categories": ["backend", "data", "demo"],
+    "technologies": [
+      "C#",
+      ".NET 10",
+      "ASP.NET Core",
+      "EF Core",
+      "SQL Server"
+    ],
+    "categories": [
+      "backend",
+      "data",
+      "demo"
+    ],
     "links": [
       {
         "label": "Probar API",
@@ -101,8 +152,18 @@
     "status": "Demo interactiva disponible",
     "summary": "Plataforma operativa con validación de dominio exhaustiva usando Pydantic v2. Diseño de una única fuente de verdad para lógica de negocio y contabilidad.",
     "proof": "Demo web operativa 24/7 en Streamlit Cloud. Permite simular inscripciones, imputar clases y emitir facturas oficiales descargables al instante en formato PDF (0€ coste y almacenamiento RAM in-memory).",
-    "technologies": ["Python", "Clean Architecture", "Streamlit", "Pydantic", "SQLAlchemy"],
-    "categories": ["backend", "data", "demo"],
+    "technologies": [
+      "Python",
+      "Clean Architecture",
+      "Streamlit",
+      "Pydantic",
+      "SQLAlchemy"
+    ],
+    "categories": [
+      "backend",
+      "data",
+      "demo"
+    ],
     "links": [
       {
         "label": "Probar Demo Web",
@@ -122,8 +183,16 @@
     "status": "Demo y diseño de datos",
     "summary": "Demo de estudio que permite filtrar preguntas por bloque, tema y dificultad y generar un simulacro.",
     "proof": "Incluye una demo pública con datos de prueba y scripts T-SQL para revisar el modelo relacional.",
-    "technologies": ["SQL Server", "T-SQL", "JavaScript", "Modelado de datos"],
-    "categories": ["data", "demo"],
+    "technologies": [
+      "SQL Server",
+      "T-SQL",
+      "JavaScript",
+      "Modelado de datos"
+    ],
+    "categories": [
+      "data",
+      "demo"
+    ],
     "links": [
       {
         "label": "Abrir demo",
@@ -143,8 +212,15 @@
     "status": "Demo interactiva",
     "summary": "Versión de Pong hecha con Canvas y JavaScript, con varios niveles de dificultad y modo para dos jugadores.",
     "proof": "La demo se puede jugar en el navegador y el código está dentro de este repositorio.",
-    "technologies": ["HTML", "CSS", "JavaScript", "Canvas"],
-    "categories": ["demo"],
+    "technologies": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Canvas"
+    ],
+    "categories": [
+      "demo"
+    ],
     "links": [
       {
         "label": "Jugar demo",
@@ -164,8 +240,17 @@
     "status": "Prototipo experimental",
     "summary": "Microservicio de validación 3D que utiliza un modelo LLM (Ollama) con fallback a Scikit-Learn para clasificar activos basándose en características geométricas.",
     "proof": "Demo web alojada en Streamlit Cloud. Permite simular el flujo 'La IA Propone, El Contrato Dispone' donde un motor determinista (Trimesh) valida o veta la inferencia.",
-    "technologies": ["Python", "Streamlit", "Trimesh", "Ollama", "Scikit-Learn"],
-    "categories": ["backend", "demo"],
+    "technologies": [
+      "Python",
+      "Streamlit",
+      "Trimesh",
+      "Ollama",
+      "Scikit-Learn"
+    ],
+    "categories": [
+      "backend",
+      "demo"
+    ],
     "links": [
       {
         "label": "Probar Demo Web",
