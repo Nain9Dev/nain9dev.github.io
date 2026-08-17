@@ -31,6 +31,7 @@ function createProjectCard(project, index) {
   article.dataset.projectCard = "";
   article.dataset.categories = project.categories.join(" ");
   article.dataset.reveal = "";
+  article.style.transitionDelay = `${index * 80}ms`;
 
   const header = createElement("div", "project-card-header");
   header.append(

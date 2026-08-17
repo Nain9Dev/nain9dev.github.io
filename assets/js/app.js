@@ -2,6 +2,8 @@ import { loadProjects } from "./project-catalog.js";
 import { initializeDemoModal } from "./demo-modal.js";
 import { initializeProjectFilters } from "./project-filters.js";
 import { renderProjectError, renderProjects } from "./project-view.js";
+import { initializeAmbientGlow } from "./ambient-glow.js";
+import { initializeCardTilt } from "./card-tilt.js";
 import {
   initializeEmailCopy,
   initializeHeaderState,
@@ -14,6 +16,8 @@ const projectToolbar = document.querySelector("[data-project-toolbar]");
 const projectCount = document.querySelector("[data-project-count]");
 const yearElement = document.querySelector("[data-current-year]");
 
+initializeAmbientGlow();
+initializeCardTilt();
 initializeDemoModal(document);
 
 initializeHeaderState({
