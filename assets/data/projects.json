@@ -1,5 +1,36 @@
 [
   {
+    "id": "parametricad-ai",
+    "title": "ParametriCAD AI (AI-BOOST)",
+    "status": "Demo pública activa",
+    "summary": "Pipeline de IA generativa (NLP a 3D) para el AI-BOOST Challenge. Extracción de parámetros con Groq, modelado paramétrico con CadQuery y renderizado en Three.js.",
+    "proof": "Demuestra la orquestación de LLMs como agentes extractores (Groq) limitados por un motor geométrico determinista (OpenCASCADE/CadQuery).",
+    "technologies": [
+      "Python",
+      "FastAPI",
+      "Groq",
+      "CadQuery",
+      "React",
+      "Three.js"
+    ],
+    "categories": [
+      "backend",
+      "demo"
+    ],
+    "links": [
+      {
+        "label": "Probar Demo",
+        "url": "https://parametricad.naindev.com/"
+      },
+      {
+        "label": "Revisar código",
+        "url": "https://github.com/Nain9Dev/parametricad-ai"
+      }
+    ],
+    "featured": true,
+    "order": 0
+  },
+  {
     "id": "stealth-3d-ai",
     "title": "3D/AI Startup",
     "status": "Desarrollo Activo (Oculto temporalmente)",
@@ -22,7 +53,7 @@
       }
     ],
     "featured": true,
-    "order": 0
+    "order": 1
   },
   {
     "id": "nainorder-ecommerce-api",
@@ -53,7 +84,7 @@
       }
     ],
     "featured": true,
-    "order": 1
+    "order": 2
   },
   {
     "id": "gamehaven-blazor-store",
@@ -83,7 +114,7 @@
       }
     ],
     "featured": true,
-    "order": 2
+    "order": 3
   },
   {
     "id": "notification-worker",
@@ -113,7 +144,7 @@
       }
     ],
     "featured": true,
-    "order": 3
+    "order": 4
   },
   {
     "id": "financial-management-api",
@@ -144,7 +175,7 @@
       }
     ],
     "featured": true,
-    "order": 4
+    "order": 5
   },
   {
     "id": "driving-school-management",
@@ -175,7 +206,7 @@
       }
     ],
     "featured": true,
-    "order": 5
+    "order": 6
   },
   {
     "id": "tai-study-system",
@@ -204,7 +235,7 @@
       }
     ],
     "featured": true,
-    "order": 6
+    "order": 7
   },
   {
     "id": "pong-arcade",
@@ -232,7 +263,7 @@
       }
     ],
     "featured": false,
-    "order": 7
+    "order": 8
   },
   {
     "id": "3d-ai-conformance-demo",
@@ -258,6 +289,6 @@
       }
     ],
     "featured": false,
-    "order": 8
+    "order": 9
   }
 ]
