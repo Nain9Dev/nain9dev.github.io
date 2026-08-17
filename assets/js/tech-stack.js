@@ -20,6 +20,7 @@ export function initTechStack() {
 }
 
 function renderTechStack(categories, container) {
+  container.innerHTML = '';
   const fragment = document.createDocumentFragment();
 
   categories.forEach(category => {

@@ -3,47 +3,110 @@
     {
       "name": "Languages",
       "items": [
-        { "name": "C#", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/csharp.svg" },
-        { "name": "Python", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/python.svg" },
-        { "name": "TypeScript", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/typescript.svg" },
-        { "name": "JavaScript", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/javascript.svg" },
-        { "name": "SQL", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/mysql.svg" }
+        {
+          "name": "C#",
+          "icon": "/assets/icons/csharp-original.svg"
+        },
+        {
+          "name": "Python",
+          "icon": "/assets/icons/python-original.svg"
+        },
+        {
+          "name": "TypeScript",
+          "icon": "/assets/icons/typescript-original.svg"
+        },
+        {
+          "name": "JavaScript",
+          "icon": "/assets/icons/javascript-original.svg"
+        },
+        {
+          "name": "SQL",
+          "icon": "/assets/icons/mysql-original.svg"
+        }
       ]
     },
     {
       "name": "Architecture & Backend",
       "items": [
-        { "name": ".NET", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/dotnet.svg" },
-        { "name": "FastAPI", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/fastapi.svg" },
-        { "name": "Node.js", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/nodedotjs.svg" },
-        { "name": "Clean Architecture", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/codemagic.svg" }
+        {
+          "name": ".NET",
+          "icon": "/assets/icons/dotnetcore-original.svg"
+        },
+        {
+          "name": "FastAPI",
+          "icon": "/assets/icons/fastapi-original.svg"
+        },
+        {
+          "name": "Node.js",
+          "icon": "/assets/icons/nodejs-original.svg"
+        },
+        {
+          "name": "Linux",
+          "icon": "/assets/icons/linux-original.svg"
+        }
       ]
     },
     {
       "name": "Data & Cloud",
       "items": [
-        { "name": "SQL Server", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/microsoftsqlserver.svg" },
-        { "name": "Redis", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/redis.svg" },
-        { "name": "Docker", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/docker.svg" },
-        { "name": "Azure", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/microsoftazure.svg" }
+        {
+          "name": "SQL Server",
+          "icon": "/assets/icons/microsoftsqlserver-plain.svg"
+        },
+        {
+          "name": "Redis",
+          "icon": "/assets/icons/redis-original.svg"
+        },
+        {
+          "name": "Docker",
+          "icon": "/assets/icons/docker-original.svg"
+        },
+        {
+          "name": "Azure",
+          "icon": "/assets/icons/azure-original.svg"
+        }
       ]
     },
     {
       "name": "Frontend",
       "items": [
-        { "name": "React", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/react.svg" },
-        { "name": "Three.js", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/threedotjs.svg" },
-        { "name": "HTML5", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/html5.svg" },
-        { "name": "CSS3", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/css3.svg" }
+        {
+          "name": "React",
+          "icon": "/assets/icons/react-original.svg"
+        },
+        {
+          "name": "Three.js",
+          "icon": "/assets/icons/threejs-original.svg"
+        },
+        {
+          "name": "HTML5",
+          "icon": "/assets/icons/html5-original.svg"
+        },
+        {
+          "name": "CSS3",
+          "icon": "/assets/icons/css3-original.svg"
+        }
       ]
     },
     {
       "name": "Tools",
       "items": [
-        { "name": "Git", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/git.svg" },
-        { "name": "GitHub", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/github.svg" },
-        { "name": "VS Code", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/visualstudiocode.svg" },
-        { "name": "Postman", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/postman.svg" }
+        {
+          "name": "Git",
+          "icon": "/assets/icons/git-original.svg"
+        },
+        {
+          "name": "GitHub",
+          "icon": "/assets/icons/github-original.svg"
+        },
+        {
+          "name": "VS Code",
+          "icon": "/assets/icons/vscode-original.svg"
+        },
+        {
+          "name": "Postman",
+          "icon": "/assets/icons/postman-original.svg"
+        }
       ]
     }
   ]
