@@ -1,7 +1,7 @@
 [
   {
     "id": "parametricad-ai",
-    "title": "ParametriCAD AI (AI-BOOST)",
+    "title": "ParametriCAD AI",
     "status": "Demo pública activa",
     "summary": "Pipeline de IA generativa (NLP a 3D) para el AI-BOOST Challenge. Extracción de parámetros con Groq, modelado paramétrico con CadQuery y renderizado en Three.js.",
     "proof": "Demuestra la orquestación de LLMs como agentes extractores (Groq) limitados por un motor geométrico determinista (OpenCASCADE/CadQuery).",
