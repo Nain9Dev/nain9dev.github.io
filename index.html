@@ -10,7 +10,7 @@
   <meta name="theme-color" content="#090A0F">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; base-uri 'self'; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; form-action 'self'; frame-src 'none'; img-src 'self' data:; object-src 'none'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' https://fonts.googleapis.com; upgrade-insecure-requests">
+    content="default-src 'self'; base-uri 'self'; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; form-action 'self'; frame-src 'none'; img-src 'self' data:; object-src 'none'; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; upgrade-insecure-requests">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -70,6 +70,7 @@
     }
   }
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
 </head>
 
 <body id="top">
@@ -227,6 +228,160 @@
         </noscript>
       </div>
     </section>
+
+    <section class="section" id="case-studies">
+      <div class="shell">
+        <div class="section-heading" data-reveal>
+          <div>
+            <p class="eyebrow">Experiencia Aplicada</p>
+            <h2>Casos de Estudio de Arquitectura</h2>
+          </div>
+          <p>Análisis en profundidad de decisiones arquitectónicas, trade-offs y resultados en proyectos críticos.</p>
+        </div>
+        
+        <div id="case-studies-container">
+          <div class="case-studies-grid">
+            <article class="case-study-card" data-reveal>
+              <div class="case-study-header">
+                <p class="case-study-eyebrow">Fintech Startup · Lead Software Architect</p>
+                <h3 class="case-study-title">Migración a Arquitectura Hexagonal y DDD</h3>
+              </div>
+              <div class="case-study-body">
+                <div class="case-study-section">
+                  <h4>El Problema</h4>
+                  <p>El monolito actual sufría de un alto acoplamiento entre la capa de presentación y la base de datos, provocando que cualquier cambio de regla de negocio rompiera múltiples endpoints.</p>
+                </div>
+                <div class="case-study-section">
+                  <h4>Decisiones Arquitectónicas</h4>
+                  <ul class="case-study-list decisions-list">
+                    <li>Extracción de la lógica core hacia un modelo de dominio puro (DDD).</li>
+                    <li>Implementación de Ports & Adapters (Arquitectura Hexagonal) para aislar la infraestructura (SQL Server).</li>
+                    <li>Uso de CQRS simplificado para separar escrituras críticas de lecturas masivas.</li>
+                  </ul>
+                </div>
+                <div class="case-study-diagram">
+                  <div class="mermaid">
+                    graph TD
+                    A[API REST] --> B[Application Services]
+                    B --> C[Domain Model]
+                    C --> D[Infrastructure / SQL Server]
+                  </div>
+                </div>
+                <div class="case-study-section">
+                  <h4>Trade-offs</h4>
+                  <p class="case-study-tradeoff">Se incrementó la complejidad inicial y la curva de aprendizaje del equipo, pero se garantizó la seguridad en transacciones financieras.</p>
+                </div>
+                <div class="case-study-section results-section">
+                  <h4>Resultados</h4>
+                  <ul class="case-study-list results-list">
+                    <li>Tiempo de testing unitario reducido de 45m a 3m.</li>
+                    <li>Cero regresiones en el core financiero en 6 meses.</li>
+                    <li>Despliegues independientes de la capa de lectura.</li>
+                  </ul>
+                </div>
+                <div class="case-study-section tech-section">
+                  <div class="tech-badge-container" style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem;">
+                    <span class="tech-badge-small">.NET</span><span class="tech-badge-small">C#</span><span class="tech-badge-small">SQL Server</span><span class="tech-badge-small">DDD</span><span class="tech-badge-small">Hexagonal Architecture</span><span class="tech-badge-small">CQRS</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+          
+            <article class="case-study-card" data-reveal>
+              <div class="case-study-header">
+                <p class="case-study-eyebrow">Plataforma SaaS · Backend Specialist</p>
+                <h3 class="case-study-title">Optimización de rendimiento y escalabilidad horizontal</h3>
+              </div>
+              <div class="case-study-body">
+                <div class="case-study-section">
+                  <h4>El Problema</h4>
+                  <p>La plataforma SaaS sufría de tiempos de respuesta elevados (>2s) en horarios punta, con picos de carga que saturaban la base de datos principal.</p>
+                </div>
+                <div class="case-study-section">
+                  <h4>Decisiones Arquitectónicas</h4>
+                  <ul class="case-study-list decisions-list">
+                    <li>Implementación de un sistema de caché distribuida (Redis) para consultas repetitivas.</li>
+                    <li>Partición de la base de datos (sharding) por tenant para aislar cargas.</li>
+                    <li>Migración de endpoints síncronos a procesamiento asíncrono con colas (RabbitMQ).</li>
+                  </ul>
+                </div>
+                <div class="case-study-diagram">
+                  <div class="mermaid">
+                    graph LR
+                    A[Client] --> B[Load Balancer]
+                    B --> C[API Gateway]
+                    C --> D[Service A]
+                    C --> E[Service B]
+                    D --> F[Redis Cache]
+                    E --> G[SQL Server Primary]
+                    G --> H[SQL Server Replicas]
+                  </div>
+                </div>
+                <div class="case-study-section">
+                  <h4>Trade-offs</h4>
+                  <p class="case-study-tradeoff">Se aumentó la complejidad operativa (monitoreo de cachés, consistencia eventual) pero se logró escalar a 10x el tráfico sin degradar la experiencia.</p>
+                </div>
+                <div class="case-study-section results-section">
+                  <h4>Resultados</h4>
+                  <ul class="case-study-list results-list">
+                    <li>Latencia reducida de 2.3s a 300ms (p95).</li>
+                    <li>Capacidad para manejar 50k peticiones concurrentes.</li>
+                    <li>Cero downtime en los últimos 12 meses (blue-green deployments).</li>
+                  </ul>
+                </div>
+                <div class="case-study-section tech-section">
+                  <div class="tech-badge-container" style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem;">
+                    <span class="tech-badge-small">.NET Core</span><span class="tech-badge-small">Redis</span><span class="tech-badge-small">RabbitMQ</span><span class="tech-badge-small">SQL Server</span><span class="tech-badge-small">Azure</span><span class="tech-badge-small">Kubernetes</span>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="impact-metrics">
+      <div class="shell">
+        <div class="section-heading" data-reveal>
+          <div>
+            <p class="eyebrow">Resultados Medibles</p>
+            <h2>Métricas de Impacto</h2>
+          </div>
+          <p>Resultados cuantificables obtenidos en diseño de sistemas, optimización y liderazgo técnico.</p>
+        </div>
+        
+        <div id="impact-metrics-container">
+          <div class="impact-metrics-grid">
+            <article class="impact-metric-card" data-reveal>
+              <div class="impact-metric-icon" style="font-size: 2rem; margin-bottom: 0.5rem;">⚡</div>
+              <div class="impact-metric-value">40 → 6 min</div>
+              <h3 class="impact-metric-label">Reducción en sincronización de datos</h3>
+              <p class="impact-metric-description">Optimización de procesos batch y pipelines de integración.</p>
+            </article>
+            <article class="impact-metric-card" data-reveal>
+              <div class="impact-metric-icon" style="font-size: 2rem; margin-bottom: 0.5rem;">🛡️</div>
+              <div class="impact-metric-value">99.99%</div>
+              <h3 class="impact-metric-label">Uptime en sistemas críticos</h3>
+              <p class="impact-metric-description">Arquitecturas resilientes y despliegues sin tiempo de inactividad (Zero Downtime).</p>
+            </article>
+            <article class="impact-metric-card" data-reveal>
+              <div class="impact-metric-icon" style="font-size: 2rem; margin-bottom: 0.5rem;">🧠</div>
+              <div class="impact-metric-value">10+</div>
+              <h3 class="impact-metric-label">Desarrolladores mentorizados</h3>
+              <p class="impact-metric-description">Capacitación de equipos en Domain-Driven Design y Clean Architecture.</p>
+            </article>
+            <article class="impact-metric-card" data-reveal>
+              <div class="impact-metric-icon" style="font-size: 2rem; margin-bottom: 0.5rem;">🏗️</div>
+              <div class="impact-metric-value">3</div>
+              <h3 class="impact-metric-label">Arquitecturas migradas</h3>
+              <p class="impact-metric-description">Migración de monolitos a Clean Architecture y Arquitectura Hexagonal.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
     <section class="section section-muted" id="projects">
       <div class="shell">

@@ -8,6 +8,8 @@ import { initializeScrollStorytelling } from "./scroll-storytelling.js";
 import { initializeParticles } from "./particles.js";
 import { initializeThreeHero } from "./three-hero.js";
 import { initTechStack } from "./tech-stack.js";
+import { CaseStudiesManager } from "./case-studies.js";
+import { ImpactMetricsManager } from "./impact-metrics.js";
 import {
   initializeEmailCopy,
   initializeHeaderState,
@@ -34,7 +36,14 @@ safeInit('ScrollStory', initializeScrollStorytelling);
 safeInit('Particles', initializeParticles);
 safeInit('ThreeHero', initializeThreeHero);
 safeInit('TechStack', initTechStack);
-
+safeInit('CaseStudies', () => {
+  console.log('[app.js] Inicializando CaseStudiesManager...');
+  return new CaseStudiesManager('case-studies-container').init();
+});
+safeInit('ImpactMetrics', () => {
+  console.log('[app.js] Inicializando ImpactMetricsManager...');
+  return new ImpactMetricsManager('impact-metrics-container').init();
+});
 initializeDemoModal(document);
 
 initializeHeaderState({
