@@ -30,6 +30,13 @@ export function initializeProjectFilters({ container, count, toolbar }) {
         const isActive = button.dataset.projectFilter === selectedCategory;
         button.classList.toggle("is-active", isActive);
         button.setAttribute("aria-pressed", String(isActive));
+        if (isActive) {
+          const group = button.closest('.filter-group');
+          if (group) {
+            group.style.setProperty('--indicator-left', `${button.offsetLeft}px`);
+            group.style.setProperty('--indicator-width', `${button.offsetWidth}px`);
+          }
+        }
       });
 
       count.textContent = formatProjectCount(visibleCount);

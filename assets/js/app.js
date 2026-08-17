@@ -4,6 +4,8 @@ import { initializeProjectFilters } from "./project-filters.js";
 import { renderProjectError, renderProjects } from "./project-view.js";
 import { initializeAmbientGlow } from "./ambient-glow.js";
 import { initializeCardTilt } from "./card-tilt.js";
+import { initializeScrollStorytelling } from "./scroll-storytelling.js";
+import { initializeParticles } from "./particles.js";
 import {
   initializeEmailCopy,
   initializeHeaderState,
@@ -18,6 +20,8 @@ const yearElement = document.querySelector("[data-current-year]");
 
 initializeAmbientGlow();
 initializeCardTilt();
+initializeScrollStorytelling();
+initializeParticles();
 initializeDemoModal(document);
 
 initializeHeaderState({

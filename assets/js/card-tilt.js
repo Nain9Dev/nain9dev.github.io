@@ -27,6 +27,8 @@ export function initializeCardTilt() {
     const rotateY = ((x - centerX) / centerX) * 3;
 
     activeCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+    activeCard.style.setProperty('--card-mouse-x', `${x}px`);
+    activeCard.style.setProperty('--card-mouse-y', `${y}px`);
     isUpdating = false;
   }
 
@@ -56,6 +58,8 @@ export function initializeCardTilt() {
     if (activeCard) {
       activeCard.style.transform = '';
       activeCard.style.willChange = 'auto';
+      activeCard.style.removeProperty('--card-mouse-x');
+      activeCard.style.removeProperty('--card-mouse-y');
       activeCard = null;
     }
   }, { passive: true });
@@ -66,6 +70,8 @@ export function initializeCardTilt() {
     if (card && !card.contains(e.relatedTarget)) {
       card.style.transform = '';
       card.style.willChange = 'auto';
+      card.style.removeProperty('--card-mouse-x');
+      card.style.removeProperty('--card-mouse-y');
       if (activeCard === card) activeCard = null;
     }
   }, { passive: true });

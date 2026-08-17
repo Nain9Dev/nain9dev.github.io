@@ -45,10 +45,11 @@ body {
   min-width: 20rem;
   overflow-x: hidden;
   background:
-    radial-gradient(circle at 78% 8%, rgba(98, 119, 231, 0.16), transparent 25rem),
-    radial-gradient(circle at 12% 32%, rgba(240, 164, 93, 0.07), transparent 22rem),
+    radial-gradient(circle at 78% 8%, rgba(98, 119, 231, 0.18), transparent 30rem),
+    radial-gradient(circle at 12% 32%, rgba(240, 164, 93, 0.12), transparent 28rem),
+    radial-gradient(circle at 50% 80%, rgba(98, 119, 231, 0.15), transparent 35rem),
     var(--color-background);
-  background-size: 400% 400%;
+  background-size: 200% 200%;
   color: var(--color-text);
   font-family: var(--font-sans);
   font-size: 1rem;
@@ -59,13 +60,14 @@ body {
 
 @media (prefers-reduced-motion: no-preference) {
   body {
-    animation: ambient-morph 30s ease-in-out infinite alternate;
+    animation: ambient-morph 24s ease-in-out infinite alternate;
   }
 }
 
 @keyframes ambient-morph {
   0% { background-position: 0% 0%; }
-  50% { background-position: 100% 100%; }
+  33% { background-position: 100% 0%; }
+  66% { background-position: 100% 100%; }
   100% { background-position: 0% 100%; }
 }
 
@@ -79,6 +81,13 @@ body::before {
   background-size: 4rem 4rem;
   content: "";
   mask-image: linear-gradient(to bottom, black, transparent 82%);
+  pointer-events: none;
+}
+
+.ambient-particles {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
   pointer-events: none;
 }
 
@@ -353,6 +362,11 @@ h3 {
 
 .button:hover {
   transform: translateY(-4px);
+}
+
+.button:active {
+  transform: scale(0.96) translateY(0);
+  transition-duration: 100ms;
 }
 
 .button-small {
@@ -722,6 +736,26 @@ h3 {
   pointer-events: none;
 }
 
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    800px circle at var(--card-mouse-x, -500px) var(--card-mouse-y, -500px),
+    rgba(120, 144, 255, 0.12),
+    transparent 40%
+  );
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 250ms ease;
+  opacity: 0;
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
 .card-number {
   display: block;
   margin-bottom: 4.5rem;
@@ -773,6 +807,19 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   gap: 0.55rem;
+  position: relative;
+}
+
+.filter-group::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: var(--indicator-left, 0);
+  width: var(--indicator-width, 0);
+  height: 2px;
+  background: var(--color-secondary);
+  border-radius: 2px;
+  transition: left 250ms var(--ease-spring), width 250ms var(--ease-spring);
 }
 
 .filter-button {
@@ -1283,6 +1330,6 @@ h3 {
 
 .project-grid-container.is-filtering {
   opacity: 0;
-  transform: scale(0.98);
+  transform: scale(0.95) translateY(10px);
   pointer-events: none;
 }
