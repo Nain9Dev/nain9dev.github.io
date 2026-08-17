@@ -6,6 +6,7 @@ import { initializeAmbientGlow } from "./ambient-glow.js";
 import { initializeCardTilt } from "./card-tilt.js";
 import { initializeScrollStorytelling } from "./scroll-storytelling.js";
 import { initializeParticles } from "./particles.js";
+import { initializeThreeHero } from "./three-hero.js";
 import {
   initializeEmailCopy,
   initializeHeaderState,
@@ -18,10 +19,20 @@ const projectToolbar = document.querySelector("[data-project-toolbar]");
 const projectCount = document.querySelector("[data-project-count]");
 const yearElement = document.querySelector("[data-current-year]");
 
-initializeAmbientGlow();
-initializeCardTilt();
-initializeScrollStorytelling();
-initializeParticles();
+function safeInit(name, initFn) {
+  try {
+    initFn();
+  } catch (error) {
+    console.warn(`[NainDev] Fallo al inicializar módulo visual '${name}':`, error);
+  }
+}
+
+safeInit('AmbientGlow', initializeAmbientGlow);
+safeInit('CardTilt', initializeCardTilt);
+safeInit('ScrollStory', initializeScrollStorytelling);
+safeInit('Particles', initializeParticles);
+safeInit('ThreeHero', initializeThreeHero);
+
 initializeDemoModal(document);
 
 initializeHeaderState({

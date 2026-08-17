@@ -10,7 +10,7 @@
   <meta name="theme-color" content="#090A0F">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; base-uri 'self'; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; form-action 'self'; frame-src 'none'; img-src 'self' data:; object-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; upgrade-insecure-requests">
+    content="default-src 'self'; base-uri 'self'; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; form-action 'self'; frame-src 'none'; img-src 'self' data:; object-src 'none'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' https://fonts.googleapis.com; upgrade-insecure-requests">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,6 +66,7 @@
 
   <main id="main-content">
     <section class="hero section" aria-labelledby="hero-title">
+      <canvas id="hero-3d-canvas" class="hero-3d-canvas" aria-hidden="true"></canvas>
       <div class="shell hero-grid">
         <div class="hero-copy" data-reveal>
           <p class="eyebrow" data-parallax="true">Aitor Nain · Software Architect · Especialista Backend</p>

@@ -400,11 +400,20 @@ h3 {
 }
 
 .hero {
+  position: relative;
   display: grid;
   min-height: min(55rem, calc(100vh - var(--header-height)));
   align-items: start;
   overflow: hidden;
   padding-block: clamp(3.75rem, 6vw, 6rem);
+}
+
+.hero-3d-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.8;
 }
 
 .hero::before {
