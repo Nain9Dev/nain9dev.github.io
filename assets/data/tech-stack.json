@@ -1,0 +1,50 @@
+{
+  "categories": [
+    {
+      "name": "Languages",
+      "items": [
+        { "name": "C#", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/csharp.svg" },
+        { "name": "Python", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/python.svg" },
+        { "name": "TypeScript", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/typescript.svg" },
+        { "name": "JavaScript", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/javascript.svg" },
+        { "name": "SQL", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/mysql.svg" }
+      ]
+    },
+    {
+      "name": "Architecture & Backend",
+      "items": [
+        { "name": ".NET", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/dotnet.svg" },
+        { "name": "FastAPI", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/fastapi.svg" },
+        { "name": "Node.js", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/nodedotjs.svg" },
+        { "name": "Clean Architecture", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/codemagic.svg" }
+      ]
+    },
+    {
+      "name": "Data & Cloud",
+      "items": [
+        { "name": "SQL Server", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/microsoftsqlserver.svg" },
+        { "name": "Redis", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/redis.svg" },
+        { "name": "Docker", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/docker.svg" },
+        { "name": "Azure", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/microsoftazure.svg" }
+      ]
+    },
+    {
+      "name": "Frontend",
+      "items": [
+        { "name": "React", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/react.svg" },
+        { "name": "Three.js", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/threedotjs.svg" },
+        { "name": "HTML5", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/html5.svg" },
+        { "name": "CSS3", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/css3.svg" }
+      ]
+    },
+    {
+      "name": "Tools",
+      "items": [
+        { "name": "Git", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/git.svg" },
+        { "name": "GitHub", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/github.svg" },
+        { "name": "VS Code", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/visualstudiocode.svg" },
+        { "name": "Postman", "icon": "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/postman.svg" }
+      ]
+    }
+  ]
+}

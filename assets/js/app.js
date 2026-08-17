@@ -7,6 +7,7 @@ import { initializeCardTilt } from "./card-tilt.js";
 import { initializeScrollStorytelling } from "./scroll-storytelling.js";
 import { initializeParticles } from "./particles.js";
 import { initializeThreeHero } from "./three-hero.js";
+import { initTechStack } from "./tech-stack.js";
 import {
   initializeEmailCopy,
   initializeHeaderState,
@@ -32,6 +33,7 @@ safeInit('CardTilt', initializeCardTilt);
 safeInit('ScrollStory', initializeScrollStorytelling);
 safeInit('Particles', initializeParticles);
 safeInit('ThreeHero', initializeThreeHero);
+safeInit('TechStack', initTechStack);
 
 initializeDemoModal(document);
 
