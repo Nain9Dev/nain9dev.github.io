@@ -1,0 +1,113 @@
+{
+  "categories": [
+    {
+      "name": "Languages",
+      "items": [
+        {
+          "name": "C#",
+          "icon": "/assets/icons/csharp-original.svg"
+        },
+        {
+          "name": "Python",
+          "icon": "/assets/icons/python-original.svg"
+        },
+        {
+          "name": "TypeScript",
+          "icon": "/assets/icons/typescript-original.svg"
+        },
+        {
+          "name": "JavaScript",
+          "icon": "/assets/icons/javascript-original.svg"
+        },
+        {
+          "name": "SQL",
+          "icon": "/assets/icons/mysql-original.svg"
+        }
+      ]
+    },
+    {
+      "name": "Architecture & Backend",
+      "items": [
+        {
+          "name": ".NET",
+          "icon": "/assets/icons/dotnetcore-original.svg"
+        },
+        {
+          "name": "FastAPI",
+          "icon": "/assets/icons/fastapi-original.svg"
+        },
+        {
+          "name": "Node.js",
+          "icon": "/assets/icons/nodejs-original.svg"
+        },
+        {
+          "name": "Linux",
+          "icon": "/assets/icons/linux-original.svg"
+        }
+      ]
+    },
+    {
+      "name": "Data & Cloud",
+      "items": [
+        {
+          "name": "SQL Server",
+          "icon": "/assets/icons/microsoftsqlserver-plain.svg"
+        },
+        {
+          "name": "Redis",
+          "icon": "/assets/icons/redis-original.svg"
+        },
+        {
+          "name": "Docker",
+          "icon": "/assets/icons/docker-original.svg"
+        },
+        {
+          "name": "Azure",
+          "icon": "/assets/icons/azure-original.svg"
+        }
+      ]
+    },
+    {
+      "name": "Frontend",
+      "items": [
+        {
+          "name": "React",
+          "icon": "/assets/icons/react-original.svg"
+        },
+        {
+          "name": "Three.js",
+          "icon": "/assets/icons/threejs-original.svg"
+        },
+        {
+          "name": "HTML5",
+          "icon": "/assets/icons/html5-original.svg"
+        },
+        {
+          "name": "CSS3",
+          "icon": "/assets/icons/css3-original.svg"
+        }
+      ]
+    },
+    {
+      "name": "Tools",
+      "items": [
+        {
+          "name": "Git",
+          "icon": "/assets/icons/git-original.svg"
+        },
+        {
+          "name": "GitHub",
+          "icon": "/assets/icons/github-original.svg"
+        },
+        {
+          "name": "VS Code",
+          "icon": "/assets/icons/vscode-original.svg"
+        },
+        {
+          "name": "Postman",
+          "icon": "/assets/icons/postman-original.svg"
+        }
+      ]
+    }
+  ]
+}
