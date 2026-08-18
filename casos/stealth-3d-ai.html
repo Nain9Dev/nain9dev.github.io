@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Caso de Estudio: Diseño de una arquitectura backend determinista para la validación de activos 3D generados por IA a escala industrial.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Aitor Nain">
+  <meta name="theme-color" content="#090A0F">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; base-uri 'self'; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; form-action 'self'; frame-src 'none'; img-src 'self' data:; object-src 'none'; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; upgrade-insecure-requests">
+
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:title" content="Sistema de Validación y Corrección 3D (IA) — Aitor Nain">
+  <meta property="og:description" content="Caso de Estudio: Diseño de una arquitectura backend determinista para la validación de activos 3D generados por IA a escala industrial.">
+  <meta property="og:url" content="https://www.naindev.com/casos/stealth-3d-ai.html">
+  <meta property="og:image" content="https://www.naindev.com/assets/images/og-cover-v2.png">
+
+  <link rel="canonical" href="https://www.naindev.com/casos/stealth-3d-ai.html">
+  <link rel="icon" type="image/jpeg" href="/assets/images/favicon.jpg">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  
+  <script defer data-domain="naindev.com" src="https://plausible.io/js/script.js"></script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
+  
+  <title>Sistema de Validación y Corrección 3D (IA) — Casos de Estudio | Aitor Nain</title>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Sistema de Validación y Corrección 3D (IA)",
+    "description": "Caso de Estudio: Diseño de una arquitectura backend determinista para la validación de activos 3D generados por IA a escala industrial.",
+    "author": {
+      "@type": "Person",
+      "name": "Aitor Nain",
+      "url": "https://www.naindev.com/#person"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "NainDev",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.naindev.com/assets/images/favicon.jpg"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://www.naindev.com/casos/stealth-3d-ai.html"
+    }
+  }
+  </script>
+</head>
+
+<body id="top">
+  <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+
+  <header class="site-header" data-site-header>
+    <div class="shell header-layout">
+      <a class="brand" href="/" aria-label="NainDev, volver al inicio" title="Volver al inicio">
+        <span class="brand-mark" aria-hidden="true">
+          <span>N</span>
+          <progress class="brand-progress" max="100" value="0" data-scroll-progress aria-hidden="true"></progress>
+        </span>
+        <span>NainDev</span>
+      </a>
+
+      <nav class="primary-navigation" aria-label="Navegación principal">
+        <a href="/#services">Servicios</a>
+        <a href="/#projects">Casos de Estudio</a>
+        <a href="/#method">Cómo trabajo</a>
+        <a href="/#about">Sobre mí</a>
+      </nav>
+
+      <a class="button button-small button-outline"
+        href="https://calendly.com/aitornainmendozavallejo-ksez/30min" target="_blank" rel="noopener noreferrer">Agendar Llamada</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="section" id="case-study-detail">
+      <div class="shell">
+        <nav aria-label="Breadcrumb" class="breadcrumbs" style="margin-bottom: 2rem; font-size: 0.9rem; color: var(--color-text-muted);">
+          <ol style="list-style: none; padding: 0; display: flex; gap: 0.5rem;">
+            <li><a href="/" style="color: var(--color-primary-strong); text-decoration: none;">Inicio</a></li>
+            <li aria-hidden="true">/</li>
+            <li><a href="/#case-studies" style="color: var(--color-primary-strong); text-decoration: none;">Casos de Estudio</a></li>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page">Validación y Corrección 3D (IA)</li>
+          </ol>
+        </nav>
+
+        <article class="case-study-card" style="box-shadow: none; border: none; background: transparent; padding: 0;">
+          <div class="case-study-header">
+            <p class="case-study-eyebrow">Proyecto Confidencial (Industria 3D) · Colaborador Técnico</p>
+            <h1 class="case-study-title" style="font-size: 2.5rem; margin-bottom: 1.5rem;">Sistema de Validación y Corrección 3D (IA)</h1>
+          </div>
+          <div class="case-study-body">
+            <div class="case-study-section">
+              <h2>El Problema</h2>
+              <p>La IA generativa produce modelos 3D con inconsistencias estructurales inutilizables en industrias especializadas sin horas de corrección manual.</p>
+            </div>
+            <div class="case-study-section">
+              <h2>Decisiones Arquitectónicas</h2>
+              <ul class="case-study-list decisions-list">
+                <li>Diseño de un sistema de validación agnóstico al modelo fundacional de IA generativa.</li>
+                <li>Desarrollo de un ecosistema de agentes e integraciones seguras bajo estrictos NDAs.</li>
+                <li>Arquitectura distribuida orientada a procesamiento masivo en tiempo real.</li>
+              </ul>
+            </div>
+            <div class="case-study-diagram">
+              <div class="mermaid">
+                graph TD
+                A[AI Generator] --> B[Arquitectura de Validación]
+                B --> C[Geometric Validation API]
+                C --> D[Topology Correction Engine]
+                D --> E[Industry-Ready 3D Asset]
+              </div>
+            </div>
+            <div class="case-study-section">
+              <h2>Trade-offs</h2>
+              <p class="case-study-tradeoff">Optamos por un modelo híbrido para maximizar la adopción sin comprometer la seguridad ni la propiedad intelectual del motor propietario de correcciones.</p>
+            </div>
+            <div class="case-study-section results-section">
+              <h2>Resultados</h2>
+              <ul class="case-study-list results-list">
+                <li>Validación automatizada de alto volumen en tiempos de procesamiento mínimos.</li>
+                <li>Ecosistema adoptado como estándar transversal para agentes de IA 3D internos.</li>
+                <li>Precisión determinista lista para integraciones industriales complejas.</li>
+              </ul>
+            </div>
+            <div class="case-study-section tech-section">
+              <div class="tech-badge-container" style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem;">
+                <span class="tech-badge-small">Backend Architecture</span><span class="tech-badge-small">AI Integration</span><span class="tech-badge-small">3D Validation</span><span class="tech-badge-small">Clean Architecture</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <div style="margin-top: 4rem; text-align: center;">
+          <a class="button button-secondary" href="/#case-studies">Volver a Casos de Estudio</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-layout">
+      <p>© <span data-current-year>2026</span> NainDev. Analytics privacy-first integradas (0% cookies).</p>
+      <a href="#top">Volver arriba</a>
+    </div>
+  </footer>
+
+  <script type="module" src="/assets/js/app.js"></script>
+</body>
+</html>

@@ -16,6 +16,7 @@ import {
   initializeRevealMotion,
   initializeSectionNavigation
 } from "./site-interactions.js";
+import { initializeScrollTracking } from "./scroll-tracking.js";
 
 const projectContainer = document.querySelector("[data-project-list]");
 const projectToolbar = document.querySelector("[data-project-toolbar]");
@@ -48,6 +49,7 @@ safeInit('ImpactMetrics', () => {
   console.log('[app.js] Inicializando ImpactMetricsManager...');
   return new ImpactMetricsManager('impact-metrics-container').init();
 });
+safeInit('ScrollTracking', initializeScrollTracking);
 initializeDemoModal(document);
 
 initializeHeaderState({

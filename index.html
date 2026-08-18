@@ -12,9 +12,6 @@
   <meta http-equiv="Content-Security-Policy"
     content="default-src 'self'; base-uri 'self'; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; form-action 'self'; frame-src 'none'; img-src 'self' data:; object-src 'none'; script-src 'self' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; upgrade-insecure-requests">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_ES">
@@ -157,7 +154,7 @@
           <div class="button-group" aria-label="Acciones principales">
             <a class="button button-primary"
               href="https://calendly.com/aitornainmendozavallejo-ksez/30min" target="_blank" rel="noopener noreferrer">Agendar Auditoría Gratuita</a>
-            <a class="button button-secondary" href="#case-studies">Ver caso: Validación 3D</a>
+            <a class="button button-secondary" href="/casos/stealth-3d-ai.html">Ver caso: Validación 3D</a>
           </div>
           <p class="availability">Disponibilidad inmediata para consultoría técnica y arquitecturas .NET de misión crítica.</p>
           <a class="scroll-cue" href="#services">
@@ -411,45 +408,9 @@
                 <p class="case-study-eyebrow">Proyecto Confidencial (Industria 3D) · Colaborador Técnico</p>
                 <h3 class="case-study-title">Sistema de Validación y Corrección 3D (IA)</h3>
               </div>
-              <div class="case-study-body">
-                <div class="case-study-section">
-                  <h4>El Problema</h4>
-                  <p>La IA generativa produce modelos 3D con inconsistencias estructurales inutilizables en industrias como CAD o robótica sin horas de corrección manual.</p>
-                </div>
-                <div class="case-study-section">
-                  <h4>Decisiones Arquitectónicas</h4>
-                  <ul class="case-study-list decisions-list">
-                    <li>Diseño de un sistema de validación agnóstico al modelo fundacional de IA generativa.</li>
-                    <li>Desarrollo de un ecosistema de agentes e integraciones seguras bajo estrictos NDAs.</li>
-                    <li>Arquitectura distribuida orientada a procesamiento masivo en tiempo real.</li>
-                  </ul>
-                </div>
-                <div class="case-study-diagram">
-                  <div class="mermaid">
-                    graph TD
-                    A[AI Generator] --> B[Arquitectura de Validación]
-                    B --> C[Geometric Validation API]
-                    C --> D[Topology Correction Engine]
-                    D --> E[Industry-Ready 3D Asset]
-                  </div>
-                </div>
-                <div class="case-study-section">
-                  <h4>Trade-offs</h4>
-                  <p class="case-study-tradeoff">Optamos por un modelo híbrido para maximizar la adopción sin comprometer la seguridad ni la propiedad intelectual del motor propietario de correcciones.</p>
-                </div>
-                <div class="case-study-section results-section">
-                  <h4>Resultados</h4>
-                  <ul class="case-study-list results-list">
-                    <li>Validación automatizada de alto volumen en tiempos de procesamiento mínimos.</li>
-                    <li>Ecosistema adoptado como estándar transversal para agentes de IA 3D internos.</li>
-                    <li>Precisión determinista lista para integraciones industriales complejas.</li>
-                  </ul>
-                </div>
-                <div class="case-study-section tech-section">
-                  <div class="tech-badge-container" style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem;">
-                    <span class="tech-badge-small">Backend Architecture</span><span class="tech-badge-small">AI Integration</span><span class="tech-badge-small">3D Validation</span><span class="tech-badge-small">Clean Architecture</span>
-                  </div>
-                </div>
+              <div class="case-study-body" style="text-align: center; padding: 2rem 0;">
+                <p style="margin-bottom: 2rem; color: var(--color-text-muted);">Diseño de una arquitectura backend determinista para la validación de activos 3D generados por IA a escala industrial.</p>
+                <a href="/casos/stealth-3d-ai.html" class="button button-primary" style="display: inline-block;">Leer caso completo</a>
               </div>
             </article>
           
@@ -458,48 +419,9 @@
                 <p class="case-study-eyebrow">Plataforma SaaS · Backend Specialist</p>
                 <h3 class="case-study-title">Optimización de rendimiento y escalabilidad horizontal</h3>
               </div>
-              <div class="case-study-body">
-                <div class="case-study-section">
-                  <h4>El Problema</h4>
-                  <p>La plataforma SaaS sufría de tiempos de respuesta elevados (>2s) en horarios punta, con picos de carga que saturaban la base de datos principal.</p>
-                </div>
-                <div class="case-study-section">
-                  <h4>Decisiones Arquitectónicas</h4>
-                  <ul class="case-study-list decisions-list">
-                    <li>Implementación de un sistema de caché distribuida (Redis) para consultas repetitivas.</li>
-                    <li>Partición de la base de datos (sharding) por tenant para aislar cargas.</li>
-                    <li>Migración de endpoints síncronos a procesamiento asíncrono con colas (RabbitMQ).</li>
-                  </ul>
-                </div>
-                <div class="case-study-diagram">
-                  <div class="mermaid">
-                    graph LR
-                    A[Client] --> B[Load Balancer]
-                    B --> C[API Gateway]
-                    C --> D[Service A]
-                    C --> E[Service B]
-                    D --> F[Redis Cache]
-                    E --> G[SQL Server Primary]
-                    G --> H[SQL Server Replicas]
-                  </div>
-                </div>
-                <div class="case-study-section">
-                  <h4>Trade-offs</h4>
-                  <p class="case-study-tradeoff">Se aumentó la complejidad operativa (monitoreo de cachés, consistencia eventual) pero se logró escalar a 10x el tráfico sin degradar la experiencia.</p>
-                </div>
-                <div class="case-study-section results-section">
-                  <h4>Resultados</h4>
-                  <ul class="case-study-list results-list">
-                    <li>Latencia reducida de 2.3s a 300ms (p95).</li>
-                    <li>Capacidad para manejar 50k peticiones concurrentes.</li>
-                    <li>Cero downtime en los últimos 12 meses (blue-green deployments).</li>
-                  </ul>
-                </div>
-                <div class="case-study-section tech-section">
-                  <div class="tech-badge-container" style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem;">
-                    <span class="tech-badge-small">.NET Core</span><span class="tech-badge-small">Redis</span><span class="tech-badge-small">RabbitMQ</span><span class="tech-badge-small">SQL Server</span><span class="tech-badge-small">Azure</span><span class="tech-badge-small">Kubernetes</span>
-                  </div>
-                </div>
+              <div class="case-study-body" style="text-align: center; padding: 2rem 0;">
+                <p style="margin-bottom: 2rem; color: var(--color-text-muted);">Optimización de rendimiento, sharding y escalabilidad horizontal para una plataforma SaaS crítica.</p>
+                <a href="/casos/optimizacion-saas.html" class="button button-primary" style="display: inline-block;">Leer caso completo</a>
               </div>
             </article>
           </div>
