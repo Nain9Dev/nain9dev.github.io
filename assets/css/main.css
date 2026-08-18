@@ -469,8 +469,9 @@ h3 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 3.25rem;
-  padding: 0.82rem 1.3rem;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 12px 24px;
   border: 1px solid transparent;
   border-radius: 0.78rem;
   cursor: pointer;
@@ -1370,7 +1371,21 @@ h3 {
   }
 
   h1 {
-    font-size: clamp(3rem, 15vw, 4.7rem);
+    font-size: clamp(1.8rem, 8vw, 3.5rem);
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+  }
+  
+  p {
+    font-size: clamp(1rem, 2vw, 1.125rem);
+  }
+
+  .primary-navigation {
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-x: visible;
   }
 
   .proof-grid {
@@ -1401,6 +1416,19 @@ h3 {
   .footer-layout {
     align-items: flex-start;
     flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-grid-three,
+  .project-grid,
+  .case-studies-grid,
+  .impact-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .shell {
+    width: min(calc(100% - 2rem), var(--shell-width));
   }
 }
 
