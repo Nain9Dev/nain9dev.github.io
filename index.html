@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Arquitecto Backend especializado en infraestructura para procesamiento 3D masivo, integración de IA Generativa, agentes MCP y sistemas críticos .NET.">
+  <meta name="description" content="Arquitecto Backend especializado en infraestructura para procesamiento 3D masivo, integración de IA Generativa, agentes de IA y sistemas críticos .NET.">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Aitor Nain">
   <meta name="theme-color" content="#090A0F">
@@ -19,7 +19,7 @@
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_ES">
   <meta property="og:title" content="Aitor Nain — Arquitecto Backend 3D & AI Systems | .NET">
-  <meta property="og:description" content="Arquitecto Backend especializado en infraestructura para procesamiento 3D masivo, integración de IA Generativa, agentes MCP y sistemas críticos .NET.">
+  <meta property="og:description" content="Arquitecto Backend especializado en infraestructura para procesamiento 3D masivo, integración de IA Generativa, agentes de IA y sistemas críticos .NET.">
   <meta property="og:url" content="https://www.naindev.com/">
   <meta property="og:image" content="https://www.naindev.com/assets/images/og-cover-v2.png">
   <meta property="og:image:width" content="1731">
@@ -28,7 +28,7 @@
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Aitor Nain — Arquitecto Backend 3D & AI Systems | .NET">
-  <meta name="twitter:description" content="Arquitecto Backend especializado en infraestructura para procesamiento 3D masivo, integración de IA Generativa, agentes MCP y sistemas críticos .NET.">
+  <meta name="twitter:description" content="Arquitecto Backend especializado en infraestructura para procesamiento 3D masivo, integración de IA Generativa, agentes de IA y sistemas críticos .NET.">
   <meta name="twitter:image" content="https://www.naindev.com/assets/images/og-cover-v2.png">
 
   <link rel="canonical" href="https://www.naindev.com/">
@@ -55,7 +55,7 @@
     "knowsAbout": [
       "3D Validation Systems",
       "Generative AI Backend",
-      "Model Context Protocol (MCP)",
+      "Integración con Agentes de IA",
       "Software Architecture",
       "Clean Architecture",
       "Domain-Driven Design",
@@ -106,12 +106,12 @@
           <p class="eyebrow" data-parallax="true">Aitor Nain · Arquitecto Backend 3D & AI Systems</p>
           <h1 id="hero-title" data-parallax="true" data-parallax-speed="0.2">Diseño la infraestructura que valida y procesa <span class="title-accent">modelos 3D a escala industrial.</span></h1>
           <p class="hero-summary" data-parallax="true" data-parallax-speed="0.1">
-            Arquitectura backend para sistemas que no pueden fallar... ahora también para el mundo 3D. Ayudo a empresas a integrar IA generativa y procesar assets 3D mediante agentes (MCP) con absoluta precisión y determinismo.
+            Arquitectura backend para sistemas que no pueden fallar... ahora también para el mundo 3D. Ayudo a empresas a integrar IA generativa y procesar assets 3D mediante sistemas agénticos con absoluta precisión y determinismo.
           </p>
           <div class="button-group" aria-label="Acciones principales">
             <a class="button button-primary"
               href="mailto:contact@naindev.com?subject=Auditoría%20de%20Arquitectura">Auditar mi Arquitectura</a>
-            <a class="button button-secondary" href="#case-studies">Ver caso: contrast3d</a>
+            <a class="button button-secondary" href="#case-studies">Ver caso: Validación 3D</a>
           </div>
           <p class="availability">Disponibilidad inmediata para consultoría técnica y arquitecturas .NET de misión crítica.</p>
           <a class="scroll-cue" href="#services">
@@ -142,7 +142,7 @@
               <small>SQL Server y consistencia</small>
             </a>
           </div>
-          <p class="panel-stack">C# · Python · SQL Server · Arquitectura Agéntica</p>
+          <p class="panel-stack">C# · .NET · SQL Server · Arquitectura Agéntica</p>
           <p class="panel-hint">Cada bloque te lleva a una evidencia relacionada.</p>
         </aside>
       </div>
@@ -261,178 +261,10 @@
           </div>
           <div class="terminal-body" id="terminal-output" aria-live="polite"></div>
           <div class="terminal-input-line">
-            <span class="prompt-text" aria-hidden="true">aitor@naindev:~$</span>
+            <span class="prompt-text" aria-hidden="true">[aitor@naindev.com ~]$</span>
             <input type="text" id="terminal-input" class="terminal-input" role="textbox" aria-label="Línea de comandos de terminal" autocomplete="off" spellcheck="false">
           </div>
-          <script>
-            document.addEventListener('DOMContentLoaded', () => {
-              const input = document.getElementById('terminal-input');
-              const output = document.getElementById('terminal-output');
-              const terminal = document.querySelector('.terminal-wrapper');
-              
-              let history = [];
-              let historyIndex = -1;
-              
-              terminal.addEventListener('click', () => {
-                const selection = window.getSelection();
-                if (!selection.toString()) {
-                  input.focus();
-                }
-              });
-              
-              const commands = {
-                help: () => `
-                  <table class="term-table">
-                    <tr><th class="term-text-blue">Comando</th><th>Descripción</th></tr>
-                    <tr><td class="term-text-green">help</td><td>Lista de todos los comandos disponibles</td></tr>
-                    <tr><td class="term-text-green">whoami</td><td>Información sobre el rol y enfoque</td></tr>
-                    <tr><td class="term-text-green">skills</td><td>Resumen del stack y capacidades técnicas</td></tr>
-                    <tr><td class="term-text-green">experience</td><td>Experiencia clave como Arquitecto</td></tr>
-                    <tr><td class="term-text-green">projects</td><td>Proyectos destacados y casos de estudio</td></tr>
-                    <tr><td class="term-text-green">architecture</td><td>Diagrama ASCII de arquitectura MCP y Validación</td></tr>
-                    <tr><td class="term-text-green">contact</td><td>Información para consultas de arquitectura</td></tr>
-                    <tr><td class="term-text-green">date</td><td>Muestra la fecha y hora del sistema</td></tr>
-                    <tr><td class="term-text-green">status</td><td>Estado de los servicios backend</td></tr>
-                    <tr><td class="term-text-green">echo [msg]</td><td>Imprime el mensaje indicado</td></tr>
-                    <tr><td class="term-text-green">clear</td><td>Limpia el historial de la terminal</td></tr>
-                  </table>`,
-                whoami: () => `Aitor Nain · Software Architect · Backend 3D & AI Systems<br>Diseñando infraestructura backend inquebrantable para el ecosistema 3D e IA.`,
-                skills: () => `
-                  <strong class="term-text-blue">Core Backend:</strong> C#, .NET, SQL Server, Clean Architecture, DDD<br>
-                  <strong class="term-text-blue">3D & GenAI:</strong> Python, Model Context Protocol (MCP), Integraciones LLM deterministas<br>
-                  <strong class="term-text-blue">Infraestructura:</strong> Cloud, Redis, CQRS, Sistemas de Alta Disponibilidad`,
-                experience: () => `
-                  <strong class="term-text-yellow">Lead Software Architect @ contrast3d</strong><br>
-                  - Diseño Open Core de backend para validación 3D masiva (Python).<br>
-                  - Construcción de ecosistema MCP para herramientas de IA generativa.<br><br>
-                  <strong class="term-text-yellow">Backend Specialist @ SaaS Platform</strong><br>
-                  - Mantenimiento y optimización de sistemas críticos (C#, SQL Server).<br>
-                  - Estrategias de sharding, caché distribuida y concurrencia sin bloqueos.`,
-                projects: () => `
-                  1. <a href="#case-studies" class="term-text-green">contrast3d</a> - Pipeline determinista para procesado geométrico e IA agéntica.<br>
-                  2. <a href="#case-studies" class="term-text-green">Escalabilidad SaaS</a> - Reestructuración de latencias extremas y aumento a 50k CCU.`,
-                contact: () => `
-                  <strong class="term-text-blue">Email:</strong> <a href="mailto:contact@naindev.com">contact@naindev.com</a><br>
-                  <strong class="term-text-blue">LinkedIn:</strong> <a href="https://www.linkedin.com/in/aitor-nain/" target="_blank">linkedin.com/in/aitor-nain/</a><br>
-                  <strong class="term-text-blue">GitHub:</strong> <a href="https://github.com/Nain9Dev" target="_blank">github.com/Nain9Dev</a><br>
-                  <br><span class="term-text-yellow">>> Escríbeme y analicemos tu arquitectura técnica.</span>`,
-                date: () => new Date().toString(),
-                status: () => `[<span class="term-text-green">OK</span>] API Gateway (Latencia p95: 42ms)<br>[<span class="term-text-green">OK</span>] Database Primary (Carga: 12%)<br>[<span class="term-text-green">OK</span>] 3D Validation Engine<br>Uptime: 99.97% - Todos los sistemas operando con normalidad.`,
-                architecture: () => `<div class="term-ascii">
-     [LLM / Agente]
-           │ (glTF)
-           ▼
-    ┌──────────────┐
-    │  MCP Server  │
-    └──────┬───────┘
-           │ JSON RPC
-    ┌──────▼───────┐
-    │  Python API  │◄────► [Geom Engine]
-    └──────┬───────┘
-           │ Validado
-           ▼
-    [Storage / DB]
-</div>`
-              };
-
-              function printLine(text, isCommand = false) {
-                const div = document.createElement('div');
-                div.style.marginBottom = '0.5rem';
-                if (isCommand) {
-                  div.innerHTML = `<span class="prompt-text">aitor@naindev:~$</span> ${text}`;
-                } else {
-                  div.innerHTML = text;
-                }
-                output.appendChild(div);
-                output.scrollTop = output.scrollHeight;
-              }
-
-              function processCommand(raw) {
-                const cmdStr = raw.trim();
-                if (!cmdStr) return;
-                
-                printLine(cmdStr, true);
-                history.push(cmdStr);
-                historyIndex = history.length;
-                
-                const parts = cmdStr.split(' ');
-                const cmd = parts[0].toLowerCase();
-                const args = parts.slice(1).join(' ').replace(/</g, "&lt;").replace(/>/g, "&gt;");
-
-                if (cmd === 'clear') {
-                  output.innerHTML = '';
-                  return;
-                }
-                
-                if (cmd === 'echo') {
-                  printLine(args);
-                  return;
-                }
-
-                if (commands[cmd]) {
-                  printLine(commands[cmd]());
-                } else {
-                  printLine(`Comando no encontrado: <span class="term-text-red">${cmd.replace(/</g, "&lt;")}</span>. Usa <span class="term-text-green">help</span>.`);
-                }
-              }
-
-              input.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter') {
-                  const val = input.value;
-                  input.value = '';
-                  processCommand(val);
-                } else if (e.key === 'ArrowUp') {
-                  e.preventDefault();
-                  if (historyIndex > 0) {
-                    historyIndex--;
-                    input.value = history[historyIndex];
-                  }
-                } else if (e.key === 'ArrowDown') {
-                  e.preventDefault();
-                  if (historyIndex < history.length - 1) {
-                    historyIndex++;
-                    input.value = history[historyIndex];
-                  } else {
-                    historyIndex = history.length;
-                    input.value = '';
-                  }
-                }
-              });
-
-              const welcomeText = "Conectando al servidor... Inicializando subsistemas...";
-              let idx = 0;
-              let hasRun = false;
-              
-              const initialLine = document.createElement('div');
-              initialLine.style.marginBottom = '0.5rem';
-              
-              function typeWriter() {
-                if (idx < welcomeText.length) {
-                  initialLine.innerHTML += welcomeText.charAt(idx);
-                  idx++;
-                  setTimeout(typeWriter, 25);
-                } else {
-                  setTimeout(() => {
-                    printLine(commands['status']());
-                    printLine("<br>Escribe <span class=\"term-text-green\">help</span> para ver los comandos disponibles.");
-                    input.disabled = false;
-                    input.focus();
-                  }, 400);
-                }
-              }
-              
-              const observer = new IntersectionObserver((entries) => {
-                if (entries[0].isIntersecting && !hasRun) {
-                  hasRun = true;
-                  input.disabled = true;
-                  output.appendChild(initialLine);
-                  setTimeout(typeWriter, 300);
-                }
-              });
-              
-              observer.observe(terminal);
-            });
-          </script>
+          <script src="/assets/js/terminal.js"></script>
         </div>
       </div>
     </section>
@@ -472,10 +304,10 @@
 
           <article class="service-card" data-reveal>
             <span class="card-number" aria-hidden="true">02</span>
-            <h3>Integración IA Generativa & MCP</h3>
-            <p>Ecosistemas agénticos mediante Model Context Protocol para integrar modelos de IA en flujos corporativos.</p>
+            <h3>Integración IA Generativa & Agentes</h3>
+            <p>Ecosistemas agénticos robustos para integrar modelos de IA en flujos corporativos.</p>
             <ul class="compact-list">
-              <li>Integración transversal MCP</li>
+              <li>Integración transversal de agentes</li>
               <li>Trustworthy AI y determinismo</li>
               <li>Flujos Human-in-the-loop</li>
             </ul>
@@ -486,7 +318,7 @@
             <h3>Backend Crítico (.NET/SQL)</h3>
             <p>Sistemas distribuidos de misión crítica donde la consistencia del dato y la escalabilidad son innegociables.</p>
             <ul class="compact-list">
-              <li>Clean Architecture (C# / Python)</li>
+              <li>Clean Architecture (Backend Híbrido)</li>
               <li>Bases de datos de alto rendimiento</li>
               <li>Control de concurrencia (ETag)</li>
             </ul>
@@ -530,46 +362,46 @@
           <div class="case-studies-grid">
             <article class="case-study-card" data-reveal>
               <div class="case-study-header">
-                <p class="case-study-eyebrow">contrast3d · Co-Founder & Lead Architect</p>
-                <h3 class="case-study-title">Sistema de Validación y Corrección 3D (IA & MCP)</h3>
+                <p class="case-study-eyebrow">Proyecto Confidencial (Industria 3D) · Colaborador Técnico</p>
+                <h3 class="case-study-title">Sistema de Validación y Corrección 3D (IA)</h3>
               </div>
               <div class="case-study-body">
                 <div class="case-study-section">
                   <h4>El Problema</h4>
-                  <p>La IA generativa produce modelos 3D con topología rota (non-manifold, normales invertidas) inutilizables en industrias como CAD o robótica sin horas de corrección manual.</p>
+                  <p>La IA generativa produce modelos 3D con inconsistencias estructurales inutilizables en industrias como CAD o robótica sin horas de corrección manual.</p>
                 </div>
                 <div class="case-study-section">
                   <h4>Decisiones Arquitectónicas</h4>
                   <ul class="case-study-list decisions-list">
-                    <li>Diseño de un validador geométrico agnóstico al modelo fundacional de IA generativa.</li>
-                    <li>Desarrollo de un ecosistema de herramientas mediante Model Context Protocol (MCP) instalable en cualquier agente.</li>
-                    <li>Arquitectura distribuida en Python / C# orientada a procesamiento masivo en tiempo real.</li>
+                    <li>Diseño de un sistema de validación agnóstico al modelo fundacional de IA generativa.</li>
+                    <li>Desarrollo de un ecosistema de agentes e integraciones seguras bajo estrictos NDAs.</li>
+                    <li>Arquitectura distribuida orientada a procesamiento masivo en tiempo real.</li>
                   </ul>
                 </div>
                 <div class="case-study-diagram">
                   <div class="mermaid">
                     graph TD
-                    A[AI Generator] --> B[contrast3d MCP]
-                    B --> C[Geometric Validation]
+                    A[AI Generator] --> B[Arquitectura de Validación]
+                    B --> C[Geometric Validation API]
                     C --> D[Topology Correction Engine]
                     D --> E[Industry-Ready 3D Asset]
                   </div>
                 </div>
                 <div class="case-study-section">
                   <h4>Trade-offs</h4>
-                  <p class="case-study-tradeoff">Optamos por un modelo híbrido (Open Source para el validador base, motor propietario para correcciones avanzadas) para maximizar la adopción sin perder monetización.</p>
+                  <p class="case-study-tradeoff">Optamos por un modelo híbrido para maximizar la adopción sin comprometer la seguridad ni la propiedad intelectual del motor propietario de correcciones.</p>
                 </div>
                 <div class="case-study-section results-section">
                   <h4>Resultados</h4>
                   <ul class="case-study-list results-list">
-                    <li>+200 modelos corregidos automáticamente en 2 horas.</li>
-                    <li>Ecosistema MCP adoptado como estándar transversal para agentes de IA 3D.</li>
-                    <li>Precisión determinista lista para aplicaciones médicas y automotrices.</li>
+                    <li>Validación automatizada de alto volumen en tiempos de procesamiento mínimos.</li>
+                    <li>Ecosistema adoptado como estándar transversal para agentes de IA 3D internos.</li>
+                    <li>Precisión determinista lista para integraciones industriales complejas.</li>
                   </ul>
                 </div>
                 <div class="case-study-section tech-section">
                   <div class="tech-badge-container" style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem;">
-                    <span class="tech-badge-small">Python</span><span class="tech-badge-small">C#</span><span class="tech-badge-small">MCP</span><span class="tech-badge-small">3D Validation</span><span class="tech-badge-small">Clean Architecture</span>
+                    <span class="tech-badge-small">Backend Architecture</span><span class="tech-badge-small">AI Integration</span><span class="tech-badge-small">3D Validation</span><span class="tech-badge-small">Clean Architecture</span>
                   </div>
                 </div>
               </div>
@@ -755,7 +587,7 @@
         </div>
         <div class="about-copy" data-reveal>
           <p>Soy Aitor Nain, Lead Software Architect en una Stealth 3D/AI Startup, donde diseño un ecosistema Open Core
-            en Python para la validación determinista de activos generados por IA, garantizando un enfoque de
+            robusta para la validación determinista de activos generados por IA, garantizando un enfoque de
             'Trustworthy AI'.</p>
           <p>En paralelo, trabajo a tiempo completo en el sector empresarial como desarrollador y mantenedor de sistemas
             críticos .NET (C# y SQL Server). Mi enfoque combina el rigor y la escalabilidad del mundo corporativo con la

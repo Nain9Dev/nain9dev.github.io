@@ -35,14 +35,14 @@
     "id": "stealth-3d-ai",
     "title": "3D/AI Startup",
     "status": "Desarrollo Activo (Oculto temporalmente)",
-    "summary": "Diseño y liderazgo de una arquitectura Open Core en Python para la validación determinista de modelos generados por IA.",
-    "proof": "Como Lead Software Architect, traduzco lógicas de negocio altamente complejas en código matemático puro, asegurando integraciones Human-in-the-loop mediante Model Context Protocol (MCP) y pipelines CI/CD automatizados.",
+    "summary": "Diseño y desarrollo de una arquitectura backend determinista para la validación de activos generados por IA.",
+    "proof": "Como Colaborador Técnico, traduzco lógicas de negocio altamente complejas en código puro, asegurando integraciones Human-in-the-loop mediante la integración segura de agentes de IA y pipelines CI/CD automatizados.",
     "technologies": [
-      "Python",
+      "Backend Architecture",
       "Trustworthy AI",
-      "MCP",
+      "Agentic AI",
       "CI/CD",
-      "Open Core"
+      "Robust Systems"
     ],
     "categories": [
       "backend",
