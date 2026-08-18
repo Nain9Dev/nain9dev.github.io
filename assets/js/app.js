@@ -34,7 +34,11 @@ safeInit('AmbientGlow', initializeAmbientGlow);
 safeInit('CardTilt', initializeCardTilt);
 safeInit('ScrollStory', initializeScrollStorytelling);
 safeInit('Particles', initializeParticles);
-safeInit('ThreeHero', initializeThreeHero);
+const initThreeOnInteraction = () => {
+  safeInit('ThreeHero', initializeThreeHero);
+  ['scroll', 'click', 'touchstart', 'keydown'].forEach(evt => window.removeEventListener(evt, initThreeOnInteraction));
+};
+['scroll', 'click', 'touchstart', 'keydown'].forEach(evt => window.addEventListener(evt, initThreeOnInteraction, { once: true, passive: true }));
 safeInit('TechStack', initTechStack);
 safeInit('CaseStudies', () => {
   console.log('[app.js] Inicializando CaseStudiesManager...');

@@ -24,8 +24,14 @@ export class CaseStudiesManager {
       console.log('[CaseStudiesManager] Datos recibidos:', data);
       if (data && data.length > 0) {
         this.render(data);
-        console.log('[CaseStudiesManager] Renderizado completo. Inicializando Mermaid...');
-        this.initMermaid();
+        console.log('[CaseStudiesManager] Renderizado completo. Configurando observer para Mermaid...');
+        const observer = new IntersectionObserver((entries) => {
+          if (entries[0].isIntersecting) {
+            this.initMermaid();
+            observer.disconnect();
+          }
+        }, { rootMargin: '200px' });
+        observer.observe(this.container);
         initializeRevealMotion(this.container.querySelectorAll("[data-reveal]"));
       } else {
         console.warn('[CaseStudiesManager] Datos vacíos o no válidos. Usando fallback estático si existe.');
@@ -112,6 +118,17 @@ export class CaseStudiesManager {
     if (window.mermaid) {
       window.mermaid.initialize({ startOnLoad: true, theme: 'dark' });
       window.mermaid.run();
+      return;
     }
+
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js';
+    script.onload = () => {
+      if (window.mermaid) {
+        window.mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+        window.mermaid.run();
+      }
+    };
+    document.head.appendChild(script);
   }
 }

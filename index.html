@@ -34,43 +34,89 @@
   <link rel="canonical" href="https://www.naindev.com/">
   <link rel="icon" type="image/jpeg" href="/assets/images/favicon.jpg">
   <link rel="stylesheet" href="/assets/css/main.css">
+  <script defer data-domain="naindev.com" src="https://plausible.io/js/script.js"></script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
   <title>Aitor Nain — Arquitecto Backend 3D & AI Systems | .NET</title>
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Aitor Nain",
-    "url": "https://www.naindev.com",
-    "image": "https://www.naindev.com/assets/images/og-cover-v2.png",
-    "jobTitle": "Arquitecto Backend 3D & AI Systems",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Freelance"
-    },
-    "sameAs": [
-      "https://github.com/Nain9Dev",
-      "https://www.linkedin.com/in/aitor-nain/"
-    ],
-    "knowsAbout": [
-      "3D Validation Systems",
-      "Generative AI Backend",
-      "Integración con Agentes de IA",
-      "Software Architecture",
-      "Clean Architecture",
-      "Domain-Driven Design",
-      "Distributed Systems",
-      "3D Backend Architecture",
-      ".NET",
-      "C#"
-    ],
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "España"
-    }
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://www.naindev.com/#person",
+        "name": "Aitor Nain",
+        "url": "https://www.naindev.com",
+        "image": "https://www.naindev.com/assets/images/og-cover-v2.png",
+        "jobTitle": "Arquitecto Backend 3D & AI Systems",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Freelance"
+        },
+        "sameAs": [
+          "https://github.com/Nain9Dev",
+          "https://www.linkedin.com/in/aitor-nain/"
+        ],
+        "knowsAbout": [
+          "3D Validation Systems",
+          "Generative AI Backend",
+          "Integración con Agentes de IA",
+          "Software Architecture",
+          "Clean Architecture",
+          "Domain-Driven Design",
+          "Distributed Systems",
+          "3D Backend Architecture",
+          ".NET",
+          "C#"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "España"
+        }
+      },
+      {
+        "@type": "CreativeWork",
+        "@id": "https://www.naindev.com/#case-study-3d",
+        "headline": "Sistema de Validación y Corrección 3D (IA)",
+        "description": "Arquitectura backend para la validación determinista y corrección geométrica de modelos 3D generados por IA a escala industrial.",
+        "author": { "@id": "https://www.naindev.com/#person" },
+        "url": "https://www.naindev.com/#case-studies",
+        "about": "Backend Architecture, 3D Validation, AI Integration"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.naindev.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Cómo garantizas el determinismo en la validación de modelos 3D generados por IA?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Se implementa un flujo donde la IA propone y un motor geométrico estricto dispone. La arquitectura backend actúa como árbitro inmutable, verificando topología y metadatos sin depender de modelos probabilísticos en la fase de validación."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué estrategias aseguran la escalabilidad en procesamiento masivo?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Diseño asíncrono basado en colas de mensajería (Event-Driven), bases de datos transaccionales con control de concurrencia optimista, y delegación de cálculos pesados a servicios aislados."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Por qué separar la infraestructura de IA de la lógica de negocio core?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Aplicando Clean Architecture logramos que los proveedores de IA generativa sean adaptadores intercambiables, evitando el vendor lock-in y manteniendo el backend como única fuente de verdad inmutable."
+            }
+          }
+        ]
+      }
+    ]
   }
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+
 </head>
 
 <body id="top">
@@ -94,7 +140,7 @@
       </nav>
 
       <a class="button button-small button-outline"
-        href="mailto:contact@naindev.com?subject=Consulta%20desde%20naindev.com">Hablemos</a>
+        href="https://calendly.com/aitornainmendozavallejo-ksez/30min" target="_blank" rel="noopener noreferrer">Agendar Llamada</a>
     </div>
   </header>
 
@@ -110,7 +156,7 @@
           </p>
           <div class="button-group" aria-label="Acciones principales">
             <a class="button button-primary"
-              href="mailto:contact@naindev.com?subject=Auditoría%20de%20Arquitectura">Auditar mi Arquitectura</a>
+              href="https://calendly.com/aitornainmendozavallejo-ksez/30min" target="_blank" rel="noopener noreferrer">Agendar Auditoría Gratuita</a>
             <a class="button button-secondary" href="#case-studies">Ver caso: Validación 3D</a>
           </div>
           <p class="availability">Disponibilidad inmediata para consultoría técnica y arquitecturas .NET de misión crítica.</p>
@@ -259,7 +305,7 @@
             <span class="terminal-btn max" aria-hidden="true"></span>
             <span class="terminal-title" aria-hidden="true">aitor@naindev: ~</span>
           </div>
-          <div class="terminal-body" id="terminal-output" aria-live="polite"></div>
+          <div class="terminal-body" id="terminal-output" role="log" aria-live="polite"></div>
           <div class="terminal-input-line">
             <span class="prompt-text" aria-hidden="true">[aitor@naindev.com ~]$</span>
             <input type="text" id="terminal-input" class="terminal-input" role="textbox" aria-label="Línea de comandos de terminal" autocomplete="off" spellcheck="false">
@@ -611,7 +657,7 @@
         </div>
         <div class="contact-actions">
           <a class="button button-primary contact-email"
-            href="mailto:contact@naindev.com?subject=Auditoría%20de%20Arquitectura">contact@naindev.com</a>
+            href="https://calendly.com/aitornainmendozavallejo-ksez/30min" target="_blank" rel="noopener noreferrer">Agendar Videollamada</a>
           <button class="button button-secondary" type="button" data-copy-email>Copiar email</button>
           <p class="copy-status" data-copy-status role="status"></p>
         </div>
@@ -621,13 +667,24 @@
 
   <footer class="site-footer">
     <div class="shell footer-layout">
-      <p>© <span data-current-year>2026</span> NainDev. Construido sin cookies, analítica ni dependencias de terceros en
-        el navegador.</p>
+      <p>© <span data-current-year>2026</span> NainDev. Analytics privacy-first integradas (0% cookies). Sin dependencias de terceros que rastreen datos personales.</p>
       <a href="#top">Volver arriba</a>
     </div>
   </footer>
 
   <script type="module" src="/assets/js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+        link.addEventListener('click', () => window.plausible && window.plausible('Contacto', {props: { method: 'Email' }}));
+      });
+      document.querySelectorAll('a[href^="http"]').forEach(link => {
+        if (!link.href.includes('naindev.com')) {
+          link.addEventListener('click', () => window.plausible && window.plausible('Outbound Link', {props: { url: link.href }}));
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>
