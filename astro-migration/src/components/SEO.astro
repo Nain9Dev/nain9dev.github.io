@@ -1,0 +1,72 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  date?: Date;
+  author?: string;
+  tags?: string[];
+  canonicalURL?: URL;
+}
+
+const {
+  title = "Aitor Nain — Arquitecto Backend 3D & AI Systems | .NET",
+  description = "Arquitecto Backend especializado en infraestructura para procesamiento 3D masivo, integración de IA Generativa, agentes de IA y sistemas críticos .NET.",
+  image = "https://www.naindev.com/assets/images/og-cover-v2.png",
+  date,
+  author = "Aitor Nain",
+  tags = [],
+  canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.naindev.com')
+} = Astro.props;
+
+const isArticle = !!date;
+
+const schema = isArticle ? {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "image": [image],
+  "datePublished": date.toISOString(),
+  "author": [{
+    "@type": "Person",
+    "name": author,
+    "url": "https://www.naindev.com"
+  }]
+} : {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": title,
+  "description": description,
+  "url": canonicalURL.toString()
+};
+---
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content={description}>
+<meta name="robots" content="index, follow">
+<meta name="author" content={author}>
+<meta name="theme-color" content="#090A0F">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy"
+  content="default-src 'self'; base-uri 'self'; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; form-action 'self'; frame-src 'none'; img-src 'self' data:; object-src 'none'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://plausible.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; upgrade-insecure-requests">
+
+<meta property="og:type" content={isArticle ? "article" : "website"}>
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content={title}>
+<meta property="og:description" content={description}>
+<meta property="og:url" content={canonicalURL}>
+<meta property="og:image" content={image}>
+<meta property="og:image:width" content="1731">
+<meta property="og:image:height" content="909">
+<meta property="og:image:alt" content="Representación visual de API, lógica de negocio y datos para NainDev">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content={title}>
+<meta name="twitter:description" content={description}>
+<meta name="twitter:image" content={image}>
+
+<link rel="canonical" href={canonicalURL}>
+
+<!-- Schema.org JSON-LD -->
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const posts = await getCollection('blog');
+// Sort by date (newest first)
+posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const title = "Blog Técnico | Aitor Nain";
+const description = "Blog Técnico de Aitor Nain. Arquitectura Backend, IA Generativa y Sistemas 3D.";
+---
+
+<BaseLayout title={title} description={description}>
+  <main id="main-content" class="shell" style="margin-top: 8rem; min-height: 70vh;">
+    <header class="section-heading">
+      <p class="eyebrow">Notas y Arquitectura</p>
+      <h1>Blog Técnico</h1>
+    </header>
+    
+    <div class="blog-grid">
+      {posts.map((post) => (
+        <article class="blog-card">
+          <time datetime={post.data.date.toISOString()} class="eyebrow">
+            {post.data.date.toLocaleDateString('es-ES', { day: 'numeric', month: 'short', year: 'numeric' })}
+          </time>
+          <h2><a href={`/blog/${post.id}`}>{post.data.title}</a></h2>
+          <p>{post.data.excerpt}</p>
+          <ul class="tag-list">
+            {post.data.tags.map(tag => (
+              <li>{tag}</li>
+            ))}
+          </ul>
+          <a href={`/blog/${post.id}`} class="button button-small button-outline" style="margin-top: 1.5rem; display: inline-flex;">Leer artículo →</a>
+        </article>
+      ))}
+    </div>
+  </main>
+</BaseLayout>

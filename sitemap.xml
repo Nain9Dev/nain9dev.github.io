@@ -23,4 +23,19 @@
     <loc>https://www.naindev.com/demos/pong-arcade/</loc>
     <priority>0.5</priority>
   </url>
+  <url>
+    <loc>https://www.naindev.com/blog/</loc>
+    <lastmod>2026-08-19</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.naindev.com/blog/clean-architecture-3d.html</loc>
+    <lastmod>2026-08-19</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.naindev.com/servicios/renovacion-web.html</loc>
+    <lastmod>2026-08-19</lastmod>
+    <priority>0.8</priority>
+  </url>
 </urlset>

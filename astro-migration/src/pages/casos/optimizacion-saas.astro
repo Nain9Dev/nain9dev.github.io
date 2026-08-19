@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "Optimización de Rendimiento SaaS — Casos de Estudio | Aitor Nain";
+const description = "Caso de Estudio: Optimización de rendimiento, sharding y escalabilidad horizontal para una plataforma SaaS crítica.";
+---
+
+<BaseLayout title={title} description={description}>
+  <main id="main-content">
+    <section class="section" id="case-study-detail">
+      <div class="shell">
+        <nav aria-label="Breadcrumb" class="breadcrumbs" style="margin-bottom: 2rem; font-size: 0.9rem; color: var(--color-text-muted);">
+          <ol style="list-style: none; padding: 0; display: flex; gap: 0.5rem;">
+            <li><a href="/" style="color: var(--color-primary-strong); text-decoration: none;">Inicio</a></li>
+            <li aria-hidden="true">/</li>
+            <li><a href="/#case-studies" style="color: var(--color-primary-strong); text-decoration: none;">Casos de Estudio</a></li>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page">Optimización SaaS</li>
+          </ol>
+        </nav>
+
+        <article class="case-study-card" style="box-shadow: none; border: none; background: transparent; padding: 0;">
+          <div class="case-study-header">
+            <p class="case-study-eyebrow">Plataforma SaaS · Backend Specialist</p>
+            <h1 class="case-study-title" style="font-size: 2.5rem; margin-bottom: 1.5rem;">Optimización de rendimiento y escalabilidad horizontal</h1>
+          </div>
+          <div class="case-study-body">
+            <div class="case-study-section">
+              <h2>El Problema</h2>
+              <p>La plataforma SaaS sufría de tiempos de respuesta elevados (>2s) en horarios punta, con picos de carga que saturaban la base de datos principal.</p>
+            </div>
+            <div class="case-study-section">
+              <h2>Decisiones Arquitectónicas</h2>
+              <ul class="case-study-list decisions-list">
+                <li>Implementación de un sistema de caché distribuida (Redis) para consultas repetitivas.</li>
+                <li>Partición de la base de datos (sharding) por tenant para aislar cargas.</li>
+                <li>Migración de endpoints síncronos a procesamiento asíncrono con colas (RabbitMQ).</li>
+              </ul>
+            </div>
+            <div class="case-study-diagram">
+              <div class="mermaid">
+                graph LR
+                A[Client] --> B[Load Balancer]
+                B --> C[API Gateway]
+                C --> D[Service A]
+                C --> E[Service B]
+                D --> F[Redis Cache]
+                E --> G[SQL Server Primary]
+                G --> H[SQL Server Replicas]
+              </div>
+            </div>
+            <div class="case-study-section">
+              <h2>Trade-offs</h2>
+              <p class="case-study-tradeoff">Se aumentó la complejidad operativa (monitoreo de cachés, consistencia eventual) pero se logró escalar a 10x el tráfico sin degradar la experiencia.</p>
+            </div>
+            <div class="case-study-section results-section">
+              <h2>Resultados</h2>
+              <ul class="case-study-list results-list">
+                <li>Latencia reducida de 2.3s a 300ms (p95).</li>
+                <li>Capacidad para manejar 50k peticiones concurrentes.</li>
+                <li>Cero downtime en los últimos 12 meses (blue-green deployments).</li>
+              </ul>
+            </div>
+            <div class="case-study-section tech-section">
+              <div class="tech-badge-container" style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem;">
+                <span class="tech-badge-small">.NET Core</span><span class="tech-badge-small">Redis</span><span class="tech-badge-small">RabbitMQ</span><span class="tech-badge-small">SQL Server</span><span class="tech-badge-small">Azure</span><span class="tech-badge-small">Kubernetes</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <div style="margin-top: 4rem; text-align: center;">
+          <a class="button button-secondary" href="/#case-studies">Volver a Casos de Estudio</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

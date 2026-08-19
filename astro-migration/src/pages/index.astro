@@ -3,445 +3,384 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout>
-  <section class="hero section" aria-labelledby="hero-title">
-    <canvas id="hero-3d-canvas" class="hero-3d-canvas" aria-hidden="true"></canvas>
-    <div class="shell hero-grid">
-      <div class="hero-copy" data-reveal>
-        <p class="eyebrow" data-parallax="true">Aitor Nain · Arquitecto Backend 3D & AI Systems</p>
-        <h1 id="hero-title" data-parallax="true" data-parallax-speed="0.2">Diseño la infraestructura que valida y procesa <span class="title-accent">modelos 3D a escala industrial.</span></h1>
-        <p class="hero-summary" data-parallax="true" data-parallax-speed="0.1">
-          Arquitectura backend para sistemas que no pueden fallar... ahora también para el mundo 3D. Ayudo a empresas a integrar IA generativa y procesar assets 3D mediante sistemas agénticos con absoluta precisión y determinismo.
-        </p>
-        <div class="button-group" aria-label="Acciones principales">
-          <a class="button button-primary"
-            href="https://calendly.com/aitornainmendozavallejo-ksez/30min" target="_blank" rel="noopener noreferrer">Agendar Auditoría Gratuita</a>
-          <a class="button button-secondary" href="/casos/stealth-3d-ai">Ver caso: Validación 3D</a>
-        </div>
-        <p class="availability">Disponibilidad inmediata para consultoría técnica y arquitecturas .NET de misión crítica.</p>
-        <a class="scroll-cue" href="#services">
-          <span>Explorar el portfolio</span>
-          <span aria-hidden="true">↓</span>
-        </a>
-      </div>
-
-      <aside class="hero-panel" aria-label="Mapa de capacidades técnicas" data-reveal>
-        <div class="panel-heading">
-          <p class="panel-label">Cómo conecto el backend</p>
-          <span class="panel-state">Disponible</span>
-        </div>
-        <div class="system-map">
-          <a class="system-node system-node-api" href="#services">
-            <span>01</span>
-            <strong>API</strong>
-            <small>Contratos y validación</small>
-          </a>
-          <a class="system-node system-node-domain" href="#method">
-            <span>02</span>
-            <strong>Lógica</strong>
-            <small>Reglas y casos de uso</small>
-          </a>
-          <a class="system-node system-node-data" href="#projects">
-            <span>03</span>
-            <strong>Datos</strong>
-            <small>SQL Server y consistencia</small>
+  <main id="main-content">
+    <section class="hero section" aria-labelledby="hero-title">
+      <canvas id="hero-3d-canvas" class="hero-3d-canvas" aria-hidden="true"></canvas>
+      <div class="shell hero-grid">
+        <div class="hero-copy" data-reveal>
+          <p class="eyebrow" data-parallax="true">Aitor Nain · Arquitecto Backend 3D & AI Systems</p>
+          <h1 id="hero-title" data-parallax="true" data-parallax-speed="0.2">Diseño la infraestructura que valida y procesa <span class="title-accent">modelos 3D a escala industrial.</span></h1>
+          <p class="hero-summary" data-parallax="true" data-parallax-speed="0.1">
+            Arquitectura backend para sistemas que no pueden fallar... ahora también para el mundo 3D. Ayudo a empresas a integrar IA generativa y procesar assets 3D mediante sistemas agénticos con absoluta precisión y determinismo.
+          </p>
+          <div class="button-group" aria-label="Acciones principales">
+            <a class="button button-primary"
+              href="https://calendly.com/aitornainmendozavallejo-ksez/30min" target="_blank" rel="noopener noreferrer">Agendar Auditoría Gratuita</a>
+            <a class="button button-secondary" href="/casos/stealth-3d-ai.html">Ver caso: Validación 3D</a>
+          </div>
+          <p class="availability">Disponibilidad inmediata para consultoría técnica y arquitecturas .NET de misión crítica.</p>
+          <a class="scroll-cue" href="#services">
+            <span>Explorar el portfolio</span>
+            <span aria-hidden="true">↓</span>
           </a>
         </div>
-        <p class="panel-stack">C# · .NET · SQL Server · Arquitectura Agéntica</p>
-        <p class="panel-hint">Cada bloque te lleva a una evidencia relacionada.</p>
-      </aside>
-    </div>
-  </section>
 
-  <section class="terminal-section section section-accent" id="terminal" aria-labelledby="terminal-title">
-    <div class="shell">
-      <div class="section-heading" data-reveal>
-        <div>
-          <p class="eyebrow">Interactúa con mi perfil</p>
-          <h2 id="terminal-title">Terminal Profesional</h2>
-        </div>
-        <p>Prueba mi terminal interactiva. Escribe <code>help</code> para empezar.</p>
-      </div>
-      
-      <div class="terminal-wrapper" role="application" aria-label="Terminal interactiva">
-        <style>
-          .terminal-wrapper {
-            background-color: #1e1e2e;
-            border-radius: var(--radius-small);
-            border: 1px solid var(--color-line-strong);
-            box-shadow: var(--shadow-card);
-            overflow-x: hidden;
-            overflow-y: hidden;
-            font-family: var(--font-mono);
-            max-width: 100%;
-            margin: 0 auto;
-          }
-          .terminal-header {
-            background-color: #181825;
-            padding: 0.6rem 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            border-bottom: 1px solid var(--color-line);
-          }
-          .terminal-btn {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-          }
-          .terminal-btn.close { background-color: #f38ba8; }
-          .terminal-btn.min { background-color: #f9e2af; }
-          .terminal-btn.max { background-color: #a6e3a1; }
-          .terminal-title {
-            color: var(--color-text-muted);
-            font-size: 0.8rem;
-            margin-left: auto;
-            margin-right: auto;
-            padding-right: 3rem;
-          }
-          .terminal-body {
-            padding: 1.25rem 1.25rem 0;
-            max-height: 400px;
-            min-height: 250px;
-            overflow-y: auto;
-            color: var(--color-text);
-            font-size: 0.9rem;
-            line-height: 1.6;
-          }
-          .terminal-input-line {
-            display: flex;
-            align-items: center;
-            padding: 0 1.25rem 1.25rem;
-            gap: 0.75rem;
-            background-color: #1e1e2e;
-          }
-          .prompt-text {
-            color: #a6e3a1;
-            font-weight: 700;
-          }
-          .terminal-input {
-            background: transparent;
-            border: none;
-            color: #cdd6f4;
-            font-family: inherit;
-            font-size: 16px; /* 16px evita zoom automático en iOS */
-            flex: 1;
-            outline: none;
-            caret-color: #cdd6f4;
-          }
-          .terminal-input:focus-visible {
-            outline: none;
-          }
-          .term-text-green { color: #a6e3a1; }
-          .term-text-blue { color: #89b4fa; }
-          .term-text-yellow { color: #f9e2af; }
-          .term-text-red { color: #f38ba8; }
-          .term-ascii { 
-            font-size: 0.75rem; 
-            white-space: pre; 
-            line-height: 1.2; 
-            color: var(--color-text-muted); 
-            overflow-x: auto;
-          }
-          .term-table { 
-            width: 100%; 
-            text-align: left; 
-            border-collapse: collapse; 
-            margin-bottom: 0.5rem; 
-          }
-          .term-table th, .term-table td { 
-            padding: 0.25rem 0.5rem 0.25rem 0; 
-            vertical-align: top;
-          }
-          @media (max-width: 600px) {
-            .term-table th, .term-table td { display: block; padding-right: 0; }
-            .term-table tr { margin-bottom: 0.75rem; display: block; }
-            .term-table th { display: none; }
-          }
-        </style>
-        <div class="terminal-header">
-          <span class="terminal-btn close" aria-hidden="true"></span>
-          <span class="terminal-btn min" aria-hidden="true"></span>
-          <span class="terminal-btn max" aria-hidden="true"></span>
-          <span class="terminal-title" aria-hidden="true">aitor@naindev: ~</span>
-        </div>
-        <div class="terminal-body" id="terminal-output" role="log" aria-live="polite"></div>
-        <div class="terminal-input-line">
-          <span class="prompt-text" aria-hidden="true">[aitor@naindev.com ~]$</span>
-          <input type="text" id="terminal-input" class="terminal-input" role="textbox" aria-label="Línea de comandos de terminal" autocomplete="off" spellcheck="false">
-        </div>
-        <script is:inline src="/assets/js/terminal.js"></script>
-      </div>
-    </div>
-  </section>
+        <aside class="hero-panel" aria-label="Mapa de capacidades técnicas" data-reveal>
+          <div class="panel-heading">
+            <p class="panel-label">Cómo conecto el backend</p>
+            <span class="panel-state">Disponible</span>
+          </div>
+          <div class="system-map">
+            <a class="system-node system-node-api" href="#services">
+              <span>01</span>
+              <strong>API</strong>
+              <small>Contratos y validación</small>
+            </a>
+            <a class="system-node system-node-domain" href="#method">
+              <span>02</span>
+              <strong>Lógica</strong>
+              <small>Reglas y casos de uso</small>
+            </a>
+            <a class="system-node system-node-data" href="#projects">
+              <span>03</span>
+              <strong>Datos</strong>
+              <small>SQL Server y consistencia</small>
+            </a>
+          </div>
+          <p class="panel-stack">C# · .NET · SQL Server · Arquitectura Agéntica</p>
+          <p class="panel-hint">Cada bloque te lleva a una evidencia relacionada.</p>
+        </aside>
 
-  <section class="proof-strip" aria-label="Principios de trabajo">
-    <div class="shell proof-grid">
-      <p><strong>Experiencia real</strong><span>Trabajo a diario con .NET y SQL Server.</span></p>
-      <p><strong>Código revisable</strong><span>Los proyectos y las demos están enlazados.</span></p>
-      <p><strong>Alcance claro</strong><span>Solo acepto trabajos que pueda atender bien los fines de semana.</span>
-      </p>
-    </div>
-  </section>
-
-  <section class="section" id="services">
-    <div class="shell">
-      <div class="section-heading" data-reveal>
-        <div>
-          <p class="eyebrow">En qué puedo ayudarte</p>
-          <h2>Ingeniería de Software y Arquitectura Backend</h2>
-        </div>
-        <p>Diseño arquitecturas robustas y escalables con una visión agnóstica de infraestructura, priorizando la verdad del dato y la inmutabilidad.</p>
-      </div>
-
-      <div class="card-grid card-grid-three">
-        <article class="service-card" data-reveal>
-          <span class="card-number" aria-hidden="true">01</span>
-          <h3>Arquitectura de Validación 3D</h3>
-          <p>Pipelines deterministas para el procesado masivo y corrección geométrica de assets 3D a escala industrial.</p>
-          <ul class="compact-list">
-            <li>Sistemas agnósticos (glTF, USD)</li>
-            <li>Validación topológica y geométrica</li>
-            <li>Procesado en tiempo real</li>
-          </ul>
-        </article>
-
-        <article class="service-card" data-reveal>
-          <span class="card-number" aria-hidden="true">02</span>
-          <h3>Integración IA Generativa & Agentes</h3>
-          <p>Ecosistemas agénticos robustos para integrar modelos de IA en flujos corporativos.</p>
-          <ul class="compact-list">
-            <li>Integración transversal de agentes</li>
-            <li>Trustworthy AI y determinismo</li>
-            <li>Flujos Human-in-the-loop</li>
-          </ul>
-        </article>
-
-        <article class="service-card" data-reveal>
-          <span class="card-number" aria-hidden="true">03</span>
-          <h3>Backend Crítico (.NET/SQL)</h3>
-          <p>Sistemas distribuidos de misión crítica donde la consistencia del dato y la escalabilidad son innegociables.</p>
-          <ul class="compact-list">
-            <li>Clean Architecture (Backend Híbrido)</li>
-            <li>Bases de datos de alto rendimiento</li>
-            <li>Control de concurrencia (ETag)</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="tech-stack">
-    <div class="shell">
-      <div class="section-heading" data-reveal>
-        <div>
-          <p class="eyebrow">Skills</p>
-          <h2>Tech Stack</h2>
-        </div>
-        <p>Lenguajes, herramientas y plataformas que utilizo para construir arquitecturas robustas.</p>
-      </div>
-      
-      <div id="tech-stack-container" class="tech-stack-container">
-        <!-- El catálogo de tech stack se inyectará aquí -->
-        <p class="loading-message">Cargando tecnologías…</p>
-      </div>
-      
-      <noscript>
-        <p class="notice">Activa JavaScript para visualizar el Tech Stack. También puedes consultar mi perfil en <a href="https://github.com/Nain9Dev">GitHub</a>.</p>
-      </noscript>
-    </div>
-  </section>
-
-  <section class="section" id="case-studies">
-    <div class="shell">
-      <div class="section-heading" data-reveal>
-        <div>
-          <p class="eyebrow">Experiencia Aplicada</p>
-          <h2>Casos de Estudio de Arquitectura</h2>
-        </div>
-        <p>Análisis en profundidad de decisiones arquitectónicas, trade-offs y resultados en proyectos críticos.</p>
-      </div>
-      
-      <div id="case-studies-container">
-        <div class="case-studies-grid">
-          <article class="case-study-card" data-reveal>
-            <div class="case-study-header">
-              <p class="case-study-eyebrow">Proyecto Confidencial (Industria 3D) · Colaborador Técnico</p>
-              <h3 class="case-study-title">Sistema de Validación y Corrección 3D (IA)</h3>
+        <div class="trust-badges" aria-label="Validación de mercado" data-reveal>
+          <div class="badge">
+            <span class="badge-icon" aria-hidden="true">🧊</span>
+            <div class="badge-text">
+              <strong>+50M Modelos</strong>
+              <span>Validados en Producción</span>
             </div>
-            <div class="case-study-body" style="text-align: center; padding: 2rem 0;">
-              <p style="margin-bottom: 2rem; color: var(--color-text-muted);">Diseño de una arquitectura backend determinista para la validación de activos 3D generados por IA a escala industrial.</p>
-              <a href="/casos/stealth-3d-ai" class="button button-primary" style="display: inline-block;">Leer caso completo</a>
+          </div>
+          <div class="badge">
+            <span class="badge-icon" aria-hidden="true">🛡️</span>
+            <div class="badge-text">
+              <strong>Sistemas Críticos</strong>
+              <span>Zero Downtime Architecture</span>
             </div>
-          </article>
+          </div>
+          <div class="badge">
+            <span class="badge-icon" aria-hidden="true">🏭</span>
+            <div class="badge-text">
+              <strong>Sectores</strong>
+              <span>Automotriz & SaaS B2B</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="terminal-section section section-accent" id="terminal" aria-labelledby="terminal-title">
+      <div class="shell">
+        <div class="section-heading" data-reveal>
+          <div>
+            <p class="eyebrow">Interactúa con mi perfil</p>
+            <h2 id="terminal-title">Terminal Profesional</h2>
+          </div>
+          <p>Prueba mi terminal interactiva. Escribe <code>help</code> para empezar.</p>
+        </div>
         
-          <article class="case-study-card" data-reveal>
-            <div class="case-study-header">
-              <p class="case-study-eyebrow">Plataforma SaaS · Backend Specialist</p>
-              <h3 class="case-study-title">Optimización de rendimiento y escalabilidad horizontal</h3>
+        <div class="terminal-wrapper" role="application" aria-label="Terminal interactiva">
+          <div class="terminal-header">
+            <span class="terminal-btn close" aria-hidden="true"></span>
+            <span class="terminal-btn min" aria-hidden="true"></span>
+            <span class="terminal-btn max" aria-hidden="true"></span>
+            <span class="terminal-title" aria-hidden="true">aitor@naindev: ~</span>
+          </div>
+          <div class="terminal-body" id="terminal-output" role="log" aria-live="polite"></div>
+          <div class="terminal-input-line">
+            <span class="prompt-text" aria-hidden="true">[aitor@naindev.com ~]$</span>
+            <input type="text" id="terminal-input" class="terminal-input" role="textbox" aria-label="Línea de comandos de terminal" autocomplete="off" spellcheck="false">
+          </div>
+          <script src="/assets/js/terminal.js" is:inline></script>
+        </div>
+      </div>
+    </section>
+
+    <section class="proof-strip" aria-label="Principios de trabajo">
+      <div class="shell proof-grid">
+        <p><strong>Experiencia real</strong><span>Trabajo a diario con .NET y SQL Server.</span></p>
+        <p><strong>Código revisable</strong><span>Los proyectos y las demos están enlazados.</span></p>
+        <p><strong>Alcance claro</strong><span>Solo acepto trabajos que pueda atender bien los fines de semana.</span>
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="shell">
+        <div class="section-heading" data-reveal>
+          <div>
+            <p class="eyebrow">En qué puedo ayudarte</p>
+            <h2>Ingeniería de Software y Arquitectura Backend</h2>
+          </div>
+          <p>Diseño arquitecturas robustas y escalables con una visión agnóstica de infraestructura, priorizando la
+            verdad del dato y la inmutabilidad.</p>
+        </div>
+
+        <div class="card-grid card-grid-three">
+          <article class="service-card" data-reveal>
+            <span class="card-number" aria-hidden="true">01</span>
+            <h3>Arquitectura de Validación 3D</h3>
+            <p>Pipelines deterministas para el procesado masivo y corrección geométrica de assets 3D a escala industrial.
+            </p>
+            <ul class="compact-list">
+              <li>Sistemas agnósticos (glTF, USD)</li>
+              <li>Validación topológica y geométrica</li>
+              <li>Procesado en tiempo real</li>
+            </ul>
+          </article>
+
+          <article class="service-card" data-reveal>
+            <span class="card-number" aria-hidden="true">02</span>
+            <h3>Integración IA Generativa & Agentes</h3>
+            <p>Ecosistemas agénticos robustos para integrar modelos de IA en flujos corporativos.</p>
+            <ul class="compact-list">
+              <li>Integración transversal de agentes</li>
+              <li>Trustworthy AI y determinismo</li>
+              <li>Flujos Human-in-the-loop</li>
+            </ul>
+          </article>
+
+          <article class="service-card" data-reveal>
+            <span class="card-number" aria-hidden="true">03</span>
+            <h3>Backend Crítico (.NET/SQL)</h3>
+            <p>Sistemas distribuidos de misión crítica donde la consistencia del dato y la escalabilidad son innegociables.</p>
+            <ul class="compact-list">
+              <li>Clean Architecture (Backend Híbrido)</li>
+              <li>Bases de datos de alto rendimiento</li>
+              <li>Control de concurrencia (ETag)</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tech-stack">
+      <div class="shell">
+        <div class="section-heading" data-reveal>
+          <div>
+            <p class="eyebrow">Skills</p>
+            <h2>Tech Stack</h2>
+          </div>
+          <p>Lenguajes, herramientas y plataformas que utilizo para construir arquitecturas robustas.</p>
+        </div>
+        
+        <div id="tech-stack-container" class="tech-stack-container">
+          <!-- El catálogo de tech stack se inyectará aquí -->
+          <p class="loading-message">Cargando tecnologías…</p>
+        </div>
+        
+        <noscript>
+          <p class="notice">Activa JavaScript para visualizar el Tech Stack. También puedes consultar mi perfil en <a href="https://github.com/Nain9Dev">GitHub</a>.</p>
+        </noscript>
+      </div>
+    </section>
+
+    <section class="section" id="case-studies">
+      <div class="shell">
+        <div class="section-heading" data-reveal>
+          <div>
+            <p class="eyebrow">Experiencia Aplicada</p>
+            <h2>Casos de Estudio de Arquitectura</h2>
+          </div>
+          <p>Análisis en profundidad de decisiones arquitectónicas, trade-offs y resultados en proyectos críticos.</p>
+        </div>
+        
+        <div id="case-studies-container">
+          <div class="case-studies-grid">
+            <article class="case-study-card" data-reveal>
+              <div class="case-study-header">
+                <p class="case-study-eyebrow">Proyecto Confidencial (Industria 3D) · Colaborador Técnico</p>
+                <h3 class="case-study-title">Sistema de Validación y Corrección 3D (IA)</h3>
+              </div>
+              <div class="case-study-body" style="text-align: center; padding: 2rem 0;">
+                <p style="margin-bottom: 2rem; color: var(--color-text-muted);">Diseño de una arquitectura backend determinista para la validación de activos 3D generados por IA a escala industrial.</p>
+                <a href="/casos/stealth-3d-ai.html" class="button button-primary" style="display: inline-block;">Leer caso completo</a>
+              </div>
+            </article>
+          
+            <article class="case-study-card" data-reveal>
+              <div class="case-study-header">
+                <p class="case-study-eyebrow">Plataforma SaaS · Backend Specialist</p>
+                <h3 class="case-study-title">Optimización de rendimiento y escalabilidad horizontal</h3>
+              </div>
+              <div class="case-study-body" style="text-align: center; padding: 2rem 0;">
+                <p style="margin-bottom: 2rem; color: var(--color-text-muted);">Optimización de rendimiento, sharding y escalabilidad horizontal para una plataforma SaaS crítica.</p>
+                <a href="/casos/optimizacion-saas.html" class="button button-primary" style="display: inline-block;">Leer caso completo</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="impact-metrics">
+      <div class="shell">
+        <div class="section-heading" data-reveal>
+          <div>
+            <p class="eyebrow">Resultados Medibles</p>
+            <h2>Métricas de Impacto</h2>
+          </div>
+          <p>Resultados cuantificables obtenidos en diseño de sistemas, optimización y liderazgo técnico.</p>
+        </div>
+        
+        <div id="impact-metrics-container">
+          <div class="impact-metrics-grid">
+            <article class="impact-metric-card" data-reveal>
+              <div class="impact-metric-icon" style="font-size: 2rem; margin-bottom: 0.5rem;">⚡</div>
+              <div class="impact-metric-value">40 → 6 min</div>
+              <h3 class="impact-metric-label">Reducción en sincronización de datos</h3>
+              <p class="impact-metric-description">Optimización de procesos batch y pipelines de integración.</p>
+            </article>
+            <article class="impact-metric-card" data-reveal>
+              <div class="impact-metric-icon" style="font-size: 2rem; margin-bottom: 0.5rem;">🛡️</div>
+              <div class="impact-metric-value">99.99%</div>
+              <h3 class="impact-metric-label">Uptime en sistemas críticos</h3>
+              <p class="impact-metric-description">Arquitecturas resilientes y despliegues sin tiempo de inactividad (Zero Downtime).</p>
+            </article>
+            <article class="impact-metric-card" data-reveal>
+              <div class="impact-metric-icon" style="font-size: 2rem; margin-bottom: 0.5rem;">🧠</div>
+              <div class="impact-metric-value">10+</div>
+              <h3 class="impact-metric-label">Desarrolladores mentorizados</h3>
+              <p class="impact-metric-description">Capacitación de equipos en Domain-Driven Design y Clean Architecture.</p>
+            </article>
+            <article class="impact-metric-card" data-reveal>
+              <div class="impact-metric-icon" style="font-size: 2rem; margin-bottom: 0.5rem;">🏗️</div>
+              <div class="impact-metric-value">3</div>
+              <h3 class="impact-metric-label">Arquitecturas migradas</h3>
+              <p class="impact-metric-description">Migración de monolitos a Clean Architecture y Arquitectura Hexagonal.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="projects">
+      <div class="shell">
+        <div class="section-heading" data-reveal>
+          <div>
+            <p class="eyebrow">Portfolio</p>
+            <h2>Proyectos personales y demos</h2>
+          </div>
+          <p>Indico el estado real de cada proyecto para que sepas qué está terminado y qué sigue en desarrollo.</p>
+        </div>
+
+        <div class="project-toolbar" data-project-toolbar hidden>
+          <div class="filter-group" role="group" aria-label="Filtrar proyectos">
+            <button class="filter-button is-active" type="button" data-project-filter="all"
+              aria-pressed="true">Todos</button>
+            <button class="filter-button" type="button" data-project-filter="backend"
+              aria-pressed="false">Backend</button>
+            <button class="filter-button" type="button" data-project-filter="data" aria-pressed="false">Datos</button>
+            <button class="filter-button" type="button" data-project-filter="demo" aria-pressed="false">Demos</button>
+            <button class="filter-button" type="button" data-project-filter="3d" aria-pressed="false">3D</button>
+          </div>
+          <p class="project-count" data-project-count aria-live="polite"></p>
+        </div>
+
+        <div class="project-grid" data-project-list aria-live="polite" aria-busy="true">
+          <p class="loading-message">Cargando proyectos…</p>
+        </div>
+
+        <noscript>
+          <p class="notice">Activa JavaScript para cargar el catálogo. También puedes revisar el código directamente en
+            <a href="https://github.com/Nain9Dev">GitHub</a>.</p>
+        </noscript>
+      </div>
+    </section>
+
+    <section class="section" id="method">
+      <div class="shell method-grid">
+        <div data-reveal>
+          <p class="eyebrow">Cómo trabajo</p>
+          <h2>Así organizo un trabajo pequeño</h2>
+          <p class="section-intro">Primero aclaro qué hay que resolver y qué queda fuera. Después divido el trabajo en
+            cambios que se puedan probar y revisar.</p>
+        </div>
+
+        <ol class="step-list" data-reveal>
+          <li>
+            <span>01</span>
+            <div>
+              <h3>Entender la tarea</h3>
+              <p>Objetivo, contexto, restricciones y resultado esperado.</p>
             </div>
-            <div class="case-study-body" style="text-align: center; padding: 2rem 0;">
-              <p style="margin-bottom: 2rem; color: var(--color-text-muted);">Optimización de rendimiento, sharding y escalabilidad horizontal para una plataforma SaaS crítica.</p>
-              <a href="/casos/optimizacion-saas" class="button button-primary" style="display: inline-block;">Leer caso completo</a>
+          </li>
+          <li>
+            <span>02</span>
+            <div>
+              <h3>Preparar el cambio</h3>
+              <p>Reviso el código afectado y elijo la solución más sencilla que encaje.</p>
             </div>
-          </article>
+          </li>
+          <li>
+            <span>03</span>
+            <div>
+              <h3>Desarrollar y probar</h3>
+              <p>Implemento el cambio y compruebo los casos importantes.</p>
+            </div>
+          </li>
+          <li>
+            <span>04</span>
+            <div>
+              <h3>Entregar</h3>
+              <p>Explico qué se ha modificado, cómo se ha probado y qué queda pendiente.</p>
+            </div>
+          </li>
+        </ol>
+
+        <div class="method-cta" style="margin-top: 4rem; text-align: center; background: var(--color-surface); padding: 2.5rem; border-radius: 12px; border: 1px solid var(--color-line);" data-reveal>
+          <h3 style="margin-top: 0; font-size: 1.4rem;">¿Quieres ver cómo aplico esta metodología a gran escala?</h3>
+          <p style="color: var(--color-text-muted); margin-bottom: 1.5rem;">He documentado cómo resolvimos el problema del vendor lock-in y la escalabilidad usando Clean Architecture y C#.</p>
+          <a href="/blog/clean-architecture-3d.html" class="button button-primary">Leer el artículo técnico</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section section-muted" id="impact-metrics">
-    <div class="shell">
-      <div class="section-heading" data-reveal>
+    <section class="section section-accent" id="about">
+      <div class="shell about-grid">
+        <div data-reveal>
+          <p class="eyebrow">Sobre mí</p>
+          <h2>Arquitecto de Software & Especialista Backend</h2>
+        </div>
+        <div class="about-copy" data-reveal>
+          <p>Soy Aitor Nain, Lead Software Architect en una Stealth 3D/AI Startup, donde diseño un ecosistema Open Core
+            robusto para la validación determinista de activos generados por IA, garantizando un enfoque de
+            'Trustworthy AI'.</p>
+          <p>En paralelo, trabajo a tiempo completo en el sector empresarial como desarrollador y mantenedor de sistemas
+            críticos .NET (C# y SQL Server). Mi enfoque combina el rigor y la escalabilidad del mundo corporativo con la
+            vanguardia de las integraciones Human-in-the-loop y flujos agénticos.</p>
+          <div class="text-links">
+            <a href="https://github.com/Nain9Dev" target="_blank" rel="noopener noreferrer">GitHub <span
+                aria-hidden="true">↗</span></a>
+            <a href="https://www.linkedin.com/in/aitor-nain-mendoza-vallejo/" target="_blank"
+              rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="shell contact-panel" data-reveal>
         <div>
-          <p class="eyebrow">Resultados Medibles</p>
-          <h2>Métricas de Impacto</h2>
+          <p class="eyebrow">Contacto</p>
+          <h2>¿Tu backend no escala o tu IA es impredecible?</h2>
+          <p>La deuda técnica y los cuellos de botella te hacen perder velocidad. Escríbeme y diseñemos un plan de arquitectura robusto para que tu equipo pueda avanzar sin miedo.</p>
         </div>
-        <p>Resultados cuantificables obtenidos en diseño de sistemas, optimización y liderazgo técnico.</p>
-      </div>
-      
-      <div id="impact-metrics-container">
-        <div class="impact-metrics-grid">
-          <article class="impact-metric-card" data-reveal>
-            <div class="impact-metric-icon" style="font-size: 2rem; margin-bottom: 0.5rem;">⚡</div>
-            <div class="impact-metric-value">40 → 6 min</div>
-            <h3 class="impact-metric-label">Reducción en sincronización de datos</h3>
-            <p class="impact-metric-description">Optimización de procesos batch y pipelines de integración.</p>
-          </article>
-          <article class="impact-metric-card" data-reveal>
-            <div class="impact-metric-icon" style="font-size: 2rem; margin-bottom: 0.5rem;">🛡️</div>
-            <div class="impact-metric-value">99.99%</div>
-            <h3 class="impact-metric-label">Uptime en sistemas críticos</h3>
-            <p class="impact-metric-description">Arquitecturas resilientes y despliegues sin tiempo de inactividad (Zero Downtime).</p>
-          </article>
-          <article class="impact-metric-card" data-reveal>
-            <div class="impact-metric-icon" style="font-size: 2rem; margin-bottom: 0.5rem;">🧠</div>
-            <div class="impact-metric-value">10+</div>
-            <h3 class="impact-metric-label">Desarrolladores mentorizados</h3>
-            <p class="impact-metric-description">Capacitación de equipos en Domain-Driven Design y Clean Architecture.</p>
-          </article>
-          <article class="impact-metric-card" data-reveal>
-            <div class="impact-metric-icon" style="font-size: 2rem; margin-bottom: 0.5rem;">🏗️</div>
-            <div class="impact-metric-value">3</div>
-            <h3 class="impact-metric-label">Arquitecturas migradas</h3>
-            <p class="impact-metric-description">Migración de monolitos a Clean Architecture y Arquitectura Hexagonal.</p>
-          </article>
+        <div class="contact-actions">
+          <a class="button button-primary contact-email"
+            href="https://calendly.com/aitornainmendozavallejo-ksez/30min" target="_blank" rel="noopener noreferrer">Agendar Videollamada</a>
+          <button class="button button-secondary" type="button" data-copy-email>Copiar email</button>
+          <p class="copy-status" data-copy-status role="status"></p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="section section-muted" id="projects">
-    <div class="shell">
-      <div class="section-heading" data-reveal>
-        <div>
-          <p class="eyebrow">Portfolio</p>
-          <h2>Proyectos personales y demos</h2>
-        </div>
-        <p>Indico el estado real de cada proyecto para que sepas qué está terminado y qué sigue en desarrollo.</p>
-      </div>
-
-      <div class="project-toolbar" data-project-toolbar hidden>
-        <div class="filter-group" role="group" aria-label="Filtrar proyectos">
-          <button class="filter-button is-active" type="button" data-project-filter="all"
-            aria-pressed="true">Todos</button>
-          <button class="filter-button" type="button" data-project-filter="backend"
-            aria-pressed="false">Backend</button>
-          <button class="filter-button" type="button" data-project-filter="data" aria-pressed="false">Datos</button>
-          <button class="filter-button" type="button" data-project-filter="demo" aria-pressed="false">Demos</button>
-          <button class="filter-button" type="button" data-project-filter="3d" aria-pressed="false">3D</button>
-        </div>
-        <p class="project-count" data-project-count aria-live="polite"></p>
-      </div>
-
-      <div class="project-grid" data-project-list aria-live="polite" aria-busy="true">
-        <p class="loading-message">Cargando proyectos…</p>
-      </div>
-
-      <noscript>
-        <p class="notice">Activa JavaScript para cargar el catálogo. También puedes revisar el código directamente en
-          <a href="https://github.com/Nain9Dev">GitHub</a>.</p>
-      </noscript>
-    </div>
-  </section>
-
-  <section class="section" id="method">
-    <div class="shell method-grid">
-      <div data-reveal>
-        <p class="eyebrow">Cómo trabajo</p>
-        <h2>Así organizo un trabajo pequeño</h2>
-        <p class="section-intro">Primero aclaro qué hay que resolver y qué queda fuera. Después divido el trabajo en
-          cambios que se puedan probar y revisar.</p>
-      </div>
-
-      <ol class="step-list" data-reveal>
-        <li>
-          <span>01</span>
-          <div>
-            <h3>Entender la tarea</h3>
-            <p>Objetivo, contexto, restricciones y resultado esperado.</p>
-          </div>
-        </li>
-        <li>
-          <span>02</span>
-          <div>
-            <h3>Preparar el cambio</h3>
-            <p>Reviso el código afectado y elijo la solución más sencilla que encaje.</p>
-          </div>
-        </li>
-        <li>
-          <span>03</span>
-          <div>
-            <h3>Desarrollar y probar</h3>
-            <p>Implemento el cambio y compruebo los casos importantes.</p>
-          </div>
-        </li>
-        <li>
-          <span>04</span>
-          <div>
-            <h3>Entregar</h3>
-            <p>Explico qué se ha modificado, cómo se ha probado y qué queda pendiente.</p>
-          </div>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <section class="section section-accent" id="about">
-    <div class="shell about-grid">
-      <div data-reveal>
-        <p class="eyebrow">Sobre mí</p>
-        <h2>Arquitecto de Software & Especialista Backend</h2>
-      </div>
-      <div class="about-copy" data-reveal>
-        <p>Soy Aitor Nain, Lead Software Architect en una Stealth 3D/AI Startup, donde diseño un ecosistema Open Core
-          robusta para la validación determinista de activos generados por IA, garantizando un enfoque de
-          'Trustworthy AI'.</p>
-        <p>En paralelo, trabajo a tiempo completo en el sector empresarial como desarrollador y mantenedor de sistemas
-          críticos .NET (C# y SQL Server). Mi enfoque combina el rigor y la escalabilidad del mundo corporativo con la
-          vanguardia de las integraciones Human-in-the-loop y flujos agénticos.</p>
-        <div class="text-links">
-          <a href="https://github.com/Nain9Dev" target="_blank" rel="noopener noreferrer">GitHub <span
-              aria-hidden="true">↗</span></a>
-          <a href="https://www.linkedin.com/in/aitor-nain-mendoza-vallejo/" target="_blank"
-            rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section contact-section" id="contact">
-    <div class="shell contact-panel" data-reveal>
-      <div>
-        <p class="eyebrow">Contacto</p>
-        <h2>¿Tu backend no escala o tu IA es impredecible?</h2>
-        <p>La deuda técnica y los cuellos de botella te hacen perder velocidad. Escríbeme y diseñemos un plan de arquitectura robusto para que tu equipo pueda avanzar sin miedo.</p>
-      </div>
-      <div class="contact-actions">
-        <a class="button button-primary contact-email"
-          href="https://calendly.com/aitornainmendozavallejo-ksez/30min" target="_blank" rel="noopener noreferrer">Agendar Videollamada</a>
-        <button class="button button-secondary" type="button" data-copy-email>Copiar email</button>
-        <p class="copy-status" data-copy-status role="status"></p>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 </BaseLayout>
