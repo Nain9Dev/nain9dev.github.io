@@ -35,11 +35,11 @@ safeInit('AmbientGlow', initializeAmbientGlow);
 safeInit('CardTilt', initializeCardTilt);
 safeInit('ScrollStory', initializeScrollStorytelling);
 safeInit('Particles', initializeParticles);
-const initThreeOnInteraction = () => {
-  safeInit('ThreeHero', initializeThreeHero);
-  ['scroll', 'click', 'touchstart', 'keydown'].forEach(evt => window.removeEventListener(evt, initThreeOnInteraction));
-};
-['scroll', 'click', 'touchstart', 'keydown'].forEach(evt => window.addEventListener(evt, initThreeOnInteraction, { once: true, passive: true }));
+if ('requestIdleCallback' in window) {
+  requestIdleCallback(() => safeInit('ThreeHero', initializeThreeHero));
+} else {
+  setTimeout(() => safeInit('ThreeHero', initializeThreeHero), 200);
+}
 safeInit('TechStack', initTechStack);
 safeInit('CaseStudies', () => {
   console.log('[app.js] Inicializando CaseStudiesManager...');
