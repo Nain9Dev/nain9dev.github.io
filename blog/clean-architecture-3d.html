@@ -3,15 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Patrones de diseño en la validación determinista de IA | Aitor Nain</title>
+  <meta name="description" content="Aprende a escalar sistemas de validación de modelos 3D con IA aplicando Clean Architecture. Evita el vendor lock-in y crea código determinista en C# .NET.">
+  <meta name="keywords" content="Clean Architecture 3D, validación de modelos con IA, arquitectura backend, C#, .NET, IA generativa, vendor lock-in">
+  <title>Clean Architecture aplicada a sistemas de validación 3D con IA | Aitor Nain</title>
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon-optimized.svg">
   <link rel="stylesheet" href="/assets/css/main.css">
   <style>
-    .blog-post { max-width: 800px; margin: 0 auto; }
-    .blog-post h1 { font-size: 2.5rem; margin-bottom: 1rem; }
-    .blog-post .meta { color: var(--color-text-muted); margin-bottom: 3rem; }
-    .blog-post h2 { margin-top: 3rem; margin-bottom: 1rem; }
-    .blog-post p { margin-bottom: 1.5rem; font-size: 1.1rem; line-height: 1.8; }
+    .blog-post { max-width: 800px; margin: 0 auto; padding-bottom: 4rem; }
+    .blog-post h1 { font-size: 2.8rem; margin-bottom: 1rem; line-height: 1.2; letter-spacing: -0.02em; }
+    .blog-post .meta { color: var(--color-text-muted); margin-bottom: 3.5rem; font-size: 0.95rem; display: flex; gap: 1rem; align-items: center; }
+    .blog-post .meta-tag { background: var(--color-surface); padding: 0.25rem 0.75rem; border-radius: 100px; font-weight: 500; font-size: 0.85rem; border: 1px solid var(--color-line); }
+    .blog-post h2 { margin-top: 3.5rem; margin-bottom: 1.5rem; font-size: 2rem; border-bottom: 1px solid var(--color-line); padding-bottom: 0.75rem; }
+    .blog-post h3 { margin-top: 2.5rem; margin-bottom: 1rem; font-size: 1.4rem; color: var(--color-heading); }
+    .blog-post p { margin-bottom: 1.75rem; font-size: 1.15rem; line-height: 1.8; color: var(--color-text); }
+    .blog-post ul, .blog-post ol { margin-bottom: 1.75rem; padding-left: 1.5rem; font-size: 1.15rem; line-height: 1.8; }
+    .blog-post li { margin-bottom: 0.75rem; }
+    .blog-post pre { background: #111111; color: #f8f8f2; padding: 1.5rem; border-radius: 8px; overflow-x: auto; margin-top: 2rem; margin-bottom: 2rem; border: 1px solid #333; }
+    .blog-post code { font-family: 'Consolas', 'Monaco', monospace; font-size: 0.95rem; }
+    .blog-post p code, .blog-post li code { background: var(--color-surface); padding: 0.2rem 0.4rem; border-radius: 4px; font-size: 0.95rem; color: var(--color-primary); border: 1px solid var(--color-line); }
+    .blog-post strong { font-weight: 600; color: var(--color-heading); }
+    .blog-post blockquote { border-left: 4px solid var(--color-primary); padding-left: 1.5rem; margin: 2rem 0; font-style: italic; color: var(--color-text-muted); font-size: 1.25rem; line-height: 1.6; }
+    
+    .blog-cta { margin-top: 5rem; padding: 3rem; background: var(--color-surface); border-radius: 12px; text-align: center; border: 1px solid var(--color-primary); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+    .blog-cta h3 { margin-top: 0; margin-bottom: 1rem; font-size: 1.8rem; }
+    .blog-cta p { margin-bottom: 2rem; font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .lead-magnet-form { display: flex; flex-direction: column; gap: 1rem; max-width: 400px; margin: 0 auto; }
+    @media (min-width: 600px) { .lead-magnet-form { flex-direction: row; max-width: 550px; } }
+    .lead-magnet-input { flex: 1; padding: 0.8rem 1.2rem; border-radius: 8px; border: 1px solid var(--color-line); background: var(--color-background); color: var(--color-text); font-size: 1rem; }
+    .lead-magnet-input:focus { outline: none; border-color: var(--color-primary); box-shadow: 0 0 0 2px rgba(var(--color-primary-rgb), 0.2); }
+    .lead-magnet-disclaimer { margin-top: 1rem !important; font-size: 0.85rem !important; color: var(--color-text-muted) !important; margin-bottom: 0 !important; }
   </style>
 </head>
 <body id="top">
@@ -21,30 +41,249 @@
         <img src="/assets/images/logo_horizontal.png" alt="NainDev Logo" class="brand-logo">
       </a>
       <nav class="primary-navigation" aria-label="Navegación principal">
-        <a href="/blog/">← Volver al Blog</a>
+        <a href="/#services">Servicios</a>
+        <a href="/#projects">Casos de Estudio</a>
+        <a href="/blog/" class="active">Blog</a>
+        <a href="/#method">Cómo trabajo</a>
       </nav>
+      <a class="button button-small button-outline" href="https://calendly.com/aitornainmendozavallejo-ksez/30min" target="_blank" rel="noopener noreferrer">Agendar Llamada</a>
     </div>
   </header>
 
   <main id="main-content" class="shell" style="margin-top: 8rem; min-height: 70vh;">
     <article class="blog-post">
-      <h1>Patrones de diseño en la validación determinista de IA</h1>
-      <div class="meta">Publicado el 15 de Agosto de 2026 · Por Aitor Nain</div>
+      <h1>Clean Architecture aplicada a sistemas de validación 3D con IA</h1>
       
-      <p>La inteligencia artificial generativa es increíblemente rápida creando modelos 3D, pero su naturaleza probabilística la hace incompatible con los estrictos requerimientos de la industria manufacturera y automotriz.</p>
+      <div class="meta">
+        <time datetime="2026-08-19">19 de Agosto, 2026</time>
+        <span>·</span>
+        <span>Aitor Nain</span>
+        <span>·</span>
+        <span>12 min lectura</span>
+        <span class="meta-tag">C# .NET</span>
+        <span class="meta-tag">Arquitectura</span>
+      </div>
       
-      <h2>El problema del "Vendor Lock-In"</h2>
-      <p>Cuando acoplas la lógica de negocio al proveedor de IA, te conviertes en un esclavo de sus actualizaciones. En este artículo exploraremos cómo utilizar <strong>Clean Architecture</strong> y <strong>Domain-Driven Design (DDD)</strong> para separar el motor de IA del motor de validación geométrico.</p>
+      <p>Estás liderando un equipo de ingeniería ambicioso. Habéis integrado modelos de inteligencia artificial capaces de generar y analizar mallas 3D a velocidades increíbles. El producto funciona en pruebas, la directiva está emocionada, pero como Arquitecto de Software o CTO, sabes que hay un problema subyacente: <strong>el código es una bomba de relojería</strong>.</p>
       
+      <p>La validación de modelos 3D a escala industrial (geometrías, análisis de mallas, inferencia de ML) es intrincada. Cuando los ingenieros acoplan directamente la lógica del motor geométrico (como Unity o herramientas CAD) con los servicios de inferencia de IA y las reglas de negocio, el resultado es un monolito espagueti. Actualizar la versión del modelo de IA o cambiar la forma en que se almacenan los archivos `.obj` o `.glb` rompe validaciones crípticas a miles de kilómetros de distancia en el código.</p>
+      
+      <p>¿Por qué fallan los enfoques monolíticos tradicionales aquí? Porque en el dominio del 3D y la IA, la <strong>infraestructura es extremadamente volátil</strong>. Hoy usas un proveedor LLM/Visión específico, mañana la empresa decide entrenar su propio modelo. Hoy usas un motor de render, mañana te mueves a la nube.</p>
+
+      <h2>El Dilema: Escalabilidad vs. Mantenibilidad en Sistemas 3D con IA</h2>
+      
+      <p>Todo CTO que se enfrenta a sistemas intensivos de datos (como el procesamiento masivo de modelos 3D mediante IA) choca contra el mismo dilema. Por un lado, necesitas <strong>escalabilidad cruda</strong>: paralelizar la inferencia, utilizar GPUs, reducir la latencia de análisis geométrico. Por otro, necesitas <strong>mantenibilidad absoluta</strong>: garantizar que una malla defectuosa no pase a producción porque un cambio en la API de HuggingFace o OpenAI alteró el formato de respuesta esperado.</p>
+      
+      <p>En mi experiencia auditando arquitecturas empresariales, he visto sistemas donde la lógica de negocio (<em>¿Cumple este modelo 3D con las tolerancias de colisión permitidas?</em>) estaba escrita dentro del mismo controlador REST que recibía la petición, llamando directamente al SDK de Python embebido. Esto no es solo deuda técnica; es un riesgo de negocio crítico.</p>
+      
+      <blockquote>
+        "La arquitectura del software es el arte de dibujar líneas que separan lo que importa de los detalles de implementación. En IA y 3D, el modelo de Machine Learning es solo un detalle."
+      </blockquote>
+
+      <h2>Clean Architecture como la Solución Definitiva</h2>
+      
+      <p>Para resolver esta crisis de acoplamiento, debemos aplicar los principios de <strong>Clean Architecture</strong> (propuestos por Robert C. Martin). El concepto central es la <em>Regla de Dependencia</em>: las dependencias del código fuente siempre deben apuntar hacia adentro, hacia las políticas de alto nivel (reglas de negocio).</p>
+      
+      <p>En el contexto de la validación 3D con IA, esto significa que nuestras reglas sobre qué constituye una malla "válida" no deben saber absolutamente nada sobre cómo se ejecuta la IA, de dónde vienen los datos, o qué framework web usamos para exponer el servicio.</p>
+
+      <h3>Las Cuatro Capas en nuestro Contexto</h3>
+      <ul>
+        <li><strong>Domain (Entities):</strong> Contiene la definición pura de nuestros objetos de negocio. Una clase <code>MeshGeometry</code>, reglas sobre tolerancias de error, o estructuras de Vértices/Polígonos independientes de cualquier librería externa.</li>
+        <li><strong>Application (Use Cases):</strong> Coordina el flujo de los datos. Aquí viven casos de uso como <code>ValidateMeshUseCase</code> o <code>DetectAnomaliesUseCase</code>. Esta capa dicta <em>qué</em> debe ocurrir, pero delega el <em>cómo</em> a la siguiente capa mediante interfaces (Puertos).</li>
+        <li><strong>Infrastructure (Adapters):</strong> El "mundo real". Aquí implementamos las interfaces definidas en la capa Application. Tendremos adaptadores como <code>TensorFlowInferenceEngine</code>, <code>AwsS3MeshStorage</code> o un <code>BlenderGeometryAnalyzer</code>.</li>
+        <li><strong>Presentation (Delivery):</strong> Los puntos de entrada al sistema. Controladores REST (ASP.NET Core), suscripciones a colas de RabbitMQ, o integraciones vía gRPC para microservicios.</li>
+      </ul>
+
+      <h2>Ejemplo Práctico: Implementación en C# / .NET</h2>
+      
+      <p>Veamos cómo se traduce esto a una estructura real orientada a producto y negocio usando C#. Diseñaremos el sistema basándonos en el principio de <em>Única Fuente de Verdad</em>, donde el backend es el cerebro absoluto.</p>
+      
+      <h3>1. Estructura de Proyecto</h3>
+      
+      <pre><code>Src/
+├── 1.Domain/
+│   └── GeometryValidator.Domain/
+│       ├── Entities/
+│       │   ├── MeshModel.cs
+│       │   └── ValidationResult.cs
+│       └── Exceptions/
+│           └── InvalidGeometryException.cs
+├── 2.Application/
+│   └── GeometryValidator.Application/
+│       ├── Interfaces/
+│       │   ├── IAiInferenceService.cs  // Puerto de salida (Outbound)
+│       │   └── IMeshStorage.cs         // Puerto de salida (Outbound)
+│       └── UseCases/
+│           └── ValidateMesh/
+│               ├── ValidateMeshCommand.cs
+│               └── ValidateMeshUseCase.cs
+├── 3.Infrastructure/
+│   └── GeometryValidator.Infrastructure/
+│       ├── AiEngines/
+│       │   └── PyTorchInferenceAdapter.cs // Implementa IAiInferenceService
+│       └── Storage/
+│           └── AzureBlobStorageAdapter.cs // Implementa IMeshStorage
+└── 4.Presentation/
+    └── GeometryValidator.Api/
+        └── Controllers/
+            └── ValidationController.cs
+</code></pre>
+
+      <h3>2. Definiendo el Dominio (Incorruptible)</h3>
+      <p>Nuestra entidad no sabe nada de bases de datos ni de IA. Solo conoce las reglas puras del negocio.</p>
+      
+<pre><code>// Capa: Domain
+public class MeshModel
+{
+    public Guid Id { get; private set; }
+    public int VertexCount { get; private set; }
+    public int PolygonCount { get; private set; }
+    public bool IsWatertight { get; private set; }
+
+    public MeshModel(Guid id, int vertices, int polygons, bool isWatertight)
+    {
+        if (vertices &lt; 3) throw new InvalidGeometryException("Malla inválida: insuficientes vértices.");
+        
+        Id = id;
+        VertexCount = vertices;
+        PolygonCount = polygons;
+        IsWatertight = isWatertight;
+    }
+
+    public bool ExceedsComplexityThreshold(int maxPolygons) 
+        => PolygonCount > maxPolygons;
+}
+</code></pre>
+
+      <h3>3. El Caso de Uso (Orquestador)</h3>
+      <p>El Use Case controla el flujo. Pide la malla al almacenamiento, aplica las reglas de dominio, y luego utiliza el servicio de IA (a través de una abstracción) para buscar anomalías complejas.</p>
+
+<pre><code>// Capa: Application
+public class ValidateMeshUseCase 
+{
+    private readonly IMeshStorage _storage;
+    private readonly IAiInferenceService _aiInference;
+
+    public ValidateMeshUseCase(IMeshStorage storage, IAiInferenceService aiInference)
+    {
+        _storage = storage;
+        _aiInference = aiInference;
+    }
+
+    public async Task&lt;ValidationResult&gt; ExecuteAsync(ValidateMeshCommand command)
+    {
+        // 1. Recuperar el modelo 3D crudo
+        var rawMesh = await _storage.GetMeshAsync(command.MeshId);
+        
+        // 2. Construir la entidad de dominio (reglas de negocio básicas)
+        var meshEntity = new MeshModel(
+            command.MeshId, 
+            rawMesh.Vertices, 
+            rawMesh.Polygons, 
+            rawMesh.IsWatertight
+        );
+
+        // 3. Validación de negocio rápida
+        if (!meshEntity.IsWatertight)
+        {
+            return ValidationResult.Failed("El modelo debe ser cerrado (watertight).");
+        }
+
+        // 4. Delegar a la IA para detección de anomalías topológicas avanzadas
+        // Nótese que NO sabemos qué IA corre debajo. Solo confiamos en el contrato.
+        var aiReport = await _aiInference.DetectAnomaliesAsync(rawMesh.DataStream);
+
+        if (aiReport.HasCriticalErrors)
+        {
+            return ValidationResult.Failed($"IA detectó errores: {aiReport.Summary}");
+        }
+
+        return ValidationResult.Success();
+    }
+}
+</code></pre>
+
+      <h3>4. El Adaptador de Infraestructura</h3>
+      <p>Aquí es donde lidiamos con la volatilidad. Si OpenAI cambia su API, o si decidimos movernos a un modelo local hosteado con ONNX, <strong>solo tocamos este archivo</strong>.</p>
+
+<pre><code>// Capa: Infrastructure
+public class PyTorchInferenceAdapter : IAiInferenceService
+{
+    private readonly HttpClient _httpClient;
+    
+    public PyTorchInferenceAdapter(HttpClient httpClient)
+    {
+        _httpClient = httpClient;
+    }
+
+    public async Task&lt;AiReport&gt; DetectAnomaliesAsync(Stream meshData)
+    {
+        // Detalles sucios de implementación: serialización, multipart form, etc.
+        // La capa de aplicación es totalmente ajena a esto.
+        var content = new MultipartFormDataContent();
+        content.Add(new StreamContent(meshData), "file", "model.glb");
+
+        var response = await _httpClient.PostAsync("http://gpu-cluster:8000/predict", content);
+        response.EnsureSuccessStatusCode();
+
+        var result = await response.Content.ReadFromJsonAsync&lt;PyTorchResponseDto&gt;();
+        
+        // Mapeo del DTO de infraestructura al objeto de contrato de Application
+        return new AiReport(
+            HasCriticalErrors: result.ConfidenceScore &lt; 0.85,
+            Summary: result.Findings
+        );
+    }
+}
+</code></pre>
+
+      <h2>Beneficios Tangibles para tu Negocio</h2>
+      
+      <p>Adoptar esta arquitectura no es un mero ejercicio académico; tiene un impacto directo en el P&L (Profit and Loss) y en la velocidad de iteración de tu equipo.</p>
+
+      <ol>
+        <li><strong>Mantenibilidad y Tolerancia al Cambio (Vendor Agnostic):</strong> ¿El proveedor de inferencia 3D subió los precios un 300%? Cambiar a un modelo open-source interno implica escribir un nuevo <code>AiInferenceAdapter</code>. No tocas ni una sola línea de los Use Cases ni del Dominio. El riesgo de regresión es casi cero.</li>
+        <li><strong>Testabilidad Extrema:</strong> Al depender de interfaces, puedes mockear <code>IAiInferenceService</code> en tus Unit Tests. Puedes ejecutar miles de tests validando tus reglas de negocio en milisegundos, sin necesidad de levantar pesados contenedores Docker con GPUs.</li>
+        <li><strong>Escalabilidad Paralela:</strong> Con las dependencias claramente separadas, puedes escalar la capa de infraestructura (por ejemplo, desplegar múltiples réplicas del worker de IA) independientemente de la API de presentación. Los ingenieros de ML pueden trabajar en los adaptadores mientras los ingenieros de backend mejoran el core de negocio sin pisarse los pies.</li>
+        <li><strong>Seguridad y Preservación:</strong> Al establecer validaciones exhaustivas en el dominio, desconfiamos intrínsecamente del input del usuario y evitamos que geometrías corruptas envenenen nuestro almacenamiento o saturen el costoso procesamiento de IA.</li>
+      </ol>
+
       <h2>Conclusión</h2>
-      <p>Diseñar pensando en contratos estrictos (Interfaces en C#) nos permite inyectar cualquier modelo generativo mientras mantenemos la garantía de calidad al 100%.</p>
+      
+      <p>En el cruce entre la ingeniería de software tradicional y los sistemas modernos de inteligencia artificial generativa 3D, la <strong>arquitectura es tu única defensa contra el caos</strong>. Clean Architecture proporciona un mapa claro sobre cómo integrar herramientas complejas e inestables (como los motores de IA) en sistemas empresariales que requieren garantías deterministas de ejecución.</p>
+      
+      <p>No dejes que el "hype" de la IA destruya la calidad de tu base de código. Diseña contratos estrictos, protege tu dominio de negocio, y relega la infraestructura a los límites de tu sistema.</p>
+
+      <div class="blog-cta" id="lead-magnet">
+        <h3>🎁 Descarga el PDF: Clean Architecture para Sistemas 3D/IA</h3>
+        <p>Llévate el código fuente completo, un checklist de 5 pasos para auditar tu arquitectura y la guía de implementación sin vendor lock-in.</p>
+        <!-- FormSubmit action point. Reemplaza 'hello@naindev.com' por tu email real.
+             En el futuro, si usas Netlify o un serverless function, solo cambia el action y el method, el resto del HTML y tracking se mantiene. -->
+        <form id="lead-form" class="lead-magnet-form" action="https://formsubmit.co/hello@naindev.com" method="POST" onsubmit="window.plausible && window.plausible('Lead', {props: { resource: 'PDF Clean Architecture 3D' }});">
+          <!-- Configuración oculta de FormSubmit -->
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="Nuevo Lead B2B - PDF Clean Architecture 3D">
+          <input type="hidden" name="_autoresponse" value="¡Hola! Gracias por solicitar la guía.&#10;&#10;Aquí tienes el enlace directo para descargar tu PDF: https://naindev.com/assets/pdf/clean-architecture-3d.pdf&#10;&#10;Recuerda: Si la deuda técnica o el acoplamiento con modelos de IA están frenando a tu equipo, escalar será cada vez más caro. Cuando estés listo para diseñar una base sólida que elimine el 'vendor lock-in', puedes agendar tu auditoría arquitectónica gratuita en: https://calendly.com/aitornainmendozavallejo-ksez/30min&#10;&#10;Un saludo,&#10;Aitor Nain">
+          <input type="hidden" name="_template" value="table">
+          
+          <input type="email" name="email" placeholder="Tu correo profesional" required aria-label="Tu correo profesional" class="lead-magnet-input">
+          <button type="submit" class="button button-primary">Quiero la guía gratuita</button>
+        </form>
+        <p class="lead-magnet-disclaimer">Cero spam. Solo usamos tu email para enviarte el PDF y recursos de arquitectura B2B.</p>
+      </div>
+
     </article>
   </main>
 
-  <footer class="site-footer" style="margin-top: 4rem; border-top: 1px solid var(--color-line); padding: 2rem 0; text-align: center;">
+  <footer class="site-footer" style="margin-top: 4rem; border-top: 1px solid var(--color-line); padding: 3rem 0; text-align: center;">
     <div class="shell footer-layout">
-      <p class="footer-copy">© <span data-current-year>2026</span> Aitor Nain.</p>
+      <div style="margin-bottom: 1.5rem;">
+        <img src="/assets/images/logo_horizontal.png" alt="NainDev Logo" style="height: 30px; opacity: 0.8; filter: grayscale(100%);">
+      </div>
+      <p class="footer-copy">© <span data-current-year>2026</span> Aitor Nain. Arquitectura Backend & AI Systems.</p>
     </div>
   </footer>
+
+  <script src="/assets/js/site-interactions.js"></script>
 </body>
 </html>
