@@ -131,6 +131,7 @@ export function initializeEmailCopy({ button, emailLink, status }) {
     try {
       await navigator.clipboard.writeText(emailLink.textContent.trim());
       status.textContent = "Email copiado al portapapeles.";
+      window.plausible && window.plausible('Contact Intent', { props: { type: 'Copy Email' } });
     } catch {
       status.textContent = "No se ha podido copiar. Puedes abrir el enlace de email.";
     }

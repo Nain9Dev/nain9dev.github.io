@@ -33,6 +33,14 @@ export class CaseStudiesManager {
         }, { rootMargin: '200px' });
         observer.observe(this.container);
         initializeRevealMotion(this.container.querySelectorAll("[data-reveal]"));
+        this.container.querySelectorAll('.case-study-card').forEach(card => {
+          card.addEventListener('click', () => {
+            const titleElement = card.querySelector('.case-study-title');
+            if (titleElement) {
+              window.plausible && window.plausible('View Case Study', { props: { title: titleElement.textContent } });
+            }
+          });
+        });
       } else {
         console.warn('[CaseStudiesManager] Datos vacíos o no válidos. Usando fallback estático si existe.');
         // this.container.innerHTML = '<p class="notice">No se encontraron casos de estudio en este momento.</p>';
