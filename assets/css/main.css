@@ -377,53 +377,15 @@ h3 {
   text-decoration: none;
 }
 
-.brand-mark {
-  position: relative;
-  display: grid;
-  width: 2.35rem;
-  aspect-ratio: 1;
-  overflow: hidden;
-  place-items: center;
-  border: 1px solid rgba(120, 144, 255, 0.5);
-  border-radius: 0.72rem;
-  background: linear-gradient(145deg, rgba(120, 144, 255, 0.18), rgba(240, 164, 93, 0.08));
-  color: var(--color-primary-strong);
-  font-family: var(--font-mono);
-  transition: border-color 160ms ease, transform 160ms ease;
+.brand-logo {
+  height: clamp(45px, 6vh, 55px);
+  width: auto;
+  display: block;
+  transition: transform 160ms ease;
 }
 
-.brand:hover .brand-mark {
-  border-color: var(--color-secondary);
+.brand:hover .brand-logo {
   transform: translateY(-2px);
-}
-
-.brand-progress {
-  position: absolute;
-  right: 0.26rem;
-  bottom: 0.22rem;
-  left: 0.26rem;
-  width: calc(100% - 0.52rem);
-  height: 0.12rem;
-  overflow: hidden;
-  border: 0;
-  border-radius: 999px;
-  appearance: none;
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.brand-progress::-webkit-progress-bar {
-  border-radius: inherit;
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.brand-progress::-webkit-progress-value {
-  border-radius: inherit;
-  background: var(--color-secondary);
-}
-
-.brand-progress::-moz-progress-bar {
-  border-radius: inherit;
-  background: var(--color-secondary);
 }
 
 .primary-navigation {
