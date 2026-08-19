@@ -375,17 +375,21 @@ h3 {
   font-weight: 780;
   letter-spacing: -0.025em;
   text-decoration: none;
+  position: relative;
+  z-index: 100;
 }
 
 .brand-logo {
-  height: clamp(45px, 6vh, 55px);
+  height: clamp(3.2rem, 5vh, 4.2rem);
   width: auto;
   display: block;
-  transition: transform 160ms ease;
+  transition: transform 300ms var(--ease-spring), opacity 300ms ease;
+  will-change: transform;
 }
 
 .brand:hover .brand-logo {
-  transform: translateY(-2px);
+  transform: scale(1.05);
+  opacity: 0.95;
 }
 
 .primary-navigation {
