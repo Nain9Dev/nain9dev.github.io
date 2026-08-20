@@ -1793,3 +1793,24 @@ h3 {
     will-change: auto !important;
   }
 }
+
+/* LCP Optimization for 3D Hero */
+#hero-3d-canvas {
+  background: var(--color-surface, #1e293b);
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+#hero-3d-canvas.is-loaded {
+  opacity: 1;
+}
+
+/* UX Microinteractions */
+.case-study-card {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid var(--color-line);
+}
+.case-study-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -10px rgba(59, 130, 246, 0.15);
+  border-color: var(--color-primary-muted, #60a5fa);
+}

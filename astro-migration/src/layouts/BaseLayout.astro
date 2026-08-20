@@ -56,9 +56,28 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.nain
       document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
         link.addEventListener('click', () => window.plausible && window.plausible('Contacto', {props: { method: 'Email' }}));
       });
+      // 1. Tracking de Intención: Clics en Calendly
       document.querySelectorAll('a[href*="calendly.com"]').forEach(link => {
-        link.addEventListener('click', () => window.plausible && window.plausible('Lead_Book_Call'));
+        link.addEventListener('click', () => {
+          if (window.plausible) {
+            const sourceSection = link.closest('section')?.id || 'header';
+            window.plausible('Agendar Llamada', { props: { source: sourceSection } });
+          }
+        });
       });
+
+      // 2. Tracking de Engagement: Comandos en la Terminal
+      const terminalInput = document.getElementById('terminal-input');
+      if (terminalInput) {
+        terminalInput.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' && terminalInput.value.trim() !== '') {
+            const command = terminalInput.value.trim().split(' ')[0].toLowerCase();
+            if (window.plausible) {
+              window.plausible('Terminal Command', { props: { command: command } });
+            }
+          }
+        });
+      }
       document.querySelectorAll('a[href^="http"]').forEach(link => {
         if (!link.href.includes('naindev.com') && !link.href.includes('calendly.com')) {
           link.addEventListener('click', () => window.plausible && window.plausible('Outbound Link', {props: { url: link.href }}));

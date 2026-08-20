@@ -1,4 +1,4 @@
-export async function initializeThreeHero() {
+export function initializeThreeHero() {
   const canvas = document.getElementById('hero-3d-canvas');
   const heroSection = document.querySelector('.hero');
 
@@ -7,6 +7,29 @@ export async function initializeThreeHero() {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   if (prefersReducedMotion.matches) return;
 
+  const loadThreeAsync = () => {
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => setupScene(canvas, heroSection));
+    } else {
+      setTimeout(() => setupScene(canvas, heroSection), 100);
+    }
+  };
+
+  // Si ya estamos arriba o casi, cargamos en Idle. Si no, usamos IntersectionObserver.
+  if (window.scrollY < 200) {
+    loadThreeAsync();
+  } else {
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        observer.disconnect();
+        loadThreeAsync();
+      }
+    }, { threshold: 0.1 });
+    observer.observe(heroSection);
+  }
+}
+
+async function setupScene(canvas, heroSection) {
   let THREE;
   try {
     THREE = await import('https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.module.min.js');
@@ -141,7 +164,6 @@ export async function initializeThreeHero() {
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      // Se activa si supera el 50% de visibilidad (threshold: 0.5)
       if (entry.isIntersecting) {
         if (!isVisible) {
           isVisible = true;
@@ -171,5 +193,11 @@ export async function initializeThreeHero() {
         animate();
       }
     }
+  });
+
+  // Render initial frame and show canvas
+  requestAnimationFrame(() => {
+    renderer.render(scene, camera);
+    canvas.classList.add('is-loaded');
   });
 }
