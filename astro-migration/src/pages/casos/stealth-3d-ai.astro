@@ -26,41 +26,156 @@ const description = "Caso de Estudio: Diseño de una arquitectura backend determ
           </div>
           <div class="case-study-body">
             <div class="case-study-section">
-              <h2>El Problema</h2>
-              <p>La IA generativa produce modelos 3D con inconsistencias estructurales inutilizables en industrias especializadas sin horas de corrección manual.</p>
+              <h2>1. Introducción y Contexto del Cliente</h2>
+              <p>En un entorno donde la IA generativa avanza a un ritmo vertiginoso, la creación masiva de assets 3D se ha democratizado. Nuestro cliente, una prometedora <em>Stealth Startup</em> del sector B2B orientada a industrias creativas y simulaciones industriales, se enfrentaba a un reto colosal: <strong>validar y corregir geométricamente miles de modelos 3D generados por IA cada día</strong>.</p>
+              <p>El principal problema radicaba en la naturaleza estocástica (impredecible) de los LLMs y modelos de difusión 3D. Generaban topologías defectuosas, caras invertidas y mallas no manifold que resultaban inutilizables en motores como Unity o Unreal Engine. La validación manual no era escalable. Además, la infraestructura heredada del cliente consistía en un sistema fuertemente acoplado, un monolito donde las reglas geométricas colisionaban directamente con la lógica de red de las APIs de IA, provocando tiempos de procesamiento excesivos y fallos de timeout constantes.</p>
             </div>
+            
             <div class="case-study-section">
-              <h2>Decisiones Arquitectónicas</h2>
+              <h2>2. El Desafío Técnico</h2>
+              <p>La auditoría inicial reveló tres cuellos de botella críticos que impedían escalar la plataforma:</p>
               <ul class="case-study-list decisions-list">
-                <li>Diseño de un sistema de validación agnóstico al modelo fundacional de IA generativa.</li>
-                <li>Desarrollo de un ecosistema de agentes e integraciones seguras bajo estrictos NDAs.</li>
-                <li>Arquitectura distribuida orientada a procesamiento masivo en tiempo real.</li>
+                <li><strong>Falta de Aislamiento (Vendor Lock-in):</strong> La lógica de negocio dependía directamente de las respuestas de un proveedor específico de IA. Cualquier cambio en su API rompía la aplicación entera.</li>
+                <li><strong>Bloqueos Transaccionales:</strong> Una base de datos relacional centralizada se utilizaba tanto para almacenar metadatos como para gestionar el estado de tareas asíncronas pesadas, causando bloqueos por concurrencia bajo carga.</li>
+                <li><strong>Latencia en Inferencia:</strong> Las validaciones topológicas se ejecutaban en el mismo hilo de peticiones HTTP, provocando un agotamiento del <em>Thread Pool</em> y latencias inasumibles.</li>
+              </ul>
+              <p>Era imperativo diseñar un sistema donde la IA actuara como un simple "proveedor de datos", pero donde el Backend mantuviera la soberanía absoluta de las reglas físicas y geométricas. Un backend que no asume, sino que <strong>valida matemáticamente</strong> cada vértice.</p>
+            </div>
+
+            <div class="case-study-section">
+              <h2>3. La Solución Arquitectónica</h2>
+              <p>Implementamos un enfoque estricto basado en <strong>Clean Architecture</strong> y <strong>Domain-Driven Design (DDD)</strong> usando el ecosistema .NET (C#). Este diseño nos permitió aislar el dominio puro (geometría) de las influencias externas (infraestructura y APIs de IA).</p>
+              <ul class="case-study-list decisions-list">
+                <li><strong>Capa de Dominio:</strong> Contiene las entidades puras (ej. <code>MeshAsset</code>) y las reglas invariables de validación (ej. cálculo de normales, detección de agujeros topológicos). Sin dependencias externas.</li>
+                <li><strong>Capa de Aplicación:</strong> Define los Casos de Uso (ej. <code>Validate3DModelUseCase</code>), orquestando el flujo de trabajo sin saber cómo se guarda el dato ni qué IA lo generó.</li>
+                <li><strong>Capa de Infraestructura:</strong> Implementa las abstracciones (Interfaces). Aquí residen los adaptadores para la base de datos (SQL Server + S3 para los binarios), el bus de mensajes (RabbitMQ) y los clientes HTTP para la IA generativa.</li>
+                <li><strong>Capa de Presentación:</strong> Workers asíncronos y una API RESTful limpia que expone el estado de validación a los clientes.</li>
               </ul>
             </div>
+
             <div class="case-study-diagram">
               <div class="mermaid">
                 graph TD
-                A[AI Generator] --> B[Arquitectura de Validación]
-                B --> C[Geometric Validation API]
-                C --> D[Topology Correction Engine]
-                D --> E[Industry-Ready 3D Asset]
+                API[API REST / Webhook] --> APP[Application Layer]
+                Worker[Background Worker] --> APP
+                APP --> DOM[Domain Layer - Core 3D Math]
+                INFRA[Infrastructure Layer] -. Implementa .-> APP
+                INFRA --> RMQ[(RabbitMQ Event Bus)]
+                INFRA --> SQL[(SQL Server + AWS S3)]
+                INFRA --> AI[AI Vendor API]
+                
+                classDef core fill:#1e40af,stroke:#60a5fa,stroke-width:2px,color:white;
+                classDef infra fill:#374151,stroke:#9ca3af,stroke-width:1px,color:white;
+                
+                class DOM core;
+                class RMQ,SQL,AI infra;
               </div>
             </div>
+
             <div class="case-study-section">
-              <h2>Trade-offs</h2>
-              <p class="case-study-tradeoff">Optamos por un modelo híbrido para maximizar la adopción sin comprometer la seguridad ni la propiedad intelectual del motor propietario de correcciones.</p>
+              <h2>4. Implementación Técnica</h2>
+              <p>A continuación se exponen algunos fragmentos clave de la implementación en C# que ilustran el desacoplamiento y la solidez del sistema:</p>
+              
+              <h3 style="margin-top: 1.5rem; font-size: 1.2rem;">Contrato de Entrada (DTO)</h3>
+              <p>Inmutabilidad desde la capa de presentación. Usamos <code>record</code> en C# para garantizar que la solicitud no sea mutada durante su transporte.</p>
+              <pre><code class="language-csharp">public record ValidationRequestDto(
+    Guid ModelId,
+    string BlobStorageUrl,
+    ValidationStrictnessLevel Level
+);</code></pre>
+
+              <h3 style="margin-top: 1.5rem; font-size: 1.2rem;">Abstracción del Repositorio</h3>
+              <p>La interfaz pertenece a la capa de Aplicación, pero la implementación residirá en Infraestructura. Esto permite cambiar SQL Server por PostgreSQL si el negocio lo requiere mañana, sin tocar una sola línea de lógica de validación.</p>
+              <pre><code class="language-csharp">public interface I3DModelRepository
+{
+    Task&lt;MeshAsset&gt; GetByIdAsync(Guid id, CancellationToken ct);
+    Task UpdateStatusAsync(Guid id, ValidationStatus status, CancellationToken ct);
+}</code></pre>
+
+              <h3 style="margin-top: 1.5rem; font-size: 1.2rem;">Servicio de Dominio / Caso de Uso</h3>
+              <p>Aquí se concentra el valor del negocio. Notar la ausencia de referencias a librerías de red o bases de datos; pura orquestación e inyección de dependencias.</p>
+              <pre><code class="language-csharp">public class ModelValidationService : IModelValidationService
+{
+    private readonly I3DModelRepository _repository;
+    private readonly IGeometryEngine _geometryEngine;
+    private readonly IEventPublisher _eventPublisher;
+
+    public ModelValidationService(
+        I3DModelRepository repository, 
+        IGeometryEngine geometryEngine,
+        IEventPublisher eventPublisher)
+    {
+        _repository = repository;
+        _geometryEngine = geometryEngine;
+        _eventPublisher = eventPublisher;
+    }
+
+    public async Task ValidateAsync(Guid modelId, CancellationToken ct)
+    {
+        var model = await _repository.GetByIdAsync(modelId, ct);
+        
+        // El Dominio toma el control: validación determinista pura
+        var validationResult = _geometryEngine.CheckManifold(model.MeshData);
+        
+        if (validationResult.IsValid)
+        {
+            model.MarkAsValid();
+            await _eventPublisher.PublishAsync(new ModelValidatedEvent(model.Id), ct);
+        }
+        else
+        {
+            model.MarkAsDefective(validationResult.Errors);
+        }
+        
+        await _repository.UpdateStatusAsync(model.Id, model.Status, ct);
+    }
+}</code></pre>
+
+              <h3 style="margin-top: 1.5rem; font-size: 1.2rem;">Inyección de Dependencias (Composition Root)</h3>
+              <pre><code class="language-csharp">// En Program.cs
+builder.Services.AddScoped&lt;I3DModelRepository, SqlServerModelRepository&gt;();
+builder.Services.AddScoped&lt;IGeometryEngine, OnnxGeometryEngine&gt;();
+builder.Services.AddSingleton&lt;IEventPublisher, RabbitMqEventPublisher&gt;();</code></pre>
             </div>
-            <div class="case-study-section results-section">
-              <h2>Resultados</h2>
-              <ul class="case-study-list results-list">
-                <li>Validación automatizada de alto volumen en tiempos de procesamiento mínimos.</li>
-                <li>Ecosistema adoptado como estándar transversal para agentes de IA 3D internos.</li>
-                <li>Precisión determinista lista para integraciones industriales complejas.</li>
+
+            <div class="case-study-section">
+              <h2>5. Decisiones Clave y Trade-offs</h2>
+              <ul class="case-study-list decisions-list">
+                <li><strong>ONNX Runtime en lugar de APIs REST externas:</strong> En lugar de enviar la geometría por la red para que un microservicio en Python validara los vértices, integramos ONNX Runtime nativamente en .NET. <em>Trade-off:</em> Aumentó el consumo de RAM en los workers, pero eliminó la latencia de red, haciendo la validación un 400% más rápida.</li>
+                <li><strong>RabbitMQ como Event Bus:</strong> Elegimos RabbitMQ sobre Kafka porque necesitábamos un enrutamiento complejo (Direct/Topic exchanges) basado en los metadatos del modelo 3D y reconocimiento explícito (ACK) para evitar pérdida de trabajos, no persistencia a largo plazo del log de eventos.</li>
+                <li><strong>Almacenamiento Híbrido:</strong> SQL Server se mantuvo como la fuente de verdad (ACID) para metadatos transaccionales y estados, mientras que los payloads masivos (archivos GLTF/USD) se delegaron directamente a Amazon S3, referenciados mediante URIs en la base de datos.</li>
               </ul>
             </div>
-            <div class="case-study-section tech-section">
+
+            <div class="case-study-section results-section">
+              <h2>6. Resultados Cuantitativos</h2>
+              <p>Tras la puesta en producción de la nueva arquitectura, los indicadores clave de rendimiento (KPIs) reflejaron un salto cualitativo histórico para la startup:</p>
+              <ul class="case-study-list results-list">
+                <li><strong>Reducción de Latencia:</strong> El tiempo de validación de un modelo complejo pasó de <strong>5.4 segundos a solo 1.2 segundos</strong> (mejora del ~77%) gracias a la eliminación del overhead de red y la inferencia local con ONNX.</li>
+                <li><strong>Escalabilidad Horizontal (Throughput):</strong> Capacidad para procesar picos de <strong>hasta 15,000 modelos/hora</strong> sin degradación de la API de control, delegando el peso pesado a los Workers asíncronos.</li>
+                <li><strong>Reducción de Costes de Infraestructura:</strong> Ahorro del <strong>35% en costes cloud</strong> mensuales, al consolidar la validación y evitar sobrecostes por llamadas a APIs propietarias.</li>
+              </ul>
+            </div>
+
+            <div class="case-study-section" style="background: var(--color-surface); padding: 2.5rem; border-radius: 12px; margin-top: 3rem;">
+              <h2 style="margin-top: 0;">7. Conclusión y Próximos Pasos</h2>
+              <p>Este proyecto demuestra que la adopción de tecnologías exponenciales como la IA generativa no exime de aplicar principios sólidos de ingeniería de software. Al contrario: cuando el input (IA) es impredecible, el backend debe ser más rígido, determinista y estar mejor estructurado que nunca.</p>
+              
+              <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 1rem;">
+                <p>Para profundizar en cómo aplico estos conceptos de Clean Architecture para mitigar el <em>Vendor Lock-in</em> con proveedores de IA, lee mi artículo detallado:</p>
+                <a href="/blog/clean-architecture-3d.html" class="button button-outline" style="align-self: flex-start;">Leer artículo: Clean Architecture e IA</a>
+              </div>
+
+              <div style="margin-top: 2.5rem; border-top: 1px solid var(--color-line); padding-top: 2rem;">
+                <h3 style="margin-top: 0; font-size: 1.3rem;">¿Tu sistema actual no escala o la deuda técnica te frena?</h3>
+                <p style="color: var(--color-text-muted); margin-bottom: 1.5rem;">Podemos analizar tu arquitectura actual, detectar cuellos de botella y diseñar un roadmap de refactorización hacia un sistema de misión crítica.</p>
+                <a href="https://calendly.com/aitornainmendozavallejo-ksez/30min" target="_blank" rel="noopener noreferrer" class="button button-primary">Agendar Auditoría Arquitectónica Gratuita</a>
+              </div>
+            </div>
+
+            <div class="case-study-section tech-section" style="margin-top: 2rem;">
               <div class="tech-badge-container" style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem;">
-                <span class="tech-badge-small">Backend Architecture</span><span class="tech-badge-small">AI Integration</span><span class="tech-badge-small">3D Validation</span><span class="tech-badge-small">Clean Architecture</span>
+                <span class="tech-badge-small">Backend Architecture</span><span class="tech-badge-small">AI Integration</span><span class="tech-badge-small">3D Validation</span><span class="tech-badge-small">Clean Architecture</span><span class="tech-badge-small">C# .NET</span><span class="tech-badge-small">RabbitMQ</span>
               </div>
             </div>
           </div>

@@ -48,14 +48,19 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.nain
 
   <Footer />
 
-  <script type="module" src="/assets/js/app.js" is:inline></script>
+  <script>
+    import "../../public/assets/js/app.js";
+  </script>
   <script is:inline>
     document.addEventListener('DOMContentLoaded', () => {
       document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
         link.addEventListener('click', () => window.plausible && window.plausible('Contacto', {props: { method: 'Email' }}));
       });
+      document.querySelectorAll('a[href*="calendly.com"]').forEach(link => {
+        link.addEventListener('click', () => window.plausible && window.plausible('Lead_Book_Call'));
+      });
       document.querySelectorAll('a[href^="http"]').forEach(link => {
-        if (!link.href.includes('naindev.com')) {
+        if (!link.href.includes('naindev.com') && !link.href.includes('calendly.com')) {
           link.addEventListener('click', () => window.plausible && window.plausible('Outbound Link', {props: { url: link.href }}));
         }
       });

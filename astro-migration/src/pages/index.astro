@@ -99,7 +99,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <span class="prompt-text" aria-hidden="true">[aitor@naindev.com ~]$</span>
             <input type="text" id="terminal-input" class="terminal-input" role="textbox" aria-label="Línea de comandos de terminal" autocomplete="off" spellcheck="false">
           </div>
-          <script src="/assets/js/terminal.js" is:inline></script>
+          <script>
+            import "../../public/assets/js/terminal.js";
+          </script>
         </div>
       </div>
     </section>

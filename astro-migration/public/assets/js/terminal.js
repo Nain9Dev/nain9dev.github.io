@@ -239,7 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
       window.plausible && window.plausible('TerminalCommand', { props: { command: cmd, status: 'success' } });
       await printLine(commands[cmd]());
     } else {
-      window.plausible && window.plausible('TerminalCommand', { props: { command: cmdStr, status: 'failed' } });
+      window.plausible && window.plausible('TerminalCommand', { props: { command: cmdStr, status: 'error' } });
       await printLine(`Comando no encontrado: <span class="term-text-red">${cmd.replace(/</g, "&lt;")}</span>. Usa <span class="term-text-green">help</span>.`);
     }
   }

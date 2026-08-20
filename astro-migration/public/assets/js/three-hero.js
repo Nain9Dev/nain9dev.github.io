@@ -141,16 +141,22 @@ export async function initializeThreeHero() {
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
+      // Se activa si supera el 50% de visibilidad (threshold: 0.5)
       if (entry.isIntersecting) {
-        isVisible = true;
-        clock.start();
-        animate();
+        if (!isVisible) {
+          isVisible = true;
+          clock.start();
+          animate();
+        }
       } else {
         isVisible = false;
-        if (animationFrameId) cancelAnimationFrame(animationFrameId);
+        if (animationFrameId) {
+          cancelAnimationFrame(animationFrameId);
+          animationFrameId = null;
+        }
       }
     });
-  }, { rootMargin: '100px' });
+  }, { threshold: 0.5 });
   observer.observe(heroSection);
 
   document.addEventListener('visibilitychange', () => {

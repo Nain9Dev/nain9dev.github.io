@@ -828,6 +828,10 @@ h3 {
   gap: 1.25rem;
 }
 
+.project-grid {
+  min-height: clamp(400px, 50vh, 800px);
+}
+
 .card-grid-three {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
@@ -1501,6 +1505,7 @@ h3 {
   flex-direction: column;
   gap: 3rem;
   margin-top: 2rem;
+  min-height: clamp(120px, 20vh, 300px);
 }
 
 .tech-category-group {
@@ -1767,4 +1772,24 @@ h3 {
   border: 1px solid rgba(59, 130, 246, 0.2);
   border-radius: 9999px;
   white-space: nowrap;
+}
+
+/* ==========================================================================
+   Accesibilidad: prefers-reduced-motion
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Desactivar parallax effects */
+  [data-parallax="true"] {
+    transform: none !important;
+    will-change: auto !important;
+  }
 }
