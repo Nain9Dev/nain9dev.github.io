@@ -11,7 +11,9 @@ export default defineConfig({
   redirects: {
     '/casos/stealth-3d-ai.html': '/casos/stealth-3d-ai',
     '/casos/optimizacion-saas.html': '/casos/optimizacion-saas',
-    '/blog/clean-architecture-3d.html': '/blog/clean-architecture-3d'
+    '/blog/clean-architecture-3d.html': '/blog/clean-architecture-3d',
+    '/servicios/renovacion-web': '/servicios/arquitectura-frontend-alto-rendimiento',
+    '/servicios/renovacion-web.html': '/servicios/arquitectura-frontend-alto-rendimiento'
   },
   vite: {
     build: {
