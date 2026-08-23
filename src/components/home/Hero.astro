@@ -1,0 +1,75 @@
+---
+// Hero.astro
+---
+<section class="hero section" aria-labelledby="hero-title">
+  <canvas id="hero-3d-canvas" class="hero-3d-canvas canvas-placeholder" aria-hidden="true"></canvas>
+  <div class="shell hero-grid">
+    <div class="hero-copy" data-reveal>
+      <p class="eyebrow" data-parallax="true">Aitor Nain · Arquitecto Backend 3D & AI Systems</p>
+      <h1 id="hero-title" data-parallax="true" data-parallax-speed="0.2">Diseño la infraestructura que valida y procesa <span class="title-accent">modelos 3D a escala industrial.</span></h1>
+      <p class="hero-summary" data-parallax="true" data-parallax-speed="0.1">
+        Arquitectura backend para sistemas que no pueden fallar... ahora también para el mundo 3D. Ayudo a empresas a integrar IA generativa y procesar assets 3D mediante sistemas agénticos con absoluta precisión y determinismo.
+      </p>
+      <div class="button-group" aria-label="Acciones principales">
+        <a class="button button-primary"
+          href="https://calendly.com/aitornainmendozavallejo-ksez/30min" target="_blank" rel="noopener noreferrer">Agendar Auditoría Gratuita</a>
+        <a class="button button-secondary" href="/casos/stealth-3d-ai">Ver caso: Validación 3D</a>
+      </div>
+      <p class="availability">Disponibilidad inmediata para consultoría técnica y arquitecturas .NET de misión crítica.</p>
+      <a class="scroll-cue" href="#services">
+        <span>Explorar el portfolio</span>
+        <span aria-hidden="true">↓</span>
+      </a>
+    </div>
+
+    <aside class="hero-panel" aria-label="Mapa de capacidades técnicas" data-reveal>
+      <div class="panel-heading">
+        <p class="panel-label">Cómo conecto el backend</p>
+        <span class="panel-state">Disponible</span>
+      </div>
+      <div class="system-map">
+        <a class="system-node system-node-api" href="#services">
+          <span>01</span>
+          <strong>API</strong>
+          <small>Contratos y validación</small>
+        </a>
+        <a class="system-node system-node-domain" href="#method">
+          <span>02</span>
+          <strong>Lógica</strong>
+          <small>Reglas y casos de uso</small>
+        </a>
+        <a class="system-node system-node-data" href="#projects">
+          <span>03</span>
+          <strong>Datos</strong>
+          <small>SQL Server y consistencia</small>
+        </a>
+      </div>
+      <p class="panel-stack">C# · .NET · SQL Server · Arquitectura Agéntica</p>
+      <p class="panel-hint">Cada bloque te lleva a una evidencia relacionada.</p>
+    </aside>
+
+    <div class="trust-badges" aria-label="Validación de mercado" data-reveal>
+      <div class="badge">
+        <span class="badge-icon" aria-hidden="true">🧊</span>
+        <div class="badge-text">
+          <strong>+50M Modelos</strong>
+          <span>Validados en Producción</span>
+        </div>
+      </div>
+      <div class="badge">
+        <span class="badge-icon" aria-hidden="true">🛡️</span>
+        <div class="badge-text">
+          <strong>Sistemas Críticos</strong>
+          <span>Zero Downtime Architecture</span>
+        </div>
+      </div>
+      <div class="badge">
+        <span class="badge-icon" aria-hidden="true">🏭</span>
+        <div class="badge-text">
+          <strong>Sectores</strong>
+          <span>Automotriz & SaaS B2B</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

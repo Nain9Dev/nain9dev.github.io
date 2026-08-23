@@ -7,6 +7,14 @@ document.addEventListener('astro:page-load', () => {
   const terminal = document.querySelector('.terminal-wrapper');
   
   if (!input || !output || !terminal) return;
+  
+  // Accesibilidad: permitir a lectores de pantalla leer la salida
+  output.setAttribute('aria-live', 'polite');
+  output.setAttribute('role', 'log');
+  output.setAttribute('aria-relevant', 'additions');
+  
+  // Añadir placeholder inicial
+  input.placeholder = "Escribe 'help' para ver comandos...";
 
   let history = [];
   let historyIndex = -1;

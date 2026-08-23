@@ -1,0 +1,31 @@
+---
+// TechStack.astro
+import techStackData from '../../../public/assets/data/tech-stack.json';
+---
+<section class="section" id="tech-stack">
+  <div class="shell">
+    <div class="section-heading" data-reveal>
+      <div>
+        <p class="eyebrow">Skills</p>
+        <h2>Tech Stack</h2>
+      </div>
+      <p>Lenguajes, herramientas y plataformas que utilizo para construir arquitecturas robustas.</p>
+    </div>
+    
+    <div id="tech-stack-container" class="tech-stack-container">
+      {techStackData.categories.map(category => (
+        <div class="tech-category-group">
+          <h3 class="tech-category-title">{category.name}</h3>
+          <div class="tech-category">
+            {category.items.map(item => (
+              <div class="tech-badge" data-reveal>
+                <img src={item.icon} alt={`Icono de ${item.name}`} loading="lazy" class="tech-icon" />
+                <span class="tech-name">{item.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

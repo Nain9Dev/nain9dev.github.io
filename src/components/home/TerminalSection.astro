@@ -1,0 +1,29 @@
+---
+// TerminalSection.astro
+---
+<section class="terminal-section section section-accent" id="terminal" aria-labelledby="terminal-title">
+  <div class="shell">
+    <div class="section-heading" data-reveal>
+      <div>
+        <p class="eyebrow">Interactúa con mi perfil</p>
+        <h2 id="terminal-title">Terminal Profesional</h2>
+      </div>
+      <p>Prueba mi terminal interactiva. Escribe <code>help</code> para empezar.</p>
+    </div>
+    
+    <div class="terminal-wrapper" role="application" aria-label="Terminal interactiva">
+      <div class="terminal-header">
+        <span class="terminal-btn close" aria-hidden="true"></span>
+        <span class="terminal-btn min" aria-hidden="true"></span>
+        <span class="terminal-btn max" aria-hidden="true"></span>
+        <span class="terminal-title" aria-hidden="true">aitor@naindev: ~</span>
+      </div>
+      <div class="terminal-body" id="terminal-output" role="log" aria-live="polite"></div>
+      <div class="terminal-input-line">
+        <span class="prompt-text" aria-hidden="true">[aitor@naindev.com ~]$</span>
+        <input type="text" id="terminal-input" class="terminal-input" role="textbox" aria-label="Línea de comandos de terminal" autocomplete="off" spellcheck="false" placeholder="Escribe 'help' para ver comandos...">
+      </div>
+      <script is:inline src="/assets/js/terminal.js"></script>
+    </div>
+  </div>
+</section>

@@ -12,9 +12,29 @@ export async function getStaticPaths() {
 
 const { servicio } = Astro.props;
 const { Content } = await render(servicio);
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": servicio.data.title,
+  "description": servicio.data.description,
+  "provider": {
+    "@type": "Person",
+    "name": "Aitor Nain",
+    "url": Astro.site?.toString() || 'https://www.naindev.com'
+  },
+  "serviceType": servicio.data.techStack || [],
+  "offers": {
+    "@type": "Offer",
+    "availability": "https://schema.org/InStock",
+    "price": "0",
+    "priceCurrency": "EUR"
+  }
+};
 ---
 
-<BaseLayout title={servicio.data.title}>
+<BaseLayout title={servicio.data.title} description={servicio.data.description} keywords={servicio.data.keywords}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
   <article class="shell section" style="padding-top: 8rem;">
     <h1>{servicio.data.title}</h1>
     <Content />

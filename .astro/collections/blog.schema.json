@@ -43,6 +43,10 @@
           },
           "default": []
         },
+        "ogImage": {
+          "type": "string",
+          "default": "/assets/images/og-cover-v2.png"
+        },
         "draft": {
           "type": "boolean",
           "default": false

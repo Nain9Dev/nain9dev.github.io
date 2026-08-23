@@ -1,0 +1,36 @@
+---
+// ProjectsSection.astro
+---
+<section class="section section-muted" id="projects">
+  <div class="shell">
+    <div class="section-heading" data-reveal>
+      <div>
+        <p class="eyebrow">Portfolio</p>
+        <h2>Proyectos personales y demos</h2>
+      </div>
+      <p>Indico el estado real de cada proyecto para que sepas qué está terminado y qué sigue en desarrollo.</p>
+    </div>
+
+    <div class="project-toolbar" data-project-toolbar hidden>
+      <div class="filter-group" role="group" aria-label="Filtrar proyectos">
+        <button class="filter-button is-active" type="button" data-project-filter="all"
+          aria-pressed="true">Todos</button>
+        <button class="filter-button" type="button" data-project-filter="backend"
+          aria-pressed="false">Backend</button>
+        <button class="filter-button" type="button" data-project-filter="data" aria-pressed="false">Datos</button>
+        <button class="filter-button" type="button" data-project-filter="demo" aria-pressed="false">Demos</button>
+        <button class="filter-button" type="button" data-project-filter="3d" aria-pressed="false">3D</button>
+      </div>
+      <p class="project-count" data-project-count aria-live="polite"></p>
+    </div>
+
+    <div class="project-grid" data-project-list aria-live="polite" aria-busy="true">
+      <p class="loading-message">Cargando proyectos…</p>
+    </div>
+
+    <noscript>
+      <p class="notice">Activa JavaScript para cargar el catálogo. También puedes revisar el código directamente en
+        <a href="https://github.com/Nain9Dev">GitHub</a>.</p>
+    </noscript>
+  </div>
+</section>

@@ -3,6 +3,7 @@ title: "Clean Architecture aplicada a sistemas de validación 3D con IA"
 pubDate: 2026-08-19
 description: "¿Tus modelos de IA rompen la producción? Descubre cómo separar la lógica de negocio de la infraestructura usando C# y Clean Architecture. Incluye código."
 tags: ["C# .NET", "Arquitectura", "Clean Architecture", "Sistemas 3D / IA"]
+ogImage: "/assets/images/clean-architecture-3d-og.png"
 keywords: ["C# .NET", "Arquitectura", "Clean Architecture", "Sistemas 3D / IA"]
 ---
 
@@ -24,7 +25,7 @@ En mi experiencia auditando arquitecturas empresariales, he visto sistemas donde
 
 Para resolver esta crisis de acoplamiento, debemos aplicar los principios de **Clean Architecture** (propuestos por Robert C. Martin). El concepto central es la *Regla de Dependencia*: las dependencias del código fuente siempre deben apuntar hacia adentro, hacia las políticas de alto nivel (reglas de negocio).
 
-En el contexto de la validación 3D con IA, esto significa que nuestras reglas sobre qué constituye una malla "válida" no deben saber absolutamente nada sobre cómo se ejecuta la IA, de dónde vienen los datos, o qué framework web usamos para exponer el servicio.
+En el contexto de la validación 3D con IA (puedes ver un ejemplo de implementación en la [arquitectura backend para validación 3D en C#](/blog/validacion-3d-backend-csharp)), esto significa que nuestras reglas sobre qué constituye una malla "válida" no deben saber absolutamente nada sobre cómo se ejecuta la IA, de dónde vienen los datos, o qué framework web usamos para exponer el servicio.
 
 ### Las Cuatro Capas en nuestro Contexto
 - **Domain (Entities):** Contiene la definición pura de nuestros objetos de negocio. Una clase `MeshGeometry`, reglas sobre tolerancias de error, o estructuras de Vértices/Polígonos independientes de cualquier librería externa.
@@ -185,7 +186,7 @@ Adoptar esta arquitectura no es un mero ejercicio académico; tiene un impacto d
 
 1. **Mantenibilidad y Tolerancia al Cambio (Vendor Agnostic):** ¿El proveedor de inferencia 3D subió los precios un 300%? Cambiar a un modelo open-source interno implica escribir un nuevo `AiInferenceAdapter`. No tocas ni una sola línea de los Use Cases ni del Dominio. El riesgo de regresión es casi cero.
 2. **Testabilidad Extrema:** Al depender de interfaces, puedes mockear `IAiInferenceService` en tus Unit Tests. Puedes ejecutar miles de tests validando tus reglas de negocio en milisegundos, sin necesidad de levantar pesados contenedores Docker con GPUs.
-3. **Escalabilidad Paralela:** Con las dependencias claramente separadas, puedes escalar la capa de infraestructura (por ejemplo, desplegar múltiples réplicas del worker de IA) independientemente de la API de presentación. Los ingenieros de ML pueden trabajar en los adaptadores mientras los ingenieros de backend mejoran el core de negocio sin pisarse los pies.
+3. **Escalabilidad Paralela:** Con las dependencias claramente separadas, puedes escalar la capa de infraestructura (por ejemplo, desplegar múltiples réplicas del worker de IA o [sistemas de agentes IA en C#](/blog/arquitectura-agentes-ia-csharp)) independientemente de la API de presentación. Los ingenieros de ML pueden trabajar en los adaptadores mientras los ingenieros de backend mejoran el core de negocio sin pisarse los pies.
 4. **Seguridad y Preservación:** Al establecer validaciones exhaustivas en el dominio, desconfiamos intrínsecamente del input del usuario y evitamos que geometrías corruptas envenenen nuestro almacenamiento o saturen el costoso procesamiento de IA.
 
 ## Conclusión

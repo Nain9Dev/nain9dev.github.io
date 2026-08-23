@@ -9,6 +9,7 @@ const blog = defineCollection({
     pubDate: z.date(),
     tags: z.array(z.string()),
     keywords: z.array(z.string()).optional().default([]),
+    ogImage: z.string().optional().default('/assets/images/og-cover-v2.png'),
     draft: z.boolean().default(false),
     readingTime: z.string().optional(),
   })

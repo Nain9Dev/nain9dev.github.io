@@ -7,7 +7,6 @@ import { initializeCardTilt } from "./card-tilt.js";
 import { initializeScrollStorytelling } from "./scroll-storytelling.js";
 import { initializeParticles } from "./particles.js";
 import { initializeThreeHero, cleanupThreeHero } from "./three-hero.js";
-import { initTechStack } from "./tech-stack.js";
 import { CaseStudiesManager } from "./case-studies.js";
 import { ImpactMetricsManager } from "./impact-metrics.js";
 import {
@@ -64,8 +63,6 @@ function initApp() {
       addCleanup(cleanupThreeHero);
     }, 1000);
   }
-  
-  safeInit('TechStack', initTechStack);
   
   safeInit('CaseStudies', () => {
     caseStudiesManager = new CaseStudiesManager('case-studies-container');
