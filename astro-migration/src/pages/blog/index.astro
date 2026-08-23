@@ -4,7 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const posts = await getCollection('blog');
 // Sort by date (newest first)
-posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 const title = "Blog Técnico | Aitor Nain";
 const description = "Blog Técnico de Aitor Nain. Arquitectura Backend, IA Generativa y Sistemas 3D.";
@@ -20,11 +20,11 @@ const description = "Blog Técnico de Aitor Nain. Arquitectura Backend, IA Gener
     <div class="blog-grid">
       {posts.map((post) => (
         <article class="blog-card">
-          <time datetime={post.data.date.toISOString()} class="eyebrow">
-            {post.data.date.toLocaleDateString('es-ES', { day: 'numeric', month: 'short', year: 'numeric' })}
+          <time datetime={post.data.pubDate.toISOString()} class="eyebrow">
+            {post.data.pubDate.toLocaleDateString('es-ES', { day: 'numeric', month: 'short', year: 'numeric' })}
           </time>
           <h2><a href={`/blog/${post.id}`}>{post.data.title}</a></h2>
-          <p>{post.data.excerpt}</p>
+          <p>{post.data.description}</p>
           <ul class="tag-list">
             {post.data.tags.map(tag => (
               <li>{tag}</li>

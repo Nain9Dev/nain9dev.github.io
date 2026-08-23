@@ -31,6 +31,37 @@ Implementamos un enfoque estricto basado en **Clean Architecture** y **Domain-Dr
 - **Capa de Infraestructura:** Implementa las abstracciones (Interfaces). Aquí residen los adaptadores para la base de datos (SQL Server + S3 para los binarios), el bus de mensajes (RabbitMQ) y los clientes HTTP para la IA generativa.
 - **Capa de Presentación:** Workers asíncronos y una API RESTful limpia que expone el estado de validación a los clientes.
 
+### Diagrama de Arquitectura
+
+```mermaid
+C4Container
+    title Arquitectura de Validación 3D (Stealth)
+    
+    Person(client, "Cliente API/Worker", "Consume estado de validación")
+    
+    System_Boundary(b1, "Clean Architecture Backend (.NET)") {
+        Container(api, "API REST & Workers", "C# .NET", "Presentación")
+        Container(app, "Casos de Uso", "C# .NET", "Aplicación")
+        Container(domain, "Motor Geométrico", "C# .NET Puro", "Dominio - Validación estricta")
+        Container(infra, "Adaptadores", "C# .NET", "Infraestructura")
+    }
+    
+    SystemDb(db, "SQL Server", "Metadatos y Estados")
+    System(s3, "Amazon S3", "Almacenamiento de Mallas (GLTF/USD)")
+    SystemQueue(rmq, "RabbitMQ", "Event Bus")
+    System_Ext(ai, "IA Generativa", "Genera Modelos 3D")
+    
+    Rel(client, api, "Llama a", "HTTPS")
+    Rel(api, app, "Orquesta")
+    Rel(app, domain, "Valida invariantes con")
+    Rel(app, infra, "Usa interfaces de")
+    
+    Rel(infra, db, "Lee/Escribe")
+    Rel(infra, s3, "Descarga/Sube binarios")
+    Rel(infra, rmq, "Publica eventos")
+    Rel(infra, ai, "Obtiene modelos crudos")
+```
+
 ## 4. Implementación Técnica
 
 A continuación se exponen algunos fragmentos clave de la implementación en C# que ilustran el desacoplamiento y la solidez del sistema:

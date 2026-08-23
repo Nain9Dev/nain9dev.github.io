@@ -18,10 +18,15 @@ import {
 } from "./site-interactions.js";
 import { initializeScrollTracking } from "./scroll-tracking.js";
 
-const projectContainer = document.querySelector("[data-project-list]");
-const projectToolbar = document.querySelector("[data-project-toolbar]");
-const projectCount = document.querySelector("[data-project-count]");
-const yearElement = document.querySelector("[data-current-year]");
+let isAppInitialized = false;
+
+function initApp() {
+  console.log('[App] Inicializando app...');
+  isAppInitialized = true;
+  const projectContainer = document.querySelector("[data-project-list]");
+  const projectToolbar = document.querySelector("[data-project-toolbar]");
+  const projectCount = document.querySelector("[data-project-count]");
+  const yearElement = document.querySelector("[data-current-year]");
 
 function safeInit(name, initFn) {
   try {
@@ -35,11 +40,11 @@ safeInit('AmbientGlow', initializeAmbientGlow);
 safeInit('CardTilt', initializeCardTilt);
 safeInit('ScrollStory', initializeScrollStorytelling);
 safeInit('Particles', initializeParticles);
-const initThreeOnInteraction = () => {
-  safeInit('ThreeHero', initializeThreeHero);
-  ['scroll', 'click', 'touchstart', 'keydown'].forEach(evt => window.removeEventListener(evt, initThreeOnInteraction));
-};
-['scroll', 'click', 'touchstart', 'keydown'].forEach(evt => window.addEventListener(evt, initThreeOnInteraction, { once: true, passive: true }));
+if ('requestIdleCallback' in window) {
+  requestIdleCallback(() => safeInit('ThreeHero', initializeThreeHero));
+} else {
+  setTimeout(() => safeInit('ThreeHero', initializeThreeHero), 1000);
+}
 safeInit('TechStack', initTechStack);
 safeInit('CaseStudies', () => {
   console.log('[app.js] Inicializando CaseStudiesManager...');
@@ -52,35 +57,52 @@ safeInit('ImpactMetrics', () => {
 safeInit('ScrollTracking', initializeScrollTracking);
 initializeDemoModal(document);
 
-initializeHeaderState({
-  header: document.querySelector("[data-site-header]"),
-  progress: document.querySelector("[data-scroll-progress]")
+safeInit('HeaderState', () => {
+  initializeHeaderState({
+    header: document.querySelector("[data-site-header]"),
+    progress: document.querySelector("[data-scroll-progress]")
+  });
 });
-initializeSectionNavigation(document.querySelectorAll("[data-section-link]"));
-initializeRevealMotion(document.querySelectorAll("[data-reveal]"));
-initializeEmailCopy({
-  button: document.querySelector("[data-copy-email]"),
-  emailLink: document.querySelector(".contact-email"),
-  status: document.querySelector("[data-copy-status]")
+safeInit('SectionNav', () => initializeSectionNavigation(document.querySelectorAll("[data-section-link]")));
+safeInit('RevealMotion', () => initializeRevealMotion(document.querySelectorAll("[data-reveal]")));
+safeInit('EmailCopy', () => {
+  initializeEmailCopy({
+    button: document.querySelector("[data-copy-email]"),
+    emailLink: document.querySelector(".contact-email"),
+    status: document.querySelector("[data-copy-status]")
+  });
 });
 
 if (yearElement) {
   yearElement.textContent = String(new Date().getFullYear());
 }
 
-if (projectContainer) {
-  loadProjects("/assets/data/projects.json")
-    .then((projects) => {
-      renderProjects(projectContainer, projects);
-      initializeProjectFilters({
-        container: projectContainer,
-        count: projectCount,
-        toolbar: projectToolbar
+  if (projectContainer) {
+    loadProjects("/assets/data/projects.json")
+      .then((projects) => {
+        renderProjects(projectContainer, projects);
+        initializeProjectFilters({
+          container: projectContainer,
+          count: projectCount,
+          toolbar: projectToolbar
+        });
+        initializeRevealMotion(projectContainer.querySelectorAll("[data-reveal]"));
+      })
+      .catch((error) => {
+        console.error("Unable to render the project catalog.", error);
+        renderProjectError(projectContainer);
       });
-      initializeRevealMotion(projectContainer.querySelectorAll("[data-reveal]"));
-    })
-    .catch((error) => {
-      console.error("Unable to render the project catalog.", error);
-      renderProjectError(projectContainer);
-    });
+  }
 }
+
+// Ejecutar en primera carga (DOM ya listo gracias a type="module")
+if (!isAppInitialized) {
+  initApp();
+}
+
+// Escuchar navegaciones SPA
+document.addEventListener('astro:after-swap', () => {
+  console.log('[App] Navegación SPA detectada, reinicializando...');
+  isAppInitialized = false; // Reset para permitir reinicialización
+  initApp();
+});

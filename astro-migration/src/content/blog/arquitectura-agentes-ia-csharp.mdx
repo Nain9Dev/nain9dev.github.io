@@ -1,0 +1,77 @@
+---
+title: "Patrones de Arquitectura para Agentes de IA en C# y .NET"
+description: "Cómo construir ecosistemas agénticos deterministas e integrarlos en arquitecturas corporativas usando C#, .NET y principios de Clean Architecture."
+pubDate: 2026-08-20
+heroImage: "/assets/images/blog-ai-agents-csharp.jpg"
+tags: [".NET", "C#", "IA Generativa", "Arquitectura Agéntica", "Clean Architecture"]
+---
+
+La integración de Modelos de Lenguaje Grande (LLMs) ha revolucionado la industria, pero cuando pasamos de los prototipos Jupyter o scripts en Python al software empresarial, surgen problemas críticos: **determinismo, concurrencia y acoplamiento estructural**. 
+
+Escribir un wrapper sobre la API de OpenAI es fácil. Diseñar un ecosistema de agentes que tome decisiones, ejecute herramientas (tools) y acceda a bases de datos en producción sin comprometer la integridad del sistema, es un reto de ingeniería pura. En este artículo, expongo cómo orquestar arquitecturas agénticas en **.NET / C#** manteniéndolas escalables y robustas.
+
+## El Problema del Wrapper (Anti-Patrón)
+
+El error más común que cometen las empresas es tratar al LLM como el orquestador principal de su lógica de negocio.
+
+```csharp
+// ❌ ANTI-PATRÓN: Acoplamiento fuerte y nulo control
+public async Task<string> ExecuteBusinessLogic(string userInput) 
+{
+    var prompt = $"Eres un asistente. El usuario dice: {userInput}. Devuelve un JSON con los cambios a base de datos.";
+    var response = await _openAiClient.CompleteAsync(prompt);
+    
+    var data = JsonSerializer.Deserialize<MyEntity>(response);
+    _dbContext.Save(data); // Peligro inminente
+}
+```
+
+¿Qué pasa si el modelo alucina? ¿Qué pasa si cambia el proveedor de IA o te obligan a usar un modelo open-source on-premise (ej. LLaMA) por privacidad de datos? Tu lógica está completamente acoplada.
+
+## La Solución: Agentes en Clean Architecture
+
+En un ecosistema .NET bajo **Clean Architecture**, la IA es simplemente un "Adaptador" de entrada/salida (Infrastructure Layer), y los "Agentes" son Orquestadores (Application Layer) o Servicios de Dominio (Domain Layer) altamente encapsulados.
+
+### 1. El Cerebro (Core / Dominio) es Inmutable
+El dominio es determinista. Establece las reglas. La IA puede *proponer* cambios, pero no los ejecuta directamente. El dominio valida la propuesta de la IA mediante reglas geométricas o de negocio.
+
+### 2. Patrón Orchestrator / Worker Agent
+Podemos construir agentes con responsabilidades delimitadas (Multi-Agent Systems) en C# utilizando interfaces limpias:
+
+```csharp
+public interface IAgent
+{
+    Task<AgentResult> ExecuteAsync(AgentContext context, CancellationToken ct);
+}
+
+// Un agente especializado solo en extraer metadatos
+public class MetadataExtractorAgent : IAgent 
+{
+    private readonly ILLMService _llm; // Abstracción del proveedor (OpenAI, Anthropic, local)
+
+    public async Task<AgentResult> ExecuteAsync(AgentContext context, CancellationToken ct) 
+    {
+        // 1. Preparar Contexto Seguro
+        // 2. Invocar LLM de forma agnóstica
+        // 3. Serializar y validar output
+        return result;
+    }
+}
+```
+
+### 3. Tool Calling y Ejecución Confinada
+Cuando un agente de IA necesita invocar una herramienta (como consultar una API interna o leer un archivo 3D), la ejecución real ocurre en C#, no en la IA.
+
+Utilizando funciones asíncronas en C#, definimos herramientas que el modelo puede "solicitar", pero el framework de .NET las invoca de forma confinada (sandbox). Así podemos inyectar `ILogger`, `IDbContext` o aplicar `Rate Limiting` nativo usando `System.Threading.RateLimiting`.
+
+## Flujos Human-in-the-Loop y Event-Driven
+
+En operaciones críticas (ej. aprobar un diseño industrial que costará miles de euros), el agente de IA nunca tiene la última palabra.
+
+Arquitectónicamente, orquestamos estos flujos con mensajería (RabbitMQ / Azure Service Bus). El agente publica un evento `IAProposalCreatedEvent`. Un servicio lo recoge, prepara el contexto para un experto humano, y cuando el experto aprueba (en la UI), el evento de confirmación `ProposalApprovedEvent` finaliza la transacción.
+
+## Conclusión
+
+El mundo de los agentes de IA no tiene por qué ser el salvaje oeste. Al aplicar los principios S.O.L.I.D. y los patrones de diseño en C#, podemos transformar el caos probabilístico de los LLMs en un engranaje fiable dentro de sistemas críticos B2B.
+
+> ¿Tu sistema de IA o de validación de datos necesita una arquitectura a prueba de balas? Echa un vistazo a mis [servicios de integración IA generativa](/servicios/arquitectura-ia-generativa) o descarga la [Checklist de Arquitectura para Sistemas de IA](/recursos/checklist-ia) para auditar tu pipeline.

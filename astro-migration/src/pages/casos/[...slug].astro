@@ -1,0 +1,23 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const casos = await getCollection('casos');
+  return casos.map(caso => ({
+    params: { slug: caso.id },
+    props: { caso },
+  }));
+}
+
+const { caso } = Astro.props;
+const { Content } = await render(caso);
+---
+
+<BaseLayout title={caso.data.title}>
+  <article class="shell section" style="padding-top: 8rem;">
+    <p class="eyebrow">{caso.data.eyebrow}</p>
+    <h1>{caso.data.title}</h1>
+    <Content />
+  </article>
+</BaseLayout>

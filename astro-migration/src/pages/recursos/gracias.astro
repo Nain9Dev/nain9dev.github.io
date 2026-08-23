@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "Gracias por descargar el checklist | NainDev";
+const description = "Tu checklist de Arquitectura de IA está listo para descargar.";
+---
+
+<BaseLayout title={title} description={description}>
+  <!-- Bloqueo de indexación para motores de búsqueda (Lead Magnet privado) -->
+  <Fragment slot="head">
+    <meta name="robots" content="noindex, nofollow" />
+  </Fragment>
+
+  <main class="shell section" id="main-content">
+    <div class="case-study-card" style="box-shadow: none; border: none; background: transparent; padding: 0; max-width: 600px; margin: 0 auto; text-align: center;">
+      <div data-reveal>
+        <div style="font-size: 4rem; margin-bottom: 1rem;">🎉</div>
+        <h1 style="font-size: 2.5rem; margin-bottom: 1.5rem;">¡Gracias por tu interés!</h1>
+        <p style="font-size: 1.1rem; color: var(--color-text-muted); margin-bottom: 2rem;">
+          Tu checklist está listo. Utiliza esta guía para asegurar que tus integraciones de IA sean predecibles, seguras y escalables en producción.
+        </p>
+        
+        <a href="/recursos/checklist-ia.pdf" class="button button-primary" download style="display: inline-block; font-size: 1.1rem; padding: 1rem 2rem;">
+          ⬇️ Descargar Checklist (PDF)
+        </a>
+      </div>
+
+      <div data-reveal style="margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--color-line);">
+        <p class="eyebrow">Próximo Paso Recomendado</p>
+        <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">¿Quieres aplicar esto a tu proyecto?</h2>
+        <p style="color: var(--color-text-muted); margin-bottom: 2rem;">
+          La teoría es clara, pero la implementación suele estar llena de matices. Si necesitas una evaluación técnica de tu arquitectura actual o buscas escalar un sistema crítico, hablemos.
+        </p>
+        <a href="https://calendly.com/aitornainmendozavallejo-ksez/30min" target="_blank" rel="noopener noreferrer" class="button button-outline" data-calendly-track="thank-you-page">
+          Agendar Auditoría Arquitectónica (30 min)
+        </a>
+      </div>
+      
+      <div style="margin-top: 3rem;">
+        <a href="/" style="color: var(--color-text-muted); font-size: 0.9rem; text-decoration: none;">← Volver al inicio</a>
+      </div>
+    </div>
+  </main>
+</BaseLayout>

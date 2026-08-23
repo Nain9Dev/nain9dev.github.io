@@ -1,13 +1,17 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://naindev.com',
-  integrations: [sitemap()],
+  site: 'https://www.naindev.com',
+  output: 'static',
+  integrations: [sitemap(), mdx()],
   redirects: {
-    '/servicios/renovacion-web': '/servicios/auditoria-sistemas'
+    '/casos/stealth-3d-ai.html': '/casos/stealth-3d-ai',
+    '/casos/optimizacion-saas.html': '/casos/optimizacion-saas',
+    '/blog/clean-architecture-3d.html': '/blog/clean-architecture-3d'
   },
   vite: {
     build: {

@@ -1,7 +1,7 @@
 ---
 title: "Clean Architecture aplicada a sistemas de validación 3D con IA"
-date: 2026-08-19
-excerpt: "¿Tus modelos generados por IA están rompiendo la producción? Descubre cómo separar la lógica de negocio estricta de la infraestructura probabilística usando C# y Clean Architecture. Incluye código y framework paso a paso."
+pubDate: 2026-08-19
+description: "¿Tus modelos de IA rompen la producción? Descubre cómo separar la lógica de negocio de la infraestructura usando C# y Clean Architecture. Incluye código."
 tags: ["C# .NET", "Arquitectura", "Clean Architecture", "Sistemas 3D / IA"]
 ---
 

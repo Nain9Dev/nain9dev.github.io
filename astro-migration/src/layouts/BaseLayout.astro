@@ -1,4 +1,5 @@
 ---
+import { ClientRouter } from 'astro:transitions';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import SEO from '../components/SEO.astro';
@@ -35,6 +36,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.nain
   <script defer data-domain="naindev.com" src="https://plausible.io/js/script.js"></script>
   <script is:inline>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
   <title>{title}</title>
+  <meta name="theme-color" content="#030712" />
+
+    <!-- Pre-procesar animaciones para evitar FOUC -->
+    <script is:inline>
+      document.documentElement.classList.add("motion-ready");
+    </script>
+    
+    <!-- ClientRouter for ViewTransitions -->
+    <ClientRouter />
 
   <slot name="head" />
 </head>
@@ -48,39 +58,25 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.nain
 
   <Footer />
 
+  <script type="module" src="/assets/js/app.js"></script>
+
   <script>
-    import "../../public/assets/js/app.js";
+    import { initializeGlobalAnalytics, trackTerminalCommand } from "../utils/analytics.js";
+    
+    // Inicializar tracking global (Calendly)
+    initializeGlobalAnalytics();
+    
+    // Exponer función para que terminal.js (estático) pueda usarla
+    window.trackTerminalCommand = trackTerminalCommand;
   </script>
   <script is:inline>
-    document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('astro:page-load', () => {
       document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
         link.addEventListener('click', () => window.plausible && window.plausible('Contacto', {props: { method: 'Email' }}));
       });
-      // 1. Tracking de Intención: Clics en Calendly
-      document.querySelectorAll('a[href*="calendly.com"]').forEach(link => {
-        link.addEventListener('click', () => {
-          if (window.plausible) {
-            const sourceSection = link.closest('section')?.id || 'header';
-            window.plausible('Agendar Llamada', { props: { source: sourceSection } });
-          }
-        });
-      });
-
-      // 2. Tracking de Engagement: Comandos en la Terminal
-      const terminalInput = document.getElementById('terminal-input');
-      if (terminalInput) {
-        terminalInput.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' && terminalInput.value.trim() !== '') {
-            const command = terminalInput.value.trim().split(' ')[0].toLowerCase();
-            if (window.plausible) {
-              window.plausible('Terminal Command', { props: { command: command } });
-            }
-          }
-        });
-      }
       document.querySelectorAll('a[href^="http"]').forEach(link => {
         if (!link.href.includes('naindev.com') && !link.href.includes('calendly.com')) {
-          link.addEventListener('click', () => window.plausible && window.plausible('Outbound Link', {props: { url: link.href }}));
+           link.addEventListener('click', () => window.plausible && window.plausible('Outbound Link', {props: { url: link.href }}));
         }
       });
     });

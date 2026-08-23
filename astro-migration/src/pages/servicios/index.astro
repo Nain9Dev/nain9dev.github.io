@@ -1,0 +1,41 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// Obtener y ordenar los servicios
+const servicios = await getCollection('servicios');
+const sortedServicios = servicios.sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout title="Servicios de Arquitectura Backend 3D e IA | NainDev" description="Servicios especializados en arquitectura backend para integración de IA generativa, validación de modelos 3D a escala y sistemas críticos en .NET.">
+  <section class="section" style="padding-top: 8rem;">
+    <div class="shell">
+      <div class="section-heading" data-reveal>
+        <div>
+          <p class="eyebrow">Consultoría y Desarrollo</p>
+          <h1>Servicios de Ingeniería</h1>
+        </div>
+        <p>Soluciones arquitectónicas de alto nivel para problemas complejos. Ayudo a empresas B2B e industrias técnicas a escalar sus plataformas de forma segura y determinista.</p>
+      </div>
+
+      <div class="card-grid card-grid-three">
+        {sortedServicios.map((servicio, index) => (
+          <article class="service-card" data-reveal>
+            <span class="card-number" aria-hidden="true">0{index + 1}</span>
+            <h3>{servicio.data.title}</h3>
+            <p>{servicio.data.description}</p>
+            <a href={`/servicios/${servicio.id}`} class="button button-outline button-small" style="margin-top: 1.5rem;">
+              Ver detalles
+            </a>
+          </article>
+        ))}
+      </div>
+      
+      <div style="margin-top: 4rem; text-align: center;" data-reveal>
+        <a class="button button-primary" href="https://calendly.com/aitornainmendozavallejo-ksez/30min" target="_blank" rel="noopener noreferrer" data-calendly-track="servicios-index">
+          Agendar Auditoría Gratuita
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

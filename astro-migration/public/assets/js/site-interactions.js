@@ -44,7 +44,22 @@ export function initializeSectionNavigation(links) {
 
   const navigationLinks = [...links];
   const sections = navigationLinks
-    .map((link) => document.querySelector(link.getAttribute("href")))
+    .map((link) => {
+      try {
+        const href = link.getAttribute("href");
+        if (!href) return null;
+        
+        // Extraer solo la parte del ID (después del '#') para manejar '/#section' o 'https://.../#section'
+        const hashIndex = href.indexOf('#');
+        if (hashIndex !== -1) {
+          const id = href.substring(hashIndex + 1);
+          return id ? document.getElementById(id) : null;
+        }
+        return null;
+      } catch (e) {
+        return null;
+      }
+    })
     .filter(Boolean);
 
   function clearActiveSection() {
@@ -113,8 +128,19 @@ export function initializeRevealMotion(elements) {
     rootMargin: "0px 0px -8%",
     threshold: 0.12
   });
-
+  // Iniciar observación inmediatamente
   revealElements.forEach((element) => observer.observe(element));
+
+  // Fallback de seguridad: si después de 2 segundos algún elemento en el viewport no se ha mostrado, forzarlo.
+  setTimeout(() => {
+    revealElements.forEach((element) => {
+      const rect = element.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0 && !element.classList.contains("is-visible")) {
+        element.classList.add("is-visible");
+        observer.unobserve(element);
+      }
+    });
+  }, 2000);
 }
 
 export function initializeEmailCopy({ button, emailLink, status }) {
@@ -131,6 +157,7 @@ export function initializeEmailCopy({ button, emailLink, status }) {
     try {
       await navigator.clipboard.writeText(emailLink.textContent.trim());
       status.textContent = "Email copiado al portapapeles.";
+      window.plausible && window.plausible('Contact Intent', { props: { type: 'Copy Email' } });
     } catch {
       status.textContent = "No se ha podido copiar. Puedes abrir el enlace de email.";
     }

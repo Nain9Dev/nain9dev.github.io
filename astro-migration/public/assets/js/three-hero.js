@@ -1,4 +1,5 @@
-export function initializeThreeHero() {
+export async function initializeThreeHero() {
+  console.log('[ThreeHero] Iniciando initializeThreeHero...');
   const canvas = document.getElementById('hero-3d-canvas');
   const heroSection = document.querySelector('.hero');
 
@@ -7,37 +8,17 @@ export function initializeThreeHero() {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   if (prefersReducedMotion.matches) return;
 
-  const loadThreeAsync = () => {
-    if ('requestIdleCallback' in window) {
-      requestIdleCallback(() => setupScene(canvas, heroSection));
-    } else {
-      setTimeout(() => setupScene(canvas, heroSection), 100);
-    }
-  };
-
-  // Si ya estamos arriba o casi, cargamos en Idle. Si no, usamos IntersectionObserver.
-  if (window.scrollY < 200) {
-    loadThreeAsync();
-  } else {
-    const observer = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        observer.disconnect();
-        loadThreeAsync();
-      }
-    }, { threshold: 0.1 });
-    observer.observe(heroSection);
-  }
-}
-
-async function setupScene(canvas, heroSection) {
   let THREE;
   try {
+    console.log('[ThreeHero] Cargando Three.js desde CDN...');
     THREE = await import('https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.module.min.js');
+    console.log('[ThreeHero] Three.js cargado correctamente.');
   } catch (error) {
-    console.warn("[NainDev] No se pudo cargar Three.js (CSP o Red). El 3D hero se omite.");
+    console.error("[NainDev] No se pudo cargar Three.js (CSP o Red). El 3D hero se omite.", error);
     return;
   }
 
+  console.log('[ThreeHero] Configurando escena 3D...');
   let width = heroSection.clientWidth;
   let height = heroSection.clientHeight;
 
@@ -160,25 +141,26 @@ async function setupScene(canvas, heroSection) {
     
     camera.lookAt(scene.position);
     renderer.render(scene, camera);
+    
+    if (canvas.classList.contains('canvas-placeholder')) {
+      canvas.classList.remove('canvas-placeholder');
+      console.log('[ThreeHero] Placeholder ocultado tras renderizar');
+    }
   };
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        if (!isVisible) {
-          isVisible = true;
-          clock.start();
-          animate();
-        }
+        console.log('[ThreeHero] Sección visible, iniciando animación.');
+        isVisible = true;
+        clock.start();
+        animate();
       } else {
         isVisible = false;
-        if (animationFrameId) {
-          cancelAnimationFrame(animationFrameId);
-          animationFrameId = null;
-        }
+        if (animationFrameId) cancelAnimationFrame(animationFrameId);
       }
     });
-  }, { threshold: 0.5 });
+  }, { rootMargin: '100px' });
   observer.observe(heroSection);
 
   document.addEventListener('visibilitychange', () => {
@@ -193,11 +175,5 @@ async function setupScene(canvas, heroSection) {
         animate();
       }
     }
-  });
-
-  // Render initial frame and show canvas
-  requestAnimationFrame(() => {
-    renderer.render(scene, camera);
-    canvas.classList.add('is-loaded');
   });
 }

@@ -5,7 +5,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <BaseLayout>
   <main id="main-content">
     <section class="hero section" aria-labelledby="hero-title">
-      <canvas id="hero-3d-canvas" class="hero-3d-canvas" aria-hidden="true"></canvas>
+      <canvas id="hero-3d-canvas" class="hero-3d-canvas canvas-placeholder" aria-hidden="true"></canvas>
       <div class="shell hero-grid">
         <div class="hero-copy" data-reveal>
           <p class="eyebrow" data-parallax="true">Aitor Nain · Arquitecto Backend 3D & AI Systems</p>
@@ -16,7 +16,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           <div class="button-group" aria-label="Acciones principales">
             <a class="button button-primary"
               href="https://calendly.com/aitornainmendozavallejo-ksez/30min" target="_blank" rel="noopener noreferrer">Agendar Auditoría Gratuita</a>
-            <a class="button button-secondary" href="/casos/stealth-3d-ai.html">Ver caso: Validación 3D</a>
+            <a class="button button-secondary" href="/casos/stealth-3d-ai">Ver caso: Validación 3D</a>
           </div>
           <p class="availability">Disponibilidad inmediata para consultoría técnica y arquitecturas .NET de misión crítica.</p>
           <a class="scroll-cue" href="#services">
@@ -99,9 +99,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <span class="prompt-text" aria-hidden="true">[aitor@naindev.com ~]$</span>
             <input type="text" id="terminal-input" class="terminal-input" role="textbox" aria-label="Línea de comandos de terminal" autocomplete="off" spellcheck="false">
           </div>
-          <script>
-            import "../../public/assets/js/terminal.js";
-          </script>
+          <script is:inline src="/assets/js/terminal.js"></script>
         </div>
       </div>
     </section>
@@ -137,6 +135,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <li>Validación topológica y geométrica</li>
               <li>Procesado en tiempo real</li>
             </ul>
+            <a href="/servicios/validacion-3d" style="display:inline-block; margin-top: 1rem; color: var(--color-primary); text-decoration: none; font-weight: 600;">Saber más →</a>
           </article>
 
           <article class="service-card" data-reveal>
@@ -148,6 +147,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <li>Trustworthy AI y determinismo</li>
               <li>Flujos Human-in-the-loop</li>
             </ul>
+            <a href="/servicios/arquitectura-ia-generativa" style="display:inline-block; margin-top: 1rem; color: var(--color-primary); text-decoration: none; font-weight: 600;">Saber más →</a>
           </article>
 
           <article class="service-card" data-reveal>
@@ -159,6 +159,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <li>Bases de datos de alto rendimiento</li>
               <li>Control de concurrencia (ETag)</li>
             </ul>
+            <a href="/servicios/sistemas-criticos-dotnet" style="display:inline-block; margin-top: 1rem; color: var(--color-primary); text-decoration: none; font-weight: 600;">Saber más →</a>
           </article>
         </div>
       </div>
@@ -192,7 +193,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <p class="eyebrow">Experiencia Aplicada</p>
             <h2>Casos de Estudio de Arquitectura</h2>
           </div>
-          <p>Análisis en profundidad de decisiones arquitectónicas, trade-offs y resultados en proyectos críticos.</p>
+          <p>Análisis en profundidad de decisiones arquitectónicas, trade-offs y resultados en proyectos críticos. <a href="/casos" style="color: var(--color-primary); font-weight: 600; text-decoration: none;">Ver todos los casos →</a></p>
         </div>
         
         <div id="case-studies-container">
@@ -204,7 +205,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               </div>
               <div class="case-study-body" style="text-align: center; padding: 2rem 0;">
                 <p style="margin-bottom: 2rem; color: var(--color-text-muted);">Diseño de una arquitectura backend determinista para la validación de activos 3D generados por IA a escala industrial.</p>
-                <a href="/casos/stealth-3d-ai.html" class="button button-primary" style="display: inline-block;">Leer caso completo</a>
+                <a href="/casos/stealth-3d-ai" class="button button-primary" style="display: inline-block;">Leer caso completo</a>
               </div>
             </article>
           
@@ -215,7 +216,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               </div>
               <div class="case-study-body" style="text-align: center; padding: 2rem 0;">
                 <p style="margin-bottom: 2rem; color: var(--color-text-muted);">Optimización de rendimiento, sharding y escalabilidad horizontal para una plataforma SaaS crítica.</p>
-                <a href="/casos/optimizacion-saas.html" class="button button-primary" style="display: inline-block;">Leer caso completo</a>
+                <a href="/casos/optimizacion-saas" class="button button-primary" style="display: inline-block;">Leer caso completo</a>
               </div>
             </article>
           </div>
@@ -260,6 +261,49 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <p class="impact-metric-description">Migración de monolitos a Clean Architecture y Arquitectura Hexagonal.</p>
             </article>
           </div>
+
+          <div data-reveal style="margin-top: 4rem; padding: 3rem; background: var(--color-surface); border-radius: 12px; border: 1px solid var(--color-primary); text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+            <p class="eyebrow">Recurso Gratuito</p>
+            <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">¿Tu sistema de IA está listo para producción?</h3>
+            <p style="color: var(--color-text-muted); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">Descarga nuestra checklist de arquitectura para IA y evalúa si tus integraciones cumplen con los estándares de escalabilidad, seguridad y determinismo.</p>
+            <a href="/recursos/checklist-ia" class="button button-primary" data-calendly-track="home" style="font-size: 1.1rem; padding: 1rem 2rem; display: inline-block;">📥 Descargar Checklist de Arquitectura</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="testimonials">
+      <div class="shell">
+        <div class="section-heading" data-reveal>
+          <div>
+            <p class="eyebrow">Confianza</p>
+            <h2>Lo que dicen de mi trabajo</h2>
+          </div>
+          <p>La discreción es clave en mis proyectos. Estos son algunos resultados compartidos por clientes.</p>
+        </div>
+
+        <div class="card-grid card-grid-two">
+          <article class="service-card" data-reveal data-calendly-track="testimonios">
+            <p style="font-style: italic; font-size: 1.1rem; margin-bottom: 1.5rem;">"Aitor reescribió nuestro pipeline de validación 3D en C# y redujo el tiempo de procesamiento en un 85%. Su dominio de Clean Architecture y rendimiento es excepcional."</p>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--color-surface-strong); display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--color-primary);">T</div>
+              <div>
+                <p style="margin: 0; font-weight: 600;">Technical Lead</p>
+                <p style="margin: 0; font-size: 0.9rem; color: var(--color-text-muted);">Stealth 3D/AI Startup</p>
+              </div>
+            </div>
+          </article>
+          
+          <article class="service-card" data-reveal data-calendly-track="testimonios">
+            <p style="font-style: italic; font-size: 1.1rem; margin-bottom: 1.5rem;">"Gracias a su consultoría, logramos migrar nuestro monolito a una arquitectura distribuida sin tiempo de inactividad. Un socio técnico de absoluta confianza."</p>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+              <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--color-surface-strong); display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--color-primary);">C</div>
+              <div>
+                <p style="margin: 0; font-weight: 600;">CTO</p>
+                <p style="margin: 0; font-size: 0.9rem; color: var(--color-text-muted);">SaaS B2B</p>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -341,7 +385,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <div class="method-cta" style="margin-top: 4rem; text-align: center; background: var(--color-surface); padding: 2.5rem; border-radius: 12px; border: 1px solid var(--color-line);" data-reveal>
           <h3 style="margin-top: 0; font-size: 1.4rem;">¿Quieres ver cómo aplico esta metodología a gran escala?</h3>
           <p style="color: var(--color-text-muted); margin-bottom: 1.5rem;">He documentado cómo resolvimos el problema del vendor lock-in y la escalabilidad usando Clean Architecture y C#.</p>
-          <a href="/blog/clean-architecture-3d.html" class="button button-primary">Leer el artículo técnico</a>
+          <a href="/blog/clean-architecture-3d" class="button button-primary">Leer el artículo técnico</a>
         </div>
       </div>
     </section>

@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "Checklist de Arquitectura para Sistemas de IA en Producción | NainDev";
+const description = "Asegura que tu sistema de IA cumpla con los estándares de calidad, escalabilidad y seguridad. Descarga esta guía práctica y evalúa tu arquitectura en 10 pasos.";
+---
+
+<BaseLayout title={title} description={description}>
+  <main class="shell section" id="main-content">
+    <div class="case-study-card" style="box-shadow: none; border: none; background: transparent; padding: 0; max-width: 800px; margin: 0 auto;">
+      <div class="section-heading" data-reveal style="text-align: center;">
+        <p class="eyebrow">Lead Magnet Técnico</p>
+        <h1 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Checklist de Arquitectura para Sistemas de IA en Producción</h1>
+        <p style="font-size: 1.1rem; color: var(--color-text-muted);">Asegura que tu sistema de IA cumpla con los estándares de calidad, escalabilidad y seguridad. Descarga esta guía práctica y evalúa tu arquitectura en 10 pasos.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3rem;" class="checklist-layout">
+        
+        <!-- Beneficios -->
+        <div data-reveal>
+          <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem;">¿Qué incluye este Checklist?</h2>
+          <ul class="case-study-list" style="margin-left: 0; list-style: none;">
+            <li style="margin-bottom: 1rem; position: relative; padding-left: 1.5rem;">
+              <span style="position: absolute; left: 0; color: var(--color-primary);">✓</span>
+              Arquitectura por capas (Clean/Hexagonal)
+            </li>
+            <li style="margin-bottom: 1rem; position: relative; padding-left: 1.5rem;">
+              <span style="position: absolute; left: 0; color: var(--color-primary);">✓</span>
+              Manejo de incertidumbre (Estocasticidad de LLMs)
+            </li>
+            <li style="margin-bottom: 1rem; position: relative; padding-left: 1.5rem;">
+              <span style="position: absolute; left: 0; color: var(--color-primary);">✓</span>
+              Monitorización y observabilidad
+            </li>
+            <li style="margin-bottom: 1rem; position: relative; padding-left: 1.5rem;">
+              <span style="position: absolute; left: 0; color: var(--color-primary);">✓</span>
+              Pruebas de carga y resiliencia
+            </li>
+            <li style="margin-bottom: 1rem; position: relative; padding-left: 1.5rem;">
+              <span style="position: absolute; left: 0; color: var(--color-primary);">✓</span>
+              Seguridad y manejo de datos sensibles
+            </li>
+            <li style="margin-bottom: 1rem; position: relative; padding-left: 1.5rem;">
+              <span style="position: absolute; left: 0; color: var(--color-primary);">✓</span>
+              Despliegue continuo y versionado de modelos
+            </li>
+          </ul>
+          
+          <blockquote style="border-left: 3px solid var(--color-primary); padding-left: 1.5rem; margin-top: 2rem; font-style: italic; color: var(--color-text-muted);">
+            "La diferencia entre un prototipo de IA y un sistema de misión crítica radica en los cimientos de su arquitectura. Este checklist es el mapa."
+          </blockquote>
+        </div>
+
+        <!-- Formulario MailerLite -->
+        <div class="form-container" data-reveal style="background: var(--color-surface); padding: 2rem; border-radius: 12px; border: 1px solid var(--color-line);">
+          <h3 style="margin-top: 0; margin-bottom: 1.5rem; font-size: 1.3rem;">Descarga Inmediata</h3>
+          
+          <!-- INICIO CÓDIGO MAILERLITE -->
+          <!-- Pega aquí el código HTML/JS que te proporciona MailerLite al crear el formulario embebido -->
+          <div id="mlb2-XXXXXXX" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-XXXXXXX">
+            <div class="ml-form-align-center">
+              <div class="ml-form-embedWrapper embedForm">
+                <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+                  <div class="ml-form-embedContent" style="margin-bottom: 1.5rem;">
+                    <p style="color: var(--color-text-muted);">Completa tus datos para recibir el checklist en tu bandeja de entrada.</p>
+                  </div>
+                  <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/xxx/forms/xxx/subscribe" data-code="xxxx" method="post" target="_blank" data-plausible-form="Lead_Magnet_Download">
+                    <!-- Los campos del formulario de MailerLite se inyectan aquí -->
+                    <p style="color: var(--color-primary); font-style: italic;">[El formulario de MailerLite se cargará aquí]</p>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- FIN CÓDIGO MAILERLITE -->
+
+          <p style="margin-top: 1.5rem; font-size: 0.8rem; color: var(--color-text-muted); text-align: center;">
+            Al suscribirte aceptas nuestra <a href="/privacidad" style="color: var(--color-primary);">política de privacidad</a>. Prometo no enviar spam.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <style>
+    @media (max-width: 768px) {
+      .checklist-layout {
+        grid-template-columns: 1fr !important;
+      }
+    }
+  </style>
+
+  <script is:inline>
+    // Con MailerLite integrado nativamente, usamos su callback de éxito para trackear el evento en Plausible
+    document.addEventListener('astro:page-load', () => {
+      // --- LÓGICA A/B TESTING ---
+      const urlParams = new URLSearchParams(window.location.search);
+      const variant = urlParams.get('variant') || 'a';
+      
+      if (variant === 'b') {
+        const ctaTitle = document.querySelector('.form-container h3');
+        if (ctaTitle) ctaTitle.textContent = "Obtener mi Checklist Gratuito";
+        
+        // Trackear visualización de la variante
+        if (window.plausible) {
+          window.plausible('AB_Test_View', { props: { variant: 'B_Obtener' } });
+        }
+      } else {
+        if (window.plausible) {
+          window.plausible('AB_Test_View', { props: { variant: 'A_Descargar' } });
+        }
+      }
+      // --------------------------
+
+      // Evento global proporcionado por MailerLite cuando un usuario se suscribe con éxito
+      window.ml_webform_success = function() {
+        if (window.plausible) {
+          window.plausible('Lead_Magnet_Download', { props: { source: 'checklist', variant: variant } });
+        }
+        // Redirigir a página de gracias si MailerLite no lo hace por defecto
+        window.location.href = '/recursos/gracias';
+      };
+    });
+  </script>
+</BaseLayout>

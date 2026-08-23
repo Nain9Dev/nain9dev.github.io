@@ -1,7 +1,7 @@
 ---
 title: "Control de Concurrencia Optimista en Sistemas Distribuidos para Validación 3D con IA"
-date: 2026-08-19
-excerpt: "Descubre por qué los bloqueos de base de datos están hundiendo el rendimiento de tus pipelines de IA 3D. Aprende a implementar Control de Concurrencia Optimista en C# para multiplicar la capacidad de procesamiento sin comprometer la integridad de los datos."
+pubDate: 2026-08-19
+description: "Evita los bloqueos de base de datos en tus pipelines de IA 3D. Aprende a implementar Control de Concurrencia Optimista en C# para multiplicar la capacidad."
 tags: ["C# .NET", "Sistemas Distribuidos", "Arquitectura Backend", "IA Generativa"]
 ---
 

@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const casos = await getCollection('casos');
+const sortedCasos = casos.sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout 
+  title="Casos de Estudio de Arquitectura | NainDev" 
+  description="Análisis en profundidad de decisiones arquitectónicas, trade-offs y resultados en proyectos críticos y sistemas 3D/IA.">
+  <main class="shell section" id="main-content">
+    <div class="section-heading" data-reveal>
+      <div>
+        <p class="eyebrow">Experiencia Aplicada</p>
+        <h1>Casos de Estudio</h1>
+      </div>
+      <p>Análisis en profundidad de decisiones arquitectónicas, trade-offs y resultados en proyectos críticos.</p>
+    </div>
+
+    <div class="case-studies-grid">
+      {sortedCasos.map(caso => (
+        <article class="case-study-card" data-reveal>
+          <div class="case-study-header">
+            <p class="case-study-eyebrow">{caso.data.eyebrow}</p>
+            <h3 class="case-study-title">{caso.data.title}</h3>
+          </div>
+          <div class="case-study-body" style="padding: 2rem 0; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <p style="margin-bottom: 1.5rem; color: var(--color-text-muted);">{caso.data.description}</p>
+              {caso.data.techStack && (
+                <ul style="display: flex; gap: 0.5rem; flex-wrap: wrap; list-style: none; padding: 0; margin-bottom: 2rem;">
+                  {caso.data.techStack.map(tech => (
+                    <li style="font-size: 0.8rem; background: rgba(255,255,255,0.05); border: 1px solid var(--color-line); padding: 0.2rem 0.6rem; border-radius: 4px; color: var(--color-primary-strong); font-family: var(--font-mono);">{tech}</li>
+                  ))}
+                </ul>
+              )}
+            </div>
+            <div style="text-align: center;">
+              <a href={`/casos/${caso.id}`} class="button button-primary" style="display: inline-block;">Leer caso completo</a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </main>
+</BaseLayout>
