@@ -1,0 +1,44 @@
+---
+title: "Optimización Extrema de Rendimiento en APIs REST .NET"
+description: "Servicio de auditoría, perfilado y resolución de cuellos de botella en APIs de alta concurrencia construidas en C# y .NET."
+keywords: 
+  - "optimización de rendimiento"
+  - "APIs REST"
+  - ".NET"
+  - "alta concurrencia"
+  - "cuellos de botella"
+icon: "zap"
+techStack: 
+  - "C#"
+  - ".NET 8"
+  - "Redis"
+  - "Entity Framework"
+order: 14
+---
+
+## El Problema: APIs que Colapsan bajo Presión
+
+Cuando una plataforma SaaS B2B experimenta un crecimiento rápido, las consultas a la base de datos que antes tardaban milisegundos comienzan a generar *timeouts*. 
+
+Picos de CPU injustificados, fugas de memoria (Memory Leaks), *Thread Pool Starvation* o bloqueos (Locks) en Entity Framework. Estos problemas silenciosos destruyen la experiencia de los usuarios, generan caídas de servicio (Downtime) y disparan exponencialmente la factura del hosting cloud al intentar solucionarlo comprando hardware más caro (Escalado Vertical ineficiente).
+
+## Mi Solución: Auditoría y Refactorización a Nivel de Memoria y CPU
+
+Como arquitecto especializado en C#, no me conformo con añadir más servidores. Realizo un perfilado (Profiling) exhaustivo de la aplicación para identificar la línea exacta de código o la *query* de SQL Server que está destruyendo el rendimiento.
+
+Aplicamos optimizaciones quirúrgicas utilizando técnicas avanzadas de la plataforma .NET: desde reducir las asignaciones de memoria en el *Garbage Collector* mediante `Span<T>`, hasta rediseñar el acceso a datos con cachés distribuidas ultra-rápidas y asincronía real, llevando la latencia de vuelta a límites tolerables sin inflar los costes operativos.
+
+### Enfoque Técnico
+- **Asincronía Real y Paralelismo:** Eliminación de bloqueos síncronos (`.Result`, `.Wait()`) y optimización del *Thread Pool* para maximizar la concurrencia.
+- **Optimización de Acceso a Datos (ORM):** Refactorización de consultas N+1 en Entity Framework Core, implementación de índices correctos en SQL y, cuando es necesario, el uso de Dapper para *queries* críticas de lectura masiva.
+- **Estrategias Avanzadas de Caché:** Implementación de Redis para datos calientes, invalidación por eventos y *Output Caching* a nivel de middleware HTTP.
+
+## Casos de Uso
+1. **Auditoría de Rescate (Rescue Audit):** Intervención de urgencia en un sistema .NET en producción que experimenta caídas por saturación, identificando la raíz del problema mediante herramientas de diagnóstico (dotnet-dump, dotTrace).
+2. **Refactorización FinOps:** Reducción drástica del uso de recursos en una API de misión crítica, permitiendo a la empresa hacer un *downgrade* de los servidores cloud y ahorrar miles de euros mensuales.
+
+## Siguientes Pasos
+
+No intentes tapar un mal código comprando servidores más grandes. La escalabilidad infinita nace de un código eficiente.
+
+Si tus APIs sufren lentitud o tu infraestructura cuesta más de lo que debería, **[agenda una sesión de diagnóstico](https://calendly.com/aitornainmendozavallejo-ksez/30min)** o comienza analizando tu base técnica con el [Checklist de Arquitectura Gratuito](/recursos/checklist-ia).

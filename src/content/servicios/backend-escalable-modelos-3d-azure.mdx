@@ -1,0 +1,44 @@
+---
+title: "Backend Escalable para Procesamiento de Modelos 3D en Azure"
+description: "Diseño y desarrollo de arquitecturas backend en .NET para procesamiento masivo, optimización y validación de mallas 3D utilizando infraestructura de Azure."
+keywords: 
+  - "backend escalable"
+  - "procesamiento 3D"
+  - "Azure"
+  - "arquitectura .NET"
+  - "mallas 3D"
+icon: "cube"
+techStack: 
+  - "C#"
+  - ".NET 8"
+  - "Azure Batch"
+  - "Azure Blob Storage"
+order: 10
+---
+
+## El Problema: El Cuello de Botella del Procesamiento 3D
+
+Para las empresas que manejan catálogos masivos de modelos 3D (e-commerce, manufactura, gemelos digitales), el procesamiento geométrico tradicional en servidores monolíticos se convierte rápidamente en un cuello de botella. 
+
+Decodificar, simplificar (decimation) y validar archivos `.gltf` o `.obj` consume recursos intensivos de CPU y memoria. Si la arquitectura no está diseñada para escalar horizontalmente, el sistema colapsará bajo picos de demanda, provocando tiempos de espera inaceptables y bloqueando los flujos de trabajo críticos del negocio.
+
+## Mi Solución: Infraestructura Elástica en Azure
+
+Diseño arquitecturas backend altamente concurrentes y resilientes en **.NET 8** y **Azure** que desacoplan la ingesta de los archivos de su procesamiento matemático pesado.
+
+En lugar de bloquear las APIs REST, orquestamos trabajadores en *background* y colas de mensajes distribuidas, garantizando que el sistema sea capaz de absorber picos masivos de carga (decenas de miles de modelos 3D simultáneos) escalando los nodos bajo demanda y apagándolos para reducir costes (FinOps).
+
+### Enfoque Técnico
+- **Procesamiento Asíncrono:** Uso de Event Driven Architecture (Azure Service Bus) para encolar tareas de geometría pesada sin afectar la latencia del API.
+- **Escalado Horizontal:** Implementación de Workers (Azure Container Apps / Azure Batch) que escalan de 0 a 100 réplicas según la longitud de la cola de procesamiento 3D.
+- **Almacenamiento Eficiente:** Streams optimizados y subidas multipartes directas a Azure Blob Storage mediante SAS tokens (Zero-Trust) para evadir límites de RAM.
+
+## Casos de Uso
+1. **Validación Automática de Mallas:** Revisión automática de geometría, *watertightness* e intersecciones en plataformas SaaS B2B, rechazando modelos corruptos sin intervención humana.
+2. **Pipelines de Conversión 3D:** Transformación masiva de formatos pesados (STEP/IGES) a formatos web-optimizados (GLB/glTF) para renderizado rápido en visores WebGL o Three.js.
+
+## Siguientes Pasos
+
+Si tu infraestructura actual se asfixia al procesar modelos 3D o los costes de servidores ociosos están destruyendo tus márgenes, hablemos. 
+
+Analizaremos tu flujo actual y diseñaremos un backend robusto capaz de absorber cualquier carga. **[Agenda una consulta de 30 minutos](https://calendly.com/aitornainmendozavallejo-ksez/30min)** o descarga el [Checklist de Arquitectura](/recursos/checklist-ia) para comenzar a auditar tu sistema hoy mismo.

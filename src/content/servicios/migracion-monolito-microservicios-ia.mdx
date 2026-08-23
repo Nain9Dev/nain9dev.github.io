@@ -1,0 +1,44 @@
+---
+title: "Migración de Monolitos a Microservicios Orientados a IA en C#"
+description: "Servicio de refactorización profunda y migración arquitectónica: de sistemas monolíticos legacy (SQL/C#) a ecosistemas distribuidos listos para IA."
+keywords: 
+  - "migración monolito"
+  - "microservicios C#"
+  - "refactorización backend"
+  - ".NET"
+  - "modernización"
+icon: "server"
+techStack: 
+  - "C#"
+  - ".NET"
+  - "Clean Architecture"
+  - "Docker"
+order: 13
+---
+
+## El Problema: El Código 'Legacy' y la Deuda Técnica
+
+Integrar funcionalidades modernas (como Inteligencia Artificial, procesamiento 3D o escalado masivo) en un backend monolítico con años de antigüedad es una tarea de alto riesgo. 
+
+Cuando la lógica de negocio, el acceso a datos y la interfaz están fuertemente acoplados (código espagueti), cualquier cambio menor genera efectos secundarios catastróficos. La deuda técnica paraliza a los equipos de desarrollo, frena la innovación comercial e impide adoptar arquitecturas Cloud-Native.
+
+## Mi Solución: Estrangulación del Monolito y Clean Architecture
+
+Utilizo el patrón *Strangler Fig* y principios de *Domain-Driven Design* (DDD) para despedazar monolitos heredados de forma incremental y segura, sin interrumpir el servicio en producción.
+
+Migro lógicas críticas desde arquitecturas de N-Capas tradicionales hacia **Clean Architecture** o Hexagonal en .NET moderno (C#). Este aislamiento genera fronteras limpias que permiten inyectar las nuevas capacidades de IA o 3D como servicios completamente desacoplados, probables y elásticos.
+
+### Enfoque Técnico
+- **Refactorización Segura:** Inclusión masiva de pruebas unitarias y de integración sobre el código heredado antes de mover una sola línea de lógica *core*.
+- **Desacoplamiento de Bases de Datos:** Diseño de estrategias para desvincular BBDD compartidas, migrando hacia bases de datos por microservicio y utilizando sincronización por eventos (Eventual Consistency).
+- **Inyección de IA Nivel Empresarial:** Al aislar el dominio, el sistema queda preparado para orquestar microservicios de LLMs, sin que sus fallos probabilísticos afecten al núcleo determinista de facturación o control de usuarios.
+
+## Casos de Uso
+1. **Modernización de ERP/SaaS Históricos:** Tomar un monolito de .NET Framework 4.x o Core temprano y portarlo gradualmente a .NET 8 con microservicios contenerizados (Docker/Kubernetes).
+2. **Despliegue de Nuevas *Features* Aisladas:** Creación de un microservicio moderno de Inteligencia Artificial que lee datos del monolito legacy de forma segura (a través de APIs o colas) sin alterar el código frágil antiguo.
+
+## Siguientes Pasos
+
+Si tu equipo invierte más tiempo arreglando *bugs* por dependencias rotas que aportando valor, o si la estructura actual no soporta los requerimientos de la IA, es momento de refactorizar con un enfoque quirúrgico.
+
+**[Agenda una consultoría técnica inicial](https://calendly.com/aitornainmendozavallejo-ksez/30min)** para trazar el mapa de ruta (Roadmap) de migración de tu monolito.
