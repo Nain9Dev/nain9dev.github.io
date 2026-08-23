@@ -1,14 +1,19 @@
 {
-  "name": "nain9dev-portfolio",
-  "version": "1.0.0",
-  "private": true,
-  "description": "Static portfolio for NainDev.",
+  "name": "astro-migration",
   "type": "module",
-  "scripts": {
-    "check": "node scripts/validate-site.mjs",
-    "start": "node scripts/serve.mjs"
-  },
+  "version": "0.0.1",
   "engines": {
-    "node": ">=24"
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.0.0",
+    "@astrojs/sitemap": "^3.2.0",
+    "astro": "^5.2.5"
   }
 }

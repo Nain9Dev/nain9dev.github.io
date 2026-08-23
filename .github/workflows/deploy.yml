@@ -27,17 +27,15 @@ jobs:
           node-version: "24"
           
       - name: Install dependencies
-        working-directory: ./astro-migration
         run: npm ci || npm install
         
       - name: Build with Astro
-        working-directory: ./astro-migration
         run: npm run build
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './astro-migration/dist'
+          path: './dist'
 
   deploy:
     environment:
