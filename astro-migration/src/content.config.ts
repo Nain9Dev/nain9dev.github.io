@@ -2,23 +2,25 @@ import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
 const blog = defineCollection({
-  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/blog" }),
+  loader: glob({ pattern: "**/*.mdx", base: "./src/content/blog" }),
   schema: z.object({
     title: z.string(),
     description: z.string().max(160, "El SEO description debe ser < 160 chars."),
     pubDate: z.date(),
     tags: z.array(z.string()),
+    keywords: z.array(z.string()).optional().default([]),
     draft: z.boolean().default(false),
     readingTime: z.string().optional(),
   })
 });
 
 const casos = defineCollection({
-  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/casos" }),
+  loader: glob({ pattern: "**/*.mdx", base: "./src/content/casos" }),
   schema: z.object({
     title: z.string(),
     eyebrow: z.string(),
     description: z.string(),
+    keywords: z.array(z.string()).optional().default([]),
     techStack: z.array(z.string()),
     metrics: z.array(z.object({
       label: z.string(),
@@ -29,11 +31,11 @@ const casos = defineCollection({
 });
 
 const servicios = defineCollection({
-  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/servicios" }),
+  loader: glob({ pattern: "**/*.mdx", base: "./src/content/servicios" }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    keywords: z.array(z.string()).optional(),
+    keywords: z.array(z.string()).optional().default([]),
     icon: z.string().optional(),
     techStack: z.array(z.string()).optional(),
     order: z.number().default(99)

@@ -11,6 +11,7 @@ interface Props {
   date?: Date;
   author?: string;
   tags?: string[];
+  keywords?: string[];
 }
 
 const {
@@ -19,7 +20,8 @@ const {
   image = "https://www.naindev.com/assets/images/og-cover-v2.png",
   date,
   author,
-  tags
+  tags,
+  keywords
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.naindev.com');
@@ -28,7 +30,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.nain
 <!doctype html>
 <html lang="es">
 <head>
-  <SEO title={title} description={description} image={image} canonicalURL={canonicalURL} date={date} author={author} tags={tags} />
+  <SEO title={title} description={description} image={image} canonicalURL={canonicalURL} date={date} author={author} tags={tags} keywords={keywords} />
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon-optimized.svg">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon-optimized.svg">
   <link rel="stylesheet" href="/assets/css/main.css">

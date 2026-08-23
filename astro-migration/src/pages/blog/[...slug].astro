@@ -14,7 +14,7 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 ---
 
-<BaseLayout title={post.data.title}>
+<BaseLayout title={post.data.title} description={post.data.description} keywords={post.data.keywords} tags={post.data.tags} date={post.data.pubDate}>
   <article class="shell section" style="padding-top: 8rem;">
     <h1>{post.data.title}</h1>
     <Content />

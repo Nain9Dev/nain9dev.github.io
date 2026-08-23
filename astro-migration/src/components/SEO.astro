@@ -6,6 +6,7 @@ interface Props {
   date?: Date;
   author?: string;
   tags?: string[];
+  keywords?: string[];
   canonicalURL?: URL;
 }
 
@@ -16,6 +17,7 @@ const {
   date,
   author = "Aitor Nain",
   tags = [],
+  keywords = [],
   canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.naindev.com')
 } = Astro.props;
 
@@ -55,6 +57,7 @@ const schema = isArticle ? {
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta http-equiv="Content-Security-Policy"
   content="default-src 'self'; base-uri 'self'; connect-src 'self'; font-src 'self' https://fonts.gstatic.com; form-action 'self'; frame-src 'none'; img-src 'self' data:; object-src 'none'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://plausible.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; upgrade-insecure-requests">
+{keywords.length > 0 && <meta name="keywords" content={keywords.join(', ')}>}
 
 <meta property="og:type" content={isArticle ? "article" : "website"}>
 <meta property="og:locale" content="es_ES">
