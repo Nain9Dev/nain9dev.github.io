@@ -16,6 +16,7 @@ import {
   initializeSectionNavigation
 } from "./site-interactions.js";
 import { initializeScrollTracking } from "./scroll-tracking.js";
+import { initializeLazyLoading } from "./lazy-mailerlite.js";
 
 let isAppInitialized = false;
 let cleanupFunctions = [];
@@ -77,6 +78,7 @@ function initApp() {
   });
   
   safeInit('ScrollTracking', initializeScrollTracking);
+  safeInit('LazyLoading', initializeLazyLoading);
   
   // Asumiendo que demo-modal no se regenera
   initializeDemoModal(document);

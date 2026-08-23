@@ -1,0 +1,9 @@
+[
+  {
+    "name": "Cliente de Prueba",
+    "role": "CTO en Empresa Tech",
+    "content": "Aitor transformó nuestra arquitectura backend, reduciendo la latencia de procesamiento 3D en un 40%.",
+    "image": "/assets/images/placeholder-avatar.png",
+    "companyLogo": "/assets/images/placeholder-logo.png"
+  }
+]
