@@ -12,7 +12,7 @@ interface Props {
 const {
   title = "Aitor Nain — Arquitecto Backend 3D & AI Systems | .NET",
   description = "Arquitecto Backend especializado en infraestructura para procesamiento 3D masivo, integración de IA Generativa, agentes de IA y sistemas críticos .NET.",
-  image = "https://www.naindev.com/assets/images/og-cover-v2.png",
+  image = "/assets/images/og-cover-v2.png",
   date,
   author = "Aitor Nain",
   tags = [],
@@ -21,11 +21,16 @@ const {
 
 const isArticle = !!date;
 
+// Asegurar que la URL de la imagen sea siempre absoluta
+const absoluteImageUrl = image.startsWith('http') 
+  ? image 
+  : new URL(image, Astro.site || 'https://www.naindev.com').toString();
+
 const schema = isArticle ? {
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": title,
-  "image": [image],
+  "image": [absoluteImageUrl],
   "datePublished": date.toISOString(),
   "author": [{
     "@type": "Person",
@@ -53,18 +58,21 @@ const schema = isArticle ? {
 
 <meta property="og:type" content={isArticle ? "article" : "website"}>
 <meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Aitor Nain">
 <meta property="og:title" content={title}>
 <meta property="og:description" content={description}>
 <meta property="og:url" content={canonicalURL}>
-<meta property="og:image" content={image}>
+<meta property="og:image" content={absoluteImageUrl}>
 <meta property="og:image:width" content="1731">
 <meta property="og:image:height" content="909">
 <meta property="og:image:alt" content="Representación visual de API, lógica de negocio y datos para NainDev">
 
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@NainDev">
+<meta name="twitter:creator" content="@NainDev">
 <meta name="twitter:title" content={title}>
 <meta name="twitter:description" content={description}>
-<meta name="twitter:image" content={image}>
+<meta name="twitter:image" content={absoluteImageUrl}>
 
 <link rel="canonical" href={canonicalURL}>
 
