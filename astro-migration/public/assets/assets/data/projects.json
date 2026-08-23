@@ -229,7 +229,7 @@
     "links": [
       {
         "label": "Abrir demo",
-        "url": "/demos/tai-study-system/"
+        "url": "https://tai.naindev.com"
       },
       {
         "label": "Revisar repositorio",
@@ -257,11 +257,11 @@
     "links": [
       {
         "label": "Jugar demo",
-        "url": "/demos/pong-arcade/"
+        "url": "https://pong.naindev.com"
       },
       {
         "label": "Ver código",
-        "url": "https://github.com/Nain9Dev/nain9dev.github.io/tree/main/demos/pong-arcade"
+        "url": "https://github.com/Nain9Dev/pong-arcade-js"
       }
     ],
     "featured": false,
