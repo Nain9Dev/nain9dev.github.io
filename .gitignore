@@ -1,118 +1,87 @@
-# Operating System and Editor Artifacts
-.DS_Store
-._*
-Thumbs.db
-Desktop.ini
-$RECYCLE.BIN/
-.vscode/
-.idea/
-.vs/
-*.user
-*.swp
-*~
+# -----------------------------------------------------------------------------
+# NainDev - Repositorio Frontend (Astro SSG)
+# -----------------------------------------------------------------------------
 
-# Node and Frontend Build Output
+# ==============================================================================
+# Node.js y Astro
+# ==============================================================================
 node_modules/
 dist/
 build/
+.astro/
+coverage/
+.nyc_output/
+*.tsbuildinfo
 
-# Application and System Logs
+# ==============================================================================
+# Logs y Debugging
+# ==============================================================================
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+.eslintcache
+*.test.log
 
-# Crash Reports and Memory Dumps
-*.stackdump
-*.dmp
-core
-
-# Environment Variables and Secrets
+# ==============================================================================
+# Entorno (Variables y Secretos)
+# ==============================================================================
 .env
 .env.*
+!.env.example
 secrets.json
-appsettings.Development.json
 appsettings.*.json
-*.publishsettings
 
-# Security Keys and Digital Certificates
-*.pem
-*.pfx
-*.p12
-*.key
-*.cer
+# ==============================================================================
+# IDEs y Editores de Código
+# ==============================================================================
+.vscode/
+.idea/
+.vs/
+*.iml
+.project
+.classpath
+.settings/
+*.suo
+*.user
 
-# Network Traces and HTTP Session Archives (Prevent Session Hijacking)
-*.har
-*.pcap
-*.pcapng
+# ==============================================================================
+# Sistema Operativo
+# ==============================================================================
+.DS_Store
+._*
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
 
-# API REST Testing and HTTP Environment Tokens (.NET / Postman / Thunder Client)
-*.http-env.json
-*.rest-client.env.json
-.postman/
-*_access_token.json
-
-# Cloud Provider Configurations
-.aws/
-.azure/
-terraform.tfstate
-
-# Local Databases and Backups
-*.db
-*.sqlite
-*.sqlite3
+# ==============================================================================
+# Backups, Cachés y Archivos Temporales
+# ==============================================================================
+*~
+*.swp
+*.swo
+*.tmp
 *.bak
-*.mdf
-*.ldf
+*.backup
 *.old
 *.orig
 *.dump
+public/hot-reload*
 
-# Compiled Code, Frameworks, and Unity 3D Environments
-bin/
-obj/
-__pycache__/
-*.pyc
-.venv/
-venv/
-/Library/
-/Temp/
-/UserSettings/
-/Logs/
-*.pidb.meta
-*.csproj
-*.unityproj
-*.sln.docstates
-
-# System Binaries and Installers
-*.exe
-*.dll
-*.so
-*.dylib
-*.cab
-*.msi
-
-# Test Coverage Reports and Automated Testing Artifacts
-coverage/
-.nyc_output/
-.test_output/
-.eslintcache
-junit.xml
-*.test.log
-
-# Artificial Intelligence Agents and IDE Customizations
+# ==============================================================================
+# Asistentes de IA e Instrucciones Locales (Privacidad/Seguridad)
+# ==============================================================================
+# Archivos de contexto para IA no necesarios en el código fuente de producción
+AGENTS.md
+CLAUDE.md
 .agents/
 .continue/
 .gemini/
+.claude/
 
-# Private Portfolio Planning and Context (Restricted Internal Access)
+# ==============================================================================
+# Directorios Privados (Documentación Interna / Planificación Estratégica)
+# ==============================================================================
 .portfolio-private/
-
-# Temporary and Cache Files
-*.tmp
-public/hot-reload*
-*.compiled.*
-*LocalIA.yaml
-
+docs/private/
