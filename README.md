@@ -1,90 +1,69 @@
-# NainDev portfolio
+# NainDev - Arquitectura Backend y Sistemas 3D
 
-Portfolio estático de Aitor Nain para presentar su experiencia, proyectos personales y disponibilidad profesional.
+[![Astro](https://img.shields.io/badge/Astro-5.x-FF5D01?style=for-the-badge&logo=astro&logoColor=white)](https://astro.build/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![WebGL](https://img.shields.io/badge/Three.js-WebGL-black?style=for-the-badge&logo=three.js&logoColor=white)](https://threejs.org/)
+[![GitHub Pages](https://img.shields.io/badge/Deployed_on-GitHub_Pages-222222?style=for-the-badge&logo=github&logoColor=white)](https://naindev.com)
 
-## Objetivo
+**Portafolio profesional B2B** focalizado en Arquitectura de Software, sistemas distribuidos en .NET, IA Generativa y visualización 3D (WebGL).
 
-El sitio debe ayudar a que un posible cliente o responsable técnico entienda rápidamente:
+🌐 **Sitio en Producción:** [www.naindev.com](https://www.naindev.com)
 
-- mi experiencia y las tecnologías con las que trabajo;
-- los proyectos que he desarrollado y su estado real;
-- las tareas de backend en las que puedo ayudar;
-- mi disponibilidad y forma de contacto.
+---
 
-## Arquitectura
+## 🎯 Objetivo del Proyecto
 
-La web no requiere framework ni dependencias de producción. GitHub Pages sirve directamente los archivos estáticos.
+Este repositorio aloja la infraestructura Frontend del portafolio. Su diseño sigue una filosofía estricta de **Ingeniería Comercial**:
+- **Cero dependencias superfluas:** Carga ultra-rápida (Sub-1s) para maximizar la conversión técnica.
+- **Islands Architecture (Astro):** El renderizado 3D complejo (Three.js) ocurre solo en el cliente de manera aislada, sin bloquear el hilo principal.
+- **Estrategia SEO B2B:** Clústeres temáticos (Topic Clusters) en MDX para atraer CTOs y Tech Leads.
+- **Privacidad desde el Diseño:** Sin bases de datos propias expuestas, analítica privacy-friendly (Plausible) y CSP (Content Security Policy) estricta.
+
+## 🏗️ Arquitectura Técnica
+
+El portal es una aplicación estática multipágina (SSG) vitaminada con *View Transitions* para simular una experiencia SPA, sin el altísimo coste de memoria de React/Vue en el cliente.
+
+- **Framework Core:** Astro 5.x
+- **Gestión de Contenido:** Markdown/MDX tipado estáticamente con Zod (`src/content.config.ts`).
+- **Motor 3D:** Three.js (Cargado asíncronamente para optimizar Core Web Vitals).
+- **Estilos:** Vanilla CSS / CSS Modules (Cero utilidades masivas, máximo control a nivel de token arquitectónico).
+
+### Estructura de Directorios
 
 ```text
-assets/
-├── css/                 # Design system and responsive layout
-├── data/projects.json   # Public project catalog
-├── images/              # Public visual assets
-└── js/                  # Catalog, filters, rendering and page interactions
-scripts/                 # Local server and validation
-index.html               # Main commercial page
-404.html                 # Custom not-found page
+nain9dev.github.io/
+├── src/
+│   ├── components/      # Componentes de UI (Header, Footer, Terminal, WebGL)
+│   ├── content/         # Colecciones (Blog, Servicios, Casos) en MDX
+│   ├── layouts/         # Layouts base y gestión de <head> / SEO
+│   └── pages/           # Enrutamiento basado en archivos (File-based routing)
+├── public/              # Assets estáticos (Imágenes, modelos 3D, robots.txt)
+├── astro.config.mjs     # Configuración central (Redirecciones 301, Vite chunks)
+└── .github/workflows/   # CI/CD pipelines para GitHub Pages
 ```
 
-El contenido de los proyectos está separado de la presentación:
+## 🚀 Despliegue (CI/CD)
 
-- `projects.json` contiene el catálogo de proyectos;
-- `project-catalog.js` carga y valida los datos;
-- `project-view.js` crea la presentación usando APIs seguras del DOM;
-- `project-filters.js` filtra el catálogo mediante categorías estables;
-- `site-interactions.js` gestiona navegación activa, progreso, movimiento y copia del email;
-- `app.js` compone el comportamiento de la página;
-- `main.css` contiene tokens, layout y componentes visuales.
-
-La web se mantiene deliberadamente sencilla: HTML, CSS y JavaScript sin dependencias de producción.
-
-## Añadir un proyecto
-
-1. Añade una entrada a `assets/data/projects.json`.
-2. Describe únicamente el trabajo que se pueda revisar y declara el estado real.
-3. Asigna una o varias categorías soportadas: `backend`, `data` o `demo`.
-4. Usa enlaces `https://` o rutas internas que comiencen por `/`.
-5. Ejecuta `npm run check`.
-6. Revisa que el proyecto muestre una habilidad útil para el tipo de trabajo que buscas.
-
-## Sistema visual e interacción
-
-- Paleta propia basada en fondo grafito, cobalto técnico y cobre cálido.
-- La marca vuelve al inicio y su indicador muestra el progreso de lectura.
-- La navegación destaca la sección activa.
-- El mapa del hero enlaza capacidades con evidencia de la página.
-- El catálogo permite filtrar proyectos sin recargar.
-- Las entradas progresivas se desactivan si el sistema solicita reducir movimiento.
-- No se cargan tipografías, animaciones ni componentes desde terceros.
-
-## Desarrollo local
-
-Requiere Node.js 24 o posterior y no instala paquetes.
+El sistema está configurado para integración continua. Cualquier push a la rama `main` dispara automáticamente la GitHub Action que compila el sitio de forma estática y lo despliega en GitHub Pages.
 
 ```bash
-npm start
+# Desarrollo Local (Terminal background interactiva)
+npm run dev
+
+# Compilación Estática para Producción
+npm run build
+
+# Previsualización del Build Local
+npm run preview
 ```
 
-El servidor local escucha por defecto en `http://127.0.0.1:4173`.
+## 🔐 Seguridad y Propiedad Intelectual
 
-## Validación
+Este repositorio es público exclusivamente para auditar el código frontend de la arquitectura. Sin embargo:
+- Las auditorías internas, KPIs, planes de conversión (CRO) y datos estratégicos de clientes **están excluidos del repositorio** para preservar el secreto de negocio B2B.
+- Todas las variables de entorno locales y tokens de APIs de mailing están protegidas.
 
-```bash
-npm run check
-```
-
-La comprobación valida el catálogo, las referencias locales, todos los archivos y scripts JavaScript públicos —incluido el código embebido de las demos—, los enlaces externos abiertos en una pestaña nueva y el límite de publicación de la documentación privada.
-
-## Seguridad y privacidad
-
-- No hay cookies, analítica, formularios ni almacenamiento de datos personales.
-- No se carga JavaScript, CSS ni tipografía de terceros.
-- La Content Security Policy limita los recursos al propio dominio.
-- Los datos del catálogo se insertan con APIs del DOM y `textContent`, no con HTML dinámico.
-- La documentación interna reside en `.portfolio-private/`, está ignorada por Git y no debe añadirse con `git add -f`.
-
-GitHub Pages no permite configurar todos los encabezados HTTP desde este repositorio. Si el riesgo o las capacidades futuras cambian, se debe reevaluar el hosting antes de añadir autenticación, formularios o datos personales.
-
-## Publicación
-
-El repositorio está preparado para GitHub Pages y conserva el dominio definido en `CNAME`. Publicar, hacer push o modificar la configuración de Pages son acciones separadas y requieren una decisión explícita.
+---
+**Aitor Nain**  
+*Senior Software Architect | .NET | Unity/3D | Cloud Computing*  
+Contacto Comercial: [naindev.com](https://www.naindev.com)
