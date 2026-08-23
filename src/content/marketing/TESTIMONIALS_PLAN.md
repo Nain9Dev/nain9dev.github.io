@@ -1,6 +1,6 @@
 # Plan de Recopilación de Testimonios
 
-**Estado Actual (Q3 2026)**: Activo / En espera de respuestas.
+**Estado Actual (Q4 2026 - Día 61-90)**: Evaluando respuestas iniciales. Ningún testimonio publicado aún para garantizar 100% veracidad.
 
 Dado el requisito de 100% de autenticidad en el portafolio (cero testimonios falsos), el componente `Testimonials.astro` en la Home permanece inactivo hasta recopilar información fehaciente.
 
@@ -10,7 +10,7 @@ Dado el requisito de 100% de autenticidad en el portafolio (cero testimonios fal
 ## Seguimiento de Solicitudes
 - **Contacto 1**: Ex-CTO Proyecto Validación 3D. (Solicitud enviada: 23/08/2026. Estado: Esperando respuesta).
 - **Contacto 2**: PM de SaaS Migrado. (Solicitud enviada: 23/08/2026. Estado: Esperando respuesta).
-- **Contacto 3**: Líder Técnico Infraestructura Azure. (Por enviar).
+- **Contacto 3**: Líder Técnico Infraestructura Azure. (Solicitud enviada: Hoy. Estado: Esperando respuesta).
 
 ## Próxima Ronda
 Si no se obtienen respuestas para el 30/08/2026, se enviará un recordatorio sutil y se buscarán alternativas (ej. validaciones de habilidades en LinkedIn).

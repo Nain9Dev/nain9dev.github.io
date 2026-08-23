@@ -187,7 +187,7 @@ Adoptar esta arquitectura no es un mero ejercicio académico; tiene un impacto d
 1. **Mantenibilidad y Tolerancia al Cambio (Vendor Agnostic):** ¿El proveedor de inferencia 3D subió los precios un 300%? Cambiar a un modelo open-source interno implica escribir un nuevo `AiInferenceAdapter`. No tocas ni una sola línea de los Use Cases ni del Dominio. El riesgo de regresión es casi cero.
 2. **Testabilidad Extrema:** Al depender de interfaces, puedes mockear `IAiInferenceService` en tus Unit Tests. Puedes ejecutar miles de tests validando tus reglas de negocio en milisegundos, sin necesidad de levantar pesados contenedores Docker con GPUs.
 3. **Escalabilidad Paralela:** Con las dependencias claramente separadas, puedes escalar la capa de infraestructura (por ejemplo, desplegar múltiples réplicas del worker de IA o [sistemas de agentes IA en C#](/blog/arquitectura-agentes-ia-csharp)) independientemente de la API de presentación. Los ingenieros de ML pueden trabajar en los adaptadores mientras los ingenieros de backend mejoran el core de negocio sin pisarse los pies.
-4. **Seguridad y Preservación:** Al establecer validaciones exhaustivas en el dominio, desconfiamos intrínsecamente del input del usuario y evitamos que geometrías corruptas envenenen nuestro almacenamiento o saturen el costoso procesamiento de IA.
+4. **Seguridad y Preservación:** Al establecer validaciones exhaustivas en el dominio, desconfiamos intrínsecamente del input del usuario y evitamos que geometrías corruptas envenenen nuestro almacenamiento o saturen el costoso procesamiento, un concepto crítico en la [arquitectura backend para IA generativa](/blog/arquitectura-backend-ia-generativa-3d).
 
 ## Conclusión
 

@@ -1,29 +1,29 @@
-# CRO Report: Lead Magnet Checklist IA
+# Optimización del Lead Magnet (CRO) - Q4 2026
 
-**Fecha**: Q3 2026
-**Objetivo**: Optimizar la Tasa de Conversión (CVR) de la página de aterrizaje del Checklist de Arquitectura IA.
+**Recurso**: Checklist de Arquitectura 3D/IA (`/recursos/checklist-ia`)
+**Objetivo**: Mejorar la tasa de conversión (descargas / visitas) del 5% actual (estimado base) a > 15%.
 
-## Análisis de Fricción
-Antes de los cambios, la página `/recursos/checklist-ia` presentaba los siguientes puntos de fricción:
-- **Copy demasiado técnico y descriptivo**: Hablaba de "cumplir estándares" en lugar de "evitar caídas y ahorrar dinero" (el verdadero dolor del CTO).
-- **Falta de Prueba Social**: La página dependía enteramente de la autoridad de NainDev como marca personal, sin validar el impacto real del checklist.
-- **Micro-copy del formulario genérico**: "Completa tus datos" es transaccional y genera resistencia.
+## Análisis de Situación Actual
 
-## Mejoras Implementadas (A/B Test Variant Setup)
+El Lead Magnet es una pieza técnica de alto valor ("Checklist de Arquitectura 3D/IA"), atrayendo tráfico altamente cualificado (CTOs, Tech Leads, Arquitectos). 
 
-1. **Copy del Hero**: 
-   - *Antes*: "Checklist de Arquitectura para Sistemas de IA en Producción".
-   - *Después*: "Descubre los 10 Puntos Ciegos que Hacen Fracasar a los Sistemas de IA". (Enfoque en FOMO y prevención de pérdidas).
+*Plausible Data (Proyección/Análisis cualitativo):*
+*   **Puntos de fuga**: El formulario actual exige el "correo corporativo", lo que genera fricción inicial, pero asegura MQLs (Marketing Qualified Leads) de alta calidad.
+*   **Tiempo de permanencia**: Bueno en la landing, pero baja interacción con el botón si el usuario viene de tráfico frío.
 
-2. **Beneficios orientados a Finanzas y Operaciones**:
-   - Se han reescrito los *bullet points* para atarlos a métricas reales (ej. "Técnicas de caché semántica para reducir la factura de API hasta un 80%").
+## Mejoras Implementadas (Fase 1 - Días 31-60)
 
-3. **Prueba Social Integrada**:
-   - Se añadió un testimonio anónimo pero creíble (CTO SaaS B2B) que certifica resultados tangibles (reducción a la mitad de costes de OpenAI).
+1.  **Refuerzo del Titular (A/B Test Conceptual):**
+    *   *Antes*: "Descarga el Checklist de Arquitectura 3D/IA"
+    *   *Ahora*: "Audita tu sistema 3D/IA en 5 pasos (sin vendor lock-in)" -> Más enfocado al dolor del CTO (el vendor lock-in).
+2.  **Elemento de Fricción Positiva:**
+    *   Se mantiene el requisito de "correo corporativo" (reduce cantidad, pero maximiza calidad). Se ha reforzado el *microcopy* debajo del botón: "Cero spam. Solo arquitectura B2B." para reducir la ansiedad.
+3.  **Reducción de Distracciones:**
+    *   Se eliminaron enlaces salientes en la página `/recursos/checklist-ia` que no fueran estrictamente el submit del formulario.
+4.  **Botón de CTA (Llamada a la Acción):**
+    *   *Antes*: "Quiero asegurar mi arquitectura"
+    *   *Ahora*: "Obtener Checklist Técnico (PDF)" -> Más específico sobre el formato entregable.
 
-4. **Fricción del Formulario Reducida**:
-   - El micro-copy ahora indica explícitamente "solo 1 paso", lo que psicológicamente reduce el esfuerzo percibido.
-
-## Siguientes Pasos (Medición)
-- Monitorear el evento de Plausible `Lead_Magnet_Download` durante 30 días.
-- Si el CVR sube del 2% al 5%, iteraremos sobre el color del botón del formulario desde MailerLite.
+## Plan de Próximos Pasos (Monitoreo)
+1.  **Eventos Plausible**: Validar que el evento `Lead` con la propiedad `resource: 'PDF Clean Architecture 3D'` se dispara un 100% de las veces tras el envío exitoso hacia FormSubmit.
+2.  **Revisión en 15 días**: Si la tasa de conversión sigue por debajo del 10%, implementaremos un *Badge de Autoridad* ("Descargado por +50 ingenieros").
