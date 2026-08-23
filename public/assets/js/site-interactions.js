@@ -10,7 +10,7 @@ function calculateScrollPercentage() {
 
 export function initializeHeaderState({ header, progress }) {
   if (!header && !progress) {
-    return;
+    return () => {};
   }
 
   let updateRequested = false;
@@ -35,11 +35,16 @@ export function initializeHeaderState({ header, progress }) {
   updateHeader();
   window.addEventListener("scroll", requestUpdate, { passive: true });
   window.addEventListener("resize", requestUpdate);
+
+  return () => {
+    window.removeEventListener("scroll", requestUpdate);
+    window.removeEventListener("resize", requestUpdate);
+  };
 }
 
 export function initializeSectionNavigation(links) {
   if (!("IntersectionObserver" in window)) {
-    return;
+    return () => {};
   }
 
   const navigationLinks = [...links];
@@ -49,7 +54,6 @@ export function initializeSectionNavigation(links) {
         const href = link.getAttribute("href");
         if (!href) return null;
         
-        // Extraer solo la parte del ID (después del '#') para manejar '/#section' o 'https://.../#section'
         const hashIndex = href.indexOf('#');
         if (hashIndex !== -1) {
           const id = href.substring(hashIndex + 1);
@@ -99,20 +103,25 @@ export function initializeSectionNavigation(links) {
 
   updateTopState();
   window.addEventListener("scroll", updateTopState, { passive: true });
+
+  return () => {
+    observer.disconnect();
+    window.removeEventListener("scroll", updateTopState);
+  };
 }
 
 export function initializeRevealMotion(elements) {
   const revealElements = [...elements];
 
   if (revealElements.length === 0) {
-    return;
+    return () => {};
   }
 
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   if (reducedMotion || !("IntersectionObserver" in window)) {
     revealElements.forEach((element) => element.classList.add("is-visible"));
-    return;
+    return () => {};
   }
 
   document.documentElement.classList.add("motion-ready");
@@ -128,11 +137,10 @@ export function initializeRevealMotion(elements) {
     rootMargin: "0px 0px -8%",
     threshold: 0.12
   });
-  // Iniciar observación inmediatamente
+  
   revealElements.forEach((element) => observer.observe(element));
 
-  // Fallback de seguridad: si después de 2 segundos algún elemento en el viewport no se ha mostrado, forzarlo.
-  setTimeout(() => {
+  const fallbackTimeout = setTimeout(() => {
     revealElements.forEach((element) => {
       const rect = element.getBoundingClientRect();
       if (rect.top < window.innerHeight && rect.bottom > 0 && !element.classList.contains("is-visible")) {
@@ -141,14 +149,19 @@ export function initializeRevealMotion(elements) {
       }
     });
   }, 2000);
+
+  return () => {
+    observer.disconnect();
+    clearTimeout(fallbackTimeout);
+  };
 }
 
 export function initializeEmailCopy({ button, emailLink, status }) {
   if (!button || !emailLink || !status) {
-    return;
+    return () => {};
   }
 
-  button.addEventListener("click", async () => {
+  const onButtonClick = async () => {
     if (!navigator.clipboard) {
       status.textContent = "Tu navegador no permite copiar automáticamente.";
       return;
@@ -161,5 +174,11 @@ export function initializeEmailCopy({ button, emailLink, status }) {
     } catch {
       status.textContent = "No se ha podido copiar. Puedes abrir el enlace de email.";
     }
-  });
+  };
+
+  button.addEventListener("click", onButtonClick);
+
+  return () => {
+    button.removeEventListener("click", onButtonClick);
+  };
 }

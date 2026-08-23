@@ -7,21 +7,20 @@ export function initializeScrollTracking() {
   };
 
   let ticking = false;
+  let requestFrameId = null;
 
   const trackScroll = () => {
     const scrollY = window.scrollY || window.pageYOffset;
     const documentHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     
-    // Si la página no tiene scroll, no trackeamos
     if (documentHeight <= 0) return;
 
-    // Calcular el porcentaje (evitando picos superiores al 100% por overscroll en Mac/Móviles)
     const scrollPercentage = Math.min((scrollY / documentHeight) * 100, 100);
 
     checkThreshold(scrollPercentage, 25, '25%');
     checkThreshold(scrollPercentage, 50, '50%');
     checkThreshold(scrollPercentage, 75, '75%');
-    checkThreshold(scrollPercentage, 99, '100%'); // Umbral al 99% por imprecisión decimal al fondo
+    checkThreshold(scrollPercentage, 99, '100%');
 
     if (marks['100%']) {
       window.removeEventListener('scroll', onScroll);
@@ -39,7 +38,7 @@ export function initializeScrollTracking() {
 
   const onScroll = () => {
     if (!ticking) {
-      window.requestAnimationFrame(() => {
+      requestFrameId = window.requestAnimationFrame(() => {
         trackScroll();
         ticking = false;
       });
@@ -48,4 +47,9 @@ export function initializeScrollTracking() {
   };
 
   window.addEventListener('scroll', onScroll, { passive: true });
+
+  return () => {
+    window.removeEventListener('scroll', onScroll);
+    if (requestFrameId) cancelAnimationFrame(requestFrameId);
+  };
 }

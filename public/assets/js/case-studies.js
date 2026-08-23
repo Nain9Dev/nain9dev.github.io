@@ -1,10 +1,12 @@
-// Módulo de Casos de Estudio de Arquitectura
 import { initializeRevealMotion } from "./site-interactions.js";
 
 export class CaseStudiesManager {
   constructor(containerId) {
     this.container = document.getElementById(containerId);
     this.dataPath = '/assets/data/case-studies.json';
+    this.cleanupReveal = null;
+    this.observer = null;
+    this.cardListeners = [];
     
     if (!this.container) {
       console.warn(`[CaseStudiesManager] Contenedor #${containerId} no encontrado.`);
@@ -15,40 +17,42 @@ export class CaseStudiesManager {
   async init() {
     console.log('[CaseStudiesManager] init() ejecutado');
     if (!this.container) {
-      console.warn('[CaseStudiesManager] this.container es nulo');
-      return;
+      return this;
     }
     try {
-      console.log('[CaseStudiesManager] Haciendo fetch a', this.dataPath);
       const data = await this.fetchData();
-      console.log('[CaseStudiesManager] Datos recibidos:', data);
       if (data && data.length > 0) {
         this.render(data);
-        console.log('[CaseStudiesManager] Renderizado completo. Configurando observer para Mermaid...');
-        const observer = new IntersectionObserver((entries) => {
+        
+        this.observer = new IntersectionObserver((entries) => {
           if (entries[0].isIntersecting) {
             this.initMermaid();
-            observer.disconnect();
+            if (this.observer) {
+              this.observer.disconnect();
+              this.observer = null;
+            }
           }
         }, { rootMargin: '200px' });
-        observer.observe(this.container);
-        initializeRevealMotion(this.container.querySelectorAll("[data-reveal]"));
-        this.container.querySelectorAll('.case-study-card').forEach(card => {
-          card.addEventListener('click', () => {
-            const titleElement = card.querySelector('.case-study-title');
+        this.observer.observe(this.container);
+        
+        this.cleanupReveal = initializeRevealMotion(this.container.querySelectorAll("[data-reveal]"));
+        
+        const cards = this.container.querySelectorAll('.case-study-card');
+        cards.forEach(card => {
+          const titleElement = card.querySelector('.case-study-title');
+          const clickHandler = () => {
             if (titleElement) {
               window.plausible && window.plausible('View Case Study', { props: { title: titleElement.textContent } });
             }
-          });
+          };
+          card.addEventListener('click', clickHandler);
+          this.cardListeners.push({ element: card, handler: clickHandler });
         });
-      } else {
-        console.warn('[CaseStudiesManager] Datos vacíos o no válidos. Usando fallback estático si existe.');
-        // this.container.innerHTML = '<p class="notice">No se encontraron casos de estudio en este momento.</p>';
       }
     } catch (error) {
-      console.error('[CaseStudiesManager] Error inicializando. Preservando fallback estático.', error);
-      // this.container.innerHTML = '<p class="notice error">No se pudieron cargar los casos de estudio. Por favor, inténtalo de nuevo más tarde.</p>';
+      console.error('[CaseStudiesManager] Error inicializando.', error);
     }
+    return this;
   }
 
   async fetchData() {
@@ -138,5 +142,20 @@ export class CaseStudiesManager {
       }
     };
     document.head.appendChild(script);
+  }
+
+  destroy() {
+    if (this.cleanupReveal) {
+      this.cleanupReveal();
+      this.cleanupReveal = null;
+    }
+    if (this.observer) {
+      this.observer.disconnect();
+      this.observer = null;
+    }
+    this.cardListeners.forEach(({ element, handler }) => {
+      element.removeEventListener('click', handler);
+    });
+    this.cardListeners = [];
   }
 }

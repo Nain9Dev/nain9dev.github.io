@@ -1,3 +1,5 @@
+let terminalCleanup = null;
+
 document.addEventListener('astro:page-load', () => {
   console.log('[Terminal] Iniciando terminal.js');
   const input = document.getElementById('terminal-input');
@@ -11,23 +13,21 @@ document.addEventListener('astro:page-load', () => {
   let isTyping = false;
   let hasInteracted = false;
   
-  // Función helper para determinar si el usuario está al final de la terminal
   function shouldAutoScroll() {
-    // Tolerancia de 30px
     return output.scrollHeight - output.scrollTop - output.clientHeight < 30;
   }
   
-  // Hacer que al hacer clic en cualquier parte de la terminal, se enfoque el input
-  terminal.addEventListener('click', () => {
+  const onTerminalClick = () => {
     const selection = window.getSelection();
     if (!selection.toString()) {
       input.focus({ preventScroll: true });
     }
-  });
-   let commands = {};
+  };
+  terminal.addEventListener('click', onTerminalClick);
+
+  let commands = {};
   let commandKeys = ['clear'];
 
-  // Cargar comandos asíncronamente
   fetch('/assets/data/terminal-commands.json')
     .then(response => response.json())
     .then(data => {
@@ -48,12 +48,10 @@ document.addEventListener('astro:page-load', () => {
       output.scrollTop = output.scrollHeight;
       return Promise.resolve();
     } else {
-      // Usaremos typing effect async para salidas
       return typewriterAsync(text, div);
     }
   }
 
-  // Función asíncrona para efecto typing fluido que respeta HTML
   async function typewriterAsync(htmlString, element) {
     isTyping = true;
     input.disabled = true;
@@ -62,18 +60,15 @@ document.addEventListener('astro:page-load', () => {
     
     output.appendChild(element);
     
-    // Convertir el HTML a un fragmento temporal para iterar por nodos
     const tempDiv = document.createElement('div');
     tempDiv.innerHTML = htmlString;
     
-    // Iteración recursiva por los nodos para simular escritura sin romper HTML
     async function processNode(node, parent) {
       if (node.nodeType === Node.TEXT_NODE) {
         const text = node.textContent;
         for (let i = 0; i < text.length; i++) {
           parent.appendChild(document.createTextNode(text.charAt(i)));
           if (doScroll) output.scrollTop = output.scrollHeight;
-          // Velocidad del typing: 8ms por carácter
           await new Promise(resolve => setTimeout(resolve, 8));
         }
       } else if (node.nodeType === Node.ELEMENT_NODE) {
@@ -124,7 +119,7 @@ document.addEventListener('astro:page-load', () => {
     }
   }
 
-  input.addEventListener('keydown', (e) => {
+  const onKeyDown = (e) => {
     if (isTyping) {
       e.preventDefault();
       return;
@@ -157,15 +152,16 @@ document.addEventListener('astro:page-load', () => {
         input.value = match;
       }
     }
-  });
+  };
+  input.addEventListener('keydown', onKeyDown);
 
-  // Track clicks on case study links inside the terminal
-  output.addEventListener('click', (e) => {
+  const onOutputClick = (e) => {
     const link = e.target.closest('a');
     if (link && link.href.includes('/casos/')) {
       window.plausible && window.plausible('CaseStudyView', { props: { source: 'terminal', url: link.href } });
     }
-  });
+  };
+  output.addEventListener('click', onOutputClick);
 
   const welcomeText = "Conectando al servidor... Inicializando subsistemas...";
   let hasRun = false;
@@ -186,4 +182,20 @@ document.addEventListener('astro:page-load', () => {
   });
   
   observer.observe(terminal);
+
+  // Registro de función de limpieza para este componente particular
+  terminalCleanup = () => {
+    console.log('[Terminal] Limpiando recursos...');
+    terminal.removeEventListener('click', onTerminalClick);
+    input.removeEventListener('keydown', onKeyDown);
+    output.removeEventListener('click', onOutputClick);
+    observer.disconnect();
+  };
+});
+
+document.addEventListener('astro:before-swap', () => {
+  if (terminalCleanup) {
+    terminalCleanup();
+    terminalCleanup = null;
+  }
 });

@@ -1,14 +1,15 @@
 export function initializeCardTilt() {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReducedMotion) return;
+  if (prefersReducedMotion) return () => {};
 
   const container = document.querySelector('[data-project-list]');
-  if (!container) return;
+  if (!container) return () => {};
 
   let activeCard = null;
   let isUpdating = false;
   let mouseX = 0;
   let mouseY = 0;
+  let requestFrameId = null;
 
   function updateTilt() {
     if (!activeCard) {
@@ -20,7 +21,6 @@ export function initializeCardTilt() {
     const x = mouseX - rect.left;
     const y = mouseY - rect.top;
 
-    // Calculate rotation between -3 and 3 degrees
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
     const rotateX = ((y - centerY) / centerY) * -3;
@@ -32,7 +32,7 @@ export function initializeCardTilt() {
     isUpdating = false;
   }
 
-  container.addEventListener('mousemove', (e) => {
+  const onMouseMove = (e) => {
     const card = e.target.closest('[data-project-card]');
     if (!card) return;
 
@@ -50,11 +50,11 @@ export function initializeCardTilt() {
 
     if (!isUpdating) {
       isUpdating = true;
-      requestAnimationFrame(updateTilt);
+      requestFrameId = requestAnimationFrame(updateTilt);
     }
-  }, { passive: true });
+  };
 
-  container.addEventListener('mouseleave', (e) => {
+  const onMouseLeave = (e) => {
     if (activeCard) {
       activeCard.style.transform = '';
       activeCard.style.willChange = 'auto';
@@ -62,10 +62,9 @@ export function initializeCardTilt() {
       activeCard.style.removeProperty('--card-mouse-y');
       activeCard = null;
     }
-  }, { passive: true });
+  };
 
-  // Also clear on mouseleave of individual cards just to be safe if they move fast
-  container.addEventListener('mouseout', (e) => {
+  const onMouseOut = (e) => {
     const card = e.target.closest('[data-project-card]');
     if (card && !card.contains(e.relatedTarget)) {
       card.style.transform = '';
@@ -74,5 +73,20 @@ export function initializeCardTilt() {
       card.style.removeProperty('--card-mouse-y');
       if (activeCard === card) activeCard = null;
     }
-  }, { passive: true });
+  };
+
+  container.addEventListener('mousemove', onMouseMove, { passive: true });
+  container.addEventListener('mouseleave', onMouseLeave, { passive: true });
+  container.addEventListener('mouseout', onMouseOut, { passive: true });
+
+  return () => {
+    container.removeEventListener('mousemove', onMouseMove);
+    container.removeEventListener('mouseleave', onMouseLeave);
+    container.removeEventListener('mouseout', onMouseOut);
+    if (requestFrameId) cancelAnimationFrame(requestFrameId);
+    if (activeCard) {
+      activeCard.style.transform = '';
+      activeCard.style.willChange = 'auto';
+    }
+  };
 }

@@ -1,10 +1,10 @@
-// Módulo de Métricas de Impacto
 import { initializeRevealMotion } from "./site-interactions.js";
 
 export class ImpactMetricsManager {
   constructor(containerId) {
     this.container = document.getElementById(containerId);
     this.dataPath = '/assets/data/impact-metrics.json';
+    this.cleanupReveal = null;
     
     if (!this.container) {
       console.warn(`[ImpactMetricsManager] Contenedor #${containerId} no encontrado.`);
@@ -15,25 +15,18 @@ export class ImpactMetricsManager {
   async init() {
     console.log('[ImpactMetricsManager] init() ejecutado');
     if (!this.container) {
-      console.warn('[ImpactMetricsManager] this.container es nulo');
-      return;
+      return this;
     }
     try {
-      console.log('[ImpactMetricsManager] Haciendo fetch a', this.dataPath);
       const data = await this.fetchData();
-      console.log('[ImpactMetricsManager] Datos recibidos:', data);
       if (data && data.length > 0) {
         this.render(data);
-        console.log('[ImpactMetricsManager] Renderizado completo.');
-        initializeRevealMotion(this.container.querySelectorAll("[data-reveal]"));
-      } else {
-        console.warn('[ImpactMetricsManager] Datos vacíos o no válidos. Usando fallback estático si existe.');
-        // this.container.innerHTML = '<p class="notice">No se encontraron métricas en este momento.</p>';
+        this.cleanupReveal = initializeRevealMotion(this.container.querySelectorAll("[data-reveal]"));
       }
     } catch (error) {
-      console.error('[ImpactMetricsManager] Error inicializando. Preservando fallback estático.', error);
-      // this.container.innerHTML = '<p class="notice error">No se pudieron cargar las métricas. Por favor, inténtalo de nuevo más tarde.</p>';
+      console.error('[ImpactMetricsManager] Error inicializando.', error);
     }
+    return this;
   }
 
   async fetchData() {
@@ -58,5 +51,12 @@ export class ImpactMetricsManager {
         ${metric.description ? `<p class="impact-metric-description">${metric.description}</p>` : ''}
       </article>
     `;
+  }
+
+  destroy() {
+    if (this.cleanupReveal) {
+      this.cleanupReveal();
+      this.cleanupReveal = null;
+    }
   }
 }
