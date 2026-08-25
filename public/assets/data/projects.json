@@ -32,32 +32,6 @@
     "order": 0
   },
   {
-    "id": "stealth-3d-ai",
-    "title": "3D/AI Startup",
-    "status": "Desarrollo Activo (Oculto temporalmente)",
-    "summary": "Diseño y desarrollo de una arquitectura backend determinista para la validación de activos generados por IA.",
-    "proof": "Como Colaborador Técnico, traduzco lógicas de negocio altamente complejas en código puro, asegurando integraciones Human-in-the-loop mediante la integración segura de agentes de IA y pipelines CI/CD automatizados.",
-    "technologies": [
-      "Backend Architecture",
-      "Trustworthy AI",
-      "Agentic AI",
-      "CI/CD",
-      "Robust Systems"
-    ],
-    "categories": [
-      "backend",
-      "3d"
-    ],
-    "links": [
-      {
-        "label": "Modo Stealth",
-        "url": "#"
-      }
-    ],
-    "featured": true,
-    "order": 1
-  },
-  {
     "id": "nainorder-ecommerce-api",
     "title": "NainOrder (Motor E-Commerce)",
     "status": "Demo pública activa",
@@ -86,7 +60,7 @@
       }
     ],
     "featured": true,
-    "order": 2
+    "order": 1
   },
   {
     "id": "gamehaven-blazor-store",
@@ -116,7 +90,7 @@
       }
     ],
     "featured": true,
-    "order": 3
+    "order": 2
   },
   {
     "id": "notification-worker",
@@ -146,7 +120,7 @@
       }
     ],
     "featured": true,
-    "order": 4
+    "order": 3
   },
   {
     "id": "financial-management-api",
@@ -177,7 +151,7 @@
       }
     ],
     "featured": true,
-    "order": 5
+    "order": 4
   },
   {
     "id": "driving-school-management",
@@ -208,7 +182,7 @@
       }
     ],
     "featured": true,
-    "order": 6
+    "order": 5
   },
   {
     "id": "tai-study-system",
@@ -237,7 +211,7 @@
       }
     ],
     "featured": true,
-    "order": 7
+    "order": 6
   },
   {
     "id": "pong-arcade",
@@ -265,33 +239,6 @@
       }
     ],
     "featured": false,
-    "order": 8
-  },
-  {
-    "id": "3d-ai-conformance-demo",
-    "title": "AI-Driven 3D Conformance Gateway",
-    "status": "Prototipo experimental",
-    "summary": "Microservicio de validación 3D que utiliza un modelo LLM (Ollama) con fallback a Scikit-Learn para clasificar activos basándose en características geométricas.",
-    "proof": "Demo web alojada en Streamlit Cloud. Permite simular el flujo 'La IA Propone, El Contrato Dispone' donde un motor determinista (Trimesh) valida o veta la inferencia.",
-    "technologies": [
-      "Python",
-      "Streamlit",
-      "Trimesh",
-      "Ollama",
-      "Scikit-Learn"
-    ],
-    "categories": [
-      "backend",
-      "demo",
-      "3d"
-    ],
-    "links": [
-      {
-        "label": "Probar Demo Web",
-        "url": "https://3d-ai-conformance-demo.streamlit.app/"
-      }
-    ],
-    "featured": false,
-    "order": 9
+    "order": 7
   }
 ]
