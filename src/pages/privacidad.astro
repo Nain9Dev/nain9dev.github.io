@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const actualizado = '27 de agosto de 2026';
+---
+
+<BaseLayout
+  title="Política de Privacidad | NainDev"
+  description="Cómo trata NainDev los datos personales, y qué hace la aplicación CRM Backups con los datos de Google Drive."
+>
+  <main id="main-content" class="shell section" style="padding-top: 8rem;">
+    <p class="eyebrow">Legal</p>
+    <h1>Política de Privacidad</h1>
+    <p>Última actualización: {actualizado}</p>
+
+    <div style="max-width: 70ch;">
+        <h2>Responsable</h2>
+        <p>
+          Aitor Nain Mendoza Vallejo (NainDev). Para cualquier asunto relacionado con esta
+          política o con el tratamiento de datos personales:
+          <a href="mailto:aitornainmendozavallejo@gmail.com">aitornainmendozavallejo@gmail.com</a>.
+        </p>
+
+        <h2>Alcance</h2>
+        <p>
+          Esta política cubre dos cosas distintas: este sitio web y la aplicación
+          <strong>CRM Backups</strong>, que es una aplicación de uso interno que envía copias de
+          seguridad cifradas a Google Drive.
+        </p>
+
+        <h2>Este sitio web</h2>
+        <p>
+          El sitio es estático y no pide registro. Se usa Plausible Analytics para medir visitas
+          de forma agregada: no instala cookies de seguimiento, no recoge datos personales y no
+          construye perfiles. Si escribes por correo o reservas una llamada, se tratan los datos
+          que facilites con el único fin de atender esa consulta.
+        </p>
+
+        <h2>La aplicación CRM Backups</h2>
+        <p>
+          CRM Backups es una aplicación privada, de uso exclusivo del responsable, que sube a
+          Google Drive las copias de seguridad de la base de datos de un CRM propio. No está
+          dirigida al público ni tiene usuarios registrados.
+        </p>
+
+        <h3>Qué permiso solicita a Google</h3>
+        <p>
+          Un único permiso: <code>https://www.googleapis.com/auth/drive.file</code>.
+        </p>
+        <p>
+          Ese permiso limita el acceso <strong>a los archivos que la propia aplicación crea</strong>.
+          La aplicación no puede ver, abrir, modificar ni eliminar el resto del contenido de Google
+          Drive, y no lo solicita. Se eligió deliberadamente el permiso más restringido que permite
+          hacer el trabajo, en lugar del acceso completo a Drive.
+        </p>
+
+        <h3>Qué se sube y en qué estado</h3>
+        <p>
+          Se suben volcados de la base de datos del CRM, que contienen datos de contactos,
+          empresas, oportunidades comerciales y correo asociado. Antes de salir del servidor, cada
+          copia se <strong>cifra con age</strong> usando una clave pública. La clave privada
+          necesaria para descifrarlas no se encuentra en Google, ni en el servidor que las genera:
+          está únicamente en poder del responsable.
+        </p>
+        <p>
+          En la práctica, esto significa que el contenido de las copias almacenadas en Google Drive
+          no es legible por Google ni por nadie que acceda a esa cuenta de Drive.
+        </p>
+
+        <h3>Uso limitado de los datos de Google</h3>
+        <p>
+          El uso que CRM Backups hace de la información recibida de las API de Google se ajusta a la
+          <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer">Política de Datos de Usuario de los Servicios de API de Google</a>,
+          incluidos sus requisitos de uso limitado. En concreto:
+        </p>
+        <ul>
+          <li>Los datos se usan solo para almacenar y recuperar copias de seguridad.</li>
+          <li>No se transfieren a terceros, salvo el propio almacenamiento en Google Drive.</li>
+          <li>No se usan con fines publicitarios ni se venden.</li>
+          <li>Ninguna persona los lee, más allá del responsable cuando restaura una copia.</li>
+          <li>No se emplean para entrenar modelos de inteligencia artificial.</li>
+        </ul>
+
+        <h3>Conservación</h3>
+        <p>
+          Las copias se conservan durante un periodo limitado y se eliminan por rotación cuando
+          dejan de ser necesarias. Las copias locales del servidor se retienen 30 días de forma
+          predeterminada.
+        </p>
+
+        <h3>Revocar el acceso</h3>
+        <p>
+          El acceso concedido a CRM Backups puede retirarse en cualquier momento desde
+          <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener noreferrer">la página de permisos de la cuenta de Google</a>.
+          Al hacerlo, la aplicación deja de poder subir copias nuevas. Los archivos ya subidos
+          permanecen en Drive hasta que se eliminen manualmente.
+        </p>
+
+        <h2>Derechos</h2>
+        <p>
+          Conforme al Reglamento General de Protección de Datos, cualquier persona cuyos datos se
+          traten puede solicitar el acceso, la rectificación, la supresión, la limitación del
+          tratamiento, la portabilidad y la oposición, escribiendo a la dirección indicada más
+          arriba. También puede presentar una reclamación ante la Agencia Española de Protección de
+          Datos.
+        </p>
+
+        <h2>Cambios</h2>
+        <p>
+          Si esta política cambia, se actualizará esta misma página junto con la fecha que figura al
+          principio.
+        </p>
+    </div>
+  </main>
+</BaseLayout>
