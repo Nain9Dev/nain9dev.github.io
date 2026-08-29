@@ -5,4 +5,4 @@
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://plausible.io https://assets.mailerlite.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://plausible.io https://*.mailerlite.com; form-action 'self' https://assets.mailerlite.com; frame-ancestors 'none'
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://plausible.io https://assets.mailerlite.com; style-src 'self' 'unsafe-inline' https://assets.mailerlite.com https://*.mailerlite.com; img-src 'self' data: https:; connect-src 'self' https://plausible.io https://*.mailerlite.com; form-action 'self' https://assets.mailerlite.com; frame-ancestors 'none'
