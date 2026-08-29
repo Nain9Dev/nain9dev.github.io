@@ -5,6 +5,7 @@ const blog = defineCollection({
   loader: glob({ pattern: "**/*.mdx", base: "./src/content/blog" }),
   schema: z.object({
     title: z.string(),
+    seoTitle: z.string().max(60, "El SEO title debe ser <= 60 chars.").optional(),
     description: z.string().max(160, "El SEO description debe ser < 160 chars."),
     pubDate: z.date(),
     tags: z.array(z.string()),
@@ -43,6 +44,7 @@ const servicios = defineCollection({
     techStack: z.array(z.string()).optional(),
     ogImage: z.string().optional().default('/assets/images/og-cover-v2.png'),
     draft: z.boolean().default(false),
+    renderTitle: z.boolean().default(true),
     order: z.number().default(99)
   })
 });

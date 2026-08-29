@@ -19,24 +19,17 @@ const serviceSchema = {
   "name": servicio.data.title,
   "description": servicio.data.description,
   "provider": {
-    "@type": "Person",
-    "name": "Aitor Nain",
-    "url": Astro.site?.toString() || 'https://www.naindev.com'
+    "@id": `${new URL('/', Astro.site || 'https://www.naindev.com').toString()}#person`
   },
   "serviceType": servicio.data.techStack || [],
-  "offers": {
-    "@type": "Offer",
-    "availability": "https://schema.org/InStock",
-    "price": "0",
-    "priceCurrency": "EUR"
-  }
+  "url": new URL(Astro.url.pathname, Astro.site || 'https://www.naindev.com').toString()
 };
 ---
 
 <BaseLayout title={servicio.data.title} description={servicio.data.description} keywords={servicio.data.keywords}>
-  <script slot="head" type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script is:inline slot="head" type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
   <article class="shell section" style="padding-top: 8rem;">
-    <h1>{servicio.data.title}</h1>
+    {servicio.data.renderTitle && <h1>{servicio.data.title}</h1>}
     <Content />
   </article>
 </BaseLayout>

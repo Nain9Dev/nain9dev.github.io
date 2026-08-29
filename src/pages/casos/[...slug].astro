@@ -14,7 +14,7 @@ const { caso } = Astro.props;
 const { Content } = await render(caso);
 ---
 
-<BaseLayout title={caso.data.title}>
+<BaseLayout title={caso.data.title} description={caso.data.description} keywords={caso.data.keywords} image={caso.data.ogImage}>
   <article class="shell section" style="padding-top: 8rem;">
     <p class="eyebrow">{caso.data.eyebrow}</p>
     <h1>{caso.data.title}</h1>

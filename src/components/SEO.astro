@@ -8,48 +8,81 @@ interface Props {
   tags?: string[];
   keywords?: string[];
   canonicalURL?: URL;
+  robots?: string;
 }
 
 const {
-  title = "Aitor Nain Mendoza Vallejo — Arquitecto Backend 3D & AI Systems | .NET",
-  description = "Aitor Nain Mendoza Vallejo es Arquitecto Backend especializado en infraestructura para procesamiento 3D masivo, integración de IA Generativa, agentes de IA y sistemas críticos .NET.",
+  title = "Aitor Nain Mendoza Vallejo | Arquitecto Backend 3D",
+  description = "Aitor Nain Mendoza Vallejo, también conocido como NainDev, diseña arquitectura backend para validación 3D, IA generativa y sistemas críticos .NET.",
   image = "/assets/images/og-cover-v2.png",
   date,
   author = "Aitor Nain Mendoza Vallejo",
   tags = [],
   keywords = [],
-  canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.naindev.com')
+  canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.naindev.com'),
+  robots = 'index, follow'
 } = Astro.props;
 
 const isArticle = !!date;
-
-const formattedTitle = title.includes("Aitor Nain Mendoza Vallejo") 
-  ? title 
-  : `${title} | Aitor Nain Mendoza Vallejo`;
+const isHome = Astro.url.pathname === '/';
+const siteURL = new URL('/', Astro.site || 'https://www.naindev.com').toString();
+const personId = `${siteURL}#person`;
+const websiteId = `${siteURL}#website`;
+const webpageId = `${canonicalURL.toString()}#webpage`;
 
 // Asegurar que la URL de la imagen sea siempre absoluta
 const absoluteImageUrl = image.startsWith('http') 
   ? image 
   : new URL(image, Astro.site || 'https://www.naindev.com').toString();
 
-const schema = isArticle ? {
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": formattedTitle,
+const personSchema = {
+  "@type": "Person",
+  "@id": personId,
+  "name": "Aitor Nain Mendoza Vallejo",
+  "alternateName": ["NainDev", "Aitor Nain", "Aitor Mendoza", "Aitor Mendoza Vallejo"],
+  "url": siteURL,
+  "jobTitle": "Arquitecto Backend 3D e IA",
+  "sameAs": [
+    "https://github.com/Nain9Dev",
+    "https://www.linkedin.com/in/aitor-nain-mendoza-vallejo/"
+  ]
+};
+
+const websiteSchema = {
+  "@type": "WebSite",
+  "@id": websiteId,
+  "url": siteURL,
+  "name": "NainDev",
+  "alternateName": "Aitor Nain",
+  "inLanguage": "es",
+  "publisher": { "@id": personId }
+};
+
+const webpageSchema = isArticle ? {
+  "@type": "BlogPosting",
+  "@id": webpageId,
+  "url": canonicalURL.toString(),
+  "headline": title,
+  "description": description,
   "image": [absoluteImageUrl],
   "datePublished": date.toISOString(),
-  "author": [{
-    "@type": "Person",
-    "name": author,
-    "alternateName": ["NainDev", "Aitor Nain", "Aitor Mendoza", "Aitor Mendoza Vallejo"],
-    "url": "https://www.naindev.com"
-  }]
+  "author": { "@id": personId },
+  "publisher": { "@id": personId },
+  "isPartOf": { "@id": websiteId },
+  "mainEntityOfPage": { "@id": webpageId },
+  "inLanguage": "es"
 } : {
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": formattedTitle,
+  "@type": isHome ? "ProfilePage" : "WebPage",
+  "@id": webpageId,
+  "url": canonicalURL.toString(),
+  "name": title,
   "description": description,
-  "url": canonicalURL.toString()
+  "isPartOf": { "@id": websiteId },
+  ...(isHome ? {
+    "about": { "@id": personId },
+    "mainEntity": { "@id": personId }
+  } : {}),
+  "inLanguage": "es"
 };
 
 const pathname = Astro.url.pathname;
@@ -63,21 +96,31 @@ for (const part of parts) {
 }
 
 const breadcrumbSchema = {
-  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
+  "@id": `${canonicalURL.toString()}#breadcrumb`,
   "itemListElement": breadcrumbs.map((b, i) => ({
     "@type": "ListItem",
     "position": i + 1,
     "name": b.name,
-    "item": new URL(b.item, Astro.site || 'https://www.naindev.com').href
+    "item": new URL(b.item === '/' ? '/' : `${b.item}/`, Astro.site || 'https://www.naindev.com').href
   }))
+};
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    personSchema,
+    websiteSchema,
+    webpageSchema,
+    ...(!isHome ? [breadcrumbSchema] : [])
+  ]
 };
 ---
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content={description}>
-<meta name="robots" content="index, follow">
+<meta name="robots" content={robots}>
 <meta name="author" content={author}>
 <meta name="theme-color" content="#090A0F">
 <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -88,23 +131,24 @@ const breadcrumbSchema = {
 <meta property="og:type" content={isArticle ? "article" : "website"}>
 <meta property="og:locale" content="es_ES">
 <meta property="og:site_name" content="Aitor Nain">
-<meta property="og:title" content={formattedTitle}>
+<meta property="og:title" content={title}>
 <meta property="og:description" content={description}>
 <meta property="og:url" content={canonicalURL}>
 <meta property="og:image" content={absoluteImageUrl}>
 <meta property="og:image:width" content="1731">
 <meta property="og:image:height" content="909">
 <meta property="og:image:alt" content="Representación visual de API, lógica de negocio y datos para NainDev">
+{isArticle && tags.map(tag => <meta property="article:tag" content={tag}>)}
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@NainDev">
 <meta name="twitter:creator" content="@NainDev">
-<meta name="twitter:title" content={formattedTitle}>
+<meta name="twitter:title" content={title}>
 <meta name="twitter:description" content={description}>
 <meta name="twitter:image" content={absoluteImageUrl}>
 
 <link rel="canonical" href={canonicalURL}>
+<link rel="sitemap" href="/sitemap-index.xml">
 
 <!-- Schema.org JSON-LD -->
-<script type="application/ld+json" set:html={JSON.stringify(schema)} />
-<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />

@@ -201,7 +201,6 @@ document.addEventListener('astro:page-load', () => {
   output.addEventListener('click', onOutputClick);
 
   const welcomeText = "Conectando al servidor... Inicializando subsistemas...";
-  let hasRun = false;
   
   const observer = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting && !hasRun) {

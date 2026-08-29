@@ -13,16 +13,18 @@ interface Props {
   author?: string;
   tags?: string[];
   keywords?: string[];
+  robots?: string;
 }
 
 const {
-  title = "Aitor Nain — Arquitecto Backend 3D & AI Systems | .NET",
-  description = "Arquitecto Backend especializado en infraestructura para procesamiento 3D masivo, integración de IA Generativa, agentes de IA y sistemas críticos .NET.",
+  title = "Aitor Nain Mendoza Vallejo | Arquitecto Backend 3D",
+  description = "Aitor Nain Mendoza Vallejo, también conocido como NainDev, diseña arquitectura backend para validación 3D, IA generativa y sistemas críticos .NET.",
   image = "https://www.naindev.com/assets/images/og-cover-v2.png",
   date,
   author,
   tags,
-  keywords
+  keywords,
+  robots = 'index, follow'
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.naindev.com');
@@ -31,7 +33,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.nain
 <!doctype html>
 <html lang="es">
 <head>
-  <SEO title={title} description={description} image={image} canonicalURL={canonicalURL} date={date} author={author} tags={tags} keywords={keywords} />
+  <SEO title={title} description={description} image={image} canonicalURL={canonicalURL} date={date} author={author} tags={tags} keywords={keywords} robots={robots} />
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon-optimized.svg">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon-optimized.svg">
