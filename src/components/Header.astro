@@ -1,18 +1,20 @@
 ---
 // Header.astro
+import { Image } from 'astro:assets';
+import logo from '../assets/images/logo_horizontal.png';
 ---
 
 <header class="site-header" data-site-header>
   <div class="shell header-layout">
     <a class="brand" href="/#top" aria-label="NainDev, volver al inicio" title="Volver al inicio">
-      <img src="/assets/images/logo_horizontal.png" alt="NainDev Logo" class="brand-logo">
+      <Image src={logo} alt="NainDev Logo" class="brand-logo" format="webp" loading="eager" />
     </a>
 
     <nav class="primary-navigation" aria-label="Navegación principal">
       <a href="/#services" data-section-link>Servicios</a>
       <a href="/#projects" data-section-link>Casos de Estudio</a>
-      <a href="/servicios/arquitectura-frontend-alto-rendimiento/">Arquitectura Frontend</a>
-      <a href="/blog/">Blog</a>
+      <a href="/servicios/arquitectura-frontend-alto-rendimiento/" data-astro-prefetch="viewport">Arquitectura Frontend</a>
+      <a href="/blog/" data-astro-prefetch="viewport">Blog</a>
       <a href="/#method" data-section-link>Cómo trabajo</a>
       <a href="/#about" data-section-link>Sobre mí</a>
     </nav>
