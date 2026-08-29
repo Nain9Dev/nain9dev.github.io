@@ -12,11 +12,13 @@ order: 2
 </div>
 
 <div class="case-study-section" style="margin-bottom: 2rem;">
-  <h2>Decisiones Arquitectónicas</h2>
+  <h2>Decisiones de Arquitectura (ADRs)</h2>
   <ul class="case-study-list decisions-list">
-    <li>Implementación de un sistema de caché distribuida (Redis) para consultas repetitivas.</li>
-    <li>Partición de la base de datos (sharding) por tenant para aislar cargas.</li>
-    <li>Migración de endpoints síncronos a procesamiento asíncrono con colas (RabbitMQ).</li>
+    <li><strong>Contexto:</strong> La base de datos SQL Server era el único cuello de botella; todas las consultas repetitivas de lectura golpeaban directamente a los discos.</li>
+    <li><strong>Decisión:</strong> Partición de la base de datos (sharding) por tenant y uso de Redis como caché de primer nivel.</li>
+    <li><strong>Alternativas consideradas:</strong> Migrar a NoSQL (descartado por necesidad de consistencia ACID en facturación).</li>
+    <li><strong>Resultado:</strong> Descarga del 85% de las lecturas hacia Redis y operaciones de escritura asíncronas vía RabbitMQ.</li>
+    <li><strong>Consecuencias:</strong> Mayor complejidad en la invalidación de caché y necesidad de monitoreo distribuido, mitigado con despliegues Blue-Green en Kubernetes.</li>
   </ul>
 </div>
 

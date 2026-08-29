@@ -144,6 +144,14 @@ Tras la puesta en producción de la nueva arquitectura, los indicadores clave de
 - **Escalabilidad Horizontal (Throughput):** Capacidad para procesar picos de **hasta 15,000 modelos/hora** sin degradación de la API.
 - **Reducción de Costes de Infraestructura:** Ahorro del **35% en costes cloud** mensuales.
 
-## 7. Conclusión y Próximos Pasos
+## 7. Decisiones de Arquitectura (ADRs)
+
+- **Contexto**: Las validaciones 3D se ejecutaban en el mismo hilo HTTP con APIs de IA externas, provocando timeouts y acoplamiento excesivo.
+- **Decisión**: Integrar ONNX Runtime nativamente en .NET para ejecutar validaciones geométricas en memoria, aislando a la IA como un proveedor de datos asíncrono.
+- **Alternativas consideradas**: Microservicios en Python para la validación geométrica (descartado por la penalización de serialización/deserialización y latencia de red para mallas pesadas).
+- **Resultado**: El tiempo de validación bajó a 1.2s, y los fallos de red se eliminaron del proceso crítico.
+- **Consecuencias**: Aumentó la huella de memoria en los workers .NET, lo que requirió instancias optimizadas para memoria en la nube, pero simplificó radicalmente la topología de red.
+
+## 8. Conclusión y Próximos Pasos
 
 Este proyecto demuestra que la adopción de tecnologías exponenciales como la IA generativa no exime de aplicar principios sólidos de ingeniería de software. Al contrario: cuando el input (IA) es impredecible, el backend debe ser más rígido, determinista y estar mejor estructurado que nunca.

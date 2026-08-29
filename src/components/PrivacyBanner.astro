@@ -1,0 +1,63 @@
+---
+// PrivacyBanner.astro
+---
+<div class="privacy-banner" id="privacy-banner" role="alert">
+  <span>🔒 Este sitio no utiliza cookies de seguimiento invasivas. Tu privacidad está protegida.</span>
+  <button class="privacy-banner-close" aria-label="Cerrar aviso">×</button>
+</div>
+<style>
+  .privacy-banner {
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    backdrop-filter: blur(8px);
+    z-index: 999;
+    box-shadow: var(--shadow-glow);
+    white-space: nowrap;
+  }
+  .privacy-banner-close {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--color-text-soft);
+    padding: 0 0.25rem;
+  }
+  @media (max-width: 768px) {
+    .privacy-banner {
+      width: 90%;
+      white-space: normal;
+      text-align: center;
+      bottom: 1rem;
+    }
+  }
+</style>
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const banner = document.getElementById('privacy-banner');
+    const closeBtn = document.querySelector('.privacy-banner-close');
+    
+    // Check si ya se cerró antes
+    if (localStorage.getItem('privacyBannerClosed') === 'true') {
+      if (banner) banner.style.display = 'none';
+      return;
+    }
+    
+    if (closeBtn && banner) {
+      closeBtn.addEventListener('click', () => {
+        banner.style.display = 'none';
+        localStorage.setItem('privacyBannerClosed', 'true');
+      });
+    }
+  });
+</script>

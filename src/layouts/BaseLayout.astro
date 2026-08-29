@@ -3,6 +3,7 @@ import { ClientRouter } from 'astro:transitions';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import SEO from '../components/SEO.astro';
+import PrivacyBanner from '../components/PrivacyBanner.astro';
 
 interface Props {
   title?: string;
@@ -62,6 +63,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.nain
   <slot />
 
   <Footer />
+  <PrivacyBanner />
 
   <script type="module" src="/assets/js/app.js"></script>
 

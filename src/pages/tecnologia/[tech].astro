@@ -1,0 +1,77 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const servicios = await getCollection('servicios');
+  const casos = await getCollection('casos');
+  const techs = new Set();
+  
+  servicios.forEach(s => {
+    if (s.data.techStack) {
+      s.data.techStack.forEach((t: string) => techs.add(t));
+    }
+  });
+  
+  casos.forEach(c => {
+    if (c.data.techStack) {
+      c.data.techStack.forEach((t: string) => techs.add(t));
+    }
+  });
+
+  return Array.from(techs).map(tech => ({
+    params: { tech: tech as string },
+    props: { tech: tech as string }
+  }));
+}
+
+const { tech } = Astro.props;
+const servicios = await getCollection('servicios', ({ data }) => data.techStack?.includes(tech) && !data.draft);
+const casos = await getCollection('casos', ({ data }) => data.techStack?.includes(tech) && !data.draft);
+
+const title = `Proyectos y Servicios con ${tech} | NainDev`;
+const description = `Descubre cómo utilizamos ${tech} en arquitecturas de backend escalables y sistemas críticos 3D.`;
+---
+
+<BaseLayout title={title} description={description}>
+  <main class="shell section" id="main-content">
+    <div class="section-heading" data-reveal>
+      <p class="eyebrow">Tecnología Especializada</p>
+      <h1>Experiencia con <span class="title-accent">{tech}</span></h1>
+      <p>Servicios y casos de estudio reales donde he implementado {tech} en producción.</p>
+    </div>
+
+    {servicios.length > 0 && (
+      <section data-reveal style="margin-top: 4rem;">
+        <h2 style="font-size: 1.8rem; margin-bottom: 2rem; border-bottom: 1px solid var(--color-line); padding-bottom: 0.5rem;">Servicios Relacionados</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;">
+          {servicios.map(servicio => (
+            <a href={`/servicios/${servicio.id}`} class="case-study-card" style="text-decoration: none;">
+              <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--color-text);">{servicio.data.title}</h3>
+              <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.5;">{servicio.data.description}</p>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    {casos.length > 0 && (
+      <section data-reveal style="margin-top: 4rem;">
+        <h2 style="font-size: 1.8rem; margin-bottom: 2rem; border-bottom: 1px solid var(--color-line); padding-bottom: 0.5rem;">Casos de Estudio</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;">
+          {casos.map(caso => (
+            <a href={`/casos/${caso.id}`} class="case-study-card" style="text-decoration: none;">
+              <p class="eyebrow" style="font-size: 0.8rem;">{caso.data.eyebrow}</p>
+              <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--color-text);">{caso.data.title}</h3>
+              <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.5;">{caso.data.description}</p>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+    
+    <div style="margin-top: 4rem; text-align: center;">
+      <a href="/" class="button button-outline">Volver a inicio</a>
+    </div>
+  </main>
+</BaseLayout>
