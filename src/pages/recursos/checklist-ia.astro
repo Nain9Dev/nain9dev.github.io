@@ -68,6 +68,18 @@ const description = "Asegura que tu sistema de IA cumpla con los estándares de 
           </div>
           <!-- FIN CÓDIGO MAILERLITE -->
 
+          <noscript>
+            <div style="margin-top: 1.5rem; text-align: center; padding: 1rem; border-radius: 8px; border: 1px dashed var(--color-primary); background: rgba(0,0,0,0.2);">
+              <p style="margin-bottom: 0.5rem; font-size: 0.95rem;">¿No ves el formulario?</p>
+              <a href="mailto:hola@naindev.com?subject=Solicitud%20Checklist%20IA" style="color: var(--color-primary); font-weight: bold; text-decoration: underline;">Haz clic aquí para descargar el checklist por correo</a>
+            </div>
+          </noscript>
+          
+          <div id="mailerlite-fallback" style="display: none; margin-top: 1.5rem; text-align: center; padding: 1rem; border-radius: 8px; border: 1px dashed var(--color-primary); background: rgba(0,0,0,0.2);">
+            <p style="margin-bottom: 0.5rem; font-size: 0.95rem;">¿El formulario no carga correctamente?</p>
+            <a href="mailto:hola@naindev.com?subject=Solicitud%20Checklist%20IA" style="color: var(--color-primary); font-weight: bold; text-decoration: underline;">Haz clic aquí para solicitar el checklist por correo</a>
+          </div>
+
           <p style="margin-top: 1.5rem; font-size: 0.8rem; color: var(--color-text-muted); text-align: center;">
             Al suscribirte aceptas nuestra <a href="/privacidad" style="color: var(--color-primary);">política de privacidad</a>. Prometo no enviar spam.
           </p>
@@ -115,6 +127,16 @@ const description = "Asegura que tu sistema de IA cumpla con los estándares de 
         // Redirigir a página de gracias si MailerLite no lo hace por defecto
         window.location.href = '/recursos/gracias';
       };
+
+      // Detección de adblocker para MailerLite (fallback visual)
+      setTimeout(() => {
+        const mlForm = document.querySelector('.ml-subscribe-form');
+        // Si el contenedor no existe o está oculto (altura 0)
+        if (!mlForm || mlForm.clientHeight === 0 || window.getComputedStyle(mlForm).display === 'none') {
+          const fallback = document.getElementById('mailerlite-fallback');
+          if (fallback) fallback.style.display = 'block';
+        }
+      }, 3500);
     });
   </script>
 </BaseLayout>

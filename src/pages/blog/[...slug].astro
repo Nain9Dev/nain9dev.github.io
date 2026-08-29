@@ -18,5 +18,33 @@ const { Content } = await render(post);
   <article class="shell section" style="padding-top: 8rem;">
     <h1>{post.data.title}</h1>
     <Content />
+    
+    <div class="share-buttons" data-reveal style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--color-line); display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+      <span style="color: var(--color-text-muted); font-weight: 600;">Compartir este artículo:</span>
+      <button class="button button-secondary button-small" onclick="shareOnLinkedIn()" aria-label="Compartir en LinkedIn">LinkedIn</button>
+      <button class="button button-secondary button-small" onclick="shareOnTwitter()" aria-label="Compartir en Twitter">Twitter</button>
+      <button class="button button-secondary button-small" onclick="shareViaWebShare()" aria-label="Compartir en otras apps">Compartir</button>
+    </div>
+
+    <script is:inline>
+      function shareViaWebShare() {
+        if (navigator.share) {
+          navigator.share({
+            title: document.title,
+            text: 'Artículo técnico sobre arquitectura backend 3D e IA',
+            url: window.location.href
+          }).catch(console.error);
+        } else {
+          navigator.clipboard.writeText(window.location.href);
+          alert('Enlace copiado al portapapeles');
+        }
+      }
+      function shareOnLinkedIn() {
+        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`, '_blank');
+      }
+      function shareOnTwitter() {
+        window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent('Artículo técnico sobre arquitectura backend 3D e IA')}&url=${encodeURIComponent(window.location.href)}`, '_blank');
+      }
+    </script>
   </article>
 </BaseLayout>

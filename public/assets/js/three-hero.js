@@ -27,8 +27,8 @@ export async function initializeThreeHero() {
 
   let THREE;
   try {
-    console.log('[ThreeHero] Cargando Three.js desde CDN...');
-    THREE = await import('https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.module.min.js');
+    console.log('[ThreeHero] Cargando Three.js desde local...');
+    THREE = await import('/assets/js/three.module.min.js');
     console.log('[ThreeHero] Three.js cargado correctamente.');
   } catch (error) {
     console.error("[NainDev] No se pudo cargar Three.js (CSP o Red). El 3D hero se omite.", error);

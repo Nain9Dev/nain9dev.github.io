@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TerminalSection from '../components/home/TerminalSection.astro';
+
+const title = "Página no encontrada | NainDev";
+const description = "Lo sentimos, la página que buscas no existe. Explora la terminal o vuelve al inicio.";
+---
+
+<BaseLayout title={title} description={description}>
+  <main class="shell section" id="main-content">
+    <div class="section-heading" data-reveal style="text-align: center;">
+      <p class="eyebrow">Error 404</p>
+      <h1 style="font-size: 3rem; margin-bottom: 1.5rem;">Parece que esta ruta <span class="title-accent">no existe.</span></h1>
+      <p style="font-size: 1.1rem; color: var(--color-text-muted);">
+        El servidor no pudo encontrar el recurso solicitado. Puedes usar la terminal para explorar el sistema o visitar los enlaces rápidos.
+      </p>
+      <div class="button-group" style="justify-content: center; margin-top: 2rem;">
+        <a class="button button-primary" href="/recursos/checklist-ia" data-astro-prefetch="viewport">Descargar Checklist IA</a>
+        <a class="button button-secondary" href="/servicios" data-astro-prefetch="viewport">Ver Servicios</a>
+        <a class="button button-outline" href="/blog" data-astro-prefetch="viewport">Leer Blog</a>
+      </div>
+    </div>
+    
+    <div style="margin-top: 4rem;">
+      <TerminalSection />
+    </div>
+  </main>
+</BaseLayout>
