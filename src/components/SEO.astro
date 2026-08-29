@@ -11,17 +11,21 @@ interface Props {
 }
 
 const {
-  title = "Aitor Nain — Arquitecto Backend 3D & AI Systems | .NET",
-  description = "Arquitecto Backend especializado en infraestructura para procesamiento 3D masivo, integración de IA Generativa, agentes de IA y sistemas críticos .NET.",
+  title = "Aitor Nain Mendoza Vallejo — Arquitecto Backend 3D & AI Systems | .NET",
+  description = "Aitor Nain Mendoza Vallejo es Arquitecto Backend especializado en infraestructura para procesamiento 3D masivo, integración de IA Generativa, agentes de IA y sistemas críticos .NET.",
   image = "/assets/images/og-cover-v2.png",
   date,
-  author = "Aitor Nain",
+  author = "Aitor Nain Mendoza Vallejo",
   tags = [],
   keywords = [],
   canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.naindev.com')
 } = Astro.props;
 
 const isArticle = !!date;
+
+const formattedTitle = title.includes("Aitor Nain Mendoza Vallejo") 
+  ? title 
+  : `${title} | Aitor Nain Mendoza Vallejo`;
 
 // Asegurar que la URL de la imagen sea siempre absoluta
 const absoluteImageUrl = image.startsWith('http') 
@@ -31,7 +35,7 @@ const absoluteImageUrl = image.startsWith('http')
 const schema = isArticle ? {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": title,
+  "headline": formattedTitle,
   "image": [absoluteImageUrl],
   "datePublished": date.toISOString(),
   "author": [{
@@ -42,9 +46,30 @@ const schema = isArticle ? {
 } : {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": title,
+  "name": formattedTitle,
   "description": description,
   "url": canonicalURL.toString()
+};
+
+const pathname = Astro.url.pathname;
+const parts = pathname.split('/').filter(Boolean);
+const breadcrumbs = [{ name: 'Inicio', item: '/' }];
+let currentPath = '';
+for (const part of parts) {
+  currentPath += '/' + part;
+  const name = part.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+  breadcrumbs.push({ name, item: currentPath });
+}
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": breadcrumbs.map((b, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "name": b.name,
+    "item": new URL(b.item, Astro.site || 'https://www.naindev.com').href
+  }))
 };
 ---
 
@@ -62,7 +87,7 @@ const schema = isArticle ? {
 <meta property="og:type" content={isArticle ? "article" : "website"}>
 <meta property="og:locale" content="es_ES">
 <meta property="og:site_name" content="Aitor Nain">
-<meta property="og:title" content={title}>
+<meta property="og:title" content={formattedTitle}>
 <meta property="og:description" content={description}>
 <meta property="og:url" content={canonicalURL}>
 <meta property="og:image" content={absoluteImageUrl}>
@@ -73,7 +98,7 @@ const schema = isArticle ? {
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@NainDev">
 <meta name="twitter:creator" content="@NainDev">
-<meta name="twitter:title" content={title}>
+<meta name="twitter:title" content={formattedTitle}>
 <meta name="twitter:description" content={description}>
 <meta name="twitter:image" content={absoluteImageUrl}>
 
@@ -81,3 +106,4 @@ const schema = isArticle ? {
 
 <!-- Schema.org JSON-LD -->
 <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />

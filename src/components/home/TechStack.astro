@@ -18,10 +18,10 @@ import techStackData from '../../../public/assets/data/tech-stack.json';
           <h3 class="tech-category-title">{category.name}</h3>
           <div class="tech-category">
             {category.items.map(item => (
-              <div class="tech-badge" data-reveal>
+              <a href={`/tecnologia/${encodeURIComponent(item.name)}`} class="tech-badge" data-reveal style="text-decoration: none; color: inherit;">
                 <img src={item.icon} alt={`Icono de ${item.name}`} loading="lazy" class="tech-icon" />
                 <span class="tech-name">{item.name}</span>
-              </div>
+              </a>
             ))}
           </div>
         </div>
