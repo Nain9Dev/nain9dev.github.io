@@ -58,10 +58,83 @@ const description = "Asegura que tu sistema de IA cumpla con los estándares de 
                   <div class="ml-form-embedContent" style="margin-bottom: 1.5rem;">
                     <p style="color: var(--color-text-muted);">Ingresa tu correo profesional (solo 1 paso) y recibe el PDF en tu bandeja de entrada inmediatamente.</p>
                   </div>
-                  <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/xxx/forms/xxx/subscribe" data-code="xxxx" method="post" target="_blank" data-plausible-form="Lead_Magnet_Download">
-                    <!-- Los campos del formulario de MailerLite se inyectan aquí -->
-                    <p style="color: var(--color-primary); font-style: italic;">[El formulario de MailerLite se cargará aquí]</p>
+                  <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/xxx/forms/xxx/subscribe" data-code="xxxx" method="post" data-plausible-form="Lead_Magnet_Download">
+                    <!-- Campos UTM ocultos para MailerLite -->
+                    <input type="hidden" name="fields[utm_source]" value="checklist">
+                    <input type="hidden" name="fields[utm_medium]" value="website">
+                    <input type="hidden" name="fields[utm_campaign]" value="lead-magnet">
+                    <input type="hidden" name="fields[utm_content]" id="utm-content-field" value="">
+                    <!-- Los campos del formulario de MailerLite -->
+                    <div class="ml-form-fieldRow ml-last-item">
+                      <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                        <input type="email" class="form-control" name="fields[email]" placeholder="tu@correo-profesional.com" autocomplete="email" required style="width: 100%; padding: 0.75rem; margin-bottom: 1rem; border-radius: 4px; border: 1px solid var(--color-line); background: rgba(0,0,0,0.2); color: white;" />
+                      </div>
+                    </div>
+                    <button type="submit" class="primary" style="width: 100%; padding: 0.75rem; background: var(--color-primary); color: #000; font-weight: bold; border: none; border-radius: 4px; cursor: pointer; transition: opacity 0.2s;">
+                      Descargar Checklist
+                    </button>
+                    <div class="form-feedback" style="display: none; margin-top: 1rem; font-size: 0.9rem; text-align: center; padding: 0.5rem; border-radius: 4px;"></div>
                   </form>
+                  <script is:inline>
+                    // Feedback visual nativo y fetch asíncrono
+                    document.addEventListener('astro:page-load', () => {
+                      const form = document.querySelector('.ml-block-form');
+                      if (form) {
+                        form.addEventListener('submit', (e) => {
+                          e.preventDefault();
+                          const btn = form.querySelector('button[type="submit"]');
+                          const feedback = form.querySelector('.form-feedback');
+                          const actionUrl = form.getAttribute('action');
+                          
+                          if (btn) {
+                            btn.textContent = 'Enviando...';
+                            btn.style.opacity = '0.7';
+                            btn.disabled = true;
+                          }
+                          
+                          if (feedback) {
+                            feedback.style.display = 'none';
+                          }
+
+                          const formData = new FormData(form);
+                          
+                          fetch(actionUrl, {
+                            method: 'POST',
+                            body: formData,
+                            mode: 'no-cors'
+                          })
+                          .then(() => {
+                            if (btn) {
+                              btn.textContent = '¡Enviado!';
+                              btn.style.background = '#4ade80';
+                            }
+                            if (feedback) {
+                              feedback.style.display = 'block';
+                              feedback.style.color = '#15803d';
+                              feedback.style.backgroundColor = '#dcfce7';
+                              feedback.textContent = '¡Revisa tu bandeja de entrada! Redirigiendo...';
+                            }
+                            if (window.ml_webform_success) {
+                              window.ml_webform_success();
+                            }
+                          })
+                          .catch(() => {
+                            if (btn) {
+                              btn.textContent = 'Descargar Checklist';
+                              btn.style.opacity = '1';
+                              btn.disabled = false;
+                            }
+                            if (feedback) {
+                              feedback.style.display = 'block';
+                              feedback.style.color = '#b91c1c';
+                              feedback.style.backgroundColor = '#fee2e2';
+                              feedback.textContent = 'Hubo un error de conexión. Por favor, inténtalo de nuevo.';
+                            }
+                          });
+                        });
+                      }
+                    });
+                  </script>
                 </div>
               </div>
             </div>
@@ -81,7 +154,7 @@ const description = "Asegura que tu sistema de IA cumpla con los estándares de 
           </div>
 
           <p style="margin-top: 1.5rem; font-size: 0.8rem; color: var(--color-text-muted); text-align: center;">
-            Al suscribirte aceptas nuestra <a href="/privacidad" style="color: var(--color-primary);">política de privacidad</a>. Prometo no enviar spam.
+            Al enviar, aceptas nuestra <a href="/privacidad" style="color: var(--color-primary);">Política de Privacidad</a>. Prometo no enviar spam.
           </p>
         </div>
 
@@ -100,6 +173,10 @@ const description = "Asegura que tu sistema de IA cumpla con los estándares de 
   <script is:inline>
     // Con MailerLite integrado nativamente, usamos su callback de éxito para trackear el evento en Plausible
     document.addEventListener('astro:page-load', () => {
+      // Poblar campo UTM dinámico
+      const utmContentField = document.getElementById('utm-content-field');
+      if (utmContentField) utmContentField.value = window.location.pathname;
+
       // --- LÓGICA A/B TESTING ---
       const urlParams = new URLSearchParams(window.location.search);
       const variant = urlParams.get('variant') || 'a';

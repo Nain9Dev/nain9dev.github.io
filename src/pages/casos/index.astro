@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
-const casos = await getCollection('casos');
+const casos = await getCollection('casos', ({ data }) => data.draft !== true);
 const sortedCasos = casos.sort((a, b) => a.data.order - b.data.order);
 ---
 

@@ -1,0 +1,34 @@
+---
+title: "Arquitectura IA para Fintech: Seguridad y Precisión"
+description: "Diseño y desarrollo de arquitecturas backend para IA generativa en el sector Fintech. Cumplimiento normativo, seguridad Zero-Trust y baja latencia garantizada."
+keywords: ["arquitectura ia fintech", "ia generativa banca", "backend c# ia", "seguridad zero-trust ai", "chatbots financieros seguros"]
+order: 1
+icon: "⚡"
+techStack: ["C#", ".NET 8", "Azure OpenAI", "Semantic Kernel", "Redis"]
+---
+
+## El reto de la IA en Fintech
+
+El sector financiero (banca, seguros, wealth management) exige niveles de precisión y seguridad que los modelos de IA generativa no ofrecen "out of the box". **Alucinar un dato financiero o filtrar PII (información de identificación personal) no es un bug, es un riesgo legal masivo.** 
+
+Además, las infraestructuras tradicionales sufren para mantener una latencia aceptable cuando se integran llamadas a LLMs (Large Language Models), lo que degrada la experiencia del usuario final en operaciones críticas.
+
+## Mi enfoque: Zero-Trust AI Architecture
+
+Diseño arquitecturas backend en **C# y .NET** que actúan como una capa de control estricta entre tus datos sensibles y los modelos de IA:
+
+1. **Aislamiento de Datos (Data Masking):** Sustitución determinista de PII y datos financieros antes de que lleguen al modelo.
+2. **Orquestación Determinista:** Uso de patrones como RAG (Retrieval-Augmented Generation) con validación estricta de las fuentes mediante búsqueda vectorial.
+3. **Control de Latencia:** Implementación de cachés semánticos (Redis) para resolver consultas repetitivas en milisegundos sin consumir cuota de API ni sumar latencia.
+4. **Resiliencia:** Patrones de Circuit Breaker y Retry Policies para manejar los inevitables timeouts de APIs de terceros (OpenAI, Anthropic).
+
+## El Proceso de Trabajo
+
+1. **Auditoría de Riesgos:** Evaluamos tu caso de uso de IA y detectamos vulnerabilidades de inyección de prompts y fugas de datos.
+2. **Diseño de la Capa de Control:** Definimos la arquitectura en .NET que gobernará la comunicación con el LLM.
+3. **Implementación y Pruebas:** Construimos los orquestadores (usando Semantic Kernel o implementaciones a medida) con pruebas unitarias que garanticen respuestas deterministas.
+
+---
+
+> "¿Tu sistema de IA procesa datos financieros sin una capa de validación determinista?"
+> <a href="https://calendly.com/aitornainmendozavallejo-ksez/30min" target="_blank" rel="noopener noreferrer" class="button button-primary">Agendar consultoría gratuita de 30 minutos</a> o <a href="/recursos/checklist-ia" style="text-decoration: underline;">descarga el Checklist de Arquitectura IA</a>.

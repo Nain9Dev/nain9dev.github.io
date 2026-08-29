@@ -17,10 +17,36 @@ document.addEventListener('astro:page-load', () => {
   input.placeholder = "Escribe 'help' para ver comandos...";
 
   let history = [];
-  let historyIndex = -1;
+  try {
+    const saved = localStorage.getItem('terminalCmdHistory');
+    if (saved) history = JSON.parse(saved);
+  } catch (e) {}
+
+  let historyIndex = history.length;
   let isTyping = false;
   let hasInteracted = false;
+  let hasRun = false;
+
+  // Restaurar salida si existe
+  const savedOutput = localStorage.getItem('terminalOutput');
+  if (savedOutput) {
+    output.innerHTML = savedOutput;
+    hasRun = true;
+    hasInteracted = true;
+    output.scrollTop = output.scrollHeight;
+  }
   
+  function saveState() {
+    if (history.length > 50) history = history.slice(-50);
+    localStorage.setItem('terminalCmdHistory', JSON.stringify(history));
+    
+    // Limitar el número de elementos visuales en el output
+    while (output.children.length > 100) {
+      output.removeChild(output.firstChild);
+    }
+    localStorage.setItem('terminalOutput', output.innerHTML);
+  }
+
   function shouldAutoScroll() {
     return output.scrollHeight - output.scrollTop - output.clientHeight < 30;
   }
@@ -115,15 +141,18 @@ document.addEventListener('astro:page-load', () => {
 
     if (cmd === 'clear') {
       output.innerHTML = '';
+      saveState();
       return;
     }
 
     if (commands[cmd]) {
       window.plausible && window.plausible('TerminalCommand', { props: { command: cmd, status: 'success' } });
       await printLine(commands[cmd]);
+      saveState();
     } else {
       window.plausible && window.plausible('TerminalCommand', { props: { command: cmdStr, status: 'failed' } });
       await printLine(`Comando no encontrado: <span class="term-text-red">${cmd.replace(/</g, "&lt;")}</span>. Usa <span class="term-text-green">help</span>.`);
+      saveState();
     }
   }
 
@@ -185,6 +214,7 @@ document.addEventListener('astro:page-load', () => {
         div2.style.marginBottom = '0.5rem';
         const statusText = commands['status'] || "[<span class=\"term-text-green\">OK</span>] API Gateway (Latencia p95: 42ms)<br>[<span class=\"term-text-green\">OK</span>] Database Primary (Carga: 12%)<br>[<span class=\"term-text-green\">OK</span>] Validation Engine (Sandboxed)<br>Uptime: 99.97% - Todos los sistemas operando con normalidad.";
         await typewriterAsync(statusText + "<br><br>Escribe <span class=\"term-text-green\">help</span> para ver los comandos disponibles.", div2);
+        saveState();
       })();
     }
   });

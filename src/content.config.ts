@@ -27,6 +27,7 @@ const casos = defineCollection({
       label: z.string(),
       value: z.string()
     })).optional(),
+    draft: z.boolean().default(false),
     order: z.number().default(99)
   })
 });
@@ -39,6 +40,7 @@ const servicios = defineCollection({
     keywords: z.array(z.string()).optional().default([]),
     icon: z.string().optional(),
     techStack: z.array(z.string()).optional(),
+    draft: z.boolean().default(false),
     order: z.number().default(99)
   })
 });

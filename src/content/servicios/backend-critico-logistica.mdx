@@ -1,0 +1,34 @@
+---
+title: "Sistemas Críticos Backend para Logística"
+description: "Arquitectura backend de alto rendimiento para plataformas logísticas y cadena de suministro. Tolerancia a fallos, procesamiento de eventos masivos y alta disponibilidad."
+keywords: ["backend logistica", "arquitectura eventos logistica", "c# sistemas criticos", "alta disponibilidad logistica"]
+order: 3
+icon: "🏗️"
+techStack: ["C#", ".NET", "Kafka", "SQL Server", "Microservicios"]
+---
+
+## El Desafío de la Logística Moderna
+
+En la cadena de suministro y logística B2B, una caída del sistema de 5 minutos significa contenedores parados, SLAs incumplidos y pérdidas económicas directas. Estos sistemas lidian con un caudal constante de eventos (tracking de GPS, estados de pedidos, telemetría) que deben procesarse y almacenarse en tiempo real.
+
+Una arquitectura monolítica clásica o mal dimensionada rápidamente se convierte en un cuello de botella, generando timeouts y pérdida de datos silenciosa.
+
+## Arquitecturas Orientadas a Eventos (EDA)
+
+Diseño ecosistemas backend robustos en **C# (.NET)** pensados para la resiliencia absoluta:
+
+1. **Desacoplamiento Mediante Eventos:** Uso de message brokers (como Apache Kafka o Azure Service Bus) para separar la ingesta de datos del procesamiento pesado.
+2. **Escalabilidad Horizontal:** Arquitecturas sin estado (stateless) que permiten añadir instancias dinámicamente cuando el volumen de tracking aumenta durante picos de demanda.
+3. **Idempotencia y Tolerancia a Fallos:** Sistemas diseñados asumiendo que la red fallará, implementando reintentos seguros (Polly) y asegurando que los eventos no se dupliquen (idempotencia).
+4. **Almacenamiento Híbrido:** CQRS (Command Query Responsibility Segregation) para separar las operaciones de escritura rápida (tracking de cientos de vehículos) de las consultas complejas de informes B2B.
+
+## Resultados Medibles
+
+- **Disponibilidad 99.99%:** Aislamiento de fallos para que un componente caído no afecte a toda la operación.
+- **Rendimiento Predecible:** Latencia estable incluso bajo ráfagas masivas de eventos.
+- **Auditabilidad:** Trazabilidad completa de cada mensaje en el sistema.
+
+---
+
+> "¿Tu sistema logístico pierde eventos durante los picos de carga?"
+> <a href="https://calendly.com/aitornainmendozavallejo-ksez/30min" target="_blank" rel="noopener noreferrer" class="button button-primary">Agendar consultoría de escalabilidad gratuita</a>.
