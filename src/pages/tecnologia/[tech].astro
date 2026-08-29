@@ -1,11 +1,12 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getTechnologyRouteParam } from '../../utils/technologyRoutes';
 
 export async function getStaticPaths() {
-  const servicios = await getCollection('servicios');
-  const casos = await getCollection('casos');
-  const techs = new Set();
+  const servicios = await getCollection('servicios', ({ data }) => !data.draft);
+  const casos = await getCollection('casos', ({ data }) => !data.draft);
+  const techs = new Set<string>();
   
   servicios.forEach(s => {
     if (s.data.techStack) {
@@ -20,8 +21,8 @@ export async function getStaticPaths() {
   });
 
   return Array.from(techs).map(tech => ({
-    params: { tech: tech as string },
-    props: { tech: tech as string }
+    params: { tech: getTechnologyRouteParam(tech) },
+    props: { tech }
   }));
 }
 

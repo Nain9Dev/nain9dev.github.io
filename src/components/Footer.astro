@@ -1,5 +1,16 @@
 ---
 // Footer.astro
+import { getTechnologyHref } from '../utils/technologyRoutes';
+
+const specialtyTechnologies = [
+  { name: 'C#', label: 'C#' },
+  { name: '.NET', label: '.NET' },
+  { name: 'Three.js', label: 'Three.js' },
+  { name: 'ONNX', label: 'ONNX' },
+  { name: 'Azure', label: 'Azure' },
+  { name: 'Microservicios', label: 'Microservicios' },
+  { name: 'Arquitectura de Software', label: 'Arquitectura' }
+];
 ---
 
 <footer class="site-footer">
@@ -20,13 +31,9 @@
   <div class="shell" style="padding-bottom: 2rem; margin-bottom: 2rem; border-bottom: 1px solid var(--color-line);">
     <h4 style="font-size: 1rem; margin-bottom: 1rem; color: var(--color-text);">Especialidades Técnicas</h4>
     <div style="display: flex; flex-wrap: wrap; gap: 1.5rem;">
-      <a href="/tecnologia/C%23" style="color: var(--color-text-muted); text-decoration: none; font-size: 0.9rem;">C#</a>
-      <a href="/tecnologia/.NET" style="color: var(--color-text-muted); text-decoration: none; font-size: 0.9rem;">.NET</a>
-      <a href="/tecnologia/Three.js" style="color: var(--color-text-muted); text-decoration: none; font-size: 0.9rem;">Three.js</a>
-      <a href="/tecnologia/ONNX" style="color: var(--color-text-muted); text-decoration: none; font-size: 0.9rem;">ONNX</a>
-      <a href="/tecnologia/Azure" style="color: var(--color-text-muted); text-decoration: none; font-size: 0.9rem;">Azure</a>
-      <a href="/tecnologia/Microservicios" style="color: var(--color-text-muted); text-decoration: none; font-size: 0.9rem;">Microservicios</a>
-      <a href="/tecnologia/Arquitectura%20de%20Software" style="color: var(--color-text-muted); text-decoration: none; font-size: 0.9rem;">Arquitectura</a>
+      {specialtyTechnologies.map(technology => (
+        <a href={getTechnologyHref(technology.name)} style="color: var(--color-text-muted); text-decoration: none; font-size: 0.9rem;">{technology.label}</a>
+      ))}
     </div>
   </div>
 

@@ -1,6 +1,15 @@
 ---
 // TechStack.astro
+import { getCollection } from 'astro:content';
 import techStackData from '../../../public/assets/data/tech-stack.json';
+import { getTechnologyHref } from '../../utils/technologyRoutes';
+
+const servicios = await getCollection('servicios', ({ data }) => !data.draft);
+const casos = await getCollection('casos', ({ data }) => !data.draft);
+const availableTechnologies = new Set([
+  ...servicios.flatMap(servicio => servicio.data.techStack ?? []),
+  ...casos.flatMap(caso => caso.data.techStack ?? [])
+]);
 ---
 <section class="section" id="tech-stack">
   <div class="shell">
@@ -17,11 +26,16 @@ import techStackData from '../../../public/assets/data/tech-stack.json';
         <div class="tech-category-group">
           <h3 class="tech-category-title">{category.name}</h3>
           <div class="tech-category">
-            {category.items.map(item => (
-              <a href={`/tecnologia/${encodeURIComponent(item.name)}`} class="tech-badge" data-reveal style="text-decoration: none; color: inherit;">
+            {category.items.map(item => availableTechnologies.has(item.name) ? (
+              <a href={getTechnologyHref(item.name)} class="tech-badge" data-reveal style="text-decoration: none; color: inherit;">
                 <img src={item.icon} alt={`Icono de ${item.name}`} loading="lazy" class="tech-icon" />
                 <span class="tech-name">{item.name}</span>
               </a>
+            ) : (
+              <span class="tech-badge" data-reveal>
+                <img src={item.icon} alt={`Icono de ${item.name}`} loading="lazy" class="tech-icon" />
+                <span class="tech-name">{item.name}</span>
+              </span>
             ))}
           </div>
         </div>
