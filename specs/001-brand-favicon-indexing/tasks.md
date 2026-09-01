@@ -10,5 +10,5 @@
 
 - Done: Added the favicon contract test, generated consistent NainDev PNG/ICO assets, updated head metadata, and marked the header logo as a priority image.
 - Verified: The test failed before implementation because the 96 by 96 PNG did not exist, then passed after generation. `npm run check` completes with zero errors and zero warnings, the generated HTML contains the intended icon declarations and priority image attributes, and visual inspection confirms both PNG assets use the NainDev mark.
-- Next: Publish the verified commit and verify the production deployment.
+- Next: Publish the cache-safe ICO path adjustment, then verify every production asset before requesting indexing.
 - Blocked: Nothing.
