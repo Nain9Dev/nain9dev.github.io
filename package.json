@@ -9,7 +9,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "check": "astro check && astro build",
+    "check": "astro check && astro build && npm run check:brand-icons",
+    "check:brand-icons": "node scripts/check-brand-icons.mjs",
     "astro": "astro"
   },
   "dependencies": {
