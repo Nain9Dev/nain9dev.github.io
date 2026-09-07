@@ -10,6 +10,7 @@
 - [x] [A] Run full validation, browser inspection, and diff review.
 - [x] [M] Obtain separate authorization to publish the reviewed changes.
 - [x] [A] Commit, push, and verify the authorized production deployment.
+- [x] [A] Audit every generated page and the site's local assets in production.
 - [ ] [M] Inspect/request Google recrawling after publication when separately authorized.
 
 ## Handoff
@@ -61,6 +62,21 @@
   circular framing is tested in code. No DNS changes are required.
 
 ## Remaining evidence limits
+
+- Follow-up verification on 2026-09-07 confirmed local main and remote main at
+  60ed035d54c9c049c01d3b87608071f4a8603a01, with a clean worktree and all three
+  workflows successful for that revision (34077017664, 34077017649, 34077016664).
+  Every generated page was checked: 71 page documents matched build metadata,
+  84 local assets returned HTTP 200 with non-HTML content types, and all five
+  redirect documents led to HTTP 200 destinations. All favicon hashes still
+  matched. A deliberately missing route returned HTTP 404 with noindex.
+- The first full-audit assertion incorrectly expected the directly requested
+  /404.html document to return 404. The static error document returns 200;
+  unknown routes correctly use it with HTTP 404. That distinction was verified
+  and the audit expectation was corrected; application code was not changed.
+- An independent mobile PageSpeed API request returned HTTP 429 because the
+  service's shared daily query quota was exceeded. Performance, accessibility,
+  best-practices and SEO scores were not available; no 100/100 score is claimed.
 
 - A valid build and metadata do not prove improved ranking, traffic, or field Core
   Web Vitals. Those measurements were not performed in this task.

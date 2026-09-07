@@ -33,6 +33,29 @@ brand metadata in a real browser, without observed console errors or overflow.
 Search Console submission, Google's selected favicon/site name, ranking changes,
 traffic gains and field Core Web Vitals remain unverified. No DNS changes were made.
 
+## Full production audit
+
+The follow-up audit on 2026-09-07 verified revision
+`60ed035d54c9c049c01d3b87608071f4a8603a01` against the public site:
+
+- Main matched GitHub directly, and the local worktree was clean.
+- All three workflows passed for that revision: runs 34077017664, 34077017649,
+  and 34077016664. It only added the deployment handoff to the implementation.
+- All 71 generated page documents matched the local metadata/JSON-LD.
+- All 84 checked local assets returned HTTP 200 with non-HTML content types.
+- All five static redirect documents pointed to reachable HTTP 200 destinations.
+- Icon hashes continued to match the source assets.
+- A deliberately unknown route returned HTTP 404 with the custom noindex page.
+  The /404.html document itself is accessible with HTTP 200; it is not indexable.
+- The public newsletter form still uses placeholder provider identifiers. No
+  subscription was submitted, and subscription delivery cannot be certified.
+- A mobile PageSpeed Insights API request failed with HTTP 429 (shared daily
+  quota exceeded). No score or field performance conclusion was produced.
+
+This confirms publication and the tested technical SEO behavior. It does not
+certify every business feature, commercial claim, third-party integration, or
+Google ranking as complete. Follow-up verification changed documentation only.
+
 ## Requirement coverage
 
 | Requirements | Evidence |
