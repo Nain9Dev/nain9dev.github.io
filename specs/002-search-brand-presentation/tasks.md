@@ -9,12 +9,12 @@
 - [x] [A] Improve hub navigation and main-content landmarks.
 - [x] [A] Run full validation, browser inspection, and diff review.
 - [x] [M] Obtain separate authorization to publish the reviewed changes.
-- [ ] [A] Commit, push, and verify the authorized production deployment.
+- [x] [A] Commit, push, and verify the authorized production deployment.
 - [ ] [M] Inspect/request Google recrawling after publication when separately authorized.
 
 ## Handoff
 
-- Done: Local implementation is complete. The SVG mark has 18.18% clear space on
+- Done: Implementation is published and verified in production. The SVG mark has 18.18% clear space on
   each side, all PNG/ICO derivatives share its geometry, and stable URLs are kept.
   Brand metadata, article/page entities, visible author/date, breadcrumbs, snippet
   exclusions, hub navigation, and main-content landmarks have been corrected.
@@ -39,12 +39,23 @@
   match the existing sitemap. No route migration is part of this change.
 - Authorization: The owner explicitly approved commit, push, and deployment on
   2026-09-07 after reviewing the local result. Release validation passed again.
-- Next: Commit and push the approved changes, observe the deployment workflows,
-  and compare production assets and metadata against the verified build.
+- Published: Implementation commit d2d6833a4e67b94576d953b058167745f8a9445a
+  reached main. Static site checks (34076828916), Deploy Astro site to GitHub Pages
+  (34076828751), and pages-build-deployment (34076827632) all completed successfully.
+- Production: All five icon URLs returned HTTP 200 and exact matching local hashes.
+  All 33 sitemap pages returned HTTP 200 with metadata and JSON-LD matching the
+  build. /tecnologia/Azure/ retained noindex; robots.txt and sitemap-index.xml were
+  valid. The public home page displayed the updated title/site name and a loaded
+  header logo with no observed browser console errors or horizontal overflow.
+- Next: Google must recrawl and process the published changes. Inspect/request
+  recrawling and review Search Console performance when separately authorized.
+  Those external results are not implied by a successful deployment.
 - Operational note: A pre-existing local checkpoint reference prevented git fetch.
   Direct git ls-remote confirmed that remote main and local HEAD both point to
   8652f591f7393f50b8a512822e8f56a217267a71. That unrelated reference was not changed.
-- Blocked: No publication blocker is established. Search Console submission is
+- Git outcome: The ordinary commit and non-forced push both succeeded despite
+  that fetch-specific issue. Direct remote inspection confirmed the published SHA.
+- Blocked: No deployment blocker remains. Search Console submission is
   outside the current publication approval. The browser URL policy blocked opening
   a local HTML comparison file; the PNG itself was visually inspected and the
   circular framing is tested in code. No DNS changes are required.
