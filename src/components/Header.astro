@@ -5,14 +5,14 @@ import logo from '../assets/images/logo_horizontal.png';
 ---
 
 <header class="site-header" data-site-header>
-  <div class="shell header-layout">
+  <div class="shell header-layout" data-nosnippet>
     <a class="brand" href="/#top" aria-label="NainDev, volver al inicio" title="Volver al inicio">
-      <Image src={logo} alt="NainDev Logo" class="brand-logo" format="webp" priority />
+      <Image src={logo} alt="NainDev" class="brand-logo" format="webp" priority />
     </a>
 
     <nav class="primary-navigation" aria-label="Navegación principal">
-      <a href="/#services" data-section-link>Servicios</a>
-      <a href="/#projects" data-section-link>Casos de Estudio</a>
+      <a href="/servicios/">Servicios</a>
+      <a href="/casos/">Casos de Estudio</a>
       <a href="/servicios/arquitectura-frontend-alto-rendimiento/" data-astro-prefetch="viewport">Arquitectura Frontend</a>
       <a href="/blog/" data-astro-prefetch="viewport">Blog</a>
       <a href="/#method" data-section-link>Cómo trabajo</a>

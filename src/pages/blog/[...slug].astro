@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { defaultSEO } from '../../utils/seo';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => data.draft !== true);
@@ -15,8 +16,15 @@ const { Content } = await render(post);
 ---
 
 <BaseLayout title={post.data.seoTitle ?? post.data.title} description={post.data.description} keywords={post.data.keywords} tags={post.data.tags} date={post.data.pubDate} image={post.data.ogImage}>
+  <main id="main-content">
   <article class="shell section" style="padding-top: 8rem;">
     <h1>{post.data.title}</h1>
+    <p class="article-byline">
+      Por <a href="/#about" rel="author">{defaultSEO.author}</a> ·
+      <time datetime={post.data.pubDate.toISOString()}>
+        {post.data.pubDate.toLocaleDateString('es-ES', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' })}
+      </time>
+    </p>
     <Content />
     
     <div class="share-buttons" data-reveal style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--color-line); display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
@@ -47,4 +55,5 @@ const { Content } = await render(post);
       }
     </script>
   </article>
+  </main>
 </BaseLayout>

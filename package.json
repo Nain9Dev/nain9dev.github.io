@@ -9,8 +9,10 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "check": "astro check && astro build && npm run check:brand-icons",
+    "check": "astro check && astro build && npm run check:brand-icons && npm run check:seo",
     "check:brand-icons": "node scripts/check-brand-icons.mjs",
+    "check:seo": "node --test scripts/seo.test.mjs && node scripts/check-seo.mjs",
+    "generate:brand-icons": "node scripts/generate-brand-icons.mjs",
     "astro": "astro"
   },
   "dependencies": {
@@ -20,6 +22,8 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
+    "parse5": "7.3.0",
+    "sharp": "0.35.4",
     "typescript": "^5.9.3"
   }
 }

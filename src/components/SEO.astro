@@ -1,4 +1,6 @@
 ---
+import { defaultSEO, getBreadcrumbItems, serializeJsonLd } from '../utils/seo';
+
 interface Props {
   title?: string;
   description?: string;
@@ -12,15 +14,15 @@ interface Props {
 }
 
 const {
-  title = "Aitor Nain Mendoza Vallejo | Arquitecto Backend 3D",
-  description = "Aitor Nain Mendoza Vallejo, también conocido como NainDev, diseña arquitectura backend para validación 3D, IA generativa y sistemas críticos .NET.",
-  image = "/assets/images/og-cover-v2.png",
+  title = defaultSEO.title,
+  description = defaultSEO.description,
+  image = defaultSEO.image,
   date,
-  author = "Aitor Nain Mendoza Vallejo",
+  author = defaultSEO.author,
   tags = [],
   keywords = [],
   canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.naindev.com'),
-  robots = 'index, follow'
+  robots = defaultSEO.robots
 } = Astro.props;
 
 const isArticle = !!date;
@@ -29,11 +31,11 @@ const siteURL = new URL('/', Astro.site || 'https://www.naindev.com').toString()
 const personId = `${siteURL}#person`;
 const websiteId = `${siteURL}#website`;
 const webpageId = `${canonicalURL.toString()}#webpage`;
+const articleId = `${canonicalURL.toString()}#article`;
 
-// Asegurar que la URL de la imagen sea siempre absoluta
-const absoluteImageUrl = image.startsWith('http') 
-  ? image 
-  : new URL(image, Astro.site || 'https://www.naindev.com').toString();
+const absoluteImageUrl = new URL(image, siteURL).toString();
+const isDefaultImage = absoluteImageUrl === new URL(defaultSEO.image, siteURL).toString();
+const imageAlt = isDefaultImage ? defaultSEO.imageAlt : title;
 
 const personSchema = {
   "@type": "Person",
@@ -52,15 +54,15 @@ const websiteSchema = {
   "@type": "WebSite",
   "@id": websiteId,
   "url": siteURL,
-  "name": "NainDev",
-  "alternateName": "Aitor Nain",
+  "name": defaultSEO.siteName,
+  "alternateName": ["naindev.com", "Aitor Nain"],
   "inLanguage": "es",
   "publisher": { "@id": personId }
 };
 
-const webpageSchema = isArticle ? {
+const articleSchema = isArticle ? {
   "@type": "BlogPosting",
-  "@id": webpageId,
+  "@id": articleId,
   "url": canonicalURL.toString(),
   "headline": title,
   "description": description,
@@ -71,7 +73,9 @@ const webpageSchema = isArticle ? {
   "isPartOf": { "@id": websiteId },
   "mainEntityOfPage": { "@id": webpageId },
   "inLanguage": "es"
-} : {
+} : undefined;
+
+const webpageSchema = {
   "@type": isHome ? "ProfilePage" : "WebPage",
   "@id": webpageId,
   "url": canonicalURL.toString(),
@@ -82,18 +86,11 @@ const webpageSchema = isArticle ? {
     "about": { "@id": personId },
     "mainEntity": { "@id": personId }
   } : {}),
+  ...(isArticle ? { "mainEntity": { "@id": articleId } } : {}),
   "inLanguage": "es"
 };
 
-const pathname = Astro.url.pathname;
-const parts = pathname.split('/').filter(Boolean);
-const breadcrumbs = [{ name: 'Inicio', item: '/' }];
-let currentPath = '';
-for (const part of parts) {
-  currentPath += '/' + part;
-  const name = part.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-  breadcrumbs.push({ name, item: currentPath });
-}
+const breadcrumbs = getBreadcrumbItems(Astro.url.pathname, title);
 
 const breadcrumbSchema = {
   "@type": "BreadcrumbList",
@@ -102,7 +99,7 @@ const breadcrumbSchema = {
     "@type": "ListItem",
     "position": i + 1,
     "name": b.name,
-    "item": new URL(b.item === '/' ? '/' : `${b.item}/`, Astro.site || 'https://www.naindev.com').href
+    "item": new URL(b.item, siteURL).href
   }))
 };
 
@@ -112,7 +109,8 @@ const schema = {
     personSchema,
     websiteSchema,
     webpageSchema,
-    ...(!isHome ? [breadcrumbSchema] : [])
+    ...(articleSchema ? [articleSchema] : []),
+    ...(breadcrumbs.length > 1 ? [breadcrumbSchema] : [])
   ]
 };
 ---
@@ -130,14 +128,16 @@ const schema = {
 
 <meta property="og:type" content={isArticle ? "article" : "website"}>
 <meta property="og:locale" content="es_ES">
-<meta property="og:site_name" content="Aitor Nain">
+<meta property="og:site_name" content={defaultSEO.siteName}>
 <meta property="og:title" content={title}>
 <meta property="og:description" content={description}>
 <meta property="og:url" content={canonicalURL}>
 <meta property="og:image" content={absoluteImageUrl}>
-<meta property="og:image:width" content="1731">
-<meta property="og:image:height" content="909">
-<meta property="og:image:alt" content="Representación visual de API, lógica de negocio y datos para NainDev">
+{isDefaultImage && <meta property="og:image:width" content="1731">}
+{isDefaultImage && <meta property="og:image:height" content="909">}
+<meta property="og:image:alt" content={imageAlt}>
+{date && <meta property="article:published_time" content={date.toISOString()}>}
+{isArticle && <meta property="article:author" content={siteURL}>}
 {isArticle && tags.map(tag => <meta property="article:tag" content={tag}>)}
 
 <meta name="twitter:card" content="summary_large_image">
@@ -146,9 +146,10 @@ const schema = {
 <meta name="twitter:title" content={title}>
 <meta name="twitter:description" content={description}>
 <meta name="twitter:image" content={absoluteImageUrl}>
+<meta name="twitter:image:alt" content={imageAlt}>
 
 <link rel="canonical" href={canonicalURL}>
 <link rel="sitemap" href="/sitemap-index.xml">
 
 <!-- Schema.org JSON-LD -->
-<script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
+<script is:inline type="application/ld+json" set:html={serializeJsonLd(schema)} />

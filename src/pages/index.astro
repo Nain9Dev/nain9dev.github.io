@@ -12,11 +12,12 @@ import ProjectsSection from '../components/home/ProjectsSection.astro';
 import MethodSection from '../components/home/MethodSection.astro';
 import AboutSection from '../components/home/AboutSection.astro';
 import ContactSection from '../components/home/ContactSection.astro';
+import { defaultSEO } from '../utils/seo';
 ---
 
 <BaseLayout
-  title="Aitor Nain Mendoza Vallejo | Arquitecto Backend 3D"
-  description="Aitor Nain Mendoza Vallejo, también conocido como NainDev, diseña arquitectura backend para validación 3D, IA generativa y sistemas críticos .NET."
+  title={defaultSEO.title}
+  description={defaultSEO.description}
   keywords={["Aitor Nain Mendoza Vallejo", "Aitor Nain", "Aitor Mendoza", "NainDev", "arquitecto backend 3D", "arquitectura IA"]}>
   <main id="main-content">
     <Hero />

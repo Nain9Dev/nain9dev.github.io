@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { serializeJsonLd } from '../../utils/seo';
 
 export async function getStaticPaths() {
   const servicios = await getCollection('servicios', ({ data }) => data.draft !== true);
@@ -26,10 +27,12 @@ const serviceSchema = {
 };
 ---
 
-<BaseLayout title={servicio.data.title} description={servicio.data.description} keywords={servicio.data.keywords}>
-  <script is:inline slot="head" type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+<BaseLayout title={servicio.data.title} description={servicio.data.description} keywords={servicio.data.keywords} image={servicio.data.ogImage}>
+  <script is:inline slot="head" type="application/ld+json" set:html={serializeJsonLd(serviceSchema)} />
+  <main id="main-content">
   <article class="shell section" style="padding-top: 8rem;">
     {servicio.data.renderTitle && <h1>{servicio.data.title}</h1>}
     <Content />
   </article>
+  </main>
 </BaseLayout>
