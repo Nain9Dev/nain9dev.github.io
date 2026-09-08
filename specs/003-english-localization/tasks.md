@@ -9,7 +9,7 @@
 - [x] [A] Implement local draft generation and changed-source synchronization.
 - [x] [A] Run complete checks and browser verification.
 - [x] [A] Review flagged translations and publication readiness.
-- [ ] [A] Verify the authorized production release when editorial gates are satisfied.
+- [x] [A] Verify the authorized production release when editorial gates are satisfied.
 
 ## Handoff
 
@@ -36,10 +36,18 @@
   within its own row. English article navigation and its Spanish counterpart work.
   The checklist B variant renders its English label without submitting the form.
   No JavaScript errors were recorded; localhost analytics warnings are expected.
-- Next: Verify the requested release on main and compare the public artifact with
-  the local build. Local and remote main were rechecked at cecf7d0 before publication.
-- Blocked: No technical implementation blocker. No commit, push or production
-  deployment of this feature has occurred yet. Existing production is unchanged.
+- Released: Application commit b725662a2c6de317419e7467ed783317cc22dd47 is on main.
+  GitHub runs 34230831513 (build/deploy) and 34230831514 (static checks) succeeded
+  on 2026-09-08. Public GET verification passed for all 245 targets: 142 pages,
+  10 redirect documents and 93 assets. Metadata, main prose, structured data,
+  interface dictionaries and asset hashes match the local bilingual build.
+  Public browser checks confirmed English rendering, the loaded brand logo,
+  article navigation and its Spanish equivalent. The verification script accounts
+  for text-asset line endings and Cloudflare email obfuscation; initial differences
+  and an absent-refresh handling bug were resolved before recording this result.
+- Next: Future Spanish edits use the documented local watcher and explicit
+  editorial acceptance before release. No recurring background service was added.
+- Blocked: None. The release used the existing main branch and Pages workflow.
 - Resolved during verification: terminal.js needed type=module; the project error
   renderer shadowed its translation helper; repeated builds duplicated language
   links; edited accepted translations were hidden in preview; old preview files

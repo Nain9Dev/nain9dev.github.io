@@ -124,7 +124,9 @@ an article and narrow screens after client navigation.
 After GitHub Pages has deployed the checked commit, run
 `node scripts/check-production.mjs`. It performs read-only GET requests and compares
 page language, headings, main text, metadata, structured data and interface messages
-with `dist`, and checks hashes for static assets. Evidence is written to the ignored
+with `dist`, and checks hashes for static assets (normalizing CRLF to LF in text
+assets to account for Windows/Linux checkouts). Cloudflare-obfuscated email text
+is decoded before comparing main content. Evidence is written to the ignored
 `.astro/production-verification.json`. This requires network access and a current
 bilingual build; it is intentionally separate from the offline CI contract.
 
