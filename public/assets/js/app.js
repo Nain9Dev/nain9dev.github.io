@@ -106,7 +106,7 @@ function initApp() {
   }
 
   if (projectContainer) {
-    loadProjects("/assets/data/projects.json")
+    loadProjects(dataUrl('projects.json'))
       .then((projects) => {
         renderProjects(projectContainer, projects);
         initializeProjectFilters({
@@ -150,3 +150,4 @@ document.addEventListener('astro:after-swap', () => {
   isAppInitialized = false;
   initApp();
 });
+import { dataUrl } from './locale.js';

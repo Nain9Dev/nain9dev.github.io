@@ -75,11 +75,12 @@ const description = "Asegura que tu sistema de IA cumpla con los estándares de 
                     </button>
                     <div class="form-feedback" style="display: none; margin-top: 1rem; font-size: 0.9rem; text-align: center; padding: 0.5rem; border-radius: 4px;"></div>
                   </form>
-                  <script is:inline>
-                    // Feedback visual nativo y fetch asíncrono
+                  <script is:inline type="module">
+                    import { message } from '/assets/js/locale.js';
                     document.addEventListener('astro:page-load', () => {
-                      const form = document.querySelector('.ml-block-form');
-                      if (form) {
+                      const form = document.querySelector('.form-container .ml-block-form');
+                      if (form && !form.dataset.feedbackBound) {
+                        form.dataset.feedbackBound = 'true';
                         form.addEventListener('submit', (e) => {
                           e.preventDefault();
                           const btn = form.querySelector('button[type="submit"]');
@@ -87,7 +88,7 @@ const description = "Asegura que tu sistema de IA cumpla con los estándares de 
                           const actionUrl = form.getAttribute('action');
                           
                           if (btn) {
-                            btn.textContent = 'Enviando...';
+                            btn.textContent = message('formSending');
                             btn.style.opacity = '0.7';
                             btn.disabled = true;
                           }
@@ -105,14 +106,14 @@ const description = "Asegura que tu sistema de IA cumpla con los estándares de 
                           })
                           .then(() => {
                             if (btn) {
-                              btn.textContent = '¡Enviado!';
+                              btn.textContent = message('formSent');
                               btn.style.background = '#4ade80';
                             }
                             if (feedback) {
                               feedback.style.display = 'block';
                               feedback.style.color = '#15803d';
                               feedback.style.backgroundColor = '#dcfce7';
-                              feedback.textContent = '¡Revisa tu bandeja de entrada! Redirigiendo...';
+                              feedback.textContent = message('formInbox');
                             }
                             if (window.ml_webform_success) {
                               window.ml_webform_success();
@@ -120,7 +121,7 @@ const description = "Asegura que tu sistema de IA cumpla con los estándares de 
                           })
                           .catch(() => {
                             if (btn) {
-                              btn.textContent = 'Descargar Checklist';
+                              btn.textContent = message('formDownload');
                               btn.style.opacity = '1';
                               btn.disabled = false;
                             }
@@ -128,7 +129,7 @@ const description = "Asegura que tu sistema de IA cumpla con los estándares de 
                               feedback.style.display = 'block';
                               feedback.style.color = '#b91c1c';
                               feedback.style.backgroundColor = '#fee2e2';
-                              feedback.textContent = 'Hubo un error de conexión. Por favor, inténtalo de nuevo.';
+                              feedback.textContent = message('formError');
                             }
                           });
                         });
@@ -170,11 +171,12 @@ const description = "Asegura que tu sistema de IA cumpla con los estándares de 
     }
   </style>
 
-  <script is:inline>
-    // Con MailerLite integrado nativamente, usamos su callback de éxito para trackear el evento en Plausible
+  <script is:inline type="module">
+    import { message, isEnglish } from '/assets/js/locale.js';
     document.addEventListener('astro:page-load', () => {
       // Poblar campo UTM dinámico
       const utmContentField = document.getElementById('utm-content-field');
+      if (!utmContentField) return;
       if (utmContentField) utmContentField.value = window.location.pathname;
 
       // --- LÓGICA A/B TESTING ---
@@ -183,7 +185,7 @@ const description = "Asegura que tu sistema de IA cumpla con los estándares de 
       
       if (variant === 'b') {
         const ctaTitle = document.querySelector('.form-container h3');
-        if (ctaTitle) ctaTitle.textContent = "Obtener mi Checklist Gratuito";
+        if (ctaTitle) ctaTitle.textContent = message('formFreeChecklist');
         
         // Trackear visualización de la variante
         if (window.plausible) {
@@ -202,7 +204,7 @@ const description = "Asegura que tu sistema de IA cumpla con los estándares de 
           window.plausible('Lead_Magnet_Download', { props: { source: 'checklist', variant: variant } });
         }
         // Redirigir a página de gracias si MailerLite no lo hace por defecto
-        window.location.href = '/recursos/gracias';
+        window.location.href = isEnglish() ? '/en/resources/gracias/' : '/recursos/gracias/';
       };
 
       // Detección de adblocker para MailerLite (fallback visual)

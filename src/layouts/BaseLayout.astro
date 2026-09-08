@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro';
 import SEO from '../components/SEO.astro';
 import PrivacyBanner from '../components/PrivacyBanner.astro';
 import { defaultSEO } from '../utils/seo';
+import runtimeMessages from '../i18n/runtime.json';
 
 interface Props {
   title?: string;
@@ -32,7 +33,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.nain
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es-ES">
 <head>
   <SEO title={title} description={description} image={image} canonicalURL={canonicalURL} date={date} author={author} tags={tags} keywords={keywords} robots={robots} />
   <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
@@ -47,6 +48,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.nain
   <script defer data-domain="naindev.com" src="https://plausible.io/js/script.js"></script>
   <script is:inline>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
   <title>{title}</title>
+  <script is:inline id="localized-ui" type="application/json" set:html={JSON.stringify(runtimeMessages).replaceAll('<', '\\u003c')} />
 
     <!-- Pre-procesar animaciones para evitar FOUC -->
     <script is:inline>

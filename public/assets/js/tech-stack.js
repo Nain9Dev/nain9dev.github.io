@@ -2,7 +2,7 @@ export function initTechStack() {
   const container = document.getElementById('tech-stack-container');
   if (!container) return;
 
-  fetch('/assets/data/tech-stack.json')
+  fetch(dataUrl('tech-stack.json'))
     .then(response => {
       if (!response.ok) {
         throw new Error('No se pudo cargar el archivo tech-stack.json');
@@ -15,7 +15,10 @@ export function initTechStack() {
     })
     .catch(error => {
       console.error('Error al inicializar Tech Stack:', error);
-      container.innerHTML = '<p class="notice">Error al cargar las tecnologías.</p>';
+      const notice = document.createElement('p');
+      notice.className = 'notice';
+      notice.textContent = message('technologyError');
+      container.replaceChildren(notice);
     });
 }
 
@@ -42,7 +45,7 @@ function renderTechStack(categories, container) {
       
       const icon = document.createElement('img');
       icon.src = item.icon;
-      icon.alt = `Icono de ${item.name}`;
+      icon.alt = message('technologyIcon', { name: item.name });
       icon.loading = 'lazy';
       icon.className = 'tech-icon';
       
@@ -87,3 +90,4 @@ function setupIntersectionObserver() {
     observer.observe(el);
   });
 }
+import { dataUrl, message } from './locale.js';

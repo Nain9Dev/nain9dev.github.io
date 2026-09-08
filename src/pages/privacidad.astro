@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = "Política de Privacidad | NainDev";
 const description = "Cómo trata NainDev los datos personales, y qué hace la aplicación CRM Backups (crm.naindev.com) con los datos de Google Drive.";
+const updatedAt = new Date('2026-09-08T00:00:00Z');
 ---
 
 <BaseLayout title={title} description={description} robots="noindex, follow">
@@ -12,7 +13,7 @@ const description = "Cómo trata NainDev los datos personales, y qué hace la ap
         <p class="eyebrow">Información Legal</p>
         <h1 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Política de Privacidad</h1>
         <p style="font-size: 1.1rem; color: var(--color-text-muted);">
-          Última actualización: {new Date().toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' })}
+          Última actualización: {updatedAt.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}
         </p>
       </div>
 

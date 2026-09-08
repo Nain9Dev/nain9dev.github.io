@@ -34,24 +34,25 @@ const { Content } = await render(post);
       <button class="button button-secondary button-small" onclick="shareViaWebShare()" aria-label="Compartir en otras apps">Compartir</button>
     </div>
 
-    <script is:inline>
-      function shareViaWebShare() {
+    <script is:inline type="module">
+      import { message } from '/assets/js/locale.js';
+      window.shareViaWebShare = function() {
         if (navigator.share) {
           navigator.share({
             title: document.title,
-            text: 'Artículo técnico sobre arquitectura backend 3D e IA',
+            text: message('shareDescription'),
             url: window.location.href
           }).catch(console.error);
         } else {
-          navigator.clipboard.writeText(window.location.href);
-          alert('Enlace copiado al portapapeles');
+          navigator.clipboard.writeText(window.location.href)
+            .then(() => alert(message('shareCopied'))).catch(console.error);
         }
       }
-      function shareOnLinkedIn() {
+      window.shareOnLinkedIn = function() {
         window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`, '_blank');
       }
-      function shareOnTwitter() {
-        window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent('Artículo técnico sobre arquitectura backend 3D e IA')}&url=${encodeURIComponent(window.location.href)}`, '_blank');
+      window.shareOnTwitter = function() {
+        window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(message('shareDescription'))}&url=${encodeURIComponent(window.location.href)}`, '_blank');
       }
     </script>
   </article>

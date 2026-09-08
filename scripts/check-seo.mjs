@@ -44,7 +44,8 @@ for (const file of files.filter(file => file.endsWith('.html'))) {
   const indexable = !robots.includes('noindex');
   pages.push({ path, title, description: value('description'), canonical, indexable });
 
-  check(attr(elements('html')[0], 'lang') === 'es', `${path}: missing Spanish language`);
+  const isEnglish = path.startsWith('/en/');
+  check(attr(elements('html')[0], 'lang') === (isEnglish ? 'en-US' : 'es-ES'), `${path}: incorrect page language`);
   check(elements('title').length === 1 && title.trim(), `${path}: must have one title`);
   check(meta('description').length === 1 && value('description')?.trim(), `${path}: must have one description`);
   check(meta('robots').length === 1 && /\b(index|noindex)\b/.test(robots), `${path}: missing explicit index policy`);
@@ -74,7 +75,7 @@ for (const file of files.filter(file => file.endsWith('.html'))) {
   const page = graph.find(node => ['WebPage', 'ProfilePage'].includes(node['@type']));
   check(page?.url === canonical && page?.['@id'] === `${canonical}#webpage`, `${path}: missing distinct page entity`);
   const article = graph.find(node => node['@type'] === 'BlogPosting');
-  if (path.startsWith('/blog/') && path !== '/blog/index.html') {
+  if (/^\/(?:en\/)?blog\//.test(path) && !['/blog/index.html', '/en/blog/index.html'].includes(path)) {
     check(Boolean(article), `${path}: missing BlogPosting`);
     check(article?.mainEntityOfPage?.['@id'] === page?.['@id'] && article?.['@id'] !== page?.['@id'], `${path}: article must refer to a separate WebPage`);
     check(article?.author?.['@id'] === `${origin}/#person` && graph.some(node => node['@id'] === article?.author?.['@id'] && node.name && node.url), `${path}: missing named author`);

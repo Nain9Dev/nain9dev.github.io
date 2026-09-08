@@ -21,7 +21,7 @@ const description = "Artículos de Aitor Nain sobre arquitectura backend, .NET, 
       {posts.map((post) => (
         <article class="blog-card">
           <time datetime={post.data.pubDate.toISOString()} class="eyebrow">
-            {post.data.pubDate.toLocaleDateString('es-ES', { day: 'numeric', month: 'short', year: 'numeric' })}
+            {post.data.pubDate.toLocaleDateString('es-ES', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' })}
           </time>
           <h2><a href={`/blog/${post.id}`}>{post.data.title}</a></h2>
           <p>{post.data.description}</p>

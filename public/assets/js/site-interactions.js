@@ -163,16 +163,16 @@ export function initializeEmailCopy({ button, emailLink, status }) {
 
   const onButtonClick = async () => {
     if (!navigator.clipboard) {
-      status.textContent = "Tu navegador no permite copiar automáticamente.";
+      status.textContent = message('copyUnavailable');
       return;
     }
 
     try {
       await navigator.clipboard.writeText(emailLink.textContent.trim());
-      status.textContent = "Email copiado al portapapeles.";
+      status.textContent = message('copySuccess');
       window.plausible && window.plausible('Contact Intent', { props: { type: 'Copy Email' } });
     } catch {
-      status.textContent = "No se ha podido copiar. Puedes abrir el enlace de email.";
+      status.textContent = message('copyError');
     }
   };
 
@@ -182,3 +182,4 @@ export function initializeEmailCopy({ button, emailLink, status }) {
     button.removeEventListener("click", onButtonClick);
   };
 }
+import { message } from './locale.js';

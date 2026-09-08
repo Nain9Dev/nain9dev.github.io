@@ -1,9 +1,10 @@
 import { initializeRevealMotion } from "./site-interactions.js";
+import { dataUrl, escapeHtml } from './locale.js';
 
 export class ImpactMetricsManager {
   constructor(containerId) {
     this.container = document.getElementById(containerId);
-    this.dataPath = '/assets/data/impact-metrics.json';
+    this.dataPath = dataUrl('impact-metrics.json');
     this.cleanupReveal = null;
     
     if (!this.container) {
@@ -46,9 +47,9 @@ export class ImpactMetricsManager {
     return `
       <article class="impact-metric-card" data-reveal>
         ${metric.icon ? `<div class="impact-metric-icon" style="font-size: 2rem; margin-bottom: 0.5rem;">${metric.icon}</div>` : ''}
-        <div class="impact-metric-value">${metric.value}</div>
-        <h3 class="impact-metric-label">${metric.label}</h3>
-        ${metric.description ? `<p class="impact-metric-description">${metric.description}</p>` : ''}
+        <div class="impact-metric-value">${escapeHtml(metric.value)}</div>
+        <h3 class="impact-metric-label">${escapeHtml(metric.label)}</h3>
+        ${metric.description ? `<p class="impact-metric-description">${escapeHtml(metric.description)}</p>` : ''}
       </article>
     `;
   }

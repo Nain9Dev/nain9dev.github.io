@@ -1,5 +1,7 @@
+import { message } from './locale.js';
+
 function formatProjectCount(count) {
-  return `${count} ${count === 1 ? "proyecto" : "proyectos"}`;
+  return message(count === 1 ? 'projectSingular' : 'projectPlural', { count });
 }
 
 export function initializeProjectFilters({ container, count, toolbar }) {

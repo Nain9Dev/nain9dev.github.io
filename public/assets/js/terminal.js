@@ -1,3 +1,5 @@
+import { dataUrl, isEnglish, message, escapeHtml } from './locale.js';
+
 let terminalCleanup = null;
 
 document.addEventListener('astro:page-load', () => {
@@ -14,11 +16,14 @@ document.addEventListener('astro:page-load', () => {
   output.setAttribute('aria-relevant', 'additions');
   
   // Añadir placeholder inicial
-  input.placeholder = "Escribe 'help' para ver comandos...";
+  input.placeholder = message('terminalHint');
+  const locale = isEnglish() ? 'en-US' : 'es-ES';
+  const historyKey = `terminalCmdHistory:${locale}`;
+  const outputKey = `terminalOutput:${locale}`;
 
   let history = [];
   try {
-    const saved = localStorage.getItem('terminalCmdHistory');
+    const saved = localStorage.getItem(historyKey);
     if (saved) history = JSON.parse(saved);
   } catch (e) {}
 
@@ -28,7 +33,7 @@ document.addEventListener('astro:page-load', () => {
   let hasRun = false;
 
   // Restaurar salida si existe
-  const savedOutput = localStorage.getItem('terminalOutput');
+  const savedOutput = localStorage.getItem(outputKey);
   if (savedOutput) {
     output.innerHTML = savedOutput;
     hasRun = true;
@@ -38,13 +43,13 @@ document.addEventListener('astro:page-load', () => {
   
   function saveState() {
     if (history.length > 50) history = history.slice(-50);
-    localStorage.setItem('terminalCmdHistory', JSON.stringify(history));
+    localStorage.setItem(historyKey, JSON.stringify(history));
     
     // Limitar el número de elementos visuales en el output
     while (output.children.length > 100) {
       output.removeChild(output.firstChild);
     }
-    localStorage.setItem('terminalOutput', output.innerHTML);
+    localStorage.setItem(outputKey, output.innerHTML);
   }
 
   function shouldAutoScroll() {
@@ -62,7 +67,7 @@ document.addEventListener('astro:page-load', () => {
   let commands = {};
   let commandKeys = ['clear'];
 
-  fetch('/assets/data/terminal-commands.json')
+  fetch(dataUrl('terminal-commands.json'))
     .then(response => response.json())
     .then(data => {
       commands = data;
@@ -70,14 +75,14 @@ document.addEventListener('astro:page-load', () => {
     })
     .catch(error => {
       console.error('[Terminal] Error cargando comandos:', error);
-      commands = { help: "Error cargando sistema base. Contactar administrador." };
+      commands = { help: message('terminalError') };
     });
 
   function printLine(text, isCommand = false) {
     const div = document.createElement('div');
     div.style.marginBottom = '0.5rem';
     if (isCommand) {
-      div.innerHTML = `<span class="prompt-text">[aitor@naindev.com ~]$</span> ${text}`;
+      div.innerHTML = `<span class="prompt-text">[aitor@naindev.com ~]$</span> ${escapeHtml(text)}`;
       output.appendChild(div);
       output.scrollTop = output.scrollHeight;
       return Promise.resolve();
@@ -151,7 +156,7 @@ document.addEventListener('astro:page-load', () => {
       saveState();
     } else {
       window.plausible && window.plausible('TerminalCommand', { props: { command: cmdStr, status: 'failed' } });
-      await printLine(`Comando no encontrado: <span class="term-text-red">${cmd.replace(/</g, "&lt;")}</span>. Usa <span class="term-text-green">help</span>.`);
+      await printLine(`${escapeHtml(message('terminalUnknown'))} <span class="term-text-red">${escapeHtml(cmd)}</span>. ${escapeHtml(message('terminalUse'))} <span class="term-text-green">help</span>.`);
       saveState();
     }
   }
@@ -200,7 +205,7 @@ document.addEventListener('astro:page-load', () => {
   };
   output.addEventListener('click', onOutputClick);
 
-  const welcomeText = "Conectando al servidor... Inicializando subsistemas...";
+  const welcomeText = escapeHtml(message('terminalWelcome'));
   
   const observer = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting && !hasRun) {
@@ -211,8 +216,8 @@ document.addEventListener('astro:page-load', () => {
         await typewriterAsync(welcomeText, div);
         const div2 = document.createElement('div');
         div2.style.marginBottom = '0.5rem';
-        const statusText = commands['status'] || "[<span class=\"term-text-green\">OK</span>] API Gateway (Latencia p95: 42ms)<br>[<span class=\"term-text-green\">OK</span>] Database Primary (Carga: 12%)<br>[<span class=\"term-text-green\">OK</span>] Validation Engine (Sandboxed)<br>Uptime: 99.97% - Todos los sistemas operando con normalidad.";
-        await typewriterAsync(statusText + "<br><br>Escribe <span class=\"term-text-green\">help</span> para ver los comandos disponibles.", div2);
+        const statusText = commands['status'] || escapeHtml(message('terminalError'));
+        await typewriterAsync(`${statusText}<br><br>${escapeHtml(message('terminalType'))} <span class="term-text-green">help</span> ${escapeHtml(message('terminalAvailable'))}`, div2);
         saveState();
       })();
     }

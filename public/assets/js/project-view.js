@@ -44,7 +44,7 @@ function createProjectCard(project, index) {
   const proof = createElement("p", "project-proof", project.proof);
 
   const technologies = createElement("ul", "tag-list");
-  technologies.setAttribute("aria-label", `Tecnologías de ${project.title}`);
+  technologies.setAttribute("aria-label", message('projectTechnologies', { name: project.title }));
   project.technologies.forEach((technology) => {
     technologies.append(createElement("li", "", technology));
   });
@@ -65,17 +65,18 @@ export function renderProjects(container, projects) {
 }
 
 export function renderProjectError(container) {
-  const message = createElement(
+  const notice = createElement(
     "p",
     "notice",
-    "No se ha podido cargar el catálogo. Puedes revisar los proyectos directamente en GitHub."
+    message('projectError')
   );
-  const link = createElement("a", "", " Abrir GitHub ↗");
+  const link = createElement("a", "", ` ${message('openGitHub')}`);
   link.href = "https://github.com/Nain9Dev";
   link.target = "_blank";
   link.rel = "noopener noreferrer";
-  message.append(link);
+  notice.append(link);
 
-  container.replaceChildren(message);
+  container.replaceChildren(notice);
   container.setAttribute("aria-busy", "false");
 }
+import { message } from './locale.js';

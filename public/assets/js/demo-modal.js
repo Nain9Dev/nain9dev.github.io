@@ -1,3 +1,5 @@
+import { message } from './locale.js';
+
 export function initializeDemoModal(root = document) {
   let modalContainer = null;
 
@@ -41,7 +43,7 @@ export function initializeDemoModal(root = document) {
 
     const closeButton = document.createElement("button");
     closeButton.textContent = "✕";
-    closeButton.setAttribute("aria-label", "Cerrar modal");
+    closeButton.setAttribute("aria-label", message('closeModal'));
     closeButton.style.cssText = `
       position: absolute;
       top: 1.25rem;
@@ -57,18 +59,18 @@ export function initializeDemoModal(root = document) {
     closeButton.addEventListener("click", closeModal);
 
     const title = document.createElement("h3");
-    title.textContent = "Demo Técnica: Servicio de Notificaciones";
+    title.textContent = message('demoTitle');
     title.style.cssText = "margin: 0 0 0.75rem 0; font-size: 1.35rem; font-weight: 700; color: #f8fafc;";
 
     const desc = document.createElement("p");
-    desc.innerHTML = "Arquitectura en <strong>.NET 10</strong> + Clean Architecture + MassTransit. Al pulsar el botón, el Gateway API delega el evento en vivo al clúster de <strong>CloudAMQP (RabbitMQ)</strong> y el Worker Service asíncrono lo consume y renderiza el correo HTML en tiempo real.";
+    desc.textContent = message('demoDescription');
     desc.style.cssText = "color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin-top: 0; margin-bottom: 1.5rem;";
 
     const actionContainer = document.createElement("div");
     actionContainer.style.cssText = "display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; margin-bottom: 1.5rem;";
 
     const triggerBtn = document.createElement("button");
-    triggerBtn.textContent = "Disparar Evento Asíncrono de Prueba";
+    triggerBtn.textContent = message('demoTrigger');
     triggerBtn.style.cssText = `
       background: #3b82f6;
       color: #ffffff;
@@ -108,22 +110,22 @@ export function initializeDemoModal(root = document) {
       white-space: pre-wrap;
       word-break: break-all;
     `;
-    consoleBox.textContent = "[Ready] Sistema en espera de evento para iniciar telemetría en vivo...";
+    consoleBox.textContent = message('demoReady');
 
     triggerBtn.addEventListener("click", () => {
       triggerBtn.disabled = true;
       triggerBtn.style.opacity = "0.7";
       triggerBtn.style.cursor = "not-allowed";
-      triggerBtn.textContent = "Procesando en bus asíncrono...";
+      triggerBtn.textContent = message('demoProcessing');
       consoleBox.style.color = "#10b981";
       consoleBox.innerHTML = "";
 
       const steps = [
-        { delay: 10, text: "[OK 00ms] Conectando por TLS/SSL al Gateway API .NET 10 en la Nube..." },
-        { delay: 420, text: "[OK 42ms] Petición POST aceptada (HTTP 202 Accepted)." },
-        { delay: 850, text: "[OK 45ms] Evento delegado exitosamente al clúster RabbitMQ (TrackingId: 8a91c-7b10...)" },
-        { delay: 1500, text: "[OK 323ms] Worker Service procesó el mensaje y renderizó 5.419 bytes de plantilla HTML. Arquitectura validada." },
-        { delay: 1900, text: "\nEstado: 100% Funcional. Ciclo completo end-to-end verificado exitosamente." }
+        { delay: 10, text: message('demoStep1') },
+        { delay: 420, text: message('demoStep2') },
+        { delay: 850, text: message('demoStep3') },
+        { delay: 1500, text: message('demoStep4') },
+        { delay: 1900, text: `\n${message('demoStep5')}` }
       ];
 
       steps.forEach((step, idx) => {
@@ -142,7 +144,7 @@ export function initializeDemoModal(root = document) {
             triggerBtn.disabled = false;
             triggerBtn.style.opacity = "1";
             triggerBtn.style.cursor = "pointer";
-            triggerBtn.textContent = "Disparar Nuevo Evento";
+            triggerBtn.textContent = message('demoAgain');
           }
         }, step.delay);
       });
