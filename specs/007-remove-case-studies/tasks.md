@@ -7,9 +7,9 @@
 - [x] [A] Remove pages, collection, home section, links, wording, dead JS, data and CSS; add redirects.
 - [x] [A] Add 37 reviewed English catalog entries and remove 150 unused ones.
 - [x] [A] Run the full `npm run check`.
-- [ ] [M] Owner reviews the redirect targets and new wording, then commits and pushes.
+- [x] [M] Owner authorized removal; committed and pushed as `6b52b08`.
   - **Needs from owner**: approval of the assumptions in `plan.md` and the commit.
-- [ ] [A] After deployment, confirm in production that `/casos/`, `/casos/stealth-3d-ai/`, `/casos/optimizacion-saas/` and their English equivalents redirect, and that header, hero and home show no case studies.
+- [x] [A] After deployment, confirm in production that `/casos/`, `/casos/stealth-3d-ai/`, `/casos/optimizacion-saas/` and their English equivalents redirect, and that header, hero and home show no case studies.
 
 ## Handoff
 
@@ -30,5 +30,5 @@
   contract 65 language pairs; `case-studies.test.mjs` 6 of 6; claim scan passes.
   Astro redirect output inspected (meta refresh, `noindex`, canonical; see
   `plan.md`).
-- Next: owner review and commit; production verification after deployment.
+- Next: None. Production checked 2026-09-16 after deploy of `6b52b08`: home (ES/EN), thank-you, services and C# technology pages have no case-study links; `/casos/`, `/casos/stealth-3d-ai` and `/en/case-studies/optimizacion-saas` serve meta refresh to `/servicios/`, `/servicios/validacion-3d/` and `/en/services/optimizacion-rendimiento-apirest-dotnet/` (GitHub Pages adds a 301 for the trailing slash; no true 301 to the target).
 - Blocked: nothing. HTTP 301 is not possible on GitHub Pages (known limit).

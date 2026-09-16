@@ -86,13 +86,13 @@ Status values: `Implemented` (released, evidence recorded in the spec handoff), 
 
 | ID | Requirement | Source spec | Status |
 | :--- | :--- | :--- | :--- |
-| CASE-001 | When the site is built, the system shall not publish a case-study page, listing or content collection in any locale. | specs/007-remove-case-studies | Implemented, verification pending |
-| CASE-002 | When any non-redirect page is built, it shall contain no link to `/casos/` or `/en/case-studies/` (header, hero, home, technology, service and thank-you pages included). | specs/007-remove-case-studies | Implemented, verification pending |
-| CASE-003 | When the home page is built in either locale, it shall contain no case-study section, wording or client script. | specs/007-remove-case-studies | Implemented, verification pending |
-| CASE-004 | When a visitor requests a retired case-study URL (clean or legacy `.html`) in either locale, the site shall serve a `noindex` redirect document whose target and canonical point to the mapped existing page in the same locale. | specs/007-remove-case-studies | Implemented, verification pending |
-| CASE-005 | When a visitor requests a technology page retired because only a case study declared it, the site shall redirect to the related service page in the same locale. | specs/007-remove-case-studies | Implemented, verification pending |
-| CASE-006 | When the terminal commands or runtime data files are served in either locale, they shall contain no case-study link. | specs/007-remove-case-studies | Implemented, verification pending |
-| CASE-007 | When the sitemap is generated, it shall list no case-study URL. | specs/007-remove-case-studies | Implemented, verification pending |
-| CASE-008 | When `npm run check` runs, the SEO and localization contracts shall still pass with zero pending and zero unused catalog entries. | specs/007-remove-case-studies | Implemented, verification pending |
+| CASE-001 | When the site is built, the system shall not publish a case-study page, listing or content collection in any locale. | specs/007-remove-case-studies | Implemented, verified in production |
+| CASE-002 | When any non-redirect page is built, it shall contain no link to `/casos/` or `/en/case-studies/` (header, hero, home, technology, service and thank-you pages included). | specs/007-remove-case-studies | Implemented, verified in production |
+| CASE-003 | When the home page is built in either locale, it shall contain no case-study section, wording or client script. | specs/007-remove-case-studies | Implemented, verified in production |
+| CASE-004 | When a visitor requests a retired case-study URL (clean or legacy `.html`) in either locale, the site shall serve a `noindex` redirect document whose target and canonical point to the mapped existing page in the same locale. | specs/007-remove-case-studies | Implemented, verified in production |
+| CASE-005 | When a visitor requests a technology page retired because only a case study declared it, the site shall redirect to the related service page in the same locale. | specs/007-remove-case-studies | Implemented, verified in production |
+| CASE-006 | When the terminal commands or runtime data files are served in either locale, they shall contain no case-study link. | specs/007-remove-case-studies | Implemented, verified in production |
+| CASE-007 | When the sitemap is generated, it shall list no case-study URL. | specs/007-remove-case-studies | Implemented, verified in production |
+| CASE-008 | When `npm run check` runs, the SEO and localization contracts shall still pass with zero pending and zero unused catalog entries. | specs/007-remove-case-studies | Implemented |
 
 Spec 005 is committed as `c78c854`; production confirmation after deployment is still open in its `tasks.md`. Other homepage claims awaiting owner evidence are tracked in `11-open-questions.md`.
