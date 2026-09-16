@@ -6,7 +6,7 @@
 - [x] [A] Extend `scripts/check-claims.mjs` patterns and scan runtime data.
 - [x] [A] Remove metrics, badges and 13 unused English catalog entries.
 - [x] [A] Run the full `npm run check`.
-- [ ] [A] Confirm production home page (ES/EN) and thank-you page after deployment.
+- [x] [A] Confirm production home page (ES/EN) and thank-you page after deployment.
 
 ## Handoff
 
@@ -18,5 +18,5 @@
   SEO contract (142 pages), localization contract (71 pairs) and claim scan.
   A first site-wide "Zero Downtime" pattern matched a legitimate blog post in
   `dist/`, so it was replaced by a page-level test.
-- Next: Production check after deployment.
+- Next: None. Deployment of 5d17ae2 succeeded; production shows no metrics, OSS or Zero Downtime badges and keeps the checklist CTA.
 - Blocked: Nothing. Service and blog availability wording is tracked as OQ-008.

@@ -4,62 +4,119 @@ This folder is the workspace for the visual redesign of
 [www.naindev.com](https://www.naindev.com). Read this page first. It explains
 who the site is for, what can change, where to work and how to hand over.
 
-## Roles
+## Roles and authorship
 
 | Person | Owns | Works on |
 | :--- | :--- | :--- |
 | David (`davidesuarez`) | Visual and UI design | Only his own `design/*` branches |
-| Aitor (`Nain9Dev`) | Code, content, deployment | `main` and the live site |
+| Aitor (`Nain9Dev`) | Software, code, functionality, content and deployment | `main` and the live site |
 
 - David designs. Aitor turns approved designs into production code.
+- **The visual design David delivers is David's work.** The software, code and
+  functionality of the site remain Aitor's.
+- **Credit:** the published site will credit David's design. David chooses the
+  form: name, link (portfolio, LinkedIn, Behance...) and where it appears, for
+  example the footer. Write the preferred credit in your folder's `README.md`.
+- **Everything uploaded is public.** The repository is public, so anyone can see
+  the files. Do not upload anything you do not want published.
 - Anything pushed to `main` goes live automatically, so `main` is closed to
   everyone except Aitor. GitHub rejects any push from David outside `design/*`.
 - Inside his branch David is free: any layout, style, tool or method, and any
   file he needs to explain the design.
 
-## Who the site is for
+## Business goal
 
-naindev.com is the professional portfolio of **Aitor Nain Mendoza Vallejo
-(NainDev)**, a software architect. It should win consulting work, not look like
-a student portfolio.
+naindev.com is the professional site of **Aitor Nain Mendoza Vallejo
+(NainDev)**, a software architect who **sells custom software services**. The
+redesign has two goals:
 
-- **Audience:** CTOs, tech leads and founders of companies that build 3D or AI
-  products and need backends that cannot fail.
-- **Positioning:** backend architecture for 3D and AI systems. Deterministic
-  validation of 3D assets, generative AI integrations with human review
-  (human-in-the-loop), and mission-critical .NET systems.
-- **Stack shown on the site:** C#/.NET, SQL Server, Python/FastAPI, TypeScript,
-  3D/WebGL, agentic AI.
-- **Main goal of every page:** book a call (the "Agendar Llamada" button, which
-  opens Calendly). Secondary goal: read a case study.
+1. **Win clients:** a visitor understands what Aitor builds and contacts him.
+2. **Improve SEO:** more organic traffic from companies searching for these
+   services.
+
+- **What clients buy:** custom software services, built per project:
+  - backend architecture and development (C#/.NET, Python/FastAPI);
+  - AI integrations with human review (human-in-the-loop) and deterministic
+    validation;
+  - 3D asset processing and validation backends;
+  - critical-system audits and optimization.
+- **Audience:** CTOs, tech leads and founders of companies that need reliable
+  software, especially products with AI or 3D.
 - **Tone:** precise, calm, engineering-grade. Trust over flashiness.
 - **More background:** the "Sobre mí" section of the live site and
   [LinkedIn](https://www.linkedin.com/in/aitor-nain-mendoza-vallejo/).
 
 ## Redesign goals
 
-Agreed with Aitor. Where something is not listed here, David decides.
+Agreed with Aitor. Where something is not listed here, David decides. David's
+own ideas are explicitly welcome: new sections, formats or approaches that
+would sell better are part of the job.
 
 | Topic | Decision |
 | :--- | :--- |
 | Main problem | Mobile experience, above all the header menu and navigation |
 | First deliverable | Home page (`/`), mobile and desktop |
-| After that | Reuse the home page's visual system for services, case studies, blog and technology pages |
-| Visual direction | Free. David proposes the style; showing two or three directions is welcome |
-| Must keep | The NainDev brand and its logo colors (see below) |
-| Can change or remove | Any section, effect or component, including the 3D hero canvas, the terminal, the dark theme and the API/Logic/Data panel |
+| After that | Reuse the home page's visual system for services, blog and technology pages |
+| Main message | David decides. Today the home page mixes 3D validation, agentic AI and critical .NET systems. Choose the hierarchy that sells best to clients; Aitor adapts the wording |
+| Main call to action | David decides: whatever is most comfortable for the client (see "Contact channels") |
+| Visual direction | Free. Showing two or three directions is welcome |
+| Photo of Aitor | Optional. If the design needs one, ask Aitor for it |
+| Must keep | The NainDev brand and logo colors, the blog, the service pages, the technology pages and the interactive terminal (its look can change) |
+| Can change or remove | Everything else, including the 3D hero canvas, the dark theme, the API/Logic/Data panel, section order and copy |
+| Case studies | **Not shown.** They are being removed from the site; do not design them or link to them |
 | Content | Free proposal: David may reorder, merge or remove sections and rewrite headlines and copy. Aitor approves final wording |
 | Mockup language | Spanish and English for every screen |
 | References | None given. David may collect and share his own |
 | Deadline | None. Quality over speed |
 
+### How proposals are judged
+
+All of these matter, plus David's own ideas:
+
+1. **Conversion:** the client understands the offer and contacts Aitor.
+2. **SEO and speed:** indexable text, clear heading structure, fast loading.
+3. **Mobile experience:** navigation and reading on a phone.
+4. **Memorable brand:** NainDev stands out from other freelancers.
+
 ### Mobile issues to solve first
 
 - The header menu and navigation are hard to use on phones. Design a clear
   mobile menu: open and close states, current page, language switch (ES/EN)
-  and the "Agendar Llamada" / "Book a call" button always easy to reach.
+  and the main contact action always easy to reach.
 - Check the full home page on a real phone before designing and note other
   problems you find in your folder's `README.md`.
+
+### Contact channels
+
+Use the channels that are most comfortable for the client. Popular patterns or
+other ideas are welcome.
+
+| Channel | Status |
+| :--- | :--- |
+| Calendly, 30-minute call | Exists today |
+| LinkedIn | Exists today |
+| Email | Allowed; the public address is still to be decided, use `[EMAIL]` |
+| WhatsApp | Allowed; the business number does not exist yet, use `[WHATSAPP]` |
+
+## SEO rules for the design
+
+The site earns clients through search engines, so the design must keep text
+readable by Google:
+
+- **Real text, not images of text.** Headlines, services and paragraphs are
+  HTML text. Images are for illustration only.
+- **One main headline (H1) per page** stating what Aitor offers, then section
+  headings (H2) and sub-headings (H3) in order.
+- **Every service keeps its own page** with a clear title, description and a
+  contact action. Do not merge services into a single page.
+- **Blog and technology pages** need a readable article layout: title, date,
+  reading width of about 60-75 characters per line, code blocks, and links to
+  related services.
+- **Internal links:** home → services → blog and back. Avoid dead ends.
+- **Speed:** images compressed (WebP or SVG), few web fonts (two families at
+  most), no autoplay video, animations that do not block reading.
+- **URLs stay the same.** You can rename menu labels, but existing pages keep
+  their addresses. If you propose removing a page, note it in your `README.md`.
 
 ## What exists today
 
@@ -69,15 +126,14 @@ The site is live. Browse it before designing.
 | :--- | :--- |
 | Home | `/` |
 | Services | `/servicios/` |
-| Case studies | `/casos/` |
 | Blog | `/blog/` |
 | Technology pages | `/tecnologia/...` |
 | Privacy | `/privacidad` |
 | English version | `/en/...` (every page) |
 
-Home sections in order: Hero with 3D canvas, Terminal, Proof strip, Services,
-Tech stack, Case studies, Free checklist call to action, Projects, Method,
-About, Contact.
+Home sections today, in order: Hero with 3D canvas, Terminal, Proof strip,
+Services, Tech stack, Free checklist call to action, Projects, Method, About,
+Contact.
 
 ### Brand colors (must keep)
 
@@ -90,7 +146,8 @@ Taken from the NainDev logo (`public/assets/images/favicon-optimized.svg`):
 | White | `#FFFFFF` | Logo detail |
 
 The palette may grow around these colors (neutrals, backgrounds, states), but
-the logo colors stay recognizable.
+the logo colors stay recognizable. The logo file above is SVG and can be opened
+in any design tool.
 
 ### Current site styling
 
@@ -118,17 +175,19 @@ and theme (dark or light) are open.
    animations.
 4. **Speed.** The site is static and loads in under a second. Prefer CSS over
    heavy images or video, and use SVG or WebP for images.
-5. **Real content only.** Do not invent clients, logos, testimonials, metrics or
-   awards. New copy is welcome, but facts must be real. Mark unknown data as
-   `[TEXT]` or `[METRIC]`. The site has no verified metrics today: the "+50M"
-   badge, the impact metrics section and the "Colaborador OSS" badge were
-   removed on purpose. A metrics area may appear in the design only as an
-   empty slot marked `[METRIC]`.
+5. **Real content only.** Do not invent clients, logos, testimonials, metrics,
+   case studies or awards. New copy is welcome, but facts must be real. Mark
+   unknown data as `[TEXT]` or `[METRIC]`. The site has no verified metrics
+   today: the "+50M" badge, the impact metrics section and the "Colaborador
+   OSS" badge were removed on purpose. A metrics area may appear in the design
+   only as an empty slot marked `[METRIC]`.
 6. **Brand.** Keep the NainDev name, logo and logo colors.
-7. **No new paid services.** Fonts, icons and libraries must be free and
-   open source, for example Google Fonts or Lucide icons.
+7. **No new paid services.** Fonts, icons, images and libraries must be free
+   with a license that allows commercial use, for example Google Fonts, Lucide
+   icons or Unsplash photos. Note the source of every third-party asset in your
+   `README.md`.
 8. **No third-party trackers or embeds.** The site uses a strict privacy policy
-   and a Content Security Policy.
+   and a Content Security Policy. The privacy banner and privacy page stay.
 
 ## How to work (no coding knowledge needed)
 
@@ -211,6 +270,45 @@ Any other name is rejected.
   site visitors can be in Spanish.
 - Several branches are fine, one per topic.
 
+## Frequently asked questions
+
+**Do I need to know how to code?**
+No. Upload images and, if you can, an HTML prototype. Aitor builds the real site.
+
+**Can I only deliver images (PNG/PDF) or a Figma/Penpot link?**
+Yes, to start. An HTML prototype helps Aitor see interactions and responsive
+behavior, but it is not required for the first proposal.
+
+**Which texts do I use?**
+Copy the current text from the live site, or write your own proposal. List every
+text you change in the "Copy changes for approval" table of your `README.md`.
+
+**What if I need information I do not have (a photo, an email, a number)?**
+Use a placeholder such as `[PHOTO]`, `[EMAIL]`, `[WHATSAPP]`, `[TEXT]` or
+`[METRIC]`, and ask Aitor in chat.
+
+**Can I add new sections or pages?**
+Yes. Explain the idea and why it helps win clients or SEO in your `README.md`.
+
+**Can I remove the 3D animation or change the dark theme?**
+Yes. Only the brand, logo colors, blog, service pages, technology pages and the
+interactive terminal must stay. The terminal's look can change.
+
+**How many proposals or rounds?**
+No fixed number and no deadline. Upload early versions; feedback happens in chat.
+
+**What happens if I upload something by mistake?**
+Upload the corrected file with the same name or tell Aitor. Your branch never
+affects the live site.
+
+**GitHub says I cannot push or upload.**
+Check that the branch selector shows `design/home-redesign`. Uploads to any
+other branch are rejected on purpose. If it still fails, send Aitor a screenshot.
+
+**Who owns the design?**
+The visual design is yours and will be credited on the site in the form you
+choose. The code and functionality are Aitor's. The files are public.
+
 ## Design checklist before asking for review
 
 - [ ] Desktop (1440 px) and mobile (390 px) screens, including the open mobile menu
@@ -218,6 +316,9 @@ Any other name is rejected.
 - [ ] Hover, focus and active states for buttons and links
 - [ ] Contrast checked (for example with the WebAIM contrast checker)
 - [ ] Colors, font sizes and spacing listed in the folder's `README.md`
-- [ ] Only real content, placeholders marked `[TEXT]` or `[METRIC]`
+- [ ] Only real content, placeholders marked `[TEXT]`, `[METRIC]`, `[EMAIL]`, `[WHATSAPP]` or `[PHOTO]`
+- [ ] One H1 per page and all important text as real text, not images
+- [ ] No case studies shown or linked
+- [ ] Third-party asset sources and preferred design credit listed in `README.md`
 - [ ] Copy changes listed in the folder's `README.md` for Aitor's approval
 - [ ] PNG or PDF exports included
