@@ -26,6 +26,7 @@ Each claim below is published today in Spanish and, through the catalog, in Engl
 | ID | Question | Location | Blocks | Owner | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | OQ-008 | Service pages and blog posts state availability outcomes such as "Disponibilidad 99.99%" (`backend-critico-logistica.mdx`) and "Zero Downtime" as benefits. Are they design goals or achieved results, and do they need rewording? | `src/content/servicios/*.mdx`, `src/content/blog/*.mdx` | Content integrity review | Aitor | Open |
+| OQ-009 | Privacy policy section 7 (CRM Backups app, crm.naindev.com) lists the owner's personal address as the specific data contact. Should it become `contact@naindev.com`? Check first whether the Google OAuth consent screen or app verification references the current address. | `src/pages/privacidad.astro` | MAIL-001 scope for section 7 | Aitor | Open |
 
 Note: the impact metrics exist twice, as static markup in `ImpactMetrics.astro` and as JSON loaded by `public/assets/js/impact-metrics.js`; any resolution must update both.
 
