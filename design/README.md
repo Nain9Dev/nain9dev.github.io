@@ -76,7 +76,8 @@ The site is live. Browse it before designing.
 | English version | `/en/...` (every page) |
 
 Home sections in order: Hero with 3D canvas, Terminal, Proof strip, Services,
-Tech stack, Case studies, Impact metrics, Projects, Method, About, Contact.
+Tech stack, Case studies, Free checklist call to action, Projects, Method,
+About, Contact.
 
 ### Brand colors (must keep)
 
@@ -119,8 +120,10 @@ and theme (dark or light) are open.
    heavy images or video, and use SVG or WebP for images.
 5. **Real content only.** Do not invent clients, logos, testimonials, metrics or
    awards. New copy is welcome, but facts must be real. Mark unknown data as
-   `[TEXT]` or `[METRIC]`. Do **not** reuse the current "+50M Modelos Validados
-   en Producción" badge: it is not a verified figure.
+   `[TEXT]` or `[METRIC]`. The site has no verified metrics today: the "+50M"
+   badge, the impact metrics section and the "Colaborador OSS" badge were
+   removed on purpose. A metrics area may appear in the design only as an
+   empty slot marked `[METRIC]`.
 6. **Brand.** Keep the NainDev name, logo and logo colors.
 7. **No new paid services.** Fonts, icons and libraries must be free and
    open source, for example Google Fonts or Lucide icons.
@@ -129,55 +132,76 @@ and theme (dark or light) are open.
 
 ## How to work (no coding knowledge needed)
 
-### One-time setup
+Everything is already prepared. You do not need to install anything or create
+branches.
 
-1. Install [GitHub Desktop](https://desktop.github.com/) and sign in as
-   `davidesuarez`.
-2. **File > Clone repository**, choose `Nain9Dev/nain9dev.github.io`.
+| What | Value |
+| :--- | :--- |
+| Your branch | `design/home-redesign` |
+| Your folder | `design/home-redesign/` |
+| Open it in the browser | https://github.com/Nain9Dev/nain9dev.github.io/tree/design/home-redesign/design/home-redesign |
 
-### Start a design
+### Design
 
-1. In GitHub Desktop, click **Current branch > New branch**.
-2. Name it `design/<topic>`, for example `design/home-redesign`. It must start
-   with `design/`, otherwise GitHub rejects the push.
-3. Base it on `main`.
-4. Create a folder `design/<topic>/` inside this `design` folder and put all your
-   work there.
-
-### What to put in the folder
+1. Design however you like, on your own computer, with any tool.
+2. Save the result in a folder on your computer with this layout:
 
 ```text
-design/home-redesign/
-├── README.md            What changed and why, open questions
+home-redesign/
+├── README.md            What changed and why, open questions (optional, can be empty)
 ├── index.html           Main prototype (opens with a double click)
-├── mobile.html          Optional, if mobile differs a lot
-├── assets/              Images, SVG, fonts used by the prototype
+├── assets/              Images, SVG and fonts used by the prototype
 └── exports/             PNG or PDF screenshots of each screen
 ```
 
 - The prototype is **plain HTML and CSS that opens in a browser with a double
   click**. No installation, no build step. Keep every file it needs inside the
   folder and use relative paths (`assets/logo.svg`, not `/assets/logo.svg`).
-- You can make the HTML however you like: by hand, with an export from a design
-  tool, or with an AI assistant.
-- Add PNG or PDF exports so the design can be reviewed without opening the
-  prototype.
+- You can make the HTML however you like: by hand, exported from a design tool,
+  or with an AI assistant. If you only have images, upload the exports first;
+  the HTML can come later.
 - Optional: link your Penpot or Figma file in the folder's `README.md`.
 
-### Save and share
+### Upload (from the browser)
 
-1. In GitHub Desktop, write a short summary, e.g. `design: add home hero
-   proposal`, and click **Commit to design/<topic>**.
-2. Click **Push origin**.
-3. Push often. Day-to-day feedback happens in your usual chat with Aitor; share
-   the branch name or a screenshot.
-4. When a proposal is final, open a **pull request** from your branch to `main`
-   on GitHub as the formal handoff. The pull request is never merged as is:
-   Aitor rebuilds the design in the real site.
+1. Open the link from the table above and sign in as `davidesuarez`.
+2. Check that the branch selector at the top left says `design/home-redesign`.
+3. Click **Add file > Upload files**.
+4. Drag the **contents** of your `home-redesign` folder (files and subfolders)
+   into the page.
+5. In **Commit changes**, write a short summary such as
+   `design: add home hero proposal`.
+6. Leave **Commit directly to the design/home-redesign branch** selected and
+   click **Commit changes**.
+
+Uploading a file with the same name replaces the old version; GitHub keeps the
+history. Browser uploads accept up to 100 files and 25 MB per file at a time.
+
+### Share
+
+- Day to day: tell Aitor in your usual chat when you upload something.
+- When the proposal is final, open this link and click **Create pull request**:
+  https://github.com/Nain9Dev/nain9dev.github.io/compare/main...design/home-redesign
+  The pull request is only the formal handoff. It is never merged as is: Aitor
+  rebuilds the design in the real site.
+
+### Optional: GitHub Desktop
+
+If you prefer an app for frequent uploads, install
+[GitHub Desktop](https://desktop.github.com/), clone
+`Nain9Dev/nain9dev.github.io`, switch to `design/home-redesign`, copy your files
+into `design/home-redesign/`, then **Commit** and **Push origin**.
+
+### New topics later
+
+Ask Aitor for a new branch (for example `design/services-page`), or create one
+from the branch selector on GitHub by typing a name that starts with `design/`.
+Any other name is rejected.
 
 ## Rules for the branch
 
-- Work only in your `design/*` branches and only inside `design/<topic>/`.
+- Work only in `design/*` branches and only inside the matching folder, for
+  example `design/home-redesign/`.
 - Do not change files outside `design/`, especially `.github/`, `src/`,
   `public/`, `package.json` or `astro.config.mjs`. They are Aitor's code.
 - Never commit passwords, API keys or private client material. The repository

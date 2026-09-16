@@ -69,6 +69,7 @@ Status values: `Implemented` (released, evidence recorded in the spec handoff), 
 | DES-009 | Proposals may restructure sections and rewrite copy; final wording requires owner approval. | specs/004-design-collaboration | Accepted |
 | DES-010 | Mockups shall be delivered in Spanish and English. | specs/004-design-collaboration | Accepted |
 | DES-011 | Proposals shall not present unverified metrics, including the current "+50M" badge. | specs/004-design-collaboration | Accepted |
+| DES-012 | The owner shall provide a ready branch `design/home-redesign` with its folder so the designer can upload through the GitHub web interface. | specs/004-design-collaboration | Implemented |
 
 ## Content integrity
 

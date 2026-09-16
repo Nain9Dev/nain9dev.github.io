@@ -51,3 +51,6 @@ and implements approved designs in `main`.
 - DES-010: Mockups shall be delivered in Spanish and English.
 - DES-011: Proposals shall not present unverified metrics, including the current
   "+50M" badge.
+- DES-012: The owner shall provide a ready branch `design/home-redesign` with
+  its folder, so the designer can upload through the GitHub web interface
+  without installing tools or creating branches.
