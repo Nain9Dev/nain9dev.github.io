@@ -36,6 +36,31 @@ a student portfolio.
 - **More background:** the "Sobre mí" section of the live site and
   [LinkedIn](https://www.linkedin.com/in/aitor-nain-mendoza-vallejo/).
 
+## Redesign goals
+
+Agreed with Aitor. Where something is not listed here, David decides.
+
+| Topic | Decision |
+| :--- | :--- |
+| Main problem | Mobile experience, above all the header menu and navigation |
+| First deliverable | Home page (`/`), mobile and desktop |
+| After that | Reuse the home page's visual system for services, case studies, blog and technology pages |
+| Visual direction | Free. David proposes the style; showing two or three directions is welcome |
+| Must keep | The NainDev brand and its logo colors (see below) |
+| Can change or remove | Any section, effect or component, including the 3D hero canvas, the terminal, the dark theme and the API/Logic/Data panel |
+| Content | Free proposal: David may reorder, merge or remove sections and rewrite headlines and copy. Aitor approves final wording |
+| Mockup language | Spanish and English for every screen |
+| References | None given. David may collect and share his own |
+| Deadline | None. Quality over speed |
+
+### Mobile issues to solve first
+
+- The header menu and navigation are hard to use on phones. Design a clear
+  mobile menu: open and close states, current page, language switch (ES/EN)
+  and the "Agendar Llamada" / "Book a call" button always easy to reach.
+- Check the full home page on a real phone before designing and note other
+  problems you find in your folder's `README.md`.
+
 ## What exists today
 
 The site is live. Browse it before designing.
@@ -53,7 +78,22 @@ The site is live. Browse it before designing.
 Home sections in order: Hero with 3D canvas, Terminal, Proof strip, Services,
 Tech stack, Case studies, Impact metrics, Projects, Method, About, Contact.
 
-Current visual identity (from `public/assets/css/main.css`):
+### Brand colors (must keep)
+
+Taken from the NainDev logo (`public/assets/images/favicon-optimized.svg`):
+
+| Color | Value | Use today |
+| :--- | :--- | :--- |
+| Cobalt blue | `#0047AB` | Logo main shape |
+| Sky blue | `#00BFFF` | Logo accent |
+| White | `#FFFFFF` | Logo detail |
+
+The palette may grow around these colors (neutrals, backgrounds, states), but
+the logo colors stay recognizable.
+
+### Current site styling
+
+From `public/assets/css/main.css`:
 
 | Token | Value |
 | :--- | :--- |
@@ -64,13 +104,13 @@ Current visual identity (from `public/assets/css/main.css`):
 | Fonts | Outfit (headings), Inter (body), Cascadia Code (code) |
 | Radius | 0.85rem / 1.25rem / 2rem |
 
-These are a starting point, not a constraint. You may propose a new palette,
-typography or layout.
+These values are a starting point, not a constraint. Typography, spacing, layout
+and theme (dark or light) are open.
 
 ## Things the design must respect
 
-1. **Two languages.** Every screen exists in Spanish (main) and English. Leave
-   room for English text, which is often longer or shorter than the Spanish.
+1. **Two languages.** Every screen exists in Spanish (main) and English. Deliver
+   both versions of each mockup; text length differs between them.
 2. **Mobile first.** Design at least 390 px (phone) and 1440 px (desktop).
 3. **Accessibility.** Text contrast of at least 4.5:1, visible keyboard focus,
    no information shown by color alone, and a reduced-motion alternative for
@@ -78,9 +118,10 @@ typography or layout.
 4. **Speed.** The site is static and loads in under a second. Prefer CSS over
    heavy images or video, and use SVG or WebP for images.
 5. **Real content only.** Do not invent clients, logos, testimonials, metrics or
-   awards. Use the existing text, or mark placeholders clearly as `[TEXT]`.
-6. **Brand assets.** Keep the NainDev name and favicon unless the redesign
-   includes a proposal for them.
+   awards. New copy is welcome, but facts must be real. Mark unknown data as
+   `[TEXT]` or `[METRIC]`. Do **not** reuse the current "+50M Modelos Validados
+   en Producción" badge: it is not a verified figure.
+6. **Brand.** Keep the NainDev name, logo and logo colors.
 7. **No new paid services.** Fonts, icons and libraries must be free and
    open source, for example Google Fonts or Lucide icons.
 8. **No third-party trackers or embeds.** The site uses a strict privacy policy
@@ -128,10 +169,11 @@ design/home-redesign/
 1. In GitHub Desktop, write a short summary, e.g. `design: add home hero
    proposal`, and click **Commit to design/<topic>**.
 2. Click **Push origin**.
-3. When a proposal is ready, open a **pull request** from your branch to `main`
-   on GitHub and tell Aitor. Aitor reviews it there. The pull request is only
-   for review: it is never merged as is. Aitor rebuilds the design in the real
-   site.
+3. Push often. Day-to-day feedback happens in your usual chat with Aitor; share
+   the branch name or a screenshot.
+4. When a proposal is final, open a **pull request** from your branch to `main`
+   on GitHub as the formal handoff. The pull request is never merged as is:
+   Aitor rebuilds the design in the real site.
 
 ## Rules for the branch
 
@@ -147,10 +189,11 @@ design/home-redesign/
 
 ## Design checklist before asking for review
 
-- [ ] Desktop (1440 px) and mobile (390 px) screens
-- [ ] Spanish and English text checked for fit
+- [ ] Desktop (1440 px) and mobile (390 px) screens, including the open mobile menu
+- [ ] Spanish and English version of every screen
 - [ ] Hover, focus and active states for buttons and links
 - [ ] Contrast checked (for example with the WebAIM contrast checker)
 - [ ] Colors, font sizes and spacing listed in the folder's `README.md`
-- [ ] Only real content, placeholders marked `[TEXT]`
+- [ ] Only real content, placeholders marked `[TEXT]` or `[METRIC]`
+- [ ] Copy changes listed in the folder's `README.md` for Aitor's approval
 - [ ] PNG or PDF exports included

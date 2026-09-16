@@ -39,3 +39,15 @@ and implements approved designs in `main`.
 - Restricting file paths inside `design/**` branches. The brief sets the rule;
   changes outside `design/` never reach `main` because design branches are not
   merged.
+
+## Design direction (owner interview)
+
+- DES-007: The first proposal shall cover the home page for mobile and desktop,
+  prioritizing the mobile header menu and navigation.
+- DES-008: Proposals shall keep the NainDev brand and logo colors `#0047AB`,
+  `#00BFFF` and `#FFFFFF`; every other visual element may change.
+- DES-009: Proposals may restructure sections and rewrite copy; final wording
+  requires owner approval.
+- DES-010: Mockups shall be delivered in Spanish and English.
+- DES-011: Proposals shall not present unverified metrics, including the current
+  "+50M" badge.
