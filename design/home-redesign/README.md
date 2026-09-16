@@ -33,6 +33,20 @@ Describe the visual direction (or directions) and why.
 - `exports/` PNG or PDF, desktop 1440 px and mobile 390 px, ES and EN.
 - `index.html` prototype.
 
+## Preferred design credit
+
+Name, link and where it should appear on the site.
+
+## Third-party assets
+
+| Asset | Source | License |
+| :--- | :--- | :--- |
+| | | |
+
+## Ideas beyond the brief
+
+- 
+
 ## Open questions for Aitor
 
 - 
