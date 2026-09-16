@@ -180,6 +180,13 @@ not a constraint: a logo redesign may change them.
 NainDev (Aitor) gives David permission to redesign the logo and brand identity
 as the project needs.
 
+- **Rights and registration, agreed in principle:** David has told Aitor that
+  Aitor may register the logo David designs as the NainDev trademark. Because a
+  trademark office needs the applicant to own the design, **before filing, David
+  and Aitor will sign a short written assignment of the logo's rights to
+  Aitor** (NainDev). David keeps the credit as its designer and may show it in
+  his portfolio. If that document is not signed, NainDev keeps its current logo
+  and the new logo is not used.
 - **Direction:** an evolution that stays recognizable as NainDev is preferred,
   but David is free to propose what works best. The name **NainDev** stays.
 - **Trademark registration:** Aitor plans to register the logo as a trademark
@@ -355,7 +362,9 @@ chat or at `contact@naindev.com`.
 
 **Can I change the logo?**
 Yes, NainDev gives you permission. Follow "Logo redesign" so the result can be
-registered as a trademark.
+registered as a trademark. Before Aitor registers it, you both sign a short
+written assignment of the logo's rights; you keep the design credit. Without
+that document, the current logo stays.
 
 **Can I show prices, testimonials or "clients who trust us" logos?**
 No. There are no public prices, testimonials or client logos yet.

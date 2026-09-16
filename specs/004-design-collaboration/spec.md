@@ -86,3 +86,7 @@ and implements approved designs in `main`.
   shall require a design registrable as a Spanish trademark at the OEPM
   (original, distinctive, no protected symbols, licensed fonts) delivered as
   vector color, monochrome, symbol and horizontal versions that work at 16 px.
+- DES-021: The brief shall state that the designer agreed in principle to the
+  owner registering the redesigned logo, that a written assignment of the logo
+  rights is signed before filing while the designer keeps the design credit, and
+  that without it the current logo is kept.

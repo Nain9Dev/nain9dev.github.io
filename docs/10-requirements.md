@@ -78,6 +78,7 @@ Status values: `Implemented` (released, evidence recorded in the spec handoff), 
 | DES-018 | The brief shall describe the Contrast3D x NainDev partnership, allow an optional partners section and Contrast3D credit, and forbid claiming shared clients or joint projects. | specs/004-design-collaboration | Implemented |
 | DES-019 | The brief shall state markets, client problems, the free call entry offer, no public prices, part-time remote availability, no testimonials and the kept checklist. | specs/004-design-collaboration | Implemented |
 | DES-020 | The brief shall authorize logo and identity redesign keeping the NainDev name, with trademark-ready rules (OEPM) and vector deliverables that work at 16 px. | specs/004-design-collaboration | Implemented |
+| DES-021 | The brief shall state the verbal agreement on logo registration, the written rights assignment required before filing (designer keeps credit) and the fallback to the current logo. | specs/004-design-collaboration | Implemented |
 
 ## Content integrity
 

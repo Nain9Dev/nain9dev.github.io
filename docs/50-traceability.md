@@ -68,7 +68,7 @@ No automated tests exist for DES requirements. Manual verification is defined in
 | DES-010 | Proposal review for Spanish and English mockups | manual | Not covered: no proposal delivered yet |
 | DES-011 | Proposal review for unverified metrics. `scripts/check-claims.mjs` scans `src/` and `dist/` only, not `design/` | manual | Not covered: no proposal delivered yet |
 | DES-012 | `git ls-remote origin design/home-redesign` returns the branch; brief links resolve | manual | Pass: branch pushed 2026-09-16 |
-| DES-013 to DES-020 | Manual review of `design/README.md` against spec 004 | manual | Pass 2026-09-16 |
+| DES-013 to DES-021 | Manual review of `design/README.md` against spec 004 | manual | Pass 2026-09-16 |
 
 ## Content integrity (specs 005 and 006)
 
