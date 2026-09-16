@@ -4419,11 +4419,6 @@
     "target": "💡 ⟦0⟧Performance Note:⟦/0⟧ Using native structures like ⟦1/⟧ and ⟦2/⟧ in C# dramatically reduces memory allocations (⟦3⟧allocations⟦/3⟧) during 3D vector analysis.",
     "status": "reviewed"
   },
-  "9489a3c0fafb4d3ec39c68e8927622b0a4eda15a8f139b4f20a4be658816cd8e": {
-    "source": "⟦0⟧+50M Modelos⟦/0⟧⟦1⟧Validados en Producción⟦/1⟧",
-    "target": "⟦0⟧+50M Models⟦/0⟧⟦1⟧Validated in Production⟦/1⟧",
-    "status": "reviewed"
-  },
   "94a5bc960ac1ea57c05f45210accd009c61bb09f41981a166949b97b459f0f51": {
     "source": "Proyectos y Servicios con C#",
     "target": "Projects and Services with C#",
@@ -4987,11 +4982,6 @@
   "a99002e467c262f4ebc469198dfb273e1887c2ad5a71894a6a55fd15b28e3a3c": {
     "source": "El éxito de una startup de IA no depende solo de la calidad de sus ⟦0⟧prompts⟦/0⟧, sino de su rentabilidad por inferencia.",
     "target": "The success of an AI startup depends not only on the quality of its ⟦0⟧prompts⟦/0⟧, but also on its inference profitability.",
-    "status": "reviewed"
-  },
-  "a9d54dde7f12b8c8263f4a92881611a08af526702b9be7147c44402b49479452": {
-    "source": "⟦0⟧🧊⟦/0⟧⟦1⟧+50M modelos procesados⟦/1⟧",
-    "target": "⟦0⟧🧊⟦/0⟧⟦1⟧+50M models processed⟦/1⟧",
     "status": "reviewed"
   },
   "a9e032578aea055ad95b20653e3dc8baf6e5fb93eb7b449c017d7a7176196b15": {
