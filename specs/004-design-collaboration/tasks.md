@@ -9,6 +9,8 @@
 - [x] [H] Provide the public email address and WhatsApp Business number (DES-017). Number kept outside the repository.
 - [x] [A] Add partnership context, email and WhatsApp button rules to the brief (DES-017, DES-018).
 - [x] [A] Add markets, client problems, offer, pricing, availability, testimonials and checklist decisions to the brief (DES-019).
+- [x] [A] Authorize logo redesign and add trademark-ready logo rules and deliverables to the brief (DES-020).
+- [ ] [H] Before filing the trademark, obtain a written assignment of the logo's rights from the designer and run an OEPM/TMview similarity search.
 - [ ] [H] Send a test message to `contact@naindev.com` and confirm delivery (MX records point to Cloudflare Email Routing; delivery not verified).
 - [x] [H] Create the `protect-non-design-branches` ruleset (DES-001, DES-002). Approved by owner; id 23551316.
 - [ ] [M] Verify rejected and accepted pushes as `davidesuarez` (plan.md, Verification).

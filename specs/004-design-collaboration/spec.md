@@ -44,8 +44,9 @@ and implements approved designs in `main`.
 
 - DES-007: The first proposal shall cover the home page for mobile and desktop,
   prioritizing the mobile header menu and navigation.
-- DES-008: Proposals shall keep the NainDev brand and logo colors `#0047AB`,
-  `#00BFFF` and `#FFFFFF`; every other visual element may change.
+- DES-008 (superseded by DES-020 on 2026-09-16): Proposals shall keep the
+  NainDev brand and logo colors `#0047AB`, `#00BFFF` and `#FFFFFF`; every other
+  visual element may change.
 - DES-009: Proposals may restructure sections and rewrite copy; final wording
   requires owner approval.
 - DES-010: Mockups shall be delivered in Spanish and English.
@@ -80,3 +81,8 @@ and implements approved designs in `main`.
   the free 30-minute call as the entry offer (not an audit), no public prices,
   part-time remote availability, no testimonials section, the About section
   naming Contrast3D x NainDev, and that the free checklist stays.
+- DES-020: The brief shall authorize the designer, with NainDev's permission,
+  to redesign the logo and visual identity while keeping the NainDev name, and
+  shall require a design registrable as a Spanish trademark at the OEPM
+  (original, distinctive, no protected symbols, licensed fonts) delivered as
+  vector color, monochrome, symbol and horizontal versions that work at 16 px.

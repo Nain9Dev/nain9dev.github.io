@@ -65,7 +65,7 @@ Status values: `Implemented` (released, evidence recorded in the spec handoff), 
 | DES-005 | When a design proposal is ready, the designer shall deliver a self-contained HTML/CSS prototype plus exports under `design/<topic>/` that opens without a build step. | specs/004-design-collaboration | Accepted |
 | DES-006 | Production deployment shall remain restricted to `main`; a workflow started from a `design/**` branch shall not deploy to GitHub Pages. | specs/004-design-collaboration | Implemented |
 | DES-007 | The first proposal shall cover the home page for mobile and desktop, prioritizing the mobile header menu and navigation. | specs/004-design-collaboration | Accepted |
-| DES-008 | Proposals shall keep the NainDev brand and logo colors `#0047AB`, `#00BFFF` and `#FFFFFF`. | specs/004-design-collaboration | Accepted |
+| DES-008 | Proposals shall keep the NainDev brand and logo colors `#0047AB`, `#00BFFF` and `#FFFFFF`. | specs/004-design-collaboration | Superseded by DES-020 |
 | DES-009 | Proposals may restructure sections and rewrite copy; final wording requires owner approval. | specs/004-design-collaboration | Accepted |
 | DES-010 | Mockups shall be delivered in Spanish and English. | specs/004-design-collaboration | Accepted |
 | DES-011 | Proposals shall not present unverified metrics, including the current "+50M" badge. | specs/004-design-collaboration | Accepted |
@@ -77,6 +77,7 @@ Status values: `Implemented` (released, evidence recorded in the spec handoff), 
 | DES-017 | The brief shall list `contact@naindev.com` and WhatsApp only as a chat button without a visible number; the number stays out of the repository until implementation. | specs/004-design-collaboration | Implemented |
 | DES-018 | The brief shall describe the Contrast3D x NainDev partnership, allow an optional partners section and Contrast3D credit, and forbid claiming shared clients or joint projects. | specs/004-design-collaboration | Implemented |
 | DES-019 | The brief shall state markets, client problems, the free call entry offer, no public prices, part-time remote availability, no testimonials and the kept checklist. | specs/004-design-collaboration | Implemented |
+| DES-020 | The brief shall authorize logo and identity redesign keeping the NainDev name, with trademark-ready rules (OEPM) and vector deliverables that work at 16 px. | specs/004-design-collaboration | Implemented |
 
 ## Content integrity
 

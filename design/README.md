@@ -80,12 +80,13 @@ would sell better are part of the job.
 | Main message | David decides. Today the home page mixes 3D validation, agentic AI and critical .NET systems. Choose the hierarchy that sells best to clients; Aitor adapts the wording |
 | Main call to action | David decides: whatever is most comfortable for the client (see "Contact channels") |
 | Visual direction | Free. Showing two or three directions is welcome |
+| Logo and brand identity | **David may redesign the logo and the visual identity, with NainDev's permission.** See "Logo redesign" |
 | Photo of Aitor | Optional. If the design needs one, ask Aitor for it |
 | About section | Names the partnership: "Lead Software Architect en Contrast3D x NainDev". David may rewrite the section; Aitor approves |
 | Testimonials | No section for now; there are no client testimonials yet |
 | Pricing | No prices or packages with prices |
 | Free checklist (lead magnet) | Keep it in the design. Its signup form is being fixed separately |
-| Must keep | The NainDev brand and logo colors, the blog, the service pages, the technology pages and the interactive terminal (its look can change; its commands show stack, services and contact, with no metrics) |
+| Must keep | The NainDev name, the blog, the service pages, the technology pages and the interactive terminal (its look can change; its commands show stack, services and contact, with no metrics) |
 | Can change or remove | Everything else, including the 3D hero canvas, the dark theme, the API/Logic/Data panel, section order and copy |
 | Case studies | **Not shown.** They are being removed from the site; do not design them or link to them |
 | Partners section | Aitor proposes a "Contrast3D x NainDev" section presenting the partnership as part of the offer (design + software), which may also help SEO. **David decides** whether to include it and how. It must not claim shared clients or joint projects |
@@ -160,9 +161,9 @@ Home sections today, in order: Hero with 3D canvas, Terminal, Proof strip,
 Services, Tech stack, Free checklist call to action, Projects, Method, About,
 Contact.
 
-### Brand colors (must keep)
+### Current brand colors
 
-Taken from the NainDev logo (`public/assets/images/favicon-optimized.svg`):
+Taken from the current NainDev logo (`public/assets/images/favicon-optimized.svg`):
 
 | Color | Value | Use today |
 | :--- | :--- | :--- |
@@ -170,9 +171,48 @@ Taken from the NainDev logo (`public/assets/images/favicon-optimized.svg`):
 | Sky blue | `#00BFFF` | Logo accent |
 | White | `#FFFFFF` | Logo detail |
 
-The palette may grow around these colors (neutrals, backgrounds, states), but
-the logo colors stay recognizable. The logo file above is SVG and can be opened
-in any design tool.
+The logo file above is SVG and can be opened in any design tool. The header
+also uses `src/assets/images/logo_horizontal.png`. These colors are a reference,
+not a constraint: a logo redesign may change them.
+
+### Logo redesign
+
+NainDev (Aitor) gives David permission to redesign the logo and brand identity
+as the project needs.
+
+- **Direction:** an evolution that stays recognizable as NainDev is preferred,
+  but David is free to propose what works best. The name **NainDev** stays.
+- **Trademark registration:** Aitor plans to register the logo as a trademark
+  in Spain at the **OEPM** (Oficina Española de Patentes y Marcas). Design it so
+  it can be registered:
+  - **Original and distinctive.** Do not base it on existing logos, templates,
+    stock icons, AI image generators trained on other brands, or on another
+    company's mark. Before finalizing, Aitor checks similar marks in the OEPM
+    and EUIPO (TMview) databases.
+  - **No protected symbols:** flags, coats of arms, official emblems or seals,
+    currency symbols, or signs of public bodies and international organizations.
+  - **Not purely generic or descriptive:** a plain gear, `</>` or a cloud alone
+    is weak. A distinctive shape or lettering is stronger.
+  - **Fonts with a license that allows logos and trademarks.** Prefer
+    converting the lettering to outlines and note the font and its license.
+  - **A clear, fixed version** to register: exact shape, and exact colors if the
+    colors are part of the mark.
+- **Deliverables for the logo**, inside your folder under `logo/`:
+
+```text
+logo/
+├── logo-color.svg         Master vector, text converted to outlines
+├── logo-mono-black.svg    One color, for documents and registration
+├── logo-mono-white.svg    One color on dark backgrounds
+├── logo-symbol.svg        Symbol only, square, for favicon and avatars
+├── logo-horizontal.svg    Symbol and name side by side, for the header
+└── logo-preview.png       All versions on light and dark backgrounds
+```
+
+- **It must work small:** readable as a 16 px and 32 px browser icon and as a
+  180 px phone icon.
+- In your `README.md`, list the colors (HEX), fonts and licenses, the idea
+  behind the logo, and anything used as inspiration.
 
 ### Current site styling
 
@@ -206,7 +246,8 @@ and theme (dark or light) are open.
    today: the "+50M" badge, the impact metrics section and the "Colaborador
    OSS" badge were removed on purpose. A metrics area may appear in the design
    only as an empty slot marked `[METRIC]`.
-6. **Brand.** Keep the NainDev name, logo and logo colors.
+6. **Brand.** Keep the NainDev name. The logo and colors may be redesigned
+   (see "Logo redesign").
 7. **No new paid services.** Fonts, icons, images and libraries must be free
    with a license that allows commercial use, for example Google Fonts, Lucide
    icons or Unsplash photos. Note the source of every third-party asset in your
@@ -312,6 +353,10 @@ text you change in the "Copy changes for approval" table of your `README.md`.
 Use a placeholder such as `[PHOTO]`, `[TEXT]` or `[METRIC]`, and ask Aitor in
 chat or at `contact@naindev.com`.
 
+**Can I change the logo?**
+Yes, NainDev gives you permission. Follow "Logo redesign" so the result can be
+registered as a trademark.
+
 **Can I show prices, testimonials or "clients who trust us" logos?**
 No. There are no public prices, testimonials or client logos yet.
 
@@ -328,7 +373,7 @@ there are none yet.
 Yes. Explain the idea and why it helps win clients or SEO in your `README.md`.
 
 **Can I remove the 3D animation or change the dark theme?**
-Yes. Only the brand, logo colors, blog, service pages, technology pages and the
+Yes. Only the NainDev name, blog, service pages, technology pages and the
 interactive terminal must stay. The terminal's look can change.
 
 **How many proposals or rounds?**
@@ -357,6 +402,7 @@ choose. The code and functionality are Aitor's. The files are public.
 - [ ] WhatsApp shown as a button without a visible phone number
 - [ ] One H1 per page and all important text as real text, not images
 - [ ] No case studies, prices, testimonials or client logos
+- [ ] If the logo changes: original design, no protected symbols, licensed fonts, all versions in `logo/`, works at 16 px
 - [ ] Main action offers a free call, not a free audit; availability described as part-time and remote
 - [ ] Third-party asset sources and preferred design credit listed in `README.md`
 - [ ] Copy changes listed in the folder's `README.md` for Aitor's approval
