@@ -9,8 +9,8 @@
 - [x] [A] Add 37 reviewed English catalog entries and remove 47 unused ones.
 - [x] [A] Resolve OQ-008 and OQ-009; update requirements, traceability, tasks and changelog.
 - [x] [A] Run the full `npm run check`.
-- [ ] [H] Owner review of the wording and commit.
-- [ ] [A] After deployment, confirm the home page, thank-you page, services hub and terminal (ES/EN) in production.
+- [x] [H] Owner decisions recorded 2026-09-16; committed as `c2f17a4`.
+- [x] [A] After deployment, confirm the home page, thank-you page, services hub and terminal (ES/EN) in production.
 
 ## Handoff
 
@@ -33,7 +33,7 @@
   claim scan. English build output checked for "free audit", "Stealth",
   "immediate availability", "NDA", "[REDACTED]" and "99.9x%": only the retired
   `/casos/stealth-3d-ai/` path inside noindex redirect documents remains.
-- Next: Owner review and commit; production check after deployment.
+- Next: Owner decisions on OQ-010 and on remaining audit-labelled CTAs, thank-you headline, 15-minute session wording and latency/Core Web Vitals guarantees. Production verified 2026-09-16: home (ES/EN), services hub, thank-you page and terminal data (ES/EN) show the free call, part-time availability and Contrast3D x NainDev, with no free audit, immediate availability, Stealth, NDA, REDACTED or 99.9x% text.
 - Blocked: Nothing. Open follow-ups for the owner: OQ-010 (client result figures
   in two blog posts); paid-audit CTAs "Agendar Auditoría de Sistemas" and
   "Agendar Auditoría de Arquitectura" still link to the free Calendly call;
