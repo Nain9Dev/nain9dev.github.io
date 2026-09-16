@@ -11,12 +11,17 @@ who the site is for, what can change, where to work and how to hand over.
 | David (`davidesuarez`) | Visual and UI design | Only his own `design/*` branches |
 | Aitor (`Nain9Dev`) | Software, code, functionality, content and deployment | `main` and the live site |
 
+- **Partnership:** Aitor (NainDev) and David (Contrast3D) collaborate as
+  **Contrast3D x NainDev**. Within this partnership David takes on the web
+  design to help NainDev sell more. The partnership is new: there are no shared
+  clients or joint projects yet.
 - David designs. Aitor turns approved designs into production code.
 - **The visual design David delivers is David's work.** The software, code and
   functionality of the site remain Aitor's.
 - **Credit:** the published site will credit David's design. David chooses the
   form: name, link (portfolio, LinkedIn, Behance...) and where it appears, for
-  example the footer. Write the preferred credit in your folder's `README.md`.
+  example the footer, and may mention Contrast3D. Write the preferred credit in
+  your folder's `README.md`.
 - **Everything uploaded is public.** The repository is public, so anyone can see
   the files. Do not upload anything you do not want published.
 - Anything pushed to `main` goes live automatically, so `main` is closed to
@@ -64,6 +69,7 @@ would sell better are part of the job.
 | Must keep | The NainDev brand and logo colors, the blog, the service pages, the technology pages and the interactive terminal (its look can change) |
 | Can change or remove | Everything else, including the 3D hero canvas, the dark theme, the API/Logic/Data panel, section order and copy |
 | Case studies | **Not shown.** They are being removed from the site; do not design them or link to them |
+| Partners section | Aitor proposes a "Contrast3D x NainDev" section presenting the partnership as part of the offer (design + software), which may also help SEO. **David decides** whether to include it and how. It must not claim shared clients or joint projects |
 | Content | Free proposal: David may reorder, merge or remove sections and rewrite headlines and copy. Aitor approves final wording |
 | Mockup language | Spanish and English for every screen |
 | References | None given. David may collect and share his own |
@@ -95,8 +101,8 @@ other ideas are welcome.
 | :--- | :--- |
 | Calendly, 30-minute call | Exists today |
 | LinkedIn | Exists today |
-| Email | Allowed; the public address is still to be decided, use `[EMAIL]` |
-| WhatsApp | Allowed; the business number does not exist yet, use `[WHATSAPP]` |
+| Email | `hello@naindev.com` |
+| WhatsApp | A button such as "Escríbeme por WhatsApp" / "Message me on WhatsApp" that opens a chat. **Do not show the phone number** on screen; Aitor adds the link when building the site |
 
 ## SEO rules for the design
 
@@ -283,9 +289,14 @@ behavior, but it is not required for the first proposal.
 Copy the current text from the live site, or write your own proposal. List every
 text you change in the "Copy changes for approval" table of your `README.md`.
 
-**What if I need information I do not have (a photo, an email, a number)?**
-Use a placeholder such as `[PHOTO]`, `[EMAIL]`, `[WHATSAPP]`, `[TEXT]` or
-`[METRIC]`, and ask Aitor in chat.
+**What if I need information I do not have (a photo, a text, a figure)?**
+Use a placeholder such as `[PHOTO]`, `[TEXT]` or `[METRIC]`, and ask Aitor in
+chat or at `hello@naindev.com`.
+
+**Should the site mention Contrast3D?**
+Only if you think it helps. A partners section or a design credit mentioning
+Contrast3D are both allowed. Do not present shared clients or joint projects:
+there are none yet.
 
 **Can I add new sections or pages?**
 Yes. Explain the idea and why it helps win clients or SEO in your `README.md`.
@@ -316,7 +327,8 @@ choose. The code and functionality are Aitor's. The files are public.
 - [ ] Hover, focus and active states for buttons and links
 - [ ] Contrast checked (for example with the WebAIM contrast checker)
 - [ ] Colors, font sizes and spacing listed in the folder's `README.md`
-- [ ] Only real content, placeholders marked `[TEXT]`, `[METRIC]`, `[EMAIL]`, `[WHATSAPP]` or `[PHOTO]`
+- [ ] Only real content, placeholders marked `[TEXT]`, `[METRIC]` or `[PHOTO]`
+- [ ] WhatsApp shown as a button without a visible phone number
 - [ ] One H1 per page and all important text as real text, not images
 - [ ] No case studies shown or linked
 - [ ] Third-party asset sources and preferred design credit listed in `README.md`

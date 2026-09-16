@@ -69,6 +69,10 @@ and implements approved designs in `main`.
 - DES-016: The brief shall include SEO rules for the design (real text, one H1,
   per-service pages, stable URLs, performance budget) and a FAQ for a designer
   without coding knowledge.
-- DES-017: Contact channels not yet available (public email, WhatsApp number)
-  shall appear in designs only as `[EMAIL]` and `[WHATSAPP]` placeholders until
-  the owner provides them.
+- DES-017: The brief shall list `hello@naindev.com` as the public email, and
+  WhatsApp only as a chat button without a visible phone number. The phone
+  number shall not be stored in the repository until the site implementation
+  adds the chat link.
+- DES-018: The brief shall describe the Contrast3D x NainDev partnership, allow
+  an optional partners section and a Contrast3D design credit at the designer's
+  discretion, and forbid presenting shared clients or joint projects.
