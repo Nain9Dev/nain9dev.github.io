@@ -54,3 +54,21 @@ and implements approved designs in `main`.
 - DES-012: The owner shall provide a ready branch `design/home-redesign` with
   its folder, so the designer can upload through the GitHub web interface
   without installing tools or creating branches.
+
+## Business context (owner interview, second round)
+
+- DES-013: The brief shall state that the delivered visual design is authored by
+  David and credited on the published site in the form he chooses, while
+  software, code and functionality remain the owner's, and that uploaded files
+  are public.
+- DES-014: The brief shall state the business goals (win clients for custom
+  software services and improve SEO) and leave message hierarchy and main call
+  to action to the designer.
+- DES-015: The brief shall require keeping the blog, service pages, technology
+  pages and interactive terminal, and exclude case studies from the design.
+- DES-016: The brief shall include SEO rules for the design (real text, one H1,
+  per-service pages, stable URLs, performance budget) and a FAQ for a designer
+  without coding knowledge.
+- DES-017: Contact channels not yet available (public email, WhatsApp number)
+  shall appear in designs only as `[EMAIL]` and `[WHATSAPP]` placeholders until
+  the owner provides them.

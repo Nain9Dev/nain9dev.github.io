@@ -5,6 +5,8 @@
 - [x] [A] Write the design brief in `design/README.md`.
 - [x] [A] Record owner interview decisions in the brief (DES-007 to DES-011).
 - [x] [A] Create `design/home-redesign` with a proposal template and document the web upload flow (DES-012).
+- [x] [A] Add business goal, authorship and credit, SEO rules, contact channels and FAQ to the brief (DES-013 to DES-017).
+- [ ] [H] Provide the public email address and WhatsApp Business number when decided (DES-017).
 - [x] [H] Create the `protect-non-design-branches` ruleset (DES-001, DES-002). Approved by owner; id 23551316.
 - [ ] [M] Verify rejected and accepted pushes as `davidesuarez` (plan.md, Verification).
 - [ ] [H] Share the brief link with David.
