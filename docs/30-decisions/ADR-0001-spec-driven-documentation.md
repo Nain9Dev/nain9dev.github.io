@@ -1,7 +1,8 @@
 # ADR-0001: Adopt spec-driven lifecycle documentation
 
-Status: Proposed
+Status: Approved
 Date: 2026-09-16
+Approved: 2026-09-16 by the owner
 
 ## Context
 
@@ -21,7 +22,7 @@ Project-specific choices:
 | ADR | Title | Status | Location |
 | :--- | :--- | :--- | :--- |
 | ADR-001 | Localize the generated static document | Proposed | `specs/003-english-localization/ADR-001-static-localization.md` |
-| ADR-0001 | Adopt spec-driven lifecycle documentation | Proposed | this file |
+| ADR-0001 | Adopt spec-driven lifecycle documentation | Approved | this file |
 
 The numbering schemes differ (`ADR-001` feature-level, `ADR-####` project-level). New project-level decisions use `ADR-####` in this folder.
 
@@ -36,4 +37,4 @@ The numbering schemes differ (`ADR-001` feature-level, `ADR-####` project-level)
 - Every new change starts with a spec and a requirement entry in `10-requirements.md`.
 - `50-traceability.md` must be updated whenever a check or test is added or removed.
 - The repository is public, so these documents cannot hold private strategy, credentials or personal identifiers.
-- The template refers to `AGENTS.md` as the constitution, but `AGENTS.md` is git-ignored in this repository (OQ-007). Until resolved, the constitution is local-only and not reviewable by collaborators.
+- The template refers to `AGENTS.md` as the constitution. In this repository it stays local-only and git-ignored by owner decision (OQ-007); `docs/README.md` holds the public working rules.

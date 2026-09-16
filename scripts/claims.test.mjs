@@ -1,11 +1,32 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
 import { findBlockedClaims, scanSources } from './check-claims.mjs';
 
 test('matcher flags the unverified model count in both locales', () => {
   for (const text of ['<strong>+50M Modelos</strong>', '+50M models processed', 'validate 50M models']) {
     assert.notDeepEqual(findBlockedClaims(text), [], text);
   }
+});
+
+test('matcher flags the unverified impact metrics and badges', () => {
+  const blocked = [
+    '<div class="impact-metric-value">40 → 6 min</div>',
+    'Uptime en sistemas críticos',
+    'Uptime in critical systems',
+    'Desarrolladores mentorizados',
+    'Developers mentored',
+    'Arquitecturas migradas',
+    'Architectures migrated',
+    '<strong>Colaborador OSS</strong>',
+    'OSS Contributor',
+  ];
+  for (const text of blocked) assert.notDeepEqual(findBlockedClaims(text), [], text);
+});
+
+test('matcher ignores service descriptions of availability goals', () => {
+  assert.deepEqual(findBlockedClaims('- **Zero Downtime:** Arquitecturas diseñadas para despliegues continuos'), []);
+  assert.deepEqual(findBlockedClaims('Mentoría técnica para equipos que adoptan DDD'), []);
 });
 
 test('matcher ignores file sizes and unrelated numbers', () => {
@@ -15,4 +36,16 @@ test('matcher ignores file sizes and unrelated numbers', () => {
 
 test('tracked sources publish no blocked claims', async () => {
   assert.deepEqual(await scanSources(), []);
+});
+
+test('home page keeps the checklist call to action', async () => {
+  const markup = await readFile(new URL('../src/components/home/ImpactMetrics.astro', import.meta.url), 'utf8');
+  assert.match(markup, /href="\/recursos\/checklist-ia"/);
+});
+
+test('thank-you page shows no Zero Downtime badge', async () => {
+  // "Zero Downtime" stays valid as a design goal in services and blog posts, so
+  // this badge is checked on its page instead of being blocked site-wide.
+  const markup = await readFile(new URL('../src/pages/recursos/gracias.astro', import.meta.url), 'utf8');
+  assert.doesNotMatch(markup, /zero downtime/i);
 });

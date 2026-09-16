@@ -6,7 +6,12 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ### Added
 
-- Lifecycle documentation under `docs/` and feature template `specs/000-template-feature/` (ADR-0001, Proposed).
+- Lifecycle documentation under `docs/` and feature template `specs/000-template-feature/` (ADR-0001, approved 2026-09-16).
+- Design branch `design/home-redesign` prepared for the designer, with a proposal template and a GitHub web upload flow in the brief.
+
+### Removed
+
+- Spec 006: home page impact metrics, the "Colaborador OSS" hero badge and the thank-you page "Zero Downtime" badge, all unverified; claim guard extended to runtime data files.
 - Spec 005: removed the unverified "+50M" claim from both locales and added a claim guard to `npm run check` (`c78c854`).
 
 ## 2026-09-16 - Design collaboration (spec 004)

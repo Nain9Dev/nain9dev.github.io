@@ -8,18 +8,24 @@ Each claim below is published today in Spanish and, through the catalog, in Engl
 
 | ID | Question | Location | Blocks | Owner | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| OQ-001 | Is the metric "40 → 6 min" (data synchronization time reduction) verified, and for which engagement? | `src/components/home/ImpactMetrics.astro`, `public/assets/data/impact-metrics.json` | Any copy or design change reusing this metric (DES-009, DES-011) | Aitor | Open |
-| OQ-002 | Is "99.99%" uptime on critical systems verified, and over which period and system? | `src/components/home/ImpactMetrics.astro`, `public/assets/data/impact-metrics.json` | Any copy or design change reusing this metric (DES-009, DES-011) | Aitor | Open |
-| OQ-003 | Is "10+" developers mentored verified? | `src/components/home/ImpactMetrics.astro`, `public/assets/data/impact-metrics.json` | Any copy or design change reusing this metric (DES-009, DES-011) | Aitor | Open |
-| OQ-004 | Is "3" architectures migrated verified? | `src/components/home/ImpactMetrics.astro`, `public/assets/data/impact-metrics.json` | Any copy or design change reusing this metric (DES-009, DES-011) | Aitor | Open |
-| OQ-005 | Which open-source project backs the hero badge "Colaborador OSS" (3D geometric validation), and can it be linked publicly? | `src/components/home/Hero.astro` | Any copy or design change reusing this badge (DES-009, DES-011) | Aitor | Open |
-| OQ-006 | Is the "Zero Downtime" badge on the lead-magnet thank-you page a verified claim? The same phrase also appears in the 99.99% card description. | `src/pages/recursos/gracias.astro`, `src/components/home/ImpactMetrics.astro`, `public/assets/data/impact-metrics.json` | Any copy or design change reusing this badge (DES-009, DES-011) | Aitor | Open |
+| OQ-001 | Is the metric "40 → 6 min" (data synchronization time reduction) verified, and for which engagement? | `src/components/home/ImpactMetrics.astro`, `public/assets/data/impact-metrics.json` | Any copy or design change reusing this metric (DES-009, DES-011) | Aitor | Resolved 2026-09-16: owner has no evidence today; removed (spec 006, CLM-003/CLM-004) |
+| OQ-002 | Is "99.99%" uptime on critical systems verified, and over which period and system? | `src/components/home/ImpactMetrics.astro`, `public/assets/data/impact-metrics.json` | Any copy or design change reusing this metric (DES-009, DES-011) | Aitor | Resolved 2026-09-16: owner has no evidence today; removed (spec 006, CLM-003/CLM-004) |
+| OQ-003 | Is "10+" developers mentored verified? | `src/components/home/ImpactMetrics.astro`, `public/assets/data/impact-metrics.json` | Any copy or design change reusing this metric (DES-009, DES-011) | Aitor | Resolved 2026-09-16: owner has no evidence today; removed (spec 006, CLM-003/CLM-004) |
+| OQ-004 | Is "3" architectures migrated verified? | `src/components/home/ImpactMetrics.astro`, `public/assets/data/impact-metrics.json` | Any copy or design change reusing this metric (DES-009, DES-011) | Aitor | Resolved 2026-09-16: owner has no evidence today; removed (spec 006, CLM-003/CLM-004) |
+| OQ-005 | Which open-source project backs the hero badge "Colaborador OSS" (3D geometric validation), and can it be linked publicly? | `src/components/home/Hero.astro` | Any copy or design change reusing this badge (DES-009, DES-011) | Aitor | Resolved 2026-09-16: owner has no evidence today; removed (spec 006, CLM-003/CLM-004) |
+| OQ-006 | Is the "Zero Downtime" badge on the lead-magnet thank-you page a verified claim? The same phrase also appears in the 99.99% card description. | `src/pages/recursos/gracias.astro`, `src/components/home/ImpactMetrics.astro`, `public/assets/data/impact-metrics.json` | Any copy or design change reusing this badge (DES-009, DES-011) | Aitor | Resolved 2026-09-16: owner has no evidence today; removed (spec 006, CLM-003/CLM-004) |
 
 ## Process
 
 | ID | Question | Location | Blocks | Owner | Status |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| OQ-007 | `AGENTS.md` and the local agent instruction files are git-ignored (`.gitignore`, `SECURITY_POLICY.md` section 2.2), but the spec template checklist refers to `AGENTS.md` as the canonical constitution. Should the constitution stay local-only, or should a public, non-sensitive version be committed? | `.gitignore`, `specs/000-template-feature/checklist.md` | ADR-0001 approval | Aitor | Open |
+| OQ-007 | `AGENTS.md` and the local agent instruction files are git-ignored (`.gitignore`, `SECURITY_POLICY.md` section 2.2), but the spec template checklist refers to `AGENTS.md` as the canonical constitution. Should the constitution stay local-only, or should a public, non-sensitive version be committed? | `.gitignore`, `specs/000-template-feature/checklist.md` | ADR-0001 approval | Aitor | Resolved 2026-09-16: stays local-only and git-ignored |
+
+## Content wording
+
+| ID | Question | Location | Blocks | Owner | Status |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| OQ-008 | Service pages and blog posts state availability outcomes such as "Disponibilidad 99.99%" (`backend-critico-logistica.mdx`) and "Zero Downtime" as benefits. Are they design goals or achieved results, and do they need rewording? | `src/content/servicios/*.mdx`, `src/content/blog/*.mdx` | Content integrity review | Aitor | Open |
 
 Note: the impact metrics exist twice, as static markup in `ImpactMetrics.astro` and as JSON loaded by `public/assets/js/impact-metrics.js`; any resolution must update both.
 

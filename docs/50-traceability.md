@@ -68,9 +68,13 @@ No automated tests exist for DES requirements. Manual verification is defined in
 | DES-010 | Proposal review for Spanish and English mockups | manual | Not covered: no proposal delivered yet |
 | DES-011 | Proposal review for unverified metrics. `scripts/check-claims.mjs` scans `src/` and `dist/` only, not `design/` | manual | Not covered: no proposal delivered yet |
 
-## Content integrity (spec 005)
+## Content integrity (specs 005 and 006)
 
 | Requirement | Test | Type | Last result |
 | :--- | :--- | :--- | :--- |
-| CLM-001 | `scripts/claims.test.mjs` (matcher cases for both locales); `scripts/check-claims.mjs` `scanBuild()` over `dist/**/*.html` | unit + contract | Local full `npm run check` pass recorded in spec 005 handoff (`c78c854`); no CI result recorded yet |
+| CLM-001 | `scripts/claims.test.mjs` (matcher cases for both locales); `scripts/check-claims.mjs` `scanBuild()` over `dist/**/*.html` | unit + contract | Pass: local `npm run check` and CI on `c78c854`; production pages checked 2026-09-16 |
 | CLM-002 | `scripts/claims.test.mjs` "tracked sources publish no blocked claims"; `scripts/check-claims.mjs` `scanSources()` reports the file name | unit + contract | Same as CLM-001 |
+| CLM-003 | `scripts/claims.test.mjs` "matcher flags the unverified impact metrics and badges" and source scan; `scanBuild()` over `dist/` | unit + contract | Pass: local `npm run check` 2026-09-16 (18 tests) |
+| CLM-004 | Same matcher test for the OSS badge; "thank-you page shows no Zero Downtime badge" | unit | Pass: local `npm run check` 2026-09-16 |
+| CLM-005 | `scripts/claims.test.mjs` "home page keeps the checklist call to action" | unit | Pass: local `npm run check` 2026-09-16 |
+| CLM-006 | Source scan includes `public/assets/data/*.json`; "matcher ignores service descriptions of availability goals" guards false positives | unit + contract | Pass: local `npm run check` 2026-09-16 |

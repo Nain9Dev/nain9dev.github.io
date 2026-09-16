@@ -909,11 +909,6 @@
     "target": "Depending on the complexity and number of pages, a corporate website refresh is usually deployed to production ⟦0⟧3 to 5 weeks⟦/0⟧ after our initial kickoff meeting.",
     "status": "reviewed"
   },
-  "1f18180ed4c555edc5e16383fabf6a54ad9d7182a7b6a15abaa0529dfa88aa69": {
-    "source": "Capacitación de equipos en Domain-Driven Design y Clean Architecture.",
-    "target": "Training teams in Domain-Driven Design and Clean Architecture.",
-    "status": "reviewed"
-  },
   "1f47351a93b2d06f85d98b5159341d21048d53b065d6f8ed5a4893ab0bf39ddf": {
     "source": "Servicios y casos de estudio reales donde he implementado Ollama en producción.",
     "target": "Services and real case studies where I have implemented Ollama in production.",
@@ -1192,11 +1187,6 @@
   "287ac9932154de24a0da3a78e20f15b657d89e853b681bc7f94c03c4426474b6": {
     "source": "Beneficios Clave",
     "target": "Key Benefits",
-    "status": "reviewed"
-  },
-  "28c72d022edafd3aedfd73a80e8cf7fbf68962c36e81571c5274b140025027cb": {
-    "source": "⟦0⟧⚡⟦/0⟧⟦1⟧Zero Downtime⟦/1⟧",
-    "target": "⟦0⟧⚡⟦/0⟧⟦1⟧Zero Downtime⟦/1⟧",
     "status": "reviewed"
   },
   "2932294577cb6b70e0c4648a175aca564f2267e3f733fefb60478d5e3e08ed26": {
@@ -1842,11 +1832,6 @@
   "3c60c64ea7607ddd29f839188a655e5a75243d4f2bafffbec7b604e82b5ab56f": {
     "source": "⟦0⟧⟦1⟧Arquitectura IA para Fintech: Seguridad y Precisión⟦/1⟧⟦2⟧Diseño y desarrollo de arquitecturas backend para IA generativa en el sector Fintech. Cumplimiento normativo, seguridad Zero-Trust y baja latencia garantizada.⟦/2⟧⟦/0⟧",
     "target": "⟦0⟧⟦1⟧AI Architecture for Fintech: Security and Accuracy⟦/1⟧⟦2⟧Design and development of backend architectures for generative AI in the Fintech sector. Compliance, Zero-Trust security, and guaranteed low latency.⟦/2⟧⟦/0⟧",
-    "status": "reviewed"
-  },
-  "3c6959a42c7022094c42ca0f8ed9b51b1f8c3946c099fce03f0f0fe4130b33d3": {
-    "source": "Arquitecturas migradas",
-    "target": "Migrated Architectures",
     "status": "reviewed"
   },
   "3cba1fbeee5fbfbdbca5fcefb29e3de5362d6b924faa263ba1cbd18bdb4cbbaa": {
@@ -2564,11 +2549,6 @@
     "target": "⟦0⟧Reduction in Timeouts (504):⟦/0⟧ From 8% to 0.01% by isolating AI processing in Workers.",
     "status": "reviewed"
   },
-  "5597c7fb345be3cc4153fd5cd692524b6b165ba7466e1ebe77cdf851c007464a": {
-    "source": "Resultados cuantificables obtenidos en diseño de sistemas, optimización y liderazgo técnico.",
-    "target": "Quantifiable results obtained in system design, optimization, and technical leadership.",
-    "status": "reviewed"
-  },
   "559eca57ba396402d876d8c3688743fe5bc23eaa5ba21bcf940fb786ffafdccf": {
     "source": "- Traduzco requerimientos funcionales en especificaciones técnicas",
     "target": "- Translate functional requirements into technical specifications",
@@ -2719,19 +2699,9 @@
     "target": "Migrating synchronous endpoints to asynchronous processing with queues (RabbitMQ).",
     "status": "reviewed"
   },
-  "5b57976994ddf187d4bec05b8f202756aca72c02f583e1df09f1192b63c6754d": {
-    "source": "Optimización de procesos batch y pipelines de integración.",
-    "target": "Optimization of batch processes and integration pipelines.",
-    "status": "reviewed"
-  },
   "5b7013d632682a3abccaf1140b98975b8ad47cda9a7c6b500c402cc88ee46d7d": {
     "source": "¿Tus llamadas a la IA están asfixiando tu servidor?",
     "target": "Are your AI calls suffocating your server?",
-    "status": "reviewed"
-  },
-  "5b8575fa42900e9170ca5efd2093a2259913a26b7f680089c77d09d61d36d893": {
-    "source": "Métricas de Impacto",
-    "target": "Impact Metrics",
     "status": "reviewed"
   },
   "5b9fb59e2df58313725a0c929a99f7999f0d95e769e2b7616d090cf7ac24f60e": {
@@ -2842,11 +2812,6 @@
   "5f5accd991f62516157871f4e1593cd93862897ca4aaa17a2fcdb7c13984d091": {
     "source": "Servicios de Arquitectura Backend 3D e IA | NainDev",
     "target": "3D and AI Backend Architecture Services | NainDev",
-    "status": "reviewed"
-  },
-  "5f86ced8d1ddb6f4606e19c0bbae2bcf78836f800a4a27161be3f0f59d0cdbf3": {
-    "source": "⟦0⟧Colaborador OSS⟦/0⟧⟦1⟧Validación geométrica 3D⟦/1⟧",
-    "target": "⟦0⟧OSS Contributor⟦/0⟧⟦1⟧3D Geometric Validation⟦/1⟧",
     "status": "reviewed"
   },
   "5f96ed5a6a58fa5765f37334c88801aa07ce20178ae08c624942446e4bfb58ce": {
@@ -3524,11 +3489,6 @@
     "target": "⟦0⟧FinOps for AI: How to Reduce Your OpenAI Bill by 80% on Azure⟦/0⟧",
     "status": "reviewed"
   },
-  "780bd1d345b11adb8b70cece2872191da440b92fdd96f8838677a2231d48de60": {
-    "source": "Desarrolladores mentorizados",
-    "target": "Mentored Developers",
-    "status": "reviewed"
-  },
   "781509b25aa03251597e440ff24fac15d7dca46b131f8e1c0c9af48c9e64c80f": {
     "source": "Navegación principal",
     "target": "Main navigation",
@@ -3782,11 +3742,6 @@
   "7fa9eb5c654a7f8211ad1ca1dcb4032930daa39c58064094d14438ee17a9bdd8": {
     "source": "Implemento patrones de resiliencia (Retries, Circuit Breakers, Fallbacks) y construyo tuberías de validación matemáticas y semánticas que filtran, corrigen o rechazan las respuestas de los LLMs antes de que lleguen a la base de datos principal, garantizando un entorno SaaS robusto y determinista.",
     "target": "I implement resilience patterns (Retries, Circuit Breakers, Fallbacks) and build mathematical and semantic validation pipelines that filter, correct, or reject LLM responses before they reach the main database, ensuring a robust and deterministic SaaS environment.",
-    "status": "reviewed"
-  },
-  "7face9cc17c551e07751b78b7d4e08c7efab6cb4e5b5f6a447f807e6295d63e3": {
-    "source": "Arquitecturas resilientes y despliegues sin tiempo de inactividad (Zero Downtime).",
-    "target": "Resilient architectures and zero downtime deployments.",
     "status": "reviewed"
   },
   "7fbfd464f711ea88c496b6ceaad963d6a2817707b4bfc0998ee53cf5b716984b": {
@@ -5704,11 +5659,6 @@
     "target": "GitHub Icon",
     "status": "reviewed"
   },
-  "bf06049cb3d65cad4665e34340742f4e519e4a4e00b1a73027f71b96cd0ee00b": {
-    "source": "Uptime en sistemas críticos",
-    "target": "Uptime in critical systems",
-    "status": "reviewed"
-  },
   "bf656f42eca776876a4f01ecfca54c32eef0ee4e45b1e748f7281c5872345ba7": {
     "source": "Backend para Validación 3D Determinista",
     "target": "Backend for Deterministic 3D Validation",
@@ -6032,11 +5982,6 @@
   "cbc2f924070b6a9528b055ab1be9d29c80a677e04f6205cabe66ff322b8dd462": {
     "source": "Arquitectura de Agentes de IA en C# con Semantic Kernel: Guía Práctica",
     "target": "AI Agent Architecture in C# with Semantic Kernel: A Practical Guide",
-    "status": "reviewed"
-  },
-  "cbf101651367b51f8489a047b03f3d35438e91bf75aaae8b4cad538bf12d7a32": {
-    "source": "Migración de monolitos a Clean Architecture y Arquitectura Hexagonal.",
-    "target": "Migrating monoliths to Clean Architecture and Hexagonal Architecture.",
     "status": "reviewed"
   },
   "cc09aeee6ad85b048d9359837351e50201113b7f32ad99a67c7e3b8b001e5b14": {
@@ -6974,11 +6919,6 @@
     "target": "Services and real case studies where I have implemented Core Web Vitals in production.",
     "status": "reviewed"
   },
-  "ebf8ad5277dbb090bdfea88f5fc25a8edbb6f3d2b8df1b45b6cc22eba58fb4ec": {
-    "source": "40 → 6 min",
-    "target": "40 → 6 min",
-    "status": "reviewed"
-  },
   "ec3bc4c3cfad987f7021f97e31ef7ebc64af1f342e46b086ef47b42843257774": {
     "source": "24 ago 2026",
     "target": "Aug 24, 2026",
@@ -7132,11 +7072,6 @@
   "f0ce84454205e0ce7c4ed4bb5d2f57d4c68f5c6af03ad9a95c378edc4bd3abd1": {
     "source": "Construir una arquitectura agéntica para entornos 3D requiere no solo saber de código, sino de matemática y patrones de concurrencia de alto nivel.",
     "target": "Building an agentic architecture for 3D environments requires not only coding knowledge, but also mathematics and high-level concurrency patterns.",
-    "status": "reviewed"
-  },
-  "f0d2bfee983c566e729bece0991bd748cb47f9ff4ca226e2cd7d8ee44bef5823": {
-    "source": "Reducción en sincronización de datos",
-    "target": "Reduced Data Synchronization Time",
     "status": "reviewed"
   },
   "f0fa5d212b64347cc7463a5c7400a26a3ad8f5eab34795ab45a6925e64ff6d86": {

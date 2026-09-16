@@ -2,14 +2,20 @@ import { readdir, readFile } from 'node:fs/promises';
 import { join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-// Claims the owner marked as unverified. See specs/005-remove-unverified-claims.
+// Claims the owner marked as unverified.
+// See specs/005-remove-unverified-claims and specs/006-remove-unverified-metrics.
 export const BLOCKED_CLAIMS = [
   /\+\s*50\s*M(?![B])/i,
   /\b50\s*M\s+(modelos|models)\b/i,
+  /\b40\s*(→|->)\s*6\s*min/i,
+  /uptime (en|in|on) (sistemas cr[ií]ticos|critical systems)/i,
+  /desarrolladores mentorizados|developers mentored|mentored developers/i,
+  /arquitecturas migradas|architectures migrated|migrated architectures/i,
+  /colaborador oss|oss contributor/i,
 ];
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
-const SOURCE_DIRS = ['src/components', 'src/pages', 'src/content'];
+const SOURCE_DIRS = ['src/components', 'src/pages', 'src/content', 'public/assets/data'];
 const IGNORED_DIRS = new Set(['src/content/marketing']);
 const EXTENSIONS = /\.(astro|mdx?|html|json)$/;
 

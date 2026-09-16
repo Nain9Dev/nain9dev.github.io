@@ -30,11 +30,11 @@ Consolidated task index. Feature-level detail and handoff state live in `../spec
 
 ## Open questions requiring owner decisions
 
-- [ ] **T-004** `[H]` Resolve OQ-001 to OQ-006 (unverified homepage claims): provide evidence, reword or remove each.
+- [x] **T-004** `[H]` Resolve OQ-001 to OQ-006 (unverified homepage claims): provide evidence, reword or remove each.
   - **Covers**: DES-011, CLM-001
   - **Spec**: docs/11-open-questions.md
   - **Done when**: every OQ entry has status `Resolved` with the decision recorded, and any removal has a matching `CLM-` requirement and check.
-- [ ] **T-005** `[H]` Decide OQ-007 (public constitution) and approve or reject ADR-0001.
+- [x] **T-005** `[H]` Decide OQ-007 (public constitution) and approve or reject ADR-0001.
   - **Covers**: ADR-0001
   - **Spec**: docs/30-decisions/ADR-0001-spec-driven-documentation.md
   - **Done when**: ADR-0001 status is `Approved` or `Superseded`.
@@ -42,3 +42,8 @@ Consolidated task index. Feature-level detail and handoff state live in `../spec
   - **Covers**: deployment runbook
   - **Spec**: docs/41-blockers.md
   - **Done when**: B-003 is marked verified or the purge step is redesigned under a new spec.
+  - **Deferred**: owner decision 2026-09-16; handle later together with MailerLite (B-007) and the README Astro version badge.
+- [ ] **T-007** `[H]` Decide OQ-008 (availability and zero-downtime wording in service pages and blog posts).
+  - **Covers**: content integrity
+  - **Spec**: docs/11-open-questions.md
+  - **Done when**: OQ-008 is resolved and any change has its own spec.

@@ -74,7 +74,11 @@ Status values: `Implemented` (released, evidence recorded in the spec handoff), 
 
 | ID | Requirement | Source spec | Status |
 | :--- | :--- | :--- | :--- |
-| CLM-001 | When the site is built, the system shall not publish the unverified claim "+50M" in any locale. | specs/005-remove-unverified-claims | Implemented, verification pending |
-| CLM-002 | When a source component or page reintroduces a blocked claim, the project validation command shall fail and name the file. | specs/005-remove-unverified-claims | Implemented, verification pending |
+| CLM-001 | When the site is built, the system shall not publish the unverified claim "+50M" in any locale. | specs/005-remove-unverified-claims | Implemented, verified in production |
+| CLM-002 | When a source component or page reintroduces a blocked claim, the project validation command shall fail and name the file. | specs/005-remove-unverified-claims | Implemented |
+| CLM-003 | When the site is built, the system shall not publish the impact metrics "40 → 6 min", "99.99% uptime on critical systems", "10+ developers mentored" or "3 architectures migrated" in any locale. | specs/006-remove-unverified-metrics | Implemented, production check pending |
+| CLM-004 | When the site is built, the system shall not publish the "Colaborador OSS" hero badge or the thank-you page "Zero Downtime" badge in any locale. | specs/006-remove-unverified-metrics | Implemented, production check pending |
+| CLM-005 | When the home page loads, the free checklist call to action shall remain visible and linked. | specs/006-remove-unverified-metrics | Implemented |
+| CLM-006 | When a blocked claim returns to sources, runtime data or build output, `npm run check` shall fail and name the file. | specs/006-remove-unverified-metrics | Implemented |
 
 Spec 005 is committed as `c78c854`; production confirmation after deployment is still open in its `tasks.md`. Other homepage claims awaiting owner evidence are tracked in `11-open-questions.md`.
