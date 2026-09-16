@@ -10,7 +10,7 @@ EARS patterns:
 - Unwanted behaviour: `If <condition>, then the system shall <response>.`
 - Ubiquitous: `The system shall <response>.`
 
-IDs keep the prefixes defined in the source specs (`BR-`, `SEO-`, `LOC-`, `DES-`, `CLM-`, `CASE-`, `MAIL-`) instead of `REQ-###`, so existing references in specs, tests and commits stay valid. Wording below is condensed; the source spec is authoritative.
+IDs keep the prefixes defined in the source specs (`BR-`, `SEO-`, `LOC-`, `DES-`, `CLM-`, `CASE-`, `MAIL-`, `COPY-`) instead of `REQ-###`, so existing references in specs, tests and commits stay valid. Wording below is condensed; the source spec is authoritative.
 
 Status values: `Implemented` (released, evidence recorded in the spec handoff), `Implemented, verification pending`, `Accepted` (process rule with no code artefact yet), `In progress`.
 
@@ -70,6 +70,13 @@ Status values: `Implemented` (released, evidence recorded in the spec handoff), 
 | DES-010 | Mockups shall be delivered in Spanish and English. | specs/004-design-collaboration | Accepted |
 | DES-011 | Proposals shall not present unverified metrics, including the current "+50M" badge. | specs/004-design-collaboration | Accepted |
 | DES-012 | The owner shall provide a ready branch `design/home-redesign` with its folder so the designer can upload through the GitHub web interface. | specs/004-design-collaboration | Implemented |
+| DES-013 | The brief shall state that the visual design is authored by David and credited as he chooses, code and functionality remain the owner's, and uploads are public. | specs/004-design-collaboration | Implemented |
+| DES-014 | The brief shall state the business goals (custom software services, SEO) and leave message hierarchy and main call to action to the designer. | specs/004-design-collaboration | Implemented |
+| DES-015 | The brief shall require keeping the blog, service pages, technology pages and terminal, and exclude case studies. | specs/004-design-collaboration | Implemented |
+| DES-016 | The brief shall include SEO rules for the design and a FAQ for a designer without coding knowledge. | specs/004-design-collaboration | Implemented |
+| DES-017 | The brief shall list `contact@naindev.com` and WhatsApp only as a chat button without a visible number; the number stays out of the repository until implementation. | specs/004-design-collaboration | Implemented |
+| DES-018 | The brief shall describe the Contrast3D x NainDev partnership, allow an optional partners section and Contrast3D credit, and forbid claiming shared clients or joint projects. | specs/004-design-collaboration | Implemented |
+| DES-019 | The brief shall state markets, client problems, the free call entry offer, no public prices, part-time remote availability, no testimonials and the kept checklist. | specs/004-design-collaboration | Implemented |
 
 ## Content integrity
 
@@ -105,3 +112,14 @@ Spec 005 is committed as `c78c854`; production confirmation after deployment is 
 | MAIL-002 | When the privacy policy is built, the data controller and data subject rights contacts shall be `contact@naindev.com`. | specs/008-unify-contact-email | Implemented |
 | MAIL-003 | When a source contains `hola@naindev.com` or `hello@naindev.com`, `npm run check` shall fail and name the file. | specs/008-unify-contact-email | Implemented |
 | MAIL-004 | The design brief shall list `contact@naindev.com` as the public email. | specs/008-unify-contact-email | Implemented |
+
+## Honest offer copy (spec 009)
+
+| ID | Requirement | Source | Status |
+| :--- | :--- | :--- | :--- |
+| COPY-001 | When the site is built, no call to action in either locale shall offer a free audit; the Calendly buttons formerly labelled "Agendar Auditoría Gratuita" shall read "Agendar llamada gratuita" with unchanged URLs and UTM parameters. | specs/009-honest-offer-copy | Implemented |
+| COPY-002 | When the home page is built, the hero availability line shall state part-time, remote availability for companies in any country, and no source shall claim immediate availability. | specs/009-honest-offer-copy | Implemented |
+| COPY-003 | When the home page is built, the About section shall describe the role as Lead Software Architect at Contrast3D x NainDev, the collaboration with Contrast3D, and shall not mention a stealth startup. | specs/009-honest-offer-copy | Implemented |
+| COPY-004 | When the terminal commands are served in either locale, they shall contain no confidential or NDA project, redacted value or telemetry figure; `metrics` shall state that no public metrics exist yet and `status` shall show part-time remote availability. | specs/009-honest-offer-copy | Implemented |
+| COPY-005 | When a service page or blog post describes availability or zero-downtime deployments, it shall present them as design goals without a guaranteed availability percentage. | specs/009-honest-offer-copy | Implemented |
+| COPY-006 | When a "99.9x%" availability figure, p95 latency reading, uptime reading or "[REDACTED]" placeholder returns to sources, runtime data or build output, `npm run check` shall fail and name the file. | specs/009-honest-offer-copy | Implemented |

@@ -10,7 +10,7 @@
     "build:source": "astro build",
     "build": "astro build && node scripts/build-locales.mjs",
     "preview": "astro preview",
-    "check": "node --test scripts/localization.test.mjs scripts/localization-build.test.mjs scripts/claims.test.mjs scripts/contact-email.test.mjs && astro check && npm run build && npm run check:brand-icons && npm run check:seo && npm run check:locales && npm run check:case-studies && npm run check:claims",
+    "check": "node --test scripts/localization.test.mjs scripts/localization-build.test.mjs scripts/claims.test.mjs scripts/contact-email.test.mjs scripts/offer-copy.test.mjs && astro check && npm run build && npm run check:brand-icons && npm run check:seo && npm run check:locales && npm run check:case-studies && npm run check:claims",
     "check:locales": "node scripts/check-locales.mjs",
     "check:claims": "node scripts/check-claims.mjs",
     "check:case-studies": "node --test scripts/case-studies.test.mjs",

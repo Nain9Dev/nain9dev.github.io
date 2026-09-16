@@ -22,9 +22,9 @@ Diseño ecosistemas backend robustos en **C# (.NET)** pensados para la resilienc
 3. **Idempotencia y Tolerancia a Fallos:** Sistemas diseñados asumiendo que la red fallará, implementando reintentos seguros (Polly) y asegurando que los eventos no se dupliquen (idempotencia).
 4. **Almacenamiento Híbrido:** CQRS (Command Query Responsibility Segregation) para separar las operaciones de escritura rápida (tracking de cientos de vehículos) de las consultas complejas de informes B2B.
 
-## Resultados Medibles
+## Objetivos de Diseño
 
-- **Disponibilidad 99.99%:** Aislamiento de fallos para que un componente caído no afecte a toda la operación.
+- **Alta disponibilidad:** Diseñado para aislar fallos, de modo que un componente caído no afecte a toda la operación.
 - **Rendimiento Predecible:** Latencia estable incluso bajo ráfagas masivas de eventos.
 - **Auditabilidad:** Trazabilidad completa de cada mensaje en el sistema.
 

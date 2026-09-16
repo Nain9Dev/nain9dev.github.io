@@ -68,6 +68,7 @@ No automated tests exist for DES requirements. Manual verification is defined in
 | DES-010 | Proposal review for Spanish and English mockups | manual | Not covered: no proposal delivered yet |
 | DES-011 | Proposal review for unverified metrics. `scripts/check-claims.mjs` scans `src/` and `dist/` only, not `design/` | manual | Not covered: no proposal delivered yet |
 | DES-012 | `git ls-remote origin design/home-redesign` returns the branch; brief links resolve | manual | Pass: branch pushed 2026-09-16 |
+| DES-013 to DES-019 | Manual review of `design/README.md` against spec 004 | manual | Pass 2026-09-16 |
 
 ## Content integrity (specs 005 and 006)
 
@@ -103,3 +104,16 @@ All tests below are in `scripts/case-studies.test.mjs`, run against the built `d
 | MAIL-002 | `scripts/contact-email.test.mjs` "privacy policy names the public contact address" | unit | Pass: local `npm run check` 2026-09-16 |
 | MAIL-003 | Same scan test; fails with the offending file names | unit | Pass: failed before the change on `privacidad.astro` and `checklist-ia.astro` |
 | MAIL-004 | Manual review of `design/README.md` | manual | Pass 2026-09-16 |
+
+## Honest offer copy (spec 009)
+
+Before the copy change, `scripts/offer-copy.test.mjs` failed 6 of 6 and the new matcher case in `scripts/claims.test.mjs` failed against the previous `BLOCKED_CLAIMS`.
+
+| Requirement | Test | Type | Last result |
+| :--- | :--- | :--- | :--- |
+| COPY-001 | `scripts/offer-copy.test.mjs` "COPY-001: no call to action offers a free audit" (source scan) and "COPY-001: Calendly buttons offer a free call and keep their destinations" | unit | Pass: local `npm run check` 2026-09-16 |
+| COPY-002 | `scripts/offer-copy.test.mjs` "COPY-002: the hero states part-time remote availability and nothing claims immediate availability" | unit | Pass: local `npm run check` 2026-09-16 |
+| COPY-003 | `scripts/offer-copy.test.mjs` "COPY-003: the About section names the Contrast3D x NainDev collaboration". The absence of shared client, project or result claims is checked by manual review only | unit + manual | Pass: local `npm run check` 2026-09-16 |
+| COPY-004 | `scripts/offer-copy.test.mjs` "COPY-004: terminal commands contain no confidential project, redacted values or telemetry" (Spanish source; the English file is generated from it) | unit | Pass: local `npm run check` 2026-09-16 |
+| COPY-005 | `scripts/offer-copy.test.mjs` "COPY-005: service pages present availability as a design goal"; `scripts/claims.test.mjs` "matcher ignores availability described as a design goal" | unit | Pass: local `npm run check` 2026-09-16 |
+| COPY-006 | `scripts/claims.test.mjs` "matcher flags availability percentages, telemetry and redacted values" and source scan; `scripts/check-claims.mjs` `scanBuild()` over `dist/` | unit + contract | Pass: local `npm run check` 2026-09-16 |

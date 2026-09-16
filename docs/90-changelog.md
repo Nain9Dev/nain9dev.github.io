@@ -4,6 +4,10 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ## [Unreleased]
 
+### Changed
+
+- Spec 009: calls to action offer a free call instead of a free audit; the hero states part-time, remote availability; the About section names the Contrast3D x NainDev collaboration; the terminal drops the confidential project, redacted values and telemetry figures; service pages describe availability as a design goal. The claim guard now blocks "99.9x%" figures, p95 latency and uptime readings and "[REDACTED]" placeholders.
+
 ### Added
 
 - Spec 008: single public contact address `contact@naindev.com` in the privacy policy, checklist fallback and design brief, replacing `hola@` and `hello@`.

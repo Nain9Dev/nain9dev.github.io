@@ -3,7 +3,8 @@ import { join, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 // Claims the owner marked as unverified.
-// See specs/005-remove-unverified-claims and specs/006-remove-unverified-metrics.
+// See specs/005-remove-unverified-claims, specs/006-remove-unverified-metrics
+// and specs/009-honest-offer-copy.
 export const BLOCKED_CLAIMS = [
   /\+\s*50\s*M(?![B])/i,
   /\b50\s*M\s+(modelos|models)\b/i,
@@ -12,6 +13,10 @@ export const BLOCKED_CLAIMS = [
   /desarrolladores mentorizados|developers mentored|mentored developers/i,
   /arquitecturas migradas|architectures migrated|migrated architectures/i,
   /colaborador oss|oss contributor/i,
+  /\b99[.,]9\d\s*%/,
+  /latencia p95|p95 latency/i,
+  /\buptime:\s*\d/i,
+  /\[REDACTED\]/,
 ];
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));

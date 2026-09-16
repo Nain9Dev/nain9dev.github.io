@@ -13,6 +13,7 @@ Consolidated task index. Feature-level detail and handoff state live in `../spec
 | 005 Remove unverified claims | [tasks.md](../specs/005-remove-unverified-claims/tasks.md) | Committed (`c78c854`); production confirmation open | None (`[A]` production check open) |
 | 006 Remove unverified metrics | [tasks.md](../specs/006-remove-unverified-metrics/tasks.md) | Done | None |
 | 007 Remove case studies | [tasks.md](../specs/007-remove-case-studies/tasks.md) | Implemented, not committed | 1 (owner review and commit) |
+| 009 Honest offer copy | [tasks.md](../specs/009-honest-offer-copy/tasks.md) | Implemented, not committed | 1 (owner review and commit) |
 
 ## Open human-dependent tasks
 
@@ -54,7 +55,12 @@ Consolidated task index. Feature-level detail and handoff state live in `../spec
   - **Covers**: future contact channel work
   - **Spec**: docs/41-blockers.md
   - **Done when**: B-013 and B-014 are marked verified; any site change gets its own spec.
-- [ ] **T-007** `[H]` Decide OQ-008 (availability and zero-downtime wording in service pages and blog posts).
+- [x] **T-007** `[H]` Decide OQ-008 (availability and zero-downtime wording in service pages and blog posts).
   - **Covers**: content integrity
   - **Spec**: docs/11-open-questions.md
   - **Done when**: OQ-008 is resolved and any change has its own spec.
+  - **Resolved**: 2026-09-16, design goals; implemented by specs/009-honest-offer-copy (COPY-005).
+- [ ] **T-010** `[H]` Decide OQ-010 (client results with figures in two blog posts).
+  - **Covers**: content integrity
+  - **Spec**: docs/11-open-questions.md
+  - **Done when**: OQ-010 is resolved and any change has its own spec.

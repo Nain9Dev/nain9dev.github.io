@@ -29,6 +29,26 @@ test('matcher ignores service descriptions of availability goals', () => {
   assert.deepEqual(findBlockedClaims('Mentoría técnica para equipos que adoptan DDD'), []);
 });
 
+test('matcher flags availability percentages, telemetry and redacted values', () => {
+  const blocked = [
+    '<strong>Disponibilidad 99.99%:</strong>',
+    '99.95 % availability',
+    'Uptime: 99.97% - Todos los sistemas operando con normalidad.',
+    'API Gateway (Latencia p95: 42ms)',
+    'API Gateway (p95 Latency: 42ms)',
+    '[REDACTED] modelos/hora',
+    'Proceso completado en [REDACTED] ms.',
+  ];
+  for (const text of blocked) assert.notDeepEqual(findBlockedClaims(text), [], text);
+});
+
+test('matcher ignores availability described as a design goal', () => {
+  assert.deepEqual(findBlockedClaims('**Alta disponibilidad:** Diseñado para aislar fallos'), []);
+  assert.deepEqual(findBlockedClaims('Para lograr **zero downtime** y escalar el procesamiento 3D'), []);
+  assert.deepEqual(findBlockedClaims('Arquitecturas distribuidas y Zero Downtime Deployments'), []);
+  assert.deepEqual(findBlockedClaims('Coverage above 99% of test cases, uptime monitoring'), []);
+});
+
 test('matcher ignores file sizes and unrelated numbers', () => {
   assert.deepEqual(findBlockedClaims('GLB files larger than 50MB'), []);
   assert.deepEqual(findBlockedClaims('millones de modelos 3D'), []);
