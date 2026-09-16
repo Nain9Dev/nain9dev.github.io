@@ -8,6 +8,7 @@
 - [x] [A] Add business goal, authorship and credit, SEO rules, contact channels and FAQ to the brief (DES-013 to DES-017).
 - [x] [H] Provide the public email address and WhatsApp Business number (DES-017). Number kept outside the repository.
 - [x] [A] Add partnership context, email and WhatsApp button rules to the brief (DES-017, DES-018).
+- [x] [A] Add markets, client problems, offer, pricing, availability, testimonials and checklist decisions to the brief (DES-019).
 - [ ] [H] Send a test message to `contact@naindev.com` and confirm delivery (MX records point to Cloudflare Email Routing; delivery not verified).
 - [x] [H] Create the `protect-non-design-branches` ruleset (DES-001, DES-002). Approved by owner; id 23551316.
 - [ ] [M] Verify rejected and accepted pushes as `davidesuarez` (plan.md, Verification).

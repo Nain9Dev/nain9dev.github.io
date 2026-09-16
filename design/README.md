@@ -47,6 +47,21 @@ redesign has two goals:
   - critical-system audits and optimization.
 - **Audience:** CTOs, tech leads and founders of companies that need reliable
   software, especially products with AI or 3D.
+- **Markets:** open to any country. Spain, the rest of Europe, the United States
+  and Latin America are all targets, so the English version matters as much as
+  the Spanish one.
+- **Problems clients bring:** anything related to software, most often:
+  - a backend that is slow or goes down under load;
+  - a legacy system that is hard to change (old .NET, technical debt,
+    migrations);
+  - AI they want to use but cannot yet trust (validation, human review);
+  - 3D models that must be processed or validated at scale.
+- **How a sale starts:** a **free 30-minute call** (Calendly) to understand the
+  case. It is a conversation, not a free audit: do not promise an audit or a
+  deliverable.
+- **Prices:** not shown on the site. They are discussed on the call.
+- **Availability:** Aitor takes **part-time, remote projects**. Do not write
+  "immediate" or "full-time" availability.
 - **Tone:** precise, calm, engineering-grade. Trust over flashiness.
 - **More background:** the "Sobre mí" section of the live site and
   [LinkedIn](https://www.linkedin.com/in/aitor-nain-mendoza-vallejo/).
@@ -66,7 +81,11 @@ would sell better are part of the job.
 | Main call to action | David decides: whatever is most comfortable for the client (see "Contact channels") |
 | Visual direction | Free. Showing two or three directions is welcome |
 | Photo of Aitor | Optional. If the design needs one, ask Aitor for it |
-| Must keep | The NainDev brand and logo colors, the blog, the service pages, the technology pages and the interactive terminal (its look can change) |
+| About section | Names the partnership: "Lead Software Architect en Contrast3D x NainDev". David may rewrite the section; Aitor approves |
+| Testimonials | No section for now; there are no client testimonials yet |
+| Pricing | No prices or packages with prices |
+| Free checklist (lead magnet) | Keep it in the design. Its signup form is being fixed separately |
+| Must keep | The NainDev brand and logo colors, the blog, the service pages, the technology pages and the interactive terminal (its look can change; its commands show stack, services and contact, with no metrics) |
 | Can change or remove | Everything else, including the 3D hero canvas, the dark theme, the API/Logic/Data panel, section order and copy |
 | Case studies | **Not shown.** They are being removed from the site; do not design them or link to them |
 | Partners section | Aitor proposes a "Contrast3D x NainDev" section presenting the partnership as part of the offer (design + software), which may also help SEO. **David decides** whether to include it and how. It must not claim shared clients or joint projects |
@@ -293,6 +312,13 @@ text you change in the "Copy changes for approval" table of your `README.md`.
 Use a placeholder such as `[PHOTO]`, `[TEXT]` or `[METRIC]`, and ask Aitor in
 chat or at `contact@naindev.com`.
 
+**Can I show prices, testimonials or "clients who trust us" logos?**
+No. There are no public prices, testimonials or client logos yet.
+
+**What do I call the main button?**
+Anything that clearly offers a free call, for example "Agendar llamada
+gratuita" / "Book a free call". Not "free audit".
+
 **Should the site mention Contrast3D?**
 Only if you think it helps. A partners section or a design credit mentioning
 Contrast3D are both allowed. Do not present shared clients or joint projects:
@@ -330,7 +356,8 @@ choose. The code and functionality are Aitor's. The files are public.
 - [ ] Only real content, placeholders marked `[TEXT]`, `[METRIC]` or `[PHOTO]`
 - [ ] WhatsApp shown as a button without a visible phone number
 - [ ] One H1 per page and all important text as real text, not images
-- [ ] No case studies shown or linked
+- [ ] No case studies, prices, testimonials or client logos
+- [ ] Main action offers a free call, not a free audit; availability described as part-time and remote
 - [ ] Third-party asset sources and preferred design credit listed in `README.md`
 - [ ] Copy changes listed in the folder's `README.md` for Aitor's approval
 - [ ] PNG or PDF exports included

@@ -76,3 +76,7 @@ and implements approved designs in `main`.
 - DES-018: The brief shall describe the Contrast3D x NainDev partnership, allow
   an optional partners section and a Contrast3D design credit at the designer's
   discretion, and forbid presenting shared clients or joint projects.
+- DES-019: The brief shall state target markets (any country), client problems,
+  the free 30-minute call as the entry offer (not an audit), no public prices,
+  part-time remote availability, no testimonials section, the About section
+  naming Contrast3D x NainDev, and that the free checklist stays.

@@ -58,6 +58,36 @@ git switch naindev/legacy
 npm ci && npm run build
 ```
 
+### Permanent redirects in Cloudflare (owner action)
+
+GitHub Pages cannot send HTTP 301. Retired URLs from spec 007 are served as
+`noindex` meta refresh pages. To give search engines a real 301, create these
+rules in Cloudflare: **Rules > Redirect Rules > Create rule** (Single Redirects).
+For each rule choose "Custom filter expression", edit the expression as text,
+set type **Static**, status **301** and **Preserve query
+string** on. Six rules fit the Free plan limit.
+
+| # | Expression | Target URL |
+| :--- | :--- | :--- |
+| 1 | `(http.host eq "www.naindev.com" and http.request.uri.path in {"/casos" "/casos/"})` | `https://www.naindev.com/servicios/` |
+| 2 | `(http.host eq "www.naindev.com" and http.request.uri.path in {"/casos/stealth-3d-ai" "/casos/stealth-3d-ai/" "/casos/stealth-3d-ai.html" "/tecnologia/ONNX" "/tecnologia/ONNX/"})` | `https://www.naindev.com/servicios/validacion-3d/` |
+| 3 | `(http.host eq "www.naindev.com" and http.request.uri.path in {"/casos/optimizacion-saas" "/casos/optimizacion-saas/" "/casos/optimizacion-saas.html" "/tecnologia/Kubernetes" "/tecnologia/Kubernetes/" "/tecnologia/.NET%20Core" "/tecnologia/.NET%20Core/"})` | `https://www.naindev.com/servicios/optimizacion-rendimiento-apirest-dotnet/` |
+| 4 | `(http.host eq "www.naindev.com" and http.request.uri.path in {"/en/case-studies" "/en/case-studies/"})` | `https://www.naindev.com/en/services/` |
+| 5 | `(http.host eq "www.naindev.com" and http.request.uri.path in {"/en/case-studies/stealth-3d-ai" "/en/case-studies/stealth-3d-ai/" "/en/case-studies/stealth-3d-ai.html" "/en/technology/ONNX" "/en/technology/ONNX/"})` | `https://www.naindev.com/en/services/validacion-3d/` |
+| 6 | `(http.host eq "www.naindev.com" and http.request.uri.path in {"/en/case-studies/optimizacion-saas" "/en/case-studies/optimizacion-saas/" "/en/case-studies/optimizacion-saas.html" "/en/technology/Kubernetes" "/en/technology/Kubernetes/" "/en/technology/.NET%20Core" "/en/technology/.NET%20Core/"})` | `https://www.naindev.com/en/services/optimizacion-rendimiento-apirest-dotnet/` |
+
+`http.request.uri.path` is matched as received; if the `.NET Core` entries do
+not match, replace `%20` with a literal space.
+
+Verify each source after saving (expected `301` and the target in `location`):
+
+```bash
+curl -sI https://www.naindev.com/casos/stealth-3d-ai | grep -iE "^(HTTP|location)"
+```
+
+Keep the Astro redirects in `astro.config.mjs` as a fallback: they still serve
+the same targets if a rule is removed. If the redirect map changes, update both.
+
 ## Known limits
 
 - Newsletter form uses placeholder MailerLite identifiers; subscriptions are not delivered (B-007).
