@@ -21,9 +21,16 @@ export default defineConfig({
     }),
     mdx()
   ],
+  // Retired case studies (specs/007-remove-case-studies) point to the most related service.
   redirects: {
-    '/casos/stealth-3d-ai.html': '/casos/stealth-3d-ai',
-    '/casos/optimizacion-saas.html': '/casos/optimizacion-saas',
+    '/casos': '/servicios/',
+    '/casos/stealth-3d-ai': '/servicios/validacion-3d/',
+    '/casos/stealth-3d-ai.html': '/servicios/validacion-3d/',
+    '/casos/optimizacion-saas': '/servicios/optimizacion-rendimiento-apirest-dotnet/',
+    '/casos/optimizacion-saas.html': '/servicios/optimizacion-rendimiento-apirest-dotnet/',
+    '/tecnologia/ONNX': '/servicios/validacion-3d/',
+    '/tecnologia/Kubernetes': '/servicios/optimizacion-rendimiento-apirest-dotnet/',
+    '/tecnologia/.NET Core': '/servicios/optimizacion-rendimiento-apirest-dotnet/',
     '/blog/clean-architecture-3d.html': '/blog/clean-architecture-3d',
     '/servicios/renovacion-web': '/servicios/arquitectura-frontend-alto-rendimiento',
     '/servicios/renovacion-web.html': '/servicios/arquitectura-frontend-alto-rendimiento'

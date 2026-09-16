@@ -13,10 +13,7 @@ Relationships are implicit, not enforced by the schema: collections share string
 ```mermaid
 erDiagram
     BLOG ||--o| SOCIAL_IMAGE : "ogImage"
-    CASOS ||--o| SOCIAL_IMAGE : "ogImage"
     SERVICIOS ||--o| SOCIAL_IMAGE : "ogImage"
-    CASOS ||--o{ CASE_METRIC : "metrics"
-    CASOS }o--o{ TECHNOLOGY : "techStack"
     SERVICIOS }o--o{ TECHNOLOGY : "techStack"
     BLOG {
         string id PK "file path under src/content/blog"
@@ -29,21 +26,6 @@ erDiagram
         string ogImage "default /assets/images/og-cover-v2.png"
         boolean draft "default false"
         string readingTime "optional"
-    }
-    CASOS {
-        string id PK "file path under src/content/casos"
-        string title
-        string eyebrow
-        string description
-        string_array keywords "default []"
-        string_array techStack
-        string ogImage "default /assets/images/og-cover-v2.png"
-        boolean draft "default false"
-        number order "default 99"
-    }
-    CASE_METRIC {
-        string label
-        string value
     }
     SERVICIOS {
         string id PK "file path under src/content/servicios"
@@ -65,7 +47,7 @@ erDiagram
     }
 ```
 
-`CASE_METRIC` is an embedded array inside a case study, not a separate collection. `SOCIAL_IMAGE` and `TECHNOLOGY` are derived concepts shown for clarity; they have no schema of their own.
+`SOCIAL_IMAGE` and `TECHNOLOGY` are derived concepts shown for clarity; they have no schema of their own. Technology pages are generated only from service `techStack` values.
 
 ## Entities and invariants
 
@@ -74,9 +56,9 @@ erDiagram
 - `description` has at most 160 characters; `seoTitle`, when present, at most 60 (schema).
 - Each rendered article exposes a visible publication date matching `pubDate` in structured data (SEO-005, checked by `check-seo.mjs`).
 
-### Case studies (`src/content/casos/`)
+### Case studies (removed)
 
-- `metrics` values are published figures. Each must be verifiable by the owner before release (DES-011, CLM-001, `11-open-questions.md`).
+- The `casos` collection and `src/content/casos/` were removed by spec 007 (CASE-001). Retired URLs are redirect documents declared in `astro.config.mjs`. Reintroducing case studies requires a new spec.
 
 ### Services (`src/content/servicios/`)
 
@@ -89,7 +71,7 @@ erDiagram
 
 ### Other static data
 
-- `src/data/testimonials.json`, `src/i18n/runtime.json` and `public/assets/data/` are plain JSON loaded at build time or by client scripts. They have no Zod schema; `check-locales.mjs` verifies that every `message()` key used by client code exists in `runtime.json`.
+- `src/data/testimonials.json`, `src/i18n/runtime.json` and `public/assets/data/` (`projects.json`, `impact-metrics.json`, `tech-stack.json`, `terminal-commands.json`) are plain JSON loaded at build time or by client scripts. They have no Zod schema; `check-locales.mjs` verifies that every `message()` key used by client code exists in `runtime.json`.
 
 ## Persistence
 

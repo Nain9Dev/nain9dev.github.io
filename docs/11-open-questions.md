@@ -29,4 +29,4 @@ Each claim below is published today in Spanish and, through the catalog, in Engl
 
 Note: the impact metrics exist twice, as static markup in `ImpactMetrics.astro` and as JSON loaded by `public/assets/js/impact-metrics.js`; any resolution must update both.
 
-Out of scope for this list: case-study metrics in `src/content/casos/`, `src/data/testimonials.json` and `ProofStrip.astro` were not audited for this document.
+Out of scope for this list: `src/data/testimonials.json` and `ProofStrip.astro` were not audited for this document. Case-study metrics formerly in `src/content/casos/` are moot: the case studies were removed from the site by spec 007 (2026-09-16).

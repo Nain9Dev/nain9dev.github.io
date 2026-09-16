@@ -15,7 +15,6 @@ export function getBreadcrumbItems(pathname: string, title: string) {
   if (!parts.length) return breadcrumbs;
   const hubNames: Record<string, string> = {
     blog: 'Blog',
-    casos: 'Casos de estudio',
     servicios: 'Servicios',
   };
   const hubName = hubNames[parts[0]];

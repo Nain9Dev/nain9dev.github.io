@@ -34,7 +34,7 @@ El portal es una aplicación estática multipágina (SSG) vitaminada con *View T
 nain9dev.github.io/
 ├── src/
 │   ├── components/      # Componentes de UI (Header, Footer, Terminal, WebGL)
-│   ├── content/         # Colecciones (Blog, Servicios, Casos) en MDX
+│   ├── content/         # Colecciones (Blog, Servicios) en MDX
 │   ├── layouts/         # Layouts base y gestión de <head> / SEO
 │   └── pages/           # Enrutamiento basado en archivos (File-based routing)
 ├── public/              # Assets estáticos (Imágenes, modelos 3D, robots.txt)

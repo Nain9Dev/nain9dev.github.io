@@ -16,24 +16,6 @@ const blog = defineCollection({
   })
 });
 
-const casos = defineCollection({
-  loader: glob({ pattern: "**/*.mdx", base: "./src/content/casos" }),
-  schema: z.object({
-    title: z.string(),
-    eyebrow: z.string(),
-    description: z.string(),
-    keywords: z.array(z.string()).optional().default([]),
-    techStack: z.array(z.string()),
-    metrics: z.array(z.object({
-      label: z.string(),
-      value: z.string()
-    })).optional(),
-    ogImage: z.string().optional().default('/assets/images/og-cover-v2.png'),
-    draft: z.boolean().default(false),
-    order: z.number().default(99)
-  })
-});
-
 const servicios = defineCollection({
   loader: glob({ pattern: "**/*.mdx", base: "./src/content/servicios" }),
   schema: z.object({
@@ -49,4 +31,4 @@ const servicios = defineCollection({
   })
 });
 
-export const collections = { blog, casos, servicios };
+export const collections = { blog, servicios };

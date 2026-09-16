@@ -110,7 +110,7 @@ for (const file of (await walk('dist')).filter(file => file.endsWith('.html'))) 
   if (indexable) pages.push(spanishURL, englishURL);
 }
 
-for (const file of ['projects.json', 'case-studies.json', 'impact-metrics.json', 'tech-stack.json']) {
+for (const file of ['projects.json', 'impact-metrics.json', 'tech-stack.json']) {
   const source = JSON.parse(await readFile(`public/assets/data/${file}`, 'utf8'));
   const data = mapData(source, value => translated(value, catalog));
   if (file === 'projects.json') for (const project of data) for (const link of project.links) link.url = englishPath(link.url);

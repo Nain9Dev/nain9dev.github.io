@@ -11,6 +11,8 @@ Consolidated task index. Feature-level detail and handoff state live in `../spec
 | 003 English localization | [tasks.md](../specs/003-english-localization/tasks.md) | Done | None |
 | 004 Design collaboration | [tasks.md](../specs/004-design-collaboration/tasks.md) | Blocked on external access check | 2 |
 | 005 Remove unverified claims | [tasks.md](../specs/005-remove-unverified-claims/tasks.md) | Committed (`c78c854`); production confirmation open | None (`[A]` production check open) |
+| 006 Remove unverified metrics | [tasks.md](../specs/006-remove-unverified-metrics/tasks.md) | Done | None |
+| 007 Remove case studies | [tasks.md](../specs/007-remove-case-studies/tasks.md) | Implemented, not committed | 1 (owner review and commit) |
 
 ## Open human-dependent tasks
 
@@ -43,6 +45,15 @@ Consolidated task index. Feature-level detail and handoff state live in `../spec
   - **Spec**: docs/41-blockers.md
   - **Done when**: B-003 is marked verified or the purge step is redesigned under a new spec.
   - **Deferred**: owner decision 2026-09-16; handle later together with MailerLite (B-007) and the README Astro version badge.
+- [ ] **T-008** `[M]` Review the spec 007 redirect targets and wording assumptions, then commit and deploy.
+  - **Covers**: CASE-001 to CASE-008
+  - **Spec**: specs/007-remove-case-studies
+  - **Done when**: the change is committed, deployed and the production redirects are recorded in the spec 007 handoff.
+  - **Needs from owner**: approval of the assumptions in `plan.md` and the commit.
+- [ ] **T-009** `[H]` Decide the public professional contact email (B-013) and create the WhatsApp Business number (B-014).
+  - **Covers**: future contact channel work
+  - **Spec**: docs/41-blockers.md
+  - **Done when**: B-013 and B-014 are marked verified; any site change gets its own spec.
 - [ ] **T-007** `[H]` Decide OQ-008 (availability and zero-downtime wording in service pages and blog posts).
   - **Covers**: content integrity
   - **Spec**: docs/11-open-questions.md

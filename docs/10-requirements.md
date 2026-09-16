@@ -10,7 +10,7 @@ EARS patterns:
 - Unwanted behaviour: `If <condition>, then the system shall <response>.`
 - Ubiquitous: `The system shall <response>.`
 
-IDs keep the prefixes defined in the source specs (`BR-`, `SEO-`, `LOC-`, `DES-`, `CLM-`) instead of `REQ-###`, so existing references in specs, tests and commits stay valid. Wording below is condensed; the source spec is authoritative.
+IDs keep the prefixes defined in the source specs (`BR-`, `SEO-`, `LOC-`, `DES-`, `CLM-`, `CASE-`) instead of `REQ-###`, so existing references in specs, tests and commits stay valid. Wording below is condensed; the source spec is authoritative.
 
 Status values: `Implemented` (released, evidence recorded in the spec handoff), `Implemented, verification pending`, `Accepted` (process rule with no code artefact yet), `In progress`.
 
@@ -35,7 +35,7 @@ Status values: `Implemented` (released, evidence recorded in the spec handoff), 
 | SEO-004 | When an indexable page is built, it shall have one unique title and description, one H1, a canonical URL matching og:url and the sitemap, and large image previews; existing noindex pages shall stay excluded. | specs/002-search-brand-presentation | Implemented |
 | SEO-005 | When an article is rendered, a BlogPosting shall refer to a distinct WebPage and the real author, with a visible machine-readable publication date; structured data shall be valid JSON and escape HTML delimiters. | specs/002-search-brand-presentation | Implemented |
 | SEO-006 | When breadcrumbs are generated, every linked item shall resolve to an existing canonical page and the current item shall use its human-readable title. | specs/002-search-brand-presentation | Implemented |
-| SEO-007 | When Google extracts a snippet, shared header and footer boilerplate shall be excluded with supported `data-nosnippet` containers; main content shall stay eligible; primary navigation shall link to service/case hubs. | specs/002-search-brand-presentation | Implemented |
+| SEO-007 | When Google extracts a snippet, shared header and footer boilerplate shall be excluded with supported `data-nosnippet` containers; main content shall stay eligible; primary navigation shall link to the service and blog hubs (the case hub clause is superseded by CASE-002). | specs/002-search-brand-presentation | Implemented |
 | SEO-008 | When the skip link is followed, every indexable page shall provide a main-content target. | specs/002-search-brand-presentation | Implemented |
 | SEO-009 | When `npm run check` runs, it shall validate icon framing and the generated site's metadata, structured data, sitemap, internal links and index policy. | specs/002-search-brand-presentation | Implemented |
 | SEO-010 | When collection content declares a social image, the generated page shall refer to an existing asset; stale references shall use the collection default. | specs/002-search-brand-presentation | Implemented |
@@ -81,5 +81,18 @@ Status values: `Implemented` (released, evidence recorded in the spec handoff), 
 | CLM-004 | When the site is built, the system shall not publish the "Colaborador OSS" hero badge or the thank-you page "Zero Downtime" badge in any locale. | specs/006-remove-unverified-metrics | Implemented, verified in production |
 | CLM-005 | When the home page loads, the free checklist call to action shall remain visible and linked. | specs/006-remove-unverified-metrics | Implemented |
 | CLM-006 | When a blocked claim returns to sources, runtime data or build output, `npm run check` shall fail and name the file. | specs/006-remove-unverified-metrics | Implemented |
+
+## Case study removal
+
+| ID | Requirement | Source spec | Status |
+| :--- | :--- | :--- | :--- |
+| CASE-001 | When the site is built, the system shall not publish a case-study page, listing or content collection in any locale. | specs/007-remove-case-studies | Implemented, verification pending |
+| CASE-002 | When any non-redirect page is built, it shall contain no link to `/casos/` or `/en/case-studies/` (header, hero, home, technology, service and thank-you pages included). | specs/007-remove-case-studies | Implemented, verification pending |
+| CASE-003 | When the home page is built in either locale, it shall contain no case-study section, wording or client script. | specs/007-remove-case-studies | Implemented, verification pending |
+| CASE-004 | When a visitor requests a retired case-study URL (clean or legacy `.html`) in either locale, the site shall serve a `noindex` redirect document whose target and canonical point to the mapped existing page in the same locale. | specs/007-remove-case-studies | Implemented, verification pending |
+| CASE-005 | When a visitor requests a technology page retired because only a case study declared it, the site shall redirect to the related service page in the same locale. | specs/007-remove-case-studies | Implemented, verification pending |
+| CASE-006 | When the terminal commands or runtime data files are served in either locale, they shall contain no case-study link. | specs/007-remove-case-studies | Implemented, verification pending |
+| CASE-007 | When the sitemap is generated, it shall list no case-study URL. | specs/007-remove-case-studies | Implemented, verification pending |
+| CASE-008 | When `npm run check` runs, the SEO and localization contracts shall still pass with zero pending and zero unused catalog entries. | specs/007-remove-case-studies | Implemented, verification pending |
 
 Spec 005 is committed as `c78c854`; production confirmation after deployment is still open in its `tasks.md`. Other homepage claims awaiting owner evidence are tracked in `11-open-questions.md`.

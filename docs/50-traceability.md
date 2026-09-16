@@ -31,7 +31,7 @@ Paths are relative to the repository root.
 | SEO-004 | `scripts/check-seo.mjs`: one title/description/H1/canonical, canonical equals og:url, sitemap membership matches index policy, unique titles and descriptions, `max-image-preview:large`, noindex preserved | contract | CI b725662: pass |
 | SEO-005 | `scripts/seo.test.mjs` "JSON-LD preserves text without allowing a script element to close"; `scripts/check-seo.mjs`: valid JSON-LD, distinct WebPage and BlogPosting, named author, visible `<time>` matching `datePublished` | unit + contract | local 2026-09-16: unit pass; CI b725662: pass |
 | SEO-006 | `scripts/seo.test.mjs` "breadcrumbs use real hubs and the displayed title", "breadcrumbs do not invent resource or technology landing pages"; `scripts/check-seo.mjs`: every breadcrumb item resolves to a built page | unit + contract | local 2026-09-16: unit pass; CI b725662: pass |
-| SEO-007 | `scripts/check-seo.mjs`: shared navigation text inside supported `data-nosnippet` containers, H1 not excluded, header links to hubs. Manual browser navigation recorded in spec 002 handoff | contract + manual | CI b725662: pass |
+| SEO-007 | `scripts/check-seo.mjs`: shared navigation text inside supported `data-nosnippet` containers, H1 not excluded, header links to service and blog hubs (case hub removed by spec 007). Manual browser navigation recorded in spec 002 handoff | contract + manual | CI b725662: pass |
 | SEO-008 | `scripts/check-seo.mjs`: `id="main-content"` exists on every indexable page | contract | CI b725662: pass |
 | SEO-009 | `npm run check` composition in `package.json` (`check:brand-icons`, `check:seo`) | contract | CI b725662: pass |
 | SEO-010 | `scripts/check-seo.mjs`: social image URL on site origin and file exists in `dist/` | contract | CI b725662: pass |
@@ -79,3 +79,18 @@ No automated tests exist for DES requirements. Manual verification is defined in
 | CLM-004 | Same matcher test for the OSS badge; "thank-you page shows no Zero Downtime badge" | unit | Pass: local `npm run check` 2026-09-16 |
 | CLM-005 | `scripts/claims.test.mjs` "home page keeps the checklist call to action" | unit | Pass: local `npm run check` 2026-09-16 |
 | CLM-006 | Source scan includes `public/assets/data/*.json`; "matcher ignores service descriptions of availability goals" guards false positives | unit + contract | Pass: local `npm run check` 2026-09-16 |
+
+## Case study removal (spec 007)
+
+All tests below are in `scripts/case-studies.test.mjs`, run against the built `dist/` by `npm run check:case-studies`. Before the change they failed 6 of 6 against a build of `6edd515`.
+
+| Requirement | Test | Type | Last result |
+| :--- | :--- | :--- | :--- |
+| CASE-001 | "CASE-001: no case-study page or listing is published in any locale" | contract | Pass: local `npm run check` 2026-09-16 (6 of 6) |
+| CASE-002 | "CASE-002 and CASE-003: built pages carry no case-study links or wording"; `scripts/check-seo.mjs`: header must not link to `/casos/` | contract | Pass: local `npm run check` 2026-09-16 |
+| CASE-003 | Same wording test; "CASE-003: home pages have no case-study section or client script" | contract | Pass: local `npm run check` 2026-09-16 |
+| CASE-004 | "CASE-004 and CASE-005: retired URLs redirect to related pages in both locales" (refresh target, canonical, `noindex`, target is a content page) | contract | Pass: local `npm run check` 2026-09-16. Production: pending |
+| CASE-005 | Same redirect test for `/tecnologia/ONNX/`, `/tecnologia/Kubernetes/` and `/tecnologia/.NET Core/` | contract | Pass: local `npm run check` 2026-09-16 |
+| CASE-006 | "CASE-006: terminal commands and runtime data contain no case-study link" | contract | Pass: local `npm run check` 2026-09-16 |
+| CASE-007 | "CASE-007: the sitemap lists no case-study URL" | contract | Pass: local `npm run check` 2026-09-16 |
+| CASE-008 | `npm run check` composition: `check-seo.mjs` (130 pages, 22 redirects), `check-locales.mjs` (65 pairs), build fails on missing translations; 0 pending and 0 unused entries recorded in the spec 007 handoff | contract + manual | Pass: local `npm run check` 2026-09-16 |

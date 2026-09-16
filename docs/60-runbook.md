@@ -46,6 +46,18 @@ npm run preview    # serve dist/ including English pages under /en/
 - **Stale favicon**: keep the stable URLs; `/favicon.ico` may stay cached by intermediaries. Compare public and local hashes before changing anything (spec 002 `verification.md`).
 - **Leaked secret**: follow `SECURITY_POLICY.md` section 3 and revoke the credential at the provider first.
 
+### Pre-redesign snapshot
+
+Branch `naindev/legacy` (commit `77317aa`, created 2026-09-16) preserves the site
+as published before case study removal and the redesign, for before/after
+comparison and recovery. Only the repository admin can update it (ruleset
+`protect-non-design-branches`). To inspect or rebuild it locally:
+
+```bash
+git switch naindev/legacy
+npm ci && npm run build
+```
+
 ## Known limits
 
 - Newsletter form uses placeholder MailerLite identifiers; subscriptions are not delivered (B-007).

@@ -33,7 +33,7 @@ export async function collectSources(directory = 'dist') {
   for (const [command, html] of Object.entries(commands)) {
     for (const segment of extractSegments(parse(html))) add(segment, `terminal:${command}`);
   }
-  for (const file of ['case-studies.json', 'impact-metrics.json', 'tech-stack.json']) {
+  for (const file of ['impact-metrics.json', 'tech-stack.json']) {
     const data = JSON.parse(await readFile(`public/assets/data/${file}`, 'utf8'));
     mapData(data, (value, key) => {
       const source = normalize(value);

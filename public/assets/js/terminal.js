@@ -197,14 +197,6 @@ document.addEventListener('astro:page-load', () => {
   };
   input.addEventListener('keydown', onKeyDown);
 
-  const onOutputClick = (e) => {
-    const link = e.target.closest('a');
-    if (link && link.href.includes('/casos/')) {
-      window.plausible && window.plausible('CaseStudyView', { props: { source: 'terminal', url: link.href } });
-    }
-  };
-  output.addEventListener('click', onOutputClick);
-
   const welcomeText = escapeHtml(message('terminalWelcome'));
   
   const observer = new IntersectionObserver((entries) => {
@@ -230,7 +222,6 @@ document.addEventListener('astro:page-load', () => {
     console.log('[Terminal] Limpiando recursos...');
     terminal.removeEventListener('click', onTerminalClick);
     input.removeEventListener('keydown', onKeyDown);
-    output.removeEventListener('click', onOutputClick);
     observer.disconnect();
   };
 });

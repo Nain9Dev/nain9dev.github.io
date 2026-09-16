@@ -8,7 +8,7 @@ Static site generated at build time. There is no application server, database or
 
 | Layer | Location | Responsibility | May call |
 | :--- | :--- | :--- | :--- |
-| Content | `src/content/{blog,casos,servicios}/*.mdx`, `src/data/`, `public/assets/data/` | Spanish source prose and structured data, validated by Zod schemas in `src/content.config.ts` | Nothing |
+| Content | `src/content/{blog,servicios}/*.mdx`, `src/data/`, `public/assets/data/` | Spanish source prose and structured data, validated by Zod schemas in `src/content.config.ts` | Nothing |
 | Translation catalog | `src/i18n/en-US.json`, `src/i18n/runtime.json` | Reviewed English segments and interface messages | Nothing |
 | Presentation | `src/pages/`, `src/layouts/`, `src/components/` | Routing, rendering, metadata (`SEO.astro`), Content Security Policy meta tag | Content, `src/utils/` |
 | Utilities | `src/utils/` (`seo.ts`, `technologyRoutes.ts`, `analytics.js`) | Pure helpers for SEO, routes and analytics events | Nothing |
@@ -42,6 +42,7 @@ flowchart LR
         BI[check-brand-icons.mjs]
         SEO[seo.test.mjs + check-seo.mjs]
         LC[check-locales.mjs]
+        CS[case-studies.test.mjs]
         CC[claims.test.mjs + check-claims.mjs]
     end
 
@@ -56,7 +57,7 @@ flowchart LR
     AB --> BL
     CAT --> BL
     BL --> Check
-    UT --> AC --> BI --> SEO --> LC --> CC
+    UT --> AC --> BI --> SEO --> LC --> CS --> CC
     Check --> SSC
     Check --> DEP
     DEP -->|upload-pages-artifact dist/| GHP[GitHub Pages<br/>environment github-pages, main only]
@@ -65,7 +66,7 @@ flowchart LR
     CF --> USER[Visitors<br/>www.naindev.com]
 ```
 
-Order inside `npm run check` (from `package.json`): unit tests (including `claims.test.mjs`), `astro check`, full build, brand icons, SEO, locales, claims scan over sources and `dist/`.
+Order inside `npm run check` (from `package.json`): unit tests (including `claims.test.mjs`), `astro check`, full build, brand icons, SEO, locales, case-study removal contract, claims scan over sources and `dist/`.
 
 ## Boundaries and contracts
 
@@ -83,4 +84,4 @@ Order inside `npm run check` (from `package.json`): unit tests (including `claim
 - **Analytics**: Plausible, allowed in the CSP; event helpers in `src/utils/analytics.js`.
 - **Secrets**: none are stored in the repository (`SECURITY_POLICY.md`). The only workflow secrets referenced are `CLOUDFLARE_ZONE` and `CLOUDFLARE_API_TOKEN`; see `41-blockers.md`.
 - **Error pages**: `src/pages/404.astro` renders a `noindex` page used for unknown routes.
-- **Redirects**: legacy `.html` and renamed service routes are declared in `astro.config.mjs` and emitted as static redirect documents with `noindex`.
+- **Redirects**: legacy `.html` routes, renamed service routes and retired case-study and technology routes (spec 007) are declared in `astro.config.mjs` and emitted as static meta-refresh documents with `noindex` and a canonical to the target; `build-locales.mjs` writes the English copies. GitHub Pages cannot send HTTP 301, so these are not server redirects.
