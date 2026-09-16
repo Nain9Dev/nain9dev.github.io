@@ -101,7 +101,7 @@ other ideas are welcome.
 | :--- | :--- |
 | Calendly, 30-minute call | Exists today |
 | LinkedIn | Exists today |
-| Email | `hello@naindev.com` |
+| Email | `contact@naindev.com` |
 | WhatsApp | A button such as "Escríbeme por WhatsApp" / "Message me on WhatsApp" that opens a chat. **Do not show the phone number** on screen; Aitor adds the link when building the site |
 
 ## SEO rules for the design
@@ -291,7 +291,7 @@ text you change in the "Copy changes for approval" table of your `README.md`.
 
 **What if I need information I do not have (a photo, a text, a figure)?**
 Use a placeholder such as `[PHOTO]`, `[TEXT]` or `[METRIC]`, and ask Aitor in
-chat or at `hello@naindev.com`.
+chat or at `contact@naindev.com`.
 
 **Should the site mention Contrast3D?**
 Only if you think it helps. A partners section or a design credit mentioning

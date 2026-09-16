@@ -10,7 +10,7 @@ EARS patterns:
 - Unwanted behaviour: `If <condition>, then the system shall <response>.`
 - Ubiquitous: `The system shall <response>.`
 
-IDs keep the prefixes defined in the source specs (`BR-`, `SEO-`, `LOC-`, `DES-`, `CLM-`, `CASE-`) instead of `REQ-###`, so existing references in specs, tests and commits stay valid. Wording below is condensed; the source spec is authoritative.
+IDs keep the prefixes defined in the source specs (`BR-`, `SEO-`, `LOC-`, `DES-`, `CLM-`, `CASE-`, `MAIL-`) instead of `REQ-###`, so existing references in specs, tests and commits stay valid. Wording below is condensed; the source spec is authoritative.
 
 Status values: `Implemented` (released, evidence recorded in the spec handoff), `Implemented, verification pending`, `Accepted` (process rule with no code artefact yet), `In progress`.
 
@@ -96,3 +96,12 @@ Status values: `Implemented` (released, evidence recorded in the spec handoff), 
 | CASE-008 | When `npm run check` runs, the SEO and localization contracts shall still pass with zero pending and zero unused catalog entries. | specs/007-remove-case-studies | Implemented |
 
 Spec 005 is committed as `c78c854`; production confirmation after deployment is still open in its `tasks.md`. Other homepage claims awaiting owner evidence are tracked in `11-open-questions.md`.
+
+## Contact email (spec 008)
+
+| ID | Requirement | Source | Status |
+| :--- | :--- | :--- | :--- |
+| MAIL-001 | When the site is built, every public contact address in either locale shall be `contact@naindev.com`. | specs/008-unify-contact-email | Implemented |
+| MAIL-002 | When the privacy policy is built, the data controller and data subject rights contacts shall be `contact@naindev.com`. | specs/008-unify-contact-email | Implemented |
+| MAIL-003 | When a source contains `hola@naindev.com` or `hello@naindev.com`, `npm run check` shall fail and name the file. | specs/008-unify-contact-email | Implemented |
+| MAIL-004 | The design brief shall list `contact@naindev.com` as the public email. | specs/008-unify-contact-email | Implemented |

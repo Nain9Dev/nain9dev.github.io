@@ -69,7 +69,7 @@ and implements approved designs in `main`.
 - DES-016: The brief shall include SEO rules for the design (real text, one H1,
   per-service pages, stable URLs, performance budget) and a FAQ for a designer
   without coding knowledge.
-- DES-017: The brief shall list `hello@naindev.com` as the public email, and
+- DES-017: The brief shall list `contact@naindev.com` as the public email, and
   WhatsApp only as a chat button without a visible phone number. The phone
   number shall not be stored in the repository until the site implementation
   adds the chat link.

@@ -694,11 +694,6 @@
     "target": "I transform complex business logic into solid and scalable code implementations.",
     "status": "reviewed"
   },
-  "18f56ef732e8b1d2494140752101640a2ece92da05c068a9b5d6735b86af1a7d": {
-    "source": "El responsable del tratamiento de los datos recopilados en este sitio web es Aitor Nain Mendoza Vallejo (NainDev). Puedes contactarme en cualquier momento a través del correo electrónico: ⟦0⟧hola@naindev.com⟦/0⟧.",
-    "target": "The data controller for the data collected on this website is Aitor Nain Mendoza Vallejo (NainDev). You can contact me at any time via email: ⟦0⟧hola@naindev.com⟦/0⟧.",
-    "status": "reviewed"
-  },
   "18f5d8cad42875258f6f9830dbdf74794fe903a7f28ba3a07febcdf463f9361d": {
     "source": "⟦0⟧Flujos Agénticos (Agentic Workflows):⟦/0⟧ Integración de sistemas multi-agente que pueden razonar, planificar y ejecutar acciones complejas con supervisión y determinismo.",
     "target": "⟦0⟧Agentic Workflows:⟦/0⟧ Integration of multi-agent systems that can reason, plan, and execute complex actions with supervision and determinism.",
@@ -6364,11 +6359,6 @@
     "target": "If you try to process a file ⟦0/⟧ or ⟦1/⟧ of 500MB on the same thread of a traditional REST endpoint (e.g., ⟦2/⟧), three things will happen almost immediately:",
     "status": "reviewed"
   },
-  "f1e947cc98225c9f213802815feb286a75bdb51425aeb4c6e27e9a6c7280d4e4": {
-    "source": "Para ejercer estos derechos, simplemente envía un correo electrónico a ⟦0⟧hola@naindev.com⟦/0⟧ con el asunto \"Derechos RGPD\". Además, en todos los correos electrónicos que recibas encontrarás un enlace directo en el pie de página para ⟦1⟧darte de baja automáticamente⟦/1⟧ (unsuscribe).",
-    "target": "To exercise these rights, simply send an email to ⟦0⟧hola@naindev.com⟦/0⟧ with the subject \"Derechos RGPD\" (GDPR Rights). Every email you receive also includes a direct link in the footer to ⟦1⟧unsubscribe automatically⟦/1⟧.",
-    "status": "reviewed"
-  },
   "f2b326dabe08eddd896a5ee829a7bb6d8165d526586ea45c4207bcf1ce17a727": {
     "source": ".NET, C#, Semantic Kernel, Agentes IA, Clean Architecture, Arquitectura Agéntica",
     "target": ".NET, C#, Semantic Kernel, AI Agents, Clean Architecture, Agentic Architecture",
@@ -6952,6 +6942,16 @@
   "fd5df9d51e240655e7a159fdce16640152b9262600fcedecb550d52e379f0f0f": {
     "source": "“¿Tu plataforma MedTech sufre cuellos de botella al procesar modelos 3D masivos?” ⟦0⟧Agendar auditoría de arquitectura gratuita⟦/0⟧.",
     "target": "“Is your MedTech platform suffering bottlenecks when processing massive 3D models?” ⟦0⟧Schedule a free architecture audit⟦/0⟧.",
+    "status": "reviewed"
+  },
+  "764f23f8de09f48dece75fcb8c66a3ada43a4ab251380d47138c851b05075fb9": {
+    "source": "Para ejercer estos derechos, simplemente envía un correo electrónico a ⟦0⟧contact@naindev.com⟦/0⟧ con el asunto \"Derechos RGPD\". Además, en todos los correos electrónicos que recibas encontrarás un enlace directo en el pie de página para ⟦1⟧darte de baja automáticamente⟦/1⟧ (unsuscribe).",
+    "target": "To exercise these rights, simply send an email to ⟦0⟧contact@naindev.com⟦/0⟧ with the subject \"Derechos RGPD\" (GDPR Rights). Every email you receive also includes a direct link in the footer to ⟦1⟧unsubscribe automatically⟦/1⟧.",
+    "status": "reviewed"
+  },
+  "e665fcf20ab5e8daed5c7554a74a77897b2e5d0569dd764eef0e374df33997d3": {
+    "source": "El responsable del tratamiento de los datos recopilados en este sitio web es Aitor Nain Mendoza Vallejo (NainDev). Puedes contactarme en cualquier momento a través del correo electrónico: ⟦0⟧contact@naindev.com⟦/0⟧.",
+    "target": "The data controller for the data collected on this website is Aitor Nain Mendoza Vallejo (NainDev). You can contact me at any time via email: ⟦0⟧contact@naindev.com⟦/0⟧.",
     "status": "reviewed"
   }
 }

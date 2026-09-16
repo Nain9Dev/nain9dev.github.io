@@ -94,3 +94,12 @@ All tests below are in `scripts/case-studies.test.mjs`, run against the built `d
 | CASE-006 | "CASE-006: terminal commands and runtime data contain no case-study link" | contract | Pass: local `npm run check` 2026-09-16 |
 | CASE-007 | "CASE-007: the sitemap lists no case-study URL" | contract | Pass: local `npm run check` 2026-09-16 |
 | CASE-008 | `npm run check` composition: `check-seo.mjs` (130 pages, 22 redirects), `check-locales.mjs` (65 pairs), build fails on missing translations; 0 pending and 0 unused entries recorded in the spec 007 handoff | contract + manual | Pass: local `npm run check` 2026-09-16 |
+
+## Contact email (spec 008)
+
+| Requirement | Test | Type | Last result |
+| :--- | :--- | :--- | :--- |
+| MAIL-001 | `scripts/contact-email.test.mjs` "sources and runtime data publish no retired contact address" | unit | Pass: local `npm run check` 2026-09-16 |
+| MAIL-002 | `scripts/contact-email.test.mjs` "privacy policy names the public contact address" | unit | Pass: local `npm run check` 2026-09-16 |
+| MAIL-003 | Same scan test; fails with the offending file names | unit | Pass: failed before the change on `privacidad.astro` and `checklist-ia.astro` |
+| MAIL-004 | Manual review of `design/README.md` | manual | Pass 2026-09-16 |

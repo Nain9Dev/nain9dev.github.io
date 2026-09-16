@@ -6,6 +6,8 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ### Added
 
+- Spec 008: single public contact address `contact@naindev.com` in the privacy policy, checklist fallback and design brief, replacing `hola@` and `hello@`.
+
 - Backup branch `naindev/legacy` at `77317aa`, the published site before case study removal and redesign.
 
 - Lifecycle documentation under `docs/` and feature template `specs/000-template-feature/` (ADR-0001, approved 2026-09-16).
