@@ -324,6 +324,41 @@ If you prefer an app for frequent uploads, install
 `Nain9Dev/nain9dev.github.io`, switch to `design/home-redesign`, copy your files
 into `design/home-redesign/`, then **Commit** and **Push origin**.
 
+### Committing with Git or an AI assistant
+
+**David is authorized to commit and push to `design/home-redesign`** (and any
+other `design/*` branch). This is Aitor's explicit permission as repository
+owner. If you use an AI coding assistant, it may commit and push for you, but
+**only** to `design/home-redesign`, never to `main` or other branches.
+
+Instruction you can give your assistant:
+
+> You are working in the `Nain9Dev/nain9dev.github.io` repository as
+> `davidesuarez`. The owner authorizes commits and pushes to the branch
+> `design/home-redesign` only. Work inside `design/home-redesign/`. Never
+> commit to `main`, never force-push, never change files outside `design/`.
+
+Commands (run inside the cloned repository):
+
+```bash
+git fetch origin
+git switch design/home-redesign
+git pull origin design/home-redesign
+git add design/home-redesign
+git commit -m "design: add home proposal"
+git push origin design/home-redesign
+```
+
+If the push fails, check these in order:
+
+| Symptom | Cause | Fix |
+| :--- | :--- | :--- |
+| `Permission denied` or `403` | Git is signed in with another GitHub account | Run `gh auth status` or check the credential manager; sign in as `davidesuarez` (`gh auth login`) |
+| `rejected ... protected` / `GH013` | You are pushing to `main` or a branch not starting with `design/` | `git switch design/home-redesign` and push that branch |
+| `non-fast-forward` / `fetch first` | Your copy is behind | `git pull origin design/home-redesign`, then push again |
+| The assistant refuses to commit | Its own safety settings | Give it the instruction above, or approve the commit when it asks |
+| Nothing works | | Use the browser upload (above) and send Aitor a screenshot of the error |
+
 ### New topics later
 
 Ask Aitor for a new branch (for example `design/services-page`), or create one

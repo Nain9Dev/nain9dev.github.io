@@ -79,6 +79,7 @@ Status values: `Implemented` (released, evidence recorded in the spec handoff), 
 | DES-019 | The brief shall state markets, client problems, the free call entry offer, no public prices, part-time remote availability, no testimonials and the kept checklist. | specs/004-design-collaboration | Implemented |
 | DES-020 | The brief shall authorize logo and identity redesign keeping the NainDev name, with trademark-ready rules (OEPM) and vector deliverables that work at 16 px. | specs/004-design-collaboration | Implemented |
 | DES-021 | The brief shall state the verbal agreement on logo registration, the written rights assignment required before filing (designer keeps credit) and the fallback to the current logo. | specs/004-design-collaboration | Implemented |
+| DES-022 | The brief shall authorize the designer and his AI assistant to commit and push to `design/home-redesign` only, with commands and push troubleshooting. | specs/004-design-collaboration | Implemented |
 
 ## Content integrity
 

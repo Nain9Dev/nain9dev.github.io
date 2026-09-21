@@ -90,3 +90,6 @@ and implements approved designs in `main`.
   owner registering the redesigned logo, that a written assignment of the logo
   rights is signed before filing while the designer keeps the design credit, and
   that without it the current logo is kept.
+- DES-022: The brief shall explicitly authorize the designer, and an AI
+  assistant acting for him, to commit and push to `design/home-redesign` only,
+  with the exact commands and a troubleshooting table for push failures.
