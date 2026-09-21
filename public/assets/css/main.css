@@ -1388,7 +1388,6 @@ h3 {
 @media (max-width: 480px) {
   .card-grid-three,
   .project-grid,
-  .case-studies-grid,
   .impact-metrics-grid {
     grid-template-columns: 1fr;
   }
@@ -1547,19 +1546,7 @@ h3 {
   }
 }
 
-/* --- Case Studies --- */
-.case-studies-grid {
-  display: grid;
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-@media (min-width: 64em) {
-  .case-studies-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
+/* --- Content cards (shared by privacy, resource and technology pages) --- */
 .case-study-card {
   display: flex;
   flex-direction: column;
@@ -1577,53 +1564,6 @@ h3 {
     box-shadow: var(--shadow-glow);
     border-color: rgba(59, 130, 246, 0.4);
   }
-}
-
-.case-study-header {
-  margin-bottom: 2rem;
-  border-bottom: 1px solid var(--color-line);
-  padding-bottom: 1.5rem;
-}
-
-.case-study-eyebrow {
-  font-size: 0.875rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--color-primary-strong);
-  margin-bottom: 0.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.case-study-title {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  line-height: 1.2;
-  margin: 0;
-  color: var(--color-text);
-}
-
-.case-study-body h4 {
-  font-family: var(--font-sans);
-  font-size: 1.1rem;
-  color: #F0A45D;
-  margin: 0 0 0.75rem 0;
-  font-weight: 600;
-}
-
-.case-study-section {
-  margin-bottom: 1.5rem;
-}
-
-.case-study-section:last-child {
-  margin-bottom: 0;
-}
-
-.case-study-section p {
-  color: var(--color-text-soft);
-  margin: 0;
 }
 
 .case-study-list {
@@ -1648,25 +1588,6 @@ h3 {
   top: 0;
   color: var(--color-primary);
   font-weight: bold;
-}
-
-.results-list li::before {
-  content: "✓";
-  color: #10B981;
-}
-
-.case-study-diagram {
-  margin: 1.5rem 0;
-  padding: 1.5rem;
-  background-color: var(--color-surface);
-  border-radius: var(--radius-medium);
-  border: 1px solid var(--color-line);
-  overflow-x: auto;
-}
-
-.case-study-diagram .mermaid {
-  display: flex;
-  justify-content: center;
 }
 
 /* --- Impact Metrics --- */

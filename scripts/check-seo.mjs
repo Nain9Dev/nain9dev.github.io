@@ -111,9 +111,11 @@ for (const file of files.filter(file => file.endsWith('.html'))) {
   }
   if (path === '/index.html') {
     check(title.includes('NainDev') && title.includes('Aitor Nain'), 'Home title must identify the brand and author');
-    for (const href of ['/servicios/', '/casos/', '/blog/']) {
+    for (const href of ['/servicios/', '/blog/']) {
       check(header && descendants(header).some(node => node.tagName === 'a' && attr(node, 'href') === href), `Header must link to ${href}`);
     }
+    // Case studies were retired (specs/007-remove-case-studies).
+    check(header && !descendants(header).some(node => /^\/casos(?:\/|$)/.test(attr(node, 'href') ?? '')), 'Header must not link to retired case studies');
   }
 }
 

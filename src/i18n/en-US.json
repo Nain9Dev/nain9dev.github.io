@@ -19,11 +19,6 @@
     "target": "I explain what was modified, how it was tested, and what remains pending.",
     "status": "reviewed"
   },
-  "00a79a8aa0678ebd0608a544f8e9ce8cf1bd703301ac5cb8b08322f99d67a25d": {
-    "source": "Se incrementó la complejidad inicial y la curva de aprendizaje del equipo, pero se garantizó la seguridad en transacciones financieras.",
-    "target": "Initial complexity and the team's learning curve increased, but security in financial transactions was guaranteed.",
-    "status": "reviewed"
-  },
   "00bc108dcc4242a0464bf7b75845a4e80aece09b82f8c19c101bb78cd12569cc": {
     "source": "Por ⟦0⟧Aitor Nain Mendoza Vallejo⟦/0⟧ ·⟦1⟧23 de agosto de 2026⟦/1⟧",
     "target": "By ⟦0⟧Aitor Nain Mendoza Vallejo⟦/0⟧ ·⟦1⟧August 23, 2026⟦/1⟧",
@@ -47,11 +42,6 @@
   "01fad993ff61aca9a1f2f07100c95eb1559d8b6440a00cb974a92810a6b5a2dc": {
     "source": "React",
     "target": "React",
-    "status": "reviewed"
-  },
-  "0211078170f4bbd0e462ac2454d1c6397d780200cea19b0012dcd50d7ba76f4b": {
-    "source": "- Latencia:",
-    "target": "- Latency:",
     "status": "reviewed"
   },
   "02521b6e85cd7e7b0ca76761aab8fd7e1f3c20265267b11dc5e44a2029478a88": {
@@ -179,16 +169,6 @@
     "target": "⟦0/⟧ Measurable Results",
     "status": "reviewed"
   },
-  "06b33c1a4ea3ccafb00f2a07e47ffd5d71c94fa39a13f8a6704b233a226f1d29": {
-    "source": "Sistema de Validación y Corrección 3D (IA)",
-    "target": "3D Validation and Correction System (AI)",
-    "status": "reviewed"
-  },
-  "06ebfe898273ce4e8f34d72bd765aa7c1e99ff629c5ea0cbcc29a7c40a1c724b": {
-    "source": "⟦0⟧RabbitMQ como Event Bus:⟦/0⟧ Elegimos RabbitMQ sobre Kafka porque necesitábamos un enrutamiento complejo (Direct/Topic exchanges) basado en los metadatos del modelo 3D y reconocimiento explícito (ACK) para evitar pérdida de trabajos, no persistencia a largo plazo del log de eventos.",
-    "target": "⟦0⟧RabbitMQ as Event Bus:⟦/0⟧ We chose RabbitMQ over Kafka because we needed complex routing (Direct/Topic exchanges) based on the 3D model's metadata and explicit acknowledgment (ACK) to prevent job loss, not long-term persistence of the event log.",
-    "status": "reviewed"
-  },
   "06ef99353430f97d212f3ff64eaedfb94fc878ac8dbdd8c372a967fb7c7b1d41": {
     "source": "backend IA, arquitectura agentes, integración LLM, C# AI",
     "target": "backend AI, agent architecture, LLM integration, C# AI",
@@ -227,11 +207,6 @@
   "0804f9b5ae98b2d7d52ff7332465e0b453d10daf924a39ccc135b1354f6fddd5": {
     "source": "Disparar Evento Asíncrono de Prueba",
     "target": "Trigger Asynchronous Test Event",
-    "status": "reviewed"
-  },
-  "08d15f1bc0048c561536931da3940312bae0a6f3609bde521159607506436712": {
-    "source": "Casos de Arquitectura Backend 3D e IA",
-    "target": "Case Studies in 3D and AI Backend Architecture",
     "status": "reviewed"
   },
   "093e7d5fdbaacfa92448861b11075b3fba532a07d945b49a44919252f5e830ad": {
@@ -384,16 +359,6 @@
     "target": "THE CHALLENGE:",
     "status": "reviewed"
   },
-  "0e2084fb853f7c4d718b755cf3e42f1d9529fa3b55b78a46064b81054b45a244": {
-    "source": "⟦0⟧¿Tu plataforma sufre cuellos de botella inexplicables o problemas de integridad de datos al escalar?⟦/0⟧ Los problemas de concurrencia y arquitectura rara vez se solucionan añadiendo más servidores. Si necesitas desbloquear el rendimiento de tu infraestructura B2B, ⟦1⟧agenda una auditoría técnica conmigo⟦/1⟧ y diseñemos un backend que sí pueda seguir el ritmo de tu negocio.",
-    "target": "⟦0⟧Is your platform suffering from inexplicable bottlenecks or data integrity issues when scaling?⟦/0⟧ Concurrency and architecture problems are rarely solved by adding more servers. If you need to unlock your B2B infrastructure's performance, ⟦1⟧schedule a technical audit with me⟦/1⟧ and let's design a backend that can keep up with your business.",
-    "status": "reviewed"
-  },
-  "0e373850817d529c84b3c9672689f0bbb5629812be21958db35f876bcbb1a304": {
-    "source": "Proceso completado en [REDACTED] ms.",
-    "target": "Process completed in [REDACTED] ms.",
-    "status": "reviewed"
-  },
   "0e42cc17ba8fdab9407fd715644d6a570f6835408c0dab2b0172ca778ab8739b": {
     "source": "Sistemas que se comportan de forma predecible",
     "target": "Predictably behaving systems",
@@ -474,16 +439,6 @@
     "target": "The Shift: Predictable Engineering vs. Chaos",
     "status": "reviewed"
   },
-  "10c01243c8319939e03383b01fd223c8170928e1334ca1ab10c5c3d1f248907c": {
-    "source": "Implementación de un sistema de caché distribuida (Redis) para consultas repetitivas.",
-    "target": "Implementation of a distributed caching system (Redis) for repetitive queries.",
-    "status": "reviewed"
-  },
-  "10d06af0ea721af40eea682e80819ce78642bda2fe3d6529db971da64d433e61": {
-    "source": "un proyecto confidencial del sector industrial",
-    "target": "a confidential industrial sector project",
-    "status": "reviewed"
-  },
   "10d21df51afa0fb4e0aa5b2e6da3f8555d35440d37cbc9ac1334d8a877c3bbdd": {
     "source": "⟦0⟧GitHub ⟦1⟧↗⟦/1⟧⟦/0⟧⟦2⟧LinkedIn ⟦3⟧↗⟦/3⟧⟦/2⟧",
     "target": "⟦0⟧GitHub ⟦1⟧↗⟦/1⟧⟦/0⟧⟦2⟧LinkedIn ⟦3⟧↗⟦/3⟧⟦/2⟧",
@@ -497,11 +452,6 @@
   "116b3d50fd9dbc6f268866ead594ceb940727c95af8304d2d2b0009b7f4f83a3": {
     "source": "Proyectos y Servicios con Astro",
     "target": "Projects and Services with Astro",
-    "status": "reviewed"
-  },
-  "11702af358e0b861ae18d98daf08dbcfc0ee3b7f51544f81b2a5c5a11e25fea0": {
-    "source": "⟦0⟧Resultado:⟦/0⟧ Descarga del 85% de las lecturas hacia Redis y operaciones de escritura asíncronas vía RabbitMQ.",
-    "target": "⟦0⟧Result:⟦/0⟧ 85% of reads offloaded to Redis, with asynchronous writes through RabbitMQ.",
     "status": "reviewed"
   },
   "11b9f88cc08d6b901193b13548d6b7b2ec18bcc092ea5fbd4b3522145c3ee994": {
@@ -532,11 +482,6 @@
   "12c1b5688fb3041c644f954d2f37e66d06ef32b0e6da5eb02f473f77459ab525": {
     "source": "El modelo devuelve un JSON malformado (hallucination)?",
     "target": "Does the model return malformed JSON (hallucination)?",
-    "status": "reviewed"
-  },
-  "12f02a17e63a1f730ab372fc96649d897b69605d2447a206d8934311162f9151": {
-    "source": "Implementación iterativa con pruebas automatizadas y monitorización (Zero Downtime).",
-    "target": "Iterative implementation with automated testing and monitoring (Zero Downtime).",
     "status": "reviewed"
   },
   "130ceb4033c01751c30bc982bcd01f883f3c59bedd6418fbf57065256e1f2297": {
@@ -602,11 +547,6 @@
   "1525b187941e90eac50995b5e406467ced064907b2b5fbdae7adca64ab50eed7": {
     "source": "En un sistema tradicional (ej. un CRUD básico), esto funciona. En un sistema de IA generativa y validación 3D, ⟦0⟧es una sentencia de muerte para la escalabilidad⟦/0⟧. Los análisis 3D y de inferencia de ML toman tiempo (a menudo segundos o minutos). Si bloqueas registros en la base de datos principal mientras la IA “piensa” o mientras esperas respuestas de colas asíncronas, agotarás el pool de conexiones de tu base de datos y la latencia del sistema entero se multiplicará.",
     "target": "In a traditional system (e.g., a basic CRUD), this works. In a generative AI and 3D validation system, ⟦0⟧it is a death sentence for scalability⟦/0⟧. 3D analysis and ML inference take time (often seconds or minutes). If you lock records in the main database while the AI is 'thinking' or while waiting for responses from asynchronous queues, you will exhaust your database connection pool, and the latency of the entire system will multiply.",
-    "status": "reviewed"
-  },
-  "1526c42d8e5596fde41e209f9dd86abce55de81fb654ef756464b356863c9137": {
-    "source": ">> FETCHING TELEMETRY DATA...",
-    "target": ">> FETCHING TELEMETRY DATA...",
     "status": "reviewed"
   },
   "157664c92d6c01ae7065f4be90ae0359e3d79e5abc1a5d9a61048fc35d5f85f0": {
@@ -704,11 +644,6 @@
     "target": "Portfolio",
     "status": "reviewed"
   },
-  "186fd60232e2dd78bd0a666a4658ee21d6632d06393460f6880ac8a9c44d7b0e": {
-    "source": "⟦0⟧⟦1⟧Plataforma SaaS · Backend Specialist⟦/1⟧⟦2⟧Optimización de rendimiento y escalabilidad horizontal⟦/2⟧⟦3⟧Optimización de rendimiento, sharding y escalabilidad horizontal para una plataforma SaaS crítica.⟦/3⟧⟦/0⟧",
-    "target": "⟦0⟧⟦1⟧SaaS Platform · Backend Specialist⟦/1⟧⟦2⟧Performance and Horizontal Scalability Optimization⟦/2⟧⟦3⟧Performance optimization, sharding, and horizontal scalability for a critical SaaS platform.⟦/3⟧⟦/0⟧",
-    "status": "reviewed"
-  },
   "18885f27b5af9012df19e496460f9294d5ab76128824c6f993787004f6d9a7db": {
     "source": "Python",
     "target": "Python",
@@ -724,19 +659,9 @@
     "target": "NainDev | Aitor Nain · Backend, 3D, and AI Architecture",
     "status": "reviewed"
   },
-  "1896a1fa37504aad5f528e533708c4e68634787e8f510b54146e5a91669071a1": {
-    "source": "La interfaz pertenece a la capa de Aplicación, pero la implementación residirá en Infraestructura. Esto permite cambiar SQL Server por PostgreSQL si el negocio lo requiere mañana, sin tocar una sola línea de lógica de validación.",
-    "target": "The interface belongs to the Application layer, but the implementation will reside in Infrastructure. This allows changing from SQL Server to PostgreSQL if the business requires it tomorrow, without touching a single line of validation logic.",
-    "status": "reviewed"
-  },
   "18ef5173092ba7c586eefaf480acf2906f6f04f2a0df706aab7312056a58de86": {
     "source": "Transformo lógica de negocio compleja en implementaciones de código sólidas y escalables.",
     "target": "I transform complex business logic into solid and scalable code implementations.",
-    "status": "reviewed"
-  },
-  "18f56ef732e8b1d2494140752101640a2ece92da05c068a9b5d6735b86af1a7d": {
-    "source": "El responsable del tratamiento de los datos recopilados en este sitio web es Aitor Nain Mendoza Vallejo (NainDev). Puedes contactarme en cualquier momento a través del correo electrónico: ⟦0⟧hola@naindev.com⟦/0⟧.",
-    "target": "The data controller for the data collected on this website is Aitor Nain Mendoza Vallejo (NainDev). You can contact me at any time via email: ⟦0⟧hola@naindev.com⟦/0⟧.",
     "status": "reviewed"
   },
   "18f5d8cad42875258f6f9830dbdf74794fe903a7f28ba3a07febcdf463f9361d": {
@@ -909,11 +834,6 @@
     "target": "Depending on the complexity and number of pages, a corporate website refresh is usually deployed to production ⟦0⟧3 to 5 weeks⟦/0⟧ after our initial kickoff meeting.",
     "status": "reviewed"
   },
-  "1f47351a93b2d06f85d98b5159341d21048d53b065d6f8ed5a4893ab0bf39ddf": {
-    "source": "Servicios y casos de estudio reales donde he implementado Ollama en producción.",
-    "target": "Services and real case studies where I have implemented Ollama in production.",
-    "status": "reviewed"
-  },
   "1f4f9a6ab3b106f7d87655454159fc825fc8a0948c86100ec42317c50181cf4b": {
     "source": "Sistemas de Validación Geométrica de Mallas 3D en la Nube",
     "target": "Cloud-Based 3D Mesh Geometric Validation Systems",
@@ -922,11 +842,6 @@
   "1fc0c785332e80fb931c7a11323f27abb47a0a7f8bbdf23ffca3cac46497b21c": {
     "source": "Node.js",
     "target": "Node.js",
-    "status": "reviewed"
-  },
-  "1ff986b93cca09d0ee39614c12370e2aa4344bab1b33463a7fa84f85a8f90aa7": {
-    "source": "⟦0⟧Agendar Auditoría Gratuita⟦/0⟧",
-    "target": "⟦0⟧Schedule Free Audit⟦/0⟧",
     "status": "reviewed"
   },
   "1ffebed5652658dc261988c0f0dc6c1ed8d333c45df4f33bafc02a26096cf5f1": {
@@ -942,11 +857,6 @@
   "208d1684792018eeaef1b9e76fa5390f1b86f8f66fab857b1407e55680a86896": {
     "source": "why-me",
     "target": "why-me",
-    "status": "reviewed"
-  },
-  "2092a5cf77b310a7277dd2de6adcf8d096e5ac9f5480cb2cb1d64c392147ecad": {
-    "source": "Casos de Arquitectura Backend 3D e IA | NainDev",
-    "target": "3D and AI Backend Architecture Case Studies | NainDev",
     "status": "reviewed"
   },
   "20af224f8880138e9b4e3731d54e12a1a493a29a64bbbef8079733faed7b052c": {
@@ -1004,11 +914,6 @@
     "target": "Experience with ⟦0⟧Three.js⟦/0⟧",
     "status": "reviewed"
   },
-  "2275b582346cb58448571498e890f5328f8da2d3b17ee032aa7c260fd92edfa2": {
-    "source": "Casos técnicos sobre arquitectura backend, validación 3D, rendimiento e IA, con decisiones, límites y resultados explicados por Aitor Nain.",
-    "target": "Technical case studies on backend architecture, 3D validation, performance, and AI, with decisions, limitations, and results explained by Aitor Nain.",
-    "status": "reviewed"
-  },
   "22a613b07e5a3dd1f00a269f6c1cbb0c430f1f37bcac7e8b5e0a6aa595a78855": {
     "source": "20 ago 2026",
     "target": "Aug 20, 2026",
@@ -1049,11 +954,6 @@
     "target": "By ⟦0⟧Aitor Nain Mendoza Vallejo⟦/0⟧ ·⟦1⟧August 20, 2026⟦/1⟧",
     "status": "reviewed"
   },
-  "25853f3ba53f538209594b5704ee9460721d6d03b85e46c71524804d08052926": {
-    "source": "Descubre cómo utilizamos ONNX en arquitecturas de backend escalables y sistemas críticos 3D.",
-    "target": "Discover how we use ONNX in scalable backend architectures and critical 3D systems.",
-    "status": "reviewed"
-  },
   "25a473ab59624de919f90be36582a14337913b139cd86916ebc45a9497e8970f": {
     "source": "API de Operaciones de Pólizas",
     "target": "Policy Operations API",
@@ -1087,11 +987,6 @@
   "26138d8a757dd1dc09df6301bc4a47f0a1f7f785a725ae72574c6862127a2201": {
     "source": "ia",
     "target": "ai",
-    "status": "reviewed"
-  },
-  "2626aa1a067301832199f8478c1df99fbf8f6ecf8105f6f37812e1074ba2b8c2": {
-    "source": "Casos de Estudio",
-    "target": "Case studies",
     "status": "reviewed"
   },
   "262d849833fef1f0287343d4ee99d8d74bfe9788938c7df847151ce8f13c6a65": {
@@ -1189,11 +1084,6 @@
     "target": "Key Benefits",
     "status": "reviewed"
   },
-  "2932294577cb6b70e0c4648a175aca564f2267e3f733fefb60478d5e3e08ed26": {
-    "source": "Tiempo de testing unitario reducido de 45m a 3m.",
-    "target": "Unit testing time reduced from 45m to 3m.",
-    "status": "reviewed"
-  },
   "29908dee442f0075a331f5721466e9220c3cf297737ac83cea1011ce5f87012d": {
     "source": "⟦0⟧Despliegue de Nuevas ⟦1⟧Features⟦/1⟧ Aisladas:⟦/0⟧ Creación de un microservicio moderno de Inteligencia Artificial que lee datos del monolito legacy de forma segura (a través de APIs o colas) sin alterar el código frágil antiguo.",
     "target": "⟦0⟧Deploying New ⟦1⟧Features⟦/1⟧ in Isolation:⟦/0⟧ Creating a modern Artificial Intelligence microservice that reads data from the legacy monolith safely (via APIs or queues) without altering the old fragile code.",
@@ -1202,11 +1092,6 @@
   "29e2b9128873063866e4b1565e6063be842f69976dcb36b80cbb4f71ac4abf8c": {
     "source": "Buscamos en una base de datos vectorial (como Azure AI Search o Qdrant) si existe un vector previo con una similitud de coseno superior al 98%.",
     "target": "We search a vector database (like Azure AI Search or Qdrant) to see if there is a previous vector with a cosine similarity greater than 98%.",
-    "status": "reviewed"
-  },
-  "29f2df87f5660f095ca3a4dde8a4116f0e079d73327bba14979312603dac22fa": {
-    "source": "Caso de Éxito Destacado",
-    "target": "Featured Success Story",
     "status": "reviewed"
   },
   "2a17bb6f6f5c98e33418042d57351dcf9750c8ea6ced0d7325c6516f731529f7": {
@@ -1314,11 +1199,6 @@
     "target": "Projects and Services with Vector Databases",
     "status": "reviewed"
   },
-  "2dccf5b4853c8c3597f6287bdabbab684cf7b4ed2d0abbfb647fbf4f0d1ad72c": {
-    "source": "- Estrategias de sharding, caché distribuida y concurrencia sin bloqueos.",
-    "target": "- Sharding, distributed caching, and non-blocking concurrency strategies.",
-    "status": "reviewed"
-  },
   "2dd9eb7d9f0c11864fe058aaa0f3fbae5b1887555c9bc1f9ff84877d75f446a5": {
     "source": "FastAPI",
     "target": "FastAPI",
@@ -1329,11 +1209,6 @@
     "target": "In a ⟦0⟧Clean Architecture⟦/0⟧ context, AI resides strictly in the ⟦1⟧Infrastructure⟦/1⟧ layer. The 'Brain' of your application (the ⟦2⟧Domain⟦/2⟧ and ⟦3⟧Application⟦/3⟧ layers) dictates the rules, validates agent proposals, and maintains absolute control.",
     "status": "reviewed"
   },
-  "2df429c6133109cb7f3a7a36cc2d46e7fc2188c6254d4b7db14de2adb0de9617": {
-    "source": "De picos de latencia inmanejables a procesamiento ultra-rápido",
-    "target": "From unmanageable latency spikes to ultra-fast processing",
-    "status": "reviewed"
-  },
   "2e26b35583680b640675bcf0b9bdc06fd0dcf565c888b70b53a88f977ce508ce": {
     "source": "29 ago 2026",
     "target": "Aug 29, 2026",
@@ -1342,11 +1217,6 @@
   "2e638b16942965af29fbe528ddee85529d6c6232f53d1647dfdf0d559040e0ab": {
     "source": "Reviso el código afectado y elijo la solución más sencilla que encaje.",
     "target": "I review the affected code and choose the simplest solution that fits.",
-    "status": "reviewed"
-  },
-  "2e91c3f9833ed36dc98ea8081909bfaf243eabc07ec76974f8208903a1f64fbd": {
-    "source": "Proyectos y Servicios con Kubernetes",
-    "target": "Projects and Services with Kubernetes",
     "status": "reviewed"
   },
   "2ea3a5df66342183ce90abf945300b9db596a7cc080018f9b534803c8515cd18": {
@@ -1369,11 +1239,6 @@
     "target": "In the context of 3D validation with AI (you can see an implementation example in the ⟦0⟧backend architecture for 3D validation in C#⟦/0⟧), this means that our rules on what constitutes a 'valid' mesh should know absolutely nothing about how the AI runs, where the data comes from, or what web framework we use to expose the service.",
     "status": "reviewed"
   },
-  "2f6f075013e082f441294ee64952b701d0ffec658caaecda296c360466440520": {
-    "source": "Servicios y casos de estudio reales donde he implementado Docker en producción.",
-    "target": "Services and real case studies where I have implemented Docker in production.",
-    "status": "reviewed"
-  },
   "2f814962d39e9710b5e6108467f4c19887bede407cf210ab06ed07c95aa1aa9a": {
     "source": "Usar ⟦0⟧Azure Service Bus⟦/0⟧ o RabbitMQ para encolar los trabajos de optimización.",
     "target": "Using ⟦0⟧Azure Service Bus⟦/0⟧ or RabbitMQ to queue optimization jobs.",
@@ -1387,16 +1252,6 @@
   "2fd7272ce58936de3b80732964778fa0b3b86716e071c44e84661dabf78d28a3": {
     "source": "La fase de migración SEO es sagrada. Todo el contenido estratégico se preserva. Configuramos mapas de redirecciones (301) para que Google traslade tu autoridad antigua a las nuevas URLs y te premie por la mejora radical de velocidad.",
     "target": "The SEO migration phase is sacred. All strategic content is preserved. We configure redirect maps (301) so that Google transfers your old authority to the new URLs and rewards you for the radical speed improvement.",
-    "status": "reviewed"
-  },
-  "2ffd76618d95becf442ba3f7a8f63e17cdf44601acdd58ef3df01471cc1a8b5a": {
-    "source": "Arquitectura basada en Agentes",
-    "target": "Agent-Based Architecture",
-    "status": "reviewed"
-  },
-  "3003176aa5ef38ab2e30e5150679130136addf184c8c67d9bdf8f5a751c1d1f4": {
-    "source": "Implementamos un enfoque estricto basado en ⟦0⟧Clean Architecture⟦/0⟧ y ⟦1⟧Domain-Driven Design (DDD)⟦/1⟧ usando el ecosistema .NET (C#). Este diseño nos permitió aislar el dominio puro (geometría) de las influencias externas (infraestructura y APIs de IA).",
-    "target": "We implemented a strict approach based on ⟦0⟧Clean Architecture⟦/0⟧ and ⟦1⟧Domain-Driven Design (DDD)⟦/1⟧ using the .NET (C#) ecosystem. This design allowed us to isolate the pure domain (geometry) from external influences (infrastructure and AI APIs).",
     "status": "reviewed"
   },
   "30067c279d624ecc8e0717a37ace2f48b746bf798e135f39deef72bdb934fd68": {
@@ -1504,11 +1359,6 @@
     "target": "Strategy 1: Semantic Caching",
     "status": "reviewed"
   },
-  "3259bde8b2fe8e25c63485b0dc4ac776bcf03a240a973cfaf7600f67aedd3e33": {
-    "source": "El monolito actual sufría de un alto acoplamiento entre la capa de presentación y la base de datos, provocando que cualquier cambio de regla de negocio rompiera múltiples endpoints.",
-    "target": "The current monolith suffered from high coupling between the presentation layer and the database, causing any business rule change to break multiple endpoints.",
-    "status": "reviewed"
-  },
   "326dc1b41f06a70728c7b0252702ef69dbdf16e570dd260327da22b973033d87": {
     "source": "⟦0⟧Geometría Inválida (CPU Bound):⟦/0⟧ Detectar si una malla es ⟦1⟧Manifold⟦/1⟧ (estanca, sin agujeros) requiere recorrer miles o millones de vértices y calcular sus aristas adyacentes.",
     "target": "⟦0⟧Invalid Geometry (CPU Bound):⟦/0⟧ Determining whether a mesh is ⟦1⟧Manifold⟦/1⟧ (watertight, with no holes) requires traversing thousands or millions of vertices and calculating their adjacent edges.",
@@ -1542,11 +1392,6 @@
   "341e3cfe18ba10acf62a4f859289e2bc0e3d13523f84239747fdfac6e1884334": {
     "source": "Si hay un ⟦0⟧hit⟦/0⟧, devolvems la respuesta cacheada instantáneamente. El coste es cercano a $0 y la latencia baja de 4000ms a 50ms.",
     "target": "If there is a ⟦0⟧hit⟦/0⟧, we return the cached response instantly. The cost is close to $0 and the latency drops from 4000ms to 50ms.",
-    "status": "reviewed"
-  },
-  "347bf65c232fb51a362a86aaa5b4ff0fd49b16d043dcf4ad629a1840acaa961f": {
-    "source": "Disponibilidad inmediata para consultoría técnica y arquitecturas .NET de misión crítica.",
-    "target": "Immediate availability for technical consulting and mission-critical .NET architectures.",
     "status": "reviewed"
   },
   "34ab9ce8127e8ad29fe4782e40d56987ccdc6a560ca7f034710ebda398f55b2e": {
@@ -1584,11 +1429,6 @@
     "target": "Discover how we use Azure OpenAI in scalable backend architectures and critical 3D systems.",
     "status": "reviewed"
   },
-  "356935d4ea170ea5e6c6d78e607efcd510476a6d799a03a43e00efb5c8dec4e1": {
-    "source": "⟦0⟧ONNX Runtime en lugar de APIs REST externas:⟦/0⟧ En lugar de enviar la geometría por la red para que un microservicio en Python validara los vértices, integramos ONNX Runtime nativamente en .NET. ⟦1⟧Trade-off:⟦/1⟧ Aumentó el consumo de RAM en los workers, pero eliminó la latencia de red, haciendo la validación un 400% más rápida.",
-    "target": "Using ⟦0⟧ONNX Runtime instead of external REST APIs:⟦/0⟧ Instead of sending the geometry over the network for a Python microservice to validate the vertices, we integrated ONNX Runtime natively into .NET. ⟦1⟧Trade-off:⟦/1⟧ Increased RAM consumption in the workers, but eliminated network latency, making validation 400% faster.",
-    "status": "reviewed"
-  },
   "357e7188a643a3f15aa4c5829ab5dc22a0c4d8391d399e1ec0b9f225858c2581": {
     "source": ".NET",
     "target": ".NET",
@@ -1602,11 +1442,6 @@
   "361f039be5b483e4905bf9a01de3b464c11bfffb94ee2df37b69eb0aba54db39": {
     "source": "Proyectos y Servicios con OpenAI API",
     "target": "Projects and Services with OpenAI API",
-    "status": "reviewed"
-  },
-  "362fe1b9666951683843b74cdd12215b3dbc8f1d86a6ae76a85cd3e6b3f10b2f": {
-    "source": "Uptime: 99.97% - Todos los sistemas operando con normalidad.",
-    "target": "Uptime: 99.97% - All systems operating normally.",
     "status": "reviewed"
   },
   "3642b50a0afbcf6d35b5defa6ae71a949892829c59fc5fe548099527b2200cfe": {
@@ -1649,11 +1484,6 @@
     "target": "3D and AI Backend Architecture Services",
     "status": "reviewed"
   },
-  "376b0331948340e0774b7e79d09bfcdf7551caae3d06a9acb7cb5bb30ff05e38": {
-    "source": "Inmutabilidad desde la capa de presentación. Usamos ⟦0/⟧ en C# para garantizar que la solicitud no sea mutada durante su transporte.",
-    "target": "Immutability from the presentation layer. We use ⟦0/⟧ in C# to guarantee that the request is not mutated during transport.",
-    "status": "reviewed"
-  },
   "376c1c14426068d6c90b5d6cb384861b1dabc1eb782d1363c759f25b0cddb2d6": {
     "source": "Proyectos y Servicios con RabbitMQ",
     "target": "Projects and Services with RabbitMQ",
@@ -1674,19 +1504,9 @@
     "target": "⟦0⟧⟦1⟧AI Architecture for Fintech: Security and Precision⟦/1⟧⟦2⟧Design and development of backend architectures for generative AI in the Fintech sector. Compliance, Zero-Trust security, and guaranteed low latency.⟦/2⟧⟦/0⟧⟦3⟧⟦4⟧Generative AI Architecture for SaaS Startups⟦/4⟧⟦5⟧Design and implementation of architectures for B2B SaaS with LLMs and generative AI, security, low latency, and deterministic patterns.⟦/5⟧⟦/3⟧⟦6⟧⟦7⟧Critical Backend Systems for Logistics⟦/7⟧⟦8⟧Backend architecture for logistics and supply chain: fault tolerance, event processing, and scalability with C# and .NET.⟦/8⟧⟦/6⟧⟦9⟧⟦10⟧Scalable Backend for 3D Model Processing on Azure⟦/10⟧⟦11⟧Design and development of backend architectures in .NET for massive processing, optimization, and validation of 3D meshes using Azure infrastructure.⟦/11⟧⟦/9⟧⟦12⟧⟦13⟧Migrating Monoliths to Microservices with AI in C#⟦/13⟧⟦14⟧Deep refactoring and architectural migration service: from legacy monolithic systems (SQL/C#) to AI-ready distributed ecosystems.⟦/14⟧⟦/12⟧⟦15⟧⟦16⟧Extreme Performance Optimization in .NET REST APIs⟦/16⟧⟦17⟧Audit, profiling, and bottleneck resolution service for high-concurrency APIs built with C# and .NET.⟦/17⟧⟦/15⟧⟦18⟧⟦19⟧3D Processing for Healthcare⟦/19⟧⟦20⟧Scalable backend architectures for rendering, geometric validation, and processing massive 3D meshes in medical applications (MedTech).⟦/20⟧⟦/18⟧",
     "status": "reviewed"
   },
-  "38242ecbda5f042bb71cca74b790e0dd608cd0bae097a72efacdde8cbe0a987a": {
-    "source": "Backend Architecture Collaborator @ Proyecto Confidencial (Industria 3D / AI)",
-    "target": "Backend Architecture Collaborator @ Confidential Project (3D Industry / AI)",
-    "status": "reviewed"
-  },
   "3824a9f4dafe92c6f1b80b40656a59784c03a824c27d58125d7d0ace753e2df2": {
     "source": "Canvas",
     "target": "Canvas",
-    "status": "reviewed"
-  },
-  "383e265f585b285cded87f376047972181045d2cec17b24eafd25526fb804f16": {
-    "source": "Servicios y casos de estudio reales donde he implementado SEO Técnico en producción.",
-    "target": "Services and real case studies where I have implemented Technical SEO in production.",
     "status": "reviewed"
   },
   "383f792020d9f331342f2e8879f716e1bdf24ee29aeba45129a378ce152725cc": {
@@ -1699,19 +1519,9 @@
     "target": "⟦0⟧Scalable Ingestion and Decimation:⟦/0⟧ Pipelines that ingest heavy 3D files, validate their integrity (non-manifold edges, holes), and generate optimized versions (LODs) for the frontend without losing key diagnostic features.",
     "status": "reviewed"
   },
-  "38b86cf42287c047389d3f345fb8583a122ae7d3d28a8c6edc4110e45218e5aa": {
-    "source": "⟦0⟧Decisión:⟦/0⟧ Partición de la base de datos (sharding) por tenant y uso de Redis como caché de primer nivel.",
-    "target": "⟦0⟧Decision:⟦/0⟧ Database partitioning (sharding) by tenant and use of Redis as a first-level cache.",
-    "status": "reviewed"
-  },
   "38e5d870341ef455479113aab2b2aae2c227a1a5a5fa17cded4168fb89bc1190": {
     "source": "Cuando el tiempo de inactividad cuesta dinero y la pérdida de datos no es una opción, necesitas una base sólida. Me especializo en la auditoría, diseño y optimización de plataformas corporativas de misión crítica bajo el ecosistema de Microsoft (.NET, C#, SQL Server).",
     "target": "When downtime costs money and data loss is not an option, you need a solid foundation. I specialize in auditing, designing, and optimizing mission-critical enterprise platforms within the Microsoft ecosystem (.NET, C#, SQL Server).",
-    "status": "reviewed"
-  },
-  "38eca96a39c6f5f6bdb8c681fab5c86e20cc9582e8f1c4008e373d3303fcdf0b": {
-    "source": "⟦0⟧Falta de Aislamiento (Vendor Lock-in):⟦/0⟧ La lógica de negocio dependía directamente de las respuestas de un proveedor específico de IA. Cualquier cambio en su API rompía la aplicación entera.",
-    "target": "⟦0⟧Lack of Isolation (Vendor Lock-in):⟦/0⟧ Business logic depended directly on the responses of a specific AI vendor. Any change to their API broke the entire application.",
     "status": "reviewed"
   },
   "38f2c5dcb6a020d1e942d906247cdde25a7705742e0e20bd4d12681f8b172479": {
@@ -1804,11 +1614,6 @@
     "target": "Is the form not loading correctly?",
     "status": "reviewed"
   },
-  "3bf36662d61bf2d2186ec2c5248a98a671d0929372090896ba50d792a13cb4b0": {
-    "source": "Experiencia con ⟦0⟧.NET Core⟦/0⟧",
-    "target": "Experience with ⟦0⟧.NET Core⟦/0⟧",
-    "status": "reviewed"
-  },
   "3bfa3c5819c82276950708e7f94bbdfe19087a46e8f6cdd8ed936ad8ebae5ab5": {
     "source": "UX Engineering",
     "target": "UX Engineering",
@@ -1819,11 +1624,6 @@
     "target": "⟦0⟧Asynchronous Document Processing:⟦/0⟧ Extracting complex entities from invoices or contracts using LLMs and background processing via Event Buses (RabbitMQ/Kafka).",
     "status": "reviewed"
   },
-  "3c25639dac2d4f938a91da415e8ec60d753ca42758861daca1d6dc4796bdf384": {
-    "source": "Extracción de la lógica core hacia un modelo de dominio puro (DDD).",
-    "target": "Extracting core logic into a pure domain model (DDD).",
-    "status": "reviewed"
-  },
   "3c2e88515b3c2769da54c1eff5f64bf6ab9d79c1040c01bbb7c05836886f9a95": {
     "source": "No se ha podido cargar el catálogo. Puedes revisar los proyectos directamente en GitHub.",
     "target": "The catalog could not be loaded. You can review the projects directly on GitHub.",
@@ -1832,11 +1632,6 @@
   "3c60c64ea7607ddd29f839188a655e5a75243d4f2bafffbec7b604e82b5ab56f": {
     "source": "⟦0⟧⟦1⟧Arquitectura IA para Fintech: Seguridad y Precisión⟦/1⟧⟦2⟧Diseño y desarrollo de arquitecturas backend para IA generativa en el sector Fintech. Cumplimiento normativo, seguridad Zero-Trust y baja latencia garantizada.⟦/2⟧⟦/0⟧",
     "target": "⟦0⟧⟦1⟧AI Architecture for Fintech: Security and Accuracy⟦/1⟧⟦2⟧Design and development of backend architectures for generative AI in the Fintech sector. Compliance, Zero-Trust security, and guaranteed low latency.⟦/2⟧⟦/0⟧",
-    "status": "reviewed"
-  },
-  "3cba1fbeee5fbfbdbca5fcefb29e3de5362d6b924faa263ba1cbd18bdb4cbbaa": {
-    "source": "⟦0⟧Contexto:⟦/0⟧ La base de datos SQL Server era el único cuello de botella; todas las consultas repetitivas de lectura golpeaban directamente a los discos.",
-    "target": "⟦0⟧Context:⟦/0⟧ The SQL Server database was the only bottleneck; all repetitive read queries hit the disks directly.",
     "status": "reviewed"
   },
   "3ccd6876df23f15bb450a0fafc7b2bb720005f0b46a95e372fa98d81bc727633": {
@@ -1909,11 +1704,6 @@
     "target": "Want us to audit your current architecture?",
     "status": "reviewed"
   },
-  "3ecc8f7d0bbf1568b52480446939c11cba92796a937e85df7ca88d81d2bc32f0": {
-    "source": "⟦0⟧Reducción de Costes de Infraestructura:⟦/0⟧ Ahorro del ⟦1⟧35% en costes cloud⟦/1⟧ mensuales.",
-    "target": "⟦0⟧Infrastructure Cost Reduction:⟦/0⟧ Savings of ⟦1⟧35% on monthly cloud costs⟦/1⟧.",
-    "status": "reviewed"
-  },
   "3eeae311cc54f72c66dfa87597219d6a7b7128e631054829828acdfc646ca83c": {
     "source": "Simultáneamente, el ⟦0⟧Motor Geométrico⟦/0⟧ descubre que la malla no es ⟦1⟧watertight⟦/1⟧ e intenta marcar el mismo modelo como “Inválido”.",
     "target": "Simultaneously, the ⟦0⟧Geometric Engine⟦/0⟧ discovers that the mesh is not ⟦1⟧watertight⟦/1⟧ and attempts to mark the same model as “Invalid”.",
@@ -1974,11 +1764,6 @@
     "target": "Are your AI models breaking production? Discover how to separate business logic from infrastructure using C# and Clean Architecture. Includes code.",
     "status": "reviewed"
   },
-  "40ba02192dcffb9ffd7f4c43d1b274290cdbbfb1c4281886684a249a5ab6e0dd": {
-    "source": "optimización .NET, sistemas distribuidos C#, Zero Downtime",
-    "target": ".NET optimization, C# distributed systems, Zero Downtime",
-    "status": "reviewed"
-  },
   "40ca386f8ad29ab94714321a22a66adfdef301b030ad65cd326c482bc1439c8a": {
     "source": "Proyectos y Servicios con Semantic Kernel",
     "target": "Projects and Services with Semantic Kernel",
@@ -1987,11 +1772,6 @@
   "40fa5a4a216d651b6fd0b1b3275ba1dbd11cfb37f9f4a9403adaada459c751eb": {
     "source": "⟦0⟧Resiliencia:⟦/0⟧ Patrones de Circuit Breaker y Retry Policies para manejar los inevitables timeouts de APIs de terceros (OpenAI, Anthropic).",
     "target": "⟦0⟧Resilience:⟦/0⟧ Circuit Breaker and Retry Policies to handle inevitable third-party API timeouts (OpenAI, Anthropic).",
-    "status": "reviewed"
-  },
-  "412578a2f420856ac93eb3aea1ab40778146715b16561f19bb5572139970c58e": {
-    "source": "Servicios y casos de estudio reales donde he implementado Trimesh en producción.",
-    "target": "Services and real case studies where I have implemented Trimesh in production.",
     "status": "reviewed"
   },
   "4128eeeee5a45572526725c653c61dfbc3e169923ec320aebafd6a8b87bc3b44": {
@@ -2074,26 +1854,6 @@
     "target": "⟦0⟧📋 Download our checklist to evaluate your architecture⟦/0⟧⟦1/⟧ ⟦2⟧Schedule Technical Consultation⟦/2⟧",
     "status": "reviewed"
   },
-  "45677612deb8277e7122e2ba583476f7bf409c4eb6f8942efb53983aa41a168c": {
-    "source": "Servicios y casos de estudio reales donde he implementado Assimp en producción.",
-    "target": "Services and real case studies where I have implemented Assimp in production.",
-    "status": "reviewed"
-  },
-  "4592c25e1fb295c66f95c86007ff5da50415ebf14b7d48d72ceab8ec1dc621a5": {
-    "source": "Diseño de una arquitectura backend determinista para la validación de activos 3D generados por IA a escala industrial.",
-    "target": "Design of a deterministic backend architecture for validating AI-generated 3D assets at industrial scale.",
-    "status": "reviewed"
-  },
-  "4611dd405f1a7fd8b0bd0b0566dfa22fd187e045d285b84a5e14d79881a7fa46": {
-    "source": "* Nota: Los algoritmos específicos y tiempos reales del proyecto son confidenciales.",
-    "target": "* Note: Specific algorithms and actual project timings are confidential.",
-    "status": "reviewed"
-  },
-  "4634d4135eaf14e6c61bd60107240ee0a8c1b88b5c84d92aea318d98ae2b0503": {
-    "source": "Fintech Startup · Lead Software Architect",
-    "target": "Fintech Startup · Lead Software Architect",
-    "status": "reviewed"
-  },
   "465661bbfe43e32a8a2766f93b8c729bf7affcd4601a2d0e066ed96e1ccc5922": {
     "source": "⟦0⟧Control de Calidad B2B Automático:⟦/0⟧ Un portal donde los proveedores suben assets 3D, y el backend devuelve un informe instantáneo de fallos topológicos antes de que el objeto llegue al catálogo central.",
     "target": "⟦0⟧Automated B2B Quality Control:⟦/0⟧ A portal where suppliers upload 3D assets, and the backend returns an instant report of topological failures before the object reaches the central catalog.",
@@ -2144,24 +1904,9 @@
     "target": "SQL Icon",
     "status": "reviewed"
   },
-  "47b47bec7d3e7fd89ff48e76648c46ba9874017c1555c194fb3b22b55a267a23": {
-    "source": "Servicios y casos de estudio reales donde he implementado Vector Databases en producción.",
-    "target": "Services and real case studies where I have implemented Vector Databases in production.",
-    "status": "reviewed"
-  },
   "47b9f98598568f3df4e0bb86fe2779b838bc0a14617c2a0ef9a520b3e870c5ac": {
     "source": "Sistemas Críticos Backend para Logística",
     "target": "Critical Backend Systems for Logistics",
-    "status": "reviewed"
-  },
-  "48051cb0b517b3b7d36d4b5aa17dd20fe58bc990f9214adb12be778710c139e3": {
-    "source": "Servicios y casos de estudio reales donde he implementado Azure OpenAI en producción.",
-    "target": "Services and real case studies where I have implemented Azure OpenAI in production.",
-    "status": "reviewed"
-  },
-  "480b4a03a75002ebc6fa7258d94192cee194dca2ce0d0fb38f1bbd474b656f92": {
-    "source": "Leer caso completo",
-    "target": "Read full case study",
     "status": "reviewed"
   },
   "4828e60247c1636f57b7446a314e7f599c12b53d40061cc851a1442004354fed": {
@@ -2239,19 +1984,9 @@
     "target": "⟦0⟧⟦1⟧Scalable Backend Architecture for AI Systems⟦/1⟧⟦2⟧Is your generative AI or LLM system experiencing timeouts in production? Implement decoupled and fault-tolerant backend architectures.⟦/2⟧⟦/0⟧⟦3⟧⟦4⟧3D Model Loading and Processing Optimization⟦/4⟧⟦5⟧Is processing your GLTF/OBJ models saturating your server's CPU or causing frontend lags? High-performance architectural solutions for web 3D.⟦/5⟧⟦/3⟧",
     "status": "reviewed"
   },
-  "4a25b92c2649071f2c40965229fc6867d62b55ffad51418385b566114deaaf7a": {
-    "source": "Era imperativo diseñar un sistema donde la IA actuara como un simple “proveedor de datos”, pero donde el Backend mantuviera la soberanía absoluta de las reglas físicas y geométricas. Un backend que no asume, sino que ⟦0⟧valida matemáticamente⟦/0⟧ cada vértice.",
-    "target": "It was imperative to design a system where the AI acted as a simple “data provider,” but where the Backend maintained absolute sovereignty over the physical and geometric rules. A backend that doesn't assume, but ⟦0⟧mathematically validates⟦/0⟧ every vertex.",
-    "status": "reviewed"
-  },
   "4a643c4e4f3b11fb371cd67529c35b5855cc8269671c0ecde58b48d12d188797": {
     "source": "Sin embargo, hay un problema grave: ⟦0⟧las mallas 3D generadas por IA (o por artistas junior) suelen estar rotas⟦/0⟧.",
     "target": "However, there is a serious problem: ⟦0⟧3D meshes generated by AI (or by junior artists) are often broken⟦/0⟧.",
-    "status": "reviewed"
-  },
-  "4a69f04c4bcd2f400547068bbe5699a00e8332b4f916dc522d0d96a722d833bc": {
-    "source": "Proyectos y Servicios con .NET Core | NainDev",
-    "target": "Projects and Services with .NET Core | NainDev",
     "status": "reviewed"
   },
   "4a87bc4a6f84b6911fabebc702ad8d32dbb799d7bec2abf53a05c86d91b456bf": {
@@ -2262,11 +1997,6 @@
   "4b223295cce04e44e7dbcaacc68ad47a296119f94f5a92d96bc657fc580e7b7c": {
     "source": "Descubre cómo utilizamos C# en arquitecturas de backend escalables y sistemas críticos 3D.",
     "target": "Discover how we use C# in scalable backend architectures and critical 3D systems.",
-    "status": "reviewed"
-  },
-  "4b553cda115ec5df817f58eb8fc62f87d2fc3865370f0f2573b1fe317bf64f83": {
-    "source": "] API Gateway (Latencia p95: 42ms)",
-    "target": "] API Gateway (p95 Latency: 42ms)",
     "status": "reviewed"
   },
   "4b84c16ae4977b9312e61ba1ff70452a6914a7039ace9d929773472a934c3183": {
@@ -2292,16 +2022,6 @@
   "4c55df4c95dfd485620a4a7bf0d078746cb57748496628ecd01ca6d10eb31ea6": {
     "source": "⟦0⟧⟦1⟧Migración de Monolitos a Microservicios con IA en C#⟦/1⟧⟦2⟧Servicio de refactorización profunda y migración arquitectónica: de sistemas monolíticos legacy (SQL/C#) a ecosistemas distribuidos listos para IA.⟦/2⟧⟦/0⟧⟦3⟧⟦4⟧Sistemas de Validación Geométrica de Mallas 3D en la Nube⟦/4⟧⟦5⟧Construcción de motores backend para la inspección automatizada, validación matemática y análisis estructural de modelos 3D antes de entrar a producción.⟦/5⟧⟦/3⟧",
     "target": "⟦0⟧⟦1⟧Migrating Monoliths to Microservices with AI in C#⟦/1⟧⟦2⟧Deep refactoring and architectural migration service: from legacy monolithic systems (SQL/C#) to AI-ready distributed ecosystems.⟦/2⟧⟦/0⟧⟦3⟧⟦4⟧Cloud-Based 3D Mesh Geometry Validation Systems⟦/4⟧⟦5⟧Building backend engines for automated inspection, mathematical validation, and structural analysis of 3D models before production deployment.⟦/5⟧⟦/3⟧",
-    "status": "reviewed"
-  },
-  "4c5f91d8424f9529acf7118d133a93d2a6cab19141c35c3064837e6dd57b99a3": {
-    "source": "DDD",
-    "target": "DDD",
-    "status": "reviewed"
-  },
-  "4c7e1263126c69ab5235672ebd2c17c49794f80d6aa004fadfd871222e80e71e": {
-    "source": "6. Resultados Cuantitativos",
-    "target": "6. Quantitative Results",
     "status": "reviewed"
   },
   "4ce6ad6c43ff6264355f97f5fcac440e6a5d32d4f26635f2a2f1ab8272495a18": {
@@ -2394,11 +2114,6 @@
     "target": "⟦0⟧CDN (Cloudflare/Azure Front Door)⟦/0⟧ to cache compressed binaries at the edge, closer to the end user, reducing latency to milliseconds and cutting origin server transfer costs by 90%.",
     "status": "reviewed"
   },
-  "4fe0e43f8e4dc4ab12510c3814f7d788565c2a7ba1d6cb02985256ab367aeba0": {
-    "source": "⟦0⟧Alternativas consideradas:⟦/0⟧ Migrar a NoSQL (descartado por necesidad de consistencia ACID en facturación).",
-    "target": "⟦0⟧Alternatives Considered:⟦/0⟧ Migrating to NoSQL (discarded due to need for ACID consistency in billing).",
-    "status": "reviewed"
-  },
   "501534c3a7f2a1079132c320f8385fd6d9df47032715b726a4d1cf183115fa01": {
     "source": "Probar Demo Web",
     "target": "Try Web Demo",
@@ -2424,29 +2139,9 @@
     "target": "If your users experience infinite loading spinners or 504 Gateway Timeout errors, you need to refactor your AI flow.",
     "status": "reviewed"
   },
-  "5191f5ef1540283e30e335f31af8d80050c4b131dd0bb000cde37bf94be7f1dd": {
-    "source": "- Diseño de backend e integración de IA (Detalles bajo NDA).",
-    "target": "- Backend design and AI integration (Details under NDA).",
-    "status": "reviewed"
-  },
-  "51b8146a053833da0b0d6815f11781b80f52582547d2739694fb3d6004a1ac26": {
-    "source": "Casos de Estudio de Arquitectura",
-    "target": "Architecture Case Studies",
-    "status": "reviewed"
-  },
   "52035f0afa93489d541102e6a03e98013cda1cc6b504d5fb1d7a9b447ee3612b": {
     "source": "Validación Determinista a Escala Industrial",
     "target": "Deterministic Validation at Industrial Scale",
-    "status": "reviewed"
-  },
-  "522835b50d9bd657995adbd72c3489356f8d7790ad46e4ea64fa47139ee8e4d4": {
-    "source": "Proyectos y Servicios con Kubernetes | NainDev",
-    "target": "Projects and Services with Kubernetes | NainDev",
-    "status": "reviewed"
-  },
-  "52396e0a04e8956fbb10a8d7dd1e65824555a706312bcb6f209d355f69af3ee2": {
-    "source": "⟦0⟧Zero Downtime:⟦/0⟧ Arquitecturas diseñadas para despliegues continuos sin afectar la disponibilidad del servicio.",
-    "target": "⟦0⟧Zero Downtime:⟦/0⟧ Architectures designed for continuous deployments without affecting service availability.",
     "status": "reviewed"
   },
   "52476de08a7efc3dee96f756d145498e639734aab51b8bd8c181c471d38849ac": {
@@ -2472,11 +2167,6 @@
   "52d40390f352892a24418a42c833b63745bc8c164eaa7c1d534de856e153cd8b": {
     "source": "2. Decimación de Mallas (Mesh Decimation)",
     "target": "2. Mesh Decimation",
-    "status": "reviewed"
-  },
-  "532526352f9db0ec894ee2b148a2a09aea9614027c4d89343f10227d6e4e1383": {
-    "source": "] Validation Engine (Sandboxed)",
-    "target": "] Validation Engine (Sandboxed)",
     "status": "reviewed"
   },
   "532ea3092d8d03830f9fd149a2520e1903f5056de8da7206c5261e584026247a": {
@@ -2559,11 +2249,6 @@
     "target": "tu@correo-profesional.com",
     "status": "reviewed"
   },
-  "5621d622a406a52f6419712f67048d0512c3872ac7e2f1efd5729c99fc126f25": {
-    "source": "Servicios y casos de estudio reales donde he implementado Astro en producción.",
-    "target": "Services and real case studies where I have implemented Astro in production.",
-    "status": "reviewed"
-  },
   "5625d34738aec11bf55285feae47154084ee89945f5fdf695c8d35f60d37da21": {
     "source": "⟦0⟧⟦1/⟧⟦2⟧C#⟦/2⟧⟦/0⟧⟦3⟧⟦4/⟧⟦5⟧Python⟦/5⟧⟦/3⟧⟦6⟧⟦7/⟧⟦8⟧TypeScript⟦/8⟧⟦/6⟧⟦9⟧⟦10/⟧⟦11⟧JavaScript⟦/11⟧⟦/9⟧⟦12⟧⟦13/⟧⟦14⟧SQL⟦/14⟧⟦/12⟧",
     "target": "⟦0⟧⟦1/⟧⟦2⟧C#⟦/2⟧⟦/0⟧⟦3⟧⟦4/⟧⟦5⟧Python⟦/5⟧⟦/3⟧⟦6⟧⟦7/⟧⟦8⟧TypeScript⟦/8⟧⟦/6⟧⟦9⟧⟦10/⟧⟦11⟧JavaScript⟦/11⟧⟦/9⟧⟦12⟧⟦13/⟧⟦14⟧SQL⟦/14⟧⟦/12⟧",
@@ -2572,11 +2257,6 @@
   "564959eca3fe1c5c5992ffb0baeb98094ac72b1a8246a5cf04c9fae338852fa8": {
     "source": "Deseas cambiar a un modelo local (ONNX) por motivos de latencia o privacidad?",
     "target": "Do you want to switch to a local model (ONNX) due to latency or privacy concerns?",
-    "status": "reviewed"
-  },
-  "5652a7791a14b6a4db175d1e9c982b9aad95c97af06729e281e7e65a67297bd9": {
-    "source": "Servicios y casos de estudio reales donde he implementado C# en producción.",
-    "target": "Services and real case studies where I have implemented C# in production.",
     "status": "reviewed"
   },
   "565339bc4d33d72817b583024112eb7f5cdf3e5eef0252d6ec1b9c9a94e12bb3": {
@@ -2622,11 +2302,6 @@
   "58e4a1140cd4b555349f70913d01a42e9781eb18f62c99d3dbdb66c23c9cbd48": {
     "source": "Asegura el éxito de tu renderizado, simulación o impresión 3D desde el servidor. ⟦0⟧⟦1⟧Agenda una consulta arquitectónica⟦/1⟧⟦/0⟧ para evaluar cómo podemos implementar un nodo de validación geométrica en tu arquitectura.",
     "target": "Ensure the success of your rendering, simulation, or 3D printing from the server. ⟦0⟧⟦1⟧Schedule an architectural consultation⟦/1⟧⟦/0⟧ to evaluate how we can implement a geometric validation node in your architecture.",
-    "status": "reviewed"
-  },
-  "58e94c1bde81e3075748ea74daf9188fe4562bc8c3343fe202ae26c05b91a032": {
-    "source": "⟦0⟧Agendar Auditoría Gratuita⟦/0⟧⟦1⟧Explora nuestros servicios⟦/1⟧",
-    "target": "⟦0⟧Schedule a Free Audit⟦/0⟧⟦1⟧Explore our services⟦/1⟧",
     "status": "reviewed"
   },
   "58fcc9468fe1f60716a71caef50fce70a6d2d46f7a2c0d0f45f1f76dc7779625": {
@@ -2694,11 +2369,6 @@
     "target": "AI proposes, but the geometry engine dictates. In this article, we will break down how to build a 3D validation pipeline in ⟦0⟧C# (.NET)⟦/0⟧ using principles from ⟦1⟧Clean Architecture⟦/1⟧.",
     "status": "reviewed"
   },
-  "5b1bfcf3c2604f3df6fd428e76f9f32f900165502ce3d7ce9aa0932e8c4474ef": {
-    "source": "Migración de endpoints síncronos a procesamiento asíncrono con colas (RabbitMQ).",
-    "target": "Migrating synchronous endpoints to asynchronous processing with queues (RabbitMQ).",
-    "status": "reviewed"
-  },
   "5b7013d632682a3abccaf1140b98975b8ad47cda9a7c6b500c402cc88ee46d7d": {
     "source": "¿Tus llamadas a la IA están asfixiando tu servidor?",
     "target": "Are your AI calls suffocating your server?",
@@ -2759,11 +2429,6 @@
     "target": "⟦0⟧⟦1⟧3D Processing for Healthcare⟦/1⟧⟦2⟧Scalable backend architectures for rendering, geometric validation, and massive 3D mesh processing in medical applications (MedTech).⟦/2⟧⟦/0⟧",
     "status": "reviewed"
   },
-  "5e75372419215747ad8ef5bed16ff821abbe20a1a7b4f19c59b2097e54f64623": {
-    "source": "- Volumen de procesamiento:",
-    "target": "- Processing volume:",
-    "status": "reviewed"
-  },
   "5e87c8de11dcf516e03d488f631fd0969264fd904c53853221db26c07d3d163c": {
     "source": "¿Por qué fallan los enfoques monolíticos tradicionales aquí? Porque en el dominio del 3D y la IA, la ⟦0⟧infraestructura es extremadamente volátil⟦/0⟧. Hoy usas un proveedor LLM/Visión específico, mañana la empresa decide entrenar su propio modelo. Hoy usas un motor de render, mañana te mueves a la nube.",
     "target": "Why do traditional monolithic approaches fail here? Because in the domain of 3D and AI, the ⟦0⟧infrastructure is extremely volatile⟦/0⟧. Today you use a specific LLM/Vision provider, tomorrow the company decides to train its own model. Today you use a render engine, tomorrow you move to the cloud.",
@@ -2777,11 +2442,6 @@
   "5ecb881c85d3e1c3b551c3d732d09653a7b08370198456f1348baa6e4178dc16": {
     "source": "El Impacto en MedTech",
     "target": "The Impact on MedTech",
-    "status": "reviewed"
-  },
-  "5ecfd4ed7b289847a34e630fe00ddb9012c357b798304ba70810c823c7dcc5d0": {
-    "source": "Plataforma SaaS · Backend Specialist",
-    "target": "SaaS Platform · Backend Specialist",
     "status": "reviewed"
   },
   "5eee4205c2ec3d747dc579da05d47a16589bf85719a187c77526fb8490b14579": {
@@ -2834,11 +2494,6 @@
     "target": "Projects and Services with Clean Architecture",
     "status": "reviewed"
   },
-  "602e69931f390a76a92bee0eb05dfee6d2dd01cb4cdfe02e00a9b89f64967cde": {
-    "source": "La industria 3D y de robótica se enfrenta a un problema: la IA generativa produce modelos rápidos, pero a menudo con inconsistencias estructurales. Validarlos manualmente frena la automatización.",
-    "target": "The 3D and robotics industry faces a problem: generative AI produces models quickly, but often with structural inconsistencies. Validating them manually slows down automation.",
-    "status": "reviewed"
-  },
   "6053c01d0104d6c79e4166a7199237a9e991622c08504cc9c4f41469d44e6b81": {
     "source": "1. El Patrón Asíncrono (Webhooks & Colas)",
     "target": "1. The Asynchronous Pattern (Webhooks & Queues)",
@@ -2869,11 +2524,6 @@
     "target": "7. CRM Backups (crm.naindev.com) and Google Data",
     "status": "reviewed"
   },
-  "61c56e6e9672d37049a34a53ca485ad189531db3d66ce6d984c397d0d4bd3fb1": {
-    "source": "⟦0⟧Latencia en Inferencia:⟦/0⟧ Las validaciones topológicas se ejecutaban en el mismo hilo de peticiones HTTP, provocando un agotamiento del ⟦1⟧Thread Pool⟦/1⟧ y latencias inasumibles.",
-    "target": "⟦0⟧Inference Latency:⟦/0⟧ Topological validations were executed on the same HTTP request thread, causing exhaustion of the ⟦1⟧Thread Pool⟦/1⟧ and unmanageable latencies.",
-    "status": "reviewed"
-  },
   "61e78743ba12052f12c98fec8ccef6cf31952426e32b4534f2f6ef548dfb3e33": {
     "source": "Migración de Monolitos a Microservicios con IA en C#",
     "target": "Migrating Monoliths to Microservices with AI in C#",
@@ -2897,21 +2547,6 @@
   "622336b94f11e115a1c2595487388a20a7a9257d68644ab6bd5e2bd50e36b6da": {
     "source": "Cargando asset...",
     "target": "Loading asset...",
-    "status": "reviewed"
-  },
-  "6245ac9a4d92963f0e4be010139b92b7bf2e677d8121149db3522fbfa7580b2e": {
-    "source": "Servicios y casos de estudio reales donde he implementado C# .NET en producción.",
-    "target": "Services and real case studies where I have implemented C# .NET in production.",
-    "status": "reviewed"
-  },
-  "6299fcbfc4ea62d735b054a5f3a5e1ae87244aa5d5eefd68366154960a5c2b1d": {
-    "source": "2. El Desafío Técnico",
-    "target": "2. The Technical Challenge",
-    "status": "reviewed"
-  },
-  "62a01667dd113d898dd270e35cb379958548008b21a61060b0f7186f2f49b157": {
-    "source": "⟦0⟧Capa de Infraestructura:⟦/0⟧ Implementa las abstracciones (Interfaces). Aquí residen los adaptadores para la base de datos (SQL Server + S3 para los binarios), el bus de mensajes (RabbitMQ) y los clientes HTTP para la IA generativa.",
-    "target": "⟦0⟧Infrastructure Layer:⟦/0⟧ Implements the abstractions (Interfaces). This is where the adapters reside for the database (SQL Server + S3 for binaries), the message bus (RabbitMQ), and the HTTP clients for generative AI.",
     "status": "reviewed"
   },
   "62a70c5e11bed3995433aae47f7e5e18aa42bd17650260dec45c0b737a298d90": {
@@ -2999,19 +2634,9 @@
     "target": "logistics backend, logistics event architecture, c# critical systems, logistics high availability",
     "status": "reviewed"
   },
-  "65ad4a19621b1a970c495b89f8554267e10182839234e11c0677223d8bbaad18": {
-    "source": "El proyecto se encuentra bajo estricta confidencialidad (NDA). Estamos construyendo un sistema robusto, asíncrono y de grado industrial para garantizar la calidad de assets 3D en flujos automatizados.",
-    "target": "The project is under strict confidentiality (NDA). We are building a robust, asynchronous, and industrial-grade system to ensure the quality of 3D assets in automated workflows.",
-    "status": "reviewed"
-  },
   "65cd2ba8f2cd04d998f143ad0972747614e9261573c4793a2266b340db443846": {
     "source": "4. Optimización Extrema: MemoryMappedFiles",
     "target": "4. Extreme Optimization: MemoryMappedFiles",
-    "status": "reviewed"
-  },
-  "65df50fdab28769730729053b55177385845d5afb7e04aa6ed97253d5449fed2": {
-    "source": "⟦0⟧Bloqueos Transaccionales:⟦/0⟧ Una base de datos relacional centralizada se utilizaba tanto para almacenar metadatos como para gestionar el estado de tareas asíncronas pesadas, causando bloqueos por concurrencia bajo carga.",
-    "target": "⟦0⟧Transactional Locks:⟦/0⟧ A centralized relational database was used both to store metadata and to manage the state of heavy asynchronous tasks, causing concurrency locks under load.",
     "status": "reviewed"
   },
   "661a2eec44d4aadeb416e8e62dd2514a24c0ed36f88d7c90d8837e13c413da82": {
@@ -3074,29 +2699,14 @@
     "target": "3D validation, 3D backend, geometry processing, C# 3D",
     "status": "reviewed"
   },
-  "680c03062d3bda0a0e9db51f5aec84f34cd26670bc7430e7e11a7e84797aac89": {
-    "source": "Proyectos y Servicios con .NET Core",
-    "target": "Projects and Services with .NET Core",
-    "status": "reviewed"
-  },
   "6843dd3fc49a24d3934a630d88f53536854ad278758a1c4b0a8a00aa986bafb3": {
     "source": "Descubre cómo utilizamos Semantic Kernel en arquitecturas de backend escalables y sistemas críticos 3D.",
     "target": "Discover how we use Semantic Kernel in scalable backend architectures and critical 3D systems.",
     "status": "reviewed"
   },
-  "687dd3be8291a3b87a08c5031e805bf7633b327837adfb79c629882c0fb9043a": {
-    "source": "- Precisión de validación:",
-    "target": "- Validation accuracy:",
-    "status": "reviewed"
-  },
   "689f7d1a623234c7c84f1714f9c41259dc7497080de90add6bd2c4ecd14392ca": {
     "source": "2. Caché Agresivo y Edge Delivery (CDN)",
     "target": "2. Aggressive Caching and Edge Delivery (CDN)",
-    "status": "reviewed"
-  },
-  "68bd4891c4e0454d4667c6cd65e12b56a625d2dbf23dacd01ad71a8d761d443e": {
-    "source": "La auditoría inicial reveló tres cuellos de botella críticos que impedían escalar la plataforma:",
-    "target": "The initial audit revealed three critical bottlenecks preventing platform scaling:",
     "status": "reviewed"
   },
   "68beeae71eba3fd1695364cb790d6e53a2c09835bc47fe854d9ade45063a4157": {
@@ -3122,11 +2732,6 @@
   "694032b7ede90d08b6d0ebba2aa83fa9529ef4a113d0897bb7445984ad4cccbd": {
     "source": "RabbitMQ",
     "target": "RabbitMQ",
-    "status": "reviewed"
-  },
-  "69ca081c4622bfd9049bec5d2823f2c79babe989fc145b8e5b26262f0c118669": {
-    "source": "Despliegues independientes de la capa de lectura.",
-    "target": "Independent deployments of the read layer.",
     "status": "reviewed"
   },
   "69dc84b570c6cd87cfa62c50b83f3c42f8548f3269a3f4e5275268b6e5144f91": {
@@ -3159,11 +2764,6 @@
     "target": "Experience with ⟦0⟧WebGPU⟦/0⟧",
     "status": "reviewed"
   },
-  "6aee848a94253d7796f4d1c72b9286eb53c48b8c9ba7c76cbb061e40fa2439e4": {
-    "source": "EL ESTADO:",
-    "target": "THE STATE:",
-    "status": "reviewed"
-  },
   "6b1433ad59d24b058f15648be649b0de38adb3f327500393f6c11905c458bacd": {
     "source": "Clean Architecture",
     "target": "Clean Architecture",
@@ -3179,19 +2779,9 @@
     "target": "1. Technical Challenges of 3D Processing",
     "status": "reviewed"
   },
-  "6bab2bce673b38d81634d77e76a58b13fd0689569b2bcd2e612c329ad0e7955e": {
-    "source": "⟦0⟧Capa de Presentación:⟦/0⟧ Workers asíncronos y una API RESTful limpia que expone el estado de validación a los clientes.",
-    "target": "⟦0⟧Presentation Layer:⟦/0⟧ Asynchronous workers and a clean RESTful API that exposes the validation status to clients.",
-    "status": "reviewed"
-  },
   "6babae7faf57c9c6915b873d63b5c955a159b211e562191836cecb4cf5326537": {
     "source": "- Reglas de negocio:",
     "target": "- Business rules:",
-    "status": "reviewed"
-  },
-  "6bac8dcd99a775bd023ddfc8c7b5baa1160c4b85f093e7c54a3691ca081ef4db": {
-    "source": "Servicios y casos de estudio reales donde he implementado UX Engineering en producción.",
-    "target": "Services and real case studies where I have implemented UX Engineering in production.",
     "status": "reviewed"
   },
   "6bb4721190c81ca6aa128e70d31b8c434c642d60450ad71d3cb770a395128435": {
@@ -3202,11 +2792,6 @@
   "6bf9ef141c2a874384e386e23d5e8c503fce50e41d86dcae767d75170c2ba93d": {
     "source": "Orquestación de agentes autónomos para la resolución de tareas B2B.",
     "target": "Orchestration of autonomous agents for B2B task resolution.",
-    "status": "reviewed"
-  },
-  "6c1c78746c70611a5c66f87f7921d35691ff1556b4ff4d3335a150e969f3d6e6": {
-    "source": "] Database Primary (Carga: 12%)",
-    "target": "] Database Primary (Load: 12%)",
     "status": "reviewed"
   },
   "6c3bf3e0704b3d71bbe95909e2a3f7dc84db8758fe06ee70941e9a5283516b59": {
@@ -3317,11 +2902,6 @@
   "700b0768d3371042b766c06356667ed5c9b3fa45e3b3e23fedf73c56cb13fb99": {
     "source": "Arquitectura Full-Stack orientada a rendimiento. Integración de Minimal APIs ultrarrápidas con un frontend determinista en Blazor WebAssembly.",
     "target": "High-performance, full-stack architecture. Integration of ultra-fast Minimal APIs with a deterministic Blazor WebAssembly frontend.",
-    "status": "reviewed"
-  },
-  "710b51d5885c240b5fd0bf65c3651957a2cc66525e6b6da7c49a36adf893973a": {
-    "source": "Grado Industrial",
-    "target": "Industrial Grade",
     "status": "reviewed"
   },
   "713b11d2844bea2f454662094189a03d069597272fbd7d3eb78fee62dbfa19a1": {
@@ -3464,11 +3044,6 @@
     "target": "Need help designing infrastructure capable of handling massive 3D data processing? Schedule a consultation or contact us directly.",
     "status": "reviewed"
   },
-  "773d3413f2310df4e566ad93ab96616916f096d58a2e57c2a0e5d2fac8c0aec4": {
-    "source": "⟦0⟧⟦1⟧Proyecto Confidencial (Industria 3D) · Colaborador Técnico⟦/1⟧⟦2⟧Sistema de Validación y Corrección 3D (IA)⟦/2⟧⟦3⟧Diseño de arquitectura backend determinista para activos 3D generados por IA a escala industrial.⟦/3⟧⟦/0⟧",
-    "target": "⟦0⟧⟦1⟧Confidential Project (3D Industry) · Technical Collaborator⟦/1⟧⟦2⟧3D Validation and Correction System (AI)⟦/2⟧⟦3⟧Design of deterministic backend architecture for AI-generated 3D assets at industrial scale.⟦/3⟧⟦/0⟧",
-    "status": "reviewed"
-  },
   "775043a5934fb5026cbd964068a63501eb40f31de8d4e89765769f128c3726c8": {
     "source": "Proyectos y Servicios con FastAPI | NainDev",
     "target": "FastAPI Projects and Services | NainDev",
@@ -3492,11 +3067,6 @@
   "781509b25aa03251597e440ff24fac15d7dca46b131f8e1c0c9af48c9e64c80f": {
     "source": "Navegación principal",
     "target": "Main navigation",
-    "status": "reviewed"
-  },
-  "782f22dfde6ce984005978a8840291c2ad119ef5dc3fa5c47abca41304ed2c7b": {
-    "source": "Soy Aitor Nain Mendoza Vallejo, también conocido como Aitor Mendoza y NainDev. Trabajo como Lead Software Architect en una Stealth 3D/AI Startup, donde diseño un ecosistema Open Core robusto para la validación determinista de activos generados por IA, garantizando un enfoque de 'Trustworthy AI'.",
-    "target": "I am Aitor Nain Mendoza Vallejo, also known as Aitor Mendoza and NainDev. I work as a Lead Software Architect at a Stealth 3D/AI Startup, where I design a robust Open Core ecosystem for the deterministic validation of AI-generated assets, ensuring a 'Trustworthy AI' approach.",
     "status": "reviewed"
   },
   "78a9269f8d4ce0a01aa75ca91cc11f44d5643b3c047ea1ea10550eb3d56c6703": {
@@ -3564,11 +3134,6 @@
     "target": "Page not found | NainDev",
     "status": "reviewed"
   },
-  "79b214c22ed57565a404e47a7921ee2c870e54a5830469a479044afcb18622ab": {
-    "source": "[REDACTED] modelos/hora",
-    "target": "[REDACTED] models/hour",
-    "status": "reviewed"
-  },
   "79e3075fe05e0a1e83f85a4474e6c2b692a2d5ee73d3e2a922d507ae182858ce": {
     "source": "1. El Problema del “Vendor Lock-in” en IA Generativa",
     "target": "1. The \"Vendor Lock-in\" Problem in Generative AI",
@@ -3577,11 +3142,6 @@
   "79f1251f2e323e2437110dec8b1da3448dad6cd5e48ea987a9db7179dc81f965": {
     "source": "⟦0⟧Monitoreo de Rendimiento:⟦/0⟧ Implementamos métricas para medir cuánto tiempo tarda cada malla en procesarse y cuánta memoria RAM consume.",
     "target": "⟦0⟧Performance Monitoring:⟦/0⟧ We implemented metrics to measure how long each mesh takes to process and how much RAM it consumes.",
-    "status": "reviewed"
-  },
-  "79ffb3ee4bfbe143403cf7c6b948990b797d9bdec95951d45d0162f5d9a573e4": {
-    "source": "⟦0⟧Resultado⟦/0⟧: El tiempo de validación bajó a 1.2s, y los fallos de red se eliminaron del proceso crítico.",
-    "target": "⟦0⟧Result⟦/0⟧: Validation time dropped to 1.2s, and network failures were eliminated from the critical path.",
     "status": "reviewed"
   },
   "7a4dce3bd97229e8ca8068aab17952e99c74d257c11281916bc8d1ef5a095baa": {
@@ -3619,11 +3179,6 @@
     "target": "See how this translates to C# code. Our goal is to analyze the sentiment of a text and classify its urgency, but our domain should not know whether we are using an LLM in the cloud or an ONNX model locally.",
     "status": "reviewed"
   },
-  "7be4a1bfb2cf09dcc366e9cc8fccfa50354681544f7582a1ba08b72ad3f1f756": {
-    "source": "Diseño de arquitectura backend determinista para activos 3D generados por IA a escala industrial.",
-    "target": "Design of a deterministic backend architecture for AI-generated 3D assets at industrial scale.",
-    "status": "reviewed"
-  },
   "7c38a737d872e5880ac20f86eb4c2d913a60cb62a29dd341573af2a2c5b0c195": {
     "source": "Escribe",
     "target": "Type",
@@ -3644,11 +3199,6 @@
     "target": "⟦0⟧Control Layer Design:⟦/0⟧ We define the .NET architecture that will govern communication with the LLM.",
     "status": "reviewed"
   },
-  "7c6d8641acf64105c16de8c5436ba754a58f0b66dd6ca97907dadb57252fdd6a": {
-    "source": "⟦0⟧Almacenamiento Híbrido:⟦/0⟧ SQL Server se mantuvo como la fuente de verdad (ACID) para metadatos transaccionales y estados, mientras que los payloads masivos (archivos GLTF/USD) se delegaron directamente a Amazon S3, referenciados mediante URIs en la base de datos.",
-    "target": "⟦0⟧Hybrid Storage:⟦/0⟧ SQL Server was maintained as the source of truth (ACID) for transactional metadata and states, while large payloads (GLTF/USD files) were delegated directly to Amazon S3, referenced via URIs in the database.",
-    "status": "reviewed"
-  },
   "7c79fab77cd70729bddcfae78112624e37118014c8c3702b52cda3113305f3a8": {
     "source": "Muchos equipos de desarrollo tratan a los modelos de IA (ya sean LLMs o modelos de visión) como si fueran consultas a una base de datos tradicional. Esto es un error crítico.",
     "target": "Many development teams treat AI models (whether LLMs or vision models) as if they were queries to a traditional database. This is a critical mistake.",
@@ -3662,11 +3212,6 @@
   "7d1687bd484e68f1b71d5f3007f68058f26381133c305f98371de1554c28c9f4": {
     "source": "Aitor Nain Mendoza Vallejo, Aitor Nain, Aitor Mendoza, NainDev, arquitecto backend 3D, arquitectura IA",
     "target": "Aitor Nain Mendoza Vallejo, Aitor Nain, Aitor Mendoza, NainDev, 3D backend architect, AI architecture",
-    "status": "reviewed"
-  },
-  "7d4f18cf47a31b2623272315f17e91852989e4573974041bcba63e4175858104": {
-    "source": "Hexagonal Architecture",
-    "target": "Hexagonal Architecture",
     "status": "reviewed"
   },
   "7d571034b43b184288797cab549dd0c5448dde8c076f2f7554ebb6bc1de0f144": {
@@ -3704,24 +3249,9 @@
     "target": "5. Your Rights (GDPR)",
     "status": "reviewed"
   },
-  "7ed8efb686712a80743fc626c4cdfa2e23a606df6d4bb6fc46fbf137c6e11129": {
-    "source": "Servicios y casos de estudio reales donde he implementado Rendimiento Web en producción.",
-    "target": "Services and real case studies where I have implemented Web Performance in production.",
-    "status": "reviewed"
-  },
-  "7ee84caedfceb7e26dbfdeb574e8f31d6e2a56639f178213362fbed77f077cf1": {
-    "source": "¿Tu sistema ya está en producción y sufres cuellos de botella? ⟦0⟧Reserva una auditoría de 15 minutos conmigo.⟦/0⟧",
-    "target": "Is your system already in production and suffering from bottlenecks? ⟦0⟧Book a 15-minute audit with me.⟦/0⟧",
-    "status": "reviewed"
-  },
   "7f10b74352faae1e34feae651efcf394c71834eca2e8be54fcefbfd9293f5653": {
     "source": "El cliente solicita la inferencia (ej. “Generar reporte”).",
     "target": "The client requests the inference (e.g., “Generate report”).",
-    "status": "reviewed"
-  },
-  "7f3612b3b0955c1086c97aa52a9f0f0fff4a6bc58e7a61005ad29bd362aeab7a": {
-    "source": "⟦0⟧Capa de Dominio:⟦/0⟧ Contiene las entidades puras (ej. ⟦1/⟧) y las reglas invariables de validación (ej. cálculo de normales, detección de agujeros topológicos). Sin dependencias externas.",
-    "target": "⟦0⟧Domain Layer:⟦/0⟧ Contains pure entities (e.g., ⟦1/⟧) and invariant validation rules (e.g., normal calculation, topological hole detection). No external dependencies.",
     "status": "reviewed"
   },
   "7f3fbe0e9e77dd53248932dcd3d1a6ef6ab98fe4083fdfc383d31f3589fbda9f": {
@@ -3742,16 +3272,6 @@
   "7fa9eb5c654a7f8211ad1ca1dcb4032930daa39c58064094d14438ee17a9bdd8": {
     "source": "Implemento patrones de resiliencia (Retries, Circuit Breakers, Fallbacks) y construyo tuberías de validación matemáticas y semánticas que filtran, corrigen o rechazan las respuestas de los LLMs antes de que lleguen a la base de datos principal, garantizando un entorno SaaS robusto y determinista.",
     "target": "I implement resilience patterns (Retries, Circuit Breakers, Fallbacks) and build mathematical and semantic validation pipelines that filter, correct, or reject LLM responses before they reach the main database, ensuring a robust and deterministic SaaS environment.",
-    "status": "reviewed"
-  },
-  "7fbfd464f711ea88c496b6ceaad963d6a2817707b4bfc0998ee53cf5b716984b": {
-    "source": "⟦0⟧Leer caso completo⟦/0⟧",
-    "target": "⟦0⟧Read full case study⟦/0⟧",
-    "status": "reviewed"
-  },
-  "7fc9d740b527eb0919aa2ea2666523480d8fdc9b293593a35399415007db609c": {
-    "source": "Servicios y casos de estudio reales donde he implementado Redis en producción.",
-    "target": "Services and real case studies where I have implemented Redis in production.",
     "status": "reviewed"
   },
   "7fef141e5e35797f770b65efeaee05f9975ddc308b9d2c49d9dcdd98f110655c": {
@@ -3794,11 +3314,6 @@
     "target": "Projects and Services with Trimesh",
     "status": "reviewed"
   },
-  "80fc6078846d95c955c33f0d1b547469b4e904e3719342d26ac7998d9c221a1e": {
-    "source": "Servicios y casos de estudio reales donde he implementado SQL Server en producción.",
-    "target": "Services and real case studies where I have implemented SQL Server in production.",
-    "status": "reviewed"
-  },
   "817b4c827c36f740253cfc19bfa51599b407e1167e48f62386a014809416bcdf": {
     "source": "En lugar de procesar un modelo ⟦0/⟧ en el momento en que el usuario lo sube, el backend delega el trabajo pesado:",
     "target": "Instead of processing a model ⟦0/⟧ when the user uploads it, the backend delegates the heavy lifting:",
@@ -3822,11 +3337,6 @@
   "82388fa7d717b8e9b4891d31077a9fb27c132f00d1a77999ce9829890d8df5ea": {
     "source": "Enfoque Técnico",
     "target": "Technical Approach",
-    "status": "reviewed"
-  },
-  "828f719bb35ecb1b79e0ee021455ce1735ee67ac8284fdb14ad4a3ad563d57fe": {
-    "source": "⟦0⟧⟦1⟧Solicitar Diagnóstico Gratuito⟦/1⟧⟦/0⟧⟦2⟧⟦3⟧Ver Casos de Éxito⟦/3⟧⟦/2⟧",
-    "target": "⟦0⟧⟦1⟧Request Free Diagnosis⟦/1⟧⟦/0⟧⟦2⟧⟦3⟧View Success Stories⟦/3⟧⟦/2⟧",
     "status": "reviewed"
   },
   "82dcc7934e8343b4cb6e35bbe69fe6914e32c7d9c8cb25dd59364d40cf412649": {
@@ -3894,11 +3404,6 @@
     "target": "Discover how we use .NET 8 in scalable backend architectures and critical 3D systems.",
     "status": "reviewed"
   },
-  "852ad7a1301f0df03e8a8340e31c3af3f4551d8242965b9e77ac9b65b7da6a17": {
-    "source": "* Los detalles específicos de rendimiento y benchmarks están protegidos por NDA.",
-    "target": "* Specific performance details and benchmarks are protected by NDA.",
-    "status": "reviewed"
-  },
   "8536c203ee72ac6d58cb171c29724ff30cba6bc20b82dfff5721e0f0d4a502bd": {
     "source": "3. Implementación en código",
     "target": "3. Implementation in code",
@@ -3922,11 +3427,6 @@
   "862c103ddc1b1ff17080d7ce6a692698a7ae071e113037b248fd99b85a3c0e01": {
     "source": "Proyectos y Servicios con Azure Blob Storage",
     "target": "Projects and Services with Azure Blob Storage",
-    "status": "reviewed"
-  },
-  "865306a7f19bee422743953b861dc7bf66b78a1c8acc73a516f181308b6fdb27": {
-    "source": "Optimizado para tiempo real",
-    "target": "Optimized for real time",
     "status": "reviewed"
   },
   "8661b69d768dc2e744ffd35d31d31631f6f159e95ed9023acf5f857eefe8cc16": {
@@ -3969,11 +3469,6 @@
     "target": "🎁 Download the 3D/AI Architecture Checklist",
     "status": "reviewed"
   },
-  "87bf0aa215f9184cc163392543fd7e583a43343f0f1b24869bacfdf24d52db36": {
-    "source": "⟦0⟧Reducción de Latencia:⟦/0⟧ El tiempo de validación de un modelo complejo pasó de ⟦1⟧5.4 segundos a solo 1.2 segundos⟦/1⟧ (mejora del ~77%).",
-    "target": "⟦0⟧Latency Reduction:⟦/0⟧ The validation time for a complex model dropped from ⟦1⟧5.4 seconds to just 1.2 seconds⟦/1⟧ (a ~77% improvement).",
-    "status": "reviewed"
-  },
   "8801340fd8030b31b7010ffeee87bcfbcf268e90b29cd521a9da75bfa3aa49db": {
     "source": "Proyectos y Servicios con Azure Blob Storage | NainDev",
     "target": "Projects and Services with Azure Blob Storage | NainDev",
@@ -3992,11 +3487,6 @@
   "8831f2ed1fe2d6249e380d3dd77c514dcf51699decff8e60631dbabf8ea3d898": {
     "source": "Icono de Postman",
     "target": "Postman Icon",
-    "status": "reviewed"
-  },
-  "88537f6a494fb705c3322141022a83cef603455c121a53334a8af45672460920": {
-    "source": "Servicios y casos de estudio reales donde he implementado Three.js en producción.",
-    "target": "Services and real case studies where I have implemented Three.js in production.",
     "status": "reviewed"
   },
   "887dca77b11254bb3ed743870ed1efcc49847e98468015220c49c7a8e3157fb8": {
@@ -4052,11 +3542,6 @@
   "8b182d957e3ba17c0366bed7909e7cd443481c7f2adad44d6396b7118e01d5ce": {
     "source": "⟦0⟧Fiabilidad del Dato:⟦/0⟧ Al confinar el Tool Calling a clases de C# con tipado fuerte, se eliminaron los errores de inyección SQL (SQLi) causados por JSONs mal formados del LLM.",
     "target": "⟦0⟧Data Reliability:⟦/0⟧ By confining Tool Calling to C# classes with strong typing, SQL injection (SQLi) errors caused by malformed LLM JSONs were eliminated.",
-    "status": "reviewed"
-  },
-  "8be68502c99506370dc3e945210e11c1f19ed57cdff10d9d87d6892b05d9300c": {
-    "source": "Cero downtime en los últimos 12 meses (blue-green deployments).",
-    "target": "Zero downtime in the last 12 months (blue-green deployments).",
     "status": "reviewed"
   },
   "8c25df681b001c5ec1fe2d2bad93e87f0a45193fa01ba910f299eed81ff013c8": {
@@ -4139,19 +3624,9 @@
     "target": "Implementation of optimistic concurrency control (ETags) to prevent data overwriting in B2B platforms.",
     "status": "reviewed"
   },
-  "8e1e92b9d606340053f34214a5ea05b69a156b2dc279ce934a8bc11eb79f6e45": {
-    "source": "Capacidad para manejar 50k peticiones concurrentes.",
-    "target": "Capacity to handle 50k concurrent requests.",
-    "status": "reviewed"
-  },
   "8e2d6f0ff66a39d5a17b5c58730ab6a468195f8c9dd05509594c23f77c802e7f": {
     "source": "Detección de colisiones o mallas auto-intersectantes.",
     "target": "Collision or self-intersecting mesh detection.",
-    "status": "reviewed"
-  },
-  "8ea59c64d45d929ad79ebb1d72ee2bcef41835e8e7b3b41fd574b0707cf897aa": {
-    "source": "Servicios y casos de estudio reales donde he implementado Azure en producción.",
-    "target": "Services and real case studies where I have implemented Azure in production.",
     "status": "reviewed"
   },
   "8eaebca04fa9faf3efbc566ce9befac781653cab9d2ac15741870ef7d984b33e": {
@@ -4224,11 +3699,6 @@
     "target": "The Hidden Cost of Generative AI in Production",
     "status": "reviewed"
   },
-  "90a1b0a479904a9e24cb680efd9fb0cb88ace89398a986b37355cb16c9eaaccd": {
-    "source": "- Integración de ecosistema:",
-    "target": "- Ecosystem Integration:",
-    "status": "reviewed"
-  },
   "90a4e8af8dd068deb99e70b008a4aaba1502381e06fa798487e92b4ee5f577dc": {
     "source": "Tu dominio de negocio no debería saber qué es un “Prompt”, un “Token” o una “Temperature”.",
     "target": "Your business domain should not need to know what a “Prompt,” “Token,” or “Temperature” is.",
@@ -4239,19 +3709,9 @@
     "target": "If your current website has red Core Web Vitals, slow loading, and a fragile architecture, you are losing high-value B2B clients. We migrate and optimize your infrastructure for maximum conversion.",
     "status": "reviewed"
   },
-  "91361f962173f54b024b90c0351437af04c69bbb581a1196ac3b5a0c9c140e90": {
-    "source": "⟦0⟧📋 Descarga nuestra checklist para evaluar tu arquitectura⟦/0⟧⟦1/⟧ ⟦2⟧Ver Caso de Estudio⟦/2⟧ | ⟦3⟧Agendar Videollamada⟦/3⟧",
-    "target": "⟦0⟧📋 Download our checklist to evaluate your architecture⟦/0⟧⟦1/⟧ ⟦2⟧View Case Study⟦/2⟧ | ⟦3⟧Schedule a Video Call⟦/3⟧",
-    "status": "reviewed"
-  },
   "913a4cb91be20332f3559f8070255d7ac3e6228bb423f4441551d3f783e7d4f4": {
     "source": "clear",
     "target": "clear",
-    "status": "reviewed"
-  },
-  "91f67a34e54cd29fdb2350878d84c53f065cfdc24384b7633279a386cef05d6e": {
-    "source": "Descubre cómo utilizamos Kubernetes en arquitecturas de backend escalables y sistemas críticos 3D.",
-    "target": "Discover how we use Kubernetes in scalable backend architectures and critical 3D systems.",
     "status": "reviewed"
   },
   "922011f31e11cd8554c9fe47193d3825e4e2904155cf70e2749684c3c00dd412": {
@@ -4272,11 +3732,6 @@
   "92854be714888ffdfbd9996a8483c48f50463d50754c252ff02e4f0459b20235": {
     "source": "Para las empresas que manejan catálogos masivos de modelos 3D (e-commerce, manufactura, gemelos digitales), el procesamiento geométrico tradicional en servidores monolíticos se convierte rápidamente en un cuello de botella.",
     "target": "For companies managing massive catalogs of 3D models (e-commerce, manufacturing, digital twins), traditional geometric processing on monolithic servers quickly becomes a bottleneck.",
-    "status": "reviewed"
-  },
-  "928ea6550d8ea3c218fd2009fa2dd9bb0c469dec4600fc8a7cd8449505f58591": {
-    "source": "Análisis en profundidad de decisiones arquitectónicas, trade-offs y resultados en proyectos críticos. ⟦0⟧Ver todos los casos →⟦/0⟧",
-    "target": "In-depth analysis of architectural decisions, trade-offs, and results in critical projects. ⟦0⟧View all case studies →⟦/0⟧",
     "status": "reviewed"
   },
   "9292ea4c860c9820a8bc81407248350876d8bbf09b39f12f8b504d3219e6bc53": {
@@ -4314,11 +3769,6 @@
     "target": "Clean Architecture for 3D Validation with AI | NainDev",
     "status": "reviewed"
   },
-  "9303c0380d3b8393f43a09c2a77776c1d96b6794c54ac5a3207f982673c49144": {
-    "source": "Servicios y casos de estudio reales donde he implementado WebGPU en producción.",
-    "target": "Services and real case studies where I have implemented WebGPU in production.",
-    "status": "reviewed"
-  },
   "932dfaaeab8576373037fe509ca922c562ce730f2b51f4d1e083816085cb981a": {
     "source": "Conectando al servidor... Inicializando subsistemas...",
     "target": "Connecting to the server... Initializing subsystems...",
@@ -4334,19 +3784,9 @@
     "target": "Challenges of Agents in Production",
     "status": "reviewed"
   },
-  "9387f4191392dd6992c70cf9c17fea1f3d68fd16149a1b3ab6d164b20414cfb2": {
-    "source": "Descubre cómo utilizamos .NET Core en arquitecturas de backend escalables y sistemas críticos 3D.",
-    "target": "Discover how we use .NET Core in scalable backend architectures and critical 3D systems.",
-    "status": "reviewed"
-  },
   "94056415b96d259ab01cdbdd5f62babed706aeeab75f789b369e9f1c23ea3398": {
     "source": "IA como aliada:",
     "target": "AI as an ally:",
-    "status": "reviewed"
-  },
-  "9410991bbf3cecef0afc240b1706c36d952e7208ab87a89a0d93e8694b405388": {
-    "source": "8. Conclusión y Próximos Pasos",
-    "target": "8. Conclusion and Next Steps",
     "status": "reviewed"
   },
   "941125f364fe74c88ee94e03f4e8655f7221e996139c3d640b995300fba4f091": {
@@ -4377,11 +3817,6 @@
   "94a5bc960ac1ea57c05f45210accd009c61bb09f41981a166949b97b459f0f51": {
     "source": "Proyectos y Servicios con C#",
     "target": "Projects and Services with C#",
-    "status": "reviewed"
-  },
-  "94af5596f8b293b9c1913059d694aa7f4b05ff3a72fa97812f4584f330fa623d": {
-    "source": "Aquí se concentra el valor del negocio. Notar la ausencia de referencias a librerías de red o bases de datos; pura orquestación e inyección de dependencias.",
-    "target": "The business value is concentrated here. Note the absence of references to networking libraries or databases; pure orchestration and dependency injection.",
     "status": "reviewed"
   },
   "962753b161099214046a831c41b2849f2f69c112b815c66c38b89b83dcfcca40": {
@@ -4499,11 +3934,6 @@
     "target": "4. The Infrastructure Adapter",
     "status": "reviewed"
   },
-  "9a9610910dfa7b37c9df3f690c27c64f79994bc612c26f4328623b7268e417cc": {
-    "source": "Análisis en profundidad de decisiones arquitectónicas, trade-offs y resultados en proyectos críticos.",
-    "target": "In-depth analysis of architectural decisions, trade-offs, and outcomes in critical projects.",
-    "status": "reviewed"
-  },
   "9b2a9f28500c6c897b33d27af9f53da11cf00ce4a54fb108fc4b0582573ff730": {
     "source": "Cada negocio tiene necesidades únicas (desde una Landing Page persuasiva de un solo producto hasta un portal corporativo multi-servicio). En el diagnóstico gratuito evaluamos tu caso particular y te entrego un presupuesto cerrado y detallado.",
     "target": "Every business has unique needs (from a persuasive single-product Landing Page to a multi-service corporate portal). In the free diagnosis, we evaluate your specific case and provide you with a detailed, fixed quote.",
@@ -4512,11 +3942,6 @@
   "9b2c8439a1ae8a4b4c2a40dcd32b624c7ac5feab0f9dbd694f689721c43a259c": {
     "source": "Para cambiar a un modelo en la nube (ej. OpenAI), simplemente crearíamos un ⟦0/⟧ y cambiaríamos el registro en el contenedor de Inyección de Dependencias, ⟦1⟧sin tocar una sola línea de la capa de aplicación o de dominio.⟦/1⟧",
     "target": "To switch to a cloud model (e.g., OpenAI), we would simply create a ⟦0/⟧ and change the registration in the Dependency Injection container, ⟦1⟧without touching a single line of the application or domain layer.⟦/1⟧",
-    "status": "reviewed"
-  },
-  "9b55e49d8c99b8dd9256adddaa1a346d9fc4ae789d2ffeb751e13191a621979e": {
-    "source": "Me uní como colaborador técnico a",
-    "target": "I joined as a technical collaborator to",
     "status": "reviewed"
   },
   "9bcb1221827ab8ac54cab5244024918e3ad015406513fe5b3dbc63ecc165743c": {
@@ -4539,19 +3964,9 @@
     "target": "Separating ingestion from processing with this architecture allows for:",
     "status": "reviewed"
   },
-  "9c848e8cb16066c1917072a62e87d9ffd6311b7b2e08cce4b025af87aafad8d8": {
-    "source": "“¿Tu plataforma MedTech sufre cuellos de botella al procesar modelos 3D masivos?” ⟦0⟧Agendar auditoría de arquitectura gratuita⟦/0⟧ o ⟦1⟧lee mi caso de estudio de validación 3D⟦/1⟧.",
-    "target": "“Is your MedTech platform suffering bottlenecks when processing massive 3D models?” ⟦0⟧Schedule a free architecture audit⟦/0⟧ or ⟦1⟧read my 3D validation case study⟦/1⟧.",
-    "status": "reviewed"
-  },
   "9ce3c3d0ae6aa4ce390895453d3608f5c905e11f13b7943aedff44427f459594": {
     "source": "Checklist de Arquitectura de IA",
     "target": "AI Architecture Checklist",
-    "status": "reviewed"
-  },
-  "9cef0e3ad2f5acd8ecb3debd75931f5401a5be5abbe40ddf6979b0f0583405a3": {
-    "source": "El principal problema radicaba en la naturaleza estocástica (impredecible) de los LLMs y modelos de difusión 3D. Generaban topologías defectuosas, caras invertidas y mallas no manifold que resultaban inutilizables en motores como Unity o Unreal Engine. La validación manual no era escalable. Además, la infraestructura heredada del cliente consistía en un sistema fuertemente acoplado, un monolito donde las reglas geométricas colisionaban directamente con la lógica de red de las APIs de IA, provocando tiempos de procesamiento excesivos y fallos de timeout constantes.",
-    "target": "The main problem lay in the stochastic (unpredictable) nature of LLMs and 3D diffusion models. They generated defective topologies, flipped faces, and non-manifold meshes that were unusable in engines like Unity or Unreal Engine. Manual validation was not scalable. Furthermore, the client's legacy infrastructure consisted of a tightly coupled system, a monolith where geometric rules collided directly with the network logic of AI APIs, causing excessive processing times and constant timeout failures.",
     "status": "reviewed"
   },
   "9d03dce9e56335a9c23035403fc37f73f011aa628e891e2b20de735fe8255112": {
@@ -4577,11 +3992,6 @@
   "9d7c214c3ffde863bfaf5f0dd3ec098c59658d6e20d7c012f5078c620c4f5061": {
     "source": "Entregar",
     "target": "Deliver",
-    "status": "reviewed"
-  },
-  "9d8233ef33b595739bb28f7d3322249a5c76b7a82ec9ada8d4941426f0a20a8d": {
-    "source": "Servicios y casos de estudio reales donde he implementado Arquitectura de Software en producción.",
-    "target": "Services and real case studies where I have implemented Software Architecture in production.",
     "status": "reviewed"
   },
   "9d9b6391c248d268f6142121f537bc3a81d08255d09cc4addb107471e4556922": {
@@ -4704,11 +4114,6 @@
     "target": "Technical debt and bottlenecks cost you speed. Write to me, and let's design a robust architecture plan so your team can move forward without fear.",
     "status": "reviewed"
   },
-  "a15b91fec23b5d0ae2d2986e17acf1c65f41842695e56d507d41ce16544f8456": {
-    "source": "Contrato de Entrada (DTO)",
-    "target": "Input Contract (DTO)",
-    "status": "reviewed"
-  },
   "a177d975551c2bbba4e0b1536bb5b4b269cd76e71a85af9b87c8caa07e6b73a6": {
     "source": "Experiencia con ⟦0⟧Rendimiento Web⟦/0⟧",
     "target": "Experience with ⟦0⟧Web Performance⟦/0⟧",
@@ -4722,11 +4127,6 @@
   "a1b3e3ecdb1ee05dda5eb6ebaad0779897a194bf12bdd6ba86574c9793578c37": {
     "source": "Plataformas Cloud 3D: Backend para la gestión, almacenamiento y distribución eficiente de activos 3D a través de CDN.",
     "target": "3D Cloud Platforms: Backend for efficient management, storage, and distribution of 3D assets via CDN.",
-    "status": "reviewed"
-  },
-  "a1b823be27f09c57a434f8f4ad201dd0dbfd1eb9b15dffb7413b16e87aff8476": {
-    "source": "Servicios y casos de estudio reales donde he implementado FastAPI en producción.",
-    "target": "Services and real case studies where I have implemented FastAPI in production.",
     "status": "reviewed"
   },
   "a1baa4c598327280967fb03c88a982c3b98185533334a654816435d863d5b817": {
@@ -4744,19 +4144,9 @@
     "target": "⟦0⟧Resilience (Fault Tolerance):⟦/0⟧ If a 3D model is corrupt and causes a ⟦1⟧crash⟦/1⟧ in the processing program's memory (e.g., Segmentation Fault in C++), the container dies, but your main web application remains unaware. The message is returned to the queue or discarded (Dead-letter queue).",
     "status": "reviewed"
   },
-  "a26281929866cb944b2f2174e23c19c84932467ed19174d680e79dc8983f5310": {
-    "source": "Se aumentó la complejidad operativa (monitoreo de cachés, consistencia eventual) pero se logró escalar a 10x el tráfico sin degradar la experiencia.",
-    "target": "Operational complexity was increased (cache monitoring, eventual consistency), but we achieved 10x traffic scaling without degrading the experience.",
-    "status": "reviewed"
-  },
   "a267a70c023408b4dad1c841110fca3f8ba9ce22c9373a003cabd5bee49579cb": {
     "source": "Proyectos y Servicios con RabbitMQ | NainDev",
     "target": "Projects and Services with RabbitMQ | NainDev",
-    "status": "reviewed"
-  },
-  "a2801a81ad0049960ab220917d91042871b1cc3bf4ae7726f2459c65ea67180b": {
-    "source": "4. Implementación Técnica",
-    "target": "4. Technical Implementation",
     "status": "reviewed"
   },
   "a31491c807533915399fd43dd1d158f4c8538a011283fed30e414df218a7360e": {
@@ -4764,19 +4154,9 @@
     "target": "The Solution: Message-Based Asynchronous Processing",
     "status": "reviewed"
   },
-  "a37d07fe30048d3ae9db9a02c8c16da029bb44a586c5adaea2a1ce7be2c9d904": {
-    "source": "Kubernetes",
-    "target": "Kubernetes",
-    "status": "reviewed"
-  },
   "a37ece02d469e649ec2d31449b8033c8081654a5f807b7bbd9deecf95d4c85bd": {
     "source": "Auditoría de Sistemas Legacy & Refactoring B2B",
     "target": "Legacy System Auditing & B2B Refactoring",
-    "status": "reviewed"
-  },
-  "a3a02ffc7eb4532ce990c348d7f5069c2398351613572c7324000e9129bd5081": {
-    "source": "Servicios y casos de estudio reales donde he implementado Clean Architecture en producción.",
-    "target": "Services and real case studies where I have implemented Clean Architecture in production.",
     "status": "reviewed"
   },
   "a3d0e53f5a62bf4d70ef197f8c5c97f757ff92e2a6f1a09fc4f01e02fc458fc3": {
@@ -4814,11 +4194,6 @@
     "target": "Experience with ⟦0⟧.NET 8⟦/0⟧",
     "status": "reviewed"
   },
-  "a533a1918efafc1ec59400617b0edbdd5d1a9afb138842fe42041274bf48ad11": {
-    "source": "Experiencia con ⟦0⟧ONNX⟦/0⟧",
-    "target": "Experience with ⟦0⟧ONNX⟦/0⟧",
-    "status": "reviewed"
-  },
   "a5a671df7b4911332653c7f404847820f839b33718ba6b7651abe21f6bc1c653": {
     "source": "Diseño arquitecturas robustas y escalables con una visión agnóstica de infraestructura, priorizando la verdad del dato y la inmutabilidad.",
     "target": "I design robust, scalable architectures with an infrastructure-agnostic approach, prioritizing reliable data and immutability.",
@@ -4854,19 +4229,9 @@
     "target": "AI",
     "status": "reviewed"
   },
-  "a777fe9ab5bf4d623c2ffcd18ba467563d64e0c6406194fbc57bb02349db0bb4": {
-    "source": "Proyecto Confidencial (Industria 3D) · Colaborador Técnico",
-    "target": "Confidential Project (3D Industry) · Technical Contributor",
-    "status": "reviewed"
-  },
   "a77ade5ff1dbf61572ba3e84355a46da53103288703fa1fd6d1f7188e8ddb8ec": {
     "source": "Proyectos y Servicios con Arquitectura de Software",
     "target": "Software Architecture Projects and Services",
-    "status": "reviewed"
-  },
-  "a7a838b21d6024659952f2fd0975bcfdba0e851b22f93722ab86acc0e69b2033": {
-    "source": "Servicio de Dominio / Caso de Uso",
-    "target": "Domain Service / Use Case",
     "status": "reviewed"
   },
   "a7d847c75e88dd433a4b8d333aa5909be674d6e68629185ef848c9bbbea44b8a": {
@@ -4889,11 +4254,6 @@
     "target": "⟦0⟧Security and Preservation:⟦/0⟧ By establishing exhaustive domain validations, we inherently distrust user input and prevent corrupted geometries from poisoning our storage or overwhelming expensive processing, a critical concept in the ⟦1⟧backend architecture for generative AI⟦/1⟧.",
     "status": "reviewed"
   },
-  "a81f83482696f002871eae2bf7abdbc6c0622c3b9c7bf5c7a003346cdbc6970e": {
-    "source": "3. La Solución Arquitectónica",
-    "target": "3. The Architectural Solution",
-    "status": "reviewed"
-  },
   "a8258e0c28eae2ed50c68c9b0d6cd5d941cb324aa9039fd4a9b39eb6708313a6": {
     "source": "Cargando proyectos…",
     "target": "Loading projects…",
@@ -4904,19 +4264,9 @@
     "target": "Destructive Conversion",
     "status": "reviewed"
   },
-  "a8db271d61e46b573aad8b93dc4668255e461bc7f82f346ac7667d851da01c86": {
-    "source": "Descubre cómo diseñamos un backend capaz de validar geométricamente millones de modelos 3D generados por IA, eliminando los cuellos de botella mediante C# y Azure, consiguiendo estabilidad absoluta en producción.",
-    "target": "Discover how we designed a backend capable of geometrically validating millions of AI-generated 3D models, eliminating bottlenecks using C# and Azure, achieving absolute stability in production.",
-    "status": "reviewed"
-  },
   "a92cf920d04fc6a1595ff12e4cd5eeade31d982a1c82677f4a211cc35b5ab110": {
     "source": "El ⟦0⟧procesamiento de mallas 3D con C#⟦/0⟧ en entornos Cloud presenta un desafío único: los archivos (glTF, OBJ, FBX) pueden pesar gigabytes, pero los recursos de la nube (como las Azure Functions o los contenedores de Kubernetes) tienen límites estrictos de memoria. Si intentas cargar un modelo de 2GB directamente en la RAM de un ⟦1⟧worker⟦/1⟧ básico, tu sistema colapsará por ⟦2/⟧.",
     "target": "Processing ⟦0⟧3D meshes with C#⟦/0⟧ in cloud environments presents a unique challenge: the files (glTF, OBJ, FBX) can weigh gigabytes, but cloud resources (like Azure Functions or Kubernetes containers) have strict memory limits. If you try to load a 2GB model directly into the RAM of a basic ⟦1⟧worker⟦/1⟧, your system will crash due to ⟦2/⟧.",
-    "status": "reviewed"
-  },
-  "a96688f01424eda7e3033ef96d063aaa1ac5da092a321357274e7ecbefe7963c": {
-    "source": "Experiencia Aplicada",
-    "target": "Applied Experience",
     "status": "reviewed"
   },
   "a966a313c05cafc8e6877d5a1ac4dd2f45c8587a7a81b0bbac42ab392831d267": {
@@ -5099,19 +4449,9 @@
     "target": "⟦0⟧⟦1⟧Extreme Performance Optimization for .NET REST APIs⟦/1⟧⟦2⟧Audit, profiling, and bottleneck resolution service for high-concurrency APIs built in C# and .NET.⟦/2⟧⟦/0⟧",
     "status": "reviewed"
   },
-  "ae7ad1f5d823824f53561a85e45163eaad0f551906ebd42314b1bac31fa5d517": {
-    "source": ".NET Core",
-    "target": ".NET Core",
-    "status": "reviewed"
-  },
   "aed7d06b6faa8df71e1491003eaa7d7d886212436398cf012748e57c6137a72f": {
     "source": "Resultados y Métricas en Producción",
     "target": "Results and Metrics in Production",
-    "status": "reviewed"
-  },
-  "aee3e57381210bf1bdcdfc8a4b99f0460b2bb9a1b24324ddae2e5eb423254702": {
-    "source": "Proyectos y Servicios con ONNX",
-    "target": "Projects and Services with ONNX",
     "status": "reviewed"
   },
   "af2a4475bc4491caf7da5c1b1a03bd53fb61cc5ab3f1c2fb2ed5013f7a1a276f": {
@@ -5139,11 +4479,6 @@
     "target": "C# · .NET · SQL Server · Agentic Architecture",
     "status": "reviewed"
   },
-  "b020e0de996f4b0884b8460f085716cc8c30de430df681a63376676c277f65d2": {
-    "source": "⟦0⟧Decisión⟦/0⟧: Integrar ONNX Runtime nativamente en .NET para ejecutar validaciones geométricas en memoria, aislando a la IA como un proveedor de datos asíncrono.",
-    "target": "⟦0⟧Decision⟦/0⟧: Integrate ONNX Runtime natively into .NET to execute geometric validations in memory, isolating AI as an asynchronous data provider.",
-    "status": "reviewed"
-  },
   "b02ad15639fb2d74dd355a4b1279185e804aa8a33d62fcd4149ca966056fe5c7": {
     "source": "Un ⟦0⟧pool⟦/0⟧ de microservicios (Workers) alojados en Azure Container Apps o Azure Batch escucha esta cola. Estos ⟦1⟧workers⟦/1⟧ están programados específicamente para tareas geométricas pesadas (quizás usando librerías de C++ o Trimesh en Python).",
     "target": "A ⟦0⟧pool⟦/0⟧ of microservices (Workers) hosted on Azure Container Apps or Azure Batch listens to this queue. These ⟦1⟧workers⟦/1⟧ are specifically programmed for heavy geometric tasks (perhaps using C++ libraries or Trimesh in Python).",
@@ -5159,11 +4494,6 @@
     "target": "First, I clarify what needs to be solved and what is out of scope. Then, I divide the work into changes that can be tested and reviewed.",
     "status": "reviewed"
   },
-  "b0f54ffbf7481a41a985ed57686354fe7e48a72744d68434e58f38a071ee8af8": {
-    "source": "Casos de estudio",
-    "target": "Case studies",
-    "status": "reviewed"
-  },
   "b0f9f69dddfa3e278da2f677c1a05a2bff7eb16b2de621da1d5eaa51c7aeb044": {
     "source": "La Solución: Concurrencia Optimista",
     "target": "The Solution: Optimistic Concurrency",
@@ -5172,11 +4502,6 @@
   "b117b215960bfd36f972bc4315f58dab0966f5179b91412d7f92881a737c1fc4": {
     "source": "Arquitectura backend para validación 3D, IA generativa y sistemas críticos .NET. Consultoría técnica de Aitor Nain Mendoza Vallejo.",
     "target": "Backend architecture for 3D validation, generative AI, and critical .NET systems. Technical consulting by Aitor Nain Mendoza Vallejo.",
-    "status": "reviewed"
-  },
-  "b11935f731f0db90858a07e22a1dd4e93857f30418c78af7353ca33ac0741c8c": {
-    "source": "⟦0⟧Consecuencias⟦/0⟧: Aumentó la huella de memoria en los workers .NET, lo que requirió instancias optimizadas para memoria en la nube, pero simplificó radicalmente la topología de red.",
-    "target": "⟦0⟧Consequences⟦/0⟧: Increased memory footprint in the .NET workers, which required memory-optimized cloud instances, but radically simplified the network topology.",
     "status": "reviewed"
   },
   "b13f3f89edba39b4512b6fab01674c7076533f98c9aa904848b6439fdb06df83": {
@@ -5259,11 +4584,6 @@
     "target": "Generative Artificial Intelligence has burst into software architectures like a hurricane. LLM and diffusion models open new frontiers in value creation, but they introduce a factor that frightens backend engineers: ⟦0⟧stochasticity⟦/0⟧.",
     "status": "reviewed"
   },
-  "b462c3b712f3f965f4fa956dc0de4b808ea6a3d3e973439138423c5eff90a79c": {
-    "source": "Diagrama de Arquitectura",
-    "target": "Architecture Diagram",
-    "status": "reviewed"
-  },
   "b471a0cd3bca35eee8725cc243974d038b9e7190d97eab1882d36edc232ba309": {
     "source": "NainOrder (Motor E-Commerce)",
     "target": "NainOrder (E-Commerce Engine)",
@@ -5299,24 +4619,9 @@
     "target": "Deterministic pipelines in C#/.NET to validate 3D topologies generated by AI at industrial scale.",
     "status": "reviewed"
   },
-  "b574caa05632de3b92c3789a8261c8dc9566a5b646ce809e20c8a46072898b1f": {
-    "source": "Servicios y casos de estudio reales donde he implementado Microservicios en producción.",
-    "target": "Services and real case studies where I have implemented Microservices in production.",
-    "status": "reviewed"
-  },
   "b581e46042cbfbb0af4542a858079a84fd3ae98e5563f615710191d5b3597680": {
     "source": "CSS",
     "target": "CSS",
-    "status": "reviewed"
-  },
-  "b58ed9100e047c7b07785a1571f1e573147cd64f23eca1555117153401e4de49": {
-    "source": "Servicios y casos de estudio reales donde he implementado Python en producción.",
-    "target": "Services and real case studies where I have implemented Python in production.",
-    "status": "reviewed"
-  },
-  "b5ae8c76c8033e889a3058c069bacd219bf18fe4ce2687cb51ace5e72f5593c6": {
-    "source": "Migración a Arquitectura Hexagonal y DDD",
-    "target": "Migration to Hexagonal Architecture and DDD",
     "status": "reviewed"
   },
   "b5d8dca0f01d33a43150549ed747ebfc5a73ae3ea1649404b652860b2ac4a560": {
@@ -5357,11 +4662,6 @@
   "b6f841653988795fa6e2b00e99b20749dc89fe4c85795566212314fa2e69f5aa": {
     "source": "⟦0⟧Integridad Garantizada:⟦/0⟧ Nunca más perderás un reporte de fallo crítico de tu Motor Geométrico porque un worker de IA asíncrono sobrescribió la fila ciegamente.",
     "target": "⟦0⟧Guaranteed Integrity:⟦/0⟧ You will never again lose a critical failure report from your Geometry Engine because an asynchronous AI worker blindly overwrote the row.",
-    "status": "reviewed"
-  },
-  "b71c0597a3a9fdaac797488760e157c4261cf21796ca5f6ff13459fb8d697ae9": {
-    "source": "Tras la puesta en producción de la nueva arquitectura, los indicadores clave de rendimiento (KPIs) reflejaron un salto cualitativo histórico para la startup:",
-    "target": "After deploying the new architecture into production, the key performance indicators (KPIs) reflected a historic qualitative leap for the startup:",
     "status": "reviewed"
   },
   "b740cd2be1767c9ee954d1009a3ed5c472decd7001cc55c403de5b2f59dba3bc": {
@@ -5459,11 +4759,6 @@
     "target": "- Container and cloud strategies",
     "status": "reviewed"
   },
-  "b9e09ee3eaff8def6ddfbfaa826ae0e99aa7ffe53c08b4b85d1f55ed7319e13c": {
-    "source": "Optimización de rendimiento, sharding y escalabilidad horizontal para una plataforma SaaS crítica.",
-    "target": "Performance optimization, sharding, and horizontal scalability for a critical SaaS platform.",
-    "status": "reviewed"
-  },
   "ba1814e915ad5913bff881e3f76020c7dd8e1aecf140f8034f293d41484705e6": {
     "source": "Proyectos y Servicios con .NET 8",
     "target": "Projects and Services with .NET 8",
@@ -5499,11 +4794,6 @@
     "target": "Software design principles",
     "status": "reviewed"
   },
-  "baa3907e5e55257d20e77d77107166275ac1d79ea46f7f10ed97e241541d7905": {
-    "source": "Partición de la base de datos (sharding) por tenant para aislar cargas.",
-    "target": "Database sharding by tenant to isolate loads.",
-    "status": "reviewed"
-  },
   "bac3b3a55566243b0ce7f77375011c5bd252703167c52a81c187d66729c1168e": {
     "source": "Trimesh",
     "target": "Trimesh",
@@ -5517,11 +4807,6 @@
   "bb1635bafdfaa84c1ce3eaf0da4784c6ad41d0acc4989aa8d30576ccf5b39746": {
     "source": "Construyo microservicios ultra-optimizados, contenerizados (Docker) y desplegados en la nube, especializados en interceptar y validar geométricamente las mallas 3D en milisegundos.",
     "target": "I build ultra-optimized, containerized (Docker) microservices deployed in the cloud, specialized in intercepting and geometrically validating 3D meshes in milliseconds.",
-    "status": "reviewed"
-  },
-  "bb411e9d5d4f2ca7b09319a26b2c1940143128e9cc41dfd6aeca68df07241b7e": {
-    "source": "Abstracción del Repositorio",
-    "target": "Repository Abstraction",
     "status": "reviewed"
   },
   "bb65211bad1e6ae9c6e50dd25e94bdedab8b5ec7ed96efd532b0b4aa44e8ee1a": {
@@ -5699,11 +4984,6 @@
     "target": "Leaky meshes (⟦0⟧non-watertight⟦/0⟧), degenerate faces, inverted normals, or geometric intersections can crash rendering engines, cause physical simulations to fail, or ruin 3D prints. Performing this validation manually is unsustainable, and scaling desktop CAD software is unfeasible and inefficient.",
     "status": "reviewed"
   },
-  "c1bec669948c06dceafcaf968d1511a44a0be4aa99d835b9b17bd9254f0c25e5": {
-    "source": "Este proyecto demuestra que la adopción de tecnologías exponenciales como la IA generativa no exime de aplicar principios sólidos de ingeniería de software. Al contrario: cuando el input (IA) es impredecible, el backend debe ser más rígido, determinista y estar mejor estructurado que nunca.",
-    "target": "This project demonstrates that adopting exponential technologies like generative AI does not exempt one from applying solid software engineering principles. On the contrary: when the input (AI) is unpredictable, the backend must be more rigid, deterministic, and better structured than ever.",
-    "status": "reviewed"
-  },
   "c1e3865f37da009711e18a7d308f73bca66d3f6377bff85f3872f1cd19903344": {
     "source": "Validación",
     "target": "Validation",
@@ -5742,11 +5022,6 @@
   "c46498439a3a63cfdcd4fc69df406ec5b5f775c35440356e293fd295a153c034": {
     "source": "Desarrollar y probar",
     "target": "Develop and Test",
-    "status": "reviewed"
-  },
-  "c4781e57443f52c3e5a398f88d2124a7ca62a45e080c1db95d4ef008755215e5": {
-    "source": "⟦0⟧Zero Downtime:⟦/0⟧ El procesamiento de mallas pesadas no bloquea la API principal.",
-    "target": "⟦0⟧Zero Downtime:⟦/0⟧ Heavy mesh processing does not block the main API.",
     "status": "reviewed"
   },
   "c478361e6869af25970682a2c53967adbc8a46e9429efdc64b96351cfd52e13f": {
@@ -5824,11 +5099,6 @@
     "target": "⟦0⟧Database Decoupling:⟦/0⟧ Designing strategies to separate shared databases, moving to a database per microservice and using event-based synchronization (Eventual Consistency).",
     "status": "reviewed"
   },
-  "c726b12ef6a70cd435ed50ea1a8cc3acb7fb8a1202c61fb9054dd1283d393ec6": {
-    "source": "⟦0⟧Contexto⟦/0⟧: Las validaciones 3D se ejecutaban en el mismo hilo HTTP con APIs de IA externas, provocando timeouts y acoplamiento excesivo.",
-    "target": "⟦0⟧Context⟦/0⟧: 3D validations were running on the same HTTP thread with external AI APIs, causing timeouts and excessive coupling.",
-    "status": "reviewed"
-  },
   "c74a2b3789d86cb3d151c0179a22eea67239ef99ae3d22de44db4679fc9f89ec": {
     "source": "Diagrama de Arquitectura (C4 Container)",
     "target": "Architecture Diagram (C4 Container)",
@@ -5847,11 +5117,6 @@
   "c7a95a1fb69210b0259ed1b9d51d0ba1293a085542c5695452f0b41f1ca82868": {
     "source": "El Plan",
     "target": "The Plan",
-    "status": "reviewed"
-  },
-  "c7b66bef0fe8d0487b6a793ab1c40dfa7cf6c5c52a45e3138da3fe403a61a4fe": {
-    "source": "Trade-offs",
-    "target": "Trade-offs",
     "status": "reviewed"
   },
   "c7d6f32c6855b18d2f424571a7f507f896189ecfc7f4a4b94a328e3f4f604593": {
@@ -5874,16 +5139,6 @@
     "target": "- C# / .NET (Critical Systems, High Performance)",
     "status": "reviewed"
   },
-  "c87f2be384872e3b68423e5a6d05892fea908f6dc96887029f6d489bedac7279": {
-    "source": "Optimización de rendimiento y escalabilidad horizontal",
-    "target": "Performance Optimization and Horizontal Scalability",
-    "status": "reviewed"
-  },
-  "c89b316f2eb136cc127424a38e05ac2934e65f103004d35bb3266f11c3f60dc4": {
-    "source": "⟦0⟧Agendar Auditoría Gratuita⟦/0⟧⟦1⟧Ver caso: Validación 3D⟦/1⟧",
-    "target": "⟦0⟧Schedule a Free Audit⟦/0⟧⟦1⟧View Case: 3D Validation⟦/1⟧",
-    "status": "reviewed"
-  },
   "c8d61c28ed91dffc0e511145863ebfefa0b08273ba54dca78d9bdf9b2e726b52": {
     "source": "SQL Server",
     "target": "SQL Server",
@@ -5904,11 +5159,6 @@
     "target": "I design fault-tolerant and horizontally scalable systems.",
     "status": "reviewed"
   },
-  "c92ba01eb6393fdd38b0c502255dfaa5d1b2a12d4460df25dc134066701f9a2f": {
-    "source": "En un entorno donde la IA generativa avanza a un ritmo vertiginoso, la creación masiva de assets 3D se ha democratizado. Nuestro cliente, una prometedora ⟦0⟧Stealth Startup⟦/0⟧ del sector B2B orientada a industrias creativas y simulaciones industriales, se enfrentaba a un reto colosal: ⟦1⟧validar y corregir geométricamente miles de modelos 3D generados por IA cada día⟦/1⟧.",
-    "target": "In an environment where generative AI is advancing at a dizzying pace, the mass creation of 3D assets has been democratized. Our client, a promising ⟦0⟧Stealth Startup⟦/0⟧ in the B2B sector focused on creative industries and industrial simulations, faced a colossal challenge: ⟦1⟧validating and geometrically correcting thousands of AI-generated 3D models every day⟦/1⟧.",
-    "status": "reviewed"
-  },
   "c94e4838a4ce2411f5aa293f9e98117024c5d94a2f6e054af87982cd46571f45": {
     "source": "⟦0⟧Escalado Horizontal:⟦/0⟧ Implementación de Workers (Azure Container Apps / Azure Batch) que escalan de 0 a 100 réplicas según la longitud de la cola de procesamiento 3D.",
     "target": "⟦0⟧Horizontal Scaling:⟦/0⟧ Implementation of Workers (Azure Container Apps / Azure Batch) that scale from 0 to 100 replicas based on the length of the 3D processing queue.",
@@ -5917,11 +5167,6 @@
   "c96a98efba9528fcff3f4bbb505124fcbb0aec9cf13e696223de5ec0116e4c5c": {
     "source": "Creamos una interfaz visualmente impactante, respetando la identidad de tu marca, enfocándonos en microinteracciones que generan confianza en el sector B2B.",
     "target": "We create a visually impactful interface that respects your brand identity, focusing on micro-interactions that build trust in the B2B sector.",
-    "status": "reviewed"
-  },
-  "c978f4489c627b1186b0db43d68112a338364036755e230f03497d09e0f99f9b": {
-    "source": "Leer el caso completo →",
-    "target": "Read the full case →",
     "status": "reviewed"
   },
   "c9b1ce47b2aaedecf499ab94583b2731c678ac5fa67a9e4a7d749346bb6489fd": {
@@ -5952,11 +5197,6 @@
   "ca88ef8687329562b3d6397779a3e7adec785c987f1cf66abe4d23625fa4008c": {
     "source": "¿Tu sistema de IA está listo para producción?",
     "target": "Is your AI system ready for production?",
-    "status": "reviewed"
-  },
-  "cadd22b9d3d3a263d724a702f43f82ce0ca0badecfb349e69238ab21cc90c7d4": {
-    "source": "⟦0⟧⟦1⟧Plataforma SaaS · Backend Specialist⟦/1⟧⟦2⟧Optimización de rendimiento y escalabilidad horizontal⟦/2⟧⟦3⟧Optimización de rendimiento, sharding y escalabilidad horizontal para una plataforma SaaS crítica.⟦/3⟧⟦/0⟧⟦4⟧⟦5⟧Proyecto Confidencial (Industria 3D) · Colaborador Técnico⟦/5⟧⟦6⟧Sistema de Validación y Corrección 3D (IA)⟦/6⟧⟦7⟧Diseño de arquitectura backend determinista para activos 3D generados por IA a escala industrial.⟦/7⟧⟦/4⟧",
-    "target": "⟦0⟧⟦1⟧SaaS Platform · Backend Specialist⟦/1⟧⟦2⟧Performance Optimization and Horizontal Scalability⟦/2⟧⟦3⟧Performance optimization, sharding, and horizontal scalability for a critical SaaS platform.⟦/3⟧⟦/0⟧⟦4⟧⟦5⟧Confidential Project (3D Industry) · Technical Collaborator⟦/5⟧⟦6⟧3D Validation and Correction System (AI)⟦/6⟧⟦7⟧Designing deterministic backend architecture for AI-generated 3D assets at industrial scale.⟦/7⟧⟦/4⟧",
     "status": "reviewed"
   },
   "cb27730b899b1eb47fbecb162d7428db90287eb7ee291718f30a0112016edcc6": {
@@ -5994,19 +5234,9 @@
     "target": "To solve these problems, we abandoned synchronous validation in favor of an event-driven architecture using message queues and cloud storage (Blob Storage).",
     "status": "reviewed"
   },
-  "cc962863168a297b8a8f49cde71d50a46e52a564f7782cfc3cb68339165d9bc8": {
-    "source": "⟦0⟧Alternativas consideradas⟦/0⟧: Microservicios en Python para la validación geométrica (descartado por la penalización de serialización/deserialización y latencia de red para mallas pesadas).",
-    "target": "⟦0⟧Alternative options considered⟦/0⟧: Python microservices for geometric validation (discarded due to serialization/deserialization penalty and network latency for heavy meshes).",
-    "status": "reviewed"
-  },
   "cd13def5b8b42f6df829e4fdb28a15c97019206e5202d5bbb590c8feab81a10d": {
     "source": "Estado: 100% Funcional. Ciclo completo end-to-end verificado exitosamente.",
     "target": "Status: 100% Functional. Complete end-to-end cycle successfully verified.",
-    "status": "reviewed"
-  },
-  "cd46d4f1155fd81419a47904fc8c111575659fc7b3af8eef48f7a074cfe8f090": {
-    "source": "- Construcción técnica de infraestructura para procesamiento masivo.",
-    "target": "- Technical construction of infrastructure for massive processing.",
     "status": "reviewed"
   },
   "cd74053c54816e473883dede0ad3b152f38a41995409eade6b42704919bb1359": {
@@ -6034,19 +5264,9 @@
     "target": "clean-architecture",
     "status": "reviewed"
   },
-  "ce68b01a6ba51e034d1e4be0fe29c73a6e7a8e2692c82c39a12c0bf4ae00d944": {
-    "source": "Servicios y casos de estudio reales donde he implementado OpenAI API en producción.",
-    "target": "Services and real case studies where I have implemented OpenAI API in production.",
-    "status": "reviewed"
-  },
   "ce783833c149605899c0e400555fcc33b9710dca6e48bd3ba58f5b597644e520": {
     "source": "⟦0⟧📥 Checklist Arquitectura IA⟦/0⟧⟦1⟧Privacidad⟦/1⟧⟦2⟧Volver arriba⟦/2⟧",
     "target": "⟦0⟧📥 AI Architecture Checklist⟦/0⟧⟦1⟧Privacy⟦/1⟧⟦2⟧Back to top⟦/2⟧",
-    "status": "reviewed"
-  },
-  "ce950f07e2a308045efbad3bdebecdf5b6fbfa611c4cc9a67affd5a2f16be677": {
-    "source": "Implementación de Ports & Adapters (Arquitectura Hexagonal) para aislar la infraestructura (SQL Server).",
-    "target": "Implementation of Ports & Adapters (Hexagonal Architecture) to isolate infrastructure (SQL Server).",
     "status": "reviewed"
   },
   "cea2b1b9764e8013d5f248893bf93477e880595e6dbf11aab72ec140c8d04937": {
@@ -6062,11 +5282,6 @@
   "cedc25f9629e42431514a25c737a9d261047ddb3a5dd35d204c58dbfe27c7630": {
     "source": "El Dilema: Bloqueo Pesimista vs. Validación Optimista",
     "target": "The Dilemma: Pessimistic Locking vs. Optimistic Validation",
-    "status": "reviewed"
-  },
-  "cefbf80afb57cc236d43538dd51158d7ea721cc10a92fe20d662cba9cd65a64c": {
-    "source": "1. Introducción y Contexto del Cliente",
-    "target": "1. Introduction and Client Context",
     "status": "reviewed"
   },
   "cf41634273cd8ede43ef6ddc45f83cf09e3aa0894caf35768ce88602adcc7644": {
@@ -6109,16 +5324,6 @@
     "target": "Aitor Nain's articles on backend architecture, .NET, 3D validation, generative AI, performance, concurrency, and critical systems.",
     "status": "reviewed"
   },
-  "d17141b3a58aa60ebea78b34d9eeadc916772b168db904482d2db972e7a4007c": {
-    "source": "Decisiones de Arquitectura (ADRs)",
-    "target": "Architecture Decision Records (ADRs)",
-    "status": "reviewed"
-  },
-  "d19b2ae00a5691e536d8460b5d9bb8e62146c0ef515fd186d9b2332084a76dbd": {
-    "source": "ONNX",
-    "target": "ONNX",
-    "status": "reviewed"
-  },
   "d1b6cd83a339b6f8868a9aab96916d5c9daad693c4f5d2dc640b7e3ea4f7f881": {
     "source": "Última actualización: 8 de septiembre de 2026",
     "target": "Last updated: September 8, 2026",
@@ -6132,11 +5337,6 @@
   "d20c4304f52189d85d9816e57e740c125f16253cb5f3a0b97179752bd3bc5a86": {
     "source": "Si tus APIs sufren lentitud o tu infraestructura cuesta más de lo que debería, ⟦0⟧⟦1⟧agenda una sesión de diagnóstico⟦/1⟧⟦/0⟧ o comienza analizando tu base técnica con el ⟦2⟧Checklist de Arquitectura Gratuito⟦/2⟧.",
     "target": "If your APIs are slow or your infrastructure costs more than it should, ⟦0⟧⟦1⟧schedule a diagnostic session⟦/1⟧⟦/0⟧ or start assessing your technical foundations with the ⟦2⟧Free Architecture Checklist⟦/2⟧.",
-    "status": "reviewed"
-  },
-  "d294056d8b2b6fcb6727c43c6f02f74124288036345450ba19959e1347b903a2": {
-    "source": "Servicios y casos de estudio reales donde he implementado RabbitMQ en producción.",
-    "target": "Services and real case studies where I have implemented RabbitMQ in production.",
     "status": "reviewed"
   },
   "d2ae49202168dbee9f302fb434220b940ce60235c6627297fdc0483ba75041e9": {
@@ -6172,11 +5372,6 @@
   "d361811d9ccdf53e36c044656f842ac22d0ad6e029158929fd2c66c42b600b8b": {
     "source": "Arquitectura backend para logística y cadena de suministro: tolerancia a fallos, procesamiento de eventos y escalabilidad con C# y .NET.",
     "target": "Backend architecture for logistics and supply chain: fault tolerance, event processing, and scalability with C# and .NET.",
-    "status": "reviewed"
-  },
-  "d396b6cd5f13e1ebb4b3153fd96aeebc005954468690037ea9209621e978ef61": {
-    "source": "7. Decisiones de Arquitectura (ADRs)",
-    "target": "7. Architecture Decision Records (ADRs)",
     "status": "reviewed"
   },
   "d3aa2cfd2bb327a337857101075c7ca2d14ae85c2f7f02e29f86027745ab3063": {
@@ -6224,11 +5419,6 @@
     "target": "Topological validation (manifold, watertight).",
     "status": "reviewed"
   },
-  "d584df9724d62c9aa6a336be4f4642a8e433c30c857c3a551e31127ec02ce9dd": {
-    "source": "KPIs y métricas de impacto de la arquitectura",
-    "target": "Architecture impact KPIs and metrics",
-    "status": "reviewed"
-  },
   "d5851c5dcb3b35f2bc2ce516e1d73999620c5a0bca82ced477c77156c1a61571": {
     "source": "Abrir demo",
     "target": "Open Demo",
@@ -6237,11 +5427,6 @@
   "d596195c71e0a156bf2846011cd483c2d0eaf50a4594e37dd863e1d1327598d1": {
     "source": "⟦0⟧Pipelines Dockerizados:⟦/0⟧ Entornos efímeros y seguros. Procesamiento en sandboxes para evitar vulnerabilidades de desbordamiento de búfer asociadas a parsers 3D maliciosos.",
     "target": "⟦0⟧Containerized Pipelines:⟦/0⟧ Ephemeral and secure environments. Processing in sandboxes to prevent buffer overflow vulnerabilities associated with malicious 3D parsers.",
-    "status": "reviewed"
-  },
-  "d5a0f94cb4074af8faed816a137534b1ce0609b4b65def2d34d3f1f1d144c736": {
-    "source": "5. Decisiones Clave y Trade-offs",
-    "target": "5. Key Decisions and Trade-offs",
     "status": "reviewed"
   },
   "d5c598aa43be58f9b5e86fbb55506a4d3ad35ba7a8be970adb313a8b4ca56afe": {
@@ -6259,19 +5444,9 @@
     "target": "The Problem: The “Geometric Bottleneck”",
     "status": "reviewed"
   },
-  "d61603d83772c52b4474978c1638b882f4d4a5cbfc1d6d8ce19581756499de26": {
-    "source": "Resultados Medibles",
-    "target": "Measurable Results",
-    "status": "reviewed"
-  },
   "d61cb0de076c3da4f38d0fad15765659ecaf36672bda2b8fb7b19f9ff93ce022": {
     "source": "Diseño la infraestructura que valida y procesa ⟦0⟧modelos 3D a escala industrial.⟦/0⟧",
     "target": "I design infrastructure that validates and processes ⟦0⟧3D models at industrial scale.⟦/0⟧",
-    "status": "reviewed"
-  },
-  "d6266df485c588a7b2633dbf8c3729918ad9aaaf9dc6d7896f64ba118c8b5ba2": {
-    "source": "Servicios y casos de estudio reales donde he implementado Entity Framework en producción.",
-    "target": "Services and real case studies where I have implemented Entity Framework in production.",
     "status": "reviewed"
   },
   "d646c51946b121bf5e0937802c2250ea9f29da95e9b6cb16e815b8ad9b45a708": {
@@ -6294,11 +5469,6 @@
     "target": "Is your generative AI or LLM system suffering from timeouts in production? Implement decoupled and fault-tolerant backend architectures.",
     "status": "reviewed"
   },
-  "d7a61fb3c6575edb1c6da1c305004c1aec1f1f40ba0570512265ce479c784af5": {
-    "source": "- Mantenimiento y optimización de sistemas críticos (C#, SQL Server).",
-    "target": "- Maintenance and optimization of critical systems (C#, SQL Server).",
-    "status": "reviewed"
-  },
   "d7eec4c8cbf9d1184cc5e5899a7ea80dd30e0e8d534be9c8bbf30a6498feb545": {
     "source": "MassTransit",
     "target": "MassTransit",
@@ -6317,11 +5487,6 @@
   "d8aa63c555c6918174f56d214324cb4c431a650df9ae3e1e2b31c9be7461c755": {
     "source": "No todas las tareas requieren el razonamiento matemático de GPT-4. Tareas de clasificación de texto simple, extracción de JSON o análisis de sentimiento pueden ser delegadas a modelos más pequeños y rápidos como GPT-3.5-Turbo o modelos Open Source locales (Llama 3 8B) hosteados en la misma red privada.",
     "target": "Not all tasks require the mathematical reasoning of GPT-4. Simple text classification, JSON extraction, or sentiment analysis tasks can be delegated to smaller, faster models like GPT-3.5-Turbo or local Open Source models (Llama 3 8B) hosted on the same private network.",
-    "status": "reviewed"
-  },
-  "d8cef2fe29454d5b158ce96734c4660650e0c700d6f3d374b3f2e31e781f2528": {
-    "source": "Servicios y casos de estudio reales donde he implementado Semantic Kernel en producción.",
-    "target": "Services and real case studies where I have implemented Semantic Kernel in production.",
     "status": "reviewed"
   },
   "d8d30065f928b9b9682db0a0f9d09bc23d8d50d6a470e45392ee786448574d09": {
@@ -6349,11 +5514,6 @@
     "target": "Discover how we use Vector Databases in scalable backend architectures and critical 3D systems.",
     "status": "reviewed"
   },
-  "d9ebcf2d19d9346c6e4d53cc805712073a1cddc27905e249d2a38b878fb908a4": {
-    "source": "CQRS",
-    "target": "CQRS",
-    "status": "reviewed"
-  },
   "da143014dc177393c2d7cd5fd6c009919746aa3a05ba12bc88632f673ed29194": {
     "source": "⟦0⟧Multiplicación del Throughput:⟦/0⟧ Al eliminar los ⟦1/⟧ de base de datos, puedes escalar tus workers de procesamiento 3D horizontalmente sin que la base de datos se convierta en un embudo. Validas más modelos por hora con la misma infraestructura.",
     "target": "⟦0⟧Throughput Multiplication:⟦/0⟧ By eliminating the ⟦1/⟧ from the database, you can scale your 3D processing workers horizontally without the database becoming a bottleneck. You validate more models per hour with the same infrastructure.",
@@ -6367,11 +5527,6 @@
   "dac135c383417ebc5a550377dc75a230357942e55c71d686b52ea65586c6afc1": {
     "source": "Parece que esta ruta ⟦0⟧no existe.⟦/0⟧",
     "target": "It looks like this path ⟦0⟧does not exist.⟦/0⟧",
-    "status": "reviewed"
-  },
-  "dac2f511fd6469e4b1fcfd37c834bfa5863cf860fa1de7a2876be122e1597ff9": {
-    "source": "La historia detrás del proyecto confidencial (Problema & Solución)",
-    "target": "The story behind the confidential project (Problem & Solution)",
     "status": "reviewed"
   },
   "dace5b1d092f6adaebb60daf85d63f7d8245a4ce65e74cb71a2505c2c2d42eba": {
@@ -6429,11 +5584,6 @@
     "target": ">> INITIALIZING NARRATIVE PROTOCOL...",
     "status": "reviewed"
   },
-  "dc71d4ae01c1c34d918fcc1f225e970873d0064e38db76472dcc1fb39654e0ab": {
-    "source": "Servicios y casos de estudio reales donde he implementado Azure Blob Storage en producción.",
-    "target": "Services and real case studies where I have implemented Azure Blob Storage in production.",
-    "status": "reviewed"
-  },
   "dcb3ceb70a036282e6b31dc325901b747e8b7a8f5e1093eebe16da2187e2fef1": {
     "source": "Experiencia con ⟦0⟧Docker⟦/0⟧",
     "target": "Experience with ⟦0⟧Docker⟦/0⟧",
@@ -6447,11 +5597,6 @@
   "dcc4619f2674e4dc9013ec07076c853c8f5861da7de31f8299a406cdd84ff175": {
     "source": "Sistemas distribuidos de misión crítica donde la consistencia del dato y la escalabilidad son innegociables.",
     "target": "Mission-critical distributed systems where data consistency and scalability are non-negotiable.",
-    "status": "reviewed"
-  },
-  "dcca7aa09b4dbfd772e479f3c8b6120f2a33e12196a0f4598b0b82100fcf64cf": {
-    "source": "Servicios y casos de estudio reales donde he implementado .NET Core en producción.",
-    "target": "Services and real case studies where I have implemented .NET Core in production.",
     "status": "reviewed"
   },
   "dcdb6342f46e062f5d8cbb18fcdcefa94a47363e413bc675beb9075a4ba3ecf7": {
@@ -6474,11 +5619,6 @@
     "target": "⟦0⟧Enterprise-Grade AI Injection:⟦/0⟧ By isolating the domain, the system is prepared to orchestrate LLM microservices, without their probabilistic failures affecting the deterministic core of billing or user control.",
     "status": "reviewed"
   },
-  "dd46fb7062bb73bcadfeceb9a2a2e1051bf781747f6ecb427ba6e02fed7a106d": {
-    "source": ". Mi misión: diseñar una arquitectura backend privada capaz de procesar y validar modelos en tiempo real mediante IA.",
-    "target": ". My mission: to design a private backend architecture capable of processing and validating models in real time using AI.",
-    "status": "reviewed"
-  },
   "dd5d040d9a4e09361e4b2342e4f5b719442333b23bc89d71fed18b711fd3c44b": {
     "source": "Experiencia profesional destacada",
     "target": "Featured Professional Experience",
@@ -6497,11 +5637,6 @@
   "dd9956265864a019ac2be8df04251f368489cd43fe7213490f9940b8cec7ac76": {
     "source": "La API devuelve una URL segura temporal.",
     "target": "The API returns a temporary secure URL.",
-    "status": "reviewed"
-  },
-  "ddc64c6eb6a44c40d7b1dbc29edc45bf27e0ea6af05e161a6872a1adf1114fd1": {
-    "source": "⟦0⟧Escalabilidad Horizontal (Throughput):⟦/0⟧ Capacidad para procesar picos de ⟦1⟧hasta 15,000 modelos/hora⟦/1⟧ sin degradación de la API.",
-    "target": "⟦0⟧Horizontal Scalability (Throughput):⟦/0⟧ Capacity to process peaks of ⟦1⟧up to 15,000 models/hour⟦/1⟧ without API degradation.",
     "status": "reviewed"
   },
   "ddc92afed5e241a373d3ad96ef10fa475466120d3f6f5a4e2886e3989bf23098": {
@@ -6584,11 +5719,6 @@
     "target": "⟦0⟧Blocked Frontend:⟦/0⟧ GLB/GLTF files larger than 50MB that freeze the browser's main thread, frustrating the user.",
     "status": "reviewed"
   },
-  "dffcc7b1de354b0f3cd5acd46b79c552328b0f223bde78abbbbf19bd702ebd8d": {
-    "source": "La plataforma SaaS sufría de tiempos de respuesta elevados (>2s) en horarios punta, con picos de carga que saturaban la base de datos principal.",
-    "target": "The SaaS platform suffered from high response times (>2s) during peak hours, with load spikes that saturated the main database.",
-    "status": "reviewed"
-  },
   "e04cea582d2e90de99e7f100276e55f468df2eb142e73e0c58e054d98f026539": {
     "source": "- Desarrollo de backend robusto (Sistemas críticos, ecosistemas seguros)",
     "target": "- Development of robust backend (Critical systems, secure ecosystems)",
@@ -6617,11 +5747,6 @@
   "e0c79d80f5826468ecfc61db7eba45e6cee860fc69b4a1b7d18818fecf9cd218": {
     "source": "El Problema: APIs que Colapsan bajo Presión",
     "target": "The Problem: APIs that Collapse Under Pressure",
-    "status": "reviewed"
-  },
-  "e12d77993e2bfa6cbfe1e6954948f2ac652083f00425ea7776f9306c85f2c034": {
-    "source": "Performance Metrics (Proyecto Confidencial):",
-    "target": "Performance Metrics (Confidential Project):",
     "status": "reviewed"
   },
   "e1669aafab8388eaf79248adb13320f8809cf7d07d163b25472ecbe272c29ca3": {
@@ -6664,16 +5789,6 @@
     "target": "Discover how we use Azure Blob Storage in scalable backend architectures and critical 3D systems.",
     "status": "reviewed"
   },
-  "e2ecda0767587ef2670c5ffdce8aa80fd4943266cba134e7788fb6da7c437fa5": {
-    "source": "⟦0⟧Capa de Aplicación:⟦/0⟧ Define los Casos de Uso (ej. ⟦1/⟧), orquestando el flujo de trabajo sin saber cómo se guarda el dato ni qué IA lo generó.",
-    "target": "⟦0⟧Application Layer:⟦/0⟧ Defines the Use Cases (e.g., ⟦1/⟧), orchestrating the workflow without knowing how the data is stored or which AI generated it.",
-    "status": "reviewed"
-  },
-  "e2f9c402994597368c4c0751310569e42ca42e7241f33de89d62c13ec797e5ce": {
-    "source": "Servicios y casos de estudio reales donde he implementado Azure Batch en producción.",
-    "target": "Services and real case studies where I have implemented Azure Batch in production.",
-    "status": "reviewed"
-  },
   "e37b5a217fcb1a3e89fad649437534fec5de4b29bf60ebaf4d7fa1a0e3cbead4": {
     "source": "¿Listo para escalar tu infraestructura?",
     "target": "Ready to scale your infrastructure?",
@@ -6694,11 +5809,6 @@
     "target": "⟦0⟧Failure Handling (Resilience):⟦/0⟧ AI providers impose rate limits and suffer from unpredictable latencies.",
     "status": "reviewed"
   },
-  "e3f0ce78a4ae66c84fe89467900b1c54789fb8358195ce3b4700ab59178a4297": {
-    "source": "Revisa los ⟦0⟧Casos de Estudio⟦/0⟧ para ver cómo hemos aplicado esto en sistemas de validación masiva, o hablemos sobre tu arquitectura actual.",
-    "target": "Review the ⟦0⟧Case Studies⟦/0⟧ to see how we have applied this in mass validation systems, or let's talk about your current architecture.",
-    "status": "reviewed"
-  },
   "e3f83e092a2272b5dca2415cbb6a4bf3483740c448ec90a011c6846b829cee93": {
     "source": "Los modelos de lenguaje grande (LLMs) son inherentemente probabilísticos. Los sistemas empresariales exigen determinismo. Esta fricción genera tres desafíos fundamentales:",
     "target": "Large language models (LLMs) are inherently probabilistic. Enterprise systems require determinism. This friction creates three fundamental challenges:",
@@ -6707,11 +5817,6 @@
   "e40ed7fe2e95c4fb6b9a9daa8d1882afd1f2fd57008d2769521f80a642f99688": {
     "source": "En lugar de mantener conexiones HTTP abiertas esperando al modelo de IA, implementamos el patrón de Invocación Asíncrona:",
     "target": "Instead of keeping HTTP connections open waiting for the AI model, we implement the Asynchronous Invocation pattern:",
-    "status": "reviewed"
-  },
-  "e41d274d39c367442e1230bad3774e0575adbbc121b7a068d60bce692907c5cc": {
-    "source": "⟦0⟧Disponibilidad 99.99%:⟦/0⟧ Aislamiento de fallos para que un componente caído no afecte a toda la operación.",
-    "target": "⟦0⟧99.99% Availability:⟦/0⟧ Failure isolation so that one downed component does not affect the entire operation.",
     "status": "reviewed"
   },
   "e437fefc01fcb3977e110c8bc317692fe433f1ce2660f325d9b2b92ee6ca3365": {
@@ -6744,11 +5849,6 @@
     "target": "Docker",
     "status": "reviewed"
   },
-  "e64ff9b58af8aac02b1d128e178f2d25cdbeee143214cf2757aa5694099c554c": {
-    "source": "⟦0⟧Consecuencias:⟦/0⟧ Mayor complejidad en la invalidación de caché y necesidad de monitoreo distribuido, mitigado con despliegues Blue-Green en Kubernetes.",
-    "target": "⟦0⟧Consequences:⟦/0⟧ Increased complexity in cache invalidation and the need for distributed monitoring, mitigated with Blue-Green deployments in Kubernetes.",
-    "status": "reviewed"
-  },
   "e659c79b8dbb20aebe4a0c625be8ec3c824461975b8c715f91e66a22e345acae": {
     "source": "migración monolito, microservicios C#, refactorización backend, .NET, modernización",
     "target": "monolith migration, C# microservices, backend refactoring, .NET, modernization",
@@ -6762,11 +5862,6 @@
   "e699c93e00d81c197d5de83d403e196b85f31c0f25f13ab7433b4714fc2d0753": {
     "source": "⟦0⟧Mantenibilidad y Tolerancia al Cambio (Vendor Agnostic):⟦/0⟧ ¿El proveedor de inferencia 3D subió los precios un 300%? Cambiar a un modelo open-source interno implica escribir un nuevo ⟦1/⟧. No tocas ni una sola línea de los Use Cases ni del Dominio. El riesgo de regresión es casi cero.",
     "target": "⟦0⟧Maintainability and Change Tolerance (Vendor Agnostic):⟦/0⟧ Did the 3D inference provider raise prices by 300%? Switching to an internal open-source model means writing a new ⟦1/⟧. You don't touch a single line of the Use Cases or the Domain. The regression risk is almost zero.",
-    "status": "reviewed"
-  },
-  "e69a38fc642e3741d4ee346b03ef8e6bedb8ff959291f588e88deea3a14ac937": {
-    "source": "Latencia reducida de 2.3s a 300ms (p95).",
-    "target": "Reduced latency from 2.3s to 300ms (p95).",
     "status": "reviewed"
   },
   "e713d60fdb1680115518bfdc2c62dd642be7b8ace2437609a0f8bb1b4d3f51e3": {
@@ -6802,16 +5897,6 @@
   "e7909a19108510321f014a289c13fb98cbb9aa75e16a392c83461da48abc5f07": {
     "source": "Integración de ⟦0⟧Levels of Detail⟦/0⟧ (LODs) directamente generados por el backend. El usuario descarga instantáneamente una versión del modelo de 500 polígonos (proxy) mientras en ⟦1⟧background⟦/1⟧ se descarga la versión de alta fidelidad.",
     "target": "Integration of ⟦0⟧Levels of Detail⟦/0⟧ (LODs) directly generated by the backend. The user instantly downloads a 500-polygon model version (proxy) while the high-fidelity version downloads in the ⟦1⟧background⟦/1⟧.",
-    "status": "reviewed"
-  },
-  "e79267109647047c6324f9b74158fa2328c72416d9395ccdd1636a0b05c18140": {
-    "source": "Servicios y casos de estudio reales donde he implementado Kubernetes en producción.",
-    "target": "Services and real case studies where I have implemented Kubernetes in production.",
-    "status": "reviewed"
-  },
-  "e7c186ef1d3ac653e4b619c80f12ee8ebf6048ca008b1bdaa6cbbf3188de5060": {
-    "source": "Proyectos y Servicios con ONNX | NainDev",
-    "target": "Projects and Services with ONNX | NainDev",
     "status": "reviewed"
   },
   "e7e44a8c11e2915029bb83e11967c918f6788213dddbabbeaeefd39e6c25c0e2": {
@@ -6907,16 +5992,6 @@
   "eb85fdc344cc5735c4338f403ec7b437640fe0ed3372d349cffe45fce1f23113": {
     "source": "En este artículo, desglosaremos cómo construir un sistema de validación 3D de grado industrial usando C# y .NET.",
     "target": "In this article, we will break down how to build an industrial-grade 3D validation system using C# and .NET.",
-    "status": "reviewed"
-  },
-  "eb86269999f75dadd307ec0c1f3fd1bef7eb7a1b4d2728bb8c13edeac4a3936f": {
-    "source": ">> ⟦0⟧Leer el caso de estudio completo⟦/0⟧",
-    "target": ">> ⟦0⟧Read the full case study⟦/0⟧",
-    "status": "reviewed"
-  },
-  "ebce789eeb6c9f3d8ed1dcfdcce645bd12a2f55f686fa9e7ede5b0f35a6e4225": {
-    "source": "Servicios y casos de estudio reales donde he implementado Core Web Vitals en producción.",
-    "target": "Services and real case studies where I have implemented Core Web Vitals in production.",
     "status": "reviewed"
   },
   "ec3bc4c3cfad987f7021f97e31ef7ebc64af1f342e46b086ef47b42843257774": {
@@ -7024,11 +6099,6 @@
     "target": "⟦0⟧⟦1⟧Schedule an initial technical consultation⟦/1⟧⟦/0⟧ to map out the roadmap for migrating your monolith.",
     "status": "reviewed"
   },
-  "efd049ddd898697cddf2f4a2b1ffe1f6204926ca749203b17cefdd1637b60b65": {
-    "source": "Servicios y casos de estudio reales donde he implementado .NET 8 en producción.",
-    "target": "Services and real case studies where I have implemented .NET 8 in production.",
-    "status": "reviewed"
-  },
   "efd244376d918c9ea7813d27beae7f15b94d16516874df06548ccb28ecc76704": {
     "source": "⟦0⟧Application Layer (Casos de Uso):⟦/0⟧ Orquesta el flujo de trabajo. Define los ⟦1⟧Puertos⟦/1⟧ (interfaces) que representan servicios de IA (ej. ⟦2/⟧).",
     "target": "⟦0⟧Application Layer (Use Cases):⟦/0⟧ Orchestrates the workflow. Defines the ⟦1⟧Ports⟦/1⟧ (interfaces) that represent AI services (e.g., ⟦2/⟧).",
@@ -7049,11 +6119,6 @@
     "target": "We will implement an agent that analyzes an unstructured document, extracts key metadata, and persists it, using dependency injection and state isolation.",
     "status": "reviewed"
   },
-  "f08d6cd98a824558f324f738a70d343508db22d9b03d042e3ac4035c3f7ab32a": {
-    "source": "Experiencia con ⟦0⟧Kubernetes⟦/0⟧",
-    "target": "Experience with ⟦0⟧Kubernetes⟦/0⟧",
-    "status": "reviewed"
-  },
   "f08ea57acfccfed74cd3cd49f49fbf8a1f5719625e3b2894463bc55fa23c4dca": {
     "source": "Swagger",
     "target": "Swagger",
@@ -7062,11 +6127,6 @@
   "f090ed3f24ade1ff9962a5f5490ab96d1d8f17e0666ac5a2a641b15e6fd85e06": {
     "source": "HTML5",
     "target": "HTML5",
-    "status": "reviewed"
-  },
-  "f0b53fcc0a2cce043e5a05a98561ab650e0aca8ff7a37c2d137e0c6a30465298": {
-    "source": "Si prefieres que analice directamente tu sistema y elabore un plan de acción para su escalabilidad, ⟦0⟧⟦1⟧agenda una auditoría gratuita conmigo⟦/1⟧⟦/0⟧.",
-    "target": "If you prefer that I analyze your system directly and develop an action plan for its scalability, ⟦0⟧⟦1⟧schedule a free audit with me⟦/1⟧⟦/0⟧.",
     "status": "reviewed"
   },
   "f0ce84454205e0ce7c4ed4bb5d2f57d4c68f5c6af03ad9a95c378edc4bd3abd1": {
@@ -7079,24 +6139,9 @@
     "target": "- Relational Databases, Cache, CQRS, DDD",
     "status": "reviewed"
   },
-  "f12bccb3c3bc7feea9a40a5dc081d81f0b280d5f241ed881e9faa6dbd3455a61": {
-    "source": "Uso de CQRS simplificado para separar escrituras críticas de lecturas masivas.",
-    "target": "Use of simplified CQRS to separate critical writes from massive reads.",
-    "status": "reviewed"
-  },
-  "f16060358d975b42b4458fd9e95db89b84ce59e1522a7258e71703b8883e8cb0": {
-    "source": "Cero regresiones en el core financiero en 6 meses.",
-    "target": "Zero regressions in the financial core in 6 months.",
-    "status": "reviewed"
-  },
   "f1b148f3b7195236cdc5c02f9265c3c5854dd4318dd8b498ed1802537d875b4c": {
     "source": "Si intentas procesar un archivo ⟦0/⟧ o ⟦1/⟧ de 500MB en el mismo hilo de un endpoint REST tradicional (ej. ⟦2/⟧), ocurrirán tres cosas casi de inmediato:",
     "target": "If you try to process a file ⟦0/⟧ or ⟦1/⟧ of 500MB on the same thread of a traditional REST endpoint (e.g., ⟦2/⟧), three things will happen almost immediately:",
-    "status": "reviewed"
-  },
-  "f1e947cc98225c9f213802815feb286a75bdb51425aeb4c6e27e9a6c7280d4e4": {
-    "source": "Para ejercer estos derechos, simplemente envía un correo electrónico a ⟦0⟧hola@naindev.com⟦/0⟧ con el asunto \"Derechos RGPD\". Además, en todos los correos electrónicos que recibas encontrarás un enlace directo en el pie de página para ⟦1⟧darte de baja automáticamente⟦/1⟧ (unsuscribe).",
-    "target": "To exercise these rights, simply send an email to ⟦0⟧hola@naindev.com⟦/0⟧ with the subject \"Derechos RGPD\" (GDPR Rights). Every email you receive also includes a direct link in the footer to ⟦1⟧unsubscribe automatically⟦/1⟧.",
     "status": "reviewed"
   },
   "f2b326dabe08eddd896a5ee829a7bb6d8165d526586ea45c4207bcf1ce17a727": {
@@ -7254,19 +6299,9 @@
     "target": "If the model fails validation, the raised exception reports back to a ⟦0⟧Re-evaluating Agent⟦/0⟧, creating a ⟦1⟧Human-in-the-loop⟦/1⟧ or ⟦2⟧Agent-in-the-loop⟦/2⟧ flow.",
     "status": "reviewed"
   },
-  "f8bd8b2d2e24e633fbe86e489b999b5e2b9a7f699a718a86baceced27d129e79": {
-    "source": "Servicios y casos de estudio reales donde he implementado Kafka en producción.",
-    "target": "Services and real case studies where I have implemented Kafka in production.",
-    "status": "reviewed"
-  },
   "f8bf18214b9334b79257a305148ab686e77eaa667c5016cfe7cae7a0f6a7050b": {
     "source": "Proyectos y Servicios con Azure",
     "target": "Azure Projects and Services",
-    "status": "reviewed"
-  },
-  "f8dbcf753532e3533fc14f72e7a014d8dbe35833c281b062b75661c3888dc48d": {
-    "source": "A continuación se exponen algunos fragmentos clave de la implementación en C# que ilustran el desacoplamiento y la solidez del sistema:",
-    "target": "Below are some key C# implementation snippets that illustrate the decoupling and robustness of the system:",
     "status": "reviewed"
   },
   "f911e414cf6bdfc595532ab166b5ba0f63d73c021452fcdacbda363dda6ad8fb": {
@@ -7287,11 +6322,6 @@
   "f9cdfdca089e636798b53d4eabccf7552ccd60750fd090dd11d75778f0b38550": {
     "source": "\"Aplicar el paso 3 de este checklist redujo nuestra factura de OpenAI a la mitad y estabilizó nuestra API en picos de tráfico.\"⟦0/⟧⟦1/⟧⟦2⟧— CT0 de una Startup SaaS B2B⟦/2⟧",
     "target": "\"Applying step 3 of this checklist cut our OpenAI bill in half and stabilized our API during traffic spikes.\"⟦0/⟧⟦1/⟧⟦2⟧— CT0 from a B2B SaaS Startup⟦/2⟧",
-    "status": "reviewed"
-  },
-  "f9cfc0bc98313d99b32c5e84e2fe7aeeaec48fe418990f7483293c78cd734840": {
-    "source": "Servicios y casos de estudio reales donde he implementado .NET en producción.",
-    "target": "Services and real case studies where I have implemented .NET in production.",
     "status": "reviewed"
   },
   "f9d88608e286fdfdef679f4a0f528c31e5ace624acf5d081cab3fdef83159706": {
@@ -7354,11 +6384,6 @@
     "target": "Security and Trust",
     "status": "reviewed"
   },
-  "fb28e4802f80a0ba0c26680b33b9a1d19c0f34ffae94883e2a1cd3c6ca4af850": {
-    "source": "Servicios y casos de estudio reales donde he implementado ONNX en producción.",
-    "target": "Services and real case studies where I have implemented ONNX in production.",
-    "status": "reviewed"
-  },
   "fb2b380a1130ab7e8e7143d8894dae4b6b765a38a96751f4269cc6f26453cbc9": {
     "source": "Procesando en bus asíncrono...",
     "target": "Processing through the asynchronous bus...",
@@ -7382,11 +6407,6 @@
   "fbf3abc75005b3bc22e148e5f94269b06f6b368adeb8149c6fd504e312065722": {
     "source": "Diagrama ASCII de arquitectura de Validación 3D",
     "target": "ASCII Diagram of 3D Validation Architecture",
-    "status": "reviewed"
-  },
-  "fc1e5b4346bd0f620172e2a11bb8ccb6781de995853ed292df83f4ef70c263d9": {
-    "source": "¿Problemas de rendimiento en tu backend 3D? ⟦0⟧Agenda una auditoría gratuita⟦/0⟧.",
-    "target": "Having performance issues with your 3D backend? ⟦0⟧Schedule a free audit⟦/0⟧.",
     "status": "reviewed"
   },
   "fc4d8508e6f2616ff2a244cfe824a6791f401f60f2de7d805e59c093a7e2266b": {
@@ -7432,11 +6452,6 @@
   "fdc7ea50c388352f0510c450e5382c36881873da404f72f81daa9efe7698760a": {
     "source": "Picos de CPU injustificados, fugas de memoria (Memory Leaks), ⟦0⟧Thread Pool Starvation⟦/0⟧ o bloqueos (Locks) en Entity Framework. Estos problemas silenciosos destruyen la experiencia de los usuarios, generan caídas de servicio (Downtime) y disparan exponencialmente la factura del hosting cloud al intentar solucionarlo comprando hardware más caro (Escalado Vertical ineficiente).",
     "target": "Unjustified CPU spikes, Memory Leaks, ⟦0⟧Thread Pool Starvation⟦/0⟧, or Locks in Entity Framework. These silent problems destroy user experience, cause Downtime, and exponentially increase cloud hosting bills when trying to fix them by buying more expensive hardware (Inefficient Vertical Scaling).",
-    "status": "reviewed"
-  },
-  "fe99ef7d81002f584f27e9f11c7a494bae331fe72f316be2eb232e882bef47d0": {
-    "source": "¿Necesitas solucionar un problema de rendimiento crítico en tu backend .NET? ⟦0⟧⟦1⟧Agenda una auditoría de 15 minutos conmigo.⟦/1⟧⟦/0⟧",
-    "target": "Need to solve a critical performance issue in your .NET backend? ⟦0⟧⟦1⟧Schedule a 15-minute audit with me.⟦/1⟧⟦/0⟧",
     "status": "reviewed"
   },
   "fea99fd58be7fdfde32e86259971076a03117dff3be38b50e438918ce6fa0c18": {
@@ -7517,6 +6532,376 @@
   "f8cb0a008a30c85527b5322bf3b2c504393b1ca0ed650fba1d9ee6d0ef9c9e5e": {
     "source": "Artículo técnico sobre arquitectura backend 3D e IA",
     "target": "Technical article on backend architecture for 3D and AI",
+    "status": "reviewed"
+  },
+  "02e19bfc0a700545bff2637bb240e439ab83f93f854661985e1d2a23ff311a58": {
+    "source": "Servicios relacionados con Trimesh.",
+    "target": "Services related to Trimesh.",
+    "status": "reviewed"
+  },
+  "26a0125a2d6d98abcae3872a7397f474122601948aef0f6177e99120115d5f09": {
+    "source": "Servicios relacionados con Clean Architecture.",
+    "target": "Services related to Clean Architecture.",
+    "status": "reviewed"
+  },
+  "2882ff336e798ad1c68bddf12863f059de28dc6899801a107dd0a773c33412ed": {
+    "source": "Servicios relacionados con Kafka.",
+    "target": "Services related to Kafka.",
+    "status": "reviewed"
+  },
+  "29ee070868e2ceaad232de5c17ce742595ba97203a8712ae517a7feb9603c66e": {
+    "source": "Servicios relacionados con Redis.",
+    "target": "Services related to Redis.",
+    "status": "reviewed"
+  },
+  "2dc8ab54a5e77ac521ede016e84d6afe2f338a8e9b4c06dd0e2b75ac92b449cd": {
+    "source": "Servicios relacionados con Azure.",
+    "target": "Services related to Azure.",
+    "status": "reviewed"
+  },
+  "368dd22d400dc3ae1265e14e972da4cf3b0d4a07da7ae9f0fca60c9bfed57e90": {
+    "source": "Servicios relacionados con Core Web Vitals.",
+    "target": "Services related to Core Web Vitals.",
+    "status": "reviewed"
+  },
+  "385646e3aef37ce86edb4c4db2f43425cdf19285634b6e6ed00be080b0651735": {
+    "source": "Servicios relacionados con Rendimiento Web.",
+    "target": "Services related to Web Performance.",
+    "status": "reviewed"
+  },
+  "466163b7968e6f791d3ee56530cd734b11106c0627cbbad404709634100c8945": {
+    "source": "Servicios relacionados con Semantic Kernel.",
+    "target": "Services related to Semantic Kernel.",
+    "status": "reviewed"
+  },
+  "47b98d22f8799cfc75529636173eb5752aaa6d913985e4d1f44cb18391b27162": {
+    "source": "Servicios relacionados con C#.",
+    "target": "Services related to C#.",
+    "status": "reviewed"
+  },
+  "5d9661fb76ece4e5a100130accc9c7092fb5804cc6d6bb199f1b5930d83a886f": {
+    "source": "Servicios relacionados con FastAPI.",
+    "target": "Services related to FastAPI.",
+    "status": "reviewed"
+  },
+  "613d121e725c1df6b6edcf0bce9b150f93ab80d4711c6948fbb139aa97f02c05": {
+    "source": "Servicios relacionados con Entity Framework.",
+    "target": "Services related to Entity Framework.",
+    "status": "reviewed"
+  },
+  "61e994c590948dde7ae313dfab2fb85925525a3bcc298b944ffdee99dd41d581": {
+    "source": "Servicios relacionados con Astro.",
+    "target": "Services related to Astro.",
+    "status": "reviewed"
+  },
+  "75bc4f0b8e9b732a9aa65a4dcf9ee92f504b47b91f0f65065a29afa4da55a0e1": {
+    "source": "⟦0⟧⟦1⟧Solicitar Diagnóstico Gratuito⟦/1⟧⟦/0⟧⟦2⟧⟦3⟧Ver Proyectos⟦/3⟧⟦/2⟧",
+    "target": "⟦0⟧⟦1⟧Request Free Diagnosis⟦/1⟧⟦/0⟧⟦2⟧⟦3⟧View Projects⟦/3⟧⟦/2⟧",
+    "status": "reviewed"
+  },
+  "7ac707f4213b0ecd4481a24b630b0d8b613af17a6ac4ec848d6acaa798b3257c": {
+    "source": "Servicios relacionados con Assimp.",
+    "target": "Services related to Assimp.",
+    "status": "reviewed"
+  },
+  "7c31584a8d69f08eb4a52a05696cea5ed0fedfadb3d835ab312b8372c1b4decc": {
+    "source": "Servicios relacionados con Azure Blob Storage.",
+    "target": "Services related to Azure Blob Storage.",
+    "status": "reviewed"
+  },
+  "83d07a403806c186800e9ab5857b7fb7b3a67a8d1eb21b76d09cac8cf1790748": {
+    "source": "Servicios relacionados con Arquitectura de Software.",
+    "target": "Services related to Software Architecture.",
+    "status": "reviewed"
+  },
+  "844721720b085d86a704cb953d8e7e545a322eb77a538b284ed277b8530ebca5": {
+    "source": "Servicios relacionados con Azure OpenAI.",
+    "target": "Services related to Azure OpenAI.",
+    "status": "reviewed"
+  },
+  "8fd06d00ac0df5857071a84fd9b762f586bcced4baf1fe02e1f7e89c012a6f72": {
+    "source": "Servicios relacionados con UX Engineering.",
+    "target": "Services related to UX Engineering.",
+    "status": "reviewed"
+  },
+  "942a896b320499e84b75f30e8a00fd2b521551255dc852bbd55a2ceece112a41": {
+    "source": "Servicios relacionados con WebGPU.",
+    "target": "Services related to WebGPU.",
+    "status": "reviewed"
+  },
+  "981bd1d1458efec125b2518ed08f410a57fee36f531209a139239c491dff7e96": {
+    "source": "Servicios relacionados con .NET 8.",
+    "target": "Services related to .NET 8.",
+    "status": "reviewed"
+  },
+  "9c892b5b5a8b4f33f6e9e7fa35b2436f9202956ee5fa2d454b1e365d4c234135": {
+    "source": "Servicios relacionados con Python.",
+    "target": "Services related to Python.",
+    "status": "reviewed"
+  },
+  "a00bfb3cfd2c0ace760b7350bd23ba823414dab5e315f40e9af118c442ed1ac7": {
+    "source": "Servicios relacionados con SQL Server.",
+    "target": "Services related to SQL Server.",
+    "status": "reviewed"
+  },
+  "a3c64f64c1350a3e596054dc9a13ec39044dd6aaad4800a594bc09a1845e4796": {
+    "source": "Servicios relacionados con C# .NET.",
+    "target": "Services related to C# .NET.",
+    "status": "reviewed"
+  },
+  "a436183193698d6aefb1ea3c2b8956929178b029037ca87306d7b6982965ee68": {
+    "source": "Servicios relacionados con Three.js.",
+    "target": "Services related to Three.js.",
+    "status": "reviewed"
+  },
+  "aa12979942f2a93670236786028f7dd4c46047d4ec645c35667719efafdd7c31": {
+    "source": "Servicios relacionados con .NET.",
+    "target": "Services related to .NET.",
+    "status": "reviewed"
+  },
+  "b022d3405a293a7c491cce66c0da5e16937525c79acc8ecb3fdb2324a5253ea5": {
+    "source": "⟦0⟧📋 Descarga nuestra checklist para evaluar tu arquitectura⟦/0⟧⟦1/⟧ ⟦2⟧Agendar Videollamada⟦/2⟧",
+    "target": "⟦0⟧📋 Download our checklist to evaluate your architecture⟦/0⟧⟦1/⟧ ⟦2⟧Schedule a Video Call⟦/2⟧",
+    "status": "reviewed"
+  },
+  "befadbfa92800484768a8d9a3f3df675494f1c502d93a8470341ab76f5ed40c4": {
+    "source": "Servicios relacionados con Docker.",
+    "target": "Services related to Docker.",
+    "status": "reviewed"
+  },
+  "c04d25469a91d8c94259683e980918e66f29b52db846e12d36cf8235b3484c79": {
+    "source": "Servicios relacionados con Vector Databases.",
+    "target": "Services related to Vector Databases.",
+    "status": "reviewed"
+  },
+  "cfd4fac267451365aee47250fb91d7a07d48dc64cc44be20dfec02ea6cf9afd1": {
+    "source": "Servicios relacionados con OpenAI API.",
+    "target": "Services related to OpenAI API.",
+    "status": "reviewed"
+  },
+  "d51447c10101f74614abc5ee72d94fb5f65baa718662ce5f651a524357b4827b": {
+    "source": "Servicios relacionados con Azure Batch.",
+    "target": "Services related to Azure Batch.",
+    "status": "reviewed"
+  },
+  "d8017b085cd0900593f9879d4f1e90b22847aea2d8a29a135e59d7c778a5e474": {
+    "source": "Servicios relacionados con Ollama.",
+    "target": "Services related to Ollama.",
+    "status": "reviewed"
+  },
+  "deb22c2aa53aec8aa9e119cfa54cb0a33ffac47734e0eaf441ade08b6f49056e": {
+    "source": "Servicios relacionados con RabbitMQ.",
+    "target": "Services related to RabbitMQ.",
+    "status": "reviewed"
+  },
+  "ed7eafc2009bb8ff8da699ed091342a0279315be7c0950995830bef9b42f420a": {
+    "source": "Servicios relacionados con SEO Técnico.",
+    "target": "Services related to Technical SEO.",
+    "status": "reviewed"
+  },
+  "f5c198219218d9e40be19ce145d658f17fb9af96a1be563dc142bd7f014026a3": {
+    "source": "Servicios relacionados con Microservicios.",
+    "target": "Services related to Microservices.",
+    "status": "reviewed"
+  },
+  "f6bd0f7886a536e07d8d41f8db0cee78d69c08baa982d340486f3550076998e3": {
+    "source": "Hablemos sobre tu arquitectura actual.",
+    "target": "Let's talk about your current architecture.",
+    "status": "reviewed"
+  },
+  "764f23f8de09f48dece75fcb8c66a3ada43a4ab251380d47138c851b05075fb9": {
+    "source": "Para ejercer estos derechos, simplemente envía un correo electrónico a ⟦0⟧contact@naindev.com⟦/0⟧ con el asunto \"Derechos RGPD\". Además, en todos los correos electrónicos que recibas encontrarás un enlace directo en el pie de página para ⟦1⟧darte de baja automáticamente⟦/1⟧ (unsuscribe).",
+    "target": "To exercise these rights, simply send an email to ⟦0⟧contact@naindev.com⟦/0⟧ with the subject \"Derechos RGPD\" (GDPR Rights). Every email you receive also includes a direct link in the footer to ⟦1⟧unsubscribe automatically⟦/1⟧.",
+    "status": "reviewed"
+  },
+  "e665fcf20ab5e8daed5c7554a74a77897b2e5d0569dd764eef0e374df33997d3": {
+    "source": "El responsable del tratamiento de los datos recopilados en este sitio web es Aitor Nain Mendoza Vallejo (NainDev). Puedes contactarme en cualquier momento a través del correo electrónico: ⟦0⟧contact@naindev.com⟦/0⟧.",
+    "target": "The data controller for the data collected on this website is Aitor Nain Mendoza Vallejo (NainDev). You can contact me at any time via email: ⟦0⟧contact@naindev.com⟦/0⟧.",
+    "status": "reviewed"
+  },
+  "073c1634c496cdb649d1afe0a312bbb4b7e1741b271542e4a436c3b8824b1761": {
+    "source": "status",
+    "target": "status",
+    "status": "reviewed"
+  },
+  "0ae6b4d4e01239b4b78e505fefd310cd02fbbf1efe00fc1491ae49e2669c0c17": {
+    "source": "optimización .NET, sistemas distribuidos C#, alta disponibilidad",
+    "target": ".NET optimization, C# distributed systems, high availability",
+    "status": "reviewed"
+  },
+  "0bd64e8408fd8446b25221db5c8c2fb6229dc3491de5c1ef871d0c941f2d87a7": {
+    "source": "Estado de las métricas públicas",
+    "target": "Status of public metrics",
+    "status": "reviewed"
+  },
+  "10c0e6c7f57577a96c6db8b13137ad4fee4e83f70d0b66b27b9aedce9354ef2e": {
+    "source": "⟦0⟧Agendar llamada gratuita⟦/0⟧",
+    "target": "⟦0⟧Schedule a free call⟦/0⟧",
+    "status": "reviewed"
+  },
+  "1389025c201790eb7ebba7b1710810dd7ea009c6ce82243c82c27b9bf8ceb55c": {
+    "source": "La IA generativa produce modelos 3D con rapidez, pero a menudo con inconsistencias estructurales. Revisarlos a mano frena la automatización.",
+    "target": "Generative AI produces 3D models quickly, but often with structural inconsistencies. Reviewing them by hand slows down automation.",
+    "status": "reviewed"
+  },
+  "2502fbc2df91562f8e409eb7e333b08634f68b14a6952204d4d5f57b59ccb946": {
+    "source": "⟦0⟧Alta disponibilidad:⟦/0⟧ Diseñado para aislar fallos, de modo que un componente caído no afecte a toda la operación.",
+    "target": "⟦0⟧High availability:⟦/0⟧ Designed to isolate failures so that one failed component does not bring down the entire operation.",
+    "status": "reviewed"
+  },
+  "25f3c9f68f3a450e8627b5231925df1bba9ab7132f3d3fbfc3757db20e215ea2": {
+    "source": "Desarrollo este trabajo en",
+    "target": "I do this work at",
+    "status": "reviewed"
+  },
+  "2ad8391810456d468fb4745237b6abdd25d691ec155d62893508724aaddc3cb5": {
+    "source": "⟦0⟧¿Tu plataforma sufre cuellos de botella inexplicables o problemas de integridad de datos al escalar?⟦/0⟧ Los problemas de concurrencia y arquitectura rara vez se solucionan añadiendo más servidores. Si necesitas desbloquear el rendimiento de tu infraestructura B2B, ⟦1⟧agenda una llamada gratuita conmigo⟦/1⟧ y diseñemos un backend que sí pueda seguir el ritmo de tu negocio.",
+    "target": "⟦0⟧Is your platform suffering from inexplicable bottlenecks or data integrity issues when scaling?⟦/0⟧ Concurrency and architecture problems are rarely solved by adding more servers. If you need to unlock your B2B infrastructure's performance, ⟦1⟧schedule a free call with me⟦/1⟧ and let's design a backend that can keep up with your business.",
+    "status": "reviewed"
+  },
+  "2ec2e3933404bdd1e4fcb9dfb369785c1e890daf8913e28103d5e6ee50b681a3": {
+    "source": "- Desarrollo y mantenimiento de sistemas críticos .NET (C#, SQL Server).",
+    "target": "- Development and maintenance of critical .NET systems (C#, SQL Server).",
+    "status": "reviewed"
+  },
+  "2effba612e5bb435e8671035381276d8c19eafeaeed408ea6fc2065bae6b1dab": {
+    "source": "“¿Tu plataforma MedTech sufre cuellos de botella al procesar modelos 3D masivos?” ⟦0⟧Agendar llamada gratuita⟦/0⟧.",
+    "target": "“Is your MedTech platform suffering bottlenecks when processing massive 3D models?” ⟦0⟧Schedule a free call⟦/0⟧.",
+    "status": "reviewed"
+  },
+  "365548a875aaa9378c0348a60ab572218611ad25924182f8399a11013200cb8a": {
+    "source": "⟦0⟧Agendar llamada gratuita⟦/0⟧⟦1⟧Explora nuestros servicios⟦/1⟧",
+    "target": "⟦0⟧Schedule a free call⟦/0⟧⟦1⟧Explore our services⟦/1⟧",
+    "status": "reviewed"
+  },
+  "37b2ffbb0163779bac605cebea20e03f6be443b6417069ae0150610e91bde9f3": {
+    "source": "⟦0⟧Agendar llamada gratuita⟦/0⟧⟦1⟧Ver Servicios⟦/1⟧",
+    "target": "⟦0⟧Schedule a free call⟦/0⟧⟦1⟧View Services⟦/1⟧",
+    "status": "reviewed"
+  },
+  "3f2ceb3dcf84dc2f68da4f9d31adbf5c06ba829b598bc5bf46cd6bfa22c14299": {
+    "source": "Todavía no hay métricas públicas que compartir.",
+    "target": "There are no public metrics to share yet.",
+    "status": "reviewed"
+  },
+  "4e50f8cff5a2937617f57486f11035c17f457b4aa447bec3581ce3c0fee4c1b0": {
+    "source": "Acepto proyectos a tiempo parcial y en remoto para empresas de cualquier país.",
+    "target": "I take on part-time, remote projects for companies in any country.",
+    "status": "reviewed"
+  },
+  "6164dbf9a4ba4f13fbe7126ce2ebce5e8b414c6103a1ec82dabaf5e45c28a67f": {
+    "source": "Contrast3D x NainDev",
+    "target": "Contrast3D x NainDev",
+    "status": "reviewed"
+  },
+  "6596540d3f249bd4488407cc3d4145690d6fc289cd59a31cab59c4801e32a7b3": {
+    "source": "Implementación iterativa con pruebas automatizadas y monitorización, planificada para evitar cortes de servicio.",
+    "target": "Iterative implementation with automated testing and monitoring, planned to avoid service interruptions.",
+    "status": "reviewed"
+  },
+  "69741455cbd4a5c57ae8d989ed71782d6c134d6e2761a4c84ba28f63cb5956a6": {
+    "source": "servicios",
+    "target": "services",
+    "status": "reviewed"
+  },
+  "6ca9cd1eb55bd75d648e3443517849b03d5464c4955b2c9f955ccff37a864111": {
+    "source": "¿Necesitas solucionar un problema de rendimiento crítico en tu backend .NET? ⟦0⟧⟦1⟧Agenda una llamada gratuita conmigo.⟦/1⟧⟦/0⟧",
+    "target": "Need to solve a critical performance issue in your .NET backend? ⟦0⟧⟦1⟧Schedule a free call with me.⟦/1⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "798412fa1c95362bf37dc2d9c9ec61559a636af97a77966a4cb423f8d81d8181": {
+    "source": "Disponibilidad para nuevos proyectos",
+    "target": "Availability for new projects",
+    "status": "reviewed"
+  },
+  "7a3e4ef255b0ad5c3b2efa74729b8810a9b994c3b3022ce0557a1469ae882417": {
+    "source": "⟦0⟧API sin bloqueos:⟦/0⟧ Arquitectura diseñada para que el procesamiento de mallas pesadas no bloquee la API principal.",
+    "target": "⟦0⟧Non-blocking API:⟦/0⟧ Architecture designed so that heavy mesh processing does not block the main API.",
+    "status": "reviewed"
+  },
+  "7ea48d9f36787f04274c67d45df2eb481778ebf1400c846a212cf1f3829fc0ae": {
+    "source": "para hablar de tu proyecto.",
+    "target": "to talk about your project.",
+    "status": "reviewed"
+  },
+  "89f7908ccd370d08cf84224477259781f067523492fb267a39d48348ed9841c6": {
+    "source": "Soy Aitor Nain Mendoza Vallejo, también conocido como Aitor Mendoza y NainDev. Trabajo como Lead Software Architect en Contrast3D x NainDev, la colaboración con Contrast3D, donde diseño un ecosistema Open Core robusto para la validación determinista de activos generados por IA, garantizando un enfoque de 'Trustworthy AI'.",
+    "target": "I am Aitor Nain Mendoza Vallejo, also known as Aitor Mendoza and NainDev. I work as a Lead Software Architect at Contrast3D x NainDev, the collaboration with Contrast3D, where I design a robust Open Core ecosystem for the deterministic validation of AI-generated assets, ensuring a 'Trustworthy AI' approach.",
+    "status": "reviewed"
+  },
+  "90413b5fbd0869a8a000657babb3b21e4cf75a78cbaa1b0634bdf49fe31319c1": {
+    "source": "El problema que resuelvo (Reto y enfoque)",
+    "target": "The problem I solve (Challenge and approach)",
+    "status": "reviewed"
+  },
+  "9bad571482c1a0d4e2210c5d7fe0972b2615c05efb2962e9bdbe84a6c925bbc2": {
+    "source": "EL ENFOQUE:",
+    "target": "THE APPROACH:",
+    "status": "reviewed"
+  },
+  "a9f193fef2b696c0cdbf45d04e5854750ded69a1239d523ddbdf259ddc62951c": {
+    "source": "¿Tu sistema ya está en producción y sufres cuellos de botella? ⟦0⟧Reserva una llamada gratuita conmigo.⟦/0⟧",
+    "target": "Is your system already in production and suffering from bottlenecks? ⟦0⟧Book a free call with me.⟦/0⟧",
+    "status": "reviewed"
+  },
+  "b2b79d276c389867a1e07512053d4c06807b551d35b39985d2df7d775eed7060": {
+    "source": "o escribe",
+    "target": "or type",
+    "status": "reviewed"
+  },
+  "baee251aa341e468ed95f8f10339614b179f14569db538213664beaa3637ee80": {
+    "source": "* Nota: demostración ilustrativa; no muestra datos ni tiempos reales.",
+    "target": "* Note: illustrative demo; it does not show real data or timings.",
+    "status": "reviewed"
+  },
+  "bc8e49c6e4397954c565cb24179340a697b4e386edeecb6b3a3220795938a0c5": {
+    "source": "Proceso completado (simulación).",
+    "target": "Process completed (simulation).",
+    "status": "reviewed"
+  },
+  "c2200113fed2c554e5537e089aedd22532c7c52ea6225865618ac5322164fd5a": {
+    "source": "Si prefieres que analice directamente tu sistema y elabore un plan de acción para su escalabilidad, ⟦0⟧⟦1⟧agenda una llamada gratuita conmigo⟦/1⟧⟦/0⟧.",
+    "target": "If you prefer that I analyze your system directly and develop an action plan for its scalability, ⟦0⟧⟦1⟧schedule a free call with me⟦/1⟧⟦/0⟧.",
+    "status": "reviewed"
+  },
+  "c5826f452714d786879a1b70b3a9607a69cf13214324509214fbb73956a3461a": {
+    "source": ", la colaboración con Contrast3D.",
+    "target": ", the collaboration with Contrast3D.",
+    "status": "reviewed"
+  },
+  "d307a45d0690a7d2927559508a7446b541dec6d0b530304261011270d6441fb0": {
+    "source": "Consulta los",
+    "target": "See the",
+    "status": "reviewed"
+  },
+  "dbb61240ef193fe404d37b134da8f6439bdcca354ec5b62cbd423cad5ba46282": {
+    "source": "Objetivos de Diseño",
+    "target": "Design Goals",
+    "status": "reviewed"
+  },
+  "eb6c4e2df0d2a5e566beff78cca0263bc7f1f0ab67caf3a3c7167f28fdd116fb": {
+    "source": "⟦0⟧Despliegues sin cortes:⟦/0⟧ Arquitecturas diseñadas para desplegar de forma continua sin interrumpir el servicio.",
+    "target": "⟦0⟧Deployments without interruptions:⟦/0⟧ Architectures designed for continuous deployment without interrupting the service.",
+    "status": "reviewed"
+  },
+  "ec8ca0d866c5e70db0adfdf3ce530fe2655c18e7ed60514174c81036de8d5f26": {
+    "source": "Diseño backends fiables con validación determinista: contratos estrictos y reglas explícitas que dan el mismo resultado para el mismo asset.",
+    "target": "I design reliable backends with deterministic validation: strict contracts and explicit rules that give the same result for the same asset.",
+    "status": "reviewed"
+  },
+  "ed97a873b9d6ffdd3267abd881c1d95fac55fa9af688aad736cb32b3f4f81e23": {
+    "source": "¿Problemas de rendimiento en tu backend 3D? ⟦0⟧Agenda una llamada gratuita⟦/0⟧.",
+    "target": "Having performance issues with your 3D backend? ⟦0⟧Schedule a free call⟦/0⟧.",
+    "status": "reviewed"
+  },
+  "eeddd19c8db920c94b87b250709b671ef1fcffb2cf81b5a26db16a363e89430b": {
+    "source": "] Disponible para proyectos a tiempo parcial y en remoto, para empresas de cualquier país.",
+    "target": "] Available for part-time, remote projects for companies in any country.",
+    "status": "reviewed"
+  },
+  "fc322ad0be71ed4b64679c9157180d80335c1b4774039a10f845eaa194ba5ccb": {
+    "source": ">> METRICS",
+    "target": ">> METRICS",
     "status": "reviewed"
   }
 }

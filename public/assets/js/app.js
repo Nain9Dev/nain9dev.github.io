@@ -7,7 +7,6 @@ import { initializeCardTilt } from "./card-tilt.js";
 import { initializeScrollStorytelling } from "./scroll-storytelling.js";
 import { initializeParticles } from "./particles.js";
 import { initializeThreeHero, cleanupThreeHero } from "./three-hero.js";
-import { CaseStudiesManager } from "./case-studies.js";
 import { ImpactMetricsManager } from "./impact-metrics.js";
 import {
   initializeEmailCopy,
@@ -20,7 +19,6 @@ import { initializeLazyLoading } from "./lazy-mailerlite.js";
 
 let isAppInitialized = false;
 let cleanupFunctions = [];
-let caseStudiesManager = null;
 let impactMetricsManager = null;
 
 function addCleanup(fn) {
@@ -64,12 +62,6 @@ function initApp() {
       addCleanup(cleanupThreeHero);
     }, 1000);
   }
-  
-  safeInit('CaseStudies', () => {
-    caseStudiesManager = new CaseStudiesManager('case-studies-container');
-    caseStudiesManager.init();
-    return () => caseStudiesManager && caseStudiesManager.destroy();
-  });
   
   safeInit('ImpactMetrics', () => {
     impactMetricsManager = new ImpactMetricsManager('impact-metrics-container');
@@ -133,7 +125,6 @@ function cleanupApp() {
     }
   });
   cleanupFunctions = [];
-  caseStudiesManager = null;
   impactMetricsManager = null;
 }
 

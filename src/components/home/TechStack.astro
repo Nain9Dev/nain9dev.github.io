@@ -5,11 +5,7 @@ import techStackData from '../../../public/assets/data/tech-stack.json';
 import { getTechnologyHref } from '../../utils/technologyRoutes';
 
 const servicios = await getCollection('servicios', ({ data }) => !data.draft);
-const casos = await getCollection('casos', ({ data }) => !data.draft);
-const availableTechnologies = new Set([
-  ...servicios.flatMap(servicio => servicio.data.techStack ?? []),
-  ...casos.flatMap(caso => caso.data.techStack ?? [])
-]);
+const availableTechnologies = new Set(servicios.flatMap(servicio => servicio.data.techStack ?? []));
 ---
 <section class="section" id="tech-stack">
   <div class="shell">

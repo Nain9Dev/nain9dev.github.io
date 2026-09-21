@@ -18,8 +18,8 @@ the Pages artifact. A missing, changed or draft translation stops the release.
 Neither CI nor the public website contacts an inference service.
 
 Spanish addresses remain unchanged. English hubs use `/en/services/`,
-`/en/case-studies/`, `/en/blog/`, `/en/resources/`, `/en/technology/` and
-`/en/privacy/`. Existing detail slugs are retained under those hubs. Each indexable
+`/en/blog/`, `/en/resources/`, `/en/technology/` and `/en/privacy/`.
+Retired `/en/case-studies/` addresses are redirect documents (spec 007). Existing detail slugs are retained under those hubs. Each indexable
 pair has self canonicals and reciprocal `es`, `en` and `x-default` alternatives.
 Spanish is the default. There is no browser-language or IP-based redirect.
 

@@ -44,8 +44,9 @@ and implements approved designs in `main`.
 
 - DES-007: The first proposal shall cover the home page for mobile and desktop,
   prioritizing the mobile header menu and navigation.
-- DES-008: Proposals shall keep the NainDev brand and logo colors `#0047AB`,
-  `#00BFFF` and `#FFFFFF`; every other visual element may change.
+- DES-008 (superseded by DES-020 on 2026-09-16): Proposals shall keep the
+  NainDev brand and logo colors `#0047AB`, `#00BFFF` and `#FFFFFF`; every other
+  visual element may change.
 - DES-009: Proposals may restructure sections and rewrite copy; final wording
   requires owner approval.
 - DES-010: Mockups shall be delivered in Spanish and English.
@@ -69,6 +70,26 @@ and implements approved designs in `main`.
 - DES-016: The brief shall include SEO rules for the design (real text, one H1,
   per-service pages, stable URLs, performance budget) and a FAQ for a designer
   without coding knowledge.
-- DES-017: Contact channels not yet available (public email, WhatsApp number)
-  shall appear in designs only as `[EMAIL]` and `[WHATSAPP]` placeholders until
-  the owner provides them.
+- DES-017: The brief shall list `contact@naindev.com` as the public email, and
+  WhatsApp only as a chat button without a visible phone number. The phone
+  number shall not be stored in the repository until the site implementation
+  adds the chat link.
+- DES-018: The brief shall describe the Contrast3D x NainDev partnership, allow
+  an optional partners section and a Contrast3D design credit at the designer's
+  discretion, and forbid presenting shared clients or joint projects.
+- DES-019: The brief shall state target markets (any country), client problems,
+  the free 30-minute call as the entry offer (not an audit), no public prices,
+  part-time remote availability, no testimonials section, the About section
+  naming Contrast3D x NainDev, and that the free checklist stays.
+- DES-020: The brief shall authorize the designer, with NainDev's permission,
+  to redesign the logo and visual identity while keeping the NainDev name, and
+  shall require a design registrable as a Spanish trademark at the OEPM
+  (original, distinctive, no protected symbols, licensed fonts) delivered as
+  vector color, monochrome, symbol and horizontal versions that work at 16 px.
+- DES-021: The brief shall state that the designer agreed in principle to the
+  owner registering the redesigned logo, that a written assignment of the logo
+  rights is signed before filing while the designer keeps the design credit, and
+  that without it the current logo is kept.
+- DES-022: The brief shall explicitly authorize the designer, and an AI
+  assistant acting for him, to commit and push to `design/home-redesign` only,
+  with the exact commands and a troubleshooting table for push failures.

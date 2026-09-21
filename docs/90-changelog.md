@@ -4,13 +4,22 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ## [Unreleased]
 
+### Changed
+
+- Spec 009: calls to action offer a free call instead of a free audit; the hero states part-time, remote availability; the About section names the Contrast3D x NainDev collaboration; the terminal drops the confidential project, redacted values and telemetry figures; service pages describe availability as a design goal. The claim guard now blocks "99.9x%" figures, p95 latency and uptime readings and "[REDACTED]" placeholders.
+
 ### Added
+
+- Spec 008: single public contact address `contact@naindev.com` in the privacy policy, checklist fallback and design brief, replacing `hola@` and `hello@`.
+
+- Backup branch `naindev/legacy` at `77317aa`, the published site before case study removal and redesign.
 
 - Lifecycle documentation under `docs/` and feature template `specs/000-template-feature/` (ADR-0001, approved 2026-09-16).
 - Design branch `design/home-redesign` prepared for the designer, with a proposal template and a GitHub web upload flow in the brief.
 
 ### Removed
 
+- Spec 007: case studies in both locales (collection, `/casos/` pages, home section, header link, hero button, technology and service page references, thank-you block, terminal link, client renderer and data). Retired URLs, including legacy `.html` addresses and three technology pages that only case studies generated, now redirect to the related service page; `npm run check` gains a case-study contract.
 - Spec 006: home page impact metrics, the "Colaborador OSS" hero badge and the thank-you page "Zero Downtime" badge, all unverified; claim guard extended to runtime data files.
 - Spec 005: removed the unverified "+50M" claim from both locales and added a claim guard to `npm run check` (`c78c854`).
 

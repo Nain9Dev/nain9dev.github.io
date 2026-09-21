@@ -11,12 +11,17 @@ who the site is for, what can change, where to work and how to hand over.
 | David (`davidesuarez`) | Visual and UI design | Only his own `design/*` branches |
 | Aitor (`Nain9Dev`) | Software, code, functionality, content and deployment | `main` and the live site |
 
+- **Partnership:** Aitor (NainDev) and David (Contrast3D) collaborate as
+  **Contrast3D x NainDev**. Within this partnership David takes on the web
+  design to help NainDev sell more. The partnership is new: there are no shared
+  clients or joint projects yet.
 - David designs. Aitor turns approved designs into production code.
 - **The visual design David delivers is David's work.** The software, code and
   functionality of the site remain Aitor's.
 - **Credit:** the published site will credit David's design. David chooses the
   form: name, link (portfolio, LinkedIn, Behance...) and where it appears, for
-  example the footer. Write the preferred credit in your folder's `README.md`.
+  example the footer, and may mention Contrast3D. Write the preferred credit in
+  your folder's `README.md`.
 - **Everything uploaded is public.** The repository is public, so anyone can see
   the files. Do not upload anything you do not want published.
 - Anything pushed to `main` goes live automatically, so `main` is closed to
@@ -42,6 +47,21 @@ redesign has two goals:
   - critical-system audits and optimization.
 - **Audience:** CTOs, tech leads and founders of companies that need reliable
   software, especially products with AI or 3D.
+- **Markets:** open to any country. Spain, the rest of Europe, the United States
+  and Latin America are all targets, so the English version matters as much as
+  the Spanish one.
+- **Problems clients bring:** anything related to software, most often:
+  - a backend that is slow or goes down under load;
+  - a legacy system that is hard to change (old .NET, technical debt,
+    migrations);
+  - AI they want to use but cannot yet trust (validation, human review);
+  - 3D models that must be processed or validated at scale.
+- **How a sale starts:** a **free 30-minute call** (Calendly) to understand the
+  case. It is a conversation, not a free audit: do not promise an audit or a
+  deliverable.
+- **Prices:** not shown on the site. They are discussed on the call.
+- **Availability:** Aitor takes **part-time, remote projects**. Do not write
+  "immediate" or "full-time" availability.
 - **Tone:** precise, calm, engineering-grade. Trust over flashiness.
 - **More background:** the "Sobre mí" section of the live site and
   [LinkedIn](https://www.linkedin.com/in/aitor-nain-mendoza-vallejo/).
@@ -60,10 +80,16 @@ would sell better are part of the job.
 | Main message | David decides. Today the home page mixes 3D validation, agentic AI and critical .NET systems. Choose the hierarchy that sells best to clients; Aitor adapts the wording |
 | Main call to action | David decides: whatever is most comfortable for the client (see "Contact channels") |
 | Visual direction | Free. Showing two or three directions is welcome |
+| Logo and brand identity | **David may redesign the logo and the visual identity, with NainDev's permission.** See "Logo redesign" |
 | Photo of Aitor | Optional. If the design needs one, ask Aitor for it |
-| Must keep | The NainDev brand and logo colors, the blog, the service pages, the technology pages and the interactive terminal (its look can change) |
+| About section | Names the partnership: "Lead Software Architect en Contrast3D x NainDev". David may rewrite the section; Aitor approves |
+| Testimonials | No section for now; there are no client testimonials yet |
+| Pricing | No prices or packages with prices |
+| Free checklist (lead magnet) | Keep it in the design. Its signup form is being fixed separately |
+| Must keep | The NainDev name, the blog, the service pages, the technology pages and the interactive terminal (its look can change; its commands show stack, services and contact, with no metrics) |
 | Can change or remove | Everything else, including the 3D hero canvas, the dark theme, the API/Logic/Data panel, section order and copy |
 | Case studies | **Not shown.** They are being removed from the site; do not design them or link to them |
+| Partners section | Aitor proposes a "Contrast3D x NainDev" section presenting the partnership as part of the offer (design + software), which may also help SEO. **David decides** whether to include it and how. It must not claim shared clients or joint projects |
 | Content | Free proposal: David may reorder, merge or remove sections and rewrite headlines and copy. Aitor approves final wording |
 | Mockup language | Spanish and English for every screen |
 | References | None given. David may collect and share his own |
@@ -95,8 +121,8 @@ other ideas are welcome.
 | :--- | :--- |
 | Calendly, 30-minute call | Exists today |
 | LinkedIn | Exists today |
-| Email | Allowed; the public address is still to be decided, use `[EMAIL]` |
-| WhatsApp | Allowed; the business number does not exist yet, use `[WHATSAPP]` |
+| Email | `contact@naindev.com` |
+| WhatsApp | A button such as "Escríbeme por WhatsApp" / "Message me on WhatsApp" that opens a chat. **Do not show the phone number** on screen; Aitor adds the link when building the site |
 
 ## SEO rules for the design
 
@@ -135,9 +161,9 @@ Home sections today, in order: Hero with 3D canvas, Terminal, Proof strip,
 Services, Tech stack, Free checklist call to action, Projects, Method, About,
 Contact.
 
-### Brand colors (must keep)
+### Current brand colors
 
-Taken from the NainDev logo (`public/assets/images/favicon-optimized.svg`):
+Taken from the current NainDev logo (`public/assets/images/favicon-optimized.svg`):
 
 | Color | Value | Use today |
 | :--- | :--- | :--- |
@@ -145,9 +171,55 @@ Taken from the NainDev logo (`public/assets/images/favicon-optimized.svg`):
 | Sky blue | `#00BFFF` | Logo accent |
 | White | `#FFFFFF` | Logo detail |
 
-The palette may grow around these colors (neutrals, backgrounds, states), but
-the logo colors stay recognizable. The logo file above is SVG and can be opened
-in any design tool.
+The logo file above is SVG and can be opened in any design tool. The header
+also uses `src/assets/images/logo_horizontal.png`. These colors are a reference,
+not a constraint: a logo redesign may change them.
+
+### Logo redesign
+
+NainDev (Aitor) gives David permission to redesign the logo and brand identity
+as the project needs.
+
+- **Rights and registration, agreed in principle:** David has told Aitor that
+  Aitor may register the logo David designs as the NainDev trademark. Because a
+  trademark office needs the applicant to own the design, **before filing, David
+  and Aitor will sign a short written assignment of the logo's rights to
+  Aitor** (NainDev). David keeps the credit as its designer and may show it in
+  his portfolio. If that document is not signed, NainDev keeps its current logo
+  and the new logo is not used.
+- **Direction:** an evolution that stays recognizable as NainDev is preferred,
+  but David is free to propose what works best. The name **NainDev** stays.
+- **Trademark registration:** Aitor plans to register the logo as a trademark
+  in Spain at the **OEPM** (Oficina Española de Patentes y Marcas). Design it so
+  it can be registered:
+  - **Original and distinctive.** Do not base it on existing logos, templates,
+    stock icons, AI image generators trained on other brands, or on another
+    company's mark. Before finalizing, Aitor checks similar marks in the OEPM
+    and EUIPO (TMview) databases.
+  - **No protected symbols:** flags, coats of arms, official emblems or seals,
+    currency symbols, or signs of public bodies and international organizations.
+  - **Not purely generic or descriptive:** a plain gear, `</>` or a cloud alone
+    is weak. A distinctive shape or lettering is stronger.
+  - **Fonts with a license that allows logos and trademarks.** Prefer
+    converting the lettering to outlines and note the font and its license.
+  - **A clear, fixed version** to register: exact shape, and exact colors if the
+    colors are part of the mark.
+- **Deliverables for the logo**, inside your folder under `logo/`:
+
+```text
+logo/
+├── logo-color.svg         Master vector, text converted to outlines
+├── logo-mono-black.svg    One color, for documents and registration
+├── logo-mono-white.svg    One color on dark backgrounds
+├── logo-symbol.svg        Symbol only, square, for favicon and avatars
+├── logo-horizontal.svg    Symbol and name side by side, for the header
+└── logo-preview.png       All versions on light and dark backgrounds
+```
+
+- **It must work small:** readable as a 16 px and 32 px browser icon and as a
+  180 px phone icon.
+- In your `README.md`, list the colors (HEX), fonts and licenses, the idea
+  behind the logo, and anything used as inspiration.
 
 ### Current site styling
 
@@ -181,7 +253,8 @@ and theme (dark or light) are open.
    today: the "+50M" badge, the impact metrics section and the "Colaborador
    OSS" badge were removed on purpose. A metrics area may appear in the design
    only as an empty slot marked `[METRIC]`.
-6. **Brand.** Keep the NainDev name, logo and logo colors.
+6. **Brand.** Keep the NainDev name. The logo and colors may be redesigned
+   (see "Logo redesign").
 7. **No new paid services.** Fonts, icons, images and libraries must be free
    with a license that allows commercial use, for example Google Fonts, Lucide
    icons or Unsplash photos. Note the source of every third-party asset in your
@@ -251,6 +324,41 @@ If you prefer an app for frequent uploads, install
 `Nain9Dev/nain9dev.github.io`, switch to `design/home-redesign`, copy your files
 into `design/home-redesign/`, then **Commit** and **Push origin**.
 
+### Committing with Git or an AI assistant
+
+**David is authorized to commit and push to `design/home-redesign`** (and any
+other `design/*` branch). This is Aitor's explicit permission as repository
+owner. If you use an AI coding assistant, it may commit and push for you, but
+**only** to `design/home-redesign`, never to `main` or other branches.
+
+Instruction you can give your assistant:
+
+> You are working in the `Nain9Dev/nain9dev.github.io` repository as
+> `davidesuarez`. The owner authorizes commits and pushes to the branch
+> `design/home-redesign` only. Work inside `design/home-redesign/`. Never
+> commit to `main`, never force-push, never change files outside `design/`.
+
+Commands (run inside the cloned repository):
+
+```bash
+git fetch origin
+git switch design/home-redesign
+git pull origin design/home-redesign
+git add design/home-redesign
+git commit -m "design: add home proposal"
+git push origin design/home-redesign
+```
+
+If the push fails, check these in order:
+
+| Symptom | Cause | Fix |
+| :--- | :--- | :--- |
+| `Permission denied` or `403` | Git is signed in with another GitHub account | Run `gh auth status` or check the credential manager; sign in as `davidesuarez` (`gh auth login`) |
+| `rejected ... protected` / `GH013` | You are pushing to `main` or a branch not starting with `design/` | `git switch design/home-redesign` and push that branch |
+| `non-fast-forward` / `fetch first` | Your copy is behind | `git pull origin design/home-redesign`, then push again |
+| The assistant refuses to commit | Its own safety settings | Give it the instruction above, or approve the commit when it asks |
+| Nothing works | | Use the browser upload (above) and send Aitor a screenshot of the error |
+
 ### New topics later
 
 Ask Aitor for a new branch (for example `design/services-page`), or create one
@@ -283,15 +391,33 @@ behavior, but it is not required for the first proposal.
 Copy the current text from the live site, or write your own proposal. List every
 text you change in the "Copy changes for approval" table of your `README.md`.
 
-**What if I need information I do not have (a photo, an email, a number)?**
-Use a placeholder such as `[PHOTO]`, `[EMAIL]`, `[WHATSAPP]`, `[TEXT]` or
-`[METRIC]`, and ask Aitor in chat.
+**What if I need information I do not have (a photo, a text, a figure)?**
+Use a placeholder such as `[PHOTO]`, `[TEXT]` or `[METRIC]`, and ask Aitor in
+chat or at `contact@naindev.com`.
+
+**Can I change the logo?**
+Yes, NainDev gives you permission. Follow "Logo redesign" so the result can be
+registered as a trademark. Before Aitor registers it, you both sign a short
+written assignment of the logo's rights; you keep the design credit. Without
+that document, the current logo stays.
+
+**Can I show prices, testimonials or "clients who trust us" logos?**
+No. There are no public prices, testimonials or client logos yet.
+
+**What do I call the main button?**
+Anything that clearly offers a free call, for example "Agendar llamada
+gratuita" / "Book a free call". Not "free audit".
+
+**Should the site mention Contrast3D?**
+Only if you think it helps. A partners section or a design credit mentioning
+Contrast3D are both allowed. Do not present shared clients or joint projects:
+there are none yet.
 
 **Can I add new sections or pages?**
 Yes. Explain the idea and why it helps win clients or SEO in your `README.md`.
 
 **Can I remove the 3D animation or change the dark theme?**
-Yes. Only the brand, logo colors, blog, service pages, technology pages and the
+Yes. Only the NainDev name, blog, service pages, technology pages and the
 interactive terminal must stay. The terminal's look can change.
 
 **How many proposals or rounds?**
@@ -316,9 +442,12 @@ choose. The code and functionality are Aitor's. The files are public.
 - [ ] Hover, focus and active states for buttons and links
 - [ ] Contrast checked (for example with the WebAIM contrast checker)
 - [ ] Colors, font sizes and spacing listed in the folder's `README.md`
-- [ ] Only real content, placeholders marked `[TEXT]`, `[METRIC]`, `[EMAIL]`, `[WHATSAPP]` or `[PHOTO]`
+- [ ] Only real content, placeholders marked `[TEXT]`, `[METRIC]` or `[PHOTO]`
+- [ ] WhatsApp shown as a button without a visible phone number
 - [ ] One H1 per page and all important text as real text, not images
-- [ ] No case studies shown or linked
+- [ ] No case studies, prices, testimonials or client logos
+- [ ] If the logo changes: original design, no protected symbols, licensed fonts, all versions in `logo/`, works at 16 px
+- [ ] Main action offers a free call, not a free audit; availability described as part-time and remote
 - [ ] Third-party asset sources and preferred design credit listed in `README.md`
 - [ ] Copy changes listed in the folder's `README.md` for Aitor's approval
 - [ ] PNG or PDF exports included

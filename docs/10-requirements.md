@@ -10,7 +10,7 @@ EARS patterns:
 - Unwanted behaviour: `If <condition>, then the system shall <response>.`
 - Ubiquitous: `The system shall <response>.`
 
-IDs keep the prefixes defined in the source specs (`BR-`, `SEO-`, `LOC-`, `DES-`, `CLM-`) instead of `REQ-###`, so existing references in specs, tests and commits stay valid. Wording below is condensed; the source spec is authoritative.
+IDs keep the prefixes defined in the source specs (`BR-`, `SEO-`, `LOC-`, `DES-`, `CLM-`, `CASE-`, `MAIL-`, `COPY-`) instead of `REQ-###`, so existing references in specs, tests and commits stay valid. Wording below is condensed; the source spec is authoritative.
 
 Status values: `Implemented` (released, evidence recorded in the spec handoff), `Implemented, verification pending`, `Accepted` (process rule with no code artefact yet), `In progress`.
 
@@ -35,7 +35,7 @@ Status values: `Implemented` (released, evidence recorded in the spec handoff), 
 | SEO-004 | When an indexable page is built, it shall have one unique title and description, one H1, a canonical URL matching og:url and the sitemap, and large image previews; existing noindex pages shall stay excluded. | specs/002-search-brand-presentation | Implemented |
 | SEO-005 | When an article is rendered, a BlogPosting shall refer to a distinct WebPage and the real author, with a visible machine-readable publication date; structured data shall be valid JSON and escape HTML delimiters. | specs/002-search-brand-presentation | Implemented |
 | SEO-006 | When breadcrumbs are generated, every linked item shall resolve to an existing canonical page and the current item shall use its human-readable title. | specs/002-search-brand-presentation | Implemented |
-| SEO-007 | When Google extracts a snippet, shared header and footer boilerplate shall be excluded with supported `data-nosnippet` containers; main content shall stay eligible; primary navigation shall link to service/case hubs. | specs/002-search-brand-presentation | Implemented |
+| SEO-007 | When Google extracts a snippet, shared header and footer boilerplate shall be excluded with supported `data-nosnippet` containers; main content shall stay eligible; primary navigation shall link to the service and blog hubs (the case hub clause is superseded by CASE-002). | specs/002-search-brand-presentation | Implemented |
 | SEO-008 | When the skip link is followed, every indexable page shall provide a main-content target. | specs/002-search-brand-presentation | Implemented |
 | SEO-009 | When `npm run check` runs, it shall validate icon framing and the generated site's metadata, structured data, sitemap, internal links and index policy. | specs/002-search-brand-presentation | Implemented |
 | SEO-010 | When collection content declares a social image, the generated page shall refer to an existing asset; stale references shall use the collection default. | specs/002-search-brand-presentation | Implemented |
@@ -65,11 +65,21 @@ Status values: `Implemented` (released, evidence recorded in the spec handoff), 
 | DES-005 | When a design proposal is ready, the designer shall deliver a self-contained HTML/CSS prototype plus exports under `design/<topic>/` that opens without a build step. | specs/004-design-collaboration | Accepted |
 | DES-006 | Production deployment shall remain restricted to `main`; a workflow started from a `design/**` branch shall not deploy to GitHub Pages. | specs/004-design-collaboration | Implemented |
 | DES-007 | The first proposal shall cover the home page for mobile and desktop, prioritizing the mobile header menu and navigation. | specs/004-design-collaboration | Accepted |
-| DES-008 | Proposals shall keep the NainDev brand and logo colors `#0047AB`, `#00BFFF` and `#FFFFFF`. | specs/004-design-collaboration | Accepted |
+| DES-008 | Proposals shall keep the NainDev brand and logo colors `#0047AB`, `#00BFFF` and `#FFFFFF`. | specs/004-design-collaboration | Superseded by DES-020 |
 | DES-009 | Proposals may restructure sections and rewrite copy; final wording requires owner approval. | specs/004-design-collaboration | Accepted |
 | DES-010 | Mockups shall be delivered in Spanish and English. | specs/004-design-collaboration | Accepted |
 | DES-011 | Proposals shall not present unverified metrics, including the current "+50M" badge. | specs/004-design-collaboration | Accepted |
 | DES-012 | The owner shall provide a ready branch `design/home-redesign` with its folder so the designer can upload through the GitHub web interface. | specs/004-design-collaboration | Implemented |
+| DES-013 | The brief shall state that the visual design is authored by David and credited as he chooses, code and functionality remain the owner's, and uploads are public. | specs/004-design-collaboration | Implemented |
+| DES-014 | The brief shall state the business goals (custom software services, SEO) and leave message hierarchy and main call to action to the designer. | specs/004-design-collaboration | Implemented |
+| DES-015 | The brief shall require keeping the blog, service pages, technology pages and terminal, and exclude case studies. | specs/004-design-collaboration | Implemented |
+| DES-016 | The brief shall include SEO rules for the design and a FAQ for a designer without coding knowledge. | specs/004-design-collaboration | Implemented |
+| DES-017 | The brief shall list `contact@naindev.com` and WhatsApp only as a chat button without a visible number; the number stays out of the repository until implementation. | specs/004-design-collaboration | Implemented |
+| DES-018 | The brief shall describe the Contrast3D x NainDev partnership, allow an optional partners section and Contrast3D credit, and forbid claiming shared clients or joint projects. | specs/004-design-collaboration | Implemented |
+| DES-019 | The brief shall state markets, client problems, the free call entry offer, no public prices, part-time remote availability, no testimonials and the kept checklist. | specs/004-design-collaboration | Implemented |
+| DES-020 | The brief shall authorize logo and identity redesign keeping the NainDev name, with trademark-ready rules (OEPM) and vector deliverables that work at 16 px. | specs/004-design-collaboration | Implemented |
+| DES-021 | The brief shall state the verbal agreement on logo registration, the written rights assignment required before filing (designer keeps credit) and the fallback to the current logo. | specs/004-design-collaboration | Implemented |
+| DES-022 | The brief shall authorize the designer and his AI assistant to commit and push to `design/home-redesign` only, with commands and push troubleshooting. | specs/004-design-collaboration | Implemented |
 
 ## Content integrity
 
@@ -82,4 +92,37 @@ Status values: `Implemented` (released, evidence recorded in the spec handoff), 
 | CLM-005 | When the home page loads, the free checklist call to action shall remain visible and linked. | specs/006-remove-unverified-metrics | Implemented |
 | CLM-006 | When a blocked claim returns to sources, runtime data or build output, `npm run check` shall fail and name the file. | specs/006-remove-unverified-metrics | Implemented |
 
+## Case study removal
+
+| ID | Requirement | Source spec | Status |
+| :--- | :--- | :--- | :--- |
+| CASE-001 | When the site is built, the system shall not publish a case-study page, listing or content collection in any locale. | specs/007-remove-case-studies | Implemented, verified in production |
+| CASE-002 | When any non-redirect page is built, it shall contain no link to `/casos/` or `/en/case-studies/` (header, hero, home, technology, service and thank-you pages included). | specs/007-remove-case-studies | Implemented, verified in production |
+| CASE-003 | When the home page is built in either locale, it shall contain no case-study section, wording or client script. | specs/007-remove-case-studies | Implemented, verified in production |
+| CASE-004 | When a visitor requests a retired case-study URL (clean or legacy `.html`) in either locale, the site shall serve a `noindex` redirect document whose target and canonical point to the mapped existing page in the same locale. | specs/007-remove-case-studies | Implemented, verified in production |
+| CASE-005 | When a visitor requests a technology page retired because only a case study declared it, the site shall redirect to the related service page in the same locale. | specs/007-remove-case-studies | Implemented, verified in production |
+| CASE-006 | When the terminal commands or runtime data files are served in either locale, they shall contain no case-study link. | specs/007-remove-case-studies | Implemented, verified in production |
+| CASE-007 | When the sitemap is generated, it shall list no case-study URL. | specs/007-remove-case-studies | Implemented, verified in production |
+| CASE-008 | When `npm run check` runs, the SEO and localization contracts shall still pass with zero pending and zero unused catalog entries. | specs/007-remove-case-studies | Implemented |
+
 Spec 005 is committed as `c78c854`; production confirmation after deployment is still open in its `tasks.md`. Other homepage claims awaiting owner evidence are tracked in `11-open-questions.md`.
+
+## Contact email (spec 008)
+
+| ID | Requirement | Source | Status |
+| :--- | :--- | :--- | :--- |
+| MAIL-001 | When the site is built, every public contact address in either locale shall be `contact@naindev.com`. | specs/008-unify-contact-email | Implemented |
+| MAIL-002 | When the privacy policy is built, the data controller and data subject rights contacts shall be `contact@naindev.com`. | specs/008-unify-contact-email | Implemented |
+| MAIL-003 | When a source contains `hola@naindev.com` or `hello@naindev.com`, `npm run check` shall fail and name the file. | specs/008-unify-contact-email | Implemented |
+| MAIL-004 | The design brief shall list `contact@naindev.com` as the public email. | specs/008-unify-contact-email | Implemented |
+
+## Honest offer copy (spec 009)
+
+| ID | Requirement | Source | Status |
+| :--- | :--- | :--- | :--- |
+| COPY-001 | When the site is built, no call to action in either locale shall offer a free audit; the Calendly buttons formerly labelled "Agendar Auditoría Gratuita" shall read "Agendar llamada gratuita" with unchanged URLs and UTM parameters. | specs/009-honest-offer-copy | Implemented |
+| COPY-002 | When the home page is built, the hero availability line shall state part-time, remote availability for companies in any country, and no source shall claim immediate availability. | specs/009-honest-offer-copy | Implemented |
+| COPY-003 | When the home page is built, the About section shall describe the role as Lead Software Architect at Contrast3D x NainDev, the collaboration with Contrast3D, and shall not mention a stealth startup. | specs/009-honest-offer-copy | Implemented |
+| COPY-004 | When the terminal commands are served in either locale, they shall contain no confidential or NDA project, redacted value or telemetry figure; `metrics` shall state that no public metrics exist yet and `status` shall show part-time remote availability. | specs/009-honest-offer-copy | Implemented |
+| COPY-005 | When a service page or blog post describes availability or zero-downtime deployments, it shall present them as design goals without a guaranteed availability percentage. | specs/009-honest-offer-copy | Implemented |
+| COPY-006 | When a "99.9x%" availability figure, p95 latency reading, uptime reading or "[REDACTED]" placeholder returns to sources, runtime data or build output, `npm run check` shall fail and name the file. | specs/009-honest-offer-copy | Implemented |

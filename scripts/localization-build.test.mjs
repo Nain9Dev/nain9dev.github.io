@@ -23,7 +23,7 @@ test('Release, preview and review CLIs enforce coverage without publishing draft
   try {
     await write('dist/index.html', source);
     await write('public/assets/data/projects.json', []);
-    for (const file of ['case-studies', 'impact-metrics', 'tech-stack', 'terminal-commands']) await write(`public/assets/data/${file}.json`, {});
+    for (const file of ['impact-metrics', 'tech-stack', 'terminal-commands']) await write(`public/assets/data/${file}.json`, {});
     await write('src/i18n/runtime.json', { terminalHint: 'Ayuda' });
     await write('src/i18n/en-US.json', catalog);
     const first = run('build-locales.mjs');

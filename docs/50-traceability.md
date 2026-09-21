@@ -31,7 +31,7 @@ Paths are relative to the repository root.
 | SEO-004 | `scripts/check-seo.mjs`: one title/description/H1/canonical, canonical equals og:url, sitemap membership matches index policy, unique titles and descriptions, `max-image-preview:large`, noindex preserved | contract | CI b725662: pass |
 | SEO-005 | `scripts/seo.test.mjs` "JSON-LD preserves text without allowing a script element to close"; `scripts/check-seo.mjs`: valid JSON-LD, distinct WebPage and BlogPosting, named author, visible `<time>` matching `datePublished` | unit + contract | local 2026-09-16: unit pass; CI b725662: pass |
 | SEO-006 | `scripts/seo.test.mjs` "breadcrumbs use real hubs and the displayed title", "breadcrumbs do not invent resource or technology landing pages"; `scripts/check-seo.mjs`: every breadcrumb item resolves to a built page | unit + contract | local 2026-09-16: unit pass; CI b725662: pass |
-| SEO-007 | `scripts/check-seo.mjs`: shared navigation text inside supported `data-nosnippet` containers, H1 not excluded, header links to hubs. Manual browser navigation recorded in spec 002 handoff | contract + manual | CI b725662: pass |
+| SEO-007 | `scripts/check-seo.mjs`: shared navigation text inside supported `data-nosnippet` containers, H1 not excluded, header links to service and blog hubs (case hub removed by spec 007). Manual browser navigation recorded in spec 002 handoff | contract + manual | CI b725662: pass |
 | SEO-008 | `scripts/check-seo.mjs`: `id="main-content"` exists on every indexable page | contract | CI b725662: pass |
 | SEO-009 | `npm run check` composition in `package.json` (`check:brand-icons`, `check:seo`) | contract | CI b725662: pass |
 | SEO-010 | `scripts/check-seo.mjs`: social image URL on site origin and file exists in `dist/` | contract | CI b725662: pass |
@@ -63,11 +63,12 @@ No automated tests exist for DES requirements. Manual verification is defined in
 | DES-005 | Review of proposal folder at handoff: opens locally without a build step | manual | Not covered: no proposal delivered yet |
 | DES-006 | Plan section "Deployment boundary": `deploy.yml` triggers on `main` only; `github-pages` environment allows `main` only | manual | Recorded in spec 004 handoff. Not covered (automated) |
 | DES-007 | Proposal review | manual | Not covered: no proposal delivered yet |
-| DES-008 | Proposal review against brand colors | manual | Not covered: no proposal delivered yet |
+| DES-008 | Superseded by DES-020 | manual | Not applicable |
 | DES-009 | Owner approval of final wording before implementation | manual | Not covered: no proposal delivered yet |
 | DES-010 | Proposal review for Spanish and English mockups | manual | Not covered: no proposal delivered yet |
 | DES-011 | Proposal review for unverified metrics. `scripts/check-claims.mjs` scans `src/` and `dist/` only, not `design/` | manual | Not covered: no proposal delivered yet |
 | DES-012 | `git ls-remote origin design/home-redesign` returns the branch; brief links resolve | manual | Pass: branch pushed 2026-09-16 |
+| DES-013 to DES-022 | Manual review of `design/README.md` against spec 004 | manual | Pass 2026-09-16 |
 
 ## Content integrity (specs 005 and 006)
 
@@ -79,3 +80,40 @@ No automated tests exist for DES requirements. Manual verification is defined in
 | CLM-004 | Same matcher test for the OSS badge; "thank-you page shows no Zero Downtime badge" | unit | Pass: local `npm run check` 2026-09-16 |
 | CLM-005 | `scripts/claims.test.mjs` "home page keeps the checklist call to action" | unit | Pass: local `npm run check` 2026-09-16 |
 | CLM-006 | Source scan includes `public/assets/data/*.json`; "matcher ignores service descriptions of availability goals" guards false positives | unit + contract | Pass: local `npm run check` 2026-09-16 |
+
+## Case study removal (spec 007)
+
+All tests below are in `scripts/case-studies.test.mjs`, run against the built `dist/` by `npm run check:case-studies`. Before the change they failed 6 of 6 against a build of `6edd515`.
+
+| Requirement | Test | Type | Last result |
+| :--- | :--- | :--- | :--- |
+| CASE-001 | "CASE-001: no case-study page or listing is published in any locale" | contract | Pass: local `npm run check` 2026-09-16 (6 of 6) |
+| CASE-002 | "CASE-002 and CASE-003: built pages carry no case-study links or wording"; `scripts/check-seo.mjs`: header must not link to `/casos/` | contract | Pass: local `npm run check` 2026-09-16 |
+| CASE-003 | Same wording test; "CASE-003: home pages have no case-study section or client script" | contract | Pass: local `npm run check` 2026-09-16 |
+| CASE-004 | "CASE-004 and CASE-005: retired URLs redirect to related pages in both locales" (refresh target, canonical, `noindex`, target is a content page) | contract | Pass: local `npm run check` 2026-09-16. Production: pending |
+| CASE-005 | Same redirect test for `/tecnologia/ONNX/`, `/tecnologia/Kubernetes/` and `/tecnologia/.NET Core/` | contract | Pass: local `npm run check` 2026-09-16 |
+| CASE-006 | "CASE-006: terminal commands and runtime data contain no case-study link" | contract | Pass: local `npm run check` 2026-09-16 |
+| CASE-007 | "CASE-007: the sitemap lists no case-study URL" | contract | Pass: local `npm run check` 2026-09-16 |
+| CASE-008 | `npm run check` composition: `check-seo.mjs` (130 pages, 22 redirects), `check-locales.mjs` (65 pairs), build fails on missing translations; 0 pending and 0 unused entries recorded in the spec 007 handoff | contract + manual | Pass: local `npm run check` 2026-09-16 |
+
+## Contact email (spec 008)
+
+| Requirement | Test | Type | Last result |
+| :--- | :--- | :--- | :--- |
+| MAIL-001 | `scripts/contact-email.test.mjs` "sources and runtime data publish no retired contact address" | unit | Pass: local `npm run check` 2026-09-16 |
+| MAIL-002 | `scripts/contact-email.test.mjs` "privacy policy names the public contact address" | unit | Pass: local `npm run check` 2026-09-16 |
+| MAIL-003 | Same scan test; fails with the offending file names | unit | Pass: failed before the change on `privacidad.astro` and `checklist-ia.astro` |
+| MAIL-004 | Manual review of `design/README.md` | manual | Pass 2026-09-16 |
+
+## Honest offer copy (spec 009)
+
+Before the copy change, `scripts/offer-copy.test.mjs` failed 6 of 6 and the new matcher case in `scripts/claims.test.mjs` failed against the previous `BLOCKED_CLAIMS`.
+
+| Requirement | Test | Type | Last result |
+| :--- | :--- | :--- | :--- |
+| COPY-001 | `scripts/offer-copy.test.mjs` "COPY-001: no call to action offers a free audit" (source scan) and "COPY-001: Calendly buttons offer a free call and keep their destinations" | unit | Pass: local `npm run check` 2026-09-16 |
+| COPY-002 | `scripts/offer-copy.test.mjs` "COPY-002: the hero states part-time remote availability and nothing claims immediate availability" | unit | Pass: local `npm run check` 2026-09-16 |
+| COPY-003 | `scripts/offer-copy.test.mjs` "COPY-003: the About section names the Contrast3D x NainDev collaboration". The absence of shared client, project or result claims is checked by manual review only | unit + manual | Pass: local `npm run check` 2026-09-16 |
+| COPY-004 | `scripts/offer-copy.test.mjs` "COPY-004: terminal commands contain no confidential project, redacted values or telemetry" (Spanish source; the English file is generated from it) | unit | Pass: local `npm run check` 2026-09-16 |
+| COPY-005 | `scripts/offer-copy.test.mjs` "COPY-005: service pages present availability as a design goal"; `scripts/claims.test.mjs` "matcher ignores availability described as a design goal" | unit | Pass: local `npm run check` 2026-09-16 |
+| COPY-006 | `scripts/claims.test.mjs` "matcher flags availability percentages, telemetry and redacted values" and source scan; `scripts/check-claims.mjs` `scanBuild()` over `dist/` | unit + contract | Pass: local `npm run check` 2026-09-16 |
