@@ -86,3 +86,31 @@ test('COPY-004: terminal commands contain no confidential project, redacted valu
 test('COPY-005: service pages present availability as a design goal', async () => {
   assert.deepEqual(await offenders(/\*\*Zero Downtime:\*\*|\(Zero Downtime\)|"Zero Downtime"|disponibilidad\s+\d/i, ['src/content/servicios', 'src/content/blog']), []);
 });
+
+// Collaboration work described as a multi-domain conformance architecture. See specs/011-conformance-chassis-copy.
+const CONFORMANCE = /arquitectura de conformidad determinista y multidominio/i;
+const FIRST_DOMAIN = /primer dominio[^.]*activos 3D/i;
+
+test('COPY-007: the About section describes the multi-domain conformance architecture', async () => {
+  const text = (await read('src/components/home/AboutSection.astro')).replace(/\s+/g, ' ');
+  assert.match(text, CONFORMANCE);
+  assert.match(text, /Open Core/);
+  assert.match(text, /diseñada para validar productos de cualquier sector/i);
+  assert.match(text, FIRST_DOMAIN);
+});
+
+test('COPY-008: the terminal story describes the same approach', async () => {
+  const { story } = JSON.parse(await read('public/assets/data/terminal-commands.json'));
+  const text = story.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ');
+  assert.match(text, CONFORMANCE);
+  assert.match(text, FIRST_DOMAIN);
+});
+
+test('COPY-009: public copy keeps the product confidential in both locales', async () => {
+  const internal = /\bDSE\b|Datum Statutum|\bE3C\b|\bRT-(?:FIN-)?\d+/i;
+  assert.doesNotMatch(await read('src/components/home/AboutSection.astro'), internal);
+  assert.doesNotMatch(await read('public/assets/data/terminal-commands.json'), internal);
+  const catalog = JSON.parse(await read('src/i18n/en-US.json'));
+  const leaks = Object.values(catalog).filter(({ source, target }) => internal.test(source) || internal.test(target));
+  assert.deepEqual(leaks, []);
+});

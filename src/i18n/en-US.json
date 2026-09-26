@@ -6739,11 +6739,6 @@
     "target": "⟦0⟧Schedule a free call⟦/0⟧",
     "status": "reviewed"
   },
-  "1389025c201790eb7ebba7b1710810dd7ea009c6ce82243c82c27b9bf8ceb55c": {
-    "source": "La IA generativa produce modelos 3D con rapidez, pero a menudo con inconsistencias estructurales. Revisarlos a mano frena la automatización.",
-    "target": "Generative AI produces 3D models quickly, but often with structural inconsistencies. Reviewing them by hand slows down automation.",
-    "status": "reviewed"
-  },
   "2502fbc2df91562f8e409eb7e333b08634f68b14a6952204d4d5f57b59ccb946": {
     "source": "⟦0⟧Alta disponibilidad:⟦/0⟧ Diseñado para aislar fallos, de modo que un componente caído no afecte a toda la operación.",
     "target": "⟦0⟧High availability:⟦/0⟧ Designed to isolate failures so that one failed component does not bring down the entire operation.",
@@ -6879,11 +6874,6 @@
     "target": "⟦0⟧Deployments without interruptions:⟦/0⟧ Architectures designed for continuous deployment without interrupting the service.",
     "status": "reviewed"
   },
-  "ec8ca0d866c5e70db0adfdf3ce530fe2655c18e7ed60514174c81036de8d5f26": {
-    "source": "Diseño backends fiables con validación determinista: contratos estrictos y reglas explícitas que dan el mismo resultado para el mismo asset.",
-    "target": "I design reliable backends with deterministic validation: strict contracts and explicit rules that give the same result for the same asset.",
-    "status": "reviewed"
-  },
   "ed97a873b9d6ffdd3267abd881c1d95fac55fa9af688aad736cb32b3f4f81e23": {
     "source": "¿Problemas de rendimiento en tu backend 3D? ⟦0⟧Agenda una llamada gratuita⟦/0⟧.",
     "target": "Having performance issues with your 3D backend? ⟦0⟧Schedule a free call⟦/0⟧.",
@@ -6899,9 +6889,19 @@
     "target": ">> METRICS",
     "status": "reviewed"
   },
-  "2d39b7302c4ca3e5fef86a19c0a3eadf4a9371dfcfc55d1189276d3ad00d2097": {
-    "source": "Soy Aitor Nain Mendoza Vallejo, también conocido como Aitor Mendoza y NainDev. Trabajo como CTO en Contrast3D x NainDev, la colaboración con Contrast3D, donde diseño un ecosistema Open Core robusto para la validación determinista de activos generados por IA, garantizando un enfoque de 'Trustworthy AI'.",
-    "target": "I am Aitor Nain Mendoza Vallejo, also known as Aitor Mendoza and NainDev. I work as CTO at Contrast3D x NainDev, the collaboration with Contrast3D, where I design a robust Open Core ecosystem for the deterministic validation of AI-generated assets, ensuring a 'Trustworthy AI' approach.",
+  "53188e18f4a1ba20c1b0ecfef646bc4d548593e50d2d64c0bc0dcfc0f7c363c5": {
+    "source": "Soy Aitor Nain Mendoza Vallejo, también conocido como Aitor Mendoza y NainDev. Trabajo como CTO en Contrast3D x NainDev, la colaboración con Contrast3D, donde diseño una arquitectura de conformidad determinista y multidominio, con modelo Open Core: diseñada para validar productos de cualquier sector frente a especificaciones explícitas y versionadas, con veredictos reproducibles y un enfoque de 'Trustworthy AI'. Su primer dominio son los activos 3D generados por IA.",
+    "target": "I am Aitor Nain Mendoza Vallejo, also known as Aitor Mendoza and NainDev. I work as CTO at Contrast3D x NainDev, the collaboration with Contrast3D, where I design a deterministic, multi-domain conformance architecture with an Open Core model: designed to validate products from any sector against explicit, versioned specifications, with reproducible verdicts and a 'Trustworthy AI' approach. Its first domain is AI-generated 3D assets.",
+    "status": "reviewed"
+  },
+  "b1f8b392daae28f600a0bdc4cfa953ecb0e8d2c947ee1249c6def82dde91ffb9": {
+    "source": "Diseño una arquitectura de conformidad determinista y multidominio: identifica cada artefacto, mide sus hechos, aplica el perfil versionado de su dominio y emite un veredicto reproducible. El primer dominio son los activos 3D.",
+    "target": "I design a deterministic, multi-domain conformance architecture: it identifies each artifact, measures its facts, applies the versioned profile for its domain and issues a reproducible verdict. The first domain is 3D assets.",
+    "status": "reviewed"
+  },
+  "c1c45d557f1bd8ab19c2d14402d932c95b3cb0443abf78c00117d741a523369a": {
+    "source": "La IA generativa y los procesos automatizados producen artefactos con rapidez, pero sin garantía de que cumplan su especificación. Revisarlos a mano frena la automatización.",
+    "target": "Generative AI and automated processes produce artifacts quickly, but with no guarantee that they meet their specification. Reviewing them by hand slows automation down.",
     "status": "reviewed"
   }
 }

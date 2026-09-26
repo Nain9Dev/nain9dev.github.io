@@ -6,6 +6,7 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ### Changed
 
+- Spec 011: the About section and the terminal story describe the collaboration work as a multi-domain deterministic conformance architecture whose first domain is 3D assets, without naming the product or its internal profiles.
 - Spec 010: the About section names the role as CTO at Contrast3D x NainDev instead of Lead Software Architect.
 - Spec 009: calls to action offer a free call instead of a free audit; the hero states part-time, remote availability; the About section names the Contrast3D x NainDev collaboration; the terminal drops the confidential project, redacted values and telemetry figures; service pages describe availability as a design goal. The claim guard now blocks "99.9x%" figures, p95 latency and uptime readings and "[REDACTED]" placeholders.
 
