@@ -9,7 +9,8 @@ const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const SOURCE_DIRS = ['src/components', 'src/pages', 'src/content', 'public/assets/data'];
 const CALENDLY = 'https://calendly.com/aitornainmendozavallejo-ksez/30min';
 const HERO_AVAILABILITY = 'Acepto proyectos a tiempo parcial y en remoto para empresas de cualquier país.';
-const ABOUT_ROLE = 'Lead Software Architect en Contrast3D x NainDev, la colaboración con Contrast3D';
+// Role title updated to CTO. See specs/010-cto-role.
+const ABOUT_ROLE = 'CTO en Contrast3D x NainDev, la colaboración con Contrast3D';
 
 const read = (file) => readFile(join(ROOT, file), 'utf8');
 
@@ -57,6 +58,7 @@ test('COPY-002: the hero states part-time remote availability and nothing claims
 test('COPY-003: the About section names the Contrast3D x NainDev collaboration', async () => {
   const markup = await read('src/components/home/AboutSection.astro');
   assert.doesNotMatch(markup, /stealth/i);
+  assert.doesNotMatch(markup, /Lead Software Architect/);
   assert.ok(markup.replace(/\s+/g, ' ').includes(ABOUT_ROLE));
 });
 

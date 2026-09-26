@@ -6824,11 +6824,6 @@
     "target": "to talk about your project.",
     "status": "reviewed"
   },
-  "89f7908ccd370d08cf84224477259781f067523492fb267a39d48348ed9841c6": {
-    "source": "Soy Aitor Nain Mendoza Vallejo, también conocido como Aitor Mendoza y NainDev. Trabajo como Lead Software Architect en Contrast3D x NainDev, la colaboración con Contrast3D, donde diseño un ecosistema Open Core robusto para la validación determinista de activos generados por IA, garantizando un enfoque de 'Trustworthy AI'.",
-    "target": "I am Aitor Nain Mendoza Vallejo, also known as Aitor Mendoza and NainDev. I work as a Lead Software Architect at Contrast3D x NainDev, the collaboration with Contrast3D, where I design a robust Open Core ecosystem for the deterministic validation of AI-generated assets, ensuring a 'Trustworthy AI' approach.",
-    "status": "reviewed"
-  },
   "90413b5fbd0869a8a000657babb3b21e4cf75a78cbaa1b0634bdf49fe31319c1": {
     "source": "El problema que resuelvo (Reto y enfoque)",
     "target": "The problem I solve (Challenge and approach)",
@@ -6902,6 +6897,11 @@
   "fc322ad0be71ed4b64679c9157180d80335c1b4774039a10f845eaa194ba5ccb": {
     "source": ">> METRICS",
     "target": ">> METRICS",
+    "status": "reviewed"
+  },
+  "2d39b7302c4ca3e5fef86a19c0a3eadf4a9371dfcfc55d1189276d3ad00d2097": {
+    "source": "Soy Aitor Nain Mendoza Vallejo, también conocido como Aitor Mendoza y NainDev. Trabajo como CTO en Contrast3D x NainDev, la colaboración con Contrast3D, donde diseño un ecosistema Open Core robusto para la validación determinista de activos generados por IA, garantizando un enfoque de 'Trustworthy AI'.",
+    "target": "I am Aitor Nain Mendoza Vallejo, also known as Aitor Mendoza and NainDev. I work as CTO at Contrast3D x NainDev, the collaboration with Contrast3D, where I design a robust Open Core ecosystem for the deterministic validation of AI-generated assets, ensuring a 'Trustworthy AI' approach.",
     "status": "reviewed"
   }
 }

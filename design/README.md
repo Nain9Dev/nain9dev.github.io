@@ -82,7 +82,7 @@ would sell better are part of the job.
 | Visual direction | Free. Showing two or three directions is welcome |
 | Logo and brand identity | **David may redesign the logo and the visual identity, with NainDev's permission.** See "Logo redesign" |
 | Photo of Aitor | Optional. If the design needs one, ask Aitor for it |
-| About section | Names the partnership: "Lead Software Architect en Contrast3D x NainDev". David may rewrite the section; Aitor approves |
+| About section | Names the partnership: "CTO en Contrast3D x NainDev". David may rewrite the section; Aitor approves |
 | Testimonials | No section for now; there are no client testimonials yet |
 | Pricing | No prices or packages with prices |
 | Free checklist (lead magnet) | Keep it in the design. Its signup form is being fixed separately |
