@@ -6,5 +6,5 @@
 - [x] [A] Replace the English catalog entry with a reviewed one for the new sentence.
 - [x] [A] Update the design brief, requirements, traceability and changelog.
 - [x] [A] Run the full `npm run check` (2026-09-25: all tests pass, 0 pending translations, English page reads "CTO at Contrast3D x NainDev").
-- [ ] [H] Commit and deploy.
-- [ ] [A] After deployment, confirm the About section (ES/EN) in production.
+- [x] [H] Commit and deploy (`3b711c4`, deploy workflow passed 2026-09-27).
+- [x] [A] After deployment, confirm the About section (ES/EN) in production (2026-09-27: "CTO en Contrast3D x NainDev" and "CTO at Contrast3D x NainDev").

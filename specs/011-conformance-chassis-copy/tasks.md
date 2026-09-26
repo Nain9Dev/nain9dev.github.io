@@ -6,5 +6,5 @@
 - [x] [A] Add reviewed English catalog entries and remove the three unused ones.
 - [x] [A] Update the design brief, requirements, traceability and changelog.
 - [x] [A] Run the full `npm run check` (2026-09-27: all tests pass, 0 pending translations, English About and terminal story read the reviewed text, no internal name in `dist/`).
-- [ ] [H] Commit and deploy (after spec 010, which is also uncommitted).
-- [ ] [A] After deployment, confirm the About section and terminal story (ES/EN) in production.
+- [x] [H] Commit and deploy (`c9e93fa`, after spec 010 in `3b711c4`; deploy workflow passed 2026-09-27).
+- [x] [A] After deployment, confirm the About section and terminal story (ES/EN) in production (2026-09-27: both locales read the new copy; no internal product name on the home page).
