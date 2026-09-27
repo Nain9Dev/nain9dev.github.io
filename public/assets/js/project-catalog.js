@@ -16,7 +16,7 @@ function isValidProject(project) {
     && project.categories.length > 0
     && project.categories.every((category) => SUPPORTED_CATEGORIES.has(category))
     && Array.isArray(project.links)
-    && project.links.length > 0
+    && (project.private === true ? project.links.length === 0 : project.links.length > 0)
     && project.links.every(isValidLink)
     && Number.isInteger(project.order);
 }

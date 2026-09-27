@@ -49,11 +49,6 @@
     "target": "⟦0⟧Access Purpose:⟦/0⟧ The application requests access to your Google Drive solely to create, upload, and manage automated backups of your CRM. We do not read, download, or alter files that were not created by our own application.",
     "status": "reviewed"
   },
-  "025c0ab5fbba0f1a531b48f1dd1237eed583f8c9bf10c5058cb619dd6e975050": {
-    "source": "Architecture & Backend",
-    "target": "Architecture & Backend",
-    "status": "reviewed"
-  },
   "029b65c794fe9bc487e33e9a5fd5ecb457c5b5e9984a376c3e21226731454ad6": {
     "source": "El procesamiento de modelos 3D en el backend es un reto apasionante que mezcla física, geometría computacional e ingeniería de software de alto rendimiento. En un mundo dominado por la IA, la validación determinista en el backend no es una opción, es un requerimiento de supervivencia.",
     "target": "Processing 3D models on the backend is an exciting challenge that mixes physics, computational geometry, and high-performance software engineering. In a world dominated by AI, deterministic validation on the backend is not an option; it is a survival requirement.",
@@ -174,11 +169,6 @@
     "target": "backend AI, agent architecture, LLM integration, C# AI",
     "status": "reviewed"
   },
-  "07239dbd2a1a1dd793be9062a205eb6be88c36af3fe7e4d6426aea45aa253815": {
-    "source": "HTML",
-    "target": "HTML",
-    "status": "reviewed"
-  },
   "074175a56526b05db9568aa97a3d6ebd53bce4ef64bf5a344b24c4509d0416dc": {
     "source": "⟦0⟧Modernización de ERP/SaaS Históricos:⟦/0⟧ Tomar un monolito de .NET Framework 4.x o Core temprano y portarlo gradualmente a .NET 8 con microservicios contenerizados (Docker/Kubernetes).",
     "target": "⟦0⟧Modernizing Legacy ERP/SaaS:⟦/0⟧ Taking a .NET Framework 4.x or early Core monolith and gradually porting it to .NET 8 with containerized microservices (Docker/Kubernetes).",
@@ -257,11 +247,6 @@
   "0ae0c7302f07e86f4159071dde12371e6f6caddd95607cac64be28ded99c861a": {
     "source": "Como arquitecto especializado en C#, no me conformo con añadir más servidores. Realizo un perfilado (Profiling) exhaustivo de la aplicación para identificar la línea exacta de código o la ⟦0⟧query⟦/0⟧ de SQL Server que está destruyendo el rendimiento.",
     "target": "As an architect specializing in C#, I am not satisfied with just adding more servers. I perform exhaustive profiling of the application to identify the exact line of code or the SQL Server ⟦0⟧query⟦/0⟧ that is destroying performance.",
-    "status": "reviewed"
-  },
-  "0b06cf4bdcce350058ef02d03f4f70992185776448fc0e36f7039fedd5898e9b": {
-    "source": "Plataforma operativa con validación de dominio exhaustiva usando Pydantic v2. Diseño de una única fuente de verdad para lógica de negocio y contabilidad.",
-    "target": "Operational platform with comprehensive domain validation using Pydantic v2. A single source of truth for business logic and accounting.",
     "status": "reviewed"
   },
   "0b47f080420e79176b17fa56f464b8772a42e647d4cf279d745c3ae52d15b69c": {
@@ -424,11 +409,6 @@
     "target": "We define the content structure (sitemap), the conversion funnel, and the base ⟦0⟧wireframe⟦/0⟧ to ensure the message reaches your ideal client clearly.",
     "status": "reviewed"
   },
-  "1091519da8627b836a303e933b64a45e33437ac65d980f4cf4c4b2f9976e01e7": {
-    "source": "Demo web operativa 24/7 en Streamlit Cloud. Permite simular inscripciones, imputar clases y emitir facturas oficiales descargables al instante en formato PDF (0€ coste y almacenamiento RAM in-memory).",
-    "target": "Web demo available 24/7 on Streamlit Cloud. It allows users to simulate registrations, record lessons, and issue official invoices for immediate download as PDF files (0€ cost and in-memory RAM storage).",
-    "status": "reviewed"
-  },
   "1091d20d42dd579351d5605f9b99cf093f8922971f5ff7f84abc95e5261a0e5f": {
     "source": "La validación de modelos 3D a escala industrial (geometrías, análisis de mallas, inferencia de ML) es intrincada. Cuando los ingenieros acoplan directamente la lógica del motor geométrico (como Unity o herramientas CAD) con los servicios de inferencia de IA y las reglas de negocio, el resultado es un monolito espagueti. Actualizar la versión del modelo de IA o cambiar la forma en que se almacenan los archivos ⟦0/⟧ o ⟦1/⟧ rompe validaciones crípticas a miles de kilómetros de distancia en el código.",
     "target": "Industrial-scale 3D model validation (geometries, mesh analysis, ML inference) is intricate. When engineers directly couple the geometric engine logic (like Unity or CAD tools) with AI inference services and business rules, the result is a spaghetti monolith. Updating the AI model version or changing how the files ⟦0/⟧ or ⟦1/⟧ are stored breaks cryptic validations miles away in the code.",
@@ -467,11 +447,6 @@
   "11d7476cc1ba46ab6628adc3763972252ebb2883d31361a46ba642ba7906a72b": {
     "source": "Veamos cómo implementar un repositorio que maneje concurrencia optimista de forma elegante, protegiendo nuestro modelo ⟦0/⟧.",
     "target": "Let's see how to implement a repository that handles optimistic concurrency elegantly, protecting our model ⟦0/⟧.",
-    "status": "reviewed"
-  },
-  "11e61ea9ddded441b56459c1f5bf65124ed60a021ea55463cd299f66bf35b2dd": {
-    "source": "⟦0⟧⟦1⟧01⟦/1⟧⟦2⟧API⟦/2⟧⟦3⟧Contratos y validación⟦/3⟧⟦/0⟧⟦4⟧⟦5⟧02⟦/5⟧⟦6⟧Lógica⟦/6⟧⟦7⟧Reglas y casos de uso⟦/7⟧⟦/4⟧⟦8⟧⟦9⟧03⟦/9⟧⟦10⟧Datos⟦/10⟧⟦11⟧SQL Server y consistencia⟦/11⟧⟦/8⟧",
-    "target": "⟦0⟧⟦1⟧01⟦/1⟧⟦2⟧API⟦/2⟧⟦3⟧Contracts and Validation⟦/3⟧⟦/0⟧⟦4⟧⟦5⟧02⟦/5⟧⟦6⟧Logic⟦/6⟧⟦7⟧Rules and Use Cases⟦/7⟧⟦/4⟧⟦8⟧⟦9⟧03⟦/9⟧⟦10⟧Data⟦/10⟧⟦11⟧SQL Server and Consistency⟦/11⟧⟦/8⟧",
     "status": "reviewed"
   },
   "126106ef59360d1af96ceeacc0296bde5dd4a10d8bc3f23c14ca57738b4643a5": {
@@ -564,11 +539,6 @@
     "target": "⟦0⟧Ingestion and Validation:⟦/0⟧ The backend receives the user prompt and validates usage policies.",
     "status": "reviewed"
   },
-  "15e82b4ce25a4f596f040da967982048a736562be8cbc21b9353c9c27e91c7eb": {
-    "source": "Incluye una demo pública con datos de prueba y scripts T-SQL para revisar el modelo relacional.",
-    "target": "Includes a public demo with sample data and T-SQL scripts to review the relational model.",
-    "status": "reviewed"
-  },
   "160a8d4a0755e907e297fa39a7b0032990a8141ed9b7ac84b849239e3dc5fec6": {
     "source": "El proveedor de IA cambia la firma de su API?",
     "target": "Does the AI provider change its API signature?",
@@ -622,11 +592,6 @@
   "17b5087730e90569c4f284ef9d1a02fccec9456b468cad397c0f61cd7c543691": {
     "source": "En este código, nuestro sistema jamás bloquea la base de datos. Si dos procesos chocan, el perdedor recalcula su lógica en milisegundos y vuelve a intentar. La base de datos respira tranquila.",
     "target": "In this code, our system never blocks the database. If two processes collide, the loser recalculates its logic in milliseconds and retries. The database breathes easy.",
-    "status": "reviewed"
-  },
-  "17bb86749849f89577204c1d7b729f9579b9420bd35af264cc995d324a63e281": {
-    "source": "Servicio de Notificaciones",
-    "target": "Notification Service",
     "status": "reviewed"
   },
   "17fcddf56ff92ce3b04d68488d8a1d2e3d15f540f8f9f76399996f277078507e": {
@@ -707,11 +672,6 @@
   "1aa2bc8a09bf2e2081a4c37926dc3491838ada6b0105643462055089af12d9e8": {
     "source": "La base legal para el tratamiento de tus datos personales es tu ⟦0⟧consentimiento explícito⟦/0⟧, el cual otorgas al introducir tus datos y marcar la casilla de aceptación o enviar el formulario correspondiente.",
     "target": "The legal basis for processing your personal data is your ⟦0⟧explicit consent⟦/0⟧, which you grant by entering your data and checking the acceptance box or submitting the corresponding form.",
-    "status": "reviewed"
-  },
-  "1b0293edc88e2da7b02f8098eb85234b1e5e8834c37f1c80f2f92b3de9936bd8": {
-    "source": "Revisar Arquitectura",
-    "target": "Review Architecture",
     "status": "reviewed"
   },
   "1b166e2a7fb0fd86b9f9b8fc0171bf3af8a7968f3c65f9b8da29cfdfc7f44570": {
@@ -824,11 +784,6 @@
     "target": "If you are integrating AI into your SaaS and are concerned about stability, data security (Prompt Injection), or exponential costs, you need a resilient architecture.",
     "status": "reviewed"
   },
-  "1ec9024c7c4d87501ff024c624e0955e01e69007457f9e180f69ff5da660bb6c": {
-    "source": "- Protocolos de comunicación con LLMs",
-    "target": "- Communication Protocols with LLMs",
-    "status": "reviewed"
-  },
   "1eecc514cbc551c1c1b0cb7f6a5ce1ab623f39b5f967c9a2834c982909d527df": {
     "source": "Dependiendo de la complejidad y el número de páginas, un proyecto de renovación corporativa suele estar desplegado en producción entre ⟦0⟧3 y 5 semanas⟦/0⟧ desde nuestra reunión inicial (Kick-off).",
     "target": "Depending on the complexity and number of pages, a corporate website refresh is usually deployed to production ⟦0⟧3 to 5 weeks⟦/0⟧ after our initial kickoff meeting.",
@@ -837,11 +792,6 @@
   "1f4f9a6ab3b106f7d87655454159fc825fc8a0948c86100ec42317c50181cf4b": {
     "source": "Sistemas de Validación Geométrica de Mallas 3D en la Nube",
     "target": "Cloud-Based 3D Mesh Geometric Validation Systems",
-    "status": "reviewed"
-  },
-  "1fc0c785332e80fb931c7a11323f27abb47a0a7f8bbdf23ffca3cac46497b21c": {
-    "source": "Node.js",
-    "target": "Node.js",
     "status": "reviewed"
   },
   "1ffebed5652658dc261988c0f0dc6c1ed8d333c45df4f33bafc02a26096cf5f1": {
@@ -877,11 +827,6 @@
   "213275916fd656713731103afd65cf9ffdc9c5ecf14c361868136164828be4d5": {
     "source": "No permitas que archivos binarios masivos crucen tu API REST principal. Tu backend no debería ser un proxy de archivos.",
     "target": "Do not let massive binary files cross your main REST API. Your backend should not be a file proxy.",
-    "status": "reviewed"
-  },
-  "213985e12832da8db677c8b4efe14a40f06d23892d3bf2db509dd57ea49044cc": {
-    "source": "Postman",
-    "target": "Postman",
     "status": "reviewed"
   },
   "214d0eb9ce0120835ee98a77f9906133f73be40b01bdd2f7dca55fa57fcf738a": {
@@ -942,11 +887,6 @@
   "24b7c86b70c8031d89796db9d8817634fbc8f5823c662f3cee39d2282892b66f": {
     "source": "⟦0⟧Servidores Saturados:⟦/0⟧ Si tu backend procesa vértices, valida colisiones o convierte formatos en tiempo real usando el mismo servidor que sirve la API REST, los picos de tráfico tumbarán tu aplicación.",
     "target": "⟦0⟧Saturated Servers:⟦/0⟧ If your backend processes vertices, validates collisions, or converts formats in real time using the same server that serves the REST API, traffic spikes will crash your application.",
-    "status": "reviewed"
-  },
-  "2532e0b11a121cd38d3512d7f9301ccbb096b0be3c3290ff82d489dbe92a8d51": {
-    "source": "CSS3",
-    "target": "CSS3",
     "status": "reviewed"
   },
   "2566aba43631da3e0a15f56b7ca3d4f2be5170180543d6ffcd0e5b4eb6d90761": {
@@ -1019,11 +959,6 @@
     "target": "⟦0⟧Plausible Analytics:⟦/0⟧ Analytics platform (no cookies, totally anonymous).",
     "status": "reviewed"
   },
-  "27136fe339caf9da8f36fb1135eef6ea69d6cb4b71c3ec0fac0df8ca19240c7b": {
-    "source": "Gestión Autoescuela NainDev",
-    "target": "NainDev Driving School Management",
-    "status": "reviewed"
-  },
   "271ea39edbb1ce49f621441c9d64813539d479d4eb7c8a9c25f17d1619a5acc9": {
     "source": "El Reto de la Generación 3D",
     "target": "The Challenge of 3D Generation",
@@ -1052,11 +987,6 @@
   "2807a4568ea73d6ef97e6707fe80df60bb2b262cef4c48ea54cd1646ed20aafe": {
     "source": "SEO Técnico",
     "target": "Technical SEO",
-    "status": "reviewed"
-  },
-  "2814e31ec3e9ba96359c6ca3107fdcee88a3d5886111996927e6657961c2c664": {
-    "source": "Backend Specialist @ SaaS Platform",
-    "target": "Backend Specialist @ SaaS Platform",
     "status": "reviewed"
   },
   "2817d0c44d98e0708a5f397dc6f04f5e8775f90aa616ad400c0e367144e8d98c": {
@@ -1152,11 +1082,6 @@
   "2cac18a764be14e669ab92da71fd9fd9f9903c73db9ab490b0c07abd5df21e3d": {
     "source": "Llévate el código fuente completo, un checklist de 5 pasos para auditar tu infraestructura y asegurar un despliegue sin ⟦0⟧vendor lock-in⟦/0⟧ ni tiempos de inactividad.",
     "target": "Get the complete source code and a 5-step checklist to audit your infrastructure and ensure deployment without ⟦0⟧vendor lock-in⟦/0⟧ or downtime.",
-    "status": "reviewed"
-  },
-  "2cb48512e2e5220d20d075de5cd08c8bc879d877806d65d824c936ffe2393fc2": {
-    "source": "Icono de HTML5",
-    "target": "HTML5 Icon",
     "status": "reviewed"
   },
   "2cc17842a47ef962a007c2a172699267b888e508cb29351f770530815ae03a38": {
@@ -1319,11 +1244,6 @@
     "target": "What will you discover?",
     "status": "reviewed"
   },
-  "31c77e2cd37acdbde17e4ed8d57635b5a8d9402109221081c9ac80546742e755": {
-    "source": "Icono de Redis",
-    "target": "Redis Icon",
-    "status": "reviewed"
-  },
   "31e06f7d89feb99a0e6c0affe198748c3bb5bef5e3cc92d95cb9e996197d3fc3": {
     "source": "chat",
     "target": "chat",
@@ -1407,11 +1327,6 @@
   "34eb86595bd442ea51bf1e45ef975ae457ffc0d208f4b68615a884f120d0be88": {
     "source": "Por ⟦0⟧Aitor Nain Mendoza Vallejo⟦/0⟧ ·⟦1⟧25 de agosto de 2026⟦/1⟧",
     "target": "By ⟦0⟧Aitor Nain Mendoza Vallejo⟦/0⟧ ·⟦1⟧August 25, 2026⟦/1⟧",
-    "status": "reviewed"
-  },
-  "3505965eedb14d8c0e687bc8690f74233066870baa904757f7193f331545bc5e": {
-    "source": "Demo web alojada en GitHub Pages consumiendo una API alojada en Render con 0€ de coste. Permite explorar catálogo masivo y añadir juegos al carrito sin latencia.",
-    "target": "Web demo hosted on GitHub Pages consuming an API hosted on Render with 0€ cost. Allows exploring a massive catalog and adding games to the cart without latency.",
     "status": "reviewed"
   },
   "3535db608bc0a1ada11dd86ba45d1952a5074695b1c2908e525774af7d3bb90e": {
@@ -1504,16 +1419,6 @@
     "target": "⟦0⟧⟦1⟧AI Architecture for Fintech: Security and Precision⟦/1⟧⟦2⟧Design and development of backend architectures for generative AI in the Fintech sector. Compliance, Zero-Trust security, and guaranteed low latency.⟦/2⟧⟦/0⟧⟦3⟧⟦4⟧Generative AI Architecture for SaaS Startups⟦/4⟧⟦5⟧Design and implementation of architectures for B2B SaaS with LLMs and generative AI, security, low latency, and deterministic patterns.⟦/5⟧⟦/3⟧⟦6⟧⟦7⟧Critical Backend Systems for Logistics⟦/7⟧⟦8⟧Backend architecture for logistics and supply chain: fault tolerance, event processing, and scalability with C# and .NET.⟦/8⟧⟦/6⟧⟦9⟧⟦10⟧Scalable Backend for 3D Model Processing on Azure⟦/10⟧⟦11⟧Design and development of backend architectures in .NET for massive processing, optimization, and validation of 3D meshes using Azure infrastructure.⟦/11⟧⟦/9⟧⟦12⟧⟦13⟧Migrating Monoliths to Microservices with AI in C#⟦/13⟧⟦14⟧Deep refactoring and architectural migration service: from legacy monolithic systems (SQL/C#) to AI-ready distributed ecosystems.⟦/14⟧⟦/12⟧⟦15⟧⟦16⟧Extreme Performance Optimization in .NET REST APIs⟦/16⟧⟦17⟧Audit, profiling, and bottleneck resolution service for high-concurrency APIs built with C# and .NET.⟦/17⟧⟦/15⟧⟦18⟧⟦19⟧3D Processing for Healthcare⟦/19⟧⟦20⟧Scalable backend architectures for rendering, geometric validation, and processing massive 3D meshes in medical applications (MedTech).⟦/20⟧⟦/18⟧",
     "status": "reviewed"
   },
-  "3824a9f4dafe92c6f1b80b40656a59784c03a824c27d58125d7d0ace753e2df2": {
-    "source": "Canvas",
-    "target": "Canvas",
-    "status": "reviewed"
-  },
-  "383f792020d9f331342f2e8879f716e1bdf24ee29aeba45129a378ce152725cc": {
-    "source": "La demo se puede jugar en el navegador y el código está dentro de este repositorio.",
-    "target": "The demo can be played in the browser, and the code is in this repository.",
-    "status": "reviewed"
-  },
   "388e65f20b6925e4deb03fb843360752d9fbc5bf9c7cb7376624f12b896b52a4": {
     "source": "⟦0⟧Ingesta y Decimación Escalable:⟦/0⟧ Pipelines que ingieren archivos 3D pesados, validan su integridad (no-manifold edges, agujeros) y generan versiones optimizadas (LODs) para el frontend sin perder las características clave para el diagnóstico.",
     "target": "⟦0⟧Scalable Ingestion and Decimation:⟦/0⟧ Pipelines that ingest heavy 3D files, validate their integrity (non-manifold edges, holes), and generate optimized versions (LODs) for the frontend without losing key diagnostic features.",
@@ -1589,11 +1494,6 @@
     "target": "Extreme Performance Optimization in .NET REST APIs",
     "status": "reviewed"
   },
-  "3b6d466f696c5cd75211c3285e9425ccde9fe6307971899ea1af3d5a3bf88f1e": {
-    "source": "⟦0⟧⟦1/⟧⟦2⟧SQL Server⟦/2⟧⟦/0⟧⟦3⟧⟦4/⟧⟦5⟧Redis⟦/5⟧⟦/3⟧⟦6⟧⟦7/⟧⟦8⟧Docker⟦/8⟧⟦/6⟧⟦9⟧⟦10/⟧⟦11⟧Azure⟦/11⟧⟦/9⟧",
-    "target": "⟦0⟧⟦1/⟧⟦2⟧SQL Server⟦/2⟧⟦/0⟧⟦3⟧⟦4/⟧⟦5⟧Redis⟦/5⟧⟦/3⟧⟦6⟧⟦7/⟧⟦8⟧Docker⟦/8⟧⟦/6⟧⟦9⟧⟦10/⟧⟦11⟧Azure⟦/11⟧⟦/9⟧",
-    "status": "reviewed"
-  },
   "3bb347c48ab30b812d6042ec84b01300b8553424bfe904cf17a573d0ecc399bb": {
     "source": "La aplicación CRM Backups alojada en ⟦0⟧crm.naindev.com⟦/0⟧ es una herramienta privada diseñada exclusivamente para trabajar en conjunto con otras empresas cliente. Si utilizas esta aplicación, aplican las siguientes políticas específicas respecto al uso de la API de Google Drive:",
     "target": "The CRM Backups application hosted at ⟦0⟧crm.naindev.com⟦/0⟧ is a private tool designed exclusively to work with other client companies. If you use this application, the following specific policies regarding the use of the Google Drive API apply:",
@@ -1647,11 +1547,6 @@
   "3cf9d74728fc2892bf01a49d6694138c0f6e146047ce3d18ec84d3cf1bded027": {
     "source": "linkedin.com/in/aitor-nain/",
     "target": "linkedin.com/in/aitor-nain/",
-    "status": "reviewed"
-  },
-  "3d2587861072ff54ed3dc4a0a9abd16a39510956fec3d7314c75cdcad9dba1e2": {
-    "source": "Modelado de datos",
-    "target": "Data modeling",
     "status": "reviewed"
   },
   "3d288dcf65f7095ec2cf935d7222e46935e2744662e2ae36af1a881e07c41947": {
@@ -1899,11 +1794,6 @@
     "target": "to see the available commands.",
     "status": "reviewed"
   },
-  "47ac8c8d2574522caead7e4d5e46abca7a03b1447c1938f989b572eebc2ed3aa": {
-    "source": "Icono de SQL",
-    "target": "SQL Icon",
-    "status": "reviewed"
-  },
   "47b9f98598568f3df4e0bb86fe2779b838bc0a14617c2a0ef9a520b3e870c5ac": {
     "source": "Sistemas Críticos Backend para Logística",
     "target": "Critical Backend Systems for Logistics",
@@ -1924,16 +1814,6 @@
     "target": "I design robust backend ecosystems in ⟦0⟧C# (.NET)⟦/0⟧ built for absolute resilience:",
     "status": "reviewed"
   },
-  "48827436058d4069ba63d5f29d10f04730130c32fa948e05b70b5070e1bcc618": {
-    "source": "Demuestra la orquestación de LLMs como agentes extractores (Groq) limitados por un motor geométrico determinista (OpenCASCADE/CadQuery).",
-    "target": "Demonstrates the orchestration of LLMs as extraction agents (Groq) limited by a deterministic geometric engine (OpenCASCADE/CadQuery).",
-    "status": "reviewed"
-  },
-  "489f999c2eea95c8081c8267724493dccf98884858a41eac8d0f296d8b773eec": {
-    "source": "GameHaven (E-Commerce Web)",
-    "target": "GameHaven (E-Commerce Web)",
-    "status": "reviewed"
-  },
   "490676e957b5a19a71ee8503a3f4775e2517275bfeb8b5a4cefef3cb7abb2309": {
     "source": "⟦0⟧Experiencia real⟦/0⟧⟦1⟧Trabajo a diario con .NET y SQL Server.⟦/1⟧",
     "target": "⟦0⟧Real experience⟦/0⟧⟦1⟧Daily work with .NET and SQL Server.⟦/1⟧",
@@ -1944,11 +1824,6 @@
     "target": "⟦0⟧Optimistic Concurrency Control (OCC)⟦/0⟧ operates on a different premise: we assume collisions are rare. Instead of locking the database to prevent conflicts, we allow everyone to read freely and check for modifications only ⟦1⟧at the exact moment of saving⟦/1⟧.",
     "status": "reviewed"
   },
-  "49239748936d7ac3e25013a109cf970ec4b54c21bdf1725845cc98416708dbd9": {
-    "source": "Blazor WASM",
-    "target": "Blazor WASM",
-    "status": "reviewed"
-  },
   "493031c3f1ad649f54357e48658d8fcfdf771332ca3f3b762802451587686a45": {
     "source": "- Monitorización y observabilidad",
     "target": "- Monitoring and Observability",
@@ -1957,11 +1832,6 @@
   "49364c9ef43e7ca05d25ecb334c87ca65e4d82007c792b5300221750b1f88b15": {
     "source": "Auditoría y refactoring de backends legacy para reducir deuda técnica, mejorar rendimiento y preparar una evolución segura y medible.",
     "target": "Auditing and refactoring legacy backends to reduce technical debt, improve performance, and prepare for safe and measurable evolution.",
-    "status": "reviewed"
-  },
-  "493727d6225ff1b2dce35ffe6ce86dfea1756c70f1baf0753b53fb378c27fab9": {
-    "source": "Groq",
-    "target": "Groq",
     "status": "reviewed"
   },
   "493cb4e46f91b2fca610432bd9268f898b93d7c356a85156a8d794a03103cf7c": {
@@ -2114,11 +1984,6 @@
     "target": "⟦0⟧CDN (Cloudflare/Azure Front Door)⟦/0⟧ to cache compressed binaries at the edge, closer to the end user, reducing latency to milliseconds and cutting origin server transfer costs by 90%.",
     "status": "reviewed"
   },
-  "501534c3a7f2a1079132c320f8385fd6d9df47032715b726a4d1cf183115fa01": {
-    "source": "Probar Demo Web",
-    "target": "Try Web Demo",
-    "status": "reviewed"
-  },
   "5030de97ce5a295270e741643d0b7156feb69ddcbae5fdc789b1665e933323b0": {
     "source": "La deuda técnica frontend destruye tus conversiones. ¿Sabes por qué?",
     "target": "Frontend technical debt destroys your conversions. Do you know why?",
@@ -2247,11 +2112,6 @@
   "55f18ff3e95e937f758dc5759deb5c720a15ef9b601b869ba91515ac4363f402": {
     "source": "tu@correo-profesional.com",
     "target": "tu@correo-profesional.com",
-    "status": "reviewed"
-  },
-  "5625d34738aec11bf55285feae47154084ee89945f5fdf695c8d35f60d37da21": {
-    "source": "⟦0⟧⟦1/⟧⟦2⟧C#⟦/2⟧⟦/0⟧⟦3⟧⟦4/⟧⟦5⟧Python⟦/5⟧⟦/3⟧⟦6⟧⟦7/⟧⟦8⟧TypeScript⟦/8⟧⟦/6⟧⟦9⟧⟦10/⟧⟦11⟧JavaScript⟦/11⟧⟦/9⟧⟦12⟧⟦13/⟧⟦14⟧SQL⟦/14⟧⟦/12⟧",
-    "target": "⟦0⟧⟦1/⟧⟦2⟧C#⟦/2⟧⟦/0⟧⟦3⟧⟦4/⟧⟦5⟧Python⟦/5⟧⟦/3⟧⟦6⟧⟦7/⟧⟦8⟧TypeScript⟦/8⟧⟦/6⟧⟦9⟧⟦10/⟧⟦11⟧JavaScript⟦/11⟧⟦/9⟧⟦12⟧⟦13/⟧⟦14⟧SQL⟦/14⟧⟦/12⟧",
     "status": "reviewed"
   },
   "564959eca3fe1c5c5992ffb0baeb98094ac72b1a8246a5cf04c9fae338852fa8": {
@@ -2484,11 +2344,6 @@
     "target": "Design and development of backend architectures for generative AI in the Fintech sector. Compliance, Zero-Trust security, and guaranteed low latency.",
     "status": "reviewed"
   },
-  "5ff10db5047f46d48bbccf6c92d732f5bd6006cfb1d44f4023db5ec8353d2781": {
-    "source": "Arquitectura orientada a eventos para el despacho de alta concurrencia. Clean Architecture pura integrando RabbitMQ y despachadores asíncronos.",
-    "target": "Event-driven architecture for high-concurrency dispatch. Pure Clean Architecture integrating RabbitMQ and asynchronous dispatchers.",
-    "status": "reviewed"
-  },
   "600987d1a10faec29daebde28444e0d68669047e33b75fb01a9bb42f92547f24": {
     "source": "Proyectos y Servicios con Clean Architecture",
     "target": "Projects and Services with Clean Architecture",
@@ -2534,11 +2389,6 @@
     "target": "My Solution: Elastic Infrastructure on Azure",
     "status": "reviewed"
   },
-  "621505835518b222feea56a011c54b68cd5aeaabb48818afd4adbc746bdea4d5": {
-    "source": "Versión de Pong hecha con Canvas y JavaScript, con varios niveles de dificultad y modo para dos jugadores.",
-    "target": "A Pong version made with Canvas and JavaScript, with multiple difficulty levels and two-player mode.",
-    "status": "reviewed"
-  },
   "6220022f746e9e8dc660bd1767a61d36ec23ed11f7f3f0c3b65a36560cf533b6": {
     "source": "Nuestra entidad no sabe nada de bases de datos ni de IA. Solo conoce las reglas puras del negocio.",
     "target": "Our entity knows nothing about databases or AI. It only knows the pure business rules.",
@@ -2557,11 +2407,6 @@
   "62c85fe240197a55207b434d9ae6529a6e9e36e759eed1e26a1dbc8f4c2cd639": {
     "source": "⟦0⟧⟦1⟧Arquitectura Frontend de Alto Rendimiento⟦/1⟧⟦2⟧Diseñamos y construimos la infraestructura digital que convierte y escala. Arquitectura frontend ultrarrápida, segura y optimizada para sistemas críticos B2B.⟦/2⟧⟦/0⟧",
     "target": "⟦0⟧⟦1⟧High-Performance Frontend Architecture⟦/1⟧⟦2⟧We design and build the digital infrastructure that converts and scales. Ultra-fast, secure, and optimized frontend architecture for critical B2B systems.⟦/2⟧⟦/0⟧",
-    "status": "reviewed"
-  },
-  "6321b2ba0b11d672b29c9f66e42129c2bc3552787c4f068fff096759066b8729": {
-    "source": "Pong Arcade",
-    "target": "Pong Arcade",
     "status": "reviewed"
   },
   "632a130622ae8812a31c2af467758181cd51782f6294c707189a191d3b0c0561": {
@@ -2617,16 +2462,6 @@
   "6500f1da4ba1d948ddf48effde69df3284dd3820ea3c4f9aaa7886912859eac6": {
     "source": "Descubre cómo utilizamos OpenAI API en arquitecturas de backend escalables y sistemas críticos 3D.",
     "target": "Discover how we use the OpenAI API in scalable backend architectures and critical 3D systems.",
-    "status": "reviewed"
-  },
-  "65052368dd37f63c7bb112aea83492586c385f5fae88a990d4cb092a1b42a34d": {
-    "source": ">> INFRASTRUCTURE & OPS",
-    "target": ">> INFRASTRUCTURE & OPS",
-    "status": "reviewed"
-  },
-  "6555836be16f32b155c4713e8177192cf188f9e392e473dcb00322ce8c023d19": {
-    "source": "Incluye simulación en vivo conectada al clúster RabbitMQ en la nube con procesamiento en <350ms sin instalación externa.",
-    "target": "Includes live simulation connected to the cloud RabbitMQ cluster with processing in <350ms without external installation.",
     "status": "reviewed"
   },
   "656c104b77c1d7017df3774de50d238544e3581047206361fafe87630d46c562": {
@@ -2819,11 +2654,6 @@
     "target": "Architecture, .NET, 3D Processing, C#, Backend, ai, architecture",
     "status": "reviewed"
   },
-  "6ca8ae782ce241defe5ac1ae1db5b0e6fe10c75c8dff8592a704dadba6762ff3": {
-    "source": "- Contenedores, Cloud Architecture, CI/CD",
-    "target": "- Containers, Cloud Architecture, CI/CD",
-    "status": "reviewed"
-  },
   "6cbffd9b34c2eabe1e0577468473e48c423927c1412ce9d98eb133a35b86a520": {
     "source": "Servicio de auditoría, perfilado y resolución de cuellos de botella en APIs de alta concurrencia construidas en C# y .NET.",
     "target": "Auditing, profiling, and bottleneck resolution services for high-concurrency APIs built with C# and .NET.",
@@ -2899,11 +2729,6 @@
     "target": "Microservices Projects and Services",
     "status": "reviewed"
   },
-  "700b0768d3371042b766c06356667ed5c9b3fa45e3b3e23fedf73c56cb13fb99": {
-    "source": "Arquitectura Full-Stack orientada a rendimiento. Integración de Minimal APIs ultrarrápidas con un frontend determinista en Blazor WebAssembly.",
-    "target": "High-performance, full-stack architecture. Integration of ultra-fast Minimal APIs with a deterministic Blazor WebAssembly frontend.",
-    "status": "reviewed"
-  },
   "713b11d2844bea2f454662094189a03d069597272fbd7d3eb78fee62dbfa19a1": {
     "source": "Descubre cómo diseñar una infraestructura robusta y escalable en .NET (C#) capaz de procesar y validar modelos 3D generados por IA a escala industrial.",
     "target": "Discover how to design a robust and scalable infrastructure in .NET (C#) capable of processing and validating AI-generated 3D models at industrial scale.",
@@ -2962,11 +2787,6 @@
   "73a88edbddf187328ccee57f7f089f3031e100688e483eac90e83cb7acdba015": {
     "source": "Integrar funcionalidades modernas (como Inteligencia Artificial, procesamiento 3D o escalado masivo) en un backend monolítico con años de antigüedad es una tarea de alto riesgo.",
     "target": "Integrating modern functionalities (such as Artificial Intelligence, 3D processing, or massive scaling) into a legacy monolithic backend is a high-risk task.",
-    "status": "reviewed"
-  },
-  "747e8c50df868186c6a57abaf74bf4e3b3d610f8cb2ae94c7b363c48f94b8e0a": {
-    "source": "Demo interactiva",
-    "target": "Interactive Demo",
     "status": "reviewed"
   },
   "748f4d61c0714e0bac8f11dfe031d1185b9ac6b4746d44c2b74949c58a437baf": {
@@ -3104,11 +2924,6 @@
     "target": "Cloud success isn't just about writing code; it's about designing the right infrastructure. If you can isolate responsibilities with Clean Architecture and use memory intelligently, your .NET backend can process millions of 3D models per month at minimal cost.",
     "status": "reviewed"
   },
-  "793d36351c8ca03f7a160c8d0a552f6e216302080911e4f2e62f3425856c386b": {
-    "source": "Pipeline de IA generativa (NLP a 3D). Extracción de parámetros con Groq, modelado paramétrico con CadQuery y renderizado en Three.js.",
-    "target": "Generative AI pipeline (NLP to 3D). Parameter extraction with Groq, parametric modeling with CadQuery, and rendering in Three.js.",
-    "status": "reviewed"
-  },
   "79432ccb402848f897ba0fcecfe7356b2e7c90ff1d576abf0c3e8d8c423963a4": {
     "source": "Procesado en tiempo real",
     "target": "Real-time processing",
@@ -3234,11 +3049,6 @@
     "target": "Technical and Business Diagnosis",
     "status": "reviewed"
   },
-  "7e8d2fa228cb1c797f50eb2294e4349cd350c2b6bb9dc7dcb7a30709d599bdfa": {
-    "source": "⟦0⟧⟦1/⟧⟦2⟧React⟦/2⟧⟦/0⟧⟦3⟧⟦4/⟧⟦5⟧Three.js⟦/5⟧⟦/3⟧⟦6⟧⟦7/⟧⟦8⟧HTML5⟦/8⟧⟦/6⟧⟦9⟧⟦10/⟧⟦11⟧CSS3⟦/11⟧⟦/9⟧",
-    "target": "⟦0⟧⟦1/⟧⟦2⟧React⟦/2⟧⟦/0⟧⟦3⟧⟦4/⟧⟦5⟧Three.js⟦/5⟧⟦/3⟧⟦6⟧⟦7/⟧⟦8⟧HTML5⟦/8⟧⟦/6⟧⟦9⟧⟦10/⟧⟦11⟧CSS3⟦/11⟧⟦/9⟧",
-    "status": "reviewed"
-  },
   "7e949ea5569605f5754600815a90b8857377a0b9a05a4518b68929ebf88ace43": {
     "source": "Pérdida por Lentitud",
     "target": "Losses from Slow Loading",
@@ -3319,11 +3129,6 @@
     "target": "Instead of processing a model ⟦0/⟧ when the user uploads it, the backend delegates the heavy lifting:",
     "status": "reviewed"
   },
-  "81b9e68d5f5b07196f6974c030235e811be7fe20778c9fb61b751aaca83f629c": {
-    "source": "Core financiero y logístico para un E-Commerce de alta escalabilidad. Implementación de CQRS, validación pura en la capa de Dominio y transacciones aisladas, garantizando consistencia absoluta.",
-    "target": "Financial and logistics core for a highly scalable e-commerce platform. Implementation of CQRS, pure validation in the Domain layer, and isolated transactions, ensuring absolute consistency.",
-    "status": "reviewed"
-  },
   "81ce7aee9b7d242cfc8cc0d55b0ce7641e95ef49e4ece891efbbd3bbfc2bc806": {
     "source": "La solución arquitectónica es implementar una ⟦0⟧Caché Semántica⟦/0⟧.",
     "target": "The architectural solution is to implement a ⟦0⟧Semantic Cache⟦/0⟧.",
@@ -3372,11 +3177,6 @@
   "8426e5fcfcfe2a0f7fdb1453aeced8e49daa04f88aed3a6439d8a59aa39ef3ae": {
     "source": "Arquitectura",
     "target": "Architecture",
-    "status": "reviewed"
-  },
-  "8431cf651e837725522140f585cc5bbcf4b889bcaaff175745433aa171ed0e95": {
-    "source": "Indico el estado real de cada proyecto para que sepas qué está terminado y qué sigue en desarrollo.",
-    "target": "I indicate the real status of each project so you know what is finished and what is still under development.",
     "status": "reviewed"
   },
   "843a98ac47e7578c54e7f1d38eb6c6c5236beff3aed116a1ee26bd73b9caf897": {
@@ -3484,11 +3284,6 @@
     "target": "Instead of blocking REST APIs, we orchestrate ⟦0⟧background⟦/0⟧ workers and distributed message queues, ensuring that the system can absorb massive load spikes (tens of thousands of simultaneous 3D models) by scaling nodes on demand and shutting them down to reduce costs (FinOps).",
     "status": "reviewed"
   },
-  "8831f2ed1fe2d6249e380d3dd77c514dcf51699decff8e60631dbabf8ea3d898": {
-    "source": "Icono de Postman",
-    "target": "Postman Icon",
-    "status": "reviewed"
-  },
   "887dca77b11254bb3ed743870ed1efcc49847e98468015220c49c7a8e3157fb8": {
     "source": "⟦0⟧⟦1⟧Descarga el Checklist de Arquitectura 3D/IA y asegura la escalabilidad de tu sistema⟦/1⟧⟦/0⟧",
     "target": "⟦0⟧⟦1⟧Download the 3D/AI Architecture Checklist and ensure your system's scalability⟦/1⟧⟦/0⟧",
@@ -3502,11 +3297,6 @@
   "892d464899f484006b1250c776c27de0460a23a1747a1cbfb7bb056793327a64": {
     "source": "arquitectura",
     "target": "architecture",
-    "status": "reviewed"
-  },
-  "898c9e65bcd48cff19de361fca047bb18bbab49bc0ae7d817c3aff6ee73c5107": {
-    "source": "Demuestra el diseño de APIs inmutables y resilientes, eliminando el acoplamiento de infraestructura. Operaciones ACID con latencia cero usando bases de datos in-memory.",
-    "target": "Demonstrates the design of immutable and resilient APIs, eliminating infrastructure coupling. ACID operations with zero latency using in-memory databases.",
     "status": "reviewed"
   },
   "898d4e561a000a3767588757266746323b6eb90e2c88b7d0e8b0d5ef216e2ce7": {
@@ -3659,11 +3449,6 @@
     "target": "Projects and Services with Clean Architecture | NainDev",
     "status": "reviewed"
   },
-  "8fdc331a9219ccea531fb575d06386cc9eeeaeba759c282efd2ac36441ca07bd": {
-    "source": "- Arquitecturas distribuidas y Zero Downtime Deployments",
-    "target": "- Distributed architectures and Zero Downtime Deployments",
-    "status": "reviewed"
-  },
   "8fe2e044ca2ed56c4841e4a7de95c28fa9320f88d443713d6f272b646043e614": {
     "source": "Arquitectura IA para Fintech: Seguridad y Precisión",
     "target": "AI Architecture for Fintech: Security and Precision",
@@ -3712,11 +3497,6 @@
   "913a4cb91be20332f3559f8070255d7ac3e6228bb423f4441551d3f783e7d4f4": {
     "source": "clear",
     "target": "clear",
-    "status": "reviewed"
-  },
-  "922011f31e11cd8554c9fe47193d3825e4e2904155cf70e2749684c3c00dd412": {
-    "source": "Sistema Oposiciones TAI",
-    "target": "TAI Civil Service Exam Preparation",
     "status": "reviewed"
   },
   "922357ffff90158f864917861b6beebd58670e981019a5a5f4e559344893a236": {
@@ -3859,11 +3639,6 @@
     "target": "We implement technical and organizational security measures to protect your personal data against unauthorized access, loss, or alteration. The website uses SSL encryption (HTTPS) for all communications.",
     "status": "reviewed"
   },
-  "9783c4095f6f46e1cb0f74723fdea6f6d1ed92a548f8078b979a5b62a8d9969d": {
-    "source": "⟦0⟧Arquitecto .NET⟦/0⟧⟦1⟧Sistemas Críticos⟦/1⟧",
-    "target": "⟦0⟧.NET Architect⟦/0⟧⟦1⟧Critical Systems⟦/1⟧",
-    "status": "reviewed"
-  },
   "97f801f66a44dcd5e3444ac06a63f980e8bf52a337315250c642b8b341c2093b": {
     "source": "Mi Proceso de Implementación",
     "target": "My Implementation Process",
@@ -3904,11 +3679,6 @@
     "target": "Download my ⟦0⟧3D and AI Architecture Checklist⟦/0⟧ to discover how to audit your infrastructure and ensure your system is fault-tolerant, scalable, and free of vendor lock-in.",
     "status": "reviewed"
   },
-  "994c4ab4b0b43d570a845a6b8afd13d7ff17fa7e2eade4c93491280a858ccd4e": {
-    "source": "Demo de estudio que permite filtrar preguntas por bloque, tema y dificultad y generar un simulacro.",
-    "target": "Study demo that lets users filter questions by section, topic, and difficulty and generate a practice exam.",
-    "status": "reviewed"
-  },
   "9957f2d9793e73cbf832d21fc87adf7122dcf21723d9fcbb9bf08ecae1a56a14": {
     "source": "Disparar Nuevo Evento",
     "target": "Trigger New Event",
@@ -3922,11 +3692,6 @@
   "99c9ecfdc73063b055a00ddd4e8e1784651f153cd3bba68b4e688b288a126ff5": {
     "source": "Blog de Arquitectura Backend 3D e IA | NainDev",
     "target": "3D and AI Backend Architecture Blog | NainDev",
-    "status": "reviewed"
-  },
-  "9a12a160937f99e480fd04c7eee8b1ea9491967dd39c033dc8b77c0215635e01": {
-    "source": "Jugar demo",
-    "target": "Play demo",
     "status": "reviewed"
   },
   "9a1608e5b8e47148e19043764b258937477c9e1aad1a109c7233f50ee4ac3ddd": {
@@ -4014,11 +3779,6 @@
     "target": "C# .NET Projects and Services",
     "status": "reviewed"
   },
-  "9e7a24f6db9c4d2b7cde35f6d4c836e32cb614f5d06856de10da6fb6948445e7": {
-    "source": "Icono de React",
-    "target": "React Icon",
-    "status": "reviewed"
-  },
   "9e97aba628f87af514e38cfc1c5a4ef840585b529cd1a4cf507e5288e297ac03": {
     "source": "Imagina un caso de uso común:",
     "target": "Imagine a common use case:",
@@ -4102,11 +3862,6 @@
   "a0ae91c064c3c05ce3949e30cbd42080611a123afd4e9ef12362335ae2cf1221": {
     "source": "Adoptar esta arquitectura no es un mero ejercicio académico; tiene un impacto directo en el P&L (Profit and Loss) y en la velocidad de iteración de tu equipo.",
     "target": "Adopting this architecture is not just an academic exercise; it has a direct impact on P&L (Profit and Loss) and your team's iteration speed.",
-    "status": "reviewed"
-  },
-  "a11548f8b701e891d542f7a9b9b2907ed621e334c900f61795ec13d59e284705": {
-    "source": "Arquitectura backend para sistemas que no pueden fallar... ahora también para el mundo 3D. Ayudo a empresas a integrar IA generativa y procesar assets 3D mediante sistemas agénticos con absoluta precisión y determinismo.",
-    "target": "Backend architecture for systems that cannot fail... now also for the 3D world. I help companies integrate generative AI and process 3D assets using agentic systems with absolute precision and determinism.",
     "status": "reviewed"
   },
   "a119c393f0ef975759524e5bfc28ca5e1e1c74833a2f34769799ad405767f917": {
@@ -4219,11 +3974,6 @@
     "target": "The industry standard solution (used in tools like Unity Cloud Build or massive B2B viewers) is an event-driven asynchronous architecture.",
     "status": "reviewed"
   },
-  "a7056a455639d1c7deec82ee787db24a0c1878e2792b4597709f0facf7cc7b35": {
-    "source": "SQL",
-    "target": "SQL",
-    "status": "reviewed"
-  },
   "a75d067fa44bca815126dbf606a73907c9e68f1cd892d413424edfa84a0d4058": {
     "source": "IA",
     "target": "AI",
@@ -4292,11 +4042,6 @@
   "a9e032578aea055ad95b20653e3dc8baf6e5fb93eb7b449c017d7a7176196b15": {
     "source": "Al combinar ⟦0/⟧, ⟦1/⟧, y procesamiento en paralelo con ⟦2/⟧, conseguimos exprimir la CPU sin saturar el recolector de basura (GC).",
     "target": "By combining ⟦0/⟧, ⟦1/⟧, and parallel processing with ⟦2/⟧, we manage to squeeze the CPU without saturating the garbage collector (GC).",
-    "status": "reviewed"
-  },
-  "a9e92343db56be361166bd5e337dfb4bf1f5d128504a60eda7ace7b6ec2d97de": {
-    "source": "Data & Cloud",
-    "target": "Data & Cloud",
     "status": "reviewed"
   },
   "a9fa96e6296bb4284a4175006ae5bc92deaaaf0dada9bfb505cbf6c8ed342c72": {
@@ -4414,11 +4159,6 @@
     "target": "3D on the web has moved from being a visual luxury to an essential working tool in e-commerce, manufacturing, and proptech. However, when you move from rendering a simple cube to ⟦0⟧processing thousands of heavy industrial models⟦/0⟧, the standard infrastructure collapses.",
     "status": "reviewed"
   },
-  "ad429e1ebf305aebf2adafc6515ff24e6c76661317d95a8590e34547696fbb52": {
-    "source": "Sistema de control transaccional estricto. Implementa patrones de estado (Draft → Active), control de concurrencia optimista (ETag) y trazabilidad completa de auditoría en SQL Server.",
-    "target": "Strict transactional control system. Implements state patterns (Draft → Active), optimistic concurrency control (ETag), and full audit traceability in SQL Server.",
-    "status": "reviewed"
-  },
   "ad4d806b8c7c00f7619b6c22ec657a7b3e08e2e7ed1d0bbc70f1bfc77d9bb8c6": {
     "source": "⟦0⟧Supresión (Derecho al olvido):⟦/0⟧ Eliminar tus datos de nuestra base de datos.",
     "target": "⟦0⟧Erasure (Right to Be Forgotten):⟦/0⟧ Delete your data from our database.",
@@ -4432,11 +4172,6 @@
   "ad656c8c50be0e859b1bfcb046df356968b1d8dd32690f49ed66d247e19f3499": {
     "source": "Permitir que usuarios o clientes suban archivos 3D directamente a un sistema de impresión, renderizado web o simulación sin inspección previa es un riesgo crítico.",
     "target": "Allowing users or clients to upload 3D files directly to a printing system, web rendering, or simulation without prior inspection is a critical risk.",
-    "status": "reviewed"
-  },
-  "ad7f26b65c9530d37fbfdf5284355d4b239ab991ee6f74df712a120a51689c53": {
-    "source": "⟦0⟧⟦1/⟧⟦2⟧Git⟦/2⟧⟦/0⟧⟦3⟧⟦4/⟧⟦5⟧GitHub⟦/5⟧⟦/3⟧⟦6⟧⟦7/⟧⟦8⟧VS Code⟦/8⟧⟦/6⟧⟦9⟧⟦10/⟧⟦11⟧Postman⟦/11⟧⟦/9⟧",
-    "target": "⟦0⟧⟦1/⟧⟦2⟧Git⟦/2⟧⟦/0⟧⟦3⟧⟦4/⟧⟦5⟧GitHub⟦/5⟧⟦/3⟧⟦6⟧⟦7/⟧⟦8⟧VS Code⟦/8⟧⟦/6⟧⟦9⟧⟦10/⟧⟦11⟧Postman⟦/11⟧⟦/9⟧",
     "status": "reviewed"
   },
   "adb72b2af2ab7b95651dad6e5193c51a0f64408e057d436d6b179654c233f8df": {
@@ -4474,19 +4209,9 @@
     "target": "Secure and Scalable AI Integration in Enterprise Environments",
     "status": "reviewed"
   },
-  "b004a5c37f4dbfad29dfc451bde4fa997e0505f8d202fcdb951542d38ef66eda": {
-    "source": "C# · .NET · SQL Server · Arquitectura Agéntica",
-    "target": "C# · .NET · SQL Server · Agentic Architecture",
-    "status": "reviewed"
-  },
   "b02ad15639fb2d74dd355a4b1279185e804aa8a33d62fcd4149ca966056fe5c7": {
     "source": "Un ⟦0⟧pool⟦/0⟧ de microservicios (Workers) alojados en Azure Container Apps o Azure Batch escucha esta cola. Estos ⟦1⟧workers⟦/1⟧ están programados específicamente para tareas geométricas pesadas (quizás usando librerías de C++ o Trimesh en Python).",
     "target": "A ⟦0⟧pool⟦/0⟧ of microservices (Workers) hosted on Azure Container Apps or Azure Batch listens to this queue. These ⟦1⟧workers⟦/1⟧ are specifically programmed for heavy geometric tasks (perhaps using C++ libraries or Trimesh in Python).",
-    "status": "reviewed"
-  },
-  "b03fc48f27f5fb612f43808ef5ebcf15a36c87ad4f80b1026a03b310aed99d3b": {
-    "source": "Proyectos personales y demos",
-    "target": "Personal Projects and Demos",
     "status": "reviewed"
   },
   "b0aaa2089972943c1434bc998d1b1fabbafc1d9d8e73ad017e441852cb173211": {
@@ -4529,11 +4254,6 @@
     "target": "JavaScript",
     "status": "reviewed"
   },
-  "b27ba710997adaf6099374edb801d44bef36c92e6d37e0190c7c1d12d4b32209": {
-    "source": "T-SQL",
-    "target": "T-SQL",
-    "status": "reviewed"
-  },
   "b2837934149c5a5a290068f720f0ca4723e8dcc80a063ab9df3128ddee917b48": {
     "source": "Al enviar, aceptas nuestra ⟦0⟧Política de Privacidad⟦/0⟧. Prometo no enviar spam.",
     "target": "By submitting, you accept our ⟦0⟧Privacy Policy⟦/0⟧. I promise not to send spam.",
@@ -4564,11 +4284,6 @@
     "target": "⟦0⟧Parallel Scalability:⟦/0⟧ With dependencies clearly separated, you can scale the infrastructure layer (for example, deploying multiple replicas of the AI worker or ⟦1⟧AI agent systems in C#⟦/1⟧) independently of the presentation API. ML engineers can work on the adapters while backend engineers improve the core business logic without stepping on each other's toes.",
     "status": "reviewed"
   },
-  "b3de3a252289e94eb08a789b3d43b7419a53a5ea49e1059a4e31b4c7db86f417": {
-    "source": ">> AI & 3D INTEGRATION",
-    "target": ">> AI & 3D INTEGRATION",
-    "status": "reviewed"
-  },
   "b3eee1fc2bac615096d4a34320a5c4285c1d72ecf2d76093a99455a83816a42c": {
     "source": "⟦0⟧¿Tu infraestructura está sufriendo bajo la carga de procesamiento complejo?⟦/0⟧ He consolidado los patrones críticos para aislar y escalar sistemas en producción en un checklist práctico. ⟦1⟧⬇️ ⟦2⟧Descarga el Checklist de Arquitectura IA gratuito⟦/2⟧⟦/1⟧ y blindarás tu backend B2B hoy mismo.",
     "target": "⟦0⟧Is your infrastructure struggling under complex processing load?⟦/0⟧ I have consolidated critical patterns to isolate and scale production systems in a practical checklist. ⟦1⟧⬇️ ⟦2⟧Download the free AI Architecture Checklist⟦/2⟧⟦/1⟧ and secure your B2B backend today.",
@@ -4582,11 +4297,6 @@
   "b4399102d13a6e8a87cecacdd3f3144abf6da265a564cc6cfa49149ab6fd0b5e": {
     "source": "La Inteligencia Artificial generativa ha irrumpido en las arquitecturas de software como un huracán. Los modelos LLM y de difusión abren nuevas fronteras en la creación de valor, pero introducen un factor que a los ingenieros de backend nos aterra: ⟦0⟧la estocasticidad⟦/0⟧.",
     "target": "Generative Artificial Intelligence has burst into software architectures like a hurricane. LLM and diffusion models open new frontiers in value creation, but they introduce a factor that frightens backend engineers: ⟦0⟧stochasticity⟦/0⟧.",
-    "status": "reviewed"
-  },
-  "b471a0cd3bca35eee8725cc243974d038b9e7190d97eab1882d36edc232ba309": {
-    "source": "NainOrder (Motor E-Commerce)",
-    "target": "NainOrder (E-Commerce Engine)",
     "status": "reviewed"
   },
   "b49d4e64fb6baa9d94669bb7b66d1c7df1c9c1a57d716e5cd421fa9b822bc4d5": {
@@ -4619,11 +4329,6 @@
     "target": "Deterministic pipelines in C#/.NET to validate 3D topologies generated by AI at industrial scale.",
     "status": "reviewed"
   },
-  "b581e46042cbfbb0af4542a858079a84fd3ae98e5563f615710191d5b3597680": {
-    "source": "CSS",
-    "target": "CSS",
-    "status": "reviewed"
-  },
   "b5d8dca0f01d33a43150549ed747ebfc5a73ae3ea1649404b652860b2ac4a560": {
     "source": "3. El Caso de Uso (Orquestador)",
     "target": "3. The Use Case (Orchestrator)",
@@ -4637,11 +4342,6 @@
   "b602b974b73ae973160e0ca2e1c0a5507bc7e5d46676eb41ecb405f040bfa46a": {
     "source": "Proyectos y Servicios con Vector Databases | NainDev",
     "target": "Projects and Services with Vector Databases | NainDev",
-    "status": "reviewed"
-  },
-  "b608367183e37a08687dc32662febf0f0c396e1ea73b3f9996f762296f0ae3a6": {
-    "source": "⟦0⟧⟦1/⟧⟦2⟧.NET⟦/2⟧⟦/0⟧⟦3⟧⟦4/⟧⟦5⟧FastAPI⟦/5⟧⟦/3⟧⟦6⟧⟦7/⟧⟦8⟧Node.js⟦/8⟧⟦/6⟧⟦9⟧⟦10/⟧⟦11⟧Linux⟦/11⟧⟦/9⟧",
-    "target": "⟦0⟧⟦1/⟧⟦2⟧.NET⟦/2⟧⟦/0⟧⟦3⟧⟦4/⟧⟦5⟧FastAPI⟦/5⟧⟦/3⟧⟦6⟧⟦7/⟧⟦8⟧Node.js⟦/8⟧⟦/6⟧⟦9⟧⟦10/⟧⟦11⟧Linux⟦/11⟧⟦/9⟧",
     "status": "reviewed"
   },
   "b66861980a41e8cb7c4f772ec7fee4115f206c48dbd60b151645b03163aace73": {
@@ -4682,11 +4382,6 @@
   "b78005f50d1fe1ed61a24940e38c428e0c29fa494a047fcca12153d76fe03005": {
     "source": "Absorber picos masivos de modelos generados por IA sin tumbar la infraestructura.",
     "target": "Absorbing massive peaks of AI-generated models without crashing the infrastructure.",
-    "status": "reviewed"
-  },
-  "b796245c587d85b725dc6f60b054200159774b6acb09d590fbecf8348b4df3ea": {
-    "source": "Demo y diseño de datos",
-    "target": "Demo and data design",
     "status": "reviewed"
   },
   "b7c014f68f04fb1c96f8aecfeb70c94ab5f7541c52cffdddaf878e0cd6c025d8": {
@@ -4732,11 +4427,6 @@
   "b949fe363969e9f88ddf75a94194324dcc94505a0c55b1dfce2c16f66e823094": {
     "source": "Diseño ecosistemas agénticos e infraestructuras backend robustas para integrar modelos LLM y de IA generativa sin vendor lock-in.",
     "target": "I design agentic ecosystems and robust backend infrastructures to integrate LLM and generative AI models without vendor lock-in.",
-    "status": "reviewed"
-  },
-  "b953cdf65e79859c45614915936b7c43e2868d6ea0618362b784785119ddfe15": {
-    "source": "Minimal APIs",
-    "target": "Minimal APIs",
     "status": "reviewed"
   },
   "b970ba9381e5017e52d1c3bd539b85725ad92990b48b168c71415020d72d3657": {
@@ -5089,11 +4779,6 @@
     "target": "Your corporate email",
     "status": "reviewed"
   },
-  "c6db364a9edf372a248c62c503f92981c15453706a5052bfe74b9095d025362b": {
-    "source": "Aitor Nain Mendoza Vallejo · Arquitecto Backend 3D & AI Systems",
-    "target": "Aitor Nain Mendoza Vallejo · 3D & AI Systems Backend Architect",
-    "status": "reviewed"
-  },
   "c71d291b8b5daa6f8936d5125092f4db585f76d3b18e4854327c27d79e9914f5": {
     "source": "⟦0⟧Desacoplamiento de Bases de Datos:⟦/0⟧ Diseño de estrategias para desvincular BBDD compartidas, migrando hacia bases de datos por microservicio y utilizando sincronización por eventos (Eventual Consistency).",
     "target": "⟦0⟧Database Decoupling:⟦/0⟧ Designing strategies to separate shared databases, moving to a database per microservice and using event-based synchronization (Eventual Consistency).",
@@ -5132,11 +4817,6 @@
   "c7e9c54b67b4871383de44d7365ea38c9e443096d8463102e3d36f2aba3a6a59": {
     "source": "La arquitectura es solo el primer paso. He recopilado las prácticas fundamentales de infraestructura, monitorización, y despliegue en un recurso gratuito.",
     "target": "Architecture is only the first step. I have compiled fundamental practices for infrastructure, monitoring, and deployment in a free resource.",
-    "status": "reviewed"
-  },
-  "c81e366d0e842164215be762d9d38c6bcf26ab309c3d43efec67e4f5e5133f46": {
-    "source": "- C# / .NET (Sistemas Críticos, Alto Rendimiento)",
-    "target": "- C# / .NET (Critical Systems, High Performance)",
     "status": "reviewed"
   },
   "c8d61c28ed91dffc0e511145863ebfefa0b08273ba54dca78d9bdf9b2e726b52": {
@@ -5444,11 +5124,6 @@
     "target": "The Problem: The “Geometric Bottleneck”",
     "status": "reviewed"
   },
-  "d61cb0de076c3da4f38d0fad15765659ecaf36672bda2b8fb7b19f9ff93ce022": {
-    "source": "Diseño la infraestructura que valida y procesa ⟦0⟧modelos 3D a escala industrial.⟦/0⟧",
-    "target": "I design infrastructure that validates and processes ⟦0⟧3D models at industrial scale.⟦/0⟧",
-    "status": "reviewed"
-  },
   "d646c51946b121bf5e0937802c2250ea9f29da95e9b6cb16e815b8ad9b45a708": {
     "source": "Mi Solución: Auditoría y Refactorización a Nivel de Memoria y CPU",
     "target": "My Solution: Memory and CPU Level Auditing and Refactoring",
@@ -5537,11 +5212,6 @@
   "db3ece30ad36699d45b70625484eeaa418a28edab1115b0a1d7c4b41c3bdf143": {
     "source": "Sistemas Distribuidos",
     "target": "Distributed Systems",
-    "status": "reviewed"
-  },
-  "dbcaf4059a328958a9b562fe8b06a902054b52e1e1e15f0d5d0488333784fc04": {
-    "source": "Icono de Node.js",
-    "target": "Node.js Icon",
     "status": "reviewed"
   },
   "dbdb5a564c3ab18f8a488ab24d3711fbcd22429b914cd746703ee1c34cc63e88": {
@@ -5689,19 +5359,9 @@
     "target": "Ensure your AI system meets quality, scalability, and security standards. Download this practical guide and evaluate your architecture in 10 steps.",
     "status": "reviewed"
   },
-  "df423b971a786cbd4ebe8240ba504a8fe2609644aa3b4bdb2986cf86fc0390da": {
-    "source": "- Sistemas backend para procesamiento asíncrono",
-    "target": "- Backend systems for asynchronous processing",
-    "status": "reviewed"
-  },
   "df5a8e6cbd758b5af6313969edefd3e6ff4c1463013ca1ca54467e72997164be": {
     "source": "Tech Stack",
     "target": "Tech Stack",
-    "status": "reviewed"
-  },
-  "df829bd6943c56c405968221f3a56d973b930fcbb2ae1a8c41f923124fa44724": {
-    "source": "Probar Tienda",
-    "target": "Test Store",
     "status": "reviewed"
   },
   "dfb33b81500665faa028cb447465b161f693873762cc272c0c52c3e2d3664067": {
@@ -5737,11 +5397,6 @@
   "e098379e1dc2c1bbf68d7996620f30882df57f97aabe91e11638bc6285e81707": {
     "source": "2. Inmutabilidad y Validación de Mallas",
     "target": "2. Mesh Immutability and Validation",
-    "status": "reviewed"
-  },
-  "e0bd371731dba43adfd19c5ce99344559555b05680d5bff7c1f081debc2a080d": {
-    "source": ">> CORE BACKEND & DATA",
-    "target": ">> CORE BACKEND & DATA",
     "status": "reviewed"
   },
   "e0c79d80f5826468ecfc61db7eba45e6cee860fc69b4a1b7d18818fecf9cd218": {
@@ -5929,11 +5584,6 @@
     "target": "Command not found:",
     "status": "reviewed"
   },
-  "e91876bd5663f3a58c32bd74a4e5914cd81494b238f8e2ffb92b2a0bf040eddd": {
-    "source": "Demo interactiva en vivo",
-    "target": "Live interactive demo",
-    "status": "reviewed"
-  },
   "e935a09485bbe5d286b27bb9b76fd2713bf9e17042207f03824006d5b9fbcef0": {
     "source": "⟦0⟧Procesamiento Masivo:⟦/0⟧ Arquitecturas orientadas a eventos (Event-Driven) para escalar horizontalmente y manejar miles de validaciones 3D por hora sin cuellos de botella.",
     "target": "⟦0⟧Mass Processing:⟦/0⟧ Event-Driven Architectures to scale horizontally and handle thousands of 3D validations per hour without bottlenecks.",
@@ -5997,11 +5647,6 @@
   "ec3bc4c3cfad987f7021f97e31ef7ebc64af1f342e46b086ef47b42843257774": {
     "source": "24 ago 2026",
     "target": "Aug 24, 2026",
-    "status": "reviewed"
-  },
-  "ec67e8be60fe12a66052fe1d6e1663282df9e377569e4299dd856e261ccf378a": {
-    "source": "Revisar repositorio",
-    "target": "Review repository",
     "status": "reviewed"
   },
   "ec7ab7f9bf1a1a5eab9faa3f03e80ca4bc2dca42fb173ceb170a7aea119fa116": {
@@ -6119,24 +5764,9 @@
     "target": "We will implement an agent that analyzes an unstructured document, extracts key metadata, and persists it, using dependency injection and state isolation.",
     "status": "reviewed"
   },
-  "f08ea57acfccfed74cd3cd49f49fbf8a1f5719625e3b2894463bc55fa23c4dca": {
-    "source": "Swagger",
-    "target": "Swagger",
-    "status": "reviewed"
-  },
-  "f090ed3f24ade1ff9962a5f5490ab96d1d8f17e0666ac5a2a641b15e6fd85e06": {
-    "source": "HTML5",
-    "target": "HTML5",
-    "status": "reviewed"
-  },
   "f0ce84454205e0ce7c4ed4bb5d2f57d4c68f5c6af03ad9a95c378edc4bd3abd1": {
     "source": "Construir una arquitectura agéntica para entornos 3D requiere no solo saber de código, sino de matemática y patrones de concurrencia de alto nivel.",
     "target": "Building an agentic architecture for 3D environments requires not only coding knowledge, but also mathematics and high-level concurrency patterns.",
-    "status": "reviewed"
-  },
-  "f0fa5d212b64347cc7463a5c7400a26a3ad8f5eab34795ab45a6925e64ff6d86": {
-    "source": "- Bases de datos relacionales, Caché, CQRS, DDD",
-    "target": "- Relational Databases, Cache, CQRS, DDD",
     "status": "reviewed"
   },
   "f1b148f3b7195236cdc5c02f9265c3c5854dd4318dd8b498ed1802537d875b4c": {
@@ -6269,11 +5899,6 @@
     "target": "Web Performance Projects and Services | NainDev",
     "status": "reviewed"
   },
-  "f74b346e8dd2c8f25faf9f52a583dcd6efe22470e0837cb0d2e47beedbe43047": {
-    "source": "Demo HTTPS desplegada en Azure F1 y Azure SQL Free. El recorrido crea una póliza, valida concurrencia con ETag, la cancela y muestra dos transiciones de auditoría con datos sintéticos.",
-    "target": "HTTPS Demo deployed on Azure F1 and Azure SQL Free. The flow creates a policy, validates concurrency with ETag, cancels it, and shows two audit transitions with synthetic data.",
-    "status": "reviewed"
-  },
   "f7a3a49cd915dcf993e18f92ac5ab5ae346334d421a4f30a3939262d35190967": {
     "source": "Un diseño acoplado impide integrar nuevas tecnologías (como IA) de forma segura y controlada.",
     "target": "A coupled design prevents the secure and controlled integration of new technologies (like AI).",
@@ -6359,11 +5984,6 @@
     "target": "How I work",
     "status": "reviewed"
   },
-  "fab21d0cf53eae1dceb3f86030aaf761736dc73fc8b6c2402e3cf9056e249058": {
-    "source": "Probar Demo",
-    "target": "Try Demo",
-    "status": "reviewed"
-  },
   "fac021c970f0a75f26fbdfe0f7cecc2d232cc7455dd8a1fc26d3e008dcd3c233": {
     "source": "El ⟦0⟧Microservicio de IA⟦/0⟧ termina de analizar un modelo ⟦1/⟧ e intenta actualizar su estado a “Anomalías Detectadas”.",
     "target": "The ⟦0⟧AI Microservice⟦/0⟧ finishes analyzing a model ⟦1/⟧ and attempts to update its status to “Anomalies Detected”.",
@@ -6412,16 +6032,6 @@
   "fc4d8508e6f2616ff2a244cfe824a6791f401f60f2de7d805e59c093a7e2266b": {
     "source": "⟦0⟧Control de Concurrencia Optimista en Sistemas Distribuidos para Validación 3D con IA⟦/0⟧",
     "target": "⟦0⟧Optimistic Concurrency Control in Distributed Systems for 3D Validation with AI⟦/0⟧",
-    "status": "reviewed"
-  },
-  "fc813bbf171d2dd7b4b7206498fa6d9c4c7211c90421c9cb5daf627cc9a198b5": {
-    "source": "Validación de mercado",
-    "target": "Market validation",
-    "status": "reviewed"
-  },
-  "fc8e72a66f7715acdf5a82e308693a29507675d5cba864d447773f7503124f3e": {
-    "source": "Icono de CSS3",
-    "target": "CSS3 Icon",
     "status": "reviewed"
   },
   "fcb6ba129fad1670124a452db2dbcd3cc72b228b03fc52a49400c5d3a4f2e1e3": {
@@ -6492,11 +6102,6 @@
   "ff83df47975890d6716dbdff8097321249cec48b9d88fd77143f862d6f7f506f": {
     "source": "Mi enfoque: Zero-Trust AI Architecture",
     "target": "My Approach: Zero-Trust AI Architecture",
-    "status": "reviewed"
-  },
-  "ffc0a7ff5d05ef1f2fec8faf7518e24e99d779b3158718186eba82c4302b7c83": {
-    "source": "⟦0⟧Stack Principal⟦/0⟧⟦1⟧C# · .NET · Three.js · ONNX⟦/1⟧",
-    "target": "⟦0⟧Core Stack⟦/0⟧⟦1⟧C# · .NET · Three.js · ONNX⟦/1⟧",
     "status": "reviewed"
   },
   "2fe4213bead0d92f66868194c3bcdc265c4e605e42580dd7371e84771794466d": {
@@ -6754,11 +6359,6 @@
     "target": "⟦0⟧Is your platform suffering from inexplicable bottlenecks or data integrity issues when scaling?⟦/0⟧ Concurrency and architecture problems are rarely solved by adding more servers. If you need to unlock your B2B infrastructure's performance, ⟦1⟧schedule a free call with me⟦/1⟧ and let's design a backend that can keep up with your business.",
     "status": "reviewed"
   },
-  "2ec2e3933404bdd1e4fcb9dfb369785c1e890daf8913e28103d5e6ee50b681a3": {
-    "source": "- Desarrollo y mantenimiento de sistemas críticos .NET (C#, SQL Server).",
-    "target": "- Development and maintenance of critical .NET systems (C#, SQL Server).",
-    "status": "reviewed"
-  },
   "2effba612e5bb435e8671035381276d8c19eafeaeed408ea6fc2065bae6b1dab": {
     "source": "“¿Tu plataforma MedTech sufre cuellos de botella al procesar modelos 3D masivos?” ⟦0⟧Agendar llamada gratuita⟦/0⟧.",
     "target": "“Is your MedTech platform suffering bottlenecks when processing massive 3D models?” ⟦0⟧Schedule a free call⟦/0⟧.",
@@ -6902,6 +6502,636 @@
   "c1c45d557f1bd8ab19c2d14402d932c95b3cb0443abf78c00117d741a523369a": {
     "source": "La IA generativa y los procesos automatizados producen artefactos con rapidez, pero sin garantía de que cumplan su especificación. Revisarlos a mano frena la automatización.",
     "target": "Generative AI and automated processes produce artifacts quickly, but with no guarantee that they meet their specification. Reviewing them by hand slows automation down.",
+    "status": "reviewed"
+  },
+  "0545c0b87cd8fddc778be15e5844fa338d2d9cc709a52b71dde2195c0234b17d": {
+    "source": "API del ciclo de vida de pólizas con aislamiento de datos por organización e historial auditable. Usa datos sintéticos.",
+    "target": "Insurance policy lifecycle API with per-organization data isolation and an auditable history. Uses synthetic data.",
+    "status": "reviewed"
+  },
+  "0792869fc0938198f42aa02124a664964ee0afb06c6465f8d9a0e3a24fabaa1f": {
+    "source": "Web Audio",
+    "target": "Web Audio",
+    "status": "reviewed"
+  },
+  "09a90c98e3ae19b046306ca4ccd0ecdf765a90cab0df774b5823695e9a8eb7a5": {
+    "source": "Demo técnica en preparación",
+    "target": "Technical demo in preparation",
+    "status": "reviewed"
+  },
+  "0b505055bb668b38993cc4257304e410a0f7ef7647d57e0f7aa3e33b00d3a3ae": {
+    "source": "Generador local de presupuestos y borradores de factura",
+    "target": "Local quotation and invoice-draft generator",
+    "status": "reviewed"
+  },
+  "0b9ebec99eb97ad3c044ad3409b00f6747e60a0e2d294d789bc564fb8a99ce1e": {
+    "source": "Demo en local con Docker",
+    "target": "Local demo with Docker",
+    "status": "reviewed"
+  },
+  "0c0b44cbfdfc466fe17995bb6a1919e9626138b486fbafcf8da25a82e6463708": {
+    "source": "Vue 3",
+    "target": "Vue 3",
+    "status": "reviewed"
+  },
+  "0c7e0e02e7e704cf1875bdf0e691b668fcdbfa28f04cc7d0edfe50390af931ca": {
+    "source": "Dapper",
+    "target": "Dapper",
+    "status": "reviewed"
+  },
+  "0e4d67b8a9e0fe7bc5853306810ac3bb720a763558c73bbeec8671482ba538a7": {
+    "source": ">> FRONTEND",
+    "target": ">> FRONTEND",
+    "status": "reviewed"
+  },
+  "112a30d64ba4be3219456434e731ded9795e97185d596275bde5b52f51587e01": {
+    "source": "Indico el estado real de cada proyecto. Los privados se describen solo por arquitectura y stack, sin nombres ni datos de clientes.",
+    "target": "I state the real status of each project. Private ones are described by architecture and stack only, with no names or client data.",
+    "status": "reviewed"
+  },
+  "12c967d07fa60a21ee1c9b9fbfaed82b770d23930a871b6dfa73749feaaa48f8": {
+    "source": "Proyectos separados de dominio, aplicación, infraestructura y contratos.",
+    "target": "Separate domain, application, infrastructure and contracts projects.",
+    "status": "reviewed"
+  },
+  "141c6245919846bb095887e82d1b7f2e399b4deec14102382b2c85f929ceddd9": {
+    "source": "AI & DevOps",
+    "target": "AI & DevOps",
+    "status": "reviewed"
+  },
+  "18bebe2501df8b502cc09d0072b500bce863bb535c640f88ebc10b52680d220b": {
+    "source": "Privado · Primera versión",
+    "target": "Private · First version",
+    "status": "reviewed"
+  },
+  "1aafbdb2cb23e5586fb1809f6903dd150af1365900e4f9f2f9666a81c435ac55": {
+    "source": "Separación en capas de API, aplicación, dominio e infraestructura, con despliegue del frontend en GitHub Pages.",
+    "target": "Layered API, application, domain and infrastructure, with the frontend deployed to GitHub Pages.",
+    "status": "reviewed"
+  },
+  "22ba166995f1127ee3613962ac88878b454245ebae3be2ba2fdca2e332a23c3e": {
+    "source": ">> BACKEND & DATOS",
+    "target": ">> BACKEND & DATA",
+    "status": "reviewed"
+  },
+  "233935327d157dbddbd475e8834fddb7f17d39f34392d060eefec62cdb57e423": {
+    "source": "Vite",
+    "target": "Vite",
+    "status": "reviewed"
+  },
+  "23d615b2ba3aad8da80e3de1812cf1a0116aa9e0d45f3aea649f14ab379539ce": {
+    "source": "OpenCASCADE",
+    "target": "OpenCASCADE",
+    "status": "reviewed"
+  },
+  "268fb73fd51b9b0ada02a4a1bc424e4dbc674c5cddbc5bcf7b8dee4cd62a6443": {
+    "source": "Código del cliente",
+    "target": "Client code",
+    "status": "reviewed"
+  },
+  "2b9a82dff4aec5e84b7b77d6338b39ab7a4a4a9f19f0696c6e2df98242b09dda": {
+    "source": "Aitor Nain Mendoza Vallejo · Arquitecto de Software Full Stack",
+    "target": "Aitor Nain Mendoza Vallejo · Full Stack Software Architect",
+    "status": "reviewed"
+  },
+  "309ea9e63c987884a7eb6189e1755542fa1bfe6953cbb19cd0e2f81e58dff548": {
+    "source": "CTO @ Contrast3D x NainDev",
+    "target": "CTO @ Contrast3D x NainDev",
+    "status": "reviewed"
+  },
+  "31463e5d897a9d186f85422710b5052159eca40ed9dd2032e9bb51024c3fe07b": {
+    "source": "Preparación local de presupuestos, proformas y borradores de factura con exportación a PDF. No emite facturas fiscales definitivas.",
+    "target": "Local preparation of quotations, proformas and invoice drafts with PDF export. It does not issue final tax invoices.",
+    "status": "reviewed"
+  },
+  "31c4997815f4d9f88f8835fe7b8c116d9ccbab006e8a94f7c6acc623d379b775": {
+    "source": "Despacho asíncrono de correos con Clean Architecture y DDD, con la pasarela HTTP separada del worker.",
+    "target": "Asynchronous email dispatch with Clean Architecture and DDD, with the HTTP gateway separated from the worker.",
+    "status": "reviewed"
+  },
+  "3b7b74826699fa27dfd011914283124eb19d412d3581c76a696f3a5d3b9d36d0": {
+    "source": "GameHaven",
+    "target": "GameHaven",
+    "status": "reviewed"
+  },
+  "3e8599bd8e53a05ed6719ffa73b3ae90f1c9d354ed40f7af4d85265c4cc65777": {
+    "source": "⟦0⟧Guiado por especificaciones⟦/0⟧⟦1⟧Cada requisito, con su test⟦/1⟧",
+    "target": "⟦0⟧Spec-driven⟦/0⟧⟦1⟧Every requirement, with its test⟦/1⟧",
+    "status": "reviewed"
+  },
+  "3f3781cd402bb2da170a56408dc90d8042c591ef8699ff28bddb1b0f6e1bbd3d": {
+    "source": "Hypothesis",
+    "target": "Hypothesis",
+    "status": "reviewed"
+  },
+  "41253d5844268d97d31541966363938fd6720b27a999c76095cf9c2a9d711ab0": {
+    "source": "Icono de Pydantic",
+    "target": "Pydantic icon",
+    "status": "reviewed"
+  },
+  "43802dc2e044568cccca77cb6f69bc86df0839f3e15fdd550df361aede50858e": {
+    "source": "Icono de Vue 3",
+    "target": "Vue 3 icon",
+    "status": "reviewed"
+  },
+  "4863ecd433bf6508f2714f6da51d5acc4919e2be5eae86a40267403eed0f4b7c": {
+    "source": "Código público",
+    "target": "Public code",
+    "status": "reviewed"
+  },
+  "4b47729de7d80941fe34bd21f4b088a7ae2ef3704831e861bdd267bebedb3145": {
+    "source": "ECS propio, niveles compuestos por bloques cuya alcanzabilidad se comprueba antes de construirlos, paso de simulación fijo y controles táctiles.",
+    "target": "Custom ECS, levels built from chunks whose reachability is checked before they are built, a fixed simulation step and touch controls.",
+    "status": "reviewed"
+  },
+  "4e6a23185d2b3959efd07a115a8dfc8c9fb6a14d3165636a059a70cf292a1e81": {
+    "source": "Simulador de conducción 3D para el examen práctico",
+    "target": "3D driving-exam simulator",
+    "status": "reviewed"
+  },
+  "505fbcff1f1dd79c979e0465342cf1ae2ffcd3e3437f510790b0077ecb88f6fc": {
+    "source": "Máquina de estados del pedido con reserva de stock en la misma transacción, concurrencia optimista (409), importes en céntimos enteros y errores RFC 7807. Panel sin compilación ni dependencias de Node.",
+    "target": "Order state machine with stock reserved in the same transaction, optimistic concurrency (409), amounts in integer cents and RFC 7807 errors. Customer panel with no build step and no Node dependencies.",
+    "status": "reviewed"
+  },
+  "51c91c1e374dac54bf455bbf240146088c85e011203012e91740f6c83f884a8b": {
+    "source": "Privado · En desarrollo",
+    "target": "Private · In development",
+    "status": "reviewed"
+  },
+  "53f13ae99ed53bd346eb8e1c8cefb7ef8260683b50401caf101360967ea052aa": {
+    "source": "MCP",
+    "target": "MCP",
+    "status": "reviewed"
+  },
+  "542b984628f2f8b2bb86454e9679a0885908c18666092c725fadd3091de6fb5d": {
+    "source": "Proyecto de formación · Demo web",
+    "target": "Training project · Web demo",
+    "status": "reviewed"
+  },
+  "54e5906d91d625d603938cebcc001a603f48efd17f3a60a2158cf149d3194010": {
+    "source": "Análisis binario del contenedor, invariantes geométricos exactos y ciclo validar, reparar y revalidar. Informes en JSON canónico y Markdown, servicio HTTP con OpenAPI y herramientas MCP para que agentes de IA validen con supervisión humana.",
+    "target": "Binary container parsing, exact geometric invariants and a validate, repair and revalidate loop. Canonical JSON and Markdown reports, an HTTP service with OpenAPI and MCP tools so AI agents run validations under human oversight.",
+    "status": "reviewed"
+  },
+  "551264a3f88c1a376c7dfa7f4be90498b8b50a248ddcd1c0a816c1537694c65e": {
+    "source": "Rechaza repositorios públicos, no guarda tokens de registro y permite devolver los trabajos a los runners de GitHub con una variable. Tiene pruebas herméticas.",
+    "target": "Refuses public repositories, never stores registration tokens and can send jobs back to GitHub's runners with one variable. Covered by hermetic tests.",
+    "status": "reviewed"
+  },
+  "5842c2ff9ea0a4491257f2f1ce90c7b9b39180033347ac934a4a6565f8c46a8d": {
+    "source": "(fuera de jornada)",
+    "target": "(outside working hours)",
+    "status": "reviewed"
+  },
+  "597095a33e5798c324d1e97da54e9058384fab32d0243af7f7c934b3019b40d0": {
+    "source": "Icono de Tailwind CSS",
+    "target": "Tailwind CSS icon",
+    "status": "reviewed"
+  },
+  "5c8f515eac3cef2e15222cf6f03ff8185747e1ac4f08dfa33c67b95b82332c1f": {
+    "source": ">> IA & OPS",
+    "target": ">> AI & OPS",
+    "status": "reviewed"
+  },
+  "5df602c6d4d7a7b937cb440b84667dfc1cfdc9680ca0912ecfcdeb30bde44d41": {
+    "source": "Desarrollador .NET @ sector asegurador",
+    "target": ".NET Developer @ insurance sector",
+    "status": "reviewed"
+  },
+  "5e83761158ab9a55c270514d072ffc87b1dc5f2bbbae1dc4e920421c29c28ea7": {
+    "source": "HaveTickets",
+    "target": "HaveTickets",
+    "status": "reviewed"
+  },
+  "5ea824e489f852df13049060526e8321a4964715ee4949dfd041672ca64381ad": {
+    "source": "Privado · Preliminar",
+    "target": "Private · Preliminary",
+    "status": "reviewed"
+  },
+  "5edf8a8f7a832e13b21880b8559cd25196d6ba38bdf0101503bf1fc115fec2d7": {
+    "source": "Construye sólidos B-Rep con OpenCASCADE y comprueba que la malla sea estanca, 2-variedad y con normales hacia fuera. Exporta GLB, glTF, STL, STEP y DXF. Extrae parámetros con un analizador de reglas sin conexión o, de forma opcional, con un LLM.",
+    "target": "Builds B-Rep solids with OpenCASCADE and checks that the mesh is watertight, 2-manifold and outward-facing. Exports GLB, glTF, STL, STEP and DXF. Extracts parameters with an offline rule-based parser or, optionally, an LLM.",
+    "status": "reviewed"
+  },
+  "5f4fc20bd7301275d368aeb2ed757cf3a722d885d87c6f808de18698329642ff": {
+    "source": "Privado · En planificación",
+    "target": "Private · In planning",
+    "status": "reviewed"
+  },
+  "6022f2ff2c74c777cc64015d9b27258a360ca262d8a30edb3d028fd47bb2018a": {
+    "source": "Icono de Astro",
+    "target": "Astro icon",
+    "status": "reviewed"
+  },
+  "61cabc9c8d59787e50ca6506cdb30a274962d435146c610a10152130cfbdd9fe": {
+    "source": "Motor de facturación donde la aritmética es verificable. Es una pieza de portfolio, no un producto.",
+    "target": "Billing engine where the arithmetic is verifiable. A portfolio piece, not a product.",
+    "status": "reviewed"
+  },
+  "62648a444d5764725eac5ba010b0f63788be67b3aaad82c505e08f28a5a61055": {
+    "source": "⟦0⟧⟦1/⟧⟦2⟧Git⟦/2⟧⟦/0⟧⟦3⟧⟦4/⟧⟦5⟧GitHub⟦/5⟧⟦/3⟧⟦6⟧⟦7/⟧⟦8⟧VS Code⟦/8⟧⟦/6⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2⟧Git⟦/2⟧⟦/0⟧⟦3⟧⟦4/⟧⟦5⟧GitHub⟦/5⟧⟦/3⟧⟦6⟧⟦7/⟧⟦8⟧VS Code⟦/8⟧⟦/6⟧",
+    "status": "reviewed"
+  },
+  "674900a77b798af1723bbfc31f01c199e4a1ea6f19aeff9791d6318ca12979b5": {
+    "source": "LLM",
+    "target": "LLM",
+    "status": "reviewed"
+  },
+  "68e7ea49d18c4d4e2e39666fa4fafbb7cc60e35dbd8cee4e2b71d64b9089a771": {
+    "source": "Arquitectura multidominio que recibe un producto, identifica qué es, mide sus características, aplica el perfil versionado de su dominio y emite un veredicto reproducible. El primer dominio son los modelos 3D glTF/GLB.",
+    "target": "Multi-domain architecture that receives a product, identifies what it is, measures its characteristics, applies the versioned profile for its domain and issues a reproducible verdict. Its first domain is glTF/GLB 3D models.",
+    "status": "reviewed"
+  },
+  "6ba322d5ce9d317ea6a936bafb49a2b60a7d3bd9c0c07ef4f6ace719dfd15510": {
+    "source": "Código de la API",
+    "target": "API code",
+    "status": "reviewed"
+  },
+  "6c5c8e2d876d9da62a31ee6118223c8d5961e17a4cd15feffe582db8f3217e6b": {
+    "source": "- MCP con humano en el bucle",
+    "target": "- MCP with human-in-the-loop",
+    "status": "reviewed"
+  },
+  "6fec5b215920e00b36398666c76ba0e438cea0a05c04e8e2b269caa66d174e2a": {
+    "source": "Tailwind CSS",
+    "target": "Tailwind CSS",
+    "status": "reviewed"
+  },
+  "7106511e5d77953fc06671cb5d5675c17074931d0d6cb016d5ddc3eafb2644c3": {
+    "source": "Privado · Prototipo en simulación",
+    "target": "Private · Simulation-mode prototype",
+    "status": "reviewed"
+  },
+  "75e26f9d5bf07e7b3ce241ceaeece9112074dc94ac9a7a261b197ecf0a9c34e9": {
+    "source": "Sistema de tickets de soporte con cliente en Blazor WebAssembly y Minimal API.",
+    "target": "Support ticketing system with a Blazor WebAssembly client and a Minimal API.",
+    "status": "reviewed"
+  },
+  "76ad14252bd37dc9ff4ab84ec88599e02a7a0466ddf12f402451760c9ac6c991": {
+    "source": "Blazor WebAssembly",
+    "target": "Blazor WebAssembly",
+    "status": "reviewed"
+  },
+  "785baae12a34c00adf1a97dd663fbb11ab5c8c517fadd7a124397c2956a2978c": {
+    "source": "Plantillas HTML y texto compatibles con Outlook, enmascarado de datos personales en los logs, limitación de peticiones y ejecución en un proceso o escalada con workers de RabbitMQ.",
+    "target": "HTML and text templates that render in Outlook, personal data masking in logs, rate limiting, and in-process execution or scale-out with RabbitMQ workers.",
+    "status": "reviewed"
+  },
+  "7ac15f25efe7af958ea89cb8d132b08c33e7c4e903c45d227d377d6a10aa8bf7": {
+    "source": "Detección continua de colisiones, paso fijo con interpolación de render, IA predictiva con cuatro niveles y partidas reproducibles a partir de una semilla.",
+    "target": "Continuous collision detection, a fixed step with render interpolation, predictive AI with four levels and matches reproducible from a seed.",
+    "status": "reviewed"
+  },
+  "7fc39eb9c7e0008f216f56c52cfd70cadbfd8ec27d051a8af9dc6f5a8a23e293": {
+    "source": "Vitest",
+    "target": "Vitest",
+    "status": "reviewed"
+  },
+  "80270db2488c96148320e07a2b1c95b918924e0aac49a43fbcd5f9e940557a68": {
+    "source": "Tienda de juegos independientes en Blazor WebAssembly con API propia, evolución de una primera versión de escritorio.",
+    "target": "Indie game store in Blazor WebAssembly with its own API, evolved from an earlier desktop version.",
+    "status": "reviewed"
+  },
+  "826c2be406ad22809d0ecdbb8d717ee99e508f84a1b519f5ec4c31bd1e70926b": {
+    "source": "Orbe Runner 3D",
+    "target": "Orbe Runner 3D",
+    "status": "reviewed"
+  },
+  "85fdc5018b5cafe298d0663b8fdbe7b5c05b938dcd684d9892e6ec61e0915be7": {
+    "source": "Microservicio de notificaciones",
+    "target": "Notification microservice",
+    "status": "reviewed"
+  },
+  "8673f01d523f7aeab560177b595147ab1856bb2fd3f9e2fbb85604a6787e172b": {
+    "source": "Plataforma web multiusuario de gestión comercial, con estado en PostgreSQL y coste operativo cero.",
+    "target": "Multi-user web platform for sales management, with state in PostgreSQL and zero operating cost.",
+    "status": "reviewed"
+  },
+  "8756f268fb8e6050f2ca71ffee296ff00a85a49bcf556bbadc3e257c6e7cc7aa": {
+    "source": "- Docker, GitHub Actions, Linux y Azure",
+    "target": "- Docker, GitHub Actions, Linux and Azure",
+    "status": "reviewed"
+  },
+  "8a543d1ed22ee4b2b7cd7267ea4916822f7cfc3bd5189c2711c3850f50e4eef4": {
+    "source": "Ciclo Borrador, Activa y Cancelada con roles JWT. Concurrencia con rowversion, ETag e If-Match, y ProblemDetails en los errores. Integración continua contra un SQL Server real.",
+    "target": "Draft, Active and Cancelled lifecycle with JWT roles. Concurrency with rowversion, ETag and If-Match, and ProblemDetails for errors. Continuous integration against a real SQL Server.",
+    "status": "reviewed"
+  },
+  "8f5b8d4771321417e98e540e484b3a4ffde6e6c0b9eaae59cf5fecca40871c4d": {
+    "source": "CRM web colaborativo",
+    "target": "Collaborative web CRM",
+    "status": "reviewed"
+  },
+  "93f6f1996f574c0e2d2f1967f7f797a82abd29f8d87e063ed5518003e66bc302": {
+    "source": "⟦0⟧⟦1/⟧⟦2⟧PostgreSQL⟦/2⟧⟦/0⟧⟦3⟧⟦4/⟧⟦5⟧SQL Server⟦/5⟧⟦/3⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2⟧PostgreSQL⟦/2⟧⟦/0⟧⟦3⟧⟦4/⟧⟦5⟧SQL Server⟦/5⟧⟦/3⟧",
+    "status": "reviewed"
+  },
+  "94393f95bd3ded6a1410133e4dab844861d1a5723ed01c63f4cc39b4ba6e95fe": {
+    "source": "Privado · En producción (dominio 3D)",
+    "target": "Private · In production (3D domain)",
+    "status": "reviewed"
+  },
+  "950676bb2665e3499f9df6640749cdd05183c180c82d89a42b215316edc79fe7": {
+    "source": "Aislamiento por empresa, validación y precios en el servidor, y flujo completo de configurar, guardar y presupuestar aunque el visor 3D no esté disponible.",
+    "target": "Per-company isolation, server-side validation and pricing, and a complete configure, save and quote flow even when the 3D viewer is unavailable.",
+    "status": "reviewed"
+  },
+  "976451a7e0d580192cf15e8fb209a29b0c04507317920c9283e0db91d4e4f1ba": {
+    "source": "⟦0⟧Python y .NET⟦/0⟧⟦1⟧Datos, backend y frontend⟦/1⟧",
+    "target": "⟦0⟧Python and .NET⟦/0⟧⟦1⟧Data, backend and frontend⟦/1⟧",
+    "status": "reviewed"
+  },
+  "98b485661f1d556a34507409a7d0a805e88758606ce052ac375ccca6e08cf4fc": {
+    "source": "Privado · En uso",
+    "target": "Private · In use",
+    "status": "reviewed"
+  },
+  "9965c80f01def5773e861cd59daef3e84c2974609baebf437903f5918f36226c": {
+    "source": "Pong Arcade 3D",
+    "target": "Pong Arcade 3D",
+    "status": "reviewed"
+  },
+  "99811480abbe95c406fc346e46fd89d8fffed68bfc9195bca08cb616b51d3e5f": {
+    "source": "Runner 3D arcade hecho sin motor de juego, con modelos y audio procedurales.",
+    "target": "3D arcade runner built without a game engine, with procedural models and audio.",
+    "status": "reviewed"
+  },
+  "999bd827e15b3422421844478ac954a44f9458eb46db941417c4b84b78776d35": {
+    "source": "NainConfigurator",
+    "target": "NainConfigurator",
+    "status": "reviewed"
+  },
+  "9fa16217c42283e893e8fd769b58f7f614cce520d4cb8d262b278b6d36821d40": {
+    "source": "CLI que gestiona runners self-hosted de GitHub Actions en un equipo de escritorio para repositorios privados, con coste de CI cero.",
+    "target": "CLI that manages self-hosted GitHub Actions runners on a desktop machine for private repositories, keeping CI cost at zero.",
+    "status": "reviewed"
+  },
+  "a10d3266596205ceca473840162cc269246299aa9a5f0b5592f45fb8b498f2e6": {
+    "source": "⟦0⟧⟦1/⟧⟦2⟧Python⟦/2⟧⟦/0⟧⟦3⟧⟦4/⟧⟦5⟧C#⟦/5⟧⟦/3⟧⟦6⟧⟦7/⟧⟦8⟧TypeScript⟦/8⟧⟦/6⟧⟦9⟧⟦10/⟧⟦11⟧JavaScript⟦/11⟧⟦/9⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2⟧Python⟦/2⟧⟦/0⟧⟦3⟧⟦4/⟧⟦5⟧C#⟦/5⟧⟦/3⟧⟦6⟧⟦7/⟧⟦8⟧TypeScript⟦/8⟧⟦/6⟧⟦9⟧⟦10/⟧⟦11⟧JavaScript⟦/11⟧⟦/9⟧",
+    "status": "reviewed"
+  },
+  "a71d5d7a2ebd43cb8e9f82947488bb7a9a6a725b0906c3e809e3a5b70a44b6bc": {
+    "source": "- Arquitectura de conformidad determinista y multidominio: Python, FastAPI, PostgreSQL y MCP.",
+    "target": "- Deterministic, multi-domain conformance architecture: Python, FastAPI, PostgreSQL and MCP.",
+    "status": "reviewed"
+  },
+  "a75644d8b91cac6e6e205080bb358ad15d4f10cec75dd9220de31daed7d482d3": {
+    "source": "Pong reconstruido como juego 3D en el navegador, sin instalación ni recursos externos.",
+    "target": "Pong rebuilt as a 3D browser game, with no install and no external assets.",
+    "status": "reviewed"
+  },
+  "aa4a365965675f9c9c56031fc82b0dfaae86454c0b0313650296c81af0ed3494": {
+    "source": "Pipeline de prospección B2B con IA",
+    "target": "AI-assisted B2B prospecting pipeline",
+    "status": "reviewed"
+  },
+  "aba5ff0ce8396d7fb671a5c92a9175c12238fe116191d2e143f1e69aa85b5b4c": {
+    "source": "Simulacros de oposición TAI",
+    "target": "TAI civil service exam simulator",
+    "status": "reviewed"
+  },
+  "ac0c8c9ebcd94b47459bf89bbf88bbe3881b222909320cd98c293528dc8267be": {
+    "source": "Diseño de la transmisión manual (embrague, calado y marchas), comprobaciones previas del vehículo y clasificación de faltas en leves, deficientes y eliminatorias.",
+    "target": "Manual transmission design (clutch, stalling and gears), pre-drive vehicle checks and fault classification into minor, deficient and eliminatory.",
+    "status": "reviewed"
+  },
+  "ad0dd85532f907f872a3e859e861db251a772455a67dd47f8fcdeee57994f51c": {
+    "source": "- Backend y aplicación web: .NET Framework, ASP.NET MVC 5, ASP.NET Web API 2, SQL Server y Dapper.",
+    "target": "- Backend and web application: .NET Framework, ASP.NET MVC 5, ASP.NET Web API 2, SQL Server and Dapper.",
+    "status": "reviewed"
+  },
+  "b15ec53c28f5d4f06ead0a223a3b8391dc85d4b06a09145150e228df03dcb21a": {
+    "source": "Arquitectura de conformidad determinista y multidominio: cada producto se mide contra especificaciones explícitas y versionadas, con veredictos reproducibles y la IA bajo supervisión humana. El primer dominio son los modelos 3D. Entrego el producto completo en Python y .NET, del modelo de datos al frontend.",
+    "target": "Deterministic, multi-domain conformance architecture: every product is measured against explicit, versioned specifications, with reproducible verdicts and AI under human oversight. The first domain is 3D models. I deliver the complete product in Python and .NET, from the data model to the frontend.",
+    "status": "reviewed"
+  },
+  "b369c1099833c8f6323f311656f96083bdb8ee32a2c3e3a36080d4f8edf0075a": {
+    "source": "(jornada completa)",
+    "target": "(full time)",
+    "status": "reviewed"
+  },
+  "b61eda6f4b63d533dc50c276c01d55133d6c4b6ad088afd86d31e39d15ddf609": {
+    "source": "Jugar",
+    "target": "Play",
+    "status": "reviewed"
+  },
+  "b8b4627547cf1c2e7f3683476c6db0673caa04b2e24472e5f463b2f08db6f9d4": {
+    "source": "Probar demo",
+    "target": "Try the demo",
+    "status": "reviewed"
+  },
+  "b8f4e2c66664eb25dc5a10b2679bbe361c836cae002f7c5b48d5a53a5ae4701d": {
+    "source": "Juego público",
+    "target": "Public game",
+    "status": "reviewed"
+  },
+  "b98365802f55e6d833b35bfccfab3a1d5cc6d04fc24e338e544a5dafcd2c6ef1": {
+    "source": "Proyecto de formación · En desarrollo",
+    "target": "Training project · In development",
+    "status": "reviewed"
+  },
+  "bb635a4525ed57ef422772946c95ce978e85beba4a1626d0bfafddd65c6c8ce9": {
+    "source": "Edición concurrente sin pérdida de datos: control de versión por entidad y fusión por campo ante conflictos HTTP 409. Duplicados bloqueados con citext e índices únicos parciales, y registro de actividad en la misma transacción que el cambio.",
+    "target": "Concurrent editing without data loss: per-entity versioning and field-level merge on HTTP 409 conflicts. Duplicates blocked with citext and partial unique indexes, and activity logged in the same transaction as the change.",
+    "status": "reviewed"
+  },
+  "bceb13f14817f537f174ffe6c11a334b693249e44d0edd738bc9a24b2049166a": {
+    "source": "Simulador 3D del examen práctico del permiso B con puntuación determinista de las faltas.",
+    "target": "3D simulator of the Class B practical driving exam with deterministic fault scoring.",
+    "status": "reviewed"
+  },
+  "bd55cfe41d8503c2da6f70b558993830bb4678e46c37a380d4fdc2154aae51c7": {
+    "source": "Icono de MCP",
+    "target": "MCP icon",
+    "status": "reviewed"
+  },
+  "c0305dd83ad4d062ccc23c1ea52ce9e53bdf943b11fd7d1640e05a215dffa3e4": {
+    "source": "Importes en Decimal con redondeo explícito, totales que cuadran sin tolerancia, DNI y NIE validados con la letra de control y generación de PDF en memoria.",
+    "target": "Decimal amounts with explicit rounding, totals that reconcile with no tolerance, DNI and NIE checked with their control letter, and in-memory PDF generation.",
+    "status": "reviewed"
+  },
+  "c754bf408ec345be83e2f279e47095c305d805bb3ea0bbdfcbc1d44ea18f2d38": {
+    "source": "- PostgreSQL y SQL Server",
+    "target": "- PostgreSQL and SQL Server",
+    "status": "reviewed"
+  },
+  "c802d6ac115cca2258868813f0dddfe021f32a42a3976436155783a359d9590f": {
+    "source": "Corrección en el servidor con la escala oficial, sesiones con cookie HttpOnly y token CSRF, cola sin conexión en IndexedDB y panel ordenado por el bloque más débil.",
+    "target": "Server-side marking with the official scale, HttpOnly cookie sessions with a CSRF token, an offline queue in IndexedDB and a dashboard ordered by the weakest block.",
+    "status": "reviewed"
+  },
+  "c81a39c679198c24e333bea5b4bbdd3e256cf26f341db84d95caa86c136d322c": {
+    "source": "Código privado: descrito solo por arquitectura y stack.",
+    "target": "Private code: described by architecture and stack only.",
+    "status": "reviewed"
+  },
+  "ca2785eacbede635183fada38d9c47bec991528ee41e7260bc2fd0f10ac8050a": {
+    "source": "⟦0⟧⟦1/⟧⟦2⟧MCP⟦/2⟧⟦/0⟧⟦3⟧⟦4/⟧⟦5⟧Docker⟦/5⟧⟦/3⟧⟦6⟧⟦7/⟧⟦8⟧GitHub Actions⟦/8⟧⟦/6⟧⟦9⟧⟦10/⟧⟦11⟧Azure⟦/11⟧⟦/9⟧⟦12⟧⟦13/⟧⟦14⟧Linux⟦/14⟧⟦/12⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2⟧MCP⟦/2⟧⟦/0⟧⟦3⟧⟦4/⟧⟦5⟧Docker⟦/5⟧⟦/3⟧⟦6⟧⟦7/⟧⟦8⟧GitHub Actions⟦/8⟧⟦/6⟧⟦9⟧⟦10/⟧⟦11⟧Azure⟦/11⟧⟦/9⟧⟦12⟧⟦13/⟧⟦14⟧Linux⟦/14⟧⟦/12⟧",
+    "status": "reviewed"
+  },
+  "caa3642f71d3850909d858ef240ad8a1d6b31893ff1b7c1fe4a6884a7c6cd548": {
+    "source": "Icono de PostgreSQL",
+    "target": "PostgreSQL icon",
+    "status": "reviewed"
+  },
+  "cc52d03280b7034c8e3653d2748ebd489a873ef4bbc89cb187fbfcabfbbf6873": {
+    "source": "PostgreSQL",
+    "target": "PostgreSQL",
+    "status": "reviewed"
+  },
+  "ce4cb84df6317733562378731df238dd5ddec2d345c1d3a3af3a79694744853f": {
+    "source": "Clasificación de sector, tamaño y prioridad con un modelo ligero, alertas y ejecución programada. Se detiene antes del envío, en modo simulación.",
+    "target": "Classifies sector, size and priority with a lightweight model, with alerts and scheduled runs. It stops before sending, in simulation mode.",
+    "status": "reviewed"
+  },
+  "cec3a9b89b2e391393d0f68e4bc12a9fa6cf358b3cdf79496dc442d52b8dd528": {
+    "source": "Data",
+    "target": "Data",
+    "status": "reviewed"
+  },
+  "d020462e3352bfd1f962b7662e2d47897cbe5b5be61c07bb078b2b55aec4c439": {
+    "source": "xUnit",
+    "target": "xUnit",
+    "status": "reviewed"
+  },
+  "d0dcdcf8d6b2bc2eb7d5a3bce29769d1c8b79afa1c789816cef7915a2fe69a23": {
+    "source": "Agente local de reescritura en español",
+    "target": "Local Spanish rewriting agent",
+    "status": "reviewed"
+  },
+  "d1e9567da9a8a4b0c43da0791da1d2594cf5d7b78547fea132d06bccc1b06091": {
+    "source": "Bash",
+    "target": "Bash",
+    "status": "reviewed"
+  },
+  "d1f35c57c988853febb9f057b8f69dd163080042937b1f09e7cb8fb90801774b": {
+    "source": "Arquitectura de conformidad determinista",
+    "target": "Deterministic conformance architecture",
+    "status": "reviewed"
+  },
+  "d2ac3e7cd98b63bb046ac36b62ed5fe3c4001b4c329bd326a5807e77bbe859f0": {
+    "source": "Diseño sistemas que validan productos ⟦0⟧con reglas deterministas.⟦/0⟧",
+    "target": "I design systems that validate products ⟦0⟧with deterministic rules.⟦/0⟧",
+    "status": "reviewed"
+  },
+  "d75fe8d2e688a5bd056a05e8fa66f3f82fbe949af3deb7bd2762570ba7d31706": {
+    "source": "⟦0⟧⟦1/⟧⟦2⟧FastAPI⟦/2⟧⟦/0⟧⟦3⟧⟦4/⟧⟦5⟧Pydantic⟦/5⟧⟦/3⟧⟦6⟧⟦7/⟧⟦8⟧.NET⟦/8⟧⟦/6⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2⟧FastAPI⟦/2⟧⟦/0⟧⟦3⟧⟦4/⟧⟦5⟧Pydantic⟦/5⟧⟦/3⟧⟦6⟧⟦7/⟧⟦8⟧.NET⟦/8⟧⟦/6⟧",
+    "status": "reviewed"
+  },
+  "db9af518314a7c3d11bf566c5efffa872c8bbb0c6a1e644e5e7eabde55a286e2": {
+    "source": "Un LLM local reescribe y un validador determinista de invariantes lo comprueba. Si dos auditores independientes no aprueban, el resultado pasa a revisión humana.",
+    "target": "A local LLM rewrites and a deterministic invariant validator checks it. If two independent auditors do not approve, the result goes to human review.",
+    "status": "reviewed"
+  },
+  "dd7be1d67af2730317d3122eed990ff80b32989f9a7e97d459f372f21bd2c99a": {
+    "source": "Flota local de runners de GitHub Actions",
+    "target": "Self-hosted GitHub Actions runner fleet",
+    "status": "reviewed"
+  },
+  "ddd95b8c94e0d938f775b5f68c6bb8f61f364d946deb9cf2d5f6ce9226a1d646": {
+    "source": "Python · C# · FastAPI · .NET · PostgreSQL · SQL Server · Vue 3 · MCP",
+    "target": "Python · C# · FastAPI · .NET · PostgreSQL · SQL Server · Vue 3 · MCP",
+    "status": "reviewed"
+  },
+  "dddac89e993925fa03e4395e34f68e68f4508dbe54c688568cb83a71f596d5bf": {
+    "source": "Agente local que reescribe borradores en español de España conservando el significado, las condiciones y los literales protegidos.",
+    "target": "Local agent that rewrites drafts in Spanish from Spain while preserving meaning, conditions and protected literals.",
+    "status": "reviewed"
+  },
+  "de4089d65da95ac6450a8840c7d8159ab51fa483f1fd9f62606fc0ed3cc79130": {
+    "source": "Proyectos y demos",
+    "target": "Projects and demos",
+    "status": "reviewed"
+  },
+  "e0cf59115b58477e816cae4a19f43128caff48f5a6ca2ee71e364c91dfef0aa3": {
+    "source": "Pipeline de bajo coste que localiza empresas a partir de datos públicos, las clasifica con un LLM y genera plantillas de email. No envía correo.",
+    "target": "Low-cost pipeline that finds companies from public data, classifies them with an LLM and generates email templates. It does not send email.",
+    "status": "reviewed"
+  },
+  "e5e1f09c5a7dd3efe7ee2231fe79aa1d7a208980bf60245cbaffd267d88bc76c": {
+    "source": "LanguageTool",
+    "target": "LanguageTool",
+    "status": "reviewed"
+  },
+  "e68cf0e90c850c88b973d781ea7250e6ca300a55728c6d57f8c13680514cb548": {
+    "source": "⟦0⟧⟦1⟧01⟦/1⟧⟦2⟧API⟦/2⟧⟦3⟧Contratos y validación⟦/3⟧⟦/0⟧⟦4⟧⟦5⟧02⟦/5⟧⟦6⟧Lógica⟦/6⟧⟦7⟧Reglas y casos de uso⟦/7⟧⟦/4⟧⟦8⟧⟦9⟧03⟦/9⟧⟦10⟧Datos⟦/10⟧⟦11⟧PostgreSQL, SQL Server y consistencia⟦/11⟧⟦/8⟧",
+    "target": "⟦0⟧⟦1⟧01⟦/1⟧⟦2⟧API⟦/2⟧⟦3⟧Contracts and validation⟦/3⟧⟦/0⟧⟦4⟧⟦5⟧02⟦/5⟧⟦6⟧Logic⟦/6⟧⟦7⟧Rules and use cases⟦/7⟧⟦/4⟧⟦8⟧⟦9⟧03⟦/9⟧⟦10⟧Data⟦/10⟧⟦11⟧PostgreSQL, SQL Server and consistency⟦/11⟧⟦/8⟧",
+    "status": "reviewed"
+  },
+  "e7fc7835a1430fbb26089b03b28e97e09243887c8d4c05c821aa560b555acec9": {
+    "source": "Simulador de exámenes de la oposición TAI (INAP): API de preguntas y corrección, y cliente web que funciona también sin servidor.",
+    "target": "Exam simulator for the Spanish TAI civil service exam (INAP): a question and marking API, and a web client that also works without a server.",
+    "status": "reviewed"
+  },
+  "e87e58df70ecd06fb35678d9222e4f9294cacaa1b77a11da03f95f41c70f1cd9": {
+    "source": "Probar tienda",
+    "target": "Try the store",
+    "status": "reviewed"
+  },
+  "ea261f3a3b13b77e5d8211379e404c45b120ec4f445497b6560edb9d1ff0da35": {
+    "source": "- Python (FastAPI, Pydantic v2, SQLAlchemy) y C# (.NET, ASP.NET)",
+    "target": "- Python (FastAPI, Pydantic v2, SQLAlchemy) and C# (.NET, ASP.NET)",
+    "status": "reviewed"
+  },
+  "ea41e11882f9b543070c90087bc9440b6b8a26677e4e424811b18d6174febc6e": {
+    "source": "Motor CAD paramétrico determinista con validación topológica de mallas y visor 3D web.",
+    "target": "Deterministic parametric CAD engine with topological mesh validation and a 3D web viewer.",
+    "status": "reviewed"
+  },
+  "ee5c77b54973553f94100b40a283aa932dd76ea5e758e9596e02254d1341db88": {
+    "source": "Motor de pedidos para comercio electrónico con Clean Architecture, DDD táctico, CQRS en lectura y panel de cliente propio.",
+    "target": "E-commerce order engine with Clean Architecture, tactical DDD, read-side CQRS and its own customer panel.",
+    "status": "reviewed"
+  },
+  "eefd3920a41ff12524eb455164e455d493d6486b2d3421226187b93240f46797": {
+    "source": "⟦0⟧⟦1/⟧⟦2⟧Vue 3⟦/2⟧⟦/0⟧⟦3⟧⟦4/⟧⟦5⟧Tailwind CSS⟦/5⟧⟦/3⟧⟦6⟧⟦7/⟧⟦8⟧Astro⟦/8⟧⟦/6⟧⟦9⟧⟦10/⟧⟦11⟧Three.js⟦/11⟧⟦/9⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2⟧Vue 3⟦/2⟧⟦/0⟧⟦3⟧⟦4/⟧⟦5⟧Tailwind CSS⟦/5⟧⟦/3⟧⟦6⟧⟦7/⟧⟦8⟧Astro⟦/8⟧⟦/6⟧⟦9⟧⟦10/⟧⟦11⟧Three.js⟦/11⟧⟦/9⟧",
+    "status": "reviewed"
+  },
+  "ef28465a5657b5f3fda77698b3c3b01c39d8b0d64739db4b61201496d40d013d": {
+    "source": "- Vue 3, TypeScript, Tailwind CSS, Astro y Three.js",
+    "target": "- Vue 3, TypeScript, Tailwind CSS, Astro and Three.js",
+    "status": "reviewed"
+  },
+  "f1dd3511f8794127e31cb26fda62717e35fd6ac21294cb877b8dd0cf6eca7070": {
+    "source": "Icono de GitHub Actions",
+    "target": "GitHub Actions icon",
+    "status": "reviewed"
+  },
+  "f24cf7eec6c28c9f47432a9a546638a5e96518e6632b3a078faa3c757a6402a5": {
+    "source": "Facturación determinista para autoescuelas",
+    "target": "Deterministic billing for driving schools",
+    "status": "reviewed"
+  },
+  "f2d15410555557546cf3f2ff0da02f6f81934485e033729e34b7e9454f67938f": {
+    "source": "Funciona solo en la máquina local, con ayuda opcional de un LLM local para redactar.",
+    "target": "Runs only on the local machine, with optional drafting help from a local LLM.",
+    "status": "reviewed"
+  },
+  "f7ae4c3d1f7c5d32db4f6900b8db39fbd6fd9da76df50b8c6f48504f3085d8dc": {
+    "source": "NainOrder (motor de pedidos)",
+    "target": "NainOrder (order engine)",
+    "status": "reviewed"
+  },
+  "f9f9595e5abb085e851339c947d04ebc39a9b924600e1b5a42b1fee16b30427f": {
+    "source": "WSL",
+    "target": "WSL",
+    "status": "reviewed"
+  },
+  "fae83bd48c808f084dc6ad40e94127e7f6509b8b1fa2d6d0cc021108f3558bf1": {
+    "source": "GitHub Actions",
+    "target": "GitHub Actions",
+    "status": "reviewed"
+  },
+  "ff4eb8ed9e1c2d4c8d8b1a9597bc043785629be628d6ee4cc4d2ee1335c9f515": {
+    "source": "Configurador de productos B2B dirigido por catálogo, que admite productos distintos sin código específico por cliente.",
+    "target": "Catalog-driven B2B product configurator that supports different products without customer-specific code.",
     "status": "reviewed"
   }
 }

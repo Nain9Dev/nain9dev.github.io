@@ -2,6 +2,7 @@
   "projectSingular": "{count} proyecto",
   "projectPlural": "{count} proyectos",
   "projectTechnologies": "Tecnologías de {name}",
+  "projectPrivate": "Código privado: descrito solo por arquitectura y stack.",
   "projectError": "No se ha podido cargar el catálogo. Puedes revisar los proyectos directamente en GitHub.",
   "openGitHub": "Abrir GitHub ↗",
   "copyUnavailable": "Tu navegador no permite copiar automáticamente.",

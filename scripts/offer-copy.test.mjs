@@ -74,7 +74,8 @@ test('COPY-004: terminal commands contain no confidential project, redacted valu
     assert.ok(commands[key], `command ${key} exists`);
   }
   assert.match(commands.story, /Contrast3D x NainDev/);
-  assert.match(commands.experience, /Backend Specialist @ SaaS Platform/);
+  // Role wording updated by specs/012-profile-coherence (COPY-014).
+  assert.match(commands.experience, /Desarrollador \.NET @ sector asegurador/);
   assert.match(commands.status, /tiempo parcial/i);
   assert.match(commands.status, /contact/);
   assert.match(commands.metrics, /contact/);

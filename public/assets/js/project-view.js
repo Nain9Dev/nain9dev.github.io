@@ -50,6 +50,9 @@ function createProjectCard(project, index) {
   });
 
   const links = createElement("div", "project-links");
+  if (project.private) {
+    links.append(createElement("p", "project-private", message('projectPrivate')));
+  }
   project.links.forEach((link) => links.append(createProjectLink(link)));
 
   article.append(header, title, summary, proof, technologies, links);

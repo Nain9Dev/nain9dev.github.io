@@ -1,244 +1,255 @@
 [
   {
-    "id": "parametricad-ai",
-    "title": "ParametriCAD AI",
-    "status": "Demo pública activa",
-    "summary": "Pipeline de IA generativa (NLP a 3D). Extracción de parámetros con Groq, modelado paramétrico con CadQuery y renderizado en Three.js.",
-    "proof": "Demuestra la orquestación de LLMs como agentes extractores (Groq) limitados por un motor geométrico determinista (OpenCASCADE/CadQuery).",
-    "technologies": [
-      "Python",
-      "FastAPI",
-      "Groq",
-      "CadQuery",
-      "React",
-      "Three.js"
-    ],
-    "categories": [
-      "backend",
-      "demo",
-      "3d"
-    ],
-    "links": [
-      {
-        "label": "Probar Demo",
-        "url": "https://parametricad.naindev.com/"
-      },
-      {
-        "label": "Revisar código",
-        "url": "https://github.com/Nain9Dev/parametricad-ai"
-      }
-    ],
+    "id": "conformance-architecture",
+    "title": "Arquitectura de conformidad determinista",
+    "status": "Privado · En producción (dominio 3D)",
+    "summary": "Arquitectura multidominio que recibe un producto, identifica qué es, mide sus características, aplica el perfil versionado de su dominio y emite un veredicto reproducible. El primer dominio son los modelos 3D glTF/GLB.",
+    "proof": "Análisis binario del contenedor, invariantes geométricos exactos y ciclo validar, reparar y revalidar. Informes en JSON canónico y Markdown, servicio HTTP con OpenAPI y herramientas MCP para que agentes de IA validen con supervisión humana.",
+    "technologies": ["Python", "FastAPI", "Pydantic", "PostgreSQL", "MCP", "Hypothesis"],
+    "categories": ["backend", "data", "3d"],
+    "links": [],
+    "private": true,
     "featured": true,
     "order": 0
   },
   {
-    "id": "nainorder-ecommerce-api",
-    "title": "NainOrder (Motor E-Commerce)",
-    "status": "Demo pública activa",
-    "summary": "Core financiero y logístico para un E-Commerce de alta escalabilidad. Implementación de CQRS, validación pura en la capa de Dominio y transacciones aisladas, garantizando consistencia absoluta.",
-    "proof": "Demuestra el diseño de APIs inmutables y resilientes, eliminando el acoplamiento de infraestructura. Operaciones ACID con latencia cero usando bases de datos in-memory.",
-    "technologies": [
-      "C#",
-      ".NET 10",
-      "Clean Architecture",
-      "EF Core",
-      "SQLite",
-      "Swagger"
-    ],
-    "categories": [
-      "backend",
-      "demo"
-    ],
-    "links": [
-      {
-        "label": "Probar API",
-        "url": "https://nainorder.onrender.com/index.html"
-      },
-      {
-        "label": "Revisar Arquitectura",
-        "url": "https://github.com/Nain9Dev/NainOrder"
-      }
-    ],
+    "id": "collaborative-crm",
+    "title": "CRM web colaborativo",
+    "status": "Privado · En desarrollo",
+    "summary": "Plataforma web multiusuario de gestión comercial, con estado en PostgreSQL y coste operativo cero.",
+    "proof": "Edición concurrente sin pérdida de datos: control de versión por entidad y fusión por campo ante conflictos HTTP 409. Duplicados bloqueados con citext e índices únicos parciales, y registro de actividad en la misma transacción que el cambio.",
+    "technologies": ["Python", "FastAPI", "SQLAlchemy", "PostgreSQL", "Vue 3", "Tailwind CSS", "Docker"],
+    "categories": ["backend", "data"],
+    "links": [],
+    "private": true,
     "featured": true,
     "order": 1
   },
   {
-    "id": "gamehaven-blazor-store",
-    "title": "GameHaven (E-Commerce Web)",
-    "status": "Demo interactiva en vivo",
-    "summary": "Arquitectura Full-Stack orientada a rendimiento. Integración de Minimal APIs ultrarrápidas con un frontend determinista en Blazor WebAssembly.",
-    "proof": "Demo web alojada en GitHub Pages consumiendo una API alojada en Render con 0€ de coste. Permite explorar catálogo masivo y añadir juegos al carrito sin latencia.",
-    "technologies": [
-      "C#",
-      ".NET 8",
-      "Blazor WASM",
-      "Minimal APIs",
-      "SQLite"
-    ],
-    "categories": [
-      "backend",
-      "demo"
-    ],
+    "id": "parametricad-ai",
+    "title": "ParametriCAD AI",
+    "status": "Demo pública activa",
+    "summary": "Motor CAD paramétrico determinista con validación topológica de mallas y visor 3D web.",
+    "proof": "Construye sólidos B-Rep con OpenCASCADE y comprueba que la malla sea estanca, 2-variedad y con normales hacia fuera. Exporta GLB, glTF, STL, STEP y DXF. Extrae parámetros con un analizador de reglas sin conexión o, de forma opcional, con un LLM.",
+    "technologies": ["Python", "FastAPI", "CadQuery", "OpenCASCADE", "React", "Three.js", "Docker"],
+    "categories": ["backend", "demo", "3d"],
     "links": [
-      {
-        "label": "Probar Tienda",
-        "url": "https://nain9dev.github.io/GameHaven/"
-      },
-      {
-        "label": "Revisar código",
-        "url": "https://github.com/Nain9Dev/GameHaven"
-      }
+      { "label": "Probar demo", "url": "https://parametricad.naindev.com/" },
+      { "label": "Revisar código", "url": "https://github.com/Nain9Dev/parametricad-ai" }
     ],
     "featured": true,
     "order": 2
   },
   {
-    "id": "notification-worker",
-    "title": "Servicio de Notificaciones",
-    "status": "Demo interactiva en vivo",
-    "summary": "Arquitectura orientada a eventos para el despacho de alta concurrencia. Clean Architecture pura integrando RabbitMQ y despachadores asíncronos.",
-    "proof": "Incluye simulación en vivo conectada al clúster RabbitMQ en la nube con procesamiento en <350ms sin instalación externa.",
-    "technologies": [
-      "C#",
-      ".NET 10",
-      "Clean Architecture",
-      "MassTransit",
-      "RabbitMQ"
-    ],
-    "categories": [
-      "backend",
-      "demo"
-    ],
+    "id": "financial-management-api",
+    "title": "API de Operaciones de Pólizas",
+    "status": "Demo pública disponible",
+    "summary": "API del ciclo de vida de pólizas con aislamiento de datos por organización e historial auditable. Usa datos sintéticos.",
+    "proof": "Ciclo Borrador, Activa y Cancelada con roles JWT. Concurrencia con rowversion, ETag e If-Match, y ProblemDetails en los errores. Integración continua contra un SQL Server real.",
+    "technologies": ["C#", ".NET 10", "EF Core", "SQL Server", "Azure"],
+    "categories": ["backend", "data", "demo"],
     "links": [
-      {
-        "label": "Probar API",
-        "url": "#demo-notificaciones"
-      },
-      {
-        "label": "Revisar repositorio",
-        "url": "https://github.com/Nain9Dev/Microservicio-Notificaciones"
-      }
+      { "label": "Probar API", "url": "https://nain-policy-demo-api.azurewebsites.net/demo/" },
+      { "label": "Revisar código", "url": "https://github.com/Nain9Dev/API-Gestion-Financiera" }
     ],
     "featured": true,
     "order": 3
   },
   {
-    "id": "financial-management-api",
-    "title": "API de Operaciones de Pólizas",
-    "status": "Demo pública disponible",
-    "summary": "Sistema de control transaccional estricto. Implementa patrones de estado (Draft → Active), control de concurrencia optimista (ETag) y trazabilidad completa de auditoría en SQL Server.",
-    "proof": "Demo HTTPS desplegada en Azure F1 y Azure SQL Free. El recorrido crea una póliza, valida concurrencia con ETag, la cancela y muestra dos transiciones de auditoría con datos sintéticos.",
-    "technologies": [
-      "C#",
-      ".NET 10",
-      "ASP.NET Core",
-      "EF Core",
-      "SQL Server"
-    ],
-    "categories": [
-      "backend",
-      "data",
-      "demo"
-    ],
+    "id": "nainorder-ecommerce-api",
+    "title": "NainOrder (motor de pedidos)",
+    "status": "Código público",
+    "summary": "Motor de pedidos para comercio electrónico con Clean Architecture, DDD táctico, CQRS en lectura y panel de cliente propio.",
+    "proof": "Máquina de estados del pedido con reserva de stock en la misma transacción, concurrencia optimista (409), importes en céntimos enteros y errores RFC 7807. Panel sin compilación ni dependencias de Node.",
+    "technologies": ["C#", ".NET 10", "ASP.NET Core", "EF Core", "SQLite", "xUnit"],
+    "categories": ["backend", "data"],
     "links": [
-      {
-        "label": "Probar API",
-        "url": "https://nain-policy-demo-api.azurewebsites.net/demo/"
-      },
-      {
-        "label": "Revisar código",
-        "url": "https://github.com/Nain9Dev/API-Gestion-Financiera"
-      }
+      { "label": "Revisar código", "url": "https://github.com/Nain9Dev/NainOrder" }
     ],
     "featured": true,
     "order": 4
   },
   {
-    "id": "driving-school-management",
-    "title": "Gestión Autoescuela NainDev",
-    "status": "Demo interactiva disponible",
-    "summary": "Plataforma operativa con validación de dominio exhaustiva usando Pydantic v2. Diseño de una única fuente de verdad para lógica de negocio y contabilidad.",
-    "proof": "Demo web operativa 24/7 en Streamlit Cloud. Permite simular inscripciones, imputar clases y emitir facturas oficiales descargables al instante en formato PDF (0€ coste y almacenamiento RAM in-memory).",
-    "technologies": [
-      "Python",
-      "Clean Architecture",
-      "Streamlit",
-      "Pydantic",
-      "SQLAlchemy"
-    ],
-    "categories": [
-      "backend",
-      "data",
-      "demo"
-    ],
+    "id": "notification-worker",
+    "title": "Microservicio de notificaciones",
+    "status": "Demo en local con Docker",
+    "summary": "Despacho asíncrono de correos con Clean Architecture y DDD, con la pasarela HTTP separada del worker.",
+    "proof": "Plantillas HTML y texto compatibles con Outlook, enmascarado de datos personales en los logs, limitación de peticiones y ejecución en un proceso o escalada con workers de RabbitMQ.",
+    "technologies": ["C#", ".NET 10", "MassTransit", "RabbitMQ", "Docker"],
+    "categories": ["backend"],
     "links": [
-      {
-        "label": "Probar Demo Web",
-        "url": "https://gestion-autoescuela-nain9dev.streamlit.app/"
-      },
-      {
-        "label": "Revisar código",
-        "url": "https://github.com/Nain9Dev/Gestion-Autoescuela-Python"
-      }
+      { "label": "Revisar código", "url": "https://github.com/Nain9Dev/Microservicio-Notificaciones" }
     ],
     "featured": true,
     "order": 5
   },
   {
-    "id": "tai-study-system",
-    "title": "Sistema Oposiciones TAI",
-    "status": "Demo y diseño de datos",
-    "summary": "Demo de estudio que permite filtrar preguntas por bloque, tema y dificultad y generar un simulacro.",
-    "proof": "Incluye una demo pública con datos de prueba y scripts T-SQL para revisar el modelo relacional.",
-    "technologies": [
-      "SQL Server",
-      "T-SQL",
-      "JavaScript",
-      "Modelado de datos"
-    ],
-    "categories": [
-      "data",
-      "demo"
-    ],
+    "id": "nainconfigurator",
+    "title": "NainConfigurator",
+    "status": "Demo técnica en preparación",
+    "summary": "Configurador de productos B2B dirigido por catálogo, que admite productos distintos sin código específico por cliente.",
+    "proof": "Aislamiento por empresa, validación y precios en el servidor, y flujo completo de configurar, guardar y presupuestar aunque el visor 3D no esté disponible.",
+    "technologies": ["C#", "ASP.NET Core", "React", "TypeScript", "SQL Server"],
+    "categories": ["backend", "data", "3d"],
     "links": [
-      {
-        "label": "Abrir demo",
-        "url": "https://tai.naindev.com"
-      },
-      {
-        "label": "Revisar repositorio",
-        "url": "https://github.com/Nain9Dev/SistemaOposicionesTAI"
-      }
+      { "label": "Revisar código", "url": "https://github.com/Nain9Dev/NainConfigurator" }
     ],
-    "featured": true,
+    "featured": false,
     "order": 6
   },
   {
-    "id": "pong-arcade",
-    "title": "Pong Arcade",
-    "status": "Demo interactiva",
-    "summary": "Versión de Pong hecha con Canvas y JavaScript, con varios niveles de dificultad y modo para dos jugadores.",
-    "proof": "La demo se puede jugar en el navegador y el código está dentro de este repositorio.",
-    "technologies": [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "Canvas"
-    ],
-    "categories": [
-      "demo"
-    ],
+    "id": "driving-school-management",
+    "title": "Facturación determinista para autoescuelas",
+    "status": "Demo interactiva disponible",
+    "summary": "Motor de facturación donde la aritmética es verificable. Es una pieza de portfolio, no un producto.",
+    "proof": "Importes en Decimal con redondeo explícito, totales que cuadran sin tolerancia, DNI y NIE validados con la letra de control y generación de PDF en memoria.",
+    "technologies": ["Python", "Pydantic", "SQLAlchemy", "SQLite", "Streamlit"],
+    "categories": ["backend", "data", "demo"],
     "links": [
-      {
-        "label": "Jugar demo",
-        "url": "https://pong.naindev.com"
-      },
-      {
-        "label": "Ver código",
-        "url": "https://github.com/Nain9Dev/pong-arcade-js"
-      }
+      { "label": "Probar demo", "url": "https://gestion-autoescuela-nain9dev.streamlit.app/" },
+      { "label": "Revisar código", "url": "https://github.com/Nain9Dev/Gestion-Autoescuela-Python" }
+    ],
+    "featured": true,
+    "order": 7
+  },
+  {
+    "id": "tai-study-system",
+    "title": "Simulacros de oposición TAI",
+    "status": "Demo pública activa",
+    "summary": "Simulador de exámenes de la oposición TAI (INAP): API de preguntas y corrección, y cliente web que funciona también sin servidor.",
+    "proof": "Corrección en el servidor con la escala oficial, sesiones con cookie HttpOnly y token CSRF, cola sin conexión en IndexedDB y panel ordenado por el bloque más débil.",
+    "technologies": ["C#", ".NET 10", "Dapper", "PostgreSQL", "React", "TypeScript"],
+    "categories": ["backend", "data", "demo"],
+    "links": [
+      { "label": "Abrir demo", "url": "https://tai.naindev.com" },
+      { "label": "Código de la API", "url": "https://github.com/Nain9Dev/SistemaOposicionesTAI" },
+      { "label": "Código del cliente", "url": "https://github.com/Nain9Dev/tai-study-system-js" }
+    ],
+    "featured": true,
+    "order": 8
+  },
+  {
+    "id": "orbe-runner-3d",
+    "title": "Orbe Runner 3D",
+    "status": "Juego público",
+    "summary": "Runner 3D arcade hecho sin motor de juego, con modelos y audio procedurales.",
+    "proof": "ECS propio, niveles compuestos por bloques cuya alcanzabilidad se comprueba antes de construirlos, paso de simulación fijo y controles táctiles.",
+    "technologies": ["TypeScript", "Three.js", "Web Audio", "Vite", "Vitest"],
+    "categories": ["demo", "3d"],
+    "links": [
+      { "label": "Jugar", "url": "https://orbe.naindev.com" },
+      { "label": "Ver código", "url": "https://github.com/Nain9Dev/orbe-runner-3d" }
     ],
     "featured": false,
-    "order": 7
+    "order": 9
+  },
+  {
+    "id": "pong-arcade",
+    "title": "Pong Arcade 3D",
+    "status": "Juego público",
+    "summary": "Pong reconstruido como juego 3D en el navegador, sin instalación ni recursos externos.",
+    "proof": "Detección continua de colisiones, paso fijo con interpolación de render, IA predictiva con cuatro niveles y partidas reproducibles a partir de una semilla.",
+    "technologies": ["TypeScript", "Three.js", "Web Audio", "Vite"],
+    "categories": ["demo", "3d"],
+    "links": [
+      { "label": "Jugar", "url": "https://pong.naindev.com" },
+      { "label": "Ver código", "url": "https://github.com/Nain9Dev/pong-arcade-js" }
+    ],
+    "featured": false,
+    "order": 10
+  },
+  {
+    "id": "b2b-prospecting-pipeline",
+    "title": "Pipeline de prospección B2B con IA",
+    "status": "Privado · Prototipo en simulación",
+    "summary": "Pipeline de bajo coste que localiza empresas a partir de datos públicos, las clasifica con un LLM y genera plantillas de email. No envía correo.",
+    "proof": "Clasificación de sector, tamaño y prioridad con un modelo ligero, alertas y ejecución programada. Se detiene antes del envío, en modo simulación.",
+    "technologies": ["Python", "LLM", "GitHub Actions"],
+    "categories": ["data"],
+    "links": [],
+    "private": true,
+    "featured": false,
+    "order": 11
+  },
+  {
+    "id": "local-rewriting-agent",
+    "title": "Agente local de reescritura en español",
+    "status": "Privado · Preliminar",
+    "summary": "Agente local que reescribe borradores en español de España conservando el significado, las condiciones y los literales protegidos.",
+    "proof": "Un LLM local reescribe y un validador determinista de invariantes lo comprueba. Si dos auditores independientes no aprueban, el resultado pasa a revisión humana.",
+    "technologies": ["Python", "Ollama", "LanguageTool"],
+    "categories": ["data"],
+    "links": [],
+    "private": true,
+    "featured": false,
+    "order": 12
+  },
+  {
+    "id": "local-quotation-generator",
+    "title": "Generador local de presupuestos y borradores de factura",
+    "status": "Privado · Primera versión",
+    "summary": "Preparación local de presupuestos, proformas y borradores de factura con exportación a PDF. No emite facturas fiscales definitivas.",
+    "proof": "Funciona solo en la máquina local, con ayuda opcional de un LLM local para redactar.",
+    "technologies": ["Python", "Ollama"],
+    "categories": ["data"],
+    "links": [],
+    "private": true,
+    "featured": false,
+    "order": 13
+  },
+  {
+    "id": "self-hosted-ci-runners",
+    "title": "Flota local de runners de GitHub Actions",
+    "status": "Privado · En uso",
+    "summary": "CLI que gestiona runners self-hosted de GitHub Actions en un equipo de escritorio para repositorios privados, con coste de CI cero.",
+    "proof": "Rechaza repositorios públicos, no guarda tokens de registro y permite devolver los trabajos a los runners de GitHub con una variable. Tiene pruebas herméticas.",
+    "technologies": ["Bash", "WSL", "Docker", "GitHub Actions"],
+    "categories": ["backend"],
+    "links": [],
+    "private": true,
+    "featured": false,
+    "order": 14
+  },
+  {
+    "id": "gamehaven-blazor-store",
+    "title": "GameHaven",
+    "status": "Proyecto de formación · Demo web",
+    "summary": "Tienda de juegos independientes en Blazor WebAssembly con API propia, evolución de una primera versión de escritorio.",
+    "proof": "Separación en capas de API, aplicación, dominio e infraestructura, con despliegue del frontend en GitHub Pages.",
+    "technologies": ["C#", ".NET 10", "Blazor WebAssembly", "SQLite"],
+    "categories": ["backend", "demo"],
+    "links": [
+      { "label": "Probar tienda", "url": "https://nain9dev.github.io/GameHaven/" },
+      { "label": "Revisar código", "url": "https://github.com/Nain9Dev/GameHaven" }
+    ],
+    "featured": false,
+    "order": 15
+  },
+  {
+    "id": "havetickets",
+    "title": "HaveTickets",
+    "status": "Proyecto de formación · En desarrollo",
+    "summary": "Sistema de tickets de soporte con cliente en Blazor WebAssembly y Minimal API.",
+    "proof": "Proyectos separados de dominio, aplicación, infraestructura y contratos.",
+    "technologies": ["C#", ".NET 10", "Blazor WebAssembly", "ASP.NET Core"],
+    "categories": ["backend"],
+    "links": [
+      { "label": "Revisar código", "url": "https://github.com/Nain9Dev/HaveTickets" }
+    ],
+    "featured": false,
+    "order": 16
+  },
+  {
+    "id": "driving-exam-simulator",
+    "title": "Simulador de conducción 3D para el examen práctico",
+    "status": "Privado · En planificación",
+    "summary": "Simulador 3D del examen práctico del permiso B con puntuación determinista de las faltas.",
+    "proof": "Diseño de la transmisión manual (embrague, calado y marchas), comprobaciones previas del vehículo y clasificación de faltas en leves, deficientes y eliminatorias.",
+    "technologies": ["C#", ".NET", "TypeScript", "Three.js"],
+    "categories": ["3d"],
+    "links": [],
+    "private": true,
+    "featured": false,
+    "order": 17
   }
 ]
