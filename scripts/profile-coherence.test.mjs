@@ -83,6 +83,13 @@ test('PRJ-002: private entries have no links and no confidential names', async (
   assert.match(catalog, /project\.private/);
 });
 
+test('PRJ-004: public live demos are linked from the catalog (specs/015-catalog-demo-links)', async () => {
+  const projects = await readJson('public/assets/data/projects.json');
+  const order = projects.find((project) => project.id === 'nainorder-ecommerce-api');
+  assert.ok(order.links.some((link) => link.url === 'https://nainorder.onrender.com/index.html'));
+  assert.match(order.status, /Demo pública/);
+});
+
 test('PRJ-003: the catalog carries no unverified performance figures', async () => {
   const raw = await read('public/assets/data/projects.json');
   assert.doesNotMatch(raw, /\d+\s?ms\b|latencia cero|[<>]\s?\d/i);

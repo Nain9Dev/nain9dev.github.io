@@ -123,4 +123,5 @@ Before the copy change, `scripts/offer-copy.test.mjs` failed 6 of 6 and the new 
 | COPY-010 to COPY-014 | `scripts/profile-coherence.test.mjs` tests of the same IDs; COPY-004 test updated for the new `experience` wording | unit | Pass: local `npm run check` 2026-09-27 |
 | COPY-015 to COPY-018 | `scripts/services-coherence.test.mjs` tests of the same IDs (COPY-017 scans components, pages and content) | unit | Pass: local `npm run check` 2026-09-27 |
 | SEO-011 to SEO-013 | `scripts/seo-profile.test.mjs` tests of the same IDs; `scripts/check-seo.mjs` keeps validating uniqueness and SEO-003 over `dist/` | unit + contract | Pass: local `npm run check` 2026-09-27 |
+| PRJ-004 | `scripts/profile-coherence.test.mjs` "PRJ-004: public live demos are linked from the catalog" | unit | Pass: local `npm run check` 2026-09-27 |
 | PRJ-001 to PRJ-003 | `scripts/profile-coherence.test.mjs` tests of the same IDs. Factual accuracy of each entry against its README is checked by manual review only | unit + manual | Pass: local `npm run check` 2026-09-27 |

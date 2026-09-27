@@ -58,12 +58,13 @@
   {
     "id": "nainorder-ecommerce-api",
     "title": "NainOrder (motor de pedidos)",
-    "status": "Código público",
+    "status": "Demo pública activa",
     "summary": "Motor de pedidos para comercio electrónico con Clean Architecture, DDD táctico, CQRS en lectura y panel de cliente propio.",
     "proof": "Máquina de estados del pedido con reserva de stock en la misma transacción, concurrencia optimista (409), importes en céntimos enteros y errores RFC 7807. Panel sin compilación ni dependencias de Node.",
     "technologies": ["C#", ".NET 10", "ASP.NET Core", "EF Core", "SQLite", "xUnit"],
     "categories": ["backend", "data"],
     "links": [
+      { "label": "Probar API", "url": "https://nainorder.onrender.com/index.html" },
       { "label": "Revisar código", "url": "https://github.com/Nain9Dev/NainOrder" }
     ],
     "featured": true,

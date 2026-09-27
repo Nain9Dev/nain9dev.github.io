@@ -6,6 +6,7 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ### Changed
 
+- Spec 015: the NainOrder catalog entry links its live API demo, matching the GitHub profile.
 - Spec 014: the home services section presents multi-domain conformance and a Python and .NET critical backend; "escala industrial", USD support, real-time conversion and "thousands of validations per hour" are removed from the 3D service page and blog copy.
 - Spec 013: home title and description, Person job title and blog and service hub titles follow the full stack architect profile instead of "Arquitectura Backend, 3D e IA".
 - Spec 012: the hero presents multi-domain conformance and the current stack, the trophy badge is replaced by factual traits, the tech stack section and terminal match the GitHub and LinkedIn profiles, and the project catalog lists every public project plus seven anonymized private ones, without unverified performance figures. Adds CC0 Simple Icons for Vue, PostgreSQL, Tailwind CSS, Astro, Pydantic, GitHub Actions and MCP.

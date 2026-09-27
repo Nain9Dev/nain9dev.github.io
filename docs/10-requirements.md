@@ -143,4 +143,5 @@ Spec 005 is committed as `c78c854`; production confirmation after deployment is 
 | COPY-018 | When the 3D validation service page is built, it shall not claim USD support or real-time conversion. | specs/014-services-coherence | Implemented |
 | PRJ-001 | When the project catalog is served, it shall list every public project of the owner and the private projects he approved. | specs/012-profile-coherence | Implemented |
 | PRJ-002 | When a catalog entry is private, it shall have no links, show that its code is private and contain no product, partner, client or employer names or internal identifiers. | specs/012-profile-coherence | Implemented |
+| PRJ-004 | When a public project has a live demo, its catalog entry shall link it and its status shall say the demo is public. | specs/015-catalog-demo-links | Implemented |
 | PRJ-003 | When the catalog is built, it shall not contain unverified performance figures. | specs/012-profile-coherence | Implemented |

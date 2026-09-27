@@ -6504,11 +6504,6 @@
     "target": "Vue 3 icon",
     "status": "reviewed"
   },
-  "4863ecd433bf6508f2714f6da51d5acc4919e2be5eae86a40267403eed0f4b7c": {
-    "source": "Código público",
-    "target": "Public code",
-    "status": "reviewed"
-  },
   "4b47729de7d80941fe34bd21f4b088a7ae2ef3704831e861bdd267bebedb3145": {
     "source": "ECS propio, niveles compuestos por bloques cuya alcanzabilidad se comprueba antes de construirlos, paso de simulación fijo y controles táctiles.",
     "target": "Custom ECS, levels built from chunks whose reachability is checked before they are built, a fixed simulation step and touch controls.",
