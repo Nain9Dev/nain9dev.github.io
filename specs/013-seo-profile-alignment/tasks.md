@@ -6,5 +6,5 @@
 - [x] [A] Reviewed English translations (9 segments); unused entries removed.
 - [x] [A] Requirements, traceability and changelog.
 - [x] [A] Full `npm run check` (2026-09-27: all tests pass, SEO contract passes, 0 pending translations; built titles verified ES and EN).
-- [ ] [H] Commit and deploy.
-- [ ] [A] Production check.
+- [x] [H] Commit and deploy (`d1c71f5`, deploy workflow passed 2026-09-27).
+- [x] [A] Production check (2026-09-27: home titles read "Arquitecto de Software Full Stack" and "Full Stack Software Architect").

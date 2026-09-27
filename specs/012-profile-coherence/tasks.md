@@ -6,5 +6,5 @@
 - [x] [A] Reviewed English translations (126 segments); 80 unused entries removed.
 - [x] [A] Requirements, traceability and changelog.
 - [x] [A] Full `npm run check` (2026-09-27: all tests pass, 0 pending translations). Local preview: 18 cards, 7 private, ES and EN.
-- [ ] [H] Commit and deploy.
-- [ ] [A] Production check (ES/EN).
+- [x] [H] Commit and deploy (`320eedb`, deploy workflow passed 2026-09-27).
+- [x] [A] Production check (2026-09-27: hero reads the new copy in ES/EN; production catalog serves 18 projects, 7 private).
