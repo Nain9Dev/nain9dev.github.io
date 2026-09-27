@@ -9,7 +9,7 @@ keywords: ["C# .NET", "Arquitectura", "Clean Architecture", "Sistemas 3D / IA"]
 
 Estás liderando un equipo de ingeniería ambicioso. Habéis integrado modelos de inteligencia artificial capaces de generar y analizar mallas 3D a velocidades increíbles. El producto funciona en pruebas, la directiva está emocionada, pero como Arquitecto de Software o CTO, sabes que hay un problema subyacente: **el código es una bomba de relojería**.
 
-La validación de modelos 3D a escala industrial (geometrías, análisis de mallas, inferencia de ML) es intrincada. Cuando los ingenieros acoplan directamente la lógica del motor geométrico (como Unity o herramientas CAD) con los servicios de inferencia de IA y las reglas de negocio, el resultado es un monolito espagueti. Actualizar la versión del modelo de IA o cambiar la forma en que se almacenan los archivos `.obj` o `.glb` rompe validaciones crípticas a miles de kilómetros de distancia en el código.
+La validación de modelos 3D en volumen (geometrías, análisis de mallas, inferencia de ML) es intrincada. Cuando los ingenieros acoplan directamente la lógica del motor geométrico (como Unity o herramientas CAD) con los servicios de inferencia de IA y las reglas de negocio, el resultado es un monolito espagueti. Actualizar la versión del modelo de IA o cambiar la forma en que se almacenan los archivos `.obj` o `.glb` rompe validaciones crípticas a miles de kilómetros de distancia en el código.
 
 ¿Por qué fallan los enfoques monolíticos tradicionales aquí? Porque en el dominio del 3D y la IA, la **infraestructura es extremadamente volátil**. Hoy usas un proveedor LLM/Visión específico, mañana la empresa decide entrenar su propio modelo. Hoy usas un motor de render, mañana te mueves a la nube.
 

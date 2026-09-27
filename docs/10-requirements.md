@@ -137,6 +137,10 @@ Spec 005 is committed as `c78c854`; production confirmation after deployment is 
 | COPY-012 | When the home page is built, no badge shall present a self-assigned title as market validation. | specs/012-profile-coherence | Implemented |
 | COPY-013 | When the tech stack section is built, it shall list the default stack, each technology with an existing icon file. | specs/012-profile-coherence | Implemented |
 | COPY-014 | When the terminal `experience` command is served, it shall describe the full-time role as ".NET developer in the insurance sector" with its verified stack, without naming the employer or attributing ASP.NET Core to it; `stack` shall list the default stack by area. | specs/012-profile-coherence | Implemented |
+| COPY-015 | When the home page is built, the first service card shall describe deterministic multi-domain conformance with 3D (glTF/GLB) as the first domain, without USD or real-time claims. | specs/014-services-coherence | Implemented |
+| COPY-016 | When the home page is built, the critical backend card shall name Python and .NET, and PostgreSQL and SQL Server. | specs/014-services-coherence | Implemented |
+| COPY-017 | When any source page or content entry is built, it shall not contain "escala industrial". | specs/014-services-coherence | Implemented |
+| COPY-018 | When the 3D validation service page is built, it shall not claim USD support or real-time conversion. | specs/014-services-coherence | Implemented |
 | PRJ-001 | When the project catalog is served, it shall list every public project of the owner and the private projects he approved. | specs/012-profile-coherence | Implemented |
 | PRJ-002 | When a catalog entry is private, it shall have no links, show that its code is private and contain no product, partner, client or employer names or internal identifiers. | specs/012-profile-coherence | Implemented |
 | PRJ-003 | When the catalog is built, it shall not contain unverified performance figures. | specs/012-profile-coherence | Implemented |

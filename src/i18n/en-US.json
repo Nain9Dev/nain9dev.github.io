@@ -409,11 +409,6 @@
     "target": "We define the content structure (sitemap), the conversion funnel, and the base ⟦0⟧wireframe⟦/0⟧ to ensure the message reaches your ideal client clearly.",
     "status": "reviewed"
   },
-  "1091d20d42dd579351d5605f9b99cf093f8922971f5ff7f84abc95e5261a0e5f": {
-    "source": "La validación de modelos 3D a escala industrial (geometrías, análisis de mallas, inferencia de ML) es intrincada. Cuando los ingenieros acoplan directamente la lógica del motor geométrico (como Unity o herramientas CAD) con los servicios de inferencia de IA y las reglas de negocio, el resultado es un monolito espagueti. Actualizar la versión del modelo de IA o cambiar la forma en que se almacenan los archivos ⟦0/⟧ o ⟦1/⟧ rompe validaciones crípticas a miles de kilómetros de distancia en el código.",
-    "target": "Industrial-scale 3D model validation (geometries, mesh analysis, ML inference) is intricate. When engineers directly couple the geometric engine logic (like Unity or CAD tools) with AI inference services and business rules, the result is a spaghetti monolith. Updating the AI model version or changing how the files ⟦0/⟧ or ⟦1/⟧ are stored breaks cryptic validations miles away in the code.",
-    "status": "reviewed"
-  },
   "10b3af0686f4ce7876a05180a58db25a39455b9fedfa7c3b6fdee085e8e3a298": {
     "source": "El Cambio: Ingeniería predecible frente al caos",
     "target": "The Shift: Predictable Engineering vs. Chaos",
@@ -989,19 +984,9 @@
     "target": "Aug 23, 2026",
     "status": "reviewed"
   },
-  "28363f8744d449c166928a16e22752a01d3b03900b4c98639e98cc267c431772": {
-    "source": "El procesamiento de modelos 3D (validación geométrica, decimation, parsing de mallas) ha sido tradicionalmente territorio de C++ y aplicaciones de escritorio. Sin embargo, con el auge de la IA Generativa creando miles de assets 3D por minuto, las empresas necesitan llevar este procesamiento a la nube a escala industrial.",
-    "target": "Processing 3D models (geometric validation, decimation, mesh parsing) has traditionally been the domain of C++ and desktop applications. However, with the rise of Generative AI creating thousands of 3D assets per minute, companies need to move this processing to the cloud at an industrial scale.",
-    "status": "reviewed"
-  },
   "2851657fe4bdffafa923a0aab04eb6c02419a9dd69b61e9640fc62ee84a86104": {
     "source": "⟦0⟧Infrastructure (Adapters):⟦/0⟧ El “mundo real”. Aquí implementamos las interfaces definidas en la capa Application. Tendremos adaptadores como ⟦1/⟧, ⟦2/⟧ o un ⟦3/⟧.",
     "target": "⟦0⟧Infrastructure (Adapters):⟦/0⟧ The “real world.” Here we implement the interfaces defined in the Application layer. We will have adapters such as ⟦1/⟧, ⟦2/⟧, or a ⟦3/⟧.",
-    "status": "reviewed"
-  },
-  "2853fb0cec2295b9a815fbefdd188a879de4a9f331db89bfc16d9f2662eb3a61": {
-    "source": "⟦0⟧Formatos Agnósticos:⟦/0⟧ Integración con estándares de la industria (glTF, USD, OBJ) con pipelines de conversión y sanitización en tiempo real.",
-    "target": "⟦0⟧Format Agnostic:⟦/0⟧ Integration with industry standards (glTF, USD, OBJ) with real-time conversion and sanitization pipelines.",
     "status": "reviewed"
   },
   "287ac9932154de24a0da3a78e20f15b657d89e853b681bc7f94c03c4426474b6": {
@@ -1372,11 +1357,6 @@
   "36e016134da9d34b0d9d02d6dba981fe4e1ff52b4a7b743a183bfffe42c9097c": {
     "source": "El Patrón Arquitectónico Correcto: Worker Queues",
     "target": "The Correct Architectural Pattern: Worker Queues",
-    "status": "reviewed"
-  },
-  "3701e781db91c467fc77982140c2b66546979511efe4af3faa8280df59055edf": {
-    "source": "Clean Architecture (Backend Híbrido)",
-    "target": "Clean Architecture (Hybrid Backend)",
     "status": "reviewed"
   },
   "37298097c26e9f204dbc7c77ddd7be3c62edf4f22ebbb1b8260f37d1929df8e7": {
@@ -1987,11 +1967,6 @@
   "513731d938631df6f2d2b50fd56a18b4c3f28d2a2b89e42a49827b3eaa0c1b93": {
     "source": "Si tus usuarios experimentan “ruedas de carga” infinitas o errores 504 Gateway Timeout, necesitas refactorizar el flujo de tu IA.",
     "target": "If your users experience infinite loading spinners or 504 Gateway Timeout errors, you need to refactor your AI flow.",
-    "status": "reviewed"
-  },
-  "52035f0afa93489d541102e6a03e98013cda1cc6b504d5fb1d7a9b447ee3612b": {
-    "source": "Validación Determinista a Escala Industrial",
-    "target": "Deterministic Validation at Industrial Scale",
     "status": "reviewed"
   },
   "52476de08a7efc3dee96f756d145498e639734aab51b8bd8c181c471d38849ac": {
@@ -2704,11 +2679,6 @@
     "target": "Microservices Projects and Services",
     "status": "reviewed"
   },
-  "713b11d2844bea2f454662094189a03d069597272fbd7d3eb78fee62dbfa19a1": {
-    "source": "Descubre cómo diseñar una infraestructura robusta y escalable en .NET (C#) capaz de procesar y validar modelos 3D generados por IA a escala industrial.",
-    "target": "Discover how to design a robust and scalable infrastructure in .NET (C#) capable of processing and validating AI-generated 3D models at industrial scale.",
-    "status": "reviewed"
-  },
   "719389267508e441467a649dd24460c7100b045123aa3644d00ee1c258a0ed54": {
     "source": "28 ago 2026",
     "target": "Aug 28, 2026",
@@ -2747,16 +2717,6 @@
   "73389e60fff6f8d1320766c46cd318812d03e5e9d0c602e0930bfda34e002c6b": {
     "source": "Ver detalles",
     "target": "View details",
-    "status": "reviewed"
-  },
-  "733995bec73cbe68da73dd6101b0911428c25da0814a2c8b257a2f5fac16d45e": {
-    "source": "Backend Crítico (.NET/SQL)",
-    "target": "Critical Backend (.NET/SQL)",
-    "status": "reviewed"
-  },
-  "7350837f43511e07930d4a7d58d3dee1ac7a0e0885240cda9955622762a46574": {
-    "source": "Arquitectura de Validación 3D",
-    "target": "3D Validation Architecture",
     "status": "reviewed"
   },
   "73a88edbddf187328ccee57f7f089f3031e100688e483eac90e83cb7acdba015": {
@@ -2897,11 +2857,6 @@
   "79118a0e73fae44646c01dda5bc8d71f7a89bcc5ecc21e793425e6229f5a8861": {
     "source": "El éxito en la nube no se trata solo de escribir código, sino de diseñar la infraestructura adecuada. Si logras aislar las responsabilidades con Clean Architecture y usar la memoria de forma inteligente, tu backend .NET podrá procesar millones de modelos 3D al mes a un coste mínimo.",
     "target": "Cloud success isn't just about writing code; it's about designing the right infrastructure. If you can isolate responsibilities with Clean Architecture and use memory intelligently, your .NET backend can process millions of 3D models per month at minimal cost.",
-    "status": "reviewed"
-  },
-  "79432ccb402848f897ba0fcecfe7356b2e7c90ff1d576abf0c3e8d8c423963a4": {
-    "source": "Procesado en tiempo real",
-    "target": "Real-time processing",
     "status": "reviewed"
   },
   "7955dc6e435f3705e51a0a754a2fbfafac21c64f5028aad1d418c67a5475b48a": {
@@ -4094,11 +4049,6 @@
     "target": "FastAPI Icon",
     "status": "reviewed"
   },
-  "ab73e2c7617e8af111ebaa5eb19689de112a441e087a64b894e9b9a60b51f2e5": {
-    "source": "Control de concurrencia (ETag)",
-    "target": "Concurrency Control (ETag)",
-    "status": "reviewed"
-  },
   "abbe11e6a2e7bfaa7d5146af2eb1a907977317aa9b0f507ee1f536a32d60c3f2": {
     "source": "Al cargar mallas gigantes, queremos evitar agotar la RAM. Para modelos extremadamente pesados, podemos usar flujos (streams) y evitar cargar todo el buffer a la vez si el parser lo permite.",
     "target": "When loading giant meshes, we want to avoid exhausting RAM. For extremely heavy models, we can use streams and avoid loading the entire buffer at once if the parser allows it.",
@@ -4287,11 +4237,6 @@
   "b51fd315372e51984b31f591acb1a1c699fc549d577753a3b250f907ce6e55be": {
     "source": "4. Manejo de la Incertidumbre: Puertos y Adaptadores",
     "target": "4. Handling Uncertainty: Ports and Adapters",
-    "status": "reviewed"
-  },
-  "b56edee9e93360af643e43bee4d99f9547037e2d60a89cdfd6daca661c67a6bf": {
-    "source": "Pipelines deterministas en C#/.NET para validar topologías 3D generadas por IA a escala industrial.",
-    "target": "Deterministic pipelines in C#/.NET to validate 3D topologies generated by AI at industrial scale.",
     "status": "reviewed"
   },
   "b5d8dca0f01d33a43150549ed747ebfc5a73ae3ea1649404b652860b2ac4a560": {
@@ -4589,11 +4534,6 @@
     "target": "Aug 19, 2026",
     "status": "reviewed"
   },
-  "be9d1999bde5b37b9ec58da0b468e5f90b301b69f906b978ff2cc1df76d9f92f": {
-    "source": "Bases de datos de alto rendimiento",
-    "target": "High-performance databases",
-    "status": "reviewed"
-  },
   "bed40a6bffba0055b3f449105dc6b83d6577d52296b909bce1b3160ec15477c7": {
     "source": "Icono de GitHub",
     "target": "GitHub Icon",
@@ -4747,11 +4687,6 @@
   "c74a2b3789d86cb3d151c0179a22eea67239ef99ae3d22de44db4679fc9f89ec": {
     "source": "Diagrama de Arquitectura (C4 Container)",
     "target": "Architecture Diagram (C4 Container)",
-    "status": "reviewed"
-  },
-  "c778c1f03a10a889ad8af5a56798913c1ec4038c95c6dc4a5c08712999bbff05": {
-    "source": "Ingeniería de Software y Arquitectura Backend",
-    "target": "Software Engineering and Backend Architecture",
     "status": "reviewed"
   },
   "c77dc5927dbfdb10cae0f855b683abac19bdf9752690cbde72626115bb28949b": {
@@ -5219,11 +5154,6 @@
     "target": "We define pure interfaces in C# (Ports) like ⟦0/⟧.",
     "status": "reviewed"
   },
-  "dcc4619f2674e4dc9013ec07076c853c8f5861da7de31f8299a406cdd84ff175": {
-    "source": "Sistemas distribuidos de misión crítica donde la consistencia del dato y la escalabilidad son innegociables.",
-    "target": "Mission-critical distributed systems where data consistency and scalability are non-negotiable.",
-    "status": "reviewed"
-  },
   "dcdb6342f46e062f5d8cbb18fcdcefa94a47363e413bc675beb9075a4ba3ecf7": {
     "source": "Arquitectura en .NET 10 + Clean Architecture + MassTransit. Al pulsar el botón, el Gateway API delega el evento en vivo al clúster de CloudAMQP (RabbitMQ) y el Worker Service asíncrono lo consume y renderiza el correo HTML en tiempo real.",
     "target": "Architecture in .NET 10 + Clean Architecture + MassTransit. Upon clicking the button, the Gateway API delegates the live event to the CloudAMQP (RabbitMQ) cluster, and the asynchronous Worker Service consumes it and renders the HTML email in real time.",
@@ -5297,11 +5227,6 @@
   "de43df2e5152186bf20ef939afed9890b8b878cf06d0dc91e9ca8613858f9763": {
     "source": "Parseo Eficiente de Grandes Modelos",
     "target": "Efficient Parsing of Large Models",
-    "status": "reviewed"
-  },
-  "de9934233a688a1ba3a1ab771dd5f302910b2690d71690668c5eda2888da31f5": {
-    "source": "Pipelines deterministas para el procesado masivo y corrección geométrica de assets 3D a escala industrial.",
-    "target": "Deterministic pipelines for mass processing and geometric correction of 3D assets at an industrial scale.",
     "status": "reviewed"
   },
   "debc714767407628243cceda3e9c93149654bfa6e45a2cfafb1ef1162ccf8735": {
@@ -5449,11 +5374,6 @@
     "target": "1. Active listening to business logic",
     "status": "reviewed"
   },
-  "e5a4cdae48f0531fedd7ddea16c443ae88a0e027a5329418a02c06bcaef51456": {
-    "source": "Sistemas agnósticos (glTF, USD)",
-    "target": "Agnostic systems (glTF, USD)",
-    "status": "reviewed"
-  },
   "e6169e958b37ce8662817b0f3e0bf450a174742fafc527800e67f430738b4b63": {
     "source": "Docker",
     "target": "Docker",
@@ -5537,11 +5457,6 @@
   "e89c6eddc454ab221e8d1127fe5028a0bda251b4d7eaf404491ab98567144b3d": {
     "source": "Comando no encontrado:",
     "target": "Command not found:",
-    "status": "reviewed"
-  },
-  "e935a09485bbe5d286b27bb9b76fd2713bf9e17042207f03824006d5b9fbcef0": {
-    "source": "⟦0⟧Procesamiento Masivo:⟦/0⟧ Arquitecturas orientadas a eventos (Event-Driven) para escalar horizontalmente y manejar miles de validaciones 3D por hora sin cuellos de botella.",
-    "target": "⟦0⟧Mass Processing:⟦/0⟧ Event-Driven Architectures to scale horizontally and handle thousands of 3D validations per hour without bottlenecks.",
     "status": "reviewed"
   },
   "e9888e7f30025057428ca9a22e9a56809350472575807da86c5e7d8d542888c0": {
@@ -7132,6 +7047,91 @@
   "e1c7ec3a721f68dd16e29c511bcbdfb368a98effaa4a7977440ffb26f3200303": {
     "source": "Servicios de arquitectura de software | NainDev",
     "target": "Software architecture services | NainDev",
+    "status": "reviewed"
+  },
+  "07eda2faa06bb9b92cb2197da1253ea9dfcba2a897d7db54c0f7b2a0c9d29a57": {
+    "source": "Clean Architecture y arquitectura en capas",
+    "target": "Clean Architecture and layered architecture",
+    "status": "reviewed"
+  },
+  "137e2b4c47eacfbd29e73bcb51dd957767db2c1f678a74cfa8bae4f82b52fd5e": {
+    "source": "Control de concurrencia (versiones y ETag)",
+    "target": "Concurrency control (versions and ETag)",
+    "status": "reviewed"
+  },
+  "152f0d41e6fae463db95763e91ad8adfb405eab04e5a0a11419ad429e215f978": {
+    "source": "La validación de modelos 3D en volumen (geometrías, análisis de mallas, inferencia de ML) es intrincada. Cuando los ingenieros acoplan directamente la lógica del motor geométrico (como Unity o herramientas CAD) con los servicios de inferencia de IA y las reglas de negocio, el resultado es un monolito espagueti. Actualizar la versión del modelo de IA o cambiar la forma en que se almacenan los archivos ⟦0/⟧ o ⟦1/⟧ rompe validaciones crípticas a miles de kilómetros de distancia en el código.",
+    "target": "High-volume 3D model validation (geometries, mesh analysis, ML inference) is intricate. When engineers directly couple the geometric engine logic (like Unity or CAD tools) with AI inference services and business rules, the result is a spaghetti monolith. Updating the AI model version or changing how the files ⟦0/⟧ or ⟦1/⟧ are stored breaks cryptic validations miles away in the code.",
+    "status": "reviewed"
+  },
+  "1dbaaee81bfe845dc9ece691301550e8bd99e85e07dd99a369cbc974608e701b": {
+    "source": "⟦0⟧Veredictos reproducibles:⟦/0⟧ Cada validación aplica un perfil versionado y emite el mismo resultado para el mismo archivo, con informes en JSON canónico y Markdown.",
+    "target": "⟦0⟧Reproducible verdicts:⟦/0⟧ Every validation applies a versioned profile and returns the same result for the same file, with canonical JSON and Markdown reports.",
+    "status": "reviewed"
+  },
+  "40c6c5af71d67666d80a2311d64267d96af6f519fc0cc0c25c92de4ca80bd13e": {
+    "source": "Backend crítico (Python y .NET)",
+    "target": "Critical backend (Python and .NET)",
+    "status": "reviewed"
+  },
+  "48530a4c6afb6176ff314675e82f8cacb3a44580d7d2e96c006cefc701ea6eba": {
+    "source": "El procesamiento de modelos 3D (validación geométrica, decimation, parsing de mallas) ha sido tradicionalmente territorio de C++ y aplicaciones de escritorio. Sin embargo, con el auge de la IA Generativa creando miles de assets 3D por minuto, las empresas necesitan llevar este procesamiento a la nube y escalarlo.",
+    "target": "Processing 3D models (geometric validation, decimation, mesh parsing) has traditionally been the domain of C++ and desktop applications. However, with the rise of Generative AI creating thousands of 3D assets per minute, companies need to move this processing to the cloud and scale it.",
+    "status": "reviewed"
+  },
+  "659140f789bf49e5be49dc657a3247f8cc61222ba9d835af79f4f64b6882219c": {
+    "source": "Modernización incremental de .NET Framework",
+    "target": "Incremental .NET Framework modernization",
+    "status": "reviewed"
+  },
+  "73ca782f5a3ca581710426bfd672dee72b78b2079ce9a786bed49f00397ab050": {
+    "source": "Descubre cómo diseñar una infraestructura robusta y escalable en .NET (C#) capaz de procesar y validar en volumen modelos 3D generados por IA.",
+    "target": "Discover how to design a robust and scalable infrastructure in .NET (C#) capable of processing and validating AI-generated 3D models in volume.",
+    "status": "reviewed"
+  },
+  "92cee3586b4ee87b7e36937bf309c8bc09e2333e3cd290d459b8de95472bebf6": {
+    "source": "Conformidad determinista de productos",
+    "target": "Deterministic product conformance",
+    "status": "reviewed"
+  },
+  "b93a2d27640b05f3781c2a15563bde9f7d83e49708d0e513e164bdebf4faf34d": {
+    "source": "Perfiles versionados por dominio (primero glTF/GLB)",
+    "target": "Versioned profiles per domain (glTF/GLB first)",
+    "status": "reviewed"
+  },
+  "bb865e086929ee8232cc41025b70e8a291641bc673a1a0e8d4cddb85c89821c6": {
+    "source": "Sistemas de misión crítica donde la consistencia del dato es innegociable, sobre PostgreSQL y SQL Server.",
+    "target": "Mission-critical systems where data consistency is non-negotiable, on PostgreSQL and SQL Server.",
+    "status": "reviewed"
+  },
+  "be1ca79e8d64cdb510a589121bcd8acd9b9d157f5cda7de2a58277f63efe4964": {
+    "source": "Validación determinista de modelos 3D",
+    "target": "Deterministic 3D model validation",
+    "status": "reviewed"
+  },
+  "d533dc13180d6b5e146012a06dfe29bdbf90d0f84b929f9a2e490b036cd99bdb": {
+    "source": "Arquitectura multidominio que valida cada producto contra especificaciones versionadas. El primer dominio son los modelos 3D.",
+    "target": "Multi-domain architecture that validates every product against versioned specifications. Its first domain is 3D models.",
+    "status": "reviewed"
+  },
+  "e345a080cd0d78cbadb9f2b5349beb2dc14c40b2277e4ccd16d9c58b47a6e40e": {
+    "source": "Validación determinista de modelos 3D generados por IA, con perfiles versionados, veredictos reproducibles y backends en Python y .NET.",
+    "target": "Deterministic validation of AI-generated 3D models, with versioned profiles, reproducible verdicts and Python and .NET backends.",
+    "status": "reviewed"
+  },
+  "ea276fcc3f63977eb1aeaf6b611ac1cd352231d76d5b657e03706573da5d7f29": {
+    "source": "Ingeniería y arquitectura de software",
+    "target": "Software engineering and architecture",
+    "status": "reviewed"
+  },
+  "f5c236bff63faa97c7414f205b38bb1a277be07a445631f36011addad86e7aa4": {
+    "source": "Veredictos reproducibles y reparación bajo contrato",
+    "target": "Reproducible verdicts and repair under contract",
+    "status": "reviewed"
+  },
+  "fb0be3c4d95d15e00d94ee68ffd3c477080d2cb67a022d1397f9f0f6bbd2a3ee": {
+    "source": "⟦0⟧Formatos estándar:⟦/0⟧ Validación de contenedores glTF/GLB, con reparación bajo contrato y revalidación automática.",
+    "target": "⟦0⟧Standard formats:⟦/0⟧ Validation of glTF/GLB containers, with repair under contract and automatic revalidation.",
     "status": "reviewed"
   }
 }
