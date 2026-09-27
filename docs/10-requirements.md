@@ -38,6 +38,9 @@ Status values: `Implemented` (released, evidence recorded in the spec handoff), 
 | SEO-007 | When Google extracts a snippet, shared header and footer boilerplate shall be excluded with supported `data-nosnippet` containers; main content shall stay eligible; primary navigation shall link to the service and blog hubs (the case hub clause is superseded by CASE-002). | specs/002-search-brand-presentation | Implemented |
 | SEO-008 | When the skip link is followed, every indexable page shall provide a main-content target. | specs/002-search-brand-presentation | Implemented |
 | SEO-009 | When `npm run check` runs, it shall validate icon framing and the generated site's metadata, structured data, sitemap, internal links and index policy. | specs/002-search-brand-presentation | Implemented |
+| SEO-011 | When the home page is built, its title shall read "NainDev \| Aitor Nain · Arquitecto de Software Full Stack" and its description shall mention deterministic conformance, Python and .NET. | specs/013-seo-profile-alignment | Implemented |
+| SEO-012 | When any page is rendered, the Person structured data shall carry the job title "Arquitecto de Software Full Stack". | specs/013-seo-profile-alignment | Implemented |
+| SEO-013 | When the blog and service hubs are built, their titles shall not read "Arquitectura Backend 3D e IA" and shall keep the NainDev suffix. | specs/013-seo-profile-alignment | Implemented |
 | SEO-010 | When collection content declares a social image, the generated page shall refer to an existing asset; stale references shall use the collection default. | specs/002-search-brand-presentation | Implemented |
 
 ## English localization

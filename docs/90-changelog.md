@@ -6,6 +6,7 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ### Changed
 
+- Spec 013: home title and description, Person job title and blog and service hub titles follow the full stack architect profile instead of "Arquitectura Backend, 3D e IA".
 - Spec 012: the hero presents multi-domain conformance and the current stack, the trophy badge is replaced by factual traits, the tech stack section and terminal match the GitHub and LinkedIn profiles, and the project catalog lists every public project plus seven anonymized private ones, without unverified performance figures. Adds CC0 Simple Icons for Vue, PostgreSQL, Tailwind CSS, Astro, Pydantic, GitHub Actions and MCP.
 - Spec 011: the About section and the terminal story describe the collaboration work as a multi-domain deterministic conformance architecture whose first domain is 3D assets, without naming the product or its internal profiles.
 - Spec 010: the About section names the role as CTO at Contrast3D x NainDev instead of Lead Software Architect.

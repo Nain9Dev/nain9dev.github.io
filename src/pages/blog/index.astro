@@ -6,8 +6,8 @@ const posts = await getCollection('blog', ({ data }) => data.draft !== true);
 // Sort by date (newest first)
 posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
-const title = "Blog de Arquitectura Backend 3D e IA | NainDev";
-const description = "Artículos de Aitor Nain sobre arquitectura backend, .NET, validación 3D, IA generativa, rendimiento, concurrencia y sistemas críticos.";
+const title = "Blog de arquitectura de software, validación e IA | NainDev";
+const description = "Artículos de Aitor Nain sobre arquitectura de software, .NET, validación determinista y 3D, IA generativa, rendimiento, concurrencia y sistemas críticos.";
 ---
 
 <BaseLayout title={title} description={description}>

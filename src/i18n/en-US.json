@@ -619,11 +619,6 @@
     "target": "⟦0⟧Flexibility (Vendor-Agnostic):⟦/0⟧ Switching from ⟦1/⟧ to a local ⟦2/⟧ model took 2 lines of code in ⟦3/⟧, without touching the business logic or the plugins.",
     "status": "reviewed"
   },
-  "1892ce06586340f3c0db947206b10864b79c7d952de56309f20761a05d492e12": {
-    "source": "NainDev | Aitor Nain · Arquitectura Backend, 3D e IA",
-    "target": "NainDev | Aitor Nain · Backend, 3D, and AI Architecture",
-    "status": "reviewed"
-  },
   "18ef5173092ba7c586eefaf480acf2906f6f04f2a0df706aab7312056a58de86": {
     "source": "Transformo lógica de negocio compleja en implementaciones de código sólidas y escalables.",
     "target": "I transform complex business logic into solid and scalable code implementations.",
@@ -1394,11 +1389,6 @@
     "target": "Discover how we use WebGPU in scalable backend architectures and critical 3D systems.",
     "status": "reviewed"
   },
-  "37625e29cf282bf665fab65749b2f919845a9bc626da5dbf8397c1175681bbe8": {
-    "source": "Servicios de Arquitectura Backend 3D e IA",
-    "target": "3D and AI Backend Architecture Services",
-    "status": "reviewed"
-  },
   "376c1c14426068d6c90b5d6cb384861b1dabc1eb782d1363c759f25b0cddb2d6": {
     "source": "Proyectos y Servicios con RabbitMQ",
     "target": "Projects and Services with RabbitMQ",
@@ -1442,11 +1432,6 @@
   "39130b2429deaa4b5499a11479e498ecea5f5d4232296e02adb7a080408b2bd2": {
     "source": "Experiencia con ⟦0⟧C#⟦/0⟧",
     "target": "Experience with ⟦0⟧C#⟦/0⟧",
-    "status": "reviewed"
-  },
-  "39494d27ab92f7614bcfd174f6cabbd2531621e79d04d1dec3adf569f92eefa9": {
-    "source": "Blog de Arquitectura Backend 3D e IA",
-    "target": "3D and AI Backend Architecture Blog",
     "status": "reviewed"
   },
   "39a518622b39fb8b5dc3ac01c8be64402cbc17738ffc02c6729292e016f2525a": {
@@ -2329,11 +2314,6 @@
     "target": "The Problem: 'Legacy' Code and Technical Debt",
     "status": "reviewed"
   },
-  "5f5accd991f62516157871f4e1593cd93862897ca4aaa17a2fcdb7c13984d091": {
-    "source": "Servicios de Arquitectura Backend 3D e IA | NainDev",
-    "target": "3D and AI Backend Architecture Services | NainDev",
-    "status": "reviewed"
-  },
   "5f96ed5a6a58fa5765f37334c88801aa07ce20178ae08c624942446e4bfb58ce": {
     "source": "El costo invisible de una arquitectura deficiente",
     "target": "The invisible cost of poor architecture",
@@ -2487,11 +2467,6 @@
   "6683bd422d9f38df1254992a0e53f6adcf9b6acf162f4b7390707e59988c2799": {
     "source": "[OK 323ms] Worker Service procesó el mensaje y renderizó 5.419 bytes de plantilla HTML. Arquitectura validada.",
     "target": "[OK 323ms] Worker Service processed the message and rendered 5,419 bytes of HTML template. Architecture validated.",
-    "status": "reviewed"
-  },
-  "6686d9935f45925aee5c9c5ea7751efc00fb4fff139ab8f6ad2bacd6bae284dc": {
-    "source": "Arquitecto Backend 3D e IA",
-    "target": "3D and AI Backend Architect",
     "status": "reviewed"
   },
   "66d0f523a379b2de6f8d5fba3a817ebc395f7bcaa54cc132ca9dfa665d1e9378": {
@@ -3689,11 +3664,6 @@
     "target": "Projects and Services with Technical SEO",
     "status": "reviewed"
   },
-  "99c9ecfdc73063b055a00ddd4e8e1784651f153cd3bba68b4e688b288a126ff5": {
-    "source": "Blog de Arquitectura Backend 3D e IA | NainDev",
-    "target": "3D and AI Backend Architecture Blog | NainDev",
-    "status": "reviewed"
-  },
   "9a1608e5b8e47148e19043764b258937477c9e1aad1a109c7233f50ee4ac3ddd": {
     "source": "4. El Adaptador de Infraestructura",
     "target": "4. The Infrastructure Adapter",
@@ -4224,11 +4194,6 @@
     "target": "The Solution: Optimistic Concurrency",
     "status": "reviewed"
   },
-  "b117b215960bfd36f972bc4315f58dab0966f5179b91412d7f92881a737c1fc4": {
-    "source": "Arquitectura backend para validación 3D, IA generativa y sistemas críticos .NET. Consultoría técnica de Aitor Nain Mendoza Vallejo.",
-    "target": "Backend architecture for 3D validation, generative AI, and critical .NET systems. Technical consulting by Aitor Nain Mendoza Vallejo.",
-    "status": "reviewed"
-  },
   "b13f3f89edba39b4512b6fab01674c7076533f98c9aa904848b6439fdb06df83": {
     "source": "-> Re-validando contratos de datos... (",
     "target": "-> Re-validating data contracts... (",
@@ -4644,11 +4609,6 @@
     "target": "Common Questions",
     "status": "reviewed"
   },
-  "bfdf515fbfb234443e9cad599679102267cfcad1169df57ac488ee0b024455cb": {
-    "source": "Aitor Nain Mendoza Vallejo, también conocido como NainDev, diseña arquitectura backend para validación 3D, IA generativa y sistemas críticos .NET.",
-    "target": "Aitor Nain Mendoza Vallejo, also known as NainDev, designs backend architecture for 3D validation, generative AI, and critical .NET systems.",
-    "status": "reviewed"
-  },
   "bff49a75e10bf16b719420ef0ff12c7c471b0946554e02988a4eb17b6c76e02d": {
     "source": "Proyectos y Servicios con Three.js | NainDev",
     "target": "Projects and Services with Three.js | NainDev",
@@ -4997,11 +4957,6 @@
   "d0cdcea1e31104de83f8b5c4a6781a58f60e3a9244a6762165f7b4e30acf6617": {
     "source": "El Problema: Basura Geométrica en Producción",
     "target": "The Problem: Geometric Garbage in Production",
-    "status": "reviewed"
-  },
-  "d11e4b2467cf127d940be1b8ba1f36c69a6d9dc55ae56bfa1e2e274e65d5dab0": {
-    "source": "Artículos de Aitor Nain sobre arquitectura backend, .NET, validación 3D, IA generativa, rendimiento, concurrencia y sistemas críticos.",
-    "target": "Aitor Nain's articles on backend architecture, .NET, 3D validation, generative AI, performance, concurrency, and critical systems.",
     "status": "reviewed"
   },
   "d1b6cd83a339b6f8868a9aab96916d5c9daad693c4f5d2dc640b7e3ea4f7f881": {
@@ -7132,6 +7087,51 @@
   "ff4eb8ed9e1c2d4c8d8b1a9597bc043785629be628d6ee4cc4d2ee1335c9f515": {
     "source": "Configurador de productos B2B dirigido por catálogo, que admite productos distintos sin código específico por cliente.",
     "target": "Catalog-driven B2B product configurator that supports different products without customer-specific code.",
+    "status": "reviewed"
+  },
+  "0cde8ad1559f9f503a60bccf4bc1f1f041badae3367ef0234a72638a5fef93a8": {
+    "source": "Arquitecto de Software Full Stack",
+    "target": "Full Stack Software Architect",
+    "status": "reviewed"
+  },
+  "30448608aa43b8a9ecf802fe2979b38baebde3e6871997458bc894dad21b8a81": {
+    "source": "Blog de arquitectura de software, validación e IA",
+    "target": "Blog on software architecture, validation and AI",
+    "status": "reviewed"
+  },
+  "4872747c2bcfafd0f1021b04728b5739bdc862f6bcaedd920fbdce86f5fa43a1": {
+    "source": "Servicios de arquitectura de software",
+    "target": "Software architecture services",
+    "status": "reviewed"
+  },
+  "7784704200d16d52f873eeff6cda00e96a4b37c910bb389408ec36bcae355c21": {
+    "source": "Aitor Nain Mendoza Vallejo (NainDev), arquitecto de software full stack: conformidad determinista de productos, backends en Python y .NET e IA con supervisión humana.",
+    "target": "Aitor Nain Mendoza Vallejo (NainDev), full stack software architect: deterministic product conformance, Python and .NET backends, and AI under human oversight.",
+    "status": "reviewed"
+  },
+  "a3c4557f74fd18ed647a346fe0462002689f2009f7505ee0dd05e1f1b4527089": {
+    "source": "Artículos de Aitor Nain sobre arquitectura de software, .NET, validación determinista y 3D, IA generativa, rendimiento, concurrencia y sistemas críticos.",
+    "target": "Articles by Aitor Nain on software architecture, .NET, deterministic and 3D validation, generative AI, performance, concurrency and critical systems.",
+    "status": "reviewed"
+  },
+  "bcf2ccf18290fc02b8079d95ae8d6d97f9705e0c38adf452a3c07b73671388b8": {
+    "source": "Blog de arquitectura de software, validación e IA | NainDev",
+    "target": "Blog on software architecture, validation and AI | NainDev",
+    "status": "reviewed"
+  },
+  "d0784d640c3103b73e8e0c915d07cc10c98ba059b57a7d0c9d8fd6f71ad2c020": {
+    "source": "NainDev | Aitor Nain · Arquitecto de Software Full Stack",
+    "target": "NainDev | Aitor Nain · Full Stack Software Architect",
+    "status": "reviewed"
+  },
+  "dfb37ae991724c8eb6d49dd2019f6309aaf11ca178d508f6116199b52dd1ca3c": {
+    "source": "Arquitectura de software full stack: validación determinista y 3D, IA generativa con supervisión humana y sistemas críticos en Python y .NET. Consultoría técnica de Aitor Nain Mendoza Vallejo.",
+    "target": "Full stack software architecture: deterministic and 3D validation, generative AI under human oversight, and critical systems in Python and .NET. Technical consulting by Aitor Nain Mendoza Vallejo.",
+    "status": "reviewed"
+  },
+  "e1c7ec3a721f68dd16e29c511bcbdfb368a98effaa4a7977440ffb26f3200303": {
+    "source": "Servicios de arquitectura de software | NainDev",
+    "target": "Software architecture services | NainDev",
     "status": "reviewed"
   }
 }
