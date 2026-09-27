@@ -6,5 +6,5 @@
 - [x] [A] Reviewed English translations (17 segments); unused entries removed.
 - [x] [A] Requirements, traceability and changelog.
 - [x] [A] Full `npm run check` (2026-09-27: all tests pass, 0 pending translations, no industrial-scale phrase in `dist/`).
-- [ ] [H] Commit and deploy.
-- [ ] [A] Production check.
+- [x] [H] Commit and deploy (`55c6975`, deploy workflow passed 2026-09-27).
+- [x] [A] Production check (2026-09-27: home shows "Conformidad determinista de productos" and "Backend crítico (Python y .NET)"; no "escala industrial").
