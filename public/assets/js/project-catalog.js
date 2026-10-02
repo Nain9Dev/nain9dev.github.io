@@ -14,7 +14,7 @@ function isValidProject(project) {
     && project.technologies.every((technology) => typeof technology === "string")
     && Array.isArray(project.categories)
     && project.categories.length > 0
-    && project.categories.every((category) => SUPPORTED_CATEGORIES.has(category))
+    && project.categories.every((category) => typeof category === "string" && category.trim().length > 0)
     && Array.isArray(project.links)
     && (project.private === true ? project.links.length === 0 : project.links.length > 0)
     && project.links.every(isValidLink)

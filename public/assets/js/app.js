@@ -1,7 +1,7 @@
-import { loadProjects } from "./project-catalog.js";
+import { loadProjects } from "./project-catalog.js?v=017";
 import { initializeDemoModal } from "./demo-modal.js";
-import { initializeProjectFilters } from "./project-filters.js";
-import { renderProjectError, renderProjects } from "./project-view.js";
+import { initializeProjectFilters } from "./project-filters.js?v=017";
+import { renderProjectError, renderProjects } from "./project-view.js?v=017";
 import { initializeAmbientGlow } from "./ambient-glow.js";
 import { initializeCardTilt } from "./card-tilt.js";
 import { initializeScrollStorytelling } from "./scroll-storytelling.js";
@@ -98,7 +98,7 @@ function initApp() {
   }
 
   if (projectContainer) {
-    loadProjects(dataUrl('projects.json'))
+    loadProjects(dataUrl('projects.json?v=017'))
       .then((projects) => {
         renderProjects(projectContainer, projects);
         addCleanup(initializeProjectFilters({
