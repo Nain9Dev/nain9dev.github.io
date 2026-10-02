@@ -8,5 +8,5 @@
 - [x] [A] Run `node scripts/sync-translations.mjs` and verification checks (0 pending review).
 - [x] [A] Full `npm run check` passes with 0 errors and 0 pending translations.
 - [x] [A] Update `docs/10-requirements.md` and `docs/50-traceability.md`.
-- [x] [H] Owner authorized commit and push to main.
-- [ ] [A] Production check after deployment.
+- [x] [H] Owner authorized commit and push to main (`3beb53f`).
+- [x] [A] Production check after deployment (verified in production on 2026-10-03: Spanish and English live catalog endpoints return 200 with new viewer and updated CRM).
