@@ -15,15 +15,28 @@
   {
     "id": "collaborative-crm",
     "title": "CRM web colaborativo",
-    "status": "Privado · En desarrollo",
+    "status": "Privado · En producción",
     "summary": "Plataforma web multiusuario de gestión comercial, con estado en PostgreSQL y coste operativo cero.",
     "proof": "Edición concurrente sin pérdida de datos: control de versión por entidad y fusión por campo ante conflictos HTTP 409. Duplicados bloqueados con citext e índices únicos parciales, y registro de actividad en la misma transacción que el cambio.",
-    "technologies": ["Python", "FastAPI", "SQLAlchemy", "PostgreSQL", "Vue 3", "Tailwind CSS", "Docker"],
+    "technologies": ["Python", "FastAPI", "SQLAlchemy", "PostgreSQL", "Vue 3", "TypeScript", "Tailwind CSS", "Docker"],
     "categories": ["backend", "data"],
     "links": [],
     "private": true,
     "featured": true,
     "order": 1
+  },
+  {
+    "id": "interactive-3d-viewer",
+    "title": "Visor 3D interactivo y gemelos digitales",
+    "status": "Privado · En producción",
+    "summary": "Componente Web Component agnóstico y ultraligero con aislamiento en Shadow DOM, adaptable mediante perfiles JSON para inspección industrial, despiece procedimental y peritaje con marcado de daños.",
+    "proof": "Motor Three.js optimizado (peso inferior a 600 KB gzip, 60 fps en móvil y escritorio), descompresión Draco en Web Worker, puerta de integridad SHA-256 ligada a conformidad determinista, pruebas E2E y visuales con Playwright y accesibilidad WCAG 2.2 AA.",
+    "technologies": ["TypeScript", "Three.js", "Web Components", "Vite", "Playwright", "Vitest"],
+    "categories": ["3d", "data"],
+    "links": [],
+    "private": true,
+    "featured": true,
+    "order": 2
   },
   {
     "id": "parametricad-ai",
@@ -38,7 +51,7 @@
       { "label": "Revisar código", "url": "https://github.com/Nain9Dev/parametricad-ai" }
     ],
     "featured": true,
-    "order": 2
+    "order": 3
   },
   {
     "id": "financial-management-api",
@@ -53,7 +66,7 @@
       { "label": "Revisar código", "url": "https://github.com/Nain9Dev/API-Gestion-Financiera" }
     ],
     "featured": true,
-    "order": 3
+    "order": 4
   },
   {
     "id": "nainorder-ecommerce-api",
@@ -68,7 +81,7 @@
       { "label": "Revisar código", "url": "https://github.com/Nain9Dev/NainOrder" }
     ],
     "featured": true,
-    "order": 4
+    "order": 5
   },
   {
     "id": "notification-worker",
@@ -82,7 +95,7 @@
       { "label": "Revisar código", "url": "https://github.com/Nain9Dev/Microservicio-Notificaciones" }
     ],
     "featured": true,
-    "order": 5
+    "order": 6
   },
   {
     "id": "nainconfigurator",
@@ -96,7 +109,7 @@
       { "label": "Revisar código", "url": "https://github.com/Nain9Dev/NainConfigurator" }
     ],
     "featured": false,
-    "order": 6
+    "order": 7
   },
   {
     "id": "driving-school-management",
@@ -111,7 +124,7 @@
       { "label": "Revisar código", "url": "https://github.com/Nain9Dev/Gestion-Autoescuela-Python" }
     ],
     "featured": true,
-    "order": 7
+    "order": 8
   },
   {
     "id": "tai-study-system",
@@ -127,7 +140,7 @@
       { "label": "Código del cliente", "url": "https://github.com/Nain9Dev/tai-study-system-js" }
     ],
     "featured": true,
-    "order": 8
+    "order": 9
   },
   {
     "id": "orbe-runner-3d",
@@ -142,7 +155,7 @@
       { "label": "Ver código", "url": "https://github.com/Nain9Dev/orbe-runner-3d" }
     ],
     "featured": false,
-    "order": 9
+    "order": 10
   },
   {
     "id": "pong-arcade",
@@ -157,7 +170,7 @@
       { "label": "Ver código", "url": "https://github.com/Nain9Dev/pong-arcade-js" }
     ],
     "featured": false,
-    "order": 10
+    "order": 11
   },
   {
     "id": "b2b-prospecting-pipeline",
@@ -170,7 +183,7 @@
     "links": [],
     "private": true,
     "featured": false,
-    "order": 11
+    "order": 12
   },
   {
     "id": "local-rewriting-agent",
@@ -183,7 +196,7 @@
     "links": [],
     "private": true,
     "featured": false,
-    "order": 12
+    "order": 13
   },
   {
     "id": "local-quotation-generator",
@@ -196,7 +209,7 @@
     "links": [],
     "private": true,
     "featured": false,
-    "order": 13
+    "order": 14
   },
   {
     "id": "self-hosted-ci-runners",
@@ -209,7 +222,7 @@
     "links": [],
     "private": true,
     "featured": false,
-    "order": 14
+    "order": 15
   },
   {
     "id": "gamehaven-blazor-store",
@@ -224,7 +237,7 @@
       { "label": "Revisar código", "url": "https://github.com/Nain9Dev/GameHaven" }
     ],
     "featured": false,
-    "order": 15
+    "order": 16
   },
   {
     "id": "havetickets",
@@ -238,7 +251,7 @@
       { "label": "Revisar código", "url": "https://github.com/Nain9Dev/HaveTickets" }
     ],
     "featured": false,
-    "order": 16
+    "order": 17
   },
   {
     "id": "driving-exam-simulator",
@@ -251,6 +264,6 @@
     "links": [],
     "private": true,
     "featured": false,
-    "order": 17
+    "order": 18
   }
 ]

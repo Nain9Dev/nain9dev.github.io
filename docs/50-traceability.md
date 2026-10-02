@@ -125,3 +125,4 @@ Before the copy change, `scripts/offer-copy.test.mjs` failed 6 of 6 and the new 
 | SEO-011 to SEO-013 | `scripts/seo-profile.test.mjs` tests of the same IDs; `scripts/check-seo.mjs` keeps validating uniqueness and SEO-003 over `dist/` | unit + contract | Pass: local `npm run check` 2026-09-27 |
 | PRJ-004 | `scripts/profile-coherence.test.mjs` "PRJ-004: public live demos are linked from the catalog" | unit | Pass: local `npm run check` 2026-09-27 |
 | PRJ-001 to PRJ-003 | `scripts/profile-coherence.test.mjs` tests of the same IDs. Factual accuracy of each entry against its README is checked by manual review only | unit + manual | Pass: local `npm run check` 2026-09-27 |
+| PRJ-005 to PRJ-007, COPY-019 | `scripts/profile-coherence.test.mjs` "PRJ-005: the catalog includes the anonymous enterprise 3D viewer and updated CRM" and `PRJ-001` with `PRIVATE_COUNT = 8`; `scripts/sync-translations.mjs` 0 pending | unit + contract | Pass: local `npm run check` 2026-10-03 |

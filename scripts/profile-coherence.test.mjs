@@ -15,7 +15,7 @@ const PUBLIC_REPOS = [
   'Gestion-Autoescuela-Python', 'SistemaOposicionesTAI', 'tai-study-system-js', 'pong-arcade-js',
   'orbe-runner-3d', 'NainConfigurator', 'HaveTickets',
 ];
-const PRIVATE_COUNT = 7;
+const PRIVATE_COUNT = 8;
 // Names of private products, partners and the employer that must never reach the catalog.
 const CONFIDENTIAL = /\bDSE\b|Datum Statutum|\bE3C\b|\bRT-(?:FIN-)?\d+|Contrast|crm-platform|ProspectAI|NainWrite|Facturae|gha-local-runners|NainDriveSimulator|Avalisto|Fidelidade|Alcal[aá]|Torrej[oó]n/i;
 
@@ -93,4 +93,20 @@ test('PRJ-004: public live demos are linked from the catalog (specs/015-catalog-
 test('PRJ-003: the catalog carries no unverified performance figures', async () => {
   const raw = await read('public/assets/data/projects.json');
   assert.doesNotMatch(raw, /\d+\s?ms\b|latencia cero|[<>]\s?\d/i);
+});
+
+test('PRJ-005: the catalog includes the anonymous enterprise 3D viewer and updated CRM (specs/016-contrast-ecosystem-stack)', async () => {
+  const projects = await readJson('public/assets/data/projects.json');
+  const viewer = projects.find((project) => project.id === 'interactive-3d-viewer');
+  assert.ok(viewer, 'interactive-3d-viewer exists');
+  assert.equal(viewer.status, 'Privado · En producción');
+  assert.deepEqual(viewer.links, []);
+  assert.ok(viewer.technologies.includes('Three.js'));
+  assert.ok(viewer.technologies.includes('TypeScript'));
+  assert.ok(viewer.technologies.includes('Web Components'));
+
+  const crm = projects.find((project) => project.id === 'collaborative-crm');
+  assert.ok(crm, 'collaborative-crm exists');
+  assert.equal(crm.status, 'Privado · En producción');
+  assert.ok(crm.technologies.includes('TypeScript'));
 });
