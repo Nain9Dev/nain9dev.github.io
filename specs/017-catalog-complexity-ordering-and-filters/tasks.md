@@ -11,4 +11,4 @@
 - [x] [A] Full `npm run check` passes with 0 errors.
 - [x] [A] Update `docs/10-requirements.md` and `docs/50-traceability.md`.
 - [x] [H] Owner commit and deploy.
-- [ ] [A] Production check after deployment.
+- [x] [A] Production check after deployment.
