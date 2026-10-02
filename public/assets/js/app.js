@@ -101,11 +101,11 @@ function initApp() {
     loadProjects(dataUrl('projects.json'))
       .then((projects) => {
         renderProjects(projectContainer, projects);
-        initializeProjectFilters({
+        addCleanup(initializeProjectFilters({
           container: projectContainer,
           count: projectCount,
           toolbar: projectToolbar
-        });
+        }));
         addCleanup(initializeRevealMotion(projectContainer.querySelectorAll("[data-reveal]")));
       })
       .catch((error) => {

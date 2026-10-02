@@ -110,3 +110,53 @@ test('PRJ-005: the catalog includes the anonymous enterprise 3D viewer and updat
   assert.equal(crm.status, 'Privado · En producción');
   assert.ok(crm.technologies.includes('TypeScript'));
 });
+
+test('PRJ-008: projects are ordered by complexity hierarchy (specs/017-catalog-complexity-ordering-and-filters)', async () => {
+  const projects = await readJson('public/assets/data/projects.json');
+  const expectedOrder = [
+    'conformance-architecture',
+    'interactive-3d-viewer',
+    'collaborative-crm',
+    'parametricad-ai',
+    'financial-management-api',
+    'nainorder-ecommerce-api',
+    'notification-worker',
+    'nainconfigurator',
+    'driving-school-management',
+    'tai-study-system',
+    'self-hosted-ci-runners',
+    'orbe-runner-3d',
+    'pong-arcade',
+    'b2b-prospecting-pipeline',
+    'local-rewriting-agent',
+    'local-quotation-generator',
+    'gamehaven-blazor-store',
+    'havetickets',
+    'driving-exam-simulator',
+  ];
+  const actualOrder = [...projects].sort((a, b) => a.order - b.order).map((p) => p.id);
+  assert.deepEqual(actualOrder, expectedOrder);
+});
+
+test('PRJ-009: projects declare supported strategic categories (specs/017-catalog-complexity-ordering-and-filters)', async () => {
+  const projects = await readJson('public/assets/data/projects.json');
+  const allowed = new Set(['backend', 'data', 'demo', '3d', 'production', 'dotnet', 'python']);
+  for (const project of projects) {
+    assert.ok(project.categories.length > 0, `${project.id} has categories`);
+    for (const cat of project.categories) {
+      assert.ok(allowed.has(cat), `${project.id} category ${cat} is allowed`);
+    }
+  }
+  const prod = projects.filter((p) => p.categories.includes('production')).map((p) => p.id);
+  assert.deepEqual(prod, ['conformance-architecture', 'interactive-3d-viewer', 'collaborative-crm']);
+});
+
+test('PRJ-010: filter buttons in markup match supported categories and have badge spans (specs/017-catalog-complexity-ordering-and-filters)', async () => {
+  const markup = await read('src/components/home/ProjectsSection.astro');
+  const expectedFilters = ['all', 'production', 'dotnet', 'python', '3d', 'demo'];
+  for (const filter of expectedFilters) {
+    assert.match(markup, new RegExp(`data-project-filter="${filter}"`));
+    assert.match(markup, new RegExp(`data-filter-count="${filter}"\\s+translate="no"`));
+  }
+});
+

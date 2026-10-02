@@ -1,5 +1,5 @@
 const REQUIRED_FIELDS = ["id", "title", "status", "summary", "proof", "technologies", "categories", "links", "order"];
-const SUPPORTED_CATEGORIES = new Set(["backend", "data", "demo", "3d"]);
+const SUPPORTED_CATEGORIES = new Set(["backend", "data", "demo", "3d", "production", "dotnet", "python"]);
 
 function isValidLink(link) {
   return Boolean(link)

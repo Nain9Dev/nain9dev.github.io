@@ -284,6 +284,11 @@
     "target": ".NET optimization, C# distributed systems, high availability",
     "status": "reviewed"
   },
+  "0b060590aa880ebdc4c9c95753397337986b29fc489efc6556aa05030d98f346": {
+    "source": "⟦0⟧Todos⟦/0⟧⟦1/⟧",
+    "target": "⟦0⟧All⟦/0⟧⟦1/⟧",
+    "status": "reviewed"
+  },
   "0b47f080420e79176b17fa56f464b8772a42e647d4cf279d745c3ae52d15b69c": {
     "source": "Experiencia con ⟦0⟧Azure OpenAI⟦/0⟧",
     "target": "Experience with ⟦0⟧Azure OpenAI⟦/0⟧",
@@ -2524,6 +2529,11 @@
     "target": "Here we show how to load and verify a basic mesh using ⟦0⟧SharpGLTF⟦/0⟧:",
     "status": "reviewed"
   },
+  "5a15e01ddfbdfb9c53d360c41f996becbc442d6d587208b379c2b3534041ccbe": {
+    "source": "⟦0⟧Python & Datos⟦/0⟧⟦1/⟧",
+    "target": "⟦0⟧Python & Data⟦/0⟧⟦1/⟧",
+    "status": "reviewed"
+  },
   "5a7d6c0d3ac7358b2fb0e6a763818ce382c238af49374667a29e6f0aeb760e73": {
     "source": "Proyectos y Servicios con .NET | NainDev",
     "target": "Projects and Services with .NET | NainDev",
@@ -3212,6 +3222,11 @@
   "73ca782f5a3ca581710426bfd672dee72b78b2079ce9a786bed49f00397ab050": {
     "source": "Descubre cómo diseñar una infraestructura robusta y escalable en .NET (C#) capaz de procesar y validar en volumen modelos 3D generados por IA.",
     "target": "Discover how to design a robust and scalable infrastructure in .NET (C#) capable of processing and validating AI-generated 3D models in volume.",
+    "status": "reviewed"
+  },
+  "73f9f3a88e3fcbe252e08bf91bc0926699204153c02c3f4af698b819a6b05332": {
+    "source": "⟦0⟧.NET / C#⟦/0⟧⟦1/⟧",
+    "target": "⟦0⟧.NET / C#⟦/0⟧⟦1/⟧",
     "status": "reviewed"
   },
   "748f4d61c0714e0bac8f11dfe031d1185b9ac6b4746d44c2b74949c58a437baf": {
@@ -4534,6 +4549,11 @@
     "target": "The Solution: Message-Based Asynchronous Processing",
     "status": "reviewed"
   },
+  "a35e0c2dd42896d9624e1d698c49131b4ee764e12238ffbf827f1b2741587eea": {
+    "source": "⟦0⟧Producción⟦/0⟧⟦1/⟧",
+    "target": "⟦0⟧Production⟦/0⟧⟦1/⟧",
+    "status": "reviewed"
+  },
   "a37ece02d469e649ec2d31449b8033c8081654a5f807b7bbd9deecf95d4c85bd": {
     "source": "Auditoría de Sistemas Legacy & Refactoring B2B",
     "target": "Legacy System Auditing & B2B Refactoring",
@@ -4827,6 +4847,11 @@
   "ac0c8c9ebcd94b47459bf89bbf88bbe3881b222909320cd98c293528dc8267be": {
     "source": "Diseño de la transmisión manual (embrague, calado y marchas), comprobaciones previas del vehículo y clasificación de faltas en leves, deficientes y eliminatorias.",
     "target": "Manual transmission design (clutch, stalling and gears), pre-drive vehicle checks and fault classification into minor, deficient and eliminatory.",
+    "status": "reviewed"
+  },
+  "ac6d23f6aa5fca80be57dda89743bcd4759e7f6814f90c6d5e1438758e64d75b": {
+    "source": "⟦0⟧Demos⟦/0⟧⟦1/⟧",
+    "target": "⟦0⟧Demos⟦/0⟧⟦1/⟧",
     "status": "reviewed"
   },
   "ac95b54e5564d022ec48d0e8f2b84233d1e03856d278928f91aea7edb7fe19e2": {
@@ -6022,6 +6047,11 @@
   "d77d1273ffc7ce9160970022f36a503bc93b27f0b34e9fb00473637353178973": {
     "source": "¿Tu sistema de IA generativa o LLMs sufre de timeouts en producción? Implementa arquitecturas backend desacopladas y tolerantes a fallos.",
     "target": "Is your generative AI or LLM system suffering from timeouts in production? Implement decoupled and fault-tolerant backend architectures.",
+    "status": "reviewed"
+  },
+  "d7bbdc396d6347c4fc34b9069d5f3a6c4d722e009225e02f87536e624efe1e5c": {
+    "source": "⟦0⟧3D⟦/0⟧⟦1/⟧",
+    "target": "⟦0⟧3D⟦/0⟧⟦1/⟧",
     "status": "reviewed"
   },
   "d7eec4c8cbf9d1184cc5e5899a7ea80dd30e0e8d534be9c8bbf30a6498feb545": {

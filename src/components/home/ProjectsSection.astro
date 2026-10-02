@@ -14,12 +14,17 @@
     <div class="project-toolbar" data-project-toolbar hidden>
       <div class="filter-group" role="group" aria-label="Filtrar proyectos">
         <button class="filter-button is-active" type="button" data-project-filter="all"
-          aria-pressed="true">Todos</button>
-        <button class="filter-button" type="button" data-project-filter="backend"
-          aria-pressed="false">Backend</button>
-        <button class="filter-button" type="button" data-project-filter="data" aria-pressed="false">Datos</button>
-        <button class="filter-button" type="button" data-project-filter="demo" aria-pressed="false">Demos</button>
-        <button class="filter-button" type="button" data-project-filter="3d" aria-pressed="false">3D</button>
+          aria-pressed="true"><span class="filter-label">Todos</span><span class="filter-badge" data-filter-count="all" translate="no"></span></button>
+        <button class="filter-button" type="button" data-project-filter="production"
+          aria-pressed="false"><span class="filter-label">Producción</span><span class="filter-badge" data-filter-count="production" translate="no"></span></button>
+        <button class="filter-button" type="button" data-project-filter="dotnet"
+          aria-pressed="false"><span class="filter-label">.NET / C#</span><span class="filter-badge" data-filter-count="dotnet" translate="no"></span></button>
+        <button class="filter-button" type="button" data-project-filter="python"
+          aria-pressed="false"><span class="filter-label">Python &amp; Datos</span><span class="filter-badge" data-filter-count="python" translate="no"></span></button>
+        <button class="filter-button" type="button" data-project-filter="3d"
+          aria-pressed="false"><span class="filter-label">3D</span><span class="filter-badge" data-filter-count="3d" translate="no"></span></button>
+        <button class="filter-button" type="button" data-project-filter="demo"
+          aria-pressed="false"><span class="filter-label">Demos</span><span class="filter-badge" data-filter-count="demo" translate="no"></span></button>
       </div>
       <p class="project-count" data-project-count aria-live="polite"></p>
     </div>

@@ -920,6 +920,9 @@ h3 {
 }
 
 .filter-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
   min-height: 2.5rem;
   padding: 0.55rem 0.9rem;
   border: 1px solid var(--color-line);
@@ -932,11 +935,33 @@ h3 {
   transition: color 150ms ease, border-color 150ms ease, background 150ms ease;
 }
 
+.filter-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.25rem;
+  padding: 0.1rem 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--color-text-muted);
+  transition: background 150ms ease, color 150ms ease;
+}
+
 .filter-button:hover,
 .filter-button.is-active {
   border-color: rgba(240, 164, 93, 0.5);
   background: rgba(240, 164, 93, 0.09);
   color: var(--color-text);
+}
+
+.filter-button:hover .filter-badge,
+.filter-button.is-active .filter-badge {
+  background: rgba(240, 164, 93, 0.22);
+  color: var(--color-secondary);
 }
 
 .project-count {
