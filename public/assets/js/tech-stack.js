@@ -5,7 +5,7 @@ export function initTechStack() {
   fetch(dataUrl('tech-stack.json'))
     .then(response => {
       if (!response.ok) {
-        throw new Error('No se pudo cargar el archivo tech-stack.json');
+        throw new Error('Failed to load tech-stack.json');
       }
       return response.json();
     })
@@ -14,7 +14,7 @@ export function initTechStack() {
       setupIntersectionObserver();
     })
     .catch(error => {
-      console.error('Error al inicializar Tech Stack:', error);
+      console.error('Failed to initialize tech stack:', error);
       const notice = document.createElement('p');
       notice.className = 'notice';
       notice.textContent = message('technologyError');
@@ -41,7 +41,7 @@ function renderTechStack(categories, container) {
     category.items.forEach(item => {
       const badge = document.createElement('div');
       badge.className = 'tech-badge';
-      badge.setAttribute('data-reveal', ''); // Para animación de scroll
+      badge.setAttribute('data-reveal', ''); // Scroll reveal target
       
       const icon = document.createElement('img');
       icon.src = item.icon;
@@ -66,10 +66,7 @@ function renderTechStack(categories, container) {
 }
 
 function setupIntersectionObserver() {
-  // Reutiliza la lógica de data-reveal que ya puede existir, o implementa una sencilla aquí.
-  // Como el portfolio probablemente ya tiene un observer global para [data-reveal], 
-  // podríamos no necesitar implementarlo, pero por si acaso despachamos un evento o usamos la API nativa.
-  
+  // Reveal animation fallback for dynamically injected badges
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (prefersReducedMotion) return;
 

@@ -28,7 +28,7 @@ function addCleanup(fn) {
 }
 
 function initApp() {
-  console.log('[App] Inicializando app...');
+  console.log('[App] Initializing application...');
   isAppInitialized = true;
   const projectContainer = document.querySelector("[data-project-list]");
   const projectToolbar = document.querySelector("[data-project-toolbar]");
@@ -42,7 +42,7 @@ function initApp() {
         addCleanup(cleanup);
       }
     } catch (error) {
-      console.warn(`[NainDev] Fallo al inicializar módulo visual '${name}':`, error);
+      console.warn(`[NainDev] Failed to initialize visual module '${name}':`, error);
     }
   }
 
@@ -72,7 +72,7 @@ function initApp() {
   safeInit('ScrollTracking', initializeScrollTracking);
   safeInit('LazyLoading', initializeLazyLoading);
   
-  // Asumiendo que demo-modal no se regenera
+  // Modal DOM persists across SPA lifecycle
   initializeDemoModal(document);
 
   safeInit('HeaderState', () => {
@@ -116,12 +116,12 @@ function initApp() {
 }
 
 function cleanupApp() {
-  console.log('[App] Limpiando app antes de la navegación SPA...', cleanupFunctions.length, 'funciones de limpieza registradas.');
+  console.log('[App] Disposing application before SPA navigation...', cleanupFunctions.length, 'cleanup handlers registered.');
   cleanupFunctions.forEach(fn => {
     try {
       fn();
     } catch(e) {
-      console.warn('[App] Error ejecutando limpieza:', e);
+      console.warn('[App] Error during cleanup execution:', e);
     }
   });
   cleanupFunctions = [];
@@ -137,7 +137,7 @@ document.addEventListener('astro:before-swap', () => {
 });
 
 document.addEventListener('astro:after-swap', () => {
-  console.log('[App] Navegación SPA completada, reinicializando...');
+  console.log('[App] SPA navigation complete, reinitializing...');
   isAppInitialized = false;
   initApp();
 });

@@ -3,19 +3,19 @@ import { dataUrl, isEnglish, message, escapeHtml } from './locale.js';
 let terminalCleanup = null;
 
 document.addEventListener('astro:page-load', () => {
-  console.log('[Terminal] Iniciando terminal.js');
+  console.log('[Terminal] Initializing terminal.js');
   const input = document.getElementById('terminal-input');
   const output = document.getElementById('terminal-output');
   const terminal = document.querySelector('.terminal-wrapper');
   
   if (!input || !output || !terminal) return;
   
-  // Accesibilidad: permitir a lectores de pantalla leer la salida
+  // Accessibility: allow screen readers to announce terminal output
   output.setAttribute('aria-live', 'polite');
   output.setAttribute('role', 'log');
   output.setAttribute('aria-relevant', 'additions');
   
-  // Añadir placeholder inicial
+  // Initialize input placeholder
   input.placeholder = message('terminalHint');
   const locale = isEnglish() ? 'en-US' : 'es-ES';
   const historyKey = `terminalCmdHistory:${locale}`;
@@ -32,7 +32,7 @@ document.addEventListener('astro:page-load', () => {
   let hasInteracted = false;
   let hasRun = false;
 
-  // Restaurar salida si existe
+  // Restore previously saved terminal output
   const savedOutput = localStorage.getItem(outputKey);
   if (savedOutput) {
     output.innerHTML = savedOutput;
@@ -45,7 +45,7 @@ document.addEventListener('astro:page-load', () => {
     if (history.length > 50) history = history.slice(-50);
     localStorage.setItem(historyKey, JSON.stringify(history));
     
-    // Limitar el número de elementos visuales en el output
+    // Cap output child elements to prevent excessive DOM nodes
     while (output.children.length > 100) {
       output.removeChild(output.firstChild);
     }
@@ -74,7 +74,7 @@ document.addEventListener('astro:page-load', () => {
       commandKeys = Object.keys(commands).concat(['clear']);
     })
     .catch(error => {
-      console.error('[Terminal] Error cargando comandos:', error);
+      console.error('[Terminal] Failed to load terminal commands:', error);
       commands = { help: message('terminalError') };
     });
 
@@ -217,9 +217,9 @@ document.addEventListener('astro:page-load', () => {
   
   observer.observe(terminal);
 
-  // Registro de función de limpieza para este componente particular
+  // Register cleanup handler for terminal lifecycle
   terminalCleanup = () => {
-    console.log('[Terminal] Limpiando recursos...');
+    console.log('[Terminal] Disposing terminal resources...');
     terminal.removeEventListener('click', onTerminalClick);
     input.removeEventListener('keydown', onKeyDown);
     observer.disconnect();

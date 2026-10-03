@@ -2,9 +2,9 @@
 
 declare global {
   interface Window {
-    // Inyectada por el script externo de Plausible (analytics.js la consulta antes de usarla).
+    // Injected by external Plausible script; referenced in analytics.js
     plausible?: (event: string, options?: { props?: Record<string, unknown> }) => void;
-    // Expuesta desde BaseLayout para que terminal.js (script estático) pueda registrar comandos.
+    // Exposed from BaseLayout for terminal.js command tracking
     trackTerminalCommand?: (command: string) => void;
   }
 }

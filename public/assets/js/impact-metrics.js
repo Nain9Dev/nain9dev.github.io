@@ -14,7 +14,7 @@ export class ImpactMetricsManager {
   }
 
   async init() {
-    console.log('[ImpactMetricsManager] init() ejecutado');
+    console.log('[ImpactMetricsManager] Initialized');
     if (!this.container) {
       return this;
     }
@@ -25,7 +25,7 @@ export class ImpactMetricsManager {
         this.cleanupReveal = initializeRevealMotion(this.container.querySelectorAll("[data-reveal]"));
       }
     } catch (error) {
-      console.error('[ImpactMetricsManager] Error inicializando.', error);
+      console.error('[ImpactMetricsManager] Failed to initialize.', error);
     }
     return this;
   }

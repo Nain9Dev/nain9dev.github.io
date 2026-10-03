@@ -1,45 +1,49 @@
-# Política de Seguridad y Manejo de Archivos en Repositorio Público
+# Repository Security and File Exclusion Policy
 
-## 1. Propósito
-El repositorio `nain9dev.github.io` es de acceso público y sirve como portafolio personal y técnico. El propósito de esta política es garantizar que no se exponga código sensible, datos privados, credenciales ni información de configuración interna (incluyendo metaprompts para asistentes de IA) en el control de versiones, manteniendo un historial limpio y profesional.
+## 1. Purpose
+The `nain9dev.github.io` repository is public and serves as the personal and technical engineering portfolio of Aitor Nain Mendoza Vallejo. This policy enforces strict exclusion of sensitive credentials, private client data, internal configurations, and local AI assistant prompts from version control.
 
-## 2. Archivos Excluidos y Razones
+## 2. Excluded Categories and Rationale
 
-La política dictamina la exclusión estricta de las siguientes categorías mediante el archivo `.gitignore`:
+The `.gitignore` configuration strictly excludes the following categories:
 
-### 2.1. Archivos de Entorno y Credenciales
-- **Qué incluye**: `.env`, `.env.*` (excepto `.env.example`), `secrets.json`, etc.
-- **Razón**: Contienen claves API, tokens de bases de datos o secretos de acceso (ej. MailerLite keys, Analytics API keys) que permitirían el secuestro de servicios.
+### 2.1. Environment Variables and Credentials
+- **Included patterns**: `.env`, `.env.*` (excluding `.env.example`), `secrets.json`, `*.pem`, `*.key`, `*.pfx`, `*.crt`, `*credentials*.json`, `*token*.json`, `auth.json`, `.netrc`.
+- **Rationale**: Prevents accidental exposure of API keys, database credentials, and service tokens.
 
-### 2.2. Configuración Interna de IA
-- **Qué incluye**: `AGENTS.md`, `CLAUDE.md`, `.claude/`, `.agents/`, `.continue/`, `.gemini/`.
-- **Razón**: Pueden contener metaprompts, instrucciones de desarrollo, rutas locales del disco, configuraciones del workspace del desarrollador o claves de herramientas AI que no aportan valor al código fuente desplegable y comprometen el contexto interno de trabajo.
+### 2.2. Internal AI Agent Configurations
+- **Included patterns**: `AGENTS.md`, `CLAUDE.md`, `.claude/`, `.agents/`, `.continue/`, `.gemini/`, `.cursor/`, `.cursorrules`, `.windsurf/`, `*.scratch.md`.
+- **Rationale**: Isolates local developer configurations, agent system prompts, absolute workspace paths, and tool tokens from public source code.
 
-### 2.3. Cachés, Builds y Dependencias
-- **Qué incluye**: `node_modules/`, `dist/`, `.astro/`, `*.tsbuildinfo`, `coverage/`.
-- **Razón**: Archivos autogenerados. Sube la latencia de clonado, emborrona las Pull Requests y no forma parte del código fuente. Se reconstruyen dinámicamente en el flujo de CI/CD (GitHub Actions).
+### 2.3. Build Artifacts, Caches, and Dependencies
+- **Included patterns**: `node_modules/`, `dist/`, `.astro/`, `*.tsbuildinfo`, `coverage/`, `__pycache__/`, `.venv/`, `venv/`, `*.pyc`, `test-results/`, `playwright-report/`, `*.cpuprofile`.
+- **Rationale**: Automated outputs regenerated during local development and CI/CD pipelines (GitHub Actions).
 
-### 2.4. Archivos de IDE y Sistema
-- **Qué incluye**: `.vscode/`, `.DS_Store`, `Thumbs.db`, `*.swp`.
-- **Razón**: Configuraciones locales del desarrollador. Previene colisiones entre distintos colaboradores o entornos (Windows vs macOS).
+### 2.4. Operating System and IDE Metadata
+- **Included patterns**: `.vscode/`, `.idea/`, `.DS_Store`, `Thumbs.db`, `*.swp`.
+- **Rationale**: Machine-specific artifacts that cause cross-platform merge collisions.
 
-## 3. Procedimiento ante Fugas de Información
+### 2.5. Binary Models and Strategic Private Notes
+- **Included patterns**: `*.gguf`, `*.bin`, `*.safetensors`, `models/`, `docs/private/`.
+- **Rationale**: Large binary weights must not bloat the repository, and private strategic drafts must stay local.
 
-Si un archivo sensible se commitea por error:
-1. **No hacer simplemente un nuevo commit eliminando el archivo.** El archivo seguiría vivo en el historial de Git.
-2. Utilizar comandos de reescritura de historial.
-3. Para eliminar del caché:
+## 3. Incident Response for Accidental Disclosure
+
+If sensitive data is committed to the repository:
+1. **Do not create a normal deletion commit.** The data persists in Git history.
+2. Remove the cached reference if not pushed:
    ```bash
-   git rm --cached nombre_del_archivo
-   git commit -m "chore: eliminar archivo sensible del tracking"
+   git rm --cached <path-to-file>
+   git commit -m "chore: stop tracking sensitive file"
    ```
-4. Para eliminar de la historia completa (si hubiese credenciales reales expuestas, además se **deben invalidar de inmediato** en el proveedor correspondiente, ej: regenerar el API Key de AWS/MailerLite):
-   ```bash
-   # Opción recomendada: BFG Repo-Cleaner
-   bfg --delete-files .env
-   git reflog expire --expire=now --all && git gc --prune=now --aggressive
-   git push -f origin main
-   ```
+3. For pushed commits containing active credentials:
+   - Revoke and regenerate all exposed keys immediately at the service provider.
+   - Purge history using BFG Repo-Cleaner or git-filter-repo:
+     ```bash
+     bfg --delete-files .env
+     git reflog expire --expire=now --all && git gc --prune=now --aggressive
+     git push -f origin main
+     ```
 
-## 4. Auditoría Continua
-Se recomienda ejecutar un escaneo de secretos local de forma periódica (ej. `gitleaks`) antes de empaquetar código. Cualquier documento de planificación estratégica o notas privadas debe ubicarse exclusivamente en el directorio `docs/private/`, que está explícitamente ignorado.
+## 4. Continuous Auditing
+Run local secret scans (e.g. `gitleaks`) before pushing code. All private planning notes must reside under `docs/private/`.

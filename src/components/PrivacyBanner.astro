@@ -47,7 +47,7 @@
     const banner = document.getElementById('privacy-banner');
     const closeBtn = document.querySelector('.privacy-banner-close');
     
-    // Check si ya se cerró antes
+    // Check if dismissed previously in localStorage
     if (localStorage.getItem('privacyBannerClosed') === 'true') {
       if (banner) banner.style.display = 'none';
       return;

@@ -76,10 +76,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.nain
   <script>
     import { initializeGlobalAnalytics, trackTerminalCommand } from "../utils/analytics.js";
     
-    // Inicializar tracking global (Calendly)
+    // Initialize global tracking (Calendly)
     initializeGlobalAnalytics();
     
-    // Exponer función para que terminal.js (estático) pueda usarla
+    // Expose tracking helper for static terminal script
     window.trackTerminalCommand = trackTerminalCommand;
   </script>
   <script is:inline>

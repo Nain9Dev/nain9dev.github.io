@@ -2,8 +2,7 @@
 // src/components/home/Testimonials.astro
 import testimonials from '../../data/testimonials.json';
 
-// Lógica condicional: Solo mostrar si hay más de 0 testimonios reales.
-// NOTA: Para no usar fakes, vaciamos el JSON hasta conseguir clientes.
+// Conditional display: only render when genuine testimonials exist
 const hasTestimonials = testimonials && testimonials.length > 0 && testimonials[0].name !== "Cliente de Prueba";
 ---
 

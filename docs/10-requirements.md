@@ -162,3 +162,13 @@ Spec 005 is committed as `c78c854`; production confirmation after deployment is 
 | SEC-002 | When Python execution artifacts, virtual environments (`__pycache__/`, `.venv/`, `venv/`, `*.pyc`), or test/profiling outputs (`test-results/`, `playwright-report/`, `*.cpuprofile`) are generated, git shall ignore them. | specs/018-gitignore-security-hardening | Implemented |
 | SEC-003 | When local AI assistant configurations, agent scratch files (`.cursor/`, `.cursorrules`, `.windsurf/`, `*.scratch.md`), or local model weights (`*.gguf`, `*.bin`, `*.safetensors`, `models/`) are created, git shall ignore them. | specs/018-gitignore-security-hardening | Implemented |
 | SEC-004 | When `.gitignore` is maintained, all comments, section dividers, and annotations shall be written in professional English without non-English prose. | specs/018-gitignore-security-hardening | Implemented |
+
+## Repository English standardization (spec 019)
+
+| ID | Requirement | Source | Status |
+| :--- | :--- | :--- | :--- |
+| ENG-001 | When `README.md` is accessed or audited, it shall be written entirely in professional, concise English without redundancies, repetitions, or emojis, accurately presenting the engineer's active stack (.NET, Python, deterministic conformance, 3D systems). | specs/019-repository-english-standardization | Implemented |
+| ENG-002 | When repository metadata (About description, topics) is queried or viewed on GitHub, it shall be in professional English. | specs/019-repository-english-standardization | Implemented |
+| ENG-003 | When root documentation files (`SECURITY_POLICY.md`, `PRODUCTION_CHECKLIST.md`, `MIGRATION_LOG.md`, `IMAGE_MIGRATION_PLAN.md`) are audited, they shall be written in professional English and free of emojis. | specs/019-repository-english-standardization | Implemented |
+| ENG-004 | When client scripts, Astro layout scripts, and code comments are inspected or executed, all logs, error notices, and comments shall be in professional English. | specs/019-repository-english-standardization | Implemented |
+

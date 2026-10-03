@@ -5,8 +5,8 @@ const blog = defineCollection({
   loader: glob({ pattern: "**/*.mdx", base: "./src/content/blog" }),
   schema: z.object({
     title: z.string(),
-    seoTitle: z.string().max(60, "El SEO title debe ser <= 60 chars.").optional(),
-    description: z.string().max(160, "El SEO description debe ser < 160 chars."),
+    seoTitle: z.string().max(60, "SEO title must be <= 60 characters.").optional(),
+    description: z.string().max(160, "SEO description must be <= 160 characters."),
     pubDate: z.date(),
     tags: z.array(z.string()),
     keywords: z.array(z.string()).optional().default([]),

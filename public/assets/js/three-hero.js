@@ -6,7 +6,7 @@ let mainObject = null;
 let particlesMesh = null;
 let particlesGeometry = null;
 
-// Referencias a listeners
+// Event listener references
 let onDocumentMouseMove = null;
 let onScroll = null;
 let onWindowResize = null;
@@ -16,7 +16,7 @@ let isVisible = false;
 let heroSection = null;
 
 export async function initializeThreeHero() {
-  console.log('[ThreeHero] Iniciando initializeThreeHero...');
+  console.log('[ThreeHero] Initializing hero 3D canvas...');
   const canvas = document.getElementById('hero-3d-canvas');
   heroSection = document.querySelector('.hero');
 
@@ -27,15 +27,15 @@ export async function initializeThreeHero() {
 
   let THREE;
   try {
-    console.log('[ThreeHero] Cargando Three.js desde local...');
+    console.log('[ThreeHero] Loading Three.js bundle...');
     THREE = await import('/assets/js/three.module.min.js');
-    console.log('[ThreeHero] Three.js cargado correctamente.');
+    console.log('[ThreeHero] Three.js loaded successfully.');
   } catch (error) {
-    console.error("[NainDev] No se pudo cargar Three.js (CSP o Red). El 3D hero se omite.", error);
+    console.error("[NainDev] Unable to load Three.js. Skipping 3D hero.", error);
     return;
   }
 
-  console.log('[ThreeHero] Configurando escena 3D...');
+  console.log('[ThreeHero] Configuring 3D scene...');
   let width = heroSection.clientWidth;
   let height = heroSection.clientHeight;
 
@@ -161,14 +161,14 @@ export async function initializeThreeHero() {
     
     if (canvas.classList.contains('canvas-placeholder')) {
       canvas.classList.remove('canvas-placeholder');
-      console.log('[ThreeHero] Placeholder ocultado tras renderizar');
+      console.log('[ThreeHero] Canvas placeholder hidden after initial render');
     }
   };
 
   observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        console.log('[ThreeHero] Sección visible, iniciando animación.');
+        console.log('[ThreeHero] Hero section visible, starting animation loop.');
         isVisible = true;
         clock.start();
         animate();
@@ -204,7 +204,7 @@ export async function initializeThreeHero() {
 }
 
 export function cleanupThreeHero() {
-  console.log('[ThreeHero] Limpiando recursos (cleanup)...');
+  console.log('[ThreeHero] Disposing 3D resources...');
   isVisible = false;
   
   if (animationFrameId) {

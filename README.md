@@ -1,69 +1,71 @@
-# NainDev - Arquitectura Backend y Sistemas 3D
+# NainDev - Full Stack Architecture & Product Conformance
 
-[![Astro](https://img.shields.io/badge/Astro-5.x-FF5D01?style=for-the-badge&logo=astro&logoColor=white)](https://astro.build/)
+[![Astro](https://img.shields.io/badge/Astro-7.x-FF5D01?style=for-the-badge&logo=astro&logoColor=white)](https://astro.build/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![WebGL](https://img.shields.io/badge/Three.js-WebGL-black?style=for-the-badge&logo=three.js&logoColor=white)](https://threejs.org/)
-[![GitHub Pages](https://img.shields.io/badge/Deployed_on-GitHub_Pages-222222?style=for-the-badge&logo=github&logoColor=white)](https://naindev.com)
+[![DotNet](https://img.shields.io/badge/.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)](https://dotnet.microsoft.com/)
+[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Three.js](https://img.shields.io/badge/Three.js-WebGL-black?style=for-the-badge&logo=three.js&logoColor=white)](https://threejs.org/)
+[![Deployed on GitHub Pages](https://img.shields.io/badge/Deployed_on-GitHub_Pages-222222?style=for-the-badge&logo=github&logoColor=white)](https://naindev.com)
 
-**Portafolio profesional B2B** focalizado en Arquitectura de Software, sistemas distribuidos en .NET, IA Generativa y visualización 3D (WebGL).
+Professional portfolio and technical showcase focused on software architecture: .NET enterprise APIs, Python data processing and AI integrations, deterministic product conformance (3D assets and technical specifications), and interactive WebGL/WebGPU visualization.
 
-🌐 **Sitio en Producción:** [www.naindev.com](https://www.naindev.com)
+Production Site: [www.naindev.com](https://www.naindev.com) | English: [www.naindev.com/en/](https://www.naindev.com/en/)
 
 ---
 
-## 🎯 Objetivo del Proyecto
+## Technical Architecture
 
-Este repositorio aloja la infraestructura Frontend del portafolio. Su diseño sigue una filosofía estricta de **Ingeniería Comercial**:
-- **Cero dependencias superfluas:** Carga ultra-rápida (Sub-1s) para maximizar la conversión técnica.
-- **Islands Architecture (Astro):** El renderizado 3D complejo (Three.js) ocurre solo en el cliente de manera aislada, sin bloquear el hilo principal.
-- **Estrategia SEO B2B:** Clústeres temáticos (Topic Clusters) en MDX para atraer CTOs y Tech Leads.
-- **Privacidad desde el Diseño:** Sin bases de datos propias expuestas, analítica privacy-friendly (Plausible) y CSP (Content Security Policy) estricta.
+The site is built as a static multipage application (SSG) with client-side View Transitions for smooth page transitions without single-page application framework overhead:
 
-## 🏗️ Arquitectura Técnica
+- **Core Framework**: Astro (Static Site Generation).
+- **Frontend**: Vanilla CSS with architectural design tokens, native Web Components, and strict TypeScript.
+- **Content Collections**: Statically typed Markdown/MDX schemas (`src/content.config.ts`).
+- **3D Visualization**: Three.js loaded asynchronously to preserve Core Web Vitals.
+- **Bilingual Delivery**: Synchronized Spanish (`/`) and English (`/en/`) static outputs generated at build time with automated translation verification.
+- **Privacy & Security**: Zero client-exposed databases, privacy-friendly analytics via Plausible, and strict Content Security Policy.
 
-El portal es una aplicación estática multipágina (SSG) vitaminada con *View Transitions* para simular una experiencia SPA, sin el altísimo coste de memoria de React/Vue en el cliente.
-
-- **Framework Core:** Astro 5.x
-- **Gestión de Contenido:** Markdown/MDX tipado estáticamente con Zod (`src/content.config.ts`).
-- **Motor 3D:** Three.js (Cargado asíncronamente para optimizar Core Web Vitals).
-- **Estilos:** Vanilla CSS / CSS Modules (Cero utilidades masivas, máximo control a nivel de token arquitectónico).
-
-### Estructura de Directorios
+### Repository Layout
 
 ```text
 nain9dev.github.io/
+├── docs/                # Canonical numbered architecture, requirements, and decisions
+├── specs/               # Spec-driven development features (EARS requirements and tasks)
 ├── src/
-│   ├── components/      # Componentes de UI (Header, Footer, Terminal, WebGL)
-│   ├── content/         # Colecciones (Blog, Servicios) en MDX
-│   ├── layouts/         # Layouts base y gestión de <head> / SEO
-│   └── pages/           # Enrutamiento basado en archivos (File-based routing)
-├── public/              # Assets estáticos (Imágenes, modelos 3D, robots.txt)
-├── astro.config.mjs     # Configuración central (Redirecciones 301, Vite chunks)
-└── .github/workflows/   # CI/CD pipelines para GitHub Pages
+│   ├── components/      # UI components (Header, Footer, Terminal, 3D Hero)
+│   ├── content/         # Typed content collections (Blog, Services)
+│   ├── layouts/         # Base HTML layouts, metadata, and JSON-LD schemas
+│   └── pages/           # File-based routing and static entrypoints
+├── public/              # Static assets (brand icons, data manifests, 3D models)
+├── scripts/             # Automated test suite, localization sync, and verification contracts
+├── astro.config.mjs     # Build settings and redirect configuration
+└── .github/workflows/   # Continuous integration and deployment pipelines
 ```
 
-## 🚀 Despliegue (CI/CD)
-
-El sistema está configurado para integración continua. Cualquier push a la rama `main` dispara automáticamente la GitHub Action que compila el sitio de forma estática y lo despliega en GitHub Pages.
+## Local Development & Verification
 
 ```bash
-# Desarrollo Local (Terminal background interactiva)
+# Install dependencies
+npm ci
+
+# Start local development server
 npm run dev
 
-# Compilación Estática para Producción
-npm run build
+# Run comprehensive verification suite (tests, types, build, SEO, locales, claims)
+npm run check
 
-# Previsualización del Build Local
+# Preview production build locally
 npm run preview
 ```
 
-## 🔐 Seguridad y Propiedad Intelectual
+## Security & Intellectual Property
 
-Este repositorio es público exclusivamente para auditar el código frontend de la arquitectura. Sin embargo:
-- Las auditorías internas, KPIs, planes de conversión (CRO) y datos estratégicos de clientes **están excluidos del repositorio** para preservar el secreto de negocio B2B.
-- Todas las variables de entorno locales y tokens de APIs de mailing están protegidas.
+This repository is public to allow open auditing of frontend architecture and verification contracts. However:
+- Proprietary customer data, internal business logic, and private commercial details remain strictly excluded.
+- Private architectural records and working drafts belong exclusively in the git-ignored `docs/private/` directory.
+- All environment variables, API tokens, and signing certificates are excluded via `.gitignore`.
 
 ---
-**Aitor Nain**  
-*Senior Software Architect | .NET | Unity/3D | Cloud Computing*  
-Contacto Comercial: [naindev.com](https://www.naindev.com)
+
+**Aitor Nain Mendoza Vallejo**  
+Full Stack Software Architect | .NET | Python | Deterministic Product Conformance  
+Contact: [contact@naindev.com](mailto:contact@naindev.com) | [www.naindev.com](https://www.naindev.com)

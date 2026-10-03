@@ -174,12 +174,12 @@ const description = "Asegura que tu sistema de IA cumpla con los estándares de 
   <script is:inline type="module">
     import { message, isEnglish } from '/assets/js/locale.js';
     document.addEventListener('astro:page-load', () => {
-      // Poblar campo UTM dinámico
+      // Populate dynamic UTM field
       const utmContentField = document.getElementById('utm-content-field');
       if (!utmContentField) return;
       if (utmContentField) utmContentField.value = window.location.pathname;
 
-      // --- LÓGICA A/B TESTING ---
+      // --- A/B Testing Logic ---
       const urlParams = new URLSearchParams(window.location.search);
       const variant = urlParams.get('variant') || 'a';
       
@@ -187,7 +187,7 @@ const description = "Asegura que tu sistema de IA cumpla con los estándares de 
         const ctaTitle = document.querySelector('.form-container h3');
         if (ctaTitle) ctaTitle.textContent = message('formFreeChecklist');
         
-        // Trackear visualización de la variante
+        // Track variant impression
         if (window.plausible) {
           window.plausible('AB_Test_View', { props: { variant: 'B_Obtener' } });
         }
@@ -198,19 +198,19 @@ const description = "Asegura que tu sistema de IA cumpla con los estándares de 
       }
       // --------------------------
 
-      // Evento global proporcionado por MailerLite cuando un usuario se suscribe con éxito
+      // Global callback triggered by MailerLite upon successful submission
       window.ml_webform_success = function() {
         if (window.plausible) {
           window.plausible('Lead_Magnet_Download', { props: { source: 'checklist', variant: variant } });
         }
-        // Redirigir a página de gracias si MailerLite no lo hace por defecto
+        // Redirect to thank-you page if not handled natively by provider
         window.location.href = isEnglish() ? '/en/resources/gracias/' : '/recursos/gracias/';
       };
 
-      // Detección de adblocker para MailerLite (fallback visual)
+      // Ad-blocker detection fallback for embedded form
       setTimeout(() => {
         const mlForm = document.querySelector('.ml-subscribe-form');
-        // Si el contenedor no existe o está oculto (altura 0)
+        // If container is missing or collapsed (zero height)
         if (!mlForm || mlForm.clientHeight === 0 || window.getComputedStyle(mlForm).display === 'none') {
           const fallback = document.getElementById('mailerlite-fallback');
           if (fallback) fallback.style.display = 'block';
