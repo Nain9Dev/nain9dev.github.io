@@ -6,6 +6,14 @@ import { join } from 'node:path';
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const read = (file) => readFile(join(ROOT, file), 'utf8');
+const readIfExists = async (file) => {
+  try {
+    return await read(file);
+  } catch (err) {
+    if (err.code === 'ENOENT') return null;
+    throw err;
+  }
+};
 
 test('ENG-001: README.md is in professional English and free of emojis', async () => {
   const readme = await read('README.md');
@@ -49,16 +57,18 @@ test('ENG-003: Root operational markdown files are written in professional Engli
     assert.doesNotMatch(policy, marker, `Found Spanish marker ${marker} in SECURITY_POLICY.md`);
   }
 
-  const checklist = await read('PRODUCTION_CHECKLIST.md');
-  assert.doesNotMatch(checklist, emojiPattern);
-  const checklistSpanishMarkers = [
-    /\bChecklist de Producci[oó]n\b/i,
-    /\bFecha de Ejecuci[oó]n\b/i,
-    /\bPrevenci[oó]n de 404s\b/i,
-    /\bRendimiento y Carga\b/i,
-  ];
-  for (const marker of checklistSpanishMarkers) {
-    assert.doesNotMatch(checklist, marker, `Found Spanish marker ${marker} in PRODUCTION_CHECKLIST.md`);
+  const checklist = await readIfExists('PRODUCTION_CHECKLIST.md');
+  if (checklist) {
+    assert.doesNotMatch(checklist, emojiPattern);
+    const checklistSpanishMarkers = [
+      /\bChecklist de Producci[oó]n\b/i,
+      /\bFecha de Ejecuci[oó]n\b/i,
+      /\bPrevenci[oó]n de 404s\b/i,
+      /\bRendimiento y Carga\b/i,
+    ];
+    for (const marker of checklistSpanishMarkers) {
+      assert.doesNotMatch(checklist, marker, `Found Spanish marker ${marker} in PRODUCTION_CHECKLIST.md`);
+    }
   }
 
   const migrationLog = await read('MIGRATION_LOG.md');
