@@ -1,20 +1,39 @@
 # -----------------------------------------------------------------------------
-# NainDev - Repositorio Frontend (Astro SSG)
+# NainDev - Frontend Repository (Astro SSG)
 # -----------------------------------------------------------------------------
 
 # ==============================================================================
-# Node.js y Astro
+# Node.js & Astro Build Output
 # ==============================================================================
 node_modules/
 dist/
 build/
 .astro/
 coverage/
+.coverage/
 .nyc_output/
 *.tsbuildinfo
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
 
 # ==============================================================================
-# Logs y Debugging
+# Python Virtual Environments & Caches
+# ==============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+ENV/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ==============================================================================
+# Logs, Diagnostics & Profiling
 # ==============================================================================
 *.log
 npm-debug.log*
@@ -23,18 +42,38 @@ yarn-error.log*
 pnpm-debug.log*
 .eslintcache
 *.test.log
+*.cpuprofile
+*.heapsnapshot
+trace.json
 
 # ==============================================================================
-# Entorno (Variables y Secretos)
+# Environment Variables, Secrets & Credentials
 # ==============================================================================
 .env
 .env.*
 !.env.example
 secrets.json
+auth.json
+*credentials*.json
+*token*.json
+client_secret*.json
 appsettings.*.json
+.netrc
+.curlrc
 
 # ==============================================================================
-# IDEs y Editores de Código
+# Cryptographic Keys & Certificates
+# ==============================================================================
+*.pem
+*.key
+*.crt
+*.cer
+*.pfx
+*.p12
+*.pub
+
+# ==============================================================================
+# IDEs, Editors & Cloud Platforms
 # ==============================================================================
 .vscode/
 .idea/
@@ -45,18 +84,23 @@ appsettings.*.json
 .settings/
 *.suo
 *.user
+.wrangler/
+.vercel/
+.netlify/
 
 # ==============================================================================
-# Sistema Operativo
+# Operating System Artifacts
 # ==============================================================================
 .DS_Store
 ._*
 Thumbs.db
 Desktop.ini
 $RECYCLE.BIN/
+ehthumbs.db
+ehthumbs_vista.db
 
 # ==============================================================================
-# Backups, Cachés y Archivos Temporales
+# Backups, Caches & Temporary Scratch Files
 # ==============================================================================
 *~
 *.swp
@@ -67,21 +111,32 @@ $RECYCLE.BIN/
 *.old
 *.orig
 *.dump
+tmp/
+temp/
+scratch/
+*.scratch.md
 public/hot-reload*
 
 # ==============================================================================
-# Asistentes de IA e Instrucciones Locales (Privacidad/Seguridad)
+# AI Assistants, Agent Context & Local Models
 # ==============================================================================
-# Archivos de contexto para IA no necesarios en el código fuente de producción
 AGENTS.md
 CLAUDE.md
 .agents/
 .continue/
 .gemini/
 .claude/
+.cursor/
+.cursorrules
+.windsurf/
+.copilot/
+models/
+*.gguf
+*.bin
+*.safetensors
 
 # ==============================================================================
-# Directorios Privados (Documentación Interna / Planificación Estratégica)
+# Private Documentation & Unreleased Content
 # ==============================================================================
 .portfolio-private/
 docs/private/

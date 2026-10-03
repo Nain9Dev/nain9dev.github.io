@@ -153,3 +153,12 @@ Spec 005 is committed as `c78c854`; production confirmation after deployment is 
 | PRJ-009 | When the project catalog is loaded, every project shall declare supported strategic categories (`backend`, `data`, `demo`, `3d`, `production`, `dotnet`, `python`). | specs/017-catalog-complexity-ordering-and-filters | Implemented |
 | PRJ-010 | When the project section is rendered, the filter toolbar shall expose 6 strategic filter buttons (`all`, `production`, `dotnet`, `python`, `3d`, `demo`) equipped with dynamic count badges. | specs/017-catalog-complexity-ordering-and-filters | Implemented |
 | UI-001 | When project filters are applied or resized, the sliding active indicator and card transitions shall adapt smoothly without layout shifts or localization token leakage. | specs/017-catalog-complexity-ordering-and-filters | Implemented |
+
+## Repository security (spec 018)
+
+| ID | Requirement | Source | Status |
+| :--- | :--- | :--- | :--- |
+| SEC-001 | When private keys, SSL certificates, tokens, or credential files are placed in the workspace (`*.pem`, `*.key`, `*.pfx`, `*.crt`, `*credentials*.json`, `*token*.json`, `auth.json`, `.netrc`), git shall ignore them. | specs/018-gitignore-security-hardening | Implemented |
+| SEC-002 | When Python execution artifacts, virtual environments (`__pycache__/`, `.venv/`, `venv/`, `*.pyc`), or test/profiling outputs (`test-results/`, `playwright-report/`, `*.cpuprofile`) are generated, git shall ignore them. | specs/018-gitignore-security-hardening | Implemented |
+| SEC-003 | When local AI assistant configurations, agent scratch files (`.cursor/`, `.cursorrules`, `.windsurf/`, `*.scratch.md`), or local model weights (`*.gguf`, `*.bin`, `*.safetensors`, `models/`) are created, git shall ignore them. | specs/018-gitignore-security-hardening | Implemented |
+| SEC-004 | When `.gitignore` is maintained, all comments, section dividers, and annotations shall be written in professional English without non-English prose. | specs/018-gitignore-security-hardening | Implemented |
