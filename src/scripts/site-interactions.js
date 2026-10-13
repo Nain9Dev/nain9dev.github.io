@@ -154,10 +154,16 @@ export function initializeRevealMotion(elements) {
   };
 }
 
-export function initializeEmailCopy({ button, emailLink, status }) {
-  if (!button || !emailLink || !status) {
+export function initializeEmailCopy({ button, status }) {
+  if (!button || !status) {
     return () => {};
   }
+
+  const { emailUser, emailDomain } = button.dataset;
+  if (!emailUser || !emailDomain) {
+    return () => {};
+  }
+  const address = `${emailUser}@${emailDomain}`;
 
   const onButtonClick = async () => {
     if (!navigator.clipboard) {
@@ -166,7 +172,7 @@ export function initializeEmailCopy({ button, emailLink, status }) {
     }
 
     try {
-      await navigator.clipboard.writeText(emailLink.textContent.trim());
+      await navigator.clipboard.writeText(address);
       status.textContent = message('copySuccess');
       window.plausible && window.plausible('Contact Intent', { props: { type: 'Copy Email' } });
     } catch {

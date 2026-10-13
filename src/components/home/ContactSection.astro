@@ -11,7 +11,8 @@
     <div class="contact-actions">
       <a class="button button-primary contact-email"
         href="https://calendly.com/aitornainmendozavallejo-ksez/30min" target="_blank" rel="noopener noreferrer">Agendar Videollamada</a>
-      <button class="button button-secondary" type="button" data-copy-email>Copiar email</button>
+      {/* The address is split so Cloudflare email obfuscation finds nothing to rewrite (MAIL-006). */}
+      <button class="button button-secondary" type="button" data-copy-email data-email-user="contact" data-email-domain="naindev.com">Copiar email</button>
       <p class="copy-status" data-copy-status role="status"></p>
     </div>
   </div>

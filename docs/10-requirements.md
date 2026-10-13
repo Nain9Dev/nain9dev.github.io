@@ -204,3 +204,10 @@ Spec 005 is committed as `c78c854`; production confirmation after deployment is 
 | PERF-014 | While in low-performance mode, reveal motion shall need no observers or timers; in other modes it shall not force layout through a timer fallback. | specs/021-post-paint-main-thread | Implemented |
 | PERF-015 | When the page has painted, decorative effects and the WebGL probe shall start only when the browser is idle. | specs/021-post-paint-main-thread | Implemented |
 | PERF-016 | When the client router swaps to another page, the performance mode decided on first load shall be restored before the new page renders. | specs/021-post-paint-main-thread | Implemented |
+
+## Copy email button (spec 023)
+
+| ID | Requirement | Source | Status |
+| :--- | :--- | :--- | :--- |
+| MAIL-005 | When a visitor activates "Copiar email", the system shall copy `contact@naindev.com` and announce success with the existing localized message. | specs/023-copy-email-button | Implemented |
+| MAIL-006 | When the home page is served, the address used by the copy button shall not appear as plain text or as a `mailto:` link. | specs/023-copy-email-button | Implemented |

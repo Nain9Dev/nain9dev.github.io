@@ -60,7 +60,6 @@ function initApp() {
   safeInit('RevealMotion', () => initializeRevealMotion(document.querySelectorAll("[data-reveal]")));
   safeInit('EmailCopy', () => initializeEmailCopy({
     button: document.querySelector("[data-copy-email]"),
-    emailLink: document.querySelector(".contact-email"),
     status: document.querySelector("[data-copy-status]")
   }));
 
