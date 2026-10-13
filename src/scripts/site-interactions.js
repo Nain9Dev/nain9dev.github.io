@@ -124,8 +124,10 @@ export function initializeRevealMotion(elements) {
   }
 
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // Low-performance CSS already shows every reveal element; observers would only add work (PERF-014).
+  const lowPerformance = document.documentElement.classList.contains("low-performance");
 
-  if (reducedMotion || !("IntersectionObserver" in window)) {
+  if (reducedMotion || lowPerformance || !("IntersectionObserver" in window)) {
     revealElements.forEach((element) => element.classList.add("is-visible"));
     return () => {};
   }
@@ -144,21 +146,11 @@ export function initializeRevealMotion(elements) {
     threshold: 0.12
   });
   
+  // IntersectionObserver reports the initial state of every target, so no layout-reading fallback is needed.
   revealElements.forEach((element) => observer.observe(element));
-
-  const fallbackTimeout = setTimeout(() => {
-    revealElements.forEach((element) => {
-      const rect = element.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom > 0 && !element.classList.contains("is-visible")) {
-        element.classList.add("is-visible");
-        observer.unobserve(element);
-      }
-    });
-  }, 2000);
 
   return () => {
     observer.disconnect();
-    clearTimeout(fallbackTimeout);
   };
 }
 

@@ -6,6 +6,7 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ### Changed
 
+- Spec 021: home-only modules load on demand, decorative effects and the WebGL probe start when idle, project filters and reveal motion no longer force layout, the terminal prompt is excluded from Cloudflare email obfuscation, and the performance mode survives client-side navigation. Local Lighthouse mobile 99 → 100, TBT 51 ms → 0 ms (154 ms → 0 ms with CPU ×6).
 - Spec 022: the deploy workflow no longer calls the Cloudflare purge API, which had always failed silently; Cloudflare caches only hashed `/_astro/` files.
 - Spec 020: low-end device performance. One variable font file per family instead of twelve URLs for two files; client scripts, styles and fonts bundled and hashed by Astro (ADR-0002, Proposed); WebGL probe moved out of the document head; hero visible without JavaScript; compositor-only availability pulse; `content-visibility` on off-screen home sections; header logo served at its rendered size. Adds `scripts/performance.test.mjs` and `scripts/performance-build.test.mjs` to `npm run check`.
 

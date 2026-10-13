@@ -80,10 +80,29 @@ export function initializeProjectFilters({ container, count, toolbar }) {
   };
   window.addEventListener("resize", handleResize, { passive: true });
 
+  // Initial "all" state is applied without timers or layout reads (PERF-013).
+  buttons.forEach((button) => {
+    const isActive = button.dataset.projectFilter === "all";
+    button.classList.toggle("is-active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+  });
+  count.textContent = formatProjectCount(cards.length);
   toolbar.hidden = false;
-  applyFilter("all");
+
+  // The sliding indicator needs layout, so measure it only once the toolbar is about to be seen.
+  let indicatorObserver = null;
+  if (typeof IntersectionObserver === "function") {
+    indicatorObserver = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) {
+        indicatorObserver.disconnect();
+        requestAnimationFrame(handleResize);
+      }
+    }, { rootMargin: "200px 0px" });
+    indicatorObserver.observe(toolbar);
+  }
 
   return () => {
     window.removeEventListener("resize", handleResize);
+    indicatorObserver?.disconnect();
   };
 }

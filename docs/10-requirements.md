@@ -193,3 +193,14 @@ Spec 005 is committed as `c78c854`; production confirmation after deployment is 
 | :--- | :--- | :--- | :--- |
 | DEP-001 | When the site is deployed, the workflow shall not call the Cloudflare API nor reference Cloudflare secrets. | specs/022-remove-cloudflare-purge | Implemented |
 | DEP-002 | When a deploy publishes new HTML, visitors shall receive it without a manual purge. | specs/022-remove-cloudflare-purge | Implemented |
+
+## Post-paint main-thread work (spec 021)
+
+| ID | Requirement | Source | Status |
+| :--- | :--- | :--- | :--- |
+| PERF-011 | When the home page is served through Cloudflare, decorative text that looks like an email address shall be excluded from email obfuscation, so no obfuscation script is injected. | specs/021-post-paint-main-thread | Implemented |
+| PERF-012 | When a page loads, home-only modules shall not be part of the entry bundle and shall load on demand only where their section exists. | specs/021-post-paint-main-thread | Implemented |
+| PERF-013 | When the project filters initialise, they shall not read layout. | specs/021-post-paint-main-thread | Implemented |
+| PERF-014 | While in low-performance mode, reveal motion shall need no observers or timers; in other modes it shall not force layout through a timer fallback. | specs/021-post-paint-main-thread | Implemented |
+| PERF-015 | When the page has painted, decorative effects and the WebGL probe shall start only when the browser is idle. | specs/021-post-paint-main-thread | Implemented |
+| PERF-016 | When the client router swaps to another page, the performance mode decided on first load shall be restored before the new page renders. | specs/021-post-paint-main-thread | Implemented |

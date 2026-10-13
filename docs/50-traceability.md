@@ -136,3 +136,4 @@ Before the copy change, `scripts/offer-copy.test.mjs` failed 6 of 6 and the new 
 | PERF-010 | `curl -sI` on production `/_astro/` files (B-016) returns `Cache-Control: max-age=31536000` | manual | Pass: production 2026-10-13 |
 | DEP-001 | `scripts/deploy-workflow.test.mjs` "DEP-001: the deploy workflow neither calls the Cloudflare API nor reads Cloudflare secrets"; `actionlint`, `zizmor` | unit | Pass: local 2026-10-13 |
 | DEP-002 | Production HTML references the new bundle hashes after deploy, checked with `curl` | manual | Pending next deploy |
+| PERF-011 to PERF-016 | `scripts/post-paint.test.mjs` tests of the same IDs; `scripts/performance-build.test.mjs` "PERF-011: built home pages keep the email_off markers…" and "PERF-012: entry scripts carry no home-only module code"; browser check in `specs/021-post-paint-main-thread/tasks.md` | unit + contract + manual | Pass: local `npm run check` 2026-10-13 |

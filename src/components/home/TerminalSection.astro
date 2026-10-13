@@ -20,7 +20,8 @@
       </div>
       <div class="terminal-body" id="terminal-output" role="log" aria-live="polite"></div>
       <div class="terminal-input-line">
-        <span class="prompt-text" aria-hidden="true">[aitor@naindev.com ~]$</span>
+        {/* Decorative prompt, not a contact address: the markers stop Cloudflare from injecting a parser-blocking decoder (PERF-011). */}
+        <span class="prompt-text" aria-hidden="true" translate="no"><!--email_off-->[aitor@naindev.com ~]$<!--/email_off--></span>
         <input type="text" id="terminal-input" class="terminal-input" role="textbox" aria-label="Línea de comandos de terminal" autocomplete="off" spellcheck="false" placeholder="Escribe 'help' para ver comandos...">
       </div>
     </div>

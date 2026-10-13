@@ -54,6 +54,24 @@ test('PERF-004: pages link one bundled stylesheet at most', async () => {
   }
 });
 
+test('PERF-011: built home pages keep the email_off markers around the terminal prompt', async () => {
+  for (const page of ['dist/index.html', 'dist/en/index.html']) {
+    assert.match(await read(page), /<!--email_off-->\[aitor@naindev\.com ~\]\$<!--\/email_off-->/, page);
+  }
+});
+
+test('PERF-012: entry scripts carry no home-only module code', async () => {
+  for (const page of pages) {
+    const html = await read(page);
+    for (const script of tags(html, 'script').filter((s) => s.src?.startsWith('/_astro/'))) {
+      const code = await read(join('dist', script.src));
+      for (const marker of ['[ImpactMetricsManager]', '[ThreeHero]', 'Unable to render the project catalog.']) {
+        assert.ok(!code.includes(marker), `${page}: ${script.src} contains ${marker}`);
+      }
+    }
+  }
+});
+
 test('PERF-009: the header logo is never served wider than twice its rendered width', async () => {
   // .brand-logo renders at most 4.2rem tall with a 4:1 aspect ratio: 4.2 * 16 * 4 = 268.8 px.
   const limit = Math.ceil(268.8 * 2);
