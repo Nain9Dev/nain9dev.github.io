@@ -50,9 +50,19 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.nain
   <title>{title}</title>
   <script is:inline id="localized-ui" type="application/json" set:html={JSON.stringify(runtimeMessages).replaceAll('<', '\\u003c')} />
 
-    <!-- Pre-procesar animaciones para evitar FOUC -->
+    <!-- Pre-procesar animaciones para evitar FOUC y detectar bajo rendimiento temprano -->
     <script is:inline>
       document.documentElement.classList.add("motion-ready");
+      try {
+        if (
+          (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) ||
+          (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4) ||
+          (navigator.deviceMemory && navigator.deviceMemory < 4) ||
+          (navigator.connection && navigator.connection.saveData)
+        ) {
+          document.documentElement.classList.add("low-performance");
+        }
+      } catch (e) {}
     </script>
     
     <!-- ClientRouter for ViewTransitions -->
@@ -71,7 +81,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.nain
   <Footer />
   <PrivacyBanner />
 
-  <script type="module" src="/assets/js/app.js?v=017"></script>
+  <script type="module" src="/assets/js/app.js?v=018"></script>
 
   <script>
     import { initializeGlobalAnalytics, trackTerminalCommand } from "../utils/analytics.js";

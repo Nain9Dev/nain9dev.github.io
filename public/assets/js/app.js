@@ -1,21 +1,21 @@
-import { loadProjects } from "./project-catalog.js?v=017";
-import { initializeDemoModal } from "./demo-modal.js";
-import { initializeProjectFilters } from "./project-filters.js?v=017";
-import { renderProjectError, renderProjects } from "./project-view.js?v=017";
-import { initializeAmbientGlow } from "./ambient-glow.js";
-import { initializeCardTilt } from "./card-tilt.js";
-import { initializeScrollStorytelling } from "./scroll-storytelling.js";
-import { initializeParticles } from "./particles.js";
-import { initializeThreeHero, cleanupThreeHero } from "./three-hero.js";
-import { ImpactMetricsManager } from "./impact-metrics.js";
+import { loadProjects } from "./project-catalog.js?v=018";
+import { initializeDemoModal } from "./demo-modal.js?v=018";
+import { initializeProjectFilters } from "./project-filters.js?v=018";
+import { renderProjectError, renderProjects } from "./project-view.js?v=018";
+import { initializeAmbientGlow } from "./ambient-glow.js?v=018";
+import { initializeCardTilt } from "./card-tilt.js?v=018";
+import { initializeScrollStorytelling } from "./scroll-storytelling.js?v=018";
+import { initializeParticles } from "./particles.js?v=018";
+import { initializeThreeHero, cleanupThreeHero } from "./three-hero.js?v=018";
+import { ImpactMetricsManager } from "./impact-metrics.js?v=018";
 import {
   initializeEmailCopy,
   initializeHeaderState,
   initializeRevealMotion,
   initializeSectionNavigation
-} from "./site-interactions.js";
-import { initializeScrollTracking } from "./scroll-tracking.js";
-import { initializeLazyLoading } from "./lazy-mailerlite.js";
+} from "./site-interactions.js?v=018";
+import { initializeScrollTracking } from "./scroll-tracking.js?v=018";
+import { initializeLazyLoading } from "./lazy-mailerlite.js?v=018";
 
 let isAppInitialized = false;
 let cleanupFunctions = [];
@@ -105,7 +105,7 @@ function initApp() {
   }
 
   if (projectContainer) {
-    loadProjects(dataUrl('projects.json?v=017'))
+    loadProjects(dataUrl('projects.json?v=018'))
       .then((projects) => {
         renderProjects(projectContainer, projects);
         addCleanup(initializeProjectFilters({
@@ -148,4 +148,4 @@ document.addEventListener('astro:after-swap', () => {
   isAppInitialized = false;
   initApp();
 });
-import { dataUrl } from './locale.js';
+import { dataUrl } from './locale.js?v=018';

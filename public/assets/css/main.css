@@ -2000,3 +2000,47 @@ h3 {
 .after-box .comparison-label {
   color: var(--color-primary-strong);
 }
+
+/* Adaptive low-performance overrides: eliminate CPU bottlenecks on devices without hardware acceleration */
+html.low-performance .site-header {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: rgba(8, 11, 18, 0.98) !important;
+}
+
+html.low-performance .site-header.is-scrolled {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+}
+
+html.low-performance .tech-badge {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background-color: var(--color-surface) !important;
+  will-change: auto !important;
+}
+
+html.low-performance .hero-panel::after {
+  display: none !important;
+}
+
+html.low-performance .hero::before {
+  box-shadow: none !important;
+  border-color: rgba(120, 144, 255, 0.12) !important;
+}
+
+html.low-performance .hero-3d-canvas {
+  display: none !important;
+}
+
+html.low-performance .ambient-particles {
+  display: none !important;
+}
+
+html.low-performance body::after {
+  display: none !important;
+}
+
+html.low-performance [data-parallax="true"] {
+  transform: none !important;
+}
+

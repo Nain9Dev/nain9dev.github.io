@@ -162,12 +162,16 @@ export async function initializeThreeHero() {
     if (lastFrameTime > 0 && checkedFrames < 60) {
       checkedFrames++;
       const frameDelta = now - lastFrameTime;
-      if (frameDelta > 66.6) {
+      if (frameDelta > 50) {
         consecutiveSlowFrames++;
         if (consecutiveSlowFrames >= 5) {
-          console.warn('[ThreeHero] Sustained low framerate detected (< 15 FPS). Disabling 3D animation to preserve responsiveness.');
+          console.warn('[ThreeHero] Low framerate detected during execution. Degraded to lightweight mode.');
           cleanupThreeHero();
           canvas.style.display = 'none';
+          if (typeof document !== 'undefined' && document.documentElement) {
+            document.documentElement.classList.remove('high-performance');
+            document.documentElement.classList.add('low-performance');
+          }
           return;
         }
       }
