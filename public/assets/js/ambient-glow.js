@@ -1,6 +1,8 @@
+import { hasHardwareAcceleration } from './hardware-acceleration.js';
+
 export function initializeAmbientGlow() {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReducedMotion) return;
+  if (prefersReducedMotion || !hasHardwareAcceleration()) return () => {};
 
   const root = document.documentElement;
   let mouseX = 0;
@@ -13,7 +15,7 @@ export function initializeAmbientGlow() {
     isUpdating = false;
   }
 
-  window.addEventListener('mousemove', (e) => {
+  const onMouseMove = (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
 
@@ -21,5 +23,11 @@ export function initializeAmbientGlow() {
       isUpdating = true;
       requestAnimationFrame(updateGlowPosition);
     }
-  }, { passive: true });
+  };
+
+  window.addEventListener('mousemove', onMouseMove, { passive: true });
+
+  return () => {
+    window.removeEventListener('mousemove', onMouseMove);
+  };
 }

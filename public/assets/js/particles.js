@@ -1,15 +1,25 @@
+import { hasHardwareAcceleration } from "./hardware-acceleration.js";
+
 export function initializeParticles() {
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (prefersReducedMotion) return;
+  if (prefersReducedMotion || !hasHardwareAcceleration()) return () => {};
+
+  const existingCanvas = document.querySelector(".ambient-particles");
+  if (existingCanvas) {
+    existingCanvas.remove();
+  }
 
   const canvas = document.createElement("canvas");
   canvas.className = "ambient-particles";
   document.body.prepend(canvas);
 
   const ctx = canvas.getContext("2d");
+  if (!ctx) return () => {};
+
   let width, height;
   let particles = [];
   let isRunning = true;
+  let animationFrameId = null;
 
   function resize() {
     width = window.innerWidth;
@@ -43,7 +53,7 @@ export function initializeParticles() {
 
   function initParticles() {
     particles = [];
-    const count = Math.min(window.innerWidth / 20, 50); // Responsive count, max 50
+    const count = Math.min(window.innerWidth / 20, 50);
     for (let i = 0; i < count; i++) {
       particles.push(new Particle());
     }
@@ -56,24 +66,42 @@ export function initializeParticles() {
       particles[i].update();
       particles[i].draw();
     }
-    requestAnimationFrame(animate);
+    animationFrameId = requestAnimationFrame(animate);
   }
 
-  window.addEventListener("resize", () => {
+  const onResize = () => {
     resize();
     initParticles();
-  });
+  };
 
-  document.addEventListener("visibilitychange", () => {
+  const onVisibilityChange = () => {
     if (document.hidden) {
       isRunning = false;
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+        animationFrameId = null;
+      }
     } else {
       isRunning = true;
       animate();
     }
-  });
+  };
+
+  window.addEventListener("resize", onResize, { passive: true });
+  document.addEventListener("visibilitychange", onVisibilityChange);
 
   resize();
   initParticles();
   animate();
+
+  return () => {
+    isRunning = false;
+    window.removeEventListener("resize", onResize);
+    document.removeEventListener("visibilitychange", onVisibilityChange);
+    if (animationFrameId) {
+      cancelAnimationFrame(animationFrameId);
+      animationFrameId = null;
+    }
+    canvas.remove();
+  };
 }

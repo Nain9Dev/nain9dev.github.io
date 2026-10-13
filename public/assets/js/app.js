@@ -51,16 +51,23 @@ function initApp() {
   safeInit('ScrollStory', initializeScrollStorytelling);
   safeInit('Particles', initializeParticles);
   
+  let heroTimer = null;
   if ('requestIdleCallback' in window) {
-    requestIdleCallback(() => {
+    heroTimer = requestIdleCallback(() => {
       initializeThreeHero();
-      addCleanup(cleanupThreeHero);
+    });
+    addCleanup(() => {
+      if (heroTimer) cancelIdleCallback(heroTimer);
+      cleanupThreeHero();
     });
   } else {
-    setTimeout(() => {
+    heroTimer = setTimeout(() => {
       initializeThreeHero();
-      addCleanup(cleanupThreeHero);
     }, 1000);
+    addCleanup(() => {
+      if (heroTimer) clearTimeout(heroTimer);
+      cleanupThreeHero();
+    });
   }
   
   safeInit('ImpactMetrics', () => {

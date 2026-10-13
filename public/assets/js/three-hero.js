@@ -1,3 +1,5 @@
+import { hasHardwareAcceleration } from './hardware-acceleration.js';
+
 let animationFrameId = null;
 let renderer = null;
 let scene = null;
@@ -23,7 +25,16 @@ export async function initializeThreeHero() {
   if (!canvas || !heroSection) return;
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if (prefersReducedMotion.matches) return;
+  if (prefersReducedMotion.matches) {
+    canvas.style.display = 'none';
+    return;
+  }
+
+  if (!hasHardwareAcceleration()) {
+    console.log('[ThreeHero] Hardware acceleration not available or low-spec device. Falling back to static hero.');
+    canvas.style.display = 'none';
+    return;
+  }
 
   let THREE;
   try {
@@ -32,6 +43,7 @@ export async function initializeThreeHero() {
     console.log('[ThreeHero] Three.js loaded successfully.');
   } catch (error) {
     console.error("[NainDev] Unable to load Three.js. Skipping 3D hero.", error);
+    canvas.style.display = 'none';
     return;
   }
 
@@ -43,11 +55,27 @@ export async function initializeThreeHero() {
   camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
   camera.position.z = 5;
 
-  renderer = new THREE.WebGLRenderer({
-    canvas: canvas,
-    alpha: true,
-    antialias: true
-  });
+  canvas.addEventListener('webglcontextlost', (event) => {
+    event.preventDefault();
+    console.warn('[ThreeHero] WebGL context lost. Gracefully disabling 3D hero.');
+    cleanupThreeHero();
+    canvas.style.display = 'none';
+  }, { once: true });
+
+  try {
+    renderer = new THREE.WebGLRenderer({
+      canvas: canvas,
+      alpha: true,
+      antialias: true,
+      powerPreference: 'high-performance',
+      failIfMajorPerformanceCaveat: true
+    });
+  } catch (error) {
+    console.warn('[ThreeHero] Unable to create accelerated WebGLRenderer. Falling back to static hero.', error);
+    canvas.style.display = 'none';
+    return;
+  }
+
   renderer.setSize(width, height);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
@@ -123,9 +151,28 @@ export async function initializeThreeHero() {
   window.addEventListener('resize', onWindowResize, { passive: true });
 
   const clock = new THREE.Clock();
+  let lastFrameTime = 0;
+  let checkedFrames = 0;
+  let consecutiveSlowFrames = 0;
 
   const animate = () => {
     if (!isVisible) return;
+
+    const now = performance.now();
+    if (lastFrameTime > 0 && checkedFrames < 60) {
+      checkedFrames++;
+      const frameDelta = now - lastFrameTime;
+      if (frameDelta > 66.6) {
+        consecutiveSlowFrames++;
+        if (consecutiveSlowFrames >= 5) {
+          console.warn('[ThreeHero] Sustained low framerate detected (< 15 FPS). Disabling 3D animation to preserve responsiveness.');
+          cleanupThreeHero();
+          canvas.style.display = 'none';
+          return;
+        }
+      }
+    }
+    lastFrameTime = now;
 
     animationFrameId = requestAnimationFrame(animate);
     const elapsedTime = clock.getElapsedTime();
@@ -214,18 +261,22 @@ export function cleanupThreeHero() {
 
   if (heroSection && onDocumentMouseMove) {
     heroSection.removeEventListener('mousemove', onDocumentMouseMove);
+    onDocumentMouseMove = null;
   }
   
   if (onScroll) {
     window.removeEventListener('scroll', onScroll);
+    onScroll = null;
   }
   
   if (onWindowResize) {
     window.removeEventListener('resize', onWindowResize);
+    onWindowResize = null;
   }
   
   if (onVisibilityChange) {
     document.removeEventListener('visibilitychange', onVisibilityChange);
+    onVisibilityChange = null;
   }
 
   if (observer) {
@@ -236,16 +287,17 @@ export function cleanupThreeHero() {
   if (mainObject) {
     mainObject.geometry.dispose();
     mainObject.material.dispose();
+    mainObject = null;
   }
 
   if (particlesMesh) {
     particlesMesh.geometry.dispose();
     particlesMesh.material.dispose();
+    particlesMesh = null;
   }
 
   if (renderer) {
     renderer.dispose();
-    // Do NOT remove canvas from DOM, it belongs to the template and will be recreated/destroyed by Astro SPA navigation anyway.
     renderer = null;
   }
   

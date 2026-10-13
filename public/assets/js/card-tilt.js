@@ -1,6 +1,8 @@
+import { hasHardwareAcceleration } from './hardware-acceleration.js';
+
 export function initializeCardTilt() {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReducedMotion) return () => {};
+  if (prefersReducedMotion || !hasHardwareAcceleration()) return () => {};
 
   const container = document.querySelector('[data-project-list]');
   if (!container) return () => {};
