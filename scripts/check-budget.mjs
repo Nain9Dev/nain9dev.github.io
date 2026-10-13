@@ -83,6 +83,9 @@ for (const [page, reports] of Object.entries(results)) {
     const tasks = (r.audits['long-tasks']?.details?.items ?? []).slice(0, 4)
       .map((t) => `${String(t.url).replace(origin, '')} ${Math.round(t.duration)}ms@${Math.round(t.startTime)}`);
     console.log(`     run ${index + 1} long tasks: ${tasks.join(' | ') || 'none reported'}`);
+    const work = (r.audits['mainthread-work-breakdown']?.details?.items ?? []).slice(0, 4)
+      .map((w) => `${w.groupLabel} ${Math.round(w.duration)}ms`);
+    console.log(`     run ${index + 1} main thread: ${work.join(' | ')}`);
   }
 }
 
