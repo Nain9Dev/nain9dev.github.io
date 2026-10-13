@@ -6,6 +6,7 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ### Changed
 
+- Spec 026: the default social preview image is a 46 KB 1200×630 JPEG (`og-cover-v3.jpg`) instead of a 1.5 MB PNG.
 - Spec 025: the placeholder MailerLite newsletter and checklist forms are removed; the checklist is requested by email to `contact@naindev.com`, and the CSP no longer allows MailerLite.
 - Spec 024: GitHub Actions pinned to commit SHAs, Pages write and OIDC permissions limited to the deploy job, checkout without persisted credentials and `npm ci` without the `npm install` fallback.
 - Spec 023: "Copiar email" copies `contact@naindev.com` instead of the Calendly button label.

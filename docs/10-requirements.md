@@ -228,3 +228,10 @@ Spec 005 is committed as `c78c854`; production confirmation after deployment is 
 | LEAD-001 | When any page is rendered, it shall contain no MailerLite form, script or placeholder endpoint, and the CSP shall not allow MailerLite hosts. | specs/025-remove-placeholder-forms | Implemented |
 | LEAD-002 | When a visitor wants the checklist, the page shall offer a `mailto:contact@naindev.com` link with a prefilled subject as its only call to action. | specs/025-remove-placeholder-forms | Implemented |
 | LEAD-003 | When the checklist page is served through Cloudflare, the email link shall be excluded from email obfuscation. | specs/025-remove-placeholder-forms | Implemented |
+
+## Social preview image weight (spec 026)
+
+| ID | Requirement | Source | Status |
+| :--- | :--- | :--- | :--- |
+| SOC-001 | When a page declares the default social image, the file shall be a 1200×630 JPEG of at most 200 KB with matching declared dimensions. | specs/026-social-image-weight | Implemented |
+| SOC-002 | When sources reference the default social image, they shall all use the new file, and the 1.5 MB PNG shall not be published. | specs/026-social-image-weight | Implemented |

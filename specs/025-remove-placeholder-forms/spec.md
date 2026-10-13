@@ -1,6 +1,6 @@
 # Specification: Remove placeholder MailerLite forms
 
-Status: In progress
+Status: Done
 
 ## Objective
 
@@ -30,6 +30,6 @@ Both MailerLite forms post to placeholder identifiers (`xxx`, B-007): the footer
 ## Session state
 
 - Last updated: 2026-10-13, implementation session
-- Done: —
-- Next: T01
+- Done: T01, T02.
+- Next: owner decisions OQ-011 and OQ-012.
 - Blocked: —
