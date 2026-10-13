@@ -66,6 +66,16 @@ test('LEAD-003: built checklist pages keep the email_off markers around the mail
   }
 });
 
+test('NAV-001 and NAV-003: built pages carry valid speculation rules and no router script', async () => {
+  for (const page of pages) {
+    const html = await read(page);
+    assert.doesNotMatch(html, /ClientRouter|astro-view-transitions/, `${page} still ships the client router`);
+    const rules = html.match(/<script type="speculationrules">([\s\S]*?)<\/script>/);
+    assert.ok(rules, `${page} has no speculation rules`);
+    assert.equal(JSON.parse(rules[1]).prerender[0].eagerness, 'moderate');
+  }
+});
+
 test('PERF-012: entry scripts carry no home-only module code', async () => {
   for (const page of pages) {
     const html = await read(page);

@@ -203,7 +203,7 @@ Spec 005 is committed as `c78c854`; production confirmation after deployment is 
 | PERF-013 | When the project filters initialise, they shall not read layout. | specs/021-post-paint-main-thread | Implemented |
 | PERF-014 | While in low-performance mode, reveal motion shall need no observers or timers; in other modes it shall not force layout through a timer fallback. | specs/021-post-paint-main-thread | Implemented |
 | PERF-015 | When the page has painted, decorative effects and the WebGL probe shall start only when the browser is idle. | specs/021-post-paint-main-thread | Implemented |
-| PERF-016 | When the client router swaps to another page, the performance mode decided on first load shall be restored before the new page renders. | specs/021-post-paint-main-thread | Implemented |
+| PERF-016 | When the client router swaps to another page, the performance mode decided on first load shall be restored before the new page renders. | specs/021-post-paint-main-thread | Retired 2026-10-13: spec 029 removed the client router, so every navigation runs the head script |
 
 ## Copy email button (spec 023)
 
@@ -248,3 +248,12 @@ Spec 005 is committed as `c78c854`; production confirmation after deployment is 
 | :--- | :--- | :--- | :--- |
 | FONT-001 | When fonts are served, Inter shall weigh at most 34 KB and Outfit at most 30 KB, keeping weights 300 to 800, kerning and default ligatures. | specs/028-font-subsetting | Implemented |
 | FONT-002 | When any page is built, every visible text character outside code, emoji and pictographic symbols shall be inside the declared `unicode-range`. | specs/028-font-subsetting | Implemented |
+
+## Instant navigation (spec 029)
+
+| ID | Requirement | Source | Status |
+| :--- | :--- | :--- | :--- |
+| NAV-001 | When any page is built, it shall load no client router script and its scripts shall not depend on `astro:*` lifecycle events. | specs/029-instant-navigation | Implemented (ADR-0003 Proposed) |
+| NAV-002 | While the visitor has no reduced-motion preference, same-origin navigations shall use a cross-document view transition, keeping the header in place. | specs/029-instant-navigation | Implemented (ADR-0003 Proposed) |
+| NAV-003 | When a visitor hovers or presses a same-origin page link, the browser shall be allowed to prerender it, excluding `mailto:`, files, `target="_blank"` and `data-no-prerender` links. | specs/029-instant-navigation | Implemented (ADR-0003 Proposed) |
+| NAV-004 | When a page initialises its scripts, it shall do so once per document load, and terminal, privacy banner, contact tracking and catalog shall keep working. | specs/029-instant-navigation | Implemented (ADR-0003 Proposed) |

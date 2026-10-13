@@ -17,6 +17,16 @@
   unicode-range: U+0020-007E, U+00A0-00FF, U+0131, U+0152-0153, U+2013-2014, U+2018-201E, U+2022, U+2026, U+2030, U+2039-203A, U+20AC, U+2122, U+2190-2193, U+2197, U+2212;
 }
 
+/* Native cross-document transitions replace the client router (ADR-0003, NAV-002). */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 180ms;
+  }
+}
+
 :root {
   color-scheme: dark;
   --color-background: #090A0F;
@@ -234,6 +244,8 @@ main > .section:not(.hero) {
   position: sticky;
   top: 0;
   z-index: 50;
+  /* Kept in place during cross-document view transitions (NAV-002). */
+  view-transition-name: site-header;
   border-bottom: 1px solid var(--color-line);
   background: rgba(8, 11, 18, 0.84);
   backdrop-filter: blur(1.15rem) saturate(125%);

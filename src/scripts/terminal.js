@@ -1,8 +1,7 @@
 import { dataUrl, isEnglish, message, escapeHtml } from './locale.js';
 
-let terminalCleanup = null;
-
-document.addEventListener('astro:page-load', () => {
+// Each page is a full document load (ADR-0003), so the terminal initialises once.
+function initializeTerminal() {
   console.log('[Terminal] Initializing terminal.js');
   const input = document.getElementById('terminal-input');
   const output = document.getElementById('terminal-output');
@@ -216,19 +215,6 @@ document.addEventListener('astro:page-load', () => {
   });
   
   observer.observe(terminal);
+}
 
-  // Register cleanup handler for terminal lifecycle
-  terminalCleanup = () => {
-    console.log('[Terminal] Disposing terminal resources...');
-    terminal.removeEventListener('click', onTerminalClick);
-    input.removeEventListener('keydown', onKeyDown);
-    observer.disconnect();
-  };
-});
-
-document.addEventListener('astro:before-swap', () => {
-  if (terminalCleanup) {
-    terminalCleanup();
-    terminalCleanup = null;
-  }
-});
+initializeTerminal();

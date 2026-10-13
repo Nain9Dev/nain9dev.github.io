@@ -6,6 +6,7 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ### Changed
 
+- Spec 029: Astro's client router is replaced by native cross-document view transitions and Speculation Rules prerendering on hover (ADR-0003, Proposed); 16 KiB less JavaScript per page and no SPA lifecycle code.
 - Spec 028: Inter and Outfit subset to the characters the site uses and to the OpenType features it needs (80.5 KB → 63.4 KB, pixel-identical); arrows on the blog and privacy pages now render in the site font.
 - Spec 027: `static-site-check.yml` runs only on pull requests; pushes to `main` are validated once, by the deploy workflow.
 - Spec 026: the default social preview image is a 46 KB 1200×630 JPEG (`og-cover-v3.jpg`) instead of a 1.5 MB PNG.

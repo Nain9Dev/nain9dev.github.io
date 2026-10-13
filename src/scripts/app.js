@@ -11,43 +11,25 @@ import {
 } from "./site-interactions.js";
 import { initializeScrollTracking } from "./scroll-tracking.js";
 import { runWhenIdle } from "./idle.js";
-import { restorePerformanceClass } from "./hardware-acceleration.js";
 
-let isAppInitialized = false;
-let cleanupFunctions = [];
-// Incremented on every SPA swap so late async work from a previous page cleans itself up.
-let generation = 0;
-
-function addCleanup(fn) {
-  if (typeof fn === 'function') {
-    cleanupFunctions.push(fn);
-  }
-}
+// Each navigation is a full document load (ADR-0003): modules initialise once and need no cleanup.
 
 function safeInit(name, initFn) {
   try {
-    addCleanup(initFn());
+    initFn();
   } catch (error) {
     console.warn(`[NainDev] Failed to initialize visual module '${name}':`, error);
   }
 }
 
-// Loads a home-only module on demand; its cleanup is registered only if the page is still current.
+// Loads a home-only module on demand (PERF-012).
 function loadOnDemand(name, importer, start) {
-  const currentGeneration = generation;
   importer()
     .then((module) => start(module))
-    .then((cleanup) => {
-      if (currentGeneration === generation) addCleanup(cleanup);
-      else if (typeof cleanup === 'function') cleanup();
-    })
     .catch((error) => console.warn(`[NainDev] Failed to load module '${name}':`, error));
 }
 
 function initApp() {
-  console.log('[App] Initializing application...');
-  isAppInitialized = true;
-  restorePerformanceClass();
   const projectContainer = document.querySelector("[data-project-list]");
   const yearElement = document.querySelector("[data-current-year]");
 
@@ -62,7 +44,6 @@ function initApp() {
     status: document.querySelector("[data-copy-status]")
   }));
 
-  // Modal DOM persists across SPA lifecycle
   initializeDemoModal(document);
 
   if (yearElement) {
@@ -70,7 +51,7 @@ function initApp() {
   }
 
   // Everything below is decorative or below the fold: start it after first paint (PERF-015).
-  addCleanup(runWhenIdle(() => {
+  runWhenIdle(() => {
     safeInit('AmbientGlow', initializeAmbientGlow);
     safeInit('CardTilt', initializeCardTilt);
     safeInit('ScrollStory', initializeScrollStorytelling);
@@ -79,17 +60,12 @@ function initApp() {
 
     // The effects above have already run the capability probe, so constrained devices skip the download.
     if (document.getElementById('hero-3d-canvas') && !document.documentElement.classList.contains('low-performance')) {
-      loadOnDemand('ThreeHero', () => import("./three-hero.js"), async ({ initializeThreeHero, cleanupThreeHero }) => {
-        await initializeThreeHero();
-        return cleanupThreeHero;
-      });
+      loadOnDemand('ThreeHero', () => import("./three-hero.js"), ({ initializeThreeHero }) => initializeThreeHero());
     }
 
     if (document.getElementById('impact-metrics-container')) {
-      loadOnDemand('ImpactMetrics', () => import("./impact-metrics.js"), async ({ ImpactMetricsManager }) => {
-        const manager = new ImpactMetricsManager('impact-metrics-container');
-        await manager.init();
-        return () => manager.destroy();
+      loadOnDemand('ImpactMetrics', () => import("./impact-metrics.js"), ({ ImpactMetricsManager }) => {
+        return new ImpactMetricsManager('impact-metrics-container').init();
       });
     }
 
@@ -100,32 +76,7 @@ function initApp() {
         count: document.querySelector("[data-project-count]")
       }));
     }
-  }));
-}
-
-function cleanupApp() {
-  console.log('[App] Disposing application before SPA navigation...', cleanupFunctions.length, 'cleanup handlers registered.');
-  generation++;
-  cleanupFunctions.forEach(fn => {
-    try {
-      fn();
-    } catch(e) {
-      console.warn('[App] Error during cleanup execution:', e);
-    }
   });
-  cleanupFunctions = [];
 }
 
-if (!isAppInitialized) {
-  initApp();
-}
-
-document.addEventListener('astro:before-swap', () => {
-  cleanupApp();
-});
-
-document.addEventListener('astro:after-swap', () => {
-  console.log('[App] SPA navigation complete, reinitializing...');
-  isAppInitialized = false;
-  initApp();
-});
+initApp();

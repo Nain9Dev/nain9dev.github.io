@@ -16,18 +16,6 @@ function updatePerformanceClasses(isHighPerformance) {
   }
 }
 
-// Astro's client router copies the new document's <html> attributes on every swap, which drops
-// the performance class. Capture the first decision and re-apply it to each swapped page (PERF-016).
-export function restorePerformanceClass() {
-  if (typeof document === 'undefined' || !document.documentElement) return;
-  if (cachedResult === null && document.documentElement.classList.contains('low-performance')) {
-    cachedResult = false;
-  }
-  if (cachedResult !== null) {
-    updatePerformanceClasses(cachedResult);
-  }
-}
-
 export function hasHardwareAcceleration() {
   if (cachedResult !== null) {
     return cachedResult;

@@ -43,21 +43,23 @@
   }
 </style>
 <script>
-  document.addEventListener('astro:page-load', () => {
-    const banner = document.getElementById('privacy-banner');
-    const closeBtn = document.querySelector('.privacy-banner-close');
-    
-    // Check if dismissed previously in localStorage
-    if (localStorage.getItem('privacyBannerClosed') === 'true') {
-      if (banner) banner.style.display = 'none';
-      return;
-    }
-    
-    if (closeBtn && banner) {
-      closeBtn.addEventListener('click', () => {
-        banner.style.display = 'none';
+  const banner = document.getElementById('privacy-banner');
+  const closeBtn = document.querySelector('.privacy-banner-close');
+
+  // Hide the banner if it was dismissed before; storage can be blocked in private modes.
+  let dismissed = false;
+  try {
+    dismissed = localStorage.getItem('privacyBannerClosed') === 'true';
+  } catch {}
+
+  if (banner && dismissed) {
+    banner.style.display = 'none';
+  } else if (closeBtn && banner) {
+    closeBtn.addEventListener('click', () => {
+      banner.style.display = 'none';
+      try {
         localStorage.setItem('privacyBannerClosed', 'true');
-      });
-    }
-  });
+      } catch {}
+    });
+  }
 </script>

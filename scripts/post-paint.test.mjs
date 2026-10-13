@@ -137,25 +137,6 @@ test('PERF-015: decorative effects and the WebGL probe start when the browser is
   }
 });
 
-test('PERF-016: the performance mode survives a client-side page swap', async () => {
-  const { restorePerformanceClass, resetHardwareAccelerationCache } = await import('../src/scripts/hardware-acceleration.js');
-  resetHardwareAccelerationCache();
-  const firstDocument = { documentElement: { classList: new FakeClassList('low-performance') } };
-  const swappedDocument = { documentElement: { classList: new FakeClassList() } };
-  withGlobals({ window: {}, document: firstDocument }, () => restorePerformanceClass());
-  withGlobals({ window: {}, document: swappedDocument }, () => restorePerformanceClass());
-  assert.ok(swappedDocument.documentElement.classList.contains('low-performance'));
-  resetHardwareAccelerationCache();
-});
-
-test('PERF-016: app.js restores the performance mode before re-initialising a swapped page', async () => {
-  const app = await read('src/scripts/app.js');
-  const init = app.match(/function initApp\(\) \{([\s\S]*?)\n\}/);
-  assert.ok(init);
-  const restore = init[1].indexOf('restorePerformanceClass()');
-  assert.ok(restore !== -1 && restore < init[1].indexOf('initializeRevealMotion'), 'restore must run before reveal motion');
-});
-
 test('PERF-015: runWhenIdle falls back to a timer without requestIdleCallback', async () => {
   const { runWhenIdle } = await import('../src/scripts/idle.js');
   let scheduled = null;
