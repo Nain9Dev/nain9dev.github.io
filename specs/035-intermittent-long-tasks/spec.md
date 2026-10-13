@@ -1,6 +1,6 @@
 # Specification: Intermittent long tasks after first paint
 
-Status: In progress
+Status: Done
 
 ## Objective
 
@@ -35,5 +35,5 @@ The owner chose to stop declaring the SVG favicon (keeping the file and the PNG,
 - Last updated: 2026-10-13, implementation session
 - Done: diagnosis; PERF-017 implemented and unit-tested (`runQueueWhenIdle`); PERF-018 implemented (`BaseLayout.astro`), tested in `performance.test.mjs` and asserted by `check-brand-icons`; requirements, traceability and changelog consolidated.
 - Verified: `node --test scripts/performance.test.mjs scripts/post-paint.test.mjs` (17 pass) and `npm run check:brand-icons` pass locally.
-- Next: T05, confirm the deploy budget run.
+- Next: none. If the residual browser-internal outlier blocks deploys often, consider disabling Chrome's page-content extraction in the budget runner (ADR-0005 update).
 - Blocked: —

@@ -31,6 +31,6 @@ Measure real visitors and block regressions before publishing (ADR-0004 and ADR-
 ## Session state
 
 - Last updated: 2026-10-13, implementation session
-- Done: T01, T02.
-- Next: T03 after deploy, T04 in the owner's browser.
-- Blocked: B-017 (owner account action, done by the agent in the owner's browser)
+- Done: T01 to T03.
+- Next: T04 when the owner is signed in to Plausible in the browser the agent can drive.
+- Blocked: T04 waits for the owner to sign in to plausible.io (the agent never enters credentials).

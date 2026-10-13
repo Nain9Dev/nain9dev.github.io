@@ -14,4 +14,5 @@ Tools: axe-core 4.13.0 (newest release older than two weeks on 2026-10-13) injec
     - Missing focus indicator (2.4.7): `.terminal-input:focus-visible` had `outline: none`; now a 2 px `#89b4fa` outline (7.5:1 against the terminal background).
     - Skip link (2.4.1): focus stayed on `<body>`; every `<main id="main-content">` now has `tabindex="-1"` (with no ring, as it is a container).
   - **Result after fixes**: the skip link is the first stop, visible, and moves focus into `<main>`; 74 stops at 1400 px and 73 at 375 px in DOM order, every one with a visible indicator, none hidden by the sticky header once smooth scrolling settles (the skip link itself sits above the header, `z-index` 100 over 50). With `prefers-reduced-motion: reduce`: low-performance mode on, 0 hidden reveal elements, no infinite animation running, the view-transition rule is inside `@media (prefers-reduced-motion: no-preference)`, hero canvas not displayed.
-- [ ] **T03** `[A]` Verify in production after deploy.
+- [x] **T03** `[A]` Verify in production after deploy.
+  - **Result**: deploy of 47d4c22 published (after the incident in spec 034); production blog posts use `astro-code github-dark-default` and pages carry `<main id="main-content" tabindex="-1">`.

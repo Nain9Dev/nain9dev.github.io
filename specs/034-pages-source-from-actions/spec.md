@@ -22,5 +22,6 @@ With the owner's permission, the Pages source was switched to GitHub Actions the
 
 - Last updated: 2026-10-13, incident session
 - Done: source switched, service restored, documented.
-- Next: confirm on the next push that the legacy job no longer runs.
+- Verified: the pushes of 8af159a, cdee780 and a6239a3 triggered only "Deploy Astro site to GitHub Pages"; the home page answered 200 on every check during those deploys, including the blocked deploy of cdee780.
+- Next: none.
 - Blocked: —

@@ -8,5 +8,6 @@
   - **Covers**: LHCI-001
   - **Done when**: the LHCI test passes and `npm run check:budget` passes locally.
   - **Result**: `@lhci/cli` 0.15.1 was installed first and removed: it added more than fifteen high-severity advisories; `lighthouse` 13.5.0 alone audits clean (the nine advisories that remain predate this spec, in Astro and sharp dependencies). Local budget with gzip: `/` score 0.99, LCP 1,815 ms, 117 KiB; `/en/` 0.99, 1,821 ms; `/servicios/` 1.00, 1,655 ms; TBT 0 and CLS 0 everywhere. `actionlint` clean, `zizmor` no findings; PR job timeout raised from 5 to 15 minutes.
-- [ ] **T03** `[A]` Verify the budget step in the next deploy run and the event in production.
+- [x] **T03** `[A]` Verify the budget step in the next deploy run and the event in production.
+  - **Result**: the budget first failed on GitHub runners with a fixed 4x slowdown (TBT 243–323 ms); fixed by calibrating to the host benchmarkIndex and taking the median of five runs (commits ba3df6c, ae16bd7), then by removing the causes of intermittent long tasks (spec 035). Deploy runs 38428764889, 38431311526 (re-run) and the run for a6239a3 passed. The event delivery in production could not be observed: Plausible requires the owner's login (T04).
 - [ ] **T04** `[M]` Register the Plausible custom properties (B-017) in the owner's browser, with confirmation before saving.

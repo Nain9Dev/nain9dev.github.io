@@ -1,6 +1,6 @@
 # Specification: Inline styles
 
-Status: In progress
+Status: Done
 
 ## Objective
 
@@ -27,6 +27,6 @@ Every page waits for one render-blocking stylesheet (`/_astro/BaseLayout.*.css`,
 ## Session state
 
 - Last updated: 2026-10-13, implementation session
-- Done: T01, T02.
-- Next: T03 after deploy.
+- Done: T01 to T03.
+- Next: none.
 - Blocked: —

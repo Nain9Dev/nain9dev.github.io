@@ -1,6 +1,6 @@
 # Specification: WCAG 2.2 AA accessibility audit
 
-Status: In progress (T03 after deploy)
+Status: Done
 
 ## Objective
 
@@ -29,6 +29,6 @@ On 2026-10-13 the owner asked for a WCAG 2.2 AA review of the site and fixes for
 ## Session state
 
 - Last updated: 2026-10-13, implementation session
-- Done: T01, T02 (see `tasks.md`).
-- Next: T03, verify in production after deploy.
+- Done: T01 to T03.
+- Next: designer decision on the decorative numerals (documented exception).
 - Blocked: —
