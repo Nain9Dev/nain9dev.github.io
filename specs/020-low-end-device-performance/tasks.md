@@ -27,13 +27,14 @@ One task at a time, test first. Update the `Session state` block in `spec.md` af
   - **Covers**: acceptance criteria
   - **Done when**: mobile score and LCP are recorded and meet the acceptance criteria, or the gap is explained.
   - **Result**: see "Local measurement" below.
-- [ ] **T08** `[H]` Create the Cloudflare Cache Rule described in B-016.
+- [x] **T08** `[H]` Create the Cloudflare Cache Rule described in B-016.
   - **Covers**: PERF-010
   - **Done when**: `curl -sI https://www.naindev.com/_astro/<file>` shows `max-age=31536000`.
+  - **Result**: created 2026-10-13 with owner confirmation; verified on `inter-var` and the bundled stylesheet.
 - [x] **T09** `[M]` Commit, deploy and re-measure production.
   - **Covers**: all
   - **Done when**: production Lighthouse mobile results are recorded here.
-  - **Result**: owner authorised the commit and push on 2026-10-13; commit b8b974a deployed by run 38383097119 (build and deploy succeeded). See "Production measurement" below. ADR-0002 remains `Proposed`.
+  - **Result**: owner authorised the commit and push on 2026-10-13; commit b8b974a deployed by run 38383097119 (build and deploy succeeded). See "Production measurement" below. ADR-0002 approved by the owner the same day.
 
 ## Local measurement (2026-10-13)
 
@@ -63,5 +64,4 @@ Browser check in production: 13 resources and 113 KiB transferred on the home pa
 Findings for a follow-up spec:
 
 - Main-thread work after first paint dominates the remaining cost: a 230 to 290 ms task attributed to the Plausible script (page style and layout run there) and three 60 to 150 ms tasks from client initialisation. Deferring catalog, metrics and terminal initialisation to idle time and splitting the bundle per page would lower TBT and Speed Index.
-- `/_astro/` files are still served with `max-age=14400` (B-016 open).
-- The deploy log shows the Cloudflare purge failing with error 7003 (invalid zone identifier), which confirms B-003.
+- The deploy log shows the Cloudflare purge failing with error 7003 (invalid zone identifier), which confirms B-003. The purge step is removed by spec 022.

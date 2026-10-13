@@ -1,7 +1,8 @@
 # ADR-0002: Bundle client scripts and styles with Astro
 
-Status: Proposed
+Status: Approved
 Date: 2026-10-13
+Approved: 2026-10-13 by the owner
 
 ## Context
 
