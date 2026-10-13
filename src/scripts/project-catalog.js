@@ -22,7 +22,9 @@ function isValidProject(project) {
 }
 
 export async function loadProjects(sourceUrl) {
+  // Revalidate on every load so a cached catalog never outlives the bundle that renders it.
   const response = await fetch(sourceUrl, {
+    cache: "no-cache",
     headers: { Accept: "application/json" },
     credentials: "same-origin"
   });

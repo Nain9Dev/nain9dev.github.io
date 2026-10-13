@@ -223,7 +223,7 @@ logo/
 
 ### Current site styling
 
-From `public/assets/css/main.css`:
+From `src/styles/main.css`:
 
 | Token | Value |
 | :--- | :--- |

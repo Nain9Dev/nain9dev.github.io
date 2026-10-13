@@ -12,7 +12,7 @@ Static site generated at build time. There is no application server, database or
 | Translation catalog | `src/i18n/en-US.json`, `src/i18n/runtime.json` | Reviewed English segments and interface messages | Nothing |
 | Presentation | `src/pages/`, `src/layouts/`, `src/components/` | Routing, rendering, metadata (`SEO.astro`), Content Security Policy meta tag | Content, `src/utils/` |
 | Utilities | `src/utils/` (`seo.ts`, `technologyRoutes.ts`, `analytics.js`) | Pure helpers for SEO, routes and analytics events | Nothing |
-| Client scripts | `public/assets/js/` | Progressive enhancement in the browser: terminal, filters, 3D hero (`three.module.min.js`), locale messages | Runtime dictionary embedded in each page |
+| Client scripts and styles | `src/scripts/`, `src/styles/`, `src/assets/fonts/`, `src/vendor/three.module.min.js` | Progressive enhancement in the browser: terminal, filters, 3D hero, locale messages. Bundled, minified and hashed by Astro under `/_astro/` (ADR-0002); Three.js is emitted unmodified and loaded on demand | Runtime dictionary embedded in each page, `public/assets/data/` |
 | Build pipeline | `scripts/build-locales.mjs`, `scripts/lib/localization.mjs` | Post-build English generation from Spanish HTML and the catalog | Built `dist/`, catalog |
 | Validation | `scripts/*.test.mjs`, `scripts/check-*.mjs`, `astro check` | Contracts run by `npm run check` | Built `dist/`, sources |
 | Local tooling | `scripts/sync-translations.mjs`, `watch-translations.mjs`, `review-translations.mjs`, `translate-local.py`, `audit-translations-local.py` | Optional draft generation and review; never runs in CI | Local NainWrite/Ollama on loopback |
@@ -44,6 +44,7 @@ flowchart LR
         LC[check-locales.mjs]
         CS[case-studies.test.mjs]
         CC[claims.test.mjs + check-claims.mjs]
+        PF[performance-build.test.mjs]
     end
 
     subgraph CI["GitHub Actions"]
@@ -57,7 +58,7 @@ flowchart LR
     AB --> BL
     CAT --> BL
     BL --> Check
-    UT --> AC --> BI --> SEO --> LC --> CS --> CC
+    UT --> AC --> PF --> BI --> SEO --> LC --> CS --> CC
     Check --> SSC
     Check --> DEP
     DEP -->|upload-pages-artifact dist/| GHP[GitHub Pages<br/>environment github-pages, main only]
@@ -66,7 +67,7 @@ flowchart LR
     CF --> USER[Visitors<br/>www.naindev.com]
 ```
 
-Order inside `npm run check` (from `package.json`): unit tests (including `claims.test.mjs`), `astro check`, full build, brand icons, SEO, locales, case-study removal contract, claims scan over sources and `dist/`.
+Order inside `npm run check` (from `package.json`): unit tests (including `claims.test.mjs` and `performance.test.mjs`), `astro check`, full build, performance budget over `dist/`, brand icons, SEO, locales, case-study removal contract, claims scan over sources and `dist/`.
 
 ## Boundaries and contracts
 

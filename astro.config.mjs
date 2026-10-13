@@ -34,21 +34,5 @@ export default defineConfig({
     '/blog/clean-architecture-3d.html': '/blog/clean-architecture-3d',
     '/servicios/renovacion-web': '/servicios/arquitectura-frontend-alto-rendimiento',
     '/servicios/renovacion-web.html': '/servicios/arquitectura-frontend-alto-rendimiento'
-  },
-  vite: {
-    build: {
-      rollupOptions: {
-        output: {
-          manualChunks(id) {
-            if (id.includes('three')) {
-              return 'vendor-three';
-            }
-            if (id.includes('node_modules')) {
-              return 'vendor';
-            }
-          }
-        }
-      }
-    }
   }
 });

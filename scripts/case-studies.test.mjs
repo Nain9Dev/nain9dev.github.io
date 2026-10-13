@@ -74,9 +74,9 @@ test('CASE-003: home pages have no case-study section or client script', async (
     assert.doesNotMatch(source, /id="case-studies/, file);
     assert.doesNotMatch(source, /case-studies-grid/, file);
   }
-  const app = await readFile(`${root}/assets/js/app.js`, 'utf8');
+  const app = await readFile('src/scripts/app.js', 'utf8');
   assert.doesNotMatch(app, /case-studies\.js|CaseStudies/);
-  assert.equal(await exists(`${root}/assets/js/case-studies.js`), false);
+  assert.equal(await exists('src/scripts/case-studies.js'), false);
 });
 
 test('CASE-004 and CASE-005: retired URLs redirect to related pages in both locales', async () => {

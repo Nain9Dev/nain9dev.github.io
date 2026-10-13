@@ -1,22 +1,22 @@
-import { loadProjects } from "./project-catalog.js?v=019";
-import { initializeDemoModal } from "./demo-modal.js?v=019";
-import { initializeProjectFilters } from "./project-filters.js?v=019";
-import { renderProjectError, renderProjects } from "./project-view.js?v=019";
-import { initializeAmbientGlow } from "./ambient-glow.js?v=019";
-import { initializeCardTilt } from "./card-tilt.js?v=019";
-import { initializeScrollStorytelling } from "./scroll-storytelling.js?v=019";
-import { initializeParticles } from "./particles.js?v=019";
-import { initializeThreeHero, cleanupThreeHero } from "./three-hero.js?v=019";
-import { ImpactMetricsManager } from "./impact-metrics.js?v=019";
+import { loadProjects } from "./project-catalog.js";
+import { initializeDemoModal } from "./demo-modal.js";
+import { initializeProjectFilters } from "./project-filters.js";
+import { renderProjectError, renderProjects } from "./project-view.js";
+import { initializeAmbientGlow } from "./ambient-glow.js";
+import { initializeCardTilt } from "./card-tilt.js";
+import { initializeScrollStorytelling } from "./scroll-storytelling.js";
+import { initializeParticles } from "./particles.js";
+import { initializeThreeHero, cleanupThreeHero } from "./three-hero.js";
+import { ImpactMetricsManager } from "./impact-metrics.js";
 import {
   initializeEmailCopy,
   initializeHeaderState,
   initializeRevealMotion,
   initializeSectionNavigation
-} from "./site-interactions.js?v=019";
-import { initializeScrollTracking } from "./scroll-tracking.js?v=019";
-import { initializeLazyLoading } from "./lazy-mailerlite.js?v=019";
-import { dataUrl } from './locale.js?v=019';
+} from "./site-interactions.js";
+import { initializeScrollTracking } from "./scroll-tracking.js";
+import { initializeLazyLoading } from "./lazy-mailerlite.js";
+import { dataUrl } from './locale.js';
 
 let isAppInitialized = false;
 let cleanupFunctions = [];
@@ -106,7 +106,7 @@ function initApp() {
   }
 
   if (projectContainer) {
-    loadProjects(dataUrl('projects.json?v=019'))
+    loadProjects(dataUrl('projects.json'))
       .then((projects) => {
         renderProjects(projectContainer, projects);
         addCleanup(initializeProjectFilters({

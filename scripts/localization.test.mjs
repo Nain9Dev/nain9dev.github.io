@@ -87,7 +87,7 @@ test('Data extraction localizes prose technology labels without changing identif
 });
 
 test('Project load failure renders a localized recovery link', async () => {
-  const { renderProjectError } = await import('../public/assets/js/project-view.js');
+  const { renderProjectError } = await import('../src/scripts/project-view.js');
   const originalDocument = globalThis.document;
   globalThis.document = {
     getElementById: () => ({ textContent: JSON.stringify({ projectError: 'Projects could not be loaded.', openGitHub: 'Open GitHub' }) }),

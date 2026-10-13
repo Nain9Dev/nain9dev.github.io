@@ -65,7 +65,7 @@ export function hasHardwareAcceleration() {
     const canvas = document.createElement('canvas');
     const attributes = {
       failIfMajorPerformanceCaveat: true,
-      powerPreference: 'high-performance'
+      powerPreference: 'low-power'
     };
 
     const gl = canvas.getContext('webgl2', attributes)

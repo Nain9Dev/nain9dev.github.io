@@ -6,6 +6,8 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ### Changed
 
+- Spec 020: low-end device performance. One variable font file per family instead of twelve URLs for two files; client scripts, styles and fonts bundled and hashed by Astro (ADR-0002, Proposed); WebGL probe moved out of the document head; hero visible without JavaScript; compositor-only availability pulse; `content-visibility` on off-screen home sections; header logo served at its rendered size. Adds `scripts/performance.test.mjs` and `scripts/performance-build.test.mjs` to `npm run check`.
+
 - Spec 015: the NainOrder catalog entry links its live API demo, matching the GitHub profile.
 - Spec 014: the home services section presents multi-domain conformance and a Python and .NET critical backend; "escala industrial", USD support, real-time conversion and "thousands of validations per hour" are removed from the 3D service page and blog copy.
 - Spec 013: home title and description, Person job title and blog and service hub titles follow the full stack architect profile instead of "Arquitectura Backend, 3D e IA".

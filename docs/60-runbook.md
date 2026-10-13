@@ -92,7 +92,8 @@ the same targets if a rule is removed. If the redirect map changes, update both.
 
 - Newsletter form uses placeholder MailerLite identifiers; subscriptions are not delivered (B-007).
 - Cloudflare cache purge is unverified and probably ineffective (B-003).
-- `public/_headers` is not processed by GitHub Pages; whether Cloudflare applies equivalent headers is unverified (B-004). The CSP is delivered as a meta tag.
+- `public/_headers` is not processed by GitHub Pages; whether Cloudflare applies equivalent headers is unverified (B-004). The CSP is delivered as a meta tag. On 2026-10-13 production served static assets with `max-age=14400` and HTML with `max-age=600`; long-term caching of hashed `/_astro/` files needs the Cloudflare Cache Rule in B-016.
+- Client scripts, styles and fonts are hashed by Astro (ADR-0002); do not reintroduce `?v=` suffixes. Data under `public/assets/data/` is not hashed: the catalog is fetched with `cache: 'no-cache'`.
 - Automated checks prove structural consistency of translations, not semantic fidelity (spec 003).
 - A passing build does not prove search ranking, Google's chosen favicon or site name, or field Core Web Vitals (specs 002, 003).
 - The PageSpeed Insights API returned HTTP 429 during spec 002 verification; no performance score is recorded.

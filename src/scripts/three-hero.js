@@ -1,4 +1,6 @@
 import { hasHardwareAcceleration } from './hardware-acceleration.js';
+// Emitted byte-for-byte as a hashed asset (keeps the MIT notice) and fetched only on capable desktops.
+import threeModuleUrl from '../vendor/three.module.min.js?url';
 
 let animationFrameId = null;
 let renderer = null;
@@ -46,7 +48,7 @@ export async function initializeThreeHero() {
   let THREE;
   try {
     console.log('[ThreeHero] Loading Three.js bundle...');
-    THREE = await import('/assets/js/three.module.min.js');
+    THREE = await import(/* @vite-ignore */ threeModuleUrl);
     console.log('[ThreeHero] Three.js loaded successfully.');
   } catch (error) {
     console.error("[NainDev] Unable to load Three.js. Skipping 3D hero.", error);
@@ -74,7 +76,8 @@ export async function initializeThreeHero() {
       canvas: canvas,
       alpha: true,
       antialias: true,
-      powerPreference: 'high-performance',
+      // A decorative wireframe does not justify waking a discrete laptop GPU.
+      powerPreference: 'low-power',
       failIfMajorPerformanceCaveat: true
     });
   } catch (error) {

@@ -172,3 +172,18 @@ Spec 005 is committed as `c78c854`; production confirmation after deployment is 
 | ENG-003 | When root documentation files (`SECURITY_POLICY.md`, `PRODUCTION_CHECKLIST.md`, `MIGRATION_LOG.md`, `IMAGE_MIGRATION_PLAN.md`) are audited, they shall be written in professional English and free of emojis. | specs/019-repository-english-standardization | Implemented |
 | ENG-004 | When client scripts, Astro layout scripts, and code comments are inspected or executed, all logs, error notices, and comments shall be in professional English. | specs/019-repository-english-standardization | Implemented |
 
+## Low-end device performance (spec 020)
+
+| ID | Requirement | Source | Status |
+| :--- | :--- | :--- | :--- |
+| PERF-001 | When a page is rendered, each self-hosted font family shall be referenced through exactly one `@font-face` rule with a weight range and one file, and the font directory shall contain no byte-identical duplicates. | specs/020-low-end-device-performance | Implemented |
+| PERF-002 | When a page is rendered, the site shall preload only fonts that a stylesheet references. | specs/020-low-end-device-performance | Implemented |
+| PERF-003 | When client scripts are built, each source module shall be bundled once by Astro into hashed files under `/_astro/`, with no manual `?v=` cache-busting parameter in sources. | specs/020-low-end-device-performance | Implemented (ADR-0002 Proposed) |
+| PERF-004 | When stylesheets are built, they shall be bundled and minified by Astro into at most one hashed stylesheet per page under `/_astro/`. | specs/020-low-end-device-performance | Implemented (ADR-0002 Proposed) |
+| PERF-005 | While the document head is parsed, the site shall not create a WebGL context; the WebGL probe shall run only from the deferred client bundle. | specs/020-low-end-device-performance | Implemented |
+| PERF-006 | When the home page is first painted, the hero text shall be visible without waiting for client JavaScript. | specs/020-low-end-device-performance | Implemented |
+| PERF-007 | While a decorative animation runs indefinitely, it shall animate only `transform` or `opacity`, and it shall stop in low-performance mode. | specs/020-low-end-device-performance | Implemented |
+| PERF-008 | When below-the-fold home sections are off screen, the browser shall be allowed to skip their rendering. | specs/020-low-end-device-performance | Implemented |
+| PERF-009 | When the header logo is rendered, the served image width shall not exceed twice its largest rendered width. | specs/020-low-end-device-performance | Implemented |
+| PERF-010 | When a hashed static asset is served in production, the response shall allow long-term browser caching. | specs/020-low-end-device-performance | Blocked by B-016 |
+

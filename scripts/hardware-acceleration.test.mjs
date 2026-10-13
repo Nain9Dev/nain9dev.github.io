@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {
   hasHardwareAcceleration,
   resetHardwareAccelerationCache
-} from '../public/assets/js/hardware-acceleration.js';
+} from '../src/scripts/hardware-acceleration.js';
 
 const originalNavigatorDesc = Object.getOwnPropertyDescriptor(globalThis, 'navigator');
 

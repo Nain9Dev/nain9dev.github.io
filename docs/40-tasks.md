@@ -64,3 +64,7 @@ Consolidated task index. Feature-level detail and handoff state live in `../spec
   - **Covers**: content integrity
   - **Spec**: docs/11-open-questions.md
   - **Done when**: OQ-010 is resolved and any change has its own spec.
+- [ ] **T-011** `[H]` Approve or reject ADR-0002 and create the Cloudflare Cache Rule (B-016).
+  - **Covers**: PERF-003, PERF-004, PERF-010
+  - **Spec**: specs/020-low-end-device-performance
+  - **Done when**: ADR-0002 is `Approved` or `Superseded`, and B-016 is verified with `curl -sI`.

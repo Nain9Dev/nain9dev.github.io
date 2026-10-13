@@ -97,31 +97,31 @@ test('ENG-003: Root operational markdown files are written in professional Engli
 });
 
 test('ENG-004: client scripts, logs, and comments are in professional English', async () => {
-  const appJs = await read('public/assets/js/app.js');
+  const appJs = await read('src/scripts/app.js');
   assert.doesNotMatch(appJs, /Inicializando app/i);
   assert.doesNotMatch(appJs, /Fallo al inicializar/i);
   assert.doesNotMatch(appJs, /Limpiando app/i);
 
-  const impactMetrics = await read('public/assets/js/impact-metrics.js');
+  const impactMetrics = await read('src/scripts/impact-metrics.js');
   assert.doesNotMatch(impactMetrics, /ejecutado/i);
   assert.doesNotMatch(impactMetrics, /Error inicializando/i);
 
-  const mailerlite = await read('public/assets/js/lazy-mailerlite.js');
+  const mailerlite = await read('src/scripts/lazy-mailerlite.js');
   assert.doesNotMatch(mailerlite, /Si hay un script/i);
   assert.doesNotMatch(mailerlite, /Dejamos de observar/i);
 
-  const techStack = await read('public/assets/js/tech-stack.js');
+  const techStack = await read('src/scripts/tech-stack.js');
   assert.doesNotMatch(techStack, /Para animaci[oó]n de scroll/i);
   assert.doesNotMatch(techStack, /Reutiliza la l[oó]gica/i);
   assert.doesNotMatch(techStack, /No se pudo cargar/i);
 
-  const terminal = await read('public/assets/js/terminal.js');
+  const terminal = await read('src/scripts/terminal.js');
   assert.doesNotMatch(terminal, /Accesibilidad:/i);
   assert.doesNotMatch(terminal, /Añadir placeholder/i);
   assert.doesNotMatch(terminal, /Limitar el n[uú]mero/i);
   assert.doesNotMatch(terminal, /Limpiando recursos/i);
 
-  const threeHero = await read('public/assets/js/three-hero.js');
+  const threeHero = await read('src/scripts/three-hero.js');
   assert.doesNotMatch(threeHero, /Referencias a listeners/i);
   assert.doesNotMatch(threeHero, /Iniciando initializeThreeHero/i);
   assert.doesNotMatch(threeHero, /Cargando Three\.js/i);

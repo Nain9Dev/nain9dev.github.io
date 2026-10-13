@@ -1,121 +1,19 @@
-
-/* latin */
+/* Variable fonts, latin subset: one file per family covers weights 300 to 800. */
 @font-face {
   font-family: 'Inter';
   font-style: normal;
-  font-weight: 300;
+  font-weight: 300 800;
   font-display: swap;
-  src: url(/assets/fonts/inter-300.woff2) format('woff2');
+  src: url(../assets/fonts/inter-var.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-/* latin */
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(/assets/fonts/inter-400.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-/* latin */
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(/assets/fonts/inter-500.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-/* latin */
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url(/assets/fonts/inter-600.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-/* latin */
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url(/assets/fonts/inter-700.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-/* latin */
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 800;
-  font-display: swap;
-  src: url(/assets/fonts/inter-800.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-/* latin */
 @font-face {
   font-family: 'Outfit';
   font-style: normal;
-  font-weight: 300;
+  font-weight: 300 800;
   font-display: swap;
-  src: url(/assets/fonts/outfit-300.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-/* latin */
-@font-face {
-  font-family: 'Outfit';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url(/assets/fonts/outfit-400.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-/* latin */
-@font-face {
-  font-family: 'Outfit';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(/assets/fonts/outfit-500.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-/* latin */
-@font-face {
-  font-family: 'Outfit';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url(/assets/fonts/outfit-600.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-/* latin */
-@font-face {
-  font-family: 'Outfit';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url(/assets/fonts/outfit-700.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-/* latin */
-@font-face {
-  font-family: 'Outfit';
-  font-style: normal;
-  font-weight: 800;
-  font-display: swap;
-  src: url(/assets/fonts/outfit-800.woff2) format('woff2');
+  src: url(../assets/fonts/outfit-var.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -291,6 +189,12 @@ h3 {
 .section {
   position: relative;
   padding-block: clamp(7rem, 12vw, 11rem);
+}
+
+/* Let the browser skip layout and paint of home sections until they approach the viewport (PERF-008). */
+main > .section:not(.hero) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
 }
 
 .section-muted {
@@ -547,20 +451,32 @@ h3 {
 }
 
 .availability {
+  position: relative;
   margin: 1.25rem 0 0;
+  padding-left: 1.07rem;
   color: var(--color-text-muted);
   font-size: 0.88rem;
 }
 
-.availability::before {
-  display: inline-block;
+/* Static dot plus a pulsing ring that only animates transform and opacity, so it never repaints. */
+.availability::before,
+.availability::after {
+  position: absolute;
+  top: calc(0.825em - 0.26rem);
+  left: 0;
   width: 0.52rem;
   height: 0.52rem;
-  margin-right: 0.55rem;
   border-radius: 50%;
+  content: "";
+}
+
+.availability::before {
   background: var(--color-secondary);
   box-shadow: 0 0 0 0.3rem rgba(240, 164, 93, 0.1);
-  content: "";
+}
+
+.availability::after {
+  background: rgba(240, 164, 93, 0.35);
   animation: availability-pulse 2.8s ease-in-out infinite;
 }
 
@@ -1231,11 +1147,13 @@ h3 {
 @keyframes availability-pulse {
   0%,
   100% {
-    box-shadow: 0 0 0 0.25rem rgba(240, 164, 93, 0.1);
+    transform: scale(1);
+    opacity: 0.6;
   }
 
   50% {
-    box-shadow: 0 0 0 0.42rem rgba(240, 164, 93, 0.02);
+    transform: scale(2.2);
+    opacity: 0;
   }
 }
 
@@ -2038,6 +1956,11 @@ html.low-performance .ambient-particles {
 }
 
 html.low-performance body::after {
+  display: none !important;
+}
+
+html.low-performance .availability::after {
+  animation: none !important;
   display: none !important;
 }
 

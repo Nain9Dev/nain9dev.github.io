@@ -28,8 +28,8 @@ for (const file of files.filter(file => file.endsWith('.html'))) {
   const ui = nodes.find(node => attr(node, 'id') === 'localized-ui');
   check(Boolean(ui), `${canonical}: missing interface dictionary`);
   if (ui) check(typeof JSON.parse(ui.childNodes[0].value).terminalHint === 'string', `${canonical}: incomplete interface dictionary`);
-  for (const script of nodes.filter(node => node.tagName === 'script' && attr(node, 'src') === '/assets/js/terminal.js')) {
-    check(attr(script, 'type') === 'module', `${canonical}: terminal imports require module loading`);
+  for (const script of nodes.filter(node => node.tagName === 'script' && attr(node, 'src')?.startsWith('/_astro/'))) {
+    check(attr(script, 'type') === 'module', `${canonical}: bundled scripts require module loading`);
   }
   const alternate = links.filter(node => attr(node, 'rel') === 'alternate');
   if (!robots?.includes('noindex') || (preview && alternate.length)) {
@@ -65,7 +65,7 @@ for (const [url, page] of pages) {
   }
 }
 const runtime = JSON.parse(await readFile('src/i18n/runtime.json', 'utf8'));
-for (const file of [...await walk('public/assets/js'), ...await walk('src')].filter(file => /\.(?:js|astro|mdx)$/.test(file) && !file.endsWith('.min.js'))) {
+for (const file of (await walk('src')).filter(file => /\.(?:js|astro|mdx)$/.test(file) && !file.endsWith('.min.js'))) {
   const source = await readFile(file, 'utf8');
   for (const match of source.matchAll(/message\(['"]([^'"]+)['"]/g)) check(match[1] in runtime, `${file}: unknown interface key ${match[1]}`);
 }

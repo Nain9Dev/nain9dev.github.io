@@ -6,6 +6,11 @@ import SEO from '../components/SEO.astro';
 import PrivacyBanner from '../components/PrivacyBanner.astro';
 import { defaultSEO } from '../utils/seo';
 import runtimeMessages from '../i18n/runtime.json';
+import interFont from '../assets/fonts/inter-var.woff2?url';
+import outfitFont from '../assets/fonts/outfit-var.woff2?url';
+import '../styles/main.css';
+import '../styles/terminal.css';
+import '../styles/locales.css';
 
 interface Props {
   title?: string;
@@ -40,54 +45,24 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.nain
   <link rel="icon" type="image/x-icon" href="/favicon-naindev.ico">
   <link rel="icon" type="image/svg+xml" sizes="any" href="/assets/images/favicon-optimized.svg">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/outfit-700.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/css/main.css?v=019">
-  <link rel="stylesheet" href="/assets/css/terminal.css?v=019">
+  <link rel="preload" href={interFont} as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href={outfitFont} as="font" type="font/woff2" crossorigin>
   <script defer data-domain="naindev.com" src="https://plausible.io/js/script.js"></script>
   <script is:inline>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
   <title>{title}</title>
   <script is:inline id="localized-ui" type="application/json" set:html={JSON.stringify(runtimeMessages).replaceAll('<', '\\u003c')} />
 
-    <!-- Pre-procesar animaciones para evitar FOUC y detectar bajo rendimiento temprano -->
+    <!-- Cheap capability checks before first paint; the WebGL probe runs later from the deferred bundle (PERF-005). -->
     <script is:inline>
       document.documentElement.classList.add("motion-ready");
       try {
-        const isMobileOrTouch = window.innerWidth < 768 || (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
-        let isLowPerformance = isMobileOrTouch ||
+        const isLowPerformance = window.innerWidth < 768 ||
+          (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) ||
           (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) ||
           (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4) ||
           (navigator.deviceMemory && navigator.deviceMemory < 4) ||
           (navigator.connection && navigator.connection.saveData);
-
-        if (!isLowPerformance) {
-          try {
-            const canvas = document.createElement('canvas');
-            const gl = canvas.getContext('webgl2', { failIfMajorPerformanceCaveat: true })
-                    || canvas.getContext('webgl', { failIfMajorPerformanceCaveat: true });
-            if (!gl) {
-              isLowPerformance = true;
-            } else {
-              const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
-              if (debugInfo) {
-                const renderer = String(gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) || '').toLowerCase();
-                const sw = ['swiftshader', 'software', 'llvmpipe', 'softpipe', 'virtualbox', 'vmware', 'basic render', 'warp', 'mesa', 'cpu'];
-                if (sw.some((k) => renderer.includes(k))) isLowPerformance = true;
-              }
-              const lose = gl.getExtension('WEBGL_lose_context');
-              if (lose) lose.loseContext();
-            }
-          } catch (e) {
-            isLowPerformance = true;
-          }
-        }
-
-        if (isLowPerformance) {
-          document.documentElement.classList.add("low-performance");
-        } else {
-          document.documentElement.classList.add("high-performance");
-        }
+        if (isLowPerformance) document.documentElement.classList.add("low-performance");
       } catch (e) {}
     </script>
     
@@ -107,7 +82,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.nain
   <Footer />
   <PrivacyBanner />
 
-  <script type="module" src="/assets/js/app.js?v=019"></script>
+  <script>
+    import '../scripts/app.js';
+  </script>
 
   <script>
     import { initializeGlobalAnalytics, trackTerminalCommand } from "../utils/analytics.js";

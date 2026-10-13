@@ -36,7 +36,6 @@ function finishPage(html, spanishURL, englishURL, language, indexable) {
   head.childNodes = head.childNodes.filter(node => !(
     (node.tagName === 'link' && attr(node, 'rel') === 'alternate' && ['es', 'en', 'x-default'].includes(attr(node, 'hreflang')))
     || (node.tagName === 'meta' && attr(node, 'property') === 'og:locale:alternate')
-    || (node.tagName === 'link' && attr(node, 'href') === '/assets/css/locales.css')
   ));
   setAttr(nodes.find(node => node.tagName === 'html'), 'lang', language);
   const ui = nodes.find(node => attr(node, 'id') === 'localized-ui');
@@ -74,7 +73,6 @@ function finishPage(html, spanishURL, englishURL, language, indexable) {
     addChildren(actions, `<nav class="language-switcher" aria-label="${label}" translate="no"><a href="${escapeAttribute(errorPage ? '/' : spanishPath)}" lang="es-ES" hreflang="es"${language === 'es-ES' ? ' aria-current="page"' : ''}>Español</a><a href="${escapeAttribute(errorPage ? '/en/' : new URL(englishURL).pathname)}" lang="en-US" hreflang="en"${language === 'en-US' ? ' aria-current="page"' : ''}>English</a></nav>`);
     header.childNodes.push(actions);
   }
-  addChildren(head, '<link rel="stylesheet" href="/assets/css/locales.css">');
   if (preview) {
     const robots = nodes.find(node => node.tagName === 'meta' && attr(node, 'name') === 'robots');
     if (robots) setAttr(robots, 'content', 'noindex, nofollow');

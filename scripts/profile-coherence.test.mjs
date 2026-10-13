@@ -79,7 +79,7 @@ test('PRJ-002: private entries have no links and no confidential names', async (
   for (const project of JSON.parse(raw).filter((entry) => entry.private)) {
     assert.deepEqual(project.links, [], `${project.id} has no links`);
   }
-  const catalog = await read('public/assets/js/project-catalog.js');
+  const catalog = await read('src/scripts/project-catalog.js');
   assert.match(catalog, /project\.private/);
 });
 
