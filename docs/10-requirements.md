@@ -220,3 +220,11 @@ Spec 005 is committed as `c78c854`; production confirmation after deployment is 
 | CI-002 | When a workflow runs, it shall grant only `contents: read` at workflow level; Pages write and OIDC permissions only to the deploy job. | specs/024-ci-workflow-hardening | Implemented |
 | CI-003 | When a workflow checks out the repository, it shall not persist credentials. | specs/024-ci-workflow-hardening | Implemented |
 | CI-004 | When a workflow installs dependencies, it shall use `npm ci` only. | specs/024-ci-workflow-hardening | Implemented |
+
+## Placeholder forms removed (spec 025)
+
+| ID | Requirement | Source | Status |
+| :--- | :--- | :--- | :--- |
+| LEAD-001 | When any page is rendered, it shall contain no MailerLite form, script or placeholder endpoint, and the CSP shall not allow MailerLite hosts. | specs/025-remove-placeholder-forms | Implemented |
+| LEAD-002 | When a visitor wants the checklist, the page shall offer a `mailto:contact@naindev.com` link with a prefilled subject as its only call to action. | specs/025-remove-placeholder-forms | Implemented |
+| LEAD-003 | When the checklist page is served through Cloudflare, the email link shall be excluded from email obfuscation. | specs/025-remove-placeholder-forms | Implemented |

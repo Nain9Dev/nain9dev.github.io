@@ -7203,5 +7203,25 @@
     "source": "⟦0⟧GitHub ⟦1⟧↗⟦/1⟧⟦/0⟧⟦2⟧Contrast3D & NainDev ⟦3⟧↗⟦/3⟧⟦/2⟧⟦4⟧LinkedIn ⟦5⟧↗⟦/5⟧⟦/4⟧⟦6⟧X ⟦7⟧↗⟦/7⟧⟦/6⟧",
     "target": "⟦0⟧GitHub ⟦1⟧↗⟦/1⟧⟦/0⟧⟦2⟧Contrast3D & NainDev ⟦3⟧↗⟦/3⟧⟦/2⟧⟦4⟧LinkedIn ⟦5⟧↗⟦/5⟧⟦/4⟧⟦6⟧X ⟦7⟧↗⟦/7⟧⟦/6⟧",
     "status": "reviewed"
+  },
+  "10b3e5ef5fc5264fd8b5a3871c470207b6ac4cdc192f074320ab05121001250d": {
+    "source": "Consulta la ⟦0⟧Política de Privacidad⟦/0⟧.",
+    "target": "See the ⟦0⟧Privacy Policy⟦/0⟧.",
+    "status": "reviewed"
+  },
+  "1fb927f065476591398c5d573c82043f2b8e3832d5ba28ea0ab429a4fc7d06c8": {
+    "source": "Escríbeme desde tu correo profesional y te envío el checklist en PDF. Respondo personalmente; no hay lista de correo.",
+    "target": "Email me from your work address and I will send you the checklist as a PDF. I reply personally; there is no mailing list.",
+    "status": "reviewed"
+  },
+  "29ede4264220c7324ecd49bfbf99b4e0de3a36a455049997c1a7b0c1adf7d39a": {
+    "source": "⟦0⟧Pedir el checklist a contact@naindev.com⟦/0⟧",
+    "target": "⟦0⟧Request the checklist from contact@naindev.com⟦/0⟧",
+    "status": "reviewed"
+  },
+  "7035da14d524b4c2d7b271a9b8952eaf5776d181bcc7795c7f5e3ddaad99dd7a": {
+    "source": "Pídelo por email",
+    "target": "Request it by email",
+    "status": "reviewed"
   }
 }

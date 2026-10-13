@@ -106,10 +106,6 @@ test('ENG-004: client scripts, logs, and comments are in professional English', 
   assert.doesNotMatch(impactMetrics, /ejecutado/i);
   assert.doesNotMatch(impactMetrics, /Error inicializando/i);
 
-  const mailerlite = await read('src/scripts/lazy-mailerlite.js');
-  assert.doesNotMatch(mailerlite, /Si hay un script/i);
-  assert.doesNotMatch(mailerlite, /Dejamos de observar/i);
-
   const techStack = await read('src/scripts/tech-stack.js');
   assert.doesNotMatch(techStack, /Para animaci[oó]n de scroll/i);
   assert.doesNotMatch(techStack, /Reutiliza la l[oó]gica/i);

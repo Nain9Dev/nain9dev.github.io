@@ -45,56 +45,17 @@ const description = "Asegura que tu sistema de IA cumpla con los estándares de 
           </blockquote>
         </div>
 
-        <!-- Formulario MailerLite -->
         <div class="form-container" data-reveal style="background: var(--color-surface); padding: 2rem; border-radius: 12px; border: 1px solid var(--color-line);">
-          <h3 style="margin-top: 0; margin-bottom: 1.5rem; font-size: 1.3rem;">Únete a +200 Arquitectos que ya lo usan</h3>
-          
-          <!-- INICIO CÓDIGO MAILERLITE -->
-          <!-- Pega aquí el código HTML/JS que te proporciona MailerLite al crear el formulario embebido -->
-          <div id="mlb2-XXXXXXX" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-XXXXXXX">
-            <div class="ml-form-align-center">
-              <div class="ml-form-embedWrapper embedForm">
-                <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
-                  <div class="ml-form-embedContent" style="margin-bottom: 1.5rem;">
-                    <p style="color: var(--color-text-muted);">Ingresa tu correo profesional (solo 1 paso) y recibe el PDF en tu bandeja de entrada inmediatamente.</p>
-                  </div>
-                  <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/xxx/forms/xxx/subscribe" data-code="xxxx" method="post" data-plausible-form="Lead_Magnet_Download">
-                    <!-- Campos UTM ocultos para MailerLite -->
-                    <input type="hidden" name="fields[utm_source]" value="checklist">
-                    <input type="hidden" name="fields[utm_medium]" value="website">
-                    <input type="hidden" name="fields[utm_campaign]" value="lead-magnet">
-                    <input type="hidden" name="fields[utm_content]" id="utm-content-field" value="">
-                    <!-- Los campos del formulario de MailerLite -->
-                    <div class="ml-form-fieldRow ml-last-item">
-                      <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
-                        <input type="email" class="form-control" name="fields[email]" placeholder="tu@correo-profesional.com" autocomplete="email" required style="width: 100%; padding: 0.75rem; margin-bottom: 1rem; border-radius: 4px; border: 1px solid var(--color-line); background: rgba(0,0,0,0.2); color: white;" />
-                      </div>
-                    </div>
-                    <button type="submit" class="primary" style="width: 100%; padding: 0.75rem; background: var(--color-primary); color: #000; font-weight: bold; border: none; border-radius: 4px; cursor: pointer; transition: opacity 0.2s;">
-                      Descargar Checklist
-                    </button>
-                    <div class="form-feedback" style="display: none; margin-top: 1rem; font-size: 0.9rem; text-align: center; padding: 0.5rem; border-radius: 4px;"></div>
-                  </form>
-                </div>
-              </div>
-            </div>
+          <h3 style="margin-top: 0; margin-bottom: 1.5rem; font-size: 1.3rem;">Pídelo por email</h3>
+          <p style="color: var(--color-text-muted);">Escríbeme desde tu correo profesional y te envío el checklist en PDF. Respondo personalmente; no hay lista de correo.</p>
+          {/* The markers stop Cloudflare from obfuscating the link and injecting a decoder script (LEAD-003). */}
+          <div style="margin-top: 1.5rem; text-align: center;">
+            <!--email_off-->
+            <p style="margin: 0;"><a class="button button-primary" href="mailto:contact@naindev.com?subject=Solicitud%20Checklist%20IA" style="width: 100%;">Pedir el checklist a contact@naindev.com</a></p>
+            <!--/email_off-->
           </div>
-          <!-- FIN CÓDIGO MAILERLITE -->
-
-          <noscript>
-            <div style="margin-top: 1.5rem; text-align: center; padding: 1rem; border-radius: 8px; border: 1px dashed var(--color-primary); background: rgba(0,0,0,0.2);">
-              <p style="margin-bottom: 0.5rem; font-size: 0.95rem;">¿No ves el formulario?</p>
-              <a href="mailto:contact@naindev.com?subject=Solicitud%20Checklist%20IA" style="color: var(--color-primary); font-weight: bold; text-decoration: underline;">Haz clic aquí para descargar el checklist por correo</a>
-            </div>
-          </noscript>
-          
-          <div id="mailerlite-fallback" style="display: none; margin-top: 1.5rem; text-align: center; padding: 1rem; border-radius: 8px; border: 1px dashed var(--color-primary); background: rgba(0,0,0,0.2);">
-            <p style="margin-bottom: 0.5rem; font-size: 0.95rem;">¿El formulario no carga correctamente?</p>
-            <a href="mailto:contact@naindev.com?subject=Solicitud%20Checklist%20IA" style="color: var(--color-primary); font-weight: bold; text-decoration: underline;">Haz clic aquí para solicitar el checklist por correo</a>
-          </div>
-
           <p style="margin-top: 1.5rem; font-size: 0.8rem; color: var(--color-text-muted); text-align: center;">
-            Al enviar, aceptas nuestra <a href="/privacidad" style="color: var(--color-primary);">Política de Privacidad</a>. Prometo no enviar spam.
+            Consulta la <a href="/privacidad" style="color: var(--color-primary);">Política de Privacidad</a>.
           </p>
         </div>
 
@@ -109,8 +70,4 @@ const description = "Asegura que tu sistema de IA cumpla con los estándares de 
       }
     }
   </style>
-
-  <script>
-    import '../../scripts/checklist-form.js';
-  </script>
 </BaseLayout>

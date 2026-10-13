@@ -60,6 +60,12 @@ test('PERF-011: built home pages keep the email_off markers around the terminal 
   }
 });
 
+test('LEAD-003: built checklist pages keep the email_off markers around the mailto link', async () => {
+  for (const page of ['dist/recursos/checklist-ia/index.html', 'dist/en/resources/checklist-ia/index.html']) {
+    assert.match(await read(page), /<!--email_off-->\s*<p[^>]*><a[^>]+href="mailto:contact@naindev\.com\?subject=[^"]+"[^>]*>[^<]+<\/a><\/p>\s*<!--\/email_off-->/, page);
+  }
+});
+
 test('PERF-012: entry scripts carry no home-only module code', async () => {
   for (const page of pages) {
     const html = await read(page);

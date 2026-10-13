@@ -6,6 +6,7 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ### Changed
 
+- Spec 025: the placeholder MailerLite newsletter and checklist forms are removed; the checklist is requested by email to `contact@naindev.com`, and the CSP no longer allows MailerLite.
 - Spec 024: GitHub Actions pinned to commit SHAs, Pages write and OIDC permissions limited to the deploy job, checkout without persisted credentials and `npm ci` without the `npm install` fallback.
 - Spec 023: "Copiar email" copies `contact@naindev.com` instead of the Calendly button label.
 - Spec 021: home-only modules load on demand, decorative effects and the WebGL probe start when idle, project filters and reveal motion no longer force layout, the terminal prompt is excluded from Cloudflare email obfuscation, and the performance mode survives client-side navigation. Local Lighthouse mobile 99 → 100, TBT 51 ms → 0 ms (154 ms → 0 ms with CPU ×6).

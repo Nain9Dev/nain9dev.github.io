@@ -10,7 +10,6 @@ import {
   initializeSectionNavigation
 } from "./site-interactions.js";
 import { initializeScrollTracking } from "./scroll-tracking.js";
-import { initializeLazyLoading } from "./lazy-mailerlite.js";
 import { runWhenIdle } from "./idle.js";
 import { restorePerformanceClass } from "./hardware-acceleration.js";
 
@@ -77,7 +76,6 @@ function initApp() {
     safeInit('ScrollStory', initializeScrollStorytelling);
     safeInit('Particles', initializeParticles);
     safeInit('ScrollTracking', initializeScrollTracking);
-    safeInit('LazyLoading', initializeLazyLoading);
 
     // The effects above have already run the capability probe, so constrained devices skip the download.
     if (document.getElementById('hero-3d-canvas') && !document.documentElement.classList.contains('low-performance')) {
