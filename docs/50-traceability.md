@@ -138,3 +138,4 @@ Before the copy change, `scripts/offer-copy.test.mjs` failed 6 of 6 and the new 
 | DEP-002 | Production HTML references the new bundle hashes after deploy, checked with `curl` | manual | Pending next deploy |
 | PERF-011 to PERF-016 | `scripts/post-paint.test.mjs` tests of the same IDs; `scripts/performance-build.test.mjs` "PERF-011: built home pages keep the email_off markers…" and "PERF-012: entry scripts carry no home-only module code"; browser check in `specs/021-post-paint-main-thread/tasks.md` | unit + contract + manual | Pass: local `npm run check` 2026-10-13 |
 | MAIL-005, MAIL-006 | `scripts/copy-email.test.mjs` tests of the same IDs | unit | Pass: local `npm run check` 2026-10-13 |
+| CI-001 to CI-004 | `scripts/workflows.test.mjs` tests of the same IDs; `zizmor .github/` (no findings) and `actionlint` run locally | unit + lint | Pass: local 2026-10-13 |

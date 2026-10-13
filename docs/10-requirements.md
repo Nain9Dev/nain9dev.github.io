@@ -211,3 +211,12 @@ Spec 005 is committed as `c78c854`; production confirmation after deployment is 
 | :--- | :--- | :--- | :--- |
 | MAIL-005 | When a visitor activates "Copiar email", the system shall copy `contact@naindev.com` and announce success with the existing localized message. | specs/023-copy-email-button | Implemented |
 | MAIL-006 | When the home page is served, the address used by the copy button shall not appear as plain text or as a `mailto:` link. | specs/023-copy-email-button | Implemented |
+
+## CI workflow hardening (spec 024)
+
+| ID | Requirement | Source | Status |
+| :--- | :--- | :--- | :--- |
+| CI-001 | When a workflow references an action, it shall pin a full commit SHA followed by a version comment. | specs/024-ci-workflow-hardening | Implemented |
+| CI-002 | When a workflow runs, it shall grant only `contents: read` at workflow level; Pages write and OIDC permissions only to the deploy job. | specs/024-ci-workflow-hardening | Implemented |
+| CI-003 | When a workflow checks out the repository, it shall not persist credentials. | specs/024-ci-workflow-hardening | Implemented |
+| CI-004 | When a workflow installs dependencies, it shall use `npm ci` only. | specs/024-ci-workflow-hardening | Implemented |
