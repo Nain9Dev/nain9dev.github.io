@@ -60,7 +60,7 @@ function initApp() {
 
     // The effects above have already run the capability probe, so constrained devices skip the download.
     if (document.getElementById('hero-3d-canvas') && !document.documentElement.classList.contains('low-performance')) {
-      loadOnDemand('ThreeHero', () => import("./three-hero.js"), ({ initializeThreeHero }) => initializeThreeHero());
+      loadOnDemand('HeroScene', () => import("./hero-scene.js"), ({ initializeHeroScene }) => initializeHeroScene());
     }
 
     if (document.getElementById('impact-metrics-container')) {

@@ -257,3 +257,12 @@ Spec 005 is committed as `c78c854`; production confirmation after deployment is 
 | NAV-002 | While the visitor has no reduced-motion preference, same-origin navigations shall use a cross-document view transition, keeping the header in place. | specs/029-instant-navigation | Implemented (ADR-0003 Proposed) |
 | NAV-003 | When a visitor hovers or presses a same-origin page link, the browser shall be allowed to prerender it, excluding `mailto:`, files, `target="_blank"` and `data-no-prerender` links. | specs/029-instant-navigation | Implemented (ADR-0003 Proposed) |
 | NAV-004 | When a page initialises its scripts, it shall do so once per document load, and terminal, privacy banner, contact tracking and catalog shall keep working. | specs/029-instant-navigation | Implemented (ADR-0003 Proposed) |
+
+## Lightweight hero scene (spec 030)
+
+| ID | Requirement | Source | Status |
+| :--- | :--- | :--- | :--- |
+| HERO-001 | When the hero scene is drawn, the wireframe shall match `THREE.IcosahedronGeometry(2.2, 1)` in wireframe, `#3B82F6` at 0.25 opacity with normal blending. | specs/030-lightweight-hero-scene | Implemented |
+| HERO-002 | When the hero scene is drawn, 350 points between radius 2.4 and 7.6 shall be drawn in `#60A5FA` at 0.45 opacity with additive blending and attenuated size 0.025. | specs/030-lightweight-hero-scene | Implemented |
+| HERO-003 | While the scene runs, camera, rotations, parallax, pausing, low-frame-rate fallback and `low-power` context shall behave as before. | specs/030-lightweight-hero-scene | Implemented |
+| HERO-004 | When the site is built, no Three.js file shall be published and the scene module shall weigh at most 8 KiB. | specs/030-lightweight-hero-scene | Implemented |

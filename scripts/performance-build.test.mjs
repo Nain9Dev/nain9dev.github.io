@@ -34,14 +34,9 @@ test('PERF-003: pages load first-party scripts only as hashed bundles', async ()
   }
 });
 
-test('PERF-003: Three.js ships unmodified and outside the page bundles', async () => {
-  const files = await readdir('dist/_astro');
-  const three = files.filter((f) => f.startsWith('three.module.min.') && f.endsWith('.js'));
-  assert.equal(three.length, 1);
-  assert.equal(await read(join('dist/_astro', three[0])), await read('src/vendor/three.module.min.js'));
+test('HERO-004: the hero scene is a lazy chunk, never loaded by a page script tag', async () => {
   for (const page of pages) {
-    const html = await read(page);
-    assert.doesNotMatch(html, /three\.module\.min\.[\w-]+\.js"/, `${page} loads Three.js eagerly`);
+    assert.doesNotMatch(await read(page), /hero-scene\.[\w-]+\.js"/, `${page} loads the hero scene eagerly`);
   }
 });
 
@@ -81,7 +76,7 @@ test('PERF-012: entry scripts carry no home-only module code', async () => {
     const html = await read(page);
     for (const script of tags(html, 'script').filter((s) => s.src?.startsWith('/_astro/'))) {
       const code = await read(join('dist', script.src));
-      for (const marker of ['[ImpactMetricsManager]', '[ThreeHero]', 'Unable to render the project catalog.']) {
+      for (const marker of ['[ImpactMetricsManager]', '[HeroScene]', 'Unable to render the project catalog.']) {
         assert.ok(!code.includes(marker), `${page}: ${script.src} contains ${marker}`);
       }
     }

@@ -29,3 +29,7 @@ Exceptions:
 - **Keep public assets and fix specifiers by hand**: removes the duplicate modules but keeps the waterfall, the unminified files and the manual versioning that caused the drift.
 - **Add `three` as an npm dependency**: would hash it as well, but adds a dependency and a version to track for a file loaded only on capable desktops.
 - **Bundle the vendored Three.js as a lazy chunk**: the minifier strips its license comment.
+
+## Update
+
+2026-10-13: spec 030 replaced Three.js with a small WebGL module, so the `three.module.min.js` exception above no longer applies. The decision itself is unchanged.

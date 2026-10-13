@@ -6,6 +6,7 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ### Changed
 
+- Spec 030: the hero scene is drawn with a 7 KiB WebGL module instead of Three.js (657 KiB), pixel-identical to the previous scene.
 - Spec 029: Astro's client router is replaced by native cross-document view transitions and Speculation Rules prerendering on hover (ADR-0003, Proposed); 16 KiB less JavaScript per page and no SPA lifecycle code.
 - Spec 028: Inter and Outfit subset to the characters the site uses and to the OpenType features it needs (80.5 KB → 63.4 KB, pixel-identical); arrows on the blog and privacy pages now render in the site font.
 - Spec 027: `static-site-check.yml` runs only on pull requests; pushes to `main` are validated once, by the deploy workflow.

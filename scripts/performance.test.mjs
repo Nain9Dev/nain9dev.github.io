@@ -59,15 +59,13 @@ test('PERF-002: preloaded fonts come from the bundled font files', async () => {
 test('PERF-003: client scripts are bundled from src/scripts without manual versioning', async () => {
   assert.equal((await walk('public/assets/js')).length, 0, 'public/assets/js must be empty');
   const sources = (await walk('src'))
-    .filter((file) => /\.(astro|js|ts|mjs|mdx)$/.test(file) && !file.includes('vendor'));
+    .filter((file) => /\.(astro|js|ts|mjs|mdx)$/.test(file));
   for (const file of sources) {
     const text = await read(file);
     assert.doesNotMatch(text, /\?v=\d/, `${file} uses a manual ?v= cache buster`);
     assert.doesNotMatch(text, /\/assets\/js\//, `${file} references an unbundled script`);
     assert.doesNotMatch(text, /<script[^>]*is:inline[^>]*type="module"/, `${file} has an unbundled module script`);
   }
-  const app = await read('src/scripts/three-hero.js');
-  assert.match(app, /from '\.\.\/vendor\/three\.module\.min\.js\?url'/, 'Three.js must stay a lazy, unmodified asset');
 });
 
 test('PERF-004: no stylesheet is served unbundled', async () => {

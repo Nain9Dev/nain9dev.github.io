@@ -117,9 +117,6 @@ test('ENG-004: client scripts, logs, and comments are in professional English', 
   assert.doesNotMatch(terminal, /Limitar el n[uú]mero/i);
   assert.doesNotMatch(terminal, /Limpiando recursos/i);
 
-  const threeHero = await read('src/scripts/three-hero.js');
-  assert.doesNotMatch(threeHero, /Referencias a listeners/i);
-  assert.doesNotMatch(threeHero, /Iniciando initializeThreeHero/i);
-  assert.doesNotMatch(threeHero, /Cargando Three\.js/i);
-  assert.doesNotMatch(threeHero, /Limpiando recursos/i);
+  const heroScene = await read('src/scripts/hero-scene.js');
+  assert.doesNotMatch(heroScene, /Referencias a listeners|Iniciando|Cargando|Limpiando/i);
 });
