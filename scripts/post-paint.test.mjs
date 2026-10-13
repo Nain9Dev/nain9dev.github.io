@@ -126,8 +126,8 @@ test('PERF-014: reveal motion never schedules a layout-reading fallback timer', 
 
 test('PERF-015: decorative effects and the WebGL probe start when the browser is idle', async () => {
   const app = await read('src/scripts/app.js');
-  const idle = app.match(/runWhenIdle\(\(\) => \{([\s\S]*?)\n  \}\)\)?;/);
-  assert.ok(idle, 'missing runWhenIdle block');
+  const idle = app.match(/runQueueWhenIdle\(\[([\s\S]*?)\n  \]\);/);
+  assert.ok(idle, 'missing runQueueWhenIdle block');
   for (const effect of ['initializeAmbientGlow', 'initializeCardTilt', 'initializeScrollStorytelling', 'initializeParticles']) {
     assert.match(idle[1], new RegExp(effect), `${effect} must start when idle`);
   }
@@ -135,6 +135,24 @@ test('PERF-015: decorative effects and the WebGL probe start when the browser is
   for (const effect of ['initializeAmbientGlow', 'initializeCardTilt', 'initializeScrollStorytelling', 'initializeParticles']) {
     assert.doesNotMatch(outside.replace(/^import.*$/gm, ''), new RegExp(`${effect}\\b`), `${effect} also runs eagerly`);
   }
+});
+
+test('PERF-017: deferred work runs one task per idle slot, never as one long task', async () => {
+  const { runQueueWhenIdle } = await import('../src/scripts/idle.js');
+  const callbacks = [];
+  const order = [];
+  withGlobals({
+    window: { requestIdleCallback: (fn) => { callbacks.push(fn); return callbacks.length; }, cancelIdleCallback: () => {} }
+  }, () => {
+    runQueueWhenIdle([() => order.push('a'), () => order.push('b'), () => order.push('c')]);
+    assert.equal(callbacks.length, 1, 'only the first task is scheduled up front');
+    callbacks.shift()({ timeRemaining: () => 0, didTimeout: true });
+    assert.deepEqual(order, ['a'], 'a forced (timed-out) slot runs a single task');
+    callbacks.shift()({ timeRemaining: () => 0, didTimeout: true });
+    callbacks.shift()({ timeRemaining: () => 0, didTimeout: true });
+  });
+  assert.deepEqual(order, ['a', 'b', 'c']);
+  assert.equal(callbacks.length, 0);
 });
 
 test('PERF-015: runWhenIdle falls back to a timer without requestIdleCallback', async () => {

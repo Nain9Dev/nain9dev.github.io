@@ -298,3 +298,10 @@ Spec 005 is committed as `c78c854`; production confirmation after deployment is 
 | ID | Requirement | Source | Status |
 | :--- | :--- | :--- | :--- |
 | DEP-003 | When a commit is pushed, only `deploy.yml` shall publish the site; a failed build shall leave the previous deployment online. | specs/034-pages-source-from-actions | Implemented (repository setting) |
+
+## Intermittent long tasks (spec 035)
+
+| ID | Requirement | Source | Status |
+| :--- | :--- | :--- | :--- |
+| PERF-017 | When deferred work runs, each module shall start in its own idle slot, so a timed-out idle callback runs one module only. | specs/035-intermittent-long-tasks | Implemented |
+| PERF-018 | When a page is rendered, it shall declare no SVG favicon; the 96 px PNG, ICO and 180 px touch icon remain declared, and the SVG file stays published at its stable URL (SEO-002). | specs/035-intermittent-long-tasks | Implemented |

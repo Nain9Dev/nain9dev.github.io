@@ -10,7 +10,7 @@ import {
   initializeSectionNavigation
 } from "./site-interactions.js";
 import { initializeScrollTracking } from "./scroll-tracking.js";
-import { runWhenIdle } from "./idle.js";
+import { runQueueWhenIdle } from "./idle.js";
 import { isSampled } from "./vitals-sampling.js";
 
 // Each navigation is a full document load (ADR-0003): modules initialise once and need no cleanup.
@@ -51,38 +51,43 @@ function initApp() {
     yearElement.textContent = String(new Date().getFullYear());
   }
 
-  // Everything below is decorative or below the fold: start it after first paint (PERF-015).
-  runWhenIdle(() => {
-    safeInit('AmbientGlow', initializeAmbientGlow);
-    safeInit('CardTilt', initializeCardTilt);
-    safeInit('ScrollStory', initializeScrollStorytelling);
-    safeInit('Particles', initializeParticles);
-    safeInit('ScrollTracking', initializeScrollTracking);
-
-    // Field Web Vitals on a sample of page views; unsampled views download nothing (spec 032).
-    if (isSampled()) {
-      loadOnDemand('WebVitals', () => import("./web-vitals-report.js"), ({ startWebVitalsReport }) => startWebVitalsReport());
-    }
-
+  // Everything below is decorative or below the fold: start it after first paint (PERF-015),
+  // one module per idle slot so no single task blocks input on slow devices (PERF-017).
+  runQueueWhenIdle([
+    () => safeInit('AmbientGlow', initializeAmbientGlow),
+    () => safeInit('CardTilt', initializeCardTilt),
+    () => safeInit('ScrollStory', initializeScrollStorytelling),
+    () => safeInit('Particles', initializeParticles),
+    () => safeInit('ScrollTracking', initializeScrollTracking),
     // The effects above have already run the capability probe, so constrained devices skip the download.
-    if (document.getElementById('hero-3d-canvas') && !document.documentElement.classList.contains('low-performance')) {
-      loadOnDemand('HeroScene', () => import("./hero-scene.js"), ({ initializeHeroScene }) => initializeHeroScene());
+    () => {
+      if (document.getElementById('hero-3d-canvas') && !document.documentElement.classList.contains('low-performance')) {
+        loadOnDemand('HeroScene', () => import("./hero-scene.js"), ({ initializeHeroScene }) => initializeHeroScene());
+      }
+    },
+    () => {
+      if (document.getElementById('impact-metrics-container')) {
+        loadOnDemand('ImpactMetrics', () => import("./impact-metrics.js"), ({ ImpactMetricsManager }) => {
+          return new ImpactMetricsManager('impact-metrics-container').init();
+        });
+      }
+    },
+    () => {
+      if (projectContainer) {
+        loadOnDemand('ProjectCatalog', () => import("./home-catalog.js"), ({ initializeHomeCatalog }) => initializeHomeCatalog({
+          container: projectContainer,
+          toolbar: document.querySelector("[data-project-toolbar]"),
+          count: document.querySelector("[data-project-count]")
+        }));
+      }
+    },
+    // Field Web Vitals on a sample of page views; unsampled views download nothing (spec 032).
+    () => {
+      if (isSampled()) {
+        loadOnDemand('WebVitals', () => import("./web-vitals-report.js"), ({ startWebVitalsReport }) => startWebVitalsReport());
+      }
     }
-
-    if (document.getElementById('impact-metrics-container')) {
-      loadOnDemand('ImpactMetrics', () => import("./impact-metrics.js"), ({ ImpactMetricsManager }) => {
-        return new ImpactMetricsManager('impact-metrics-container').init();
-      });
-    }
-
-    if (projectContainer) {
-      loadOnDemand('ProjectCatalog', () => import("./home-catalog.js"), ({ initializeHomeCatalog }) => initializeHomeCatalog({
-        container: projectContainer,
-        toolbar: document.querySelector("[data-project-toolbar]"),
-        count: document.querySelector("[data-project-count]")
-      }));
-    }
-  });
+  ]);
 }
 
 initApp();

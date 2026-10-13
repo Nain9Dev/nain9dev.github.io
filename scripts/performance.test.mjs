@@ -101,6 +101,14 @@ test('PERF-007: infinite animations use compositor-only properties and stop in l
   assert.match(main, /html\.low-performance \.availability::after\s*\{[^}]*animation:\s*none/);
 });
 
+test('PERF-018: no SVG favicon is declared, while the file and raster icons stay', async () => {
+  const layout = await read('src/layouts/BaseLayout.astro');
+  assert.doesNotMatch(layout, /rel="icon"[^>]*image\/svg\+xml/);
+  assert.match(layout, /rel="icon" type="image\/png" sizes="96x96"/);
+  assert.match(layout, /rel="icon" type="image\/x-icon"/);
+  assert.ok(existsSync('public/assets/images/favicon-optimized.svg'), 'the SVG mark keeps its stable URL (SEO-002)');
+});
+
 test('PERF-008: off-screen home sections can skip rendering', async () => {
   const main = await read('src/styles/main.css');
   const rule = main.match(/main > \.section:not\(\.hero\)[^{]*\{([^}]*)\}/);

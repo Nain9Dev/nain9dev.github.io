@@ -81,7 +81,8 @@ const layout = await readFile('src/layouts/BaseLayout.astro', 'utf8');
 assert.match(layout, /rel="icon" type="image\/png" sizes="96x96" href="\/favicon-96x96\.png"/);
 assert.match(layout, /rel="icon" type="image\/x-icon" href="\/favicon-naindev\.ico"/);
 assert.match(layout, /rel="apple-touch-icon" sizes="180x180" href="\/apple-touch-icon\.png"/);
-assert.match(layout, /rel="icon" type="image\/svg\+xml" sizes="any" href="\/assets\/images\/favicon-optimized\.svg"/);
+// The SVG mark stays published (SEO-002) but is not declared: Chrome parses SVG favicons on the main thread (PERF-018).
+assert.doesNotMatch(layout, /rel="icon"[^>]*image\/svg\+xml/);
 assert.doesNotMatch(layout, /apple-touch-icon[^>]+\.svg/);
 
 const header = await readFile('src/components/Header.astro', 'utf8');
