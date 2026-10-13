@@ -45,6 +45,6 @@ Owner decisions (2026-10-13 interview): full scope including bundling client scr
 
 - Last updated: 2026-10-13, implementation session
 - Done: T01 to T07. PERF-001 to PERF-009 implemented and covered by `scripts/performance.test.mjs` and `scripts/performance-build.test.mjs`; full `npm run check` passes locally. Browser checks on the local build: Spanish and English home, blog share functions, checklist UTM field, SPA navigation back to the home page (catalog, terminal and metrics re-initialise), no console errors besides View Transition aborts in a hidden tab (also present before).
-- Verified: local Lighthouse comparison in `tasks.md`.
-- Next: T09 (owner commit and deploy), then re-measure production.
-- Blocked: PERF-010 waits on B-016 (T08, owner). ADR-0002 is `Proposed`.
+- Verified: local Lighthouse comparison and production measurement after deploy of b8b974a in `tasks.md` (mobile 76 → 91, LCP 4.5 s → 2.5 s, 469 → 177 KiB).
+- Next: follow-up spec for post-paint main-thread work (see `tasks.md` findings).
+- Blocked: PERF-010 waits on B-016 (T08, owner). ADR-0002 is `Proposed`. Cloudflare purge fails with error 7003 (B-003).

@@ -30,10 +30,10 @@ One task at a time, test first. Update the `Session state` block in `spec.md` af
 - [ ] **T08** `[H]` Create the Cloudflare Cache Rule described in B-016.
   - **Covers**: PERF-010
   - **Done when**: `curl -sI https://www.naindev.com/_astro/<file>` shows `max-age=31536000`.
-- [ ] **T09** `[M]` Commit, deploy and re-measure production.
+- [x] **T09** `[M]` Commit, deploy and re-measure production.
   - **Covers**: all
   - **Done when**: production Lighthouse mobile results are recorded here.
-  - **Needs from owner**: approval of ADR-0002 and the commit request.
+  - **Result**: owner authorised the commit and push on 2026-10-13; commit b8b974a deployed by run 38383097119 (build and deploy succeeded). See "Production measurement" below. ADR-0002 remains `Proposed`.
 
 ## Local measurement (2026-10-13)
 
@@ -47,3 +47,21 @@ Lighthouse 13, headless Chrome, `astro preview` on 127.0.0.1 for both builds (be
 | Low-end (CPU ×6) | after | 98 | 1162 ms | 1659 ms | 1257 ms | 154 ms | 166 KiB | 18 |
 
 Acceptance criteria met (score ≥ 90, LCP < 2.5 s). TBT rises because work that used to run before first paint now runs after it, in two tasks of about 75 ms (catalog and terminal initialisation); it stays under the 200 ms "good" threshold. Deferring non-critical initialisation to idle time is a possible follow-up.
+
+## Production measurement (2026-10-13, after deploy of b8b974a)
+
+Lighthouse 13 against https://www.naindev.com/, median of three runs by LCP. Baseline is the single run recorded in `plan.md` the same morning.
+
+| Profile | Build | Score | FCP | LCP | Speed Index | TBT | Weight | Requests |
+| :--- | :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Mobile (default) | before (b3308b0) | 76 | 2.8 s | 4.5 s | 5.0 s | 0 ms | 469 KiB | 43 |
+| Mobile (default) | after (b8b974a) | 91 | 1.7 s | 2.5 s | 4.5 s | 181 ms | 177 KiB | 19 |
+| Low-end (CPU ×6) | after (b8b974a) | 86 | 1.5 s | 2.4 s | 4.2 s | 377 ms | 177 KiB | 19 |
+
+Browser check in production: 13 resources and 113 KiB transferred on the home page (37 resources and about 404 KiB before), one request per font file, catalog and metrics rendered, no console errors.
+
+Findings for a follow-up spec:
+
+- Main-thread work after first paint dominates the remaining cost: a 230 to 290 ms task attributed to the Plausible script (page style and layout run there) and three 60 to 150 ms tasks from client initialisation. Deferring catalog, metrics and terminal initialisation to idle time and splitting the bundle per page would lower TBT and Speed Index.
+- `/_astro/` files are still served with `max-age=14400` (B-016 open).
+- The deploy log shows the Cloudflare purge failing with error 7003 (invalid zone identifier), which confirms B-003.

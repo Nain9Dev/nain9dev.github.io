@@ -132,5 +132,6 @@ Before the copy change, `scripts/offer-copy.test.mjs` failed 6 of 6 and the new 
 | PERF-001, PERF-005 to PERF-008 | `scripts/performance.test.mjs` tests of the same IDs | unit | Pass: local `npm run check` 2026-10-13 |
 | PERF-002 to PERF-004 | `scripts/performance.test.mjs` (sources) and `scripts/performance-build.test.mjs` (built `dist/`) tests of the same IDs | unit + contract | Pass: local `npm run check` 2026-10-13 |
 | PERF-009 | `scripts/performance-build.test.mjs` "PERF-009: the header logo is never served wider than twice its rendered width" | contract | Pass: local `npm run check` 2026-10-13 |
+| PERF-001 to PERF-009 (production) | CI `npm run check` in deploy run 38383097119 for b8b974a; Lighthouse and browser check recorded in `specs/020-low-end-device-performance/tasks.md` | contract + manual | Pass: CI and production 2026-10-13 |
 | PERF-010 | `curl -sI` on a production `/_astro/` file (B-016) | manual | Not run: blocked by B-016 |
 
