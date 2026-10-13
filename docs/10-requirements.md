@@ -241,3 +241,10 @@ Spec 005 is committed as `c78c854`; production confirmation after deployment is 
 | ID | Requirement | Source | Status |
 | :--- | :--- | :--- | :--- |
 | CI-005 | When a commit is pushed to `main`, `npm run check` shall run once, inside the deploy workflow; `static-site-check.yml` shall run only for pull requests. | specs/027-single-ci-run-on-main | Implemented |
+
+## Font subsetting (spec 028)
+
+| ID | Requirement | Source | Status |
+| :--- | :--- | :--- | :--- |
+| FONT-001 | When fonts are served, Inter shall weigh at most 34 KB and Outfit at most 30 KB, keeping weights 300 to 800, kerning and default ligatures. | specs/028-font-subsetting | Implemented |
+| FONT-002 | When any page is built, every visible text character outside code, emoji and pictographic symbols shall be inside the declared `unicode-range`. | specs/028-font-subsetting | Implemented |

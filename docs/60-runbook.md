@@ -91,6 +91,7 @@ the same targets if a rule is removed. If the redirect map changes, update both.
 ## Known limits
 
 - `public/_headers` is not processed by GitHub Pages; whether Cloudflare applies equivalent headers is unverified (B-004). The CSP is delivered as a meta tag. On 2026-10-13 production served static assets with `max-age=14400` and HTML with `max-age=600`; long-term caching of hashed `/_astro/` files needs the Cloudflare Cache Rule in B-016.
+- Fonts are subset (spec 028). If `npm run check` reports a character outside the `unicode-range` (FONT-002), extend the range, regenerate both files with the command in `specs/028-font-subsetting/spec.md` and update `src/styles/main.css` in the same change.
 - GitHub Actions are pinned to commit SHAs (spec 024). To update one, resolve the new release tag to its commit (`gh api repos/<owner>/<action>/commits/<tag> --jq .sha`), replace the SHA and the `# vX.Y.Z` comment together, and run `zizmor .github/` and `actionlint`.
 - Client scripts, styles and fonts are hashed by Astro (ADR-0002); do not reintroduce `?v=` suffixes. Data under `public/assets/data/` is not hashed: the catalog is fetched with `cache: 'no-cache'`.
 - Automated checks prove structural consistency of translations, not semantic fidelity (spec 003).

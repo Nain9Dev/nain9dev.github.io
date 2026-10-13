@@ -4,5 +4,6 @@
   - **Covers**: CI-005
   - **Done when**: `scripts/workflows.test.mjs` passes, `actionlint` and `zizmor` stay clean.
   - **Result**: CI-005 red before, green after; `actionlint` clean; `zizmor` no findings.
-- [ ] **T02** `[A]` Verify the next push to `main`.
+- [x] **T02** `[A]` Verify the next push to `main`.
   - **Done when**: only the deploy workflow (and GitHub's Pages job) runs for the push.
+  - **Result**: 2026-10-13, the push of 29766c9 triggered only "Deploy Astro site to GitHub Pages" and "pages build and deployment".

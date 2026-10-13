@@ -1,6 +1,6 @@
 # Specification: Single validation run per push to main
 
-Status: In progress
+Status: Done
 
 ## Objective
 
@@ -26,6 +26,6 @@ Every push to `main` runs `npm run check` twice: once in `static-site-check.yml`
 ## Session state
 
 - Last updated: 2026-10-13, implementation session
-- Done: T01.
-- Next: T02 on push.
+- Done: T01, T02.
+- Next: none.
 - Blocked: —
