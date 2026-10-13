@@ -1,4 +1,5 @@
 import { dataUrl, isEnglish, message, escapeHtml } from './locale.js';
+import { blocksKeyWhileTyping, tabCompletion } from './terminal-keys.js';
 
 // Each page is a full document load (ADR-0003), so the terminal initialises once.
 function initializeTerminal() {
@@ -91,9 +92,12 @@ function initializeTerminal() {
   }
 
   async function typewriterAsync(htmlString, element) {
+    // readOnly (not disabled) keeps keyboard focus where it is; aria-busy makes screen readers
+    // announce the finished text once instead of every character (spec 033).
     isTyping = true;
-    input.disabled = true;
-    
+    input.readOnly = true;
+    output.setAttribute('aria-busy', 'true');
+
     const doScroll = shouldAutoScroll();
     
     output.appendChild(element);
@@ -121,8 +125,8 @@ function initializeTerminal() {
     await processNode(tempDiv, element);
     
     isTyping = false;
-    input.disabled = false;
-    input.focus({ preventScroll: true });
+    input.readOnly = false;
+    output.setAttribute('aria-busy', 'false');
     if (doScroll) output.scrollTop = output.scrollHeight;
   }
 
@@ -162,7 +166,7 @@ function initializeTerminal() {
 
   const onKeyDown = (e) => {
     if (isTyping) {
-      e.preventDefault();
+      if (blocksKeyWhileTyping(e.key)) e.preventDefault();
       return;
     }
     
@@ -185,12 +189,11 @@ function initializeTerminal() {
         historyIndex = history.length;
         input.value = '';
       }
-    } else if (e.key === 'Tab') {
-      e.preventDefault();
-      const val = input.value.toLowerCase();
-      const match = commandKeys.find(c => c.startsWith(val));
-      if (match) {
-        input.value = match;
+    } else if (e.key === 'Tab' && !e.shiftKey) {
+      const completion = tabCompletion(input.value, commandKeys);
+      if (completion) {
+        e.preventDefault();
+        input.value = completion;
       }
     }
   };

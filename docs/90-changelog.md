@@ -6,6 +6,7 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ### Changed
 
+- Spec 033: WCAG 2.2 AA fixes: accessible code highlighting theme, no keyboard trap or focus theft in the terminal, visible terminal focus, working skip link; one decorative-text exception documented.
 - Spec 032: 25 % of page views send one `Web Vitals` event (LCP, INP, CLS) to Plausible (ADR-0004, Proposed); deploys and pull requests fail when the Lighthouse budget breaks (`npm run check:budget`, ADR-0005, Proposed).
 - Spec 031: page styles are inlined (`build.inlineStylesheets: 'always'`), removing the only render-blocking request; the home page HTML grows from 9.4 to 17.4 KiB compressed.
 - Spec 030: the hero scene is drawn with a 7 KiB WebGL module instead of Three.js (657 KiB), pixel-identical to the previous scene.

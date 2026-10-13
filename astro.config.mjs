@@ -16,6 +16,10 @@ export default defineConfig({
   build: {
     inlineStylesheets: 'always'
   },
+  // github-dark-default keeps every token at 4.5:1 or more on its background (spec 033, A11Y-002).
+  markdown: {
+    shikiConfig: { theme: 'github-dark-default' }
+  },
   integrations: [
     sitemap({
       filter: (page) => {

@@ -62,8 +62,11 @@
   outline: none;
   caret-color: #cdd6f4;
 }
+/* Visible keyboard focus on the dark terminal background (WCAG 2.4.7, spec 033). */
 .terminal-input:focus-visible {
-  outline: none;
+  outline: 2px solid #89b4fa;
+  outline-offset: 4px;
+  border-radius: 2px;
 }
 .term-text-green { color: #a6e3a1; }
 .term-text-blue { color: #89b4fa; }

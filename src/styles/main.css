@@ -222,6 +222,11 @@ main > .section:not(.hero) {
     linear-gradient(135deg, rgba(38, 30, 29, 0.94), rgba(13, 18, 29, 0.96));
 }
 
+/* The skip link moves focus to <main>; it is a container, not a control, so it needs no ring (spec 033). */
+main[tabindex="-1"]:focus {
+  outline: none;
+}
+
 .skip-link {
   position: fixed;
   top: 1rem;

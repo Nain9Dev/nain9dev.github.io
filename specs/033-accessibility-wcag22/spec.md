@@ -1,6 +1,6 @@
 # Specification: WCAG 2.2 AA accessibility audit
 
-Status: In progress
+Status: In progress (T03 after deploy)
 
 ## Objective
 
@@ -8,9 +8,10 @@ On 2026-10-13 the owner asked for a WCAG 2.2 AA review of the site and fixes for
 
 ## Functional requirements (EARS)
 
-- **A11Y-001**: When any built page is checked with axe-core for WCAG 2.0–2.2 A and AA rules, at desktop and mobile widths, it shall report no violations.
+- **A11Y-001**: When any built page is checked with axe-core for WCAG 2.0–2.2 A and AA rules, at desktop and mobile widths, it shall report no violations other than the decorative-text exceptions listed in `tasks.md` (WCAG 1.4.3 exempts text that is pure decoration).
 - **A11Y-002**: When code examples are shown, every token shall have a contrast ratio of at least 4.5:1 against the code background (WCAG 1.4.3).
 - **A11Y-003**: When a keyboard user tabs through the home page, every focused control shall show a visible focus indicator (WCAG 2.4.7) that is not hidden behind the sticky header (WCAG 2.4.11), and the skip link shall move focus to the main content.
+- **A11Y-005**: While the terminal types its welcome text, keyboard focus shall neither drop to the document nor move to the terminal on its own (WCAG 2.4.3, 3.2.1), Tab shall always leave the terminal (WCAG 2.1.2), and screen readers shall receive the finished text once.
 - **A11Y-004**: While the visitor prefers reduced motion, the site shall not animate reveals, the hero scene, the availability pulse or page transitions (WCAG 2.3.3).
 
 ## Edge cases and error handling
@@ -28,6 +29,6 @@ On 2026-10-13 the owner asked for a WCAG 2.2 AA review of the site and fixes for
 ## Session state
 
 - Last updated: 2026-10-13, implementation session
-- Done: first pass on 10 key pages at desktop and mobile widths: only `color-contrast` on code comments of `/blog/clean-architecture-3d/` (11 nodes, `#6a737d` on `#24292e`, 3.04:1).
-- Next: full sweep of every page, then fixes.
+- Done: T01, T02 (see `tasks.md`).
+- Next: T03, verify in production after deploy.
 - Blocked: —

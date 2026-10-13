@@ -282,3 +282,13 @@ Spec 005 is committed as `c78c854`; production confirmation after deployment is 
 | RUM-002 | When a sampled page is first hidden, the site shall send exactly one Plausible event `Web Vitals` with `interactive: false`, ratings, bucketed values and device class. | specs/032-field-and-ci-performance | Implemented (ADR-0004 Proposed) |
 | RUM-003 | When a page view is not sampled, the site shall download no reporting code. | specs/032-field-and-ci-performance | Implemented (ADR-0004 Proposed) |
 | LHCI-001 | When the site is deployed or a pull request is checked, Lighthouse shall run three times per budget page and fail when a median breaks score ≥ 0.95, LCP ≤ 2.5 s, TBT ≤ 200 ms, CLS ≤ 0.1 or transfer ≤ 250 KiB. | specs/032-field-and-ci-performance | Implemented (ADR-0005 Proposed) |
+
+## WCAG 2.2 AA (spec 033)
+
+| ID | Requirement | Source | Status |
+| :--- | :--- | :--- | :--- |
+| A11Y-001 | When any built page is checked with axe-core (WCAG 2.0–2.2 A/AA) at desktop and mobile widths, it shall report no violations other than documented decorative-text exceptions. | specs/033-accessibility-wcag22 | Implemented (one documented exception) |
+| A11Y-002 | When code examples are shown, every token shall reach 4.5:1 against the code background. | specs/033-accessibility-wcag22 | Implemented |
+| A11Y-003 | When a keyboard user tabs through the home page, every control shall show a visible focus indicator not hidden by the sticky header, and the skip link shall move focus to the main content. | specs/033-accessibility-wcag22 | Implemented |
+| A11Y-004 | While the visitor prefers reduced motion, reveals, hero scene, pulse and page transitions shall not animate. | specs/033-accessibility-wcag22 | Implemented |
+| A11Y-005 | While the terminal types, focus shall neither drop nor move on its own, Tab shall always leave the terminal, and screen readers shall get the text once. | specs/033-accessibility-wcag22 | Implemented |
