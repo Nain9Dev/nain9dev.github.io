@@ -77,6 +77,13 @@ await writeFile('.astro/budget/results.json', JSON.stringify({ calibration, page
 for (const [page, reports] of Object.entries(results)) {
   const runs = reports.map((r) => `${Math.round(r.categories.performance.score * 100)}/${Math.round(r.audits['total-blocking-time'].numericValue)}ms`);
   console.log(`runs ${page.padEnd(12)} score/TBT: ${runs.join(', ')}`);
+  // For runs with blocking time, name the long tasks so intermittent causes can be traced.
+  for (const [index, r] of reports.entries()) {
+    if (r.audits['total-blocking-time'].numericValue < 50) continue;
+    const tasks = (r.audits['long-tasks']?.details?.items ?? []).slice(0, 4)
+      .map((t) => `${String(t.url).replace(origin, '')} ${Math.round(t.duration)}ms@${Math.round(t.startTime)}`);
+    console.log(`     run ${index + 1} long tasks: ${tasks.join(' | ') || 'none reported'}`);
+  }
 }
 
 const rows = evaluate(results);

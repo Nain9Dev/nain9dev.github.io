@@ -292,3 +292,9 @@ Spec 005 is committed as `c78c854`; production confirmation after deployment is 
 | A11Y-003 | When a keyboard user tabs through the home page, every control shall show a visible focus indicator not hidden by the sticky header, and the skip link shall move focus to the main content. | specs/033-accessibility-wcag22 | Implemented |
 | A11Y-004 | While the visitor prefers reduced motion, reveals, hero scene, pulse and page transitions shall not animate. | specs/033-accessibility-wcag22 | Implemented |
 | A11Y-005 | While the terminal types, focus shall neither drop nor move on its own, Tab shall always leave the terminal, and screen readers shall get the text once. | specs/033-accessibility-wcag22 | Implemented |
+
+## Pages source (spec 034)
+
+| ID | Requirement | Source | Status |
+| :--- | :--- | :--- | :--- |
+| DEP-003 | When a commit is pushed, only `deploy.yml` shall publish the site; a failed build shall leave the previous deployment online. | specs/034-pages-source-from-actions | Implemented (repository setting) |

@@ -61,7 +61,7 @@ flowchart LR
     UT --> AC --> PF --> BI --> SEO --> LC --> CS --> CC
     Check --> SSC
     Check --> DEP
-    DEP -->|upload-pages-artifact dist/| GHP[GitHub Pages<br/>environment github-pages, main only]
+    DEP -->|upload-pages-artifact dist/| GHP[GitHub Pages<br/>source: GitHub Actions only<br/>environment github-pages, main only]
     GHP --> CF[Cloudflare<br/>caches /_astro/ only]
     CF --> USER[Visitors<br/>www.naindev.com]
 ```

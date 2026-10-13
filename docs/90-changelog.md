@@ -4,6 +4,10 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ## [Unreleased]
 
+### Fixed
+
+- Spec 034: incident 2026-10-13 (home page 404 for about 13 minutes): GitHub Pages also published the raw repository on every push; the Pages source is now GitHub Actions only.
+
 ### Changed
 
 - Spec 033: WCAG 2.2 AA fixes: accessible code highlighting theme, no keyboard trap or focus theft in the terminal, visible terminal focus, working skip link; one decorative-text exception documented.
