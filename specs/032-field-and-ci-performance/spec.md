@@ -11,7 +11,7 @@ Measure real visitors and block regressions before publishing (ADR-0004 and ADR-
 - **RUM-001**: When a page view is sampled (25 %), the site shall load the reporting module when idle and observe LCP, INP and CLS with `web-vitals`.
 - **RUM-002**: When a sampled page is first hidden, the site shall send exactly one Plausible event `Web Vitals` with `interactive: false` and properties `lcp`, `inp`, `cls` (ratings), `lcp_ms`, `inp_ms`, `cls_value` (bucketed) and `device` (`mobile` below 768 px, otherwise `desktop`); metrics not yet observed are reported as `none`.
 - **RUM-003**: When a page view is not sampled, the site shall download no reporting code.
-- **LHCI-001**: When the site is deployed or a pull request is checked, Lighthouse shall run three times on each budget page of the built site and fail when a median breaks performance ≥ 0.95, LCP ≤ 2.5 s, TBT ≤ 200 ms, CLS ≤ 0.1 or transfer ≤ 250 KiB, without uploading reports anywhere.
+- **LHCI-001**: When the site is deployed or a pull request is checked, Lighthouse shall run five times on each budget page of the built site and fail when a median breaks performance ≥ 0.95, LCP ≤ 2.5 s, TBT ≤ 200 ms, CLS ≤ 0.1 or transfer ≤ 250 KiB, without uploading reports anywhere.
 
 ## Edge cases and error handling
 

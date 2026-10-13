@@ -1,6 +1,7 @@
 // Performance budget for built pages (spec 032, ADR-0005). Pure helpers, used by check-budget.mjs and tests.
 
-export const RUNS = 3;
+// Five runs: GitHub runners show isolated long tasks; the median of five absorbs up to two outliers.
+export const RUNS = 5;
 export const PAGES = ['/', '/en/', '/servicios/'];
 
 // Thresholds apply to the median of the runs for each page, measured with Lighthouse's default mobile emulation.

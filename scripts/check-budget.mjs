@@ -73,6 +73,12 @@ try {
 await mkdir('.astro/budget', { recursive: true });
 await writeFile('.astro/budget/results.json', JSON.stringify({ calibration, pages: Object.fromEntries(Object.entries(results).map(([page, reports]) => [page, reports.map((r) => ({ score: r.categories.performance.score, audits: Object.fromEntries(['largest-contentful-paint', 'total-blocking-time', 'cumulative-layout-shift', 'total-byte-weight'].map((a) => [a, r.audits[a].numericValue])) }))])) }, null, 2));
 
+// Per-run values make CI noise visible when a median fails.
+for (const [page, reports] of Object.entries(results)) {
+  const runs = reports.map((r) => `${Math.round(r.categories.performance.score * 100)}/${Math.round(r.audits['total-blocking-time'].numericValue)}ms`);
+  console.log(`runs ${page.padEnd(12)} score/TBT: ${runs.join(', ')}`);
+}
+
 const rows = evaluate(results);
 for (const row of rows) {
   const value = row.metric === 'performance' || row.metric === 'cls' ? row.value.toFixed(3) : Math.round(row.value);

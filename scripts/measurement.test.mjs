@@ -51,7 +51,7 @@ test('LHCI-001: strict budget evaluated on medians, pinned Lighthouse and CI wir
   assert.equal(cpuSlowdownFor(1100), 2.4);
   assert.equal(cpuSlowdownFor(200), 1);
   assert.equal(cpuSlowdownFor(9000), 10);
-  assert.equal(RUNS, 3);
+  assert.equal(RUNS, 5);
   assert.deepEqual(PAGES, ['/', '/en/', '/servicios/']);
   assert.deepEqual(Object.fromEntries(Object.entries(BUDGET).map(([k, r]) => [k, r.min ?? r.max])),
     { performance: 0.95, lcp: 2500, tbt: 200, cls: 0.1, bytes: 256000 });
