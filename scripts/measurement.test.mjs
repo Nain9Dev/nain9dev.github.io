@@ -45,7 +45,12 @@ test('RUM-002: one Web Vitals event with ratings, buckets and device, sent once 
 });
 
 test('LHCI-001: strict budget evaluated on medians, pinned Lighthouse and CI wiring', async () => {
-  const { BUDGET, PAGES, RUNS, evaluate, median } = await import('./lib/performance-budget.mjs');
+  const { BUDGET, PAGES, RUNS, evaluate, median, cpuSlowdownFor } = await import('./lib/performance-budget.mjs');
+  // Calibrated CPU slowdown: a high-end desktop (index 1800) gets 4x, a low-end desktop (1100) about 2.4x, clamped to 1x–10x.
+  assert.equal(cpuSlowdownFor(1800), 4);
+  assert.equal(cpuSlowdownFor(1100), 2.4);
+  assert.equal(cpuSlowdownFor(200), 1);
+  assert.equal(cpuSlowdownFor(9000), 10);
   assert.equal(RUNS, 3);
   assert.deepEqual(PAGES, ['/', '/en/', '/servicios/']);
   assert.deepEqual(Object.fromEntries(Object.entries(BUDGET).map(([k, r]) => [k, r.min ?? r.max])),

@@ -6,7 +6,7 @@ import { extname, join, resolve, sep } from 'node:path';
 import { gzipSync } from 'node:zlib';
 import lighthouse from 'lighthouse';
 import * as chromeLauncher from 'chrome-launcher';
-import { PAGES, RUNS, evaluate } from './lib/performance-budget.mjs';
+import { PAGES, RUNS, TARGET_BENCHMARK_INDEX, cpuSlowdownFor, evaluate } from './lib/performance-budget.mjs';
 
 const ROOT = 'dist';
 const TYPES = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.svg': 'image/svg+xml', '.webp': 'image/webp', '.png': 'image/png', '.jpg': 'image/jpeg', '.ico': 'image/x-icon', '.woff2': 'font/woff2', '.xml': 'application/xml', '.txt': 'text/plain' };
@@ -48,21 +48,30 @@ const origin = `http://127.0.0.1:${server.address().port}`;
 
 const chrome = await chromeLauncher.launch({ chromeFlags: ['--headless=new', '--no-sandbox'] });
 const results = {};
+let calibration;
 try {
+  // Warm-up run: measures this machine's benchmarkIndex to calibrate the CPU slowdown.
+  const { lhr: warmup } = await lighthouse(`${origin}/`, { port: chrome.port, onlyCategories: ['performance'], output: 'json', logLevel: 'error' });
+  const benchmarkIndex = warmup.environment.benchmarkIndex;
+  calibration = { benchmarkIndex, cpuSlowdownMultiplier: cpuSlowdownFor(benchmarkIndex) };
+  console.log(`Host benchmarkIndex ${Math.round(benchmarkIndex)} → CPU slowdown ${calibration.cpuSlowdownMultiplier}x (target index ${TARGET_BENCHMARK_INDEX}).`);
   for (const page of PAGES) {
     results[page] = [];
     for (let run = 0; run < RUNS; run++) {
-      const { lhr } = await lighthouse(`${origin}${page}`, { port: chrome.port, onlyCategories: ['performance'], output: 'json', logLevel: 'error' });
+      const { lhr } = await lighthouse(`${origin}${page}`, { port: chrome.port, onlyCategories: ['performance'], output: 'json', logLevel: 'error' }, {
+        extends: 'lighthouse:default',
+        settings: { throttling: { cpuSlowdownMultiplier: calibration.cpuSlowdownMultiplier } }
+      });
       results[page].push(lhr);
     }
   }
 } finally {
-  await chrome.kill();
+  chrome.kill();
   server.close();
 }
 
 await mkdir('.astro/budget', { recursive: true });
-await writeFile('.astro/budget/results.json', JSON.stringify(Object.fromEntries(Object.entries(results).map(([page, reports]) => [page, reports.map((r) => ({ score: r.categories.performance.score, audits: Object.fromEntries(['largest-contentful-paint', 'total-blocking-time', 'cumulative-layout-shift', 'total-byte-weight'].map((a) => [a, r.audits[a].numericValue])) }))])), null, 2));
+await writeFile('.astro/budget/results.json', JSON.stringify({ calibration, pages: Object.fromEntries(Object.entries(results).map(([page, reports]) => [page, reports.map((r) => ({ score: r.categories.performance.score, audits: Object.fromEntries(['largest-contentful-paint', 'total-blocking-time', 'cumulative-layout-shift', 'total-byte-weight'].map((a) => [a, r.audits[a].numericValue])) }))])) }, null, 2));
 
 const rows = evaluate(results);
 for (const row of rows) {

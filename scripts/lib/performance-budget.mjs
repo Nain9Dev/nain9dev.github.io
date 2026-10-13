@@ -12,6 +12,16 @@ export const BUDGET = {
   bytes: { max: 256000, read: (lhr) => lhr.audits['total-byte-weight'].numericValue }
 };
 
+// Lighthouse's default 4x CPU slowdown assumes a high-end desktop (benchmarkIndex 1500–2000) and lands in the
+// mid-tier mobile bracket (docs/throttling.md). Calibrating against the host's benchmarkIndex keeps that target on
+// any machine: the slowdown is the host index divided by the target index, clamped to Lighthouse's documented range.
+export const TARGET_BENCHMARK_INDEX = 450;
+
+export function cpuSlowdownFor(benchmarkIndex) {
+  const multiplier = benchmarkIndex / TARGET_BENCHMARK_INDEX;
+  return Math.round(Math.min(10, Math.max(1, multiplier)) * 10) / 10;
+}
+
 export function median(values) {
   const sorted = [...values].sort((a, b) => a - b);
   return sorted[Math.floor(sorted.length / 2)];
