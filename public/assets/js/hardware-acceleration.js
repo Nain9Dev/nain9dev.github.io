@@ -26,6 +26,17 @@ export function hasHardwareAcceleration() {
     return false;
   }
 
+  if (typeof document !== 'undefined' && document.documentElement) {
+    if (document.documentElement.classList.contains('low-performance')) {
+      cachedResult = false;
+      return false;
+    }
+    if (document.documentElement.classList.contains('high-performance')) {
+      cachedResult = true;
+      return true;
+    }
+  }
+
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     cachedResult = false;
     updatePerformanceClasses(false);

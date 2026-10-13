@@ -215,3 +215,40 @@ test('returns true when hardware acceleration and native GPU renderer are active
   delete globalThis.document;
   resetHardwareAccelerationCache();
 });
+
+test('returns false immediately if documentElement already has low-performance class', () => {
+  resetHardwareAccelerationCache();
+  globalThis.window = {};
+  globalThis.document = {
+    documentElement: {
+      classList: {
+        contains: (cls) => cls === 'low-performance'
+      }
+    }
+  };
+
+  assert.equal(hasHardwareAcceleration(), false);
+
+  delete globalThis.window;
+  delete globalThis.document;
+  resetHardwareAccelerationCache();
+});
+
+test('returns true immediately if documentElement already has high-performance class', () => {
+  resetHardwareAccelerationCache();
+  globalThis.window = {};
+  globalThis.document = {
+    documentElement: {
+      classList: {
+        contains: (cls) => cls === 'high-performance'
+      }
+    }
+  };
+
+  assert.equal(hasHardwareAcceleration(), true);
+
+  delete globalThis.window;
+  delete globalThis.document;
+  resetHardwareAccelerationCache();
+});
+

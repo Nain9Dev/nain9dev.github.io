@@ -43,8 +43,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.nain
   <link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/outfit-700.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/assets/css/main.css">
-  <link rel="stylesheet" href="/assets/css/terminal.css">
+  <link rel="stylesheet" href="/assets/css/main.css?v=019">
+  <link rel="stylesheet" href="/assets/css/terminal.css?v=019">
   <script defer data-domain="naindev.com" src="https://plausible.io/js/script.js"></script>
   <script is:inline>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
   <title>{title}</title>
@@ -55,14 +55,38 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.nain
       document.documentElement.classList.add("motion-ready");
       try {
         const isMobileOrTouch = window.innerWidth < 768 || (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
-        if (
-          isMobileOrTouch ||
+        let isLowPerformance = isMobileOrTouch ||
           (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) ||
           (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4) ||
           (navigator.deviceMemory && navigator.deviceMemory < 4) ||
-          (navigator.connection && navigator.connection.saveData)
-        ) {
+          (navigator.connection && navigator.connection.saveData);
+
+        if (!isLowPerformance) {
+          try {
+            const canvas = document.createElement('canvas');
+            const gl = canvas.getContext('webgl2', { failIfMajorPerformanceCaveat: true })
+                    || canvas.getContext('webgl', { failIfMajorPerformanceCaveat: true });
+            if (!gl) {
+              isLowPerformance = true;
+            } else {
+              const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+              if (debugInfo) {
+                const renderer = String(gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) || '').toLowerCase();
+                const sw = ['swiftshader', 'software', 'llvmpipe', 'softpipe', 'virtualbox', 'vmware', 'basic render', 'warp', 'mesa', 'cpu'];
+                if (sw.some((k) => renderer.includes(k))) isLowPerformance = true;
+              }
+              const lose = gl.getExtension('WEBGL_lose_context');
+              if (lose) lose.loseContext();
+            }
+          } catch (e) {
+            isLowPerformance = true;
+          }
+        }
+
+        if (isLowPerformance) {
           document.documentElement.classList.add("low-performance");
+        } else {
+          document.documentElement.classList.add("high-performance");
         }
       } catch (e) {}
     </script>
@@ -83,7 +107,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.nain
   <Footer />
   <PrivacyBanner />
 
-  <script type="module" src="/assets/js/app.js?v=018"></script>
+  <script type="module" src="/assets/js/app.js?v=019"></script>
 
   <script>
     import { initializeGlobalAnalytics, trackTerminalCommand } from "../utils/analytics.js";

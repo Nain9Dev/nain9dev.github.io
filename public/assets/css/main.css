@@ -170,26 +170,12 @@ body {
     radial-gradient(circle at 12% 32%, rgba(240, 164, 93, 0.12), transparent 28rem),
     radial-gradient(circle at 50% 80%, rgba(98, 119, 231, 0.15), transparent 35rem),
     var(--color-background);
-  background-size: 200% 200%;
   color: var(--color-text);
   font-family: var(--font-sans);
   font-size: 1rem;
   line-height: 1.65;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  body {
-    animation: ambient-morph 24s ease-in-out infinite alternate;
-  }
-}
-
-@keyframes ambient-morph {
-  0% { background-position: 0% 0%; }
-  33% { background-position: 100% 0%; }
-  66% { background-position: 100% 100%; }
-  100% { background-position: 0% 100%; }
 }
 
 body::before {
@@ -220,11 +206,9 @@ body::before {
     z-index: -1;
     background: radial-gradient(
       circle 600px at var(--mouse-x, 50%) var(--mouse-y, 50%),
-      var(--color-primary-strong),
+      rgba(96, 165, 250, 0.08),
       transparent 80%
     );
-    opacity: var(--glow-opacity);
-    mix-blend-mode: screen;
     pointer-events: none;
   }
 }
@@ -621,9 +605,8 @@ h3 {
   width: 15rem;
   aspect-ratio: 1;
   border-radius: 50%;
-  background: rgba(120, 144, 255, 0.1);
+  background: radial-gradient(circle, rgba(120, 144, 255, 0.12) 0%, transparent 70%);
   content: "";
-  filter: blur(2rem);
   pointer-events: none;
 }
 
@@ -1532,10 +1515,7 @@ h3 {
   background-color: var(--color-surface);
   border: 1px solid var(--color-line);
   border-radius: var(--radius-small);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   transition: transform 0.3s var(--ease-spring), border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease, transform 0.6s ease;
-  will-change: transform, opacity;
   opacity: 0;
   transform: translateY(1rem);
 }
@@ -2002,6 +1982,10 @@ h3 {
 }
 
 /* Adaptive low-performance overrides: eliminate CPU bottlenecks on devices without hardware acceleration */
+html.low-performance {
+  scroll-behavior: auto !important;
+}
+
 html.low-performance .site-header {
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
@@ -2012,11 +1996,21 @@ html.low-performance .site-header.is-scrolled {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
 }
 
+html.low-performance .motion-ready [data-reveal],
+html.low-performance [data-reveal] {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
 html.low-performance .tech-badge {
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
   background-color: var(--color-surface) !important;
   will-change: auto !important;
+  transition: none !important;
+  opacity: 1 !important;
+  transform: none !important;
 }
 
 html.low-performance .hero-panel::after {
@@ -2026,6 +2020,13 @@ html.low-performance .hero-panel::after {
 html.low-performance .hero::before {
   box-shadow: none !important;
   border-color: rgba(120, 144, 255, 0.12) !important;
+}
+
+html.low-performance .project-card,
+html.low-performance .card,
+html.low-performance .impact-metric-card {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
+  transition: border-color 0.15s ease !important;
 }
 
 html.low-performance .hero-3d-canvas {
