@@ -12,6 +12,10 @@ const excludedSitemapPaths = new Set([
 export default defineConfig({
   site: 'https://www.naindev.com',
   output: 'static',
+  // Inline styles so first paint never waits for a stylesheet request (spec 031).
+  build: {
+    inlineStylesheets: 'always'
+  },
   integrations: [
     sitemap({
       filter: (page) => {

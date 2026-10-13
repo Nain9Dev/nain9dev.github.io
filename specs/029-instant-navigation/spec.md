@@ -1,6 +1,6 @@
 # Specification: Instant navigation without a client router
 
-Status: In progress
+Status: Done
 
 ## Objective
 
@@ -32,6 +32,6 @@ Replace Astro's `ClientRouter` with native cross-document View Transitions and S
 ## Session state
 
 - Last updated: 2026-10-13, implementation session
-- Done: T01, T02.
-- Next: T03 after deploy.
+- Done: T01 to T03.
+- Next: owner decision on ADR-0003.
 - Blocked: —

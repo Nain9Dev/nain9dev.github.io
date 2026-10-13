@@ -179,7 +179,7 @@ Spec 005 is committed as `c78c854`; production confirmation after deployment is 
 | PERF-001 | When a page is rendered, each self-hosted font family shall be referenced through exactly one `@font-face` rule with a weight range and one file, and the font directory shall contain no byte-identical duplicates. | specs/020-low-end-device-performance | Implemented |
 | PERF-002 | When a page is rendered, the site shall preload only fonts that a stylesheet references. | specs/020-low-end-device-performance | Implemented |
 | PERF-003 | When client scripts are built, each source module shall be bundled once by Astro into hashed files under `/_astro/`, with no manual `?v=` cache-busting parameter in sources. | specs/020-low-end-device-performance | Implemented |
-| PERF-004 | When stylesheets are built, they shall be bundled and minified by Astro into at most one hashed stylesheet per page under `/_astro/`. | specs/020-low-end-device-performance | Implemented |
+| PERF-004 | When stylesheets are built, they shall be bundled and minified by Astro into at most one hashed stylesheet per page under `/_astro/`. | specs/020-low-end-device-performance | Implemented; tightened by CSS-001 (spec 031): styles are now inlined |
 | PERF-005 | While the document head is parsed, the site shall not create a WebGL context; the WebGL probe shall run only from the deferred client bundle. | specs/020-low-end-device-performance | Implemented |
 | PERF-006 | When the home page is first painted, the hero text shall be visible without waiting for client JavaScript. | specs/020-low-end-device-performance | Implemented |
 | PERF-007 | While a decorative animation runs indefinitely, it shall animate only `transform` or `opacity`, and it shall stop in low-performance mode. | specs/020-low-end-device-performance | Implemented |
@@ -266,3 +266,10 @@ Spec 005 is committed as `c78c854`; production confirmation after deployment is 
 | HERO-002 | When the hero scene is drawn, 350 points between radius 2.4 and 7.6 shall be drawn in `#60A5FA` at 0.45 opacity with additive blending and attenuated size 0.025. | specs/030-lightweight-hero-scene | Implemented |
 | HERO-003 | While the scene runs, camera, rotations, parallax, pausing, low-frame-rate fallback and `low-power` context shall behave as before. | specs/030-lightweight-hero-scene | Implemented |
 | HERO-004 | When the site is built, no Three.js file shall be published and the scene module shall weigh at most 8 KiB. | specs/030-lightweight-hero-scene | Implemented |
+
+## Inline styles (spec 031)
+
+| ID | Requirement | Source | Status |
+| :--- | :--- | :--- | :--- |
+| CSS-001 | When a page is built, its styles shall be inlined in the document head and the page shall link no external stylesheet. | specs/031-inline-styles | Implemented |
+| CSS-002 | When the home page is served, its compressed HTML shall stay at or below 25 KiB. | specs/031-inline-styles | Implemented |

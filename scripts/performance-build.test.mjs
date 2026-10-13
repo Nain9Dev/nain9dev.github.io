@@ -40,13 +40,21 @@ test('HERO-004: the hero scene is a lazy chunk, never loaded by a page script ta
   }
 });
 
-test('PERF-004: pages link one bundled stylesheet at most', async () => {
+test('PERF-004 and CSS-001: styles are inlined and no page links a stylesheet', async () => {
   for (const page of pages) {
     const html = await read(page);
     const styles = tags(html, 'link').filter((l) => l.rel === 'stylesheet');
-    assert.ok(styles.length <= 1, `${page} links ${styles.length} stylesheets`);
-    for (const link of styles) assert.match(link.href, /^\/_astro\/[\w.-]+\.css$/, `${page} links ${link.href}`);
+    assert.equal(styles.length, 0, `${page} links ${styles.map((l) => l.href).join(', ')}`);
+    const head = html.slice(0, html.indexOf('</head>'));
+    const inlined = [...head.matchAll(/<style>([\s\S]*?)<\/style>/g)].map((m) => m[1]).join('');
+    assert.match(inlined, /--color-background:#090a0f/i, `${page} lacks the inlined design tokens`);
   }
+});
+
+test('CSS-002: the compressed home page stays within 25 KiB', async () => {
+  const { gzipSync } = await import('node:zlib');
+  const size = gzipSync(await readFile('dist/index.html')).length;
+  assert.ok(size <= 25 * 1024, `home page is ${(size / 1024).toFixed(1)} KiB compressed`);
 });
 
 test('PERF-011: built home pages keep the email_off markers around the terminal prompt', async () => {
