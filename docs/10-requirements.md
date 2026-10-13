@@ -273,3 +273,12 @@ Spec 005 is committed as `c78c854`; production confirmation after deployment is 
 | :--- | :--- | :--- | :--- |
 | CSS-001 | When a page is built, its styles shall be inlined in the document head and the page shall link no external stylesheet. | specs/031-inline-styles | Implemented |
 | CSS-002 | When the home page is served, its compressed HTML shall stay at or below 25 KiB. | specs/031-inline-styles | Implemented |
+
+## Field Web Vitals and performance budget (spec 032)
+
+| ID | Requirement | Source | Status |
+| :--- | :--- | :--- | :--- |
+| RUM-001 | When a page view is sampled (25 %), the site shall load the reporting module when idle and observe LCP, INP and CLS. | specs/032-field-and-ci-performance | Implemented (ADR-0004 Proposed) |
+| RUM-002 | When a sampled page is first hidden, the site shall send exactly one Plausible event `Web Vitals` with `interactive: false`, ratings, bucketed values and device class. | specs/032-field-and-ci-performance | Implemented (ADR-0004 Proposed) |
+| RUM-003 | When a page view is not sampled, the site shall download no reporting code. | specs/032-field-and-ci-performance | Implemented (ADR-0004 Proposed) |
+| LHCI-001 | When the site is deployed or a pull request is checked, Lighthouse shall run three times per budget page and fail when a median breaks score ≥ 0.95, LCP ≤ 2.5 s, TBT ≤ 200 ms, CLS ≤ 0.1 or transfer ≤ 250 KiB. | specs/032-field-and-ci-performance | Implemented (ADR-0005 Proposed) |

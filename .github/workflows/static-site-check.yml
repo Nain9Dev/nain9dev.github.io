@@ -11,7 +11,7 @@ jobs:
   validate:
     name: Validate portfolio structure
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 15
 
     steps:
       - name: Check out repository
@@ -30,3 +30,6 @@ jobs:
 
       - name: Validate static site
         run: npm run check
+
+      - name: Performance budget (Lighthouse, ADR-0005)
+        run: npm run check:budget

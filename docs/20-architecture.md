@@ -66,6 +66,8 @@ flowchart LR
     CF --> USER[Visitors<br/>www.naindev.com]
 ```
 
+After `npm run check`, both workflows run `npm run check:budget` (Lighthouse on the built site, ADR-0005); the deploy uploads only if it passes.
+
 Order inside `npm run check` (from `package.json`): unit tests (including `claims.test.mjs` and `performance.test.mjs`), `astro check`, full build, performance budget over `dist/`, brand icons, SEO, locales, case-study removal contract, claims scan over sources and `dist/`.
 
 ## Boundaries and contracts

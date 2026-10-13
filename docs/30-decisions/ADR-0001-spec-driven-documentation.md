@@ -25,6 +25,8 @@ Project-specific choices:
 | ADR-0001 | Adopt spec-driven lifecycle documentation | Approved | this file |
 | ADR-0002 | Bundle client scripts and styles with Astro | Approved | `ADR-0002-bundle-client-assets-with-astro.md` |
 | ADR-0003 | Native view transitions and speculative prerendering instead of a client router | Proposed | `ADR-0003-native-navigation-and-prerender.md` |
+| ADR-0004 | Field Web Vitals reported to Plausible | Proposed | `ADR-0004-field-web-vitals-in-plausible.md` |
+| ADR-0005 | Lighthouse performance budget in CI | Proposed | `ADR-0005-lighthouse-ci-budget.md` |
 
 The numbering schemes differ (`ADR-001` feature-level, `ADR-####` project-level). New project-level decisions use `ADR-####` in this folder.
 

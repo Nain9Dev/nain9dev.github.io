@@ -32,6 +32,9 @@ jobs:
       - name: Validate and build both languages
         run: npm run check
 
+      - name: Performance budget (Lighthouse, ADR-0005)
+        run: npm run check:budget
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
         with:
