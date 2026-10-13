@@ -26,7 +26,7 @@ npm run preview    # serve dist/ including English pages under /en/
 | :--- | :--- | :--- | :--- |
 | Local | manual | `npm run check`, `npm run preview` | `dist/` |
 | Pull request | `pull_request` | `static-site-check.yml`: `npm ci`, `npm run check`, read-only permissions, no secrets | Status check only |
-| Production | push to `main` or `workflow_dispatch` | `deploy.yml`: `npm run check`, upload `dist/`, deploy to GitHub Pages (`github-pages` environment), Cloudflare cache purge | https://www.naindev.com |
+| Production | push to `main` or `workflow_dispatch` | `deploy.yml`: `npm run check`, upload `dist/`, deploy to GitHub Pages (`github-pages` environment) | https://www.naindev.com |
 
 `static-site-check.yml` also runs on push to `main`, in parallel with `deploy.yml`.
 
@@ -42,7 +42,7 @@ npm run preview    # serve dist/ including English pages under /en/
 
 - **CI failure**: read the failing step in the Actions log. Contract scripts print every violation before failing (`check-seo.mjs`, `check-locales.mjs`). A missing or draft translation fails the build by design; fix the source/catalog pair, never mark a draft as reviewed to pass CI.
 - **Bad release**: revert the offending commit on `main` through the normal authorized workflow; the deploy workflow republishes the previous content. Then rerun `check-production.mjs`. No database or migration is involved.
-- **Stale content at the edge**: the purge step depends on `CLOUDFLARE_ZONE` and `CLOUDFLARE_API_TOKEN`, which are not listed as repository secrets (B-003). Purge manually in the Cloudflare dashboard until that is resolved.
+- **Stale content at the edge**: HTML is not cached by Cloudflare and `/_astro/` files change name with their content, so a deploy is visible without a purge (spec 022). If an edge-cached file must be refreshed, purge it by URL in the Cloudflare dashboard (zone `naindev.com` in the owner's personal account).
 - **Stale favicon**: keep the stable URLs; `/favicon.ico` may stay cached by intermediaries. Compare public and local hashes before changing anything (spec 002 `verification.md`).
 - **Leaked secret**: follow `SECURITY_POLICY.md` section 3 and revoke the credential at the provider first.
 
@@ -91,7 +91,6 @@ the same targets if a rule is removed. If the redirect map changes, update both.
 ## Known limits
 
 - Newsletter form uses placeholder MailerLite identifiers; subscriptions are not delivered (B-007).
-- Cloudflare cache purge is unverified and probably ineffective (B-003).
 - `public/_headers` is not processed by GitHub Pages; whether Cloudflare applies equivalent headers is unverified (B-004). The CSP is delivered as a meta tag. On 2026-10-13 production served static assets with `max-age=14400` and HTML with `max-age=600`; long-term caching of hashed `/_astro/` files needs the Cloudflare Cache Rule in B-016.
 - Client scripts, styles and fonts are hashed by Astro (ADR-0002); do not reintroduce `?v=` suffixes. Data under `public/assets/data/` is not hashed: the catalog is fetched with `cache: 'no-cache'`.
 - Automated checks prove structural consistency of translations, not semantic fidelity (spec 003).

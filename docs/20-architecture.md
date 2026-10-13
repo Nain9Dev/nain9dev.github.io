@@ -62,8 +62,7 @@ flowchart LR
     Check --> SSC
     Check --> DEP
     DEP -->|upload-pages-artifact dist/| GHP[GitHub Pages<br/>environment github-pages, main only]
-    DEP -->|purge_cache API call| CF[Cloudflare]
-    GHP --> CF
+    GHP --> CF[Cloudflare<br/>caches /_astro/ only]
     CF --> USER[Visitors<br/>www.naindev.com]
 ```
 
@@ -81,7 +80,7 @@ Order inside `npm run check` (from `package.json`): unit tests (including `claim
 ## Cross-cutting concerns
 
 - **Security headers**: the Content Security Policy is a `<meta http-equiv>` tag in `src/components/SEO.astro`. `public/_headers` also declares headers; GitHub Pages does not process `_headers` files, so whether any of those headers are applied depends on the Cloudflare configuration. Assumption, not verified.
-- **Edge / CDN**: Cloudflare sits in front of GitHub Pages. Evidence: `check-production.mjs` decodes Cloudflare email obfuscation, and `deploy.yml` purges the Cloudflare cache. DNS and proxy settings are not stored in this repository.
+- **Edge / CDN**: Cloudflare sits in front of GitHub Pages. Evidence: `check-production.mjs` decodes Cloudflare email obfuscation, and production responses carry Cloudflare headers. A Cache Rule caches only content-hashed `/_astro/` files (B-016); HTML is not cached at the edge, so deploys need no purge (spec 022). DNS, proxy and cache settings are not stored in this repository.
 - **Analytics**: Plausible, allowed in the CSP; event helpers in `src/utils/analytics.js`.
 - **Secrets**: none are stored in the repository (`SECURITY_POLICY.md`). The only workflow secrets referenced are `CLOUDFLARE_ZONE` and `CLOUDFLARE_API_TOKEN`; see `41-blockers.md`.
 - **Error pages**: `src/pages/404.astro` renders a `noindex` page used for unknown routes.

@@ -6,6 +6,7 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ### Changed
 
+- Spec 022: the deploy workflow no longer calls the Cloudflare purge API, which had always failed silently; Cloudflare caches only hashed `/_astro/` files.
 - Spec 020: low-end device performance. One variable font file per family instead of twelve URLs for two files; client scripts, styles and fonts bundled and hashed by Astro (ADR-0002, Proposed); WebGL probe moved out of the document head; hero visible without JavaScript; compositor-only availability pulse; `content-visibility` on off-screen home sections; header logo served at its rendered size. Adds `scripts/performance.test.mjs` and `scripts/performance-build.test.mjs` to `npm run check`.
 
 - Spec 015: the NainOrder catalog entry links its live API demo, matching the GitHub profile.

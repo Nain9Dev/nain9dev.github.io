@@ -186,3 +186,10 @@ Spec 005 is committed as `c78c854`; production confirmation after deployment is 
 | PERF-008 | When below-the-fold home sections are off screen, the browser shall be allowed to skip their rendering. | specs/020-low-end-device-performance | Implemented |
 | PERF-009 | When the header logo is rendered, the served image width shall not exceed twice its largest rendered width. | specs/020-low-end-device-performance | Implemented |
 | PERF-010 | When a hashed static asset is served in production, the response shall allow long-term browser caching. | specs/020-low-end-device-performance | Implemented |
+
+## Deployment without edge purge (spec 022)
+
+| ID | Requirement | Source | Status |
+| :--- | :--- | :--- | :--- |
+| DEP-001 | When the site is deployed, the workflow shall not call the Cloudflare API nor reference Cloudflare secrets. | specs/022-remove-cloudflare-purge | Implemented |
+| DEP-002 | When a deploy publishes new HTML, visitors shall receive it without a manual purge. | specs/022-remove-cloudflare-purge | Implemented |

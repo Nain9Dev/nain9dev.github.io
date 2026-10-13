@@ -41,11 +41,12 @@ Consolidated task index. Feature-level detail and handoff state live in `../spec
   - **Covers**: ADR-0001
   - **Spec**: docs/30-decisions/ADR-0001-spec-driven-documentation.md
   - **Done when**: ADR-0001 status is `Approved` or `Superseded`.
-- [ ] **T-006** `[H]` Confirm whether the Cloudflare cache purge secrets exist (B-003).
+- [x] **T-006** `[H]` Confirm whether the Cloudflare cache purge secrets exist (B-003).
   - **Covers**: deployment runbook
   - **Spec**: docs/41-blockers.md
   - **Done when**: B-003 is marked verified or the purge step is redesigned under a new spec.
   - **Deferred**: owner decision 2026-09-16; handle later together with MailerLite (B-007) and the README Astro version badge.
+  - **Resolved**: 2026-10-13, the owner chose to remove the purge step (specs/022-remove-cloudflare-purge).
 - [x] **T-008** `[M]` Review the spec 007 redirect targets and wording assumptions, then commit and deploy.
   - **Covers**: CASE-001 to CASE-008
   - **Spec**: specs/007-remove-case-studies

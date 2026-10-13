@@ -134,3 +134,5 @@ Before the copy change, `scripts/offer-copy.test.mjs` failed 6 of 6 and the new 
 | PERF-009 | `scripts/performance-build.test.mjs` "PERF-009: the header logo is never served wider than twice its rendered width" | contract | Pass: local `npm run check` 2026-10-13 |
 | PERF-001 to PERF-009 (production) | CI `npm run check` in deploy run 38383097119 for b8b974a; Lighthouse and browser check recorded in `specs/020-low-end-device-performance/tasks.md` | contract + manual | Pass: CI and production 2026-10-13 |
 | PERF-010 | `curl -sI` on production `/_astro/` files (B-016) returns `Cache-Control: max-age=31536000` | manual | Pass: production 2026-10-13 |
+| DEP-001 | `scripts/deploy-workflow.test.mjs` "DEP-001: the deploy workflow neither calls the Cloudflare API nor reads Cloudflare secrets"; `actionlint`, `zizmor` | unit | Pass: local 2026-10-13 |
+| DEP-002 | Production HTML references the new bundle hashes after deploy, checked with `curl` | manual | Pending next deploy |
