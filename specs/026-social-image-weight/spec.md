@@ -1,6 +1,6 @@
 # Specification: Social preview image weight
 
-Status: In progress
+Status: Done
 
 ## Objective
 
@@ -27,6 +27,6 @@ The default Open Graph image `og-cover-v2.png` weighs 1.5 MB at 1731×909. Linke
 ## Session state
 
 - Last updated: 2026-10-13, implementation session
-- Done: T01.
-- Next: T02 after deploy.
+- Done: T01, T02.
+- Next: none.
 - Blocked: —

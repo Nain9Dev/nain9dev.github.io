@@ -48,7 +48,7 @@ flowchart LR
     end
 
     subgraph CI["GitHub Actions"]
-        SSC[static-site-check.yml<br/>pull_request, push to main]
+        SSC[static-site-check.yml<br/>pull_request]
         DEP[deploy.yml<br/>push to main, workflow_dispatch]
     end
 

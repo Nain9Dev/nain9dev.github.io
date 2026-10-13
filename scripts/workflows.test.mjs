@@ -48,6 +48,15 @@ test('CI-003: checkout never persists credentials', async () => {
   }
 });
 
+test('CI-005: npm run check runs once per push to main', async () => {
+  const all = await workflows();
+  const onMainPush = all.filter(({ text }) => /^\s+push:\s*\n\s+branches:[\s\S]*?main/m.test(text.split(/^jobs:/m)[0]));
+  const checking = onMainPush.filter(({ text }) => /npm run check/.test(text));
+  assert.deepEqual(checking.map(({ file }) => file), ['deploy.yml']);
+  const staticCheck = all.find(({ file }) => file === 'static-site-check.yml');
+  assert.match(staticCheck.text, /^on:\s*\n\s+pull_request:/m);
+});
+
 test('CI-004: dependencies are installed with npm ci only', async () => {
   for (const { file, text } of await workflows()) {
     assert.doesNotMatch(text, /npm install\b/, `${file}: npm install ignores the lockfile`);

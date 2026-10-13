@@ -1,10 +1,8 @@
 name: Static site checks
 
+# Pushes to main are validated by the build job of deploy.yml (spec 027).
 on:
   pull_request:
-  push:
-    branches:
-      - main
 
 permissions:
   contents: read

@@ -4,5 +4,6 @@
   - **Covers**: SOC-001, SOC-002
   - **Done when**: `scripts/social-image.test.mjs` passes and the images look equivalent.
   - **Result**: 1,537,466 bytes → 46,941 bytes; tests red before, green after; side-by-side review shows no visible loss.
-- [ ] **T02** `[A]` Verify the published file after deploy.
+- [x] **T02** `[A]` Verify the published file after deploy.
   - **Done when**: `https://www.naindev.com/assets/images/og-cover-v3.jpg` returns 200 and pages declare it.
+  - **Result**: 2026-10-13, deploy of bd05aa7 succeeded; the image returns 200, `image/jpeg`, 46,941 bytes, and the home page declares it.

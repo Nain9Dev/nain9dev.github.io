@@ -235,3 +235,9 @@ Spec 005 is committed as `c78c854`; production confirmation after deployment is 
 | :--- | :--- | :--- | :--- |
 | SOC-001 | When a page declares the default social image, the file shall be a 1200×630 JPEG of at most 200 KB with matching declared dimensions. | specs/026-social-image-weight | Implemented |
 | SOC-002 | When sources reference the default social image, they shall all use the new file, and the 1.5 MB PNG shall not be published. | specs/026-social-image-weight | Implemented |
+
+## Single validation run on main (spec 027)
+
+| ID | Requirement | Source | Status |
+| :--- | :--- | :--- | :--- |
+| CI-005 | When a commit is pushed to `main`, `npm run check` shall run once, inside the deploy workflow; `static-site-check.yml` shall run only for pull requests. | specs/027-single-ci-run-on-main | Implemented |
