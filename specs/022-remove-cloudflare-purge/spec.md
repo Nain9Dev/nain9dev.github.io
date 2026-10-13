@@ -1,6 +1,6 @@
 # Specification: Remove the Cloudflare cache purge step
 
-Status: In progress
+Status: Done
 
 ## Objective
 
@@ -28,6 +28,6 @@ The "Purge Cloudflare Cache" step in `deploy.yml` has never worked: on 2026-10-1
 ## Session state
 
 - Last updated: 2026-10-13, implementation session
-- Done: T01 (step removed, test green, linters without new findings), T03 (no secrets exist).
-- Next: T02, verify after the next deploy.
+- Done: T01 to T03.
+- Next: none.
 - Blocked: —

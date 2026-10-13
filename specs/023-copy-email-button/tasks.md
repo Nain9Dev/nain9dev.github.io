@@ -4,5 +4,6 @@
   - **Covers**: MAIL-005, MAIL-006
   - **Done when**: `scripts/copy-email.test.mjs` fails before the change and passes after it.
   - **Result**: both tests red before, green after; `scripts/contact-email.test.mjs` still passes.
-- [ ] **T02** `[A]` Verify in production after deploy.
+- [x] **T02** `[A]` Verify in production after deploy.
   - **Done when**: production home HTML has no `__cf_email__` markup and the button copies the address in a browser.
+  - **Result**: 2026-10-13, no `__cf_email__` in production HTML; with the clipboard stubbed in the browser the button wrote `contact@naindev.com` and showed "Email copiado al portapapeles."

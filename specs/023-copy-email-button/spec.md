@@ -1,6 +1,6 @@
 # Specification: Copy email button copies the contact address
 
-Status: In progress
+Status: Done
 
 ## Objective
 
@@ -27,6 +27,6 @@ Found on 2026-10-13 during spec 021: the home "Copiar email" button copies the t
 ## Session state
 
 - Last updated: 2026-10-13, implementation session
-- Done: T01.
-- Next: T02 after deploy.
+- Done: T01, T02.
+- Next: none.
 - Blocked: —

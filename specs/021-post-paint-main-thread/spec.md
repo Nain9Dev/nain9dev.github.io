@@ -1,6 +1,6 @@
 # Specification: Post-paint main-thread work
 
-Status: In progress
+Status: Done
 
 ## Objective
 
@@ -41,6 +41,6 @@ After spec 020, production Lighthouse mobile scored 91 but kept TBT at 181 ms (3
 ## Session state
 
 - Last updated: 2026-10-13, implementation session
-- Done: T01 to T07; PERF-011 to PERF-016 implemented, `npm run check` passes, browser and Lighthouse results in `tasks.md`.
-- Next: T08 (commit, deploy and production measurement).
-- Blocked: commit and push need owner authorisation.
+- Done: T01 to T08; PERF-011 to PERF-016 implemented, `npm run check` passes, browser and Lighthouse results in `tasks.md`.
+- Next: confirm the remaining first-frame delay with field data before any further change (see `tasks.md`).
+- Blocked: —

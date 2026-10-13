@@ -24,9 +24,9 @@ One task at a time, test first. Tests live in `scripts/post-paint.test.mjs` (sou
   - **Done when**: the PERF-016 tests pass and the class survives SPA navigation in the browser.
 - [x] **T07** `[A]` Measure locally.
   - **Done when**: results are recorded below.
-- [ ] **T08** `[M]` Commit, deploy and measure production.
+- [x] **T08** `[M]` Commit, deploy and measure production.
   - **Done when**: production home HTML has no `email-decode.min.js` and Lighthouse results are recorded below.
-  - **Needs from owner**: commit and push authorisation.
+  - **Result**: owner authorised the push on 2026-10-13; deploy run 38388585992 and static checks run 38388585954 for 08ac207 succeeded. See "Production measurement" below.
 
 ## Browser verification (2026-10-13, local production build)
 
@@ -44,3 +44,18 @@ Lighthouse 13, `astro preview` on 127.0.0.1, median of three runs by LCP. Spec 0
 | Low-end (CPU ×6) | spec 021 | 100 | 1083 ms | 1655 ms | 1127 ms | 0 ms | 167 KiB | 20 |
 
 The local server has no Cloudflare in front, so PERF-011 is verified on the built HTML only until the production measurement.
+
+## Production measurement (2026-10-13, after deploy of 08ac207)
+
+Lighthouse 13 against https://www.naindev.com/, median of three runs by LCP. Spec 020 rows are the production rows recorded in spec 020.
+
+| Profile | Build | Score | FCP | LCP | Speed Index | TBT | Weight | Requests |
+| :--- | :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Mobile (default) | spec 020 (b8b974a) | 91 | 1.7 s | 2.5 s | 4.5 s | 181 ms | 177 KiB | 19 |
+| Mobile (default) | spec 021 (08ac207) | 93 | 1.5 s | 2.6 s | 4.3 s | 115 ms | 177 KiB | 20 |
+| Low-end (CPU ×6) | spec 020 (b8b974a) | 86 | 1.5 s | 2.4 s | 4.2 s | 377 ms | 177 KiB | 19 |
+| Low-end (CPU ×6) | spec 021 (08ac207) | 94 | 1.6 s | 2.5 s | 4.2 s | 47 ms | 177 KiB | 20 |
+
+Production HTML no longer contains `email-decode.min.js` or `__cf_email__`; Cloudflare strips the `email_off` markers and leaves the prompt text intact. Browser check: 14 requests and 18 KiB transferred on a repeat visit (hashed assets served from the browser cache, B-016), catalog and copy button work, no console errors.
+
+Open finding: the acceptance target "Lighthouse mobile ≥ 95 in production" is not met (93). Traces show the network finishing at about 0.4 s and the main thread idle, while the first frame is presented about 1.3 s after its commit (local build: immediately). The delay sits in headless Chrome's software GPU presentation, not in page code; field data (Chrome UX Report or real-user monitoring) is needed before changing the page further.

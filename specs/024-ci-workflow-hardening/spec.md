@@ -1,6 +1,6 @@
 # Specification: CI workflow hardening
 
-Status: In progress
+Status: Done
 
 ## Objective
 
@@ -32,6 +32,6 @@ On 2026-10-13 `zizmor` reported 13 findings on `.github/workflows/`: every actio
 ## Session state
 
 - Last updated: 2026-10-13, implementation session
-- Done: T01.
-- Next: T02 on the next push.
+- Done: T01, T02.
+- Next: none.
 - Blocked: —
