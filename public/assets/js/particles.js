@@ -2,7 +2,8 @@ import { hasHardwareAcceleration } from "./hardware-acceleration.js";
 
 export function initializeParticles() {
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (prefersReducedMotion || !hasHardwareAcceleration()) return () => {};
+  const isConstrained = window.innerWidth < 768 || (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
+  if (prefersReducedMotion || !hasHardwareAcceleration() || isConstrained) return () => {};
 
   const existingCanvas = document.querySelector(".ambient-particles");
   if (existingCanvas) {

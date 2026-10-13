@@ -93,20 +93,26 @@ export function initializeSectionNavigation(links) {
 
   sections.forEach((section) => observer.observe(section));
 
-  function updateTopState() {
-    const firstSection = sections[0];
-
-    if (firstSection && window.scrollY < firstSection.offsetTop - (window.innerHeight * 0.35)) {
-      clearActiveSection();
+  let topStateRequested = false;
+  function onScrollTopState() {
+    if (!topStateRequested) {
+      window.requestAnimationFrame(() => {
+        const firstSection = sections[0];
+        if (firstSection && window.scrollY < firstSection.offsetTop - (window.innerHeight * 0.35)) {
+          clearActiveSection();
+        }
+        topStateRequested = false;
+      });
+      topStateRequested = true;
     }
   }
 
-  updateTopState();
-  window.addEventListener("scroll", updateTopState, { passive: true });
+  onScrollTopState();
+  window.addEventListener("scroll", onScrollTopState, { passive: true });
 
   return () => {
     observer.disconnect();
-    window.removeEventListener("scroll", updateTopState);
+    window.removeEventListener("scroll", onScrollTopState);
   };
 }
 

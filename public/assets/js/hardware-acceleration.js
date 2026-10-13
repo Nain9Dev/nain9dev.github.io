@@ -129,3 +129,17 @@ export function hasHardwareAcceleration() {
     return false;
   }
 }
+
+if (typeof navigator !== 'undefined' && typeof navigator.getBattery === 'function') {
+  navigator.getBattery().then((battery) => {
+    function evaluateBattery() {
+      if (!battery.charging && battery.level <= 0.20) {
+        updatePerformanceClasses(false);
+      }
+    }
+    evaluateBattery();
+    battery.addEventListener('levelchange', evaluateBattery);
+    battery.addEventListener('chargingchange', evaluateBattery);
+  }).catch(() => {});
+}
+

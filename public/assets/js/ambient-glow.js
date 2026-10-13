@@ -2,7 +2,8 @@ import { hasHardwareAcceleration } from './hardware-acceleration.js';
 
 export function initializeAmbientGlow() {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReducedMotion || !hasHardwareAcceleration()) return () => {};
+  const isTouchDevice = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
+  if (prefersReducedMotion || !hasHardwareAcceleration() || isTouchDevice) return () => {};
 
   const root = document.documentElement;
   let mouseX = 0;

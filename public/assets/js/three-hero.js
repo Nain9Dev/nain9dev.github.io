@@ -30,6 +30,13 @@ export async function initializeThreeHero() {
     return;
   }
 
+  const isMobileOrTouch = window.innerWidth < 768 || (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
+  if (isMobileOrTouch) {
+    console.log('[ThreeHero] Mobile or touch device detected. Disabling 3D hero to preserve battery and responsiveness.');
+    canvas.style.display = 'none';
+    return;
+  }
+
   if (!hasHardwareAcceleration()) {
     console.log('[ThreeHero] Hardware acceleration not available or low-spec device. Falling back to static hero.');
     canvas.style.display = 'none';
@@ -76,8 +83,10 @@ export async function initializeThreeHero() {
     return;
   }
 
+  const isMobile = width < 768 || (window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
+  const pixelRatio = isMobile ? 1 : Math.min(window.devicePixelRatio, 1.5);
   renderer.setSize(width, height);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setPixelRatio(pixelRatio);
 
   const geometry = new THREE.IcosahedronGeometry(2.2, 1);
   const material = new THREE.MeshBasicMaterial({
@@ -90,24 +99,17 @@ export async function initializeThreeHero() {
   scene.add(mainObject);
 
   particlesGeometry = new THREE.BufferGeometry();
-  const particlesCount = 400;
+  const particlesCount = isMobile ? 180 : 350;
   const posArray = new Float32Array(particlesCount * 3);
-  const orbitSpeeds = new Float32Array(particlesCount);
-  const orbitAngles = new Float32Array(particlesCount);
-  const orbitRadii = new Float32Array(particlesCount);
 
   for (let i = 0; i < particlesCount; i++) {
-    const radius = 2.5 + Math.random() * 5.5;
+    const radius = 2.4 + Math.random() * 5.2;
     const theta = Math.random() * Math.PI * 2;
     const phi = Math.acos((Math.random() * 2) - 1);
     
     posArray[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
     posArray[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
     posArray[i * 3 + 2] = radius * Math.cos(phi);
-
-    orbitRadii[i] = radius;
-    orbitAngles[i] = theta;
-    orbitSpeeds[i] = (Math.random() * 0.02) + 0.005;
   }
 
   particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
@@ -187,19 +189,9 @@ export async function initializeThreeHero() {
     mainObject.rotation.y += 0.05 * (mouseX - mainObject.rotation.y);
     mainObject.rotation.x += 0.05 * (mouseY - mainObject.rotation.x);
 
-    const positions = particlesGeometry.attributes.position.array;
-    for(let i = 0; i < particlesCount; i++) {
-      orbitAngles[i] += orbitSpeeds[i] * 0.5;
-      const r = orbitRadii[i];
-      const theta = orbitAngles[i];
-      const phi = Math.acos(positions[i * 3 + 2] / r) || 0;
-      positions[i * 3] = r * Math.sin(phi) * Math.cos(theta);
-      positions[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta + elapsedTime * 0.1);
-    }
-    particlesGeometry.attributes.position.needsUpdate = true;
-    
-    particlesMesh.rotation.y = elapsedTime * 0.05;
-    particlesMesh.rotation.x = Math.sin(elapsedTime * 0.2) * 0.05;
+    particlesMesh.rotation.y = elapsedTime * 0.04;
+    particlesMesh.rotation.x = Math.sin(elapsedTime * 0.15) * 0.05;
+    particlesMesh.rotation.z = elapsedTime * 0.02;
 
     const baseCameraY = -scrollY * 0.0015;
     camera.position.x += (mouseX * 2 - camera.position.x) * 0.02;
