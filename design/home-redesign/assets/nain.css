@@ -104,6 +104,11 @@ nav.main a:hover{color:var(--blue)}
 .btn:hover,.btn:focus-visible{box-shadow:6px 6px 0 var(--red)}
 .btn-s:hover,.btn-s:focus-visible{box-shadow:6px 6px 0 var(--blue)}
 .on-deep .btn-s:hover,.on-deep .btn-s:focus-visible{box-shadow:6px 6px 0 var(--red)}
+/* activo: la sombra se recoge al pulsar */
+.btn:active{box-shadow:2px 2px 0 var(--red)}
+.btn-s:active{box-shadow:2px 2px 0 var(--blue)}
+.on-deep .btn-s:active{box-shadow:2px 2px 0 var(--red)}
+.chip:active{box-shadow:2px 2px 0 var(--blue)}
 .btn-p{background:var(--blue);color:#fff}
 .btn-g{background:var(--green);color:var(--brand-black)}
 .btn-s{background:transparent;color:var(--blue-deep);border-color:var(--blue-2)}
@@ -111,6 +116,7 @@ nav.main a:hover{color:var(--blue)}
 .btn-lg{min-height:48px}
 .btn-block{display:flex;width:100%}
 .btn-call{min-height:40px;padding:0 var(--s4);font-size:14px;white-space:nowrap}
+@media (max-width:980px){.btn-call .xl{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
 .on-deep .btn-s{color:var(--paper);border-color:var(--on-deep-soft)}
 .on-deep .btn-s:hover{border-color:var(--green);color:var(--green)}
 /* — superficies — */
