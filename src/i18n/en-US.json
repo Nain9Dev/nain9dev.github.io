@@ -7223,5 +7223,165 @@
     "source": "Pídelo por email",
     "target": "Request it by email",
     "status": "reviewed"
+  },
+  "05ec7f36ac343f1772dfa292e745b07a09a2a1918f95abfabe2627c24392b35b": {
+    "source": "Entregables Clave Incluidos:",
+    "target": "Key Deliverables Included:",
+    "status": "reviewed"
+  },
+  "1565b7be9bb37d6d083f99c40b8dcc3699afa31749c3f5d7a826d935548520a4": {
+    "source": "Acompañamiento en puesta en marcha y garantía técnica",
+    "target": "Go-live support and technical warranty",
+    "status": "reviewed"
+  },
+  "1983a9b4d9d3ad946bafa82710254db347657e3a4cad74f624b2dae789b961bc": {
+    "source": "IA Determinista y Automatización B2B (Pipelines sin alucinaciones)",
+    "target": "Deterministic AI and B2B Automation (Hallucination-free pipelines)",
+    "status": "reviewed"
+  },
+  "1ab91a6d2b0891305f0f3c35dd913fe6d34d19af62cf5f1db26c5a1b409b951f": {
+    "source": "Pipeline CI/CD en GitHub Actions y contenedores Docker reproducibles",
+    "target": "CI/CD pipeline in GitHub Actions and reproducible Docker containers",
+    "status": "reviewed"
+  },
+  "350fab26b456db0bc11c3a61df3b9ac8d1187eb0a5222c706977316c14321fc1": {
+    "source": "Batería de pruebas automatizadas con cobertura total de requisitos",
+    "target": "Automated test suite with full requirements coverage",
+    "status": "reviewed"
+  },
+  "35580807aa4609f48167f237b76e5c1d915fce666110ccc383f3e586126b9260": {
+    "source": "Validación 3D y Motores CAD Paramétricos (OpenCASCADE / Three.js)",
+    "target": "3D Validation and Parametric CAD Engines (OpenCASCADE / Three.js)",
+    "status": "reviewed"
+  },
+  "355b8d0ef2afea08563e3177febb092a092c2c65de0b1c9b9929200516e3ec3c": {
+    "source": "CI/CD automatizado con 0 € de coste recurrente",
+    "target": "Automated CI/CD with 0 € recurring cost",
+    "status": "reviewed"
+  },
+  "44148d37de83e47553398195386280aead373b3e0df7c1ab2056eae362b21b28": {
+    "source": "Solución Completa de Producción (Clean Architecture, CI/CD, 100% Tests)",
+    "target": "Full Production Solution (Clean Architecture, CI/CD, 100% Tests)",
+    "status": "reviewed"
+  },
+  "45888431c8dd88cd52aa203ec371b6451958acd8c9b1a7b56a245325baf0a7f4": {
+    "source": "Auditoría Técnica, Diagnóstico y Especificación Formal (EARS / ADRs)",
+    "target": "Technical Audit, Diagnostics, and Formal Specification (EARS / ADRs)",
+    "status": "reviewed"
+  },
+  "4d03b2503d7ddaea6920ea3eab81143e8533b7ef644c6be9176f5c82b49567c4": {
+    "source": "GameHaven: Modernización .NET 10 y Marketplace",
+    "target": "GameHaven: .NET 10 Modernization and Marketplace",
+    "status": "reviewed"
+  },
+  "5492f75eef573c3f51feb705a1b0228b8aab83f6267dcf8743943c1ae4581cad": {
+    "source": "Entidades ricas con invariantes de dominio (Game, Cart, UserLibrary), control de concurrencia y límites estrictos de precios y descuentos. Batería de 21 tests unitarios automáticos en 53 ms y cliente web reactivo en Vue 3 + TypeScript.",
+    "target": "Rich domain entities with domain invariants (Game, Cart, UserLibrary), concurrency control, and strict price and discount boundaries. Automated 21-unit test suite in 53 ms and reactive web client in Vue 3 + TypeScript.",
+    "status": "reviewed"
+  },
+  "6626db60576c603a8e14e1774f0cf5ab0bff8b76dec8f82dcc215da846bb1b0f": {
+    "source": "Estima el plazo y alcance de tu proyecto bajo estándares de Clean Architecture, tests deterministas y coste de infraestructura cero.",
+    "target": "Estimate your project timeline and scope under Clean Architecture standards, deterministic tests, and zero infrastructure cost.",
+    "status": "reviewed"
+  },
+  "7bd4462237bcc327a388e4f0a60e2910d14a58fdd53e6c6f09960df9270d2a64": {
+    "source": "Estimación basada en metodologías ágiles de ingeniería. El presupuesto definitivo se formaliza sin compromiso tras llamada de evaluación técnica.",
+    "target": "Estimate based on agile engineering methodologies. The final budget is formalized without commitment after a technical evaluation call.",
+    "status": "reviewed"
+  },
+  "7c32f4c3c7b408114d5fa7a3220b080e62238757810fcdd024e75a466ce05e8a": {
+    "source": "Nivel de Alcance Requerido",
+    "target": "Required Scope Level",
+    "status": "reviewed"
+  },
+  "7dabeae3b0d9d0c19fbd02d90f1e5dc9cbb1637dea5b51a311c6e899ca10e4e6": {
+    "source": "⟦0⟧3 - 4⟦/0⟧⟦1⟧semanas de desarrollo⟦/1⟧",
+    "target": "⟦0⟧3 - 4⟦/0⟧⟦1⟧weeks of development⟦/1⟧",
+    "status": "reviewed"
+  },
+  "8088b3212ddb5b24337acf95e419f091ee8d294ed54ed5ec193bbc584b52d05a": {
+    "source": "Modernización de una aplicación monolítica heredada (.NET Framework 4.7.2 / WPF) a .NET 10 LTS con Clean Architecture, minimal APIs REST, tests xUnit y cliente web en Vue 3.",
+    "target": "Modernization of a legacy monolithic application (.NET Framework 4.7.2 / WPF) to .NET 10 LTS with Clean Architecture, minimal REST APIs, xUnit tests, and a reactive web client in Vue 3.",
+    "status": "reviewed"
+  },
+  "8b115db0be68a01f869249c8d08cf37d775e419036166349b47920db2d61e9a5": {
+    "source": "Código fuente completo en inglés técnico bajo Clean Architecture",
+    "target": "Complete source code in technical English under Clean Architecture",
+    "status": "reviewed"
+  },
+  "8da46cb22a09fb2721ceb1d70a08585e76e4899ac5377141aa60b327ae10a414": {
+    "source": "Solicitar Propuesta Técnica Formal",
+    "target": "Request Formal Technical Proposal",
+    "status": "reviewed"
+  },
+  "8f06c44e332d5e344e96fd820ec132f49eacab55429ef9040aa44977620d5dcb": {
+    "source": "5 unidades",
+    "target": "5 units",
+    "status": "reviewed"
+  },
+  "8fbdad5042e0299fca925cc3dc5cc1fe4ca05d97a54983898a9e899bf7b4732a": {
+    "source": "Requisitos Específicos",
+    "target": "Specific Requirements",
+    "status": "reviewed"
+  },
+  "966932a18bb7fe3b3df8144fb2608bfda38c0a8ed24d4f005dadcbf26e18b550": {
+    "source": "Backend Enterprise y Modernización .NET (.NET 10 / Clean Architecture)",
+    "target": "Enterprise Backend and .NET Modernization (.NET 10 / Clean Architecture)",
+    "status": "reviewed"
+  },
+  "97d2d55d1de2323acc3b3d113084cd1b98f5ac06df492c5fdf2578893f8ac641": {
+    "source": "Presupuesto estricto de latencia (<50ms)",
+    "target": "Strict latency budget (<50ms)",
+    "status": "reviewed"
+  },
+  "98a6ba98f0cc26a087afd86dae2053c03a0d8be90178bd2cbd9f3b4cb2ad5e61": {
+    "source": "Prototipo Funcional Verificable (PoC con Batería de Pruebas)",
+    "target": "Verifiable Functional Prototype (PoC with Test Suite)",
+    "status": "reviewed"
+  },
+  "a31e36c6a3c04c859b3b626e7c6537ab74dc490fd1b25b7e8a51fccbde1dc6e1": {
+    "source": "Pilar de Especialización",
+    "target": "Specialization Pillar",
+    "status": "reviewed"
+  },
+  "a6e112966a1d89b6047a01478ef955535cbb6bad7ec370239b871e7814133b08": {
+    "source": "Documentación viva numerada por fases (requisitos EARS y ADRs)",
+    "target": "Living documentation numbered by phase (EARS requirements and ADRs)",
+    "status": "reviewed"
+  },
+  "afd64483cd05554a794db1d7236592077271ca717684cea0327eb8de88054c5f": {
+    "source": "Simulador de Alcance y Propuesta Técnica",
+    "target": "Scope and Technical Proposal Simulator",
+    "status": "reviewed"
+  },
+  "b5564853d343ca7fe0609ea68141bf0cf4e5807a0d0a9e22279d7467936795e3": {
+    "source": "Escalado a supervisión humana garantizado",
+    "target": "Guaranteed human-in-the-loop escalation",
+    "status": "reviewed"
+  },
+  "bd308d7fabbbaa74c7c385c710272aa6929261e8bdb4d7b9a61b4b61a5bec811": {
+    "source": "Estimación Orientativa",
+    "target": "Indicative Estimate",
+    "status": "reviewed"
+  },
+  "be41649b28c5a3f72eb4d91c5d70385ec1b754f3bf5abcba29f034760e0d9c94": {
+    "source": "Herramienta Interactiva",
+    "target": "Interactive Tool",
+    "status": "reviewed"
+  },
+  "e21feccdefe6ef7c812a052da2e0712bd02e6c9f70f5a5aa34d761bbe052dc31": {
+    "source": "Caso de estudio",
+    "target": "Case Study",
+    "status": "reviewed"
+  },
+  "f9a2af6952e4fb71272f163c99a5d12ee3294e71fc4a041c8bc075b9e1912bd9": {
+    "source": "Volumen Estimado (Modelos 3D / Endpoints / Fuentes de Datos)",
+    "target": "Estimated Volume (3D Models / Endpoints / Data Sources)",
+    "status": "reviewed"
+  },
+  "f9fcc477786111d280b2e49a9c257063e16a646008a6ce32bae3c7832e4b3f9e": {
+    "source": "Testing basado en propiedades (Hypothesis/xUnit)",
+    "target": "Property-based testing (Hypothesis/xUnit)",
+    "status": "reviewed"
   }
 }
