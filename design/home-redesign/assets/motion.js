@@ -30,8 +30,10 @@
 
   /* ---------- 7.2 · the pattern, built once from its seed ---------- */
   var SVGNS = 'http://www.w3.org/2000/svg';
-  function trama(box) {
-    var w = Math.round(box.clientWidth), h = Math.round(box.clientHeight);
+  // Strokes go into a dozen groups by build order, so the browser animates 12 groups, not 300 paths.
+  var GROUPS = 12;
+  function trama(box, rect) {
+    var w = Math.round(rect && rect.width ? rect.width : box.clientWidth), h = Math.round(rect && rect.height ? rect.height : box.clientHeight);
     if (!w || !h || box.getAttribute('data-w') === String(w)) return;
     box.setAttribute('data-w', String(w));
     var seed = +box.getAttribute('data-seed') || 7, step = 22, len = 15;
@@ -56,12 +58,25 @@
     svg.setAttribute('focusable', 'false');
     var g = d.createElementNS(SVGNS, 'g');
     g.setAttribute('stroke', ink); g.setAttribute('stroke-width', '4'); g.setAttribute('stroke-linecap', 'round');
+    var tb = [];
+    for (var n = 0; n < GROUPS; n++) {
+      tb.push(d.createElementNS(SVGNS, 'g'));
+      tb[n].setAttribute('class', 'tb');
+      tb[n].style.setProperty('--td', Math.round(n / (GROUPS - 1) * 760) + 'ms');
+      g.appendChild(tb[n]);
+    }
+    // One path per group and opacity step: a few dozen nodes instead of hundreds.
+    var paths = {};
     for (var k = 0; k < order.length; k++) {
-      var it = order[k], p = d.createElementNS(SVGNS, 'path');
-      p.setAttribute('d', 'M' + (it.x - hx).toFixed(1) + ' ' + (it.y + hy).toFixed(1) + 'L' + (it.x + hx).toFixed(1) + ' ' + (it.y - hy).toFixed(1));
-      p.setAttribute('stroke-opacity', (0.35 + it.d * 0.65).toFixed(2));
-      p.style.setProperty('--td', Math.round(k / Math.max(1, order.length - 1) * 760) + 'ms');
-      g.appendChild(p);
+      var it = order[k], op = (Math.round((0.35 + it.d * 0.65) * 10) / 10).toFixed(1);
+      var key = Math.min(GROUPS - 1, Math.floor(k * GROUPS / order.length)) + ':' + op;
+      paths[key] = (paths[key] || '') + 'M' + (it.x - hx).toFixed(1) + ' ' + (it.y + hy).toFixed(1) + 'L' + (it.x + hx).toFixed(1) + ' ' + (it.y - hy).toFixed(1);
+    }
+    for (var key2 in paths) {
+      var p = d.createElementNS(SVGNS, 'path'), sep = key2.indexOf(':');
+      p.setAttribute('d', paths[key2]);
+      p.setAttribute('stroke-opacity', key2.slice(sep + 1));
+      tb[+key2.slice(0, sep)].appendChild(p);
     }
     svg.appendChild(g);
     while (box.firstChild) box.removeChild(box.firstChild);
@@ -71,7 +86,7 @@
   var boxes = d.querySelectorAll('.trama-blk');
   if ('IntersectionObserver' in window) {
     var tio = new IntersectionObserver(function (es) {
-      for (var i = 0; i < es.length; i++) if (es[i].isIntersecting) { trama(es[i].target); tio.unobserve(es[i].target); }
+      for (var i = 0; i < es.length; i++) if (es[i].isIntersecting) { trama(es[i].target, es[i].boundingClientRect); tio.unobserve(es[i].target); }
     }, { rootMargin: '600px 0px' });
     for (var b = 0; b < boxes.length; b++) tio.observe(boxes[b]);
   } else {

@@ -130,7 +130,7 @@
     function hash(i, j) { var n = Math.sin(i * 127.1 + j * 311.7) * 43758.5453; return n - Math.floor(n); }
     function build() {
       // DPR capped at 2, and at 1.5 on narrow screens: the strokes stay sharp and rasterising costs less.
-      var dpr = Math.min(window.innerWidth < 760 ? 1.5 : 2, window.devicePixelRatio || 1);
+      var dpr = Math.min(window.innerWidth < 760 ? 1 : 2, window.devicePixelRatio || 1);
       W = cv.clientWidth; H = cv.clientHeight;
       STEP = W < 760 ? 30 : 26;
       cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
