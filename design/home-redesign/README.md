@@ -7,22 +7,29 @@ Designer: David (`davidesuarez`)
 | File | What it is |
 | :--- | :--- |
 | `index.html` | Home |
-| `servicios.html` | The three engagements, with what each delivers and what it leaves out |
-| `servicio-validacion-3d.html` | One service in full: the five rule families, what the validator returns |
-| `casos.html` | The two case studies, with the discarded alternative and the trade-off |
-| `escritos.html` | Index of the eleven articles |
-| `articulo.html` | One article, as a layout template |
-| `contacto.html` | The audit, how it works, and the form |
-| `assets/nain.css` | The whole system: tokens, components, responsive rules |
-| `assets/nain.js` | Menu, language switch, hero field, console, animated mark |
-| `assets/fix.js` + `assets/fix.data.js` | Layout-fix mode, described below |
-| `assets/logo/` | The logo files used by the pages |
-| `exports/` | Screenshots of every page, desktop and mobile |
+| `servicios.html` | Services hub: the 15 service pages grouped in three families (`/servicios/`) |
+| `servicio-validacion-3d.html` | Service page template, filled with `/servicios/validacion-3d/` |
+| `casos.html` | Case studies. **A proposal**, see [Proposal: keep the case studies](#proposal-keep-the-case-studies) |
+| `escritos.html` | Blog index with the 11 real articles (`/blog/`) |
+| `articulo.html` | Article template, filled with a real article (`/blog/clean-architecture-dotnet-ia/`) |
+| `tecnologia.html` | Technology page template, filled with C# (`/tecnologia/csharp/`) |
+| `contacto.html` | Contact page: free call, WhatsApp, email, LinkedIn. No form |
+| `assets/nain.css` | The whole system: fonts, tokens, components, responsive rules |
+| `assets/nain.js` | Language switch, mobile menu, hero field, animated mark, console, project filters, privacy notice |
+| `assets/fix.js` + `assets/fix.data.js` | FIX mode, described below |
+| `assets/fonts/` | Urbanist and IBM Plex Mono, WOFF2, Latin subset, with their OFL licences |
+| `assets/trama.svg` | The static stroke pattern above the footer |
+| `assets/logo/` | The logo PNGs used by the pages (SVG pending, see [Logos](#logos)) |
+| `exports/` | Screenshots of every page, Spanish and English |
 
-Every page is Spanish and English in the same file, switched by the ES/EN control, exactly as the
-home does. In production these become two routes, `/` and `/en/`.
+Every page carries Spanish and English in the same file, switched by the ES/EN control. In production
+these are two routes, `/` and `/en/`. Add `?lang=en` to any URL to open it in English.
 
-## FIX mode — moving things without touching code
+Pages that are not prototyped (14 service pages, 10 articles, other technology pages, the checklist
+and the privacy policy) are linked to their current page on www.naindev.com and open in a new tab.
+A dashed **design note** at the top of some pages says so; it is for review and is not site copy.
+
+## FIX mode: moving things without touching code
 
 Add **`#fix`** to the URL of any page (`servicios.html#fix`) and the page becomes editable:
 
@@ -35,392 +42,448 @@ Add **`#fix`** to the URL of any page (`servicios.html#fix`) and the page become
 - Remove `#fix` from the URL and the toolbar disappears.
 
 Paste that JSON back into the conversation and it lands in `assets/fix.data.js`, which every page
-loads. From then on the positions are part of the prototype and the next screenshot has them baked
-in. The file starts empty — an empty object means the pages render exactly as designed.
+loads. The file starts empty: an empty object means the pages render exactly as designed.
 
-Element ids look like `servicios/h2.card#3`: the section, the element and its order inside it. They
-stay stable as long as the section's structure does not change, so a fix survives copy edits.
+## Round 2 — 2026-10-14
 
-## Status
+The first round was built on 17 September. Since then Aitor changed a lot in `main`. This round brings
+the design up to date with it and makes the prototype buildable inside the security rules the site
+already has. The visual system (blue ink, grey paper, green and red secondaries, Urbanist and IBM
+Plex Mono) does not change.
 
-**Home prototype built.** `index.html` is a single self-contained file: it opens by double click, needs
-no build step, and works from 390 px to 1440 px. It carries both languages with a working ES/EN switch
-and a working mobile menu, so the two things you flagged as the priority can be tried rather than
-imagined.
+### Content, in line with `main` at `2ac4909`
 
-Built on the visual system in the accompanying brandbook, which is derived from the new logo — its
-stroke weight (14 % of the isotype height), its round ends, its 52° diagonal and its typeface,
-Urbanist.
+- **Figures.** Every figure without evidence is gone (OQ-001 to OQ-006, specs 005, 006 and 009). The
+  case studies keep their structure and show `[METRIC]` where a result used to be. No pattern from
+  `scripts/check-claims.mjs` appears anywhere in the prototype.
+- **Profile.** The hero uses the live H1 and summary. The About section uses the live text: "CTO en
+  Contrast3D x NainDev" and the multi-domain conformance architecture whose first domain is 3D
+  assets (specs 010 and 011). The product and its internal profiles are never named.
+- **Projects.** New home section with the 19 real projects from `public/assets/data/projects.json`,
+  English from `src/i18n/en-US.json`, filters (production, .NET, Python, 3D, demos) and the NainOrder
+  demo link. Nine featured projects show first; the rest open with one button. Four claims are left
+  out because they are figures or cost claims (see the copy table).
+- **Offer and contact.** The main action is "Agendar llamada gratuita" / "Book a free call" to
+  Calendly, in the header on every width, in the hero, in the open menu and at the end of every page.
+  Availability uses the live sentence: part-time, remote. No prices. Channels: Calendly, WhatsApp
+  (`href="#whatsapp"`, no number anywhere, B-014), `contact@naindev.com` and LinkedIn. "Free audit"
+  appears nowhere.
+- **Checklist.** Home block linking to `/recursos/checklist-ia/`. No form.
+- **Services.** All 15 service pages keep their URL and are linked from the hub, grouped in three
+  families. Retiring the sector pages stays a proposal, below, not a design change.
+- **Blog.** The 11 real titles, dates and descriptions, newest first. The article template carries
+  "Clean Architecture en .NET para Sistemas de IA Generativa" in full, with its code blocks, its
+  reviewed English translation, a 68-character measure and links to related services. It has no
+  figures pending verification (the two posts under OQ-010 are not used).
+- **Technology pages.** New `tecnologia.html` for C#, on the article layout: the 7 services whose
+  `techStack` includes C#, the 8 projects built with C# and the 4 articles tagged C#.
+- **Console.** It only answers `stack`, `servicios` and `contacto` (plus `ayuda`, `ir <sección>` and
+  `limpiar`), word for word from the page. No metrics.
+- **Footer.** The design credit from [Preferred design credit](#preferred-design-credit) and the
+  privacy policy link. The separate "in collaboration with Contrast" line is gone: the About section
+  now names the collaboration (spec 010).
 
-**Three things are deliberately missing, pending your answers below:** every figure from the case
-studies (open question 2), the sixteen sector service pages (question 1), and the footer line about
-Contrast is in as a proposal only (question 3).
+### Security and privacy
+
+The prototype runs under the production Content Security Policy, copied from
+`src/components/SEO.astro` and hardened by removing `https://cdnjs.cloudflare.com` and
+`https://cdn.jsdelivr.net` from `script-src`. Every page carries it as a `<meta>` tag, and the
+verification server sends it as an HTTP header.
+
+- **No third parties.** All CSS and JS live in `assets/`. No CDN, no library, no analytics, no pixel.
+  Opening any page makes zero requests outside its own folder.
+- **Self-hosted fonts.** The Google Fonts `<link>` is gone from every page. Urbanist (one variable
+  file, weight axis cut to 300–600) and IBM Plex Mono (400 and 500) are served from `assets/fonts/`
+  as Latin-subset WOFF2: 54 KB for both families.
+- **No iframes, embeds or forms.** Calendly, LinkedIn and WhatsApp are links. The contact form of
+  round 1 is gone.
+- **External links** carry `target="_blank" rel="noopener noreferrer"` and a visually hidden
+  "(se abre en una pestaña nueva)".
+- **Clean JavaScript.** No `on*=` attributes, no `javascript:` URLs, no `eval`, `new Function` or
+  string timers, no `innerHTML`. Listeners use `addEventListener`. FIX mode was cleaned the same way.
+- **Console.** What the visitor types is painted with `textContent`. History is stored in
+  `localStorage` as JSON (`{"v":1,"cmds":[...]}`), validated on load, always inside `try/catch`,
+  and the output is rebuilt from the commands. Typing `<img src=x onerror=alert(1)>` shows the text
+  and runs nothing, before and after a reload.
+- **Privacy notice.** Same text as today. See [Privacy notice](#privacy-notice).
+- **Metadata.** Every PNG in `assets/logo/` and `exports/` had a 5.7 KB C2PA (`caBX`) provenance
+  chunk. All were stripped; the new exports are palette PNGs with only image data.
+- **Repository hygiene.** Nothing in this folder matches `main`'s `.gitignore`. Each push was scanned
+  with gitleaks 8.28.0 (no leaks) and with a grep for `ghp_`, `github_pat_`, `glpat-`, `sk-`,
+  `AKIA`, `-----BEGIN`, `xox[bp]-`, `token=` and `password=` (no matches).
+
+### Mobile menu
+
+At 390 px, in both languages:
+
+- The header keeps the logo, the ES/EN switch, a compact "Agendar llamada" button (screen readers
+  hear "Agendar llamada gratuita") and a "Menú" button with a text label. At 360 px and below the
+  call button moves into the menu.
+- The menu is a modal dialog. The current page is marked with a 4 px stroke and a heavier weight,
+  not by colour alone. The ES/EN switch stays in its bar, and "Agendar llamada gratuita" sits at the
+  bottom within thumb reach.
+- `aria-expanded` on the button; Escape closes; focus moves into the menu, stays trapped there and
+  returns to the button on close. Every target in the header and the menu measures at least 24×24 px
+  (most are 44 px).
+
+### Privacy notice
+
+- **Desktop:** a card fixed at the bottom centre, raised surface, 1 px mid-blue border, label,
+  sentence, link to `/privacidad` and a 44 px close button.
+- **Mobile:** a band inside the page flow, right under the header. It covers nothing, so the call
+  button in the header and in the hero stays visible.
+- **Closed:** it disappears and the choice is remembered in this browser (`localStorage`, inside
+  `try/catch`; if storage is blocked it simply shows again). Exports: `exports/privacy-*`.
+
+### Accessibility and weight
+
+- **WCAG 2.2 AA:** axe-core 4.11.0 reports 0 violations on the 8 pages, in both languages, at 390 and
+  1440 px (32 runs). The contrast table below covers every token pair in use. Focus is visible
+  everywhere (blue on paper, green on blue). Nothing is shown by colour alone. With
+  `prefers-reduced-motion` the hero paints one still frame, the mark does not animate and transitions
+  are off.
+- **Contrast fix found this round:** soft blue `#4E6B92` on sunken paper `#DEE6F0` is 4.3:1, so labels
+  and dates on sunken paper now use mid blue `#3C5F94` (5.1:1).
+- **Two font families**, Urbanist and IBM Plex Mono.
+- **Weight per page**, compressed: 92–117 KiB including fonts (Aitor's budget is 250 KiB).
+
+| Foreground | Background | Use | Ratio | Needed |
+| :--- | :--- | :--- | ---: | ---: |
+| `#002B66` | `#EDF1F6` | Body text on paper | 12.0:1 | 4.5:1 |
+| `#002B66` | `#F7F9FC` | Text on raised surface (cards, notice, notes) | 13.0:1 | 4.5:1 |
+| `#002B66` | `#DEE6F0` | Text on sunken paper | 10.9:1 | 4.5:1 |
+| `#0047AB` | `#EDF1F6` | Headings, links, kickers on paper | 7.4:1 | 4.5:1 |
+| `#0047AB` | `#F7F9FC` | Links in cards | 8.0:1 | 4.5:1 |
+| `#0047AB` | `#DEE6F0` | Links on sunken paper | 6.7:1 | 4.5:1 |
+| `#4E6B92` | `#EDF1F6` | Labels, metadata, notes on paper | 4.8:1 | 4.5:1 |
+| `#4E6B92` | `#F7F9FC` | Labels in cards | 5.2:1 | 4.5:1 |
+| `#3C5F94` | `#DEE6F0` | Labels and dates on sunken paper | 5.1:1 | 4.5:1 |
+| `#FFFFFF` | `#0047AB` | Primary button label | 8.4:1 | 4.5:1 |
+| `#1D1D1B` | `#80FF00` | Green button label on deep blue | 13.0:1 | 4.5:1 |
+| `#EDF1F6` | `#002B66` | Text on deep blue | 12.0:1 | 4.5:1 |
+| `#80FF00` | `#002B66` | Headings, links, commands on deep blue | 10.6:1 | 4.5:1 |
+| `#C9D5E6` | `#002B66` | Body text on deep blue (method, footer) | 9.2:1 | 4.5:1 |
+| `#9FB2CC` | `#002B66` | Labels, console secondary text, placeholder | 6.3:1 | 4.5:1 |
+| `#C4001A` | `#F7F9FC` | `[METRIC]` placeholder in case studies | 5.9:1 | 4.5:1 |
+| `#0047AB` | `#EDF1F6` | Focus ring on paper | 7.4:1 | 3:1 |
+| `#80FF00` | `#002B66` | Focus ring on deep blue | 10.6:1 | 3:1 |
+| `#3C5F94` | `#EDF1F6` | Borders of buttons, chips, menu button | 5.7:1 | 3:1 |
+| `#9FB2CC` | `#002B66` | Outline button border on deep blue | 6.3:1 | 3:1 |
+| `#FF001F` | `#EDF1F6` | Hover shadow of the blue button | 3.5:1 | 3:1 |
+| `#C6D2E3` | `#EDF1F6` | Rules and table lines, decorative only | 1.3:1 | — |
+
+### The hero field: cost on the main thread
+
+The field is a bare 2D canvas, no library. Round 2 changed how it runs:
+
+- It **stops** when the hero leaves the screen (`IntersectionObserver`) and when the tab is hidden
+  (`visibilitychange`), and starts again when it comes back.
+- With `prefers-reduced-motion` it paints **one still frame** and listens to nothing. It also reacts
+  if the setting changes while the page is open.
+- Strokes are **batched by opacity**: 11 paths and 11 `stroke()` calls per frame instead of one per
+  stroke (about 1,800 on desktop). Script time per frame went from 1.45 ms to 0.17 ms.
+- With no pointer on it, the field only breathes, so it draws at **20 frames per second**.
+
+Measured on 2026-10-14 in Chromium 141 headless (software canvas, so rasterisation counts as main
+thread time), 5-second windows. ADR-0005 runs Lighthouse with mobile emulation and fails above
+200 ms TBT.
+
+| Viewport | CPU | State | Busy main thread | Long tasks | Blocking time |
+| :--- | :--- | :--- | ---: | ---: | ---: |
+| 390×844 @2x | 4× slower | Breathing | 61 % | 2 | 12 ms |
+| 390×844 @2x | 4× slower | Pointer moving | 88 % | 30 | 173 ms |
+| 390×844 @2x | 4× slower | Scrolled away | 7 % | 0 | 0 ms |
+| 1440×900 @1x | 4× slower | Breathing | 70 % | 16 | 113 ms |
+| 1440×900 @1x | 4× slower | Pointer moving | 100 % | 112 | 1,012 ms |
+| 1440×900 @1x | 4× slower | Scrolled away | 8 % | 0 | 0 ms |
+| 1440×900 @1x | 1× | Breathing | 19 % | 0 | 0 ms |
+
+What this means: in the case the budget measures (mobile, nobody touching the page), the field adds
+about 12 ms of blocking time per 5 seconds. A desktop with a 4× slower CPU and a moving pointer
+saturates the main thread, because a software canvas rasterises 1,440×900 px of round-capped strokes
+on every frame. A browser with GPU canvas moves that work off the main thread. If Aitor wants a
+harder limit, there are two options: stop breathing after 10 seconds without interaction, or cap the
+canvas resolution on large screens. Both are a few lines.
+
+### Verification
+
+Run before each push, with Chromium (Playwright 1.56.1) against a local static server that sends
+the hardened CSP as an HTTP header. 8 pages × 2 languages × 2 widths (390 and 1440 px) = 32 loads.
+
+| Check | Result |
+| :--- | :--- |
+| Console errors / warnings | 0 / 0 |
+| Broken resources | 0 |
+| `securitypolicyviolation` events | 0 |
+| Requests to other hosts | 0 |
+| Horizontal overflow | 0 |
+| Pages with one H1 / heading level skips | 8 of 8 / 0 |
+| Internal links and anchors checked / broken | 517 / 0 (`#whatsapp` allowed on purpose) |
+| `target="_blank"` links / without `noopener noreferrer` | 304 / 0 |
+| `BLOCKED_CLAIMS`, "auditoría gratuita", "free audit", phone numbers | 0 |
+| `on*=` attributes / `javascript:` URLs | 0 / 0 |
+| Touch targets in header, menu and notice under 24×24 px | 0 of 272 |
+| Console payload `<img src=x onerror=alert(1)>` | shown as text, nothing runs, also after reload |
+| Menu: `aria-expanded`, focus trap, Escape, focus return | pass |
+| Hero: stops off screen, still frame with reduced motion | pass |
+| axe-core 4.11.0, WCAG 2.2 AA | 0 violations in 32 runs |
+| Opened from disk (`file://`) | 0 console errors, fonts load |
+
+### Logos
+
+Not touched this round. The brief asks for clean SVGs fit for an OEPM filing, and the right source
+is David's `.ai` file, not an auto-trace of the PNGs. The `logo/` folder from the brief (master,
+mono black, mono white, symbol, horizontal lockup, preview sheet) is **pending from David**. The pages
+keep using the PNGs in `assets/logo/`, now without metadata.
+
+## Proposal: keep the case studies
+
+`casos.html` and the "Casos" menu entry stay. This goes against the current brief ("Case studies:
+not shown") and against spec 007, where Aitor removed them on 16 September. It is a proposal, and it
+is Aitor's call.
+
+**Why it sells.** The audience is CTOs and tech leads buying custom backend work from someone they do
+not know. Today the site shows services (what he offers), projects (what he has built on his own) and
+articles (how he thinks). It does not show a decision taken inside a client's system, with someone
+else's constraints, and that is what a CTO wants to see before a call. A case study written as
+**decision → discarded alternative → trade-off → consequence** shows judgement without client logos
+or testimonials, and it carries no figure that cannot be backed: every result without a source is
+`[METRIC]` until Aitor has one. The two cases are also the only place where the site says what a
+decision cost, which a portfolio of finished projects never does.
+
+**How it stays honest.**
+
+- The confidential client stays anonymous: "Cliente confidencial · industria 3D". No name, no
+  location, no product, no detail that identifies them.
+- Every figure from the old pages (latency, throughput, savings, uptime, reads served from cache) is
+  replaced by `[METRIC]`. None appears in `BLOCKED_CLAIMS`.
+- Projects and case studies do not overlap: projects say what exists, cases tell one decision.
+
+**What Aitor would need to change if he accepts it.** Today `/casos` and `/casos/*` redirect to the
+services pages in `astro.config.mjs` (and in the Cloudflare rules listed in `docs/60-runbook.md`).
+Those redirects would have to go, the `casos` collection would come back and `CASE-001` to `CASE-007`
+in spec 007 would be withdrawn. The URLs `/casos/stealth-3d-ai/` and `/casos/optimizacion-saas/`
+could come back as they were, or under new slugs that do not suggest anything about the client.
+
+## Security notes for the build
+
+What the design assumes, so it can be built as is:
+
+- **CSP without CDNs.** The design needs nothing from `cdnjs.cloudflare.com` or `cdn.jsdelivr.net`.
+  Both can leave `script-src`. Fonts are self-hosted, so `fonts.googleapis.com` and
+  `fonts.gstatic.com` can leave `style-src` and `font-src` too. Plausible is the only third party left.
+- **Own fonts.** Urbanist and IBM Plex Mono as WOFF2 subsets, like Inter and Outfit today (spec 028).
+  In production the Urbanist file is worth a `<link rel="preload">`. The prototype does not carry it
+  because a preload with `crossorigin` fails when the file is opened from disk.
+- **No iframes, embeds or forms.** `frame-src 'none'` and `form-action 'self'` can stay as they are.
+- **No inline script or handlers.** If the site moves to a nonce or hash CSP, nothing in the design
+  depends on `'unsafe-inline'` for scripts.
+- **Terminal storage.** Production `src/scripts/terminal.js` saves `output.innerHTML` to
+  `localStorage` and restores it with `output.innerHTML = savedOutput` (lines 36–52). Anything that
+  can write to that key (another script on the origin, a browser extension, a shared machine) gets
+  HTML into the page. It is safer to store data (the list of commands) and rebuild the output, as
+  the prototype does. The `getItem` on line 36 and the `setItem` calls on lines 46 and 52 are
+  also outside `try/catch`, so a browser with storage blocked throws there.
+
+Three findings outside the design that Aitor should know about. David checked them on 2026-10-14
+with `curl -I https://www.naindev.com/`:
+
+1. **Production sends no HTTP security headers:** no CSP, no HSTS, no `X-Content-Type-Options`, no
+   `X-Frame-Options`. GitHub Pages does not process `public/_headers` (already noted as B-004). A
+   Cloudflare rule can add them: **Rules → Transform Rules → Modify Response Header**.
+2. **No clickjacking protection.** `frame-ancestors` is ignored in a CSP delivered by `<meta>`, so
+   today any site can frame naindev.com. The fix is the header rule above, with
+   `Content-Security-Policy: frame-ancestors 'none'` or `X-Frame-Options: DENY`.
+3. **A leftover form.** `src/content/blog/clean-architecture-3d.mdx` (line 201) still has a form
+   that posts to `formsubmit.co`, with an inline `onsubmit`. The site's own CSP blocks the submission
+   (`form-action 'self'`), so it fails for every visitor. Spec 025 removed the other forms; this one
+   was missed.
 
 ## Direction
 
-**A document, not a poster.**
+**A document, not a poster.** Most developer portfolios are built to impress: near-black background,
+particles, ambient glow, a 3D canvas, cards that tilt under the cursor. That form sells attention.
+This site sells a CTO's confidence that the person who wrote it knows where their own system breaks.
+The form that carries that is a technical document: cool-grey paper, ink-blue text, one accent, dense
+tables, margin notes, monospaced data and a single animated surface.
 
-Most developer portfolios, this one included, are built to impress: near-black background, particles,
-ambient glow, a 3D canvas, a simulated terminal, cards that tilt under the cursor. That form sells
-attention. This site sells something else — a CTO's confidence that the person who wrote it knows
-where their own system breaks. The form that carries that is a technical document: cool-grey paper,
-ink-blue text, one accent, dense tables, margin notes, monospaced data, no decorative motion.
+1. **Light, not dark.** Dark plus a bright blue accent is the default costume of every developer
+   portfolio, and it is what the site wears today. Leaving that uniform is the fastest way to look
+   like a different kind of supplier.
+2. **The 3D hero becomes the stroke field.** Aitor already made the current hero much lighter (raw
+   WebGL instead of Three.js, spec 030). The proposal still replaces it, for the brand rather than
+   for weight: a field of logo strokes on deep blue that contracts where the visitor points, drawn in
+   a bare 2D canvas with no library, no image and no network call.
+3. **The writing moves up.** Eleven technical articles are the strongest proof on the site and sit
+   near the bottom of the home page today. Here they come right after projects and case studies.
 
-Three consequences worth stating up front, because they are the whole proposal:
+The direction is deliberately unlike the visual system of Contrast (David's studio), so the two
+brands never read as the same supplier.
 
-1. **Light, not dark.** Not for novelty. Dark plus a bright blue accent is the default costume of
-   every developer portfolio, and it is also what the site wears today. The fastest way to look like a
-   different category of supplier is to leave that category's uniform behind.
-2. **The 3D canvas goes.** A decorative WebGL hero argues for front-end flair on a site that sells
-   back-end rigour, and it is the single heaviest thing on the critical path. What replaces it is the
-   brand's own device: a field of logo strokes on deep blue that **breaks where the visitor points**,
-   drawn in a bare 2D canvas with no library, no image and no network call (see *The hero*, below).
-   The architecture diagram — API / domain / data — stays, but as a static SVG further down, where it
-   supports the argument instead of decorating it.
-3. **The writing moves up.** Eleven technical articles are the strongest proof on this site and they
-   currently sit second from the bottom of the home page. In a positioning built on judgement, the
-   articles are the work sample, not filler.
+**Home sections, in order:** hero · the problem · services · method · projects · case studies ·
+writing · checklist · console · about · contact.
 
-The direction is deliberately unlike the visual system of Contrast (David's studio), so the two brands
-never read as the same supplier. The full rationale and the token set live in the brandbook that backs
-this proposal; the values are reproduced below so this folder stands on its own.
-
-## What changed
-
-**Removed**
-
-- 3D hero canvas (`three-hero.js`), simulated terminal (`terminal.js`), particles, ambient glow,
-  card tilt. Three JavaScript bundles and Three.js leave the critical path.
-- Emoji trust badges (🏆 🤝 ⚙️) and the emoji icons on services and metrics.
-- Impact metrics (`40 → 6 min`, `99.99%`, `10+`, `3`) — no citable source on the page. See open
-  question 2.
-- Proof strip in its current form.
-- Tech-stack icon wall — 25 vendor logos replaced by one line of monospaced text.
-- Projects section — merged into Case studies; they do the same job twice.
-
-**Kept**
-
-- Astro 5, static build, GitHub Pages, own domain, strict CSP, self-hosted fonts, typed MDX content.
-  The redesign is visual, structural and editorial. It does not touch the stack.
-- Bilingual ES/EN routing.
-- The eleven articles, promoted to a home-page section.
-- Both case studies and their decision → alternative → trade-off → consequence structure. That
-  structure is the argument; only the figures need a decision (open question 2).
-- The four-step method, rewritten at engagement level instead of task level.
-- Testimonials component, still disabled. The guard in `Testimonials.astro` is the right call.
-  Related: `src/data/testimonials.json` still ships a placeholder entry — "Cliente de Prueba, CTO en
-  Empresa Tech" with a 40 % latency claim — in a public repository. Suggest emptying it to `[]`.
-
-**Added**
-
-- Static SVG architecture diagram in the hero, replacing the canvas.
-- A block of verifiable facts under the hero: stack, data layer, messaging, languages, time zone
-  (`UE · GMT+1`). Working in the same time zone under EU law is a real argument against offshoring and
-  needs no numbers to back it.
-- Explicit "what you get / what is not included" under each of the three services.
-- An honest availability line, in place of the contradiction described in the copy table.
-
-**Navigation:** Servicios · Casos · Escritos · Método · Sobre, plus the ES/EN switch and the booking
-button. Five entries. "Arquitectura Frontend" leaves the menu — it is a keyword landing page, not a
-service.
-
-**Type.** The H1 is the one heading that shouts: **Urbanist 600, all caps**, +0.02 em, line-height 1.12,
-30–42 px. Semibold rather than bold because 700 closes up the counters at this size; the tracking goes
-up because caps need air; the size comes down because caps run considerably wider than lowercase. H2 and
-H3 stay at 300 and lowercase — if everything shouts, nothing does.
-
-**Button hover.** Buttons do not grow or change colour on hover: **they get the solid shadow at 6 px**,
-in 140 ms, applied identically on `:hover` and `:focus-visible` so keyboard users see what mouse users
-see. **The shadow colour comes from the button's own fill, not from the surface** — each fill has its
-opposite, and that opposite is its shadow: blue, green and black take **red**; red takes **green**; white
-or paper takes **blue**. An outline button with no fill counts as the colour of its surface, so it takes
-blue on paper and red on deep blue. Every pairing clears 3:1 against its background.
+**Navigation:** Servicios · Proyectos · Casos · Escritos · Sobre mí · Contacto, plus the ES/EN switch
+and the call button. "Arquitectura Frontend" leaves the menu: it is one of the 15 service pages and
+stays linked from the hub.
 
 ## Colors, typography and spacing
 
 | Token | Value | Use |
 | :--- | :--- | :--- |
-| **Cobalt blue (logo)** | `#0047AB` | **The main colour. It replaces black.** Headings, links, section numbers, rules, primary button, logo |
-| Deep blue | `#002B66` | Body text and panel background — the same hue, deeper. This is what replaces black ink and the black panel |
-| Mid blue | `#3C5F94` | Supporting text, and the outline of interactive elements |
-| Soft blue | `#4E6B92` | Labels, metadata, margin notes |
+| **Cobalt blue (logo)** | `#0047AB` | **The main colour. It replaces black.** Headings, links, section numbers, rules, primary button |
+| Deep blue | `#002B66` | Body text and panel background |
+| Mid blue | `#3C5F94` | Outline of interactive elements; labels on sunken paper |
+| Soft blue | `#4E6B92` | Labels, metadata, margin notes on paper and raised surface |
+| Soft on blue | `#9FB2CC` | Labels and secondary text on deep blue |
+| Body on blue | `#C9D5E6` | Paragraphs on deep blue |
 | Paper | `#EDF1F6` | **Page background. It replaces white.** |
-| Raised surface | `#F7F9FC` | Cards, tables, highlighted blocks |
-| Sunken surface | `#DEE6F0` | Table headers, metadata blocks |
-| Rule | `#C6D2E3` | 1 px separators, table borders, blueprint grid |
-| Rule strong | `#9FB2CC` | Decorative separators only — 1.9:1, not valid as a control border |
-| **Green (secondary)** | `#80FF00` | **On blue only.** Panel accent: highlighted data, active path in a diagram, code syntax |
-| **Red (secondary)** | `#FF001F` | **Graphic only on paper:** rules, markers, emphasis bars, large display figures. Never body text |
-| Deep green | `#2E6B00` | "OK" status text on paper (5.8:1) |
-| Deep red | `#C4001A` | Error status text on paper (5.5:1) |
-| Brand black | `#1D1D1B` | The logo's black. Single-ink print, third-party material. **Not an interface colour** |
-| White (logo) | `#FFFFFF` | Logo, and text on the cobalt button (8.4:1). Never a surface |
-| All text: display, headings, body, UI | **Urbanist** 300 / 400 / 500 / 600 | **The logo's own typeface.** Titles at 300 in lower case, body at 400, 17 px, line-height 1.6, 68-character measure |
-| Data / code | **IBM Plex Mono** 400 / 500 | Figures, labels, versions, section numbers, code. Tabular figures on |
-| Brand tracking | +0.32 em, uppercase, Urbanist 500 | The kicker register, taken from the wordmark |
-| Label tracking | +0.14 em, uppercase, Plex Mono 500 | Data labels and table headers |
-| Spacing base | 4 px | Scale `4 · 8 · 12 · 16 · 24 · 32 · 48 · 64 · 96 · 128`. Section spacing 128 px desktop / 80 px mobile |
-| Grid | 12 columns, 1200 px, 24 px gutter | Content in 8 columns, margin notes in 4 |
-| Stroke weights | 1 px · 2 px · 4 px | One visible weight per component. **All stroke ends rounded** (`border-radius:999px`, `stroke-linecap:round`) |
-| Container radius | 4 px | Containers have corners; strokes are pills. No shadows, no gradients, no glow |
-| Logo constant | Stroke = 14 % of the shape's height | Taken from the isotype; applies to icons, charts and tick marks |
-| Breakpoints | 390 · 768 · 1024 · 1440 px | Designed at 390 first |
+| Raised surface | `#F7F9FC` | Cards, tables, privacy notice |
+| Sunken surface | `#DEE6F0` | Quiet bands: case studies, about, related reading |
+| Rule | `#C6D2E3` | 1 px separators, decorative only |
+| **Green (secondary)** | `#80FF00` | **On blue only.** Accent, active path in diagrams, green button |
+| **Red (secondary)** | `#FF001F` | Button hover shadow and the hero click halo. Never text, never a line |
+| Deep red | `#C4001A` | `[METRIC]` placeholders and error text (5.5:1 on paper) |
+| Brand black | `#1D1D1B` | Solid shadow and green-button text |
+| Display, headings, body, UI | **Urbanist** 300 / 400 / 500 / 600 | H1 600 uppercase +0.02 em, 28–42 px; H2 300, 26–34 px; body 400, 17 px, line-height 1.6 |
+| Article titles | Urbanist 600, sentence case, 28–38 px | Long titles in capitals read badly; articles and technology pages keep sentence case |
+| Data / code | **IBM Plex Mono** 400 / 500 | Labels (12 px, +0.14 em, uppercase), figures, code (14 px) |
+| Spacing base | 4 px | Scale `4 · 8 · 12 · 16 · 24 · 32 · 48 · 64 · 80 · 128`. Sections 128 px desktop / 80 px mobile |
+| Grid | 1200 px, 24 px gutter (16 px under 980 px) | Content 2/3, margin notes 1/3 |
+| Measure | 68 characters | Article body 18 px, line-height 1.75 |
+| Stroke weights | 1 · 2 · 4 px | All stroke ends rounded |
+| Radius | 4 px | Containers have corners; strokes are pills |
+| Breakpoints | 360 · 600 · 980 px | Designed at 390 first |
 
-**Where the two secondaries come from.** They are the exact hue complements of the two accents used by
-Contrast, David's studio — measured, not asserted: cyan `#00FFE0` sits at 172.7°, red `#FF001F` at
-352.7°, a difference of 180.0°; purple `#8000FF` at 270.1°, green `#80FF00` at 89.9°, a difference of
-180.2°. Your cobalt at 215.1° collides with none of them. The result is a palette that is the
-chromatic negative of the other brand, which is the point — the two sites must never read as the same
-supplier.
+**Button states.** Buttons do not grow or change colour. On `:hover` and `:focus-visible` they get a
+solid 6 px shadow in 140 ms; on `:active` the shadow shrinks to 2 px. The shadow colour comes from the
+button's fill: blue and green take red, outline buttons on paper take blue, outline buttons on blue
+take red. With reduced motion the transition is off.
 
-**Contrast ratios, measured (WCAG 2.1, 16-09-2026).** Deep blue on paper 12.0:1 · cobalt on paper
-7.4:1 · cobalt on raised surface 8.0:1 · mid blue on paper 5.7:1 · soft blue on paper 4.8:1 · white on
-cobalt 8.4:1 · paper on deep blue 12.0:1 · green on deep blue 10.6:1 · green on cobalt 6.5:1 · deep
-green on paper 5.8:1 · deep red on paper 5.5:1.
-
-**Three rules fall straight out of those numbers, and they are not negotiable.** Green `#80FF00`
-reaches **1.1:1 on paper** — it is invisible on light and lives only on blue or on the brand black.
-Red `#FF001F` reaches **3.5:1 on paper**: fine as a graphic element (the 3:1 threshold for non-text),
-not as text, and white on red is 4.0:1 so **there is no red button**. Blue `#0047AB` on brand black
-`#1D1D1B` is **2.0:1** — those two never sit together.
-
-**The new logo drives the whole system.** It is a line drawing: three constant-weight strokes with
-rounded ends and clean gaps, and a wordmark in thin monoline capitals with tracking almost as wide as
-the letters are tall. So the system follows it — what would be a filled box elsewhere is a stroke
-here, every stroke end is round, weights are light, and the kicker register borrows the wordmark's
-tracking. Measured off the files: stroke = 14 % of the isotype height, gap isotype→wordmark = 20 %,
-wordmark cap height = 11.6 %, wordmark width = 1.45× the isotype. `#00BFFF` is gone because it is no
-longer in the mark.
-
-**One defect in the current logo files, worth fixing before anything ships.** In `Full-*.png` the
-neutral half of the wordmark ("NAIN") is hard-coded and does not flip with the background, so three of
-the five versions fail on every background: `Full-Green` and `Full-White` lose a half on paper *and*
-on dark, and `Full-Black` loses the isotype on dark and the wordmark on light. Seven corrected
-versions and a side-by-side contact sheet are in `assets/logos/`. The real fix is re-exporting from
-the `.ai`, which also gives the two things still missing: **SVG** (the site should not load PNG logos)
-and a **horizontal lockup**, which does not exist and which the 64 px header needs.
+**The solid shadow.** One per view, two per page at most: the hero card, the diagram, the console.
+Brand black, 22 px (12 px on mobile), no blur.
 
 ## Copy changes for approval
 
-Current text quoted from `src/components/home/*.astro` on `main` at `77a8b61`.
+Current text is quoted from `main` at `2ac4909`. Text not listed is unchanged, or comes straight from
+`main` (About paragraphs, project texts, service and article titles and descriptions, the article
+body, the availability sentence and the privacy notice).
 
 | Section | Current text | Proposed text (ES) | Proposed text (EN) |
 | :--- | :--- | :--- | :--- |
-| Hero eyebrow | Aitor Nain Mendoza Vallejo · Arquitecto Backend 3D & AI Systems | Arquitectura backend · 3D · IA | Backend architecture · 3D · AI |
-| Hero H1 | Diseño la infraestructura que valida y procesa modelos 3D a escala industrial. | Backend para sistemas que procesan 3D e IA a escala. | Backend for systems that process 3D and AI at scale. |
-| Hero summary | Arquitectura backend para sistemas que no pueden fallar... ahora también para el mundo 3D. Ayudo a empresas a integrar IA generativa y procesar assets 3D mediante sistemas agénticos con absoluta precisión y determinismo. | Diseño arquitecturas deterministas donde la IA es un proveedor de datos y el dominio conserva las reglas. .NET, mensajería y validación geométrica. | I design deterministic architectures where AI is a data provider and the domain keeps the rules. .NET, messaging and geometric validation. |
-| Hero availability | Disponibilidad inmediata para consultoría técnica y arquitecturas .NET de misión crítica. | Trabajo por encargos acotados: auditoría, diseño de arquitectura o implementación por hitos. | I work on scoped engagements: audit, architecture design or milestone implementation. |
-| Proof strip · Alcance claro | Solo acepto trabajos que pueda atender bien los fines de semana. | Un encargo a la vez, con alcance cerrado y fecha de entrega comprometida. | One engagement at a time, with fixed scope and a committed delivery date. |
-| Trust badges | 🏆 Arquitecto .NET · 🤝 Colaborador OSS · ⚙️ Stack Principal | Bloque de datos en monoespaciada: `.NET 8 · C#` · `SQL Server · Redis` · `RabbitMQ` · `UE · GMT+1` | Monospaced data block: `.NET 8 · C#` · `SQL Server · Redis` · `RabbitMQ` · `EU · GMT+1` |
-| Services intro | En qué puedo ayudarte | Tres problemas y cómo se resuelven | Three problems and how they get solved |
-| Service 1 | Arquitectura de Validación 3D — Pipelines deterministas para el procesado masivo y corrección geométrica de assets 3D a escala industrial. | *Título sin cambios.* Se añade: **Entrega** motor de reglas, API e informe por asset. **No incluye** modelado, arte ni corrección manual del contenido. | *Title unchanged.* Added: **Delivers** rule engine, API and per-asset report. **Not included** modelling, art or manual content fixes. |
-| Service 2 | Integración IA Generativa & Agentes — Ecosistemas agénticos robustos para integrar modelos de IA en flujos corporativos. | *Título sin cambios.* Se añade: **Entrega** capa de aislamiento, cola y reintentos, control de coste por llamada, punto de revisión humana. **No incluye** entrenar ni afinar modelos. | *Title unchanged.* Added: **Delivers** isolation layer, queue and retries, per-call cost control, human review point. **Not included** training or fine-tuning models. |
-| Service 3 | Backend Crítico (.NET/SQL) — Sistemas distribuidos de misión crítica donde la consistencia del dato y la escalabilidad son innegociables. | *Título sin cambios.* Se añade: **Entrega** diseño con ADRs, implementación por hitos, pruebas que fallan si se rompe el invariante. **No incluye** frontend ni infraestructura gestionada. | *Title unchanged.* Added: **Delivers** design with ADRs, milestone implementation, tests that fail when the invariant breaks. **Not included** front-end or managed infrastructure. |
-| Method step 1 | Entender la tarea — Objetivo, contexto, restricciones y resultado esperado. | Acotar — Qué entra, qué queda fuera y con qué criterio se da por terminado. | Scope — What is in, what is out, and how done is defined. |
-| Method step 2 | Preparar el cambio — Reviso el código afectado y elijo la solución más sencilla que encaje. | Diseñar — Decisiones registradas como ADR, con la alternativa descartada y por qué. | Design — Decisions recorded as ADRs, with the discarded alternative and why. |
-| Method step 3 | Desarrollar y probar — Implemento el cambio y compruebo los casos importantes. | Construir — Implementación por hitos, con una prueba que falla si se rompe el invariante. | Build — Milestone implementation, with a test that fails when the invariant breaks. |
-| Method step 4 | Entregar — Explico qué se ha modificado, cómo se ha probado y qué queda pendiente. | Traspasar — Qué cambió, cómo se ha probado, qué queda abierto y quién lo mantiene. | Hand over — What changed, how it was tested, what is open and who maintains it. |
-
-**A note on two of these, because they are judgement calls, not style.**
-
-*Hero availability vs. proof strip.* The hero says immediate availability; the proof strip says work is
-taken on weekends. Both are on the same page today, and the second reads to a CTO as a side project.
-Whatever the real answer is, the page should say one thing. The proposed wording sells a constraint as
-discipline, which is both truer and stronger — but only Aitor knows if "one engagement at a time" is
-accurate.
-
-*The method section.* As written it describes executing a ticket: understand the task, review the
-affected code, implement, explain. That is the voice of a developer taking instructions, on a site
-whose headline says architect. The proposed version describes an engagement, and every step names a
-deliverable, which is what removes the "what exactly do I get" doubt.
-
-## Screens
-
-- `index.html` — the prototype. **One responsive file instead of two**: the same markup serves 390 px
-  and 1440 px, so there is no `mobile.html` to keep in sync with it. Fonts load from Google Fonts so
-  the file opens locally with a double click; in production they are self-hosted woff2 exactly as
-  Inter and Outfit are today, and the CSP does not change.
-- `exports/home-desk.png`, `home-mob.png`, `home-menu.png` — Spanish, 1440 px, 390 px and the open
-  mobile menu.
-- `exports/home-desk-en.png`, `home-mob-en.png`, `home-menu-en.png` — the same three in English.
-
-**Language.** The prototype switches language in place so both versions can be reviewed from one file.
-In production this stays what it is today: two routes, `/` and `/en/`, with the switch changing URL.
-
-**Sections, in order:** hero · the problem · three services · method and the three ways to start ·
-two case studies · writing · **the console** · about and availability · contact. Projects, the terminal, the impact
-metrics, the proof strip and the tech-stack icon wall are gone, as described above.
-
-**Mobile menu**, which is the priority in the brief: the ES/EN switch now sits in the header and does
-not need the menu opened; the menu button carries a text label next to the icon; the panel is
-full-screen with 56 px targets; the current page is marked with a cobalt stroke on its left, not by
-colour alone; the booking button is pinned to the bottom within thumb reach; it closes on escape, on
-the button, and on choosing a destination; focus is trapped while open and returns to the button on
-close.
-
-**The hero.** A full-bleed deep-blue surface with a single `<canvas>` behind an opaque paper card that
-carries the copy. On the canvas, the brand's own pattern — 4 × 30 px round-capped strokes at the
-logotype's real 52° angle, green on deep blue — drifts with a slow density wave. Strokes within 210 px
-of the pointer **contract toward their centre**, down to 18 % of their length at the focus, and brighten
-to full green as they do. When the pointer leaves they **spring back into place** on a damped spring
-(stiffness 0.13 returning, 0.34 contracting, damping 0.74, ≤6 % overshoot), taking about a second and
-arriving out of step with each other, so the surface recomposes rather than snapping. Clicking sends an
-expanding ripple that contracts whatever it crosses **and turns those strokes brand red for as long as
-the ripple lasts**, fading back to green in about a second — the one place red appears on blue, and it
-marks the visitor's own gesture rather than decorating the surface. A monospaced counter reads out how
-many strokes are contracted right now. Measured, not decorative.
-
-**The solid shadow.** The copy card sits on the blue with a **solid black shadow** offset 22 px right
-and 22 px down — no blur, no transparency. It is a block of ink, not a photographic shadow, which is the
-only kind of depth this system allows: everything else here is stroke and flat mass. The architecture
-diagram gets the same treatment in the other direction (a colour block on paper). On mobile the offset
-drops to 12 px and the block pulls 14 px off the edge so the shadow is not clipped. One per view, two
-per page at most; never on listing cards, tables or buttons. Written into the brandbook under
-*Componentes* and shown in 7.6 of the HTML one.
-
-Cost: one canvas element, one `requestAnimationFrame`, no dependency, no image, no request. With
-`prefers-reduced-motion: reduce` it paints a single still frame, no wave and no pointer reaction. If
-the script fails, the surface is just clean deep blue and the page reads the same.
-
-This needed a rule change, and the rule was changed rather than quietly broken: the brandbook said *no
-decorative animation*, and now says **exactly one animated surface per page — the hero field** — with
-the conditions written out in §9 of the text brandbook and 7.5 of the HTML one. Two more rules moved
-with it: the solid shadow (§7 / 7.6) and red no longer being drawn as a line anywhere (§3.6, §8.1,
-§8.3, §8.4). The brandbook is at **v1.0**.
-
-**The architecture diagram** — API and the AI vendor on top, the domain in the middle holding the
-rules, the data below — moves into *The problem* section. The line coming from the AI is deliberately
-broken, because that is the argument: the vendor is isolated and the domain decides.
-
-**Section cards.** Services, case studies and writing each close with a card on deep blue: white
-isotype, green label, one line in green, three lines of body in paper, a green rule and a monospaced
-line of the figures that govern the section. The pattern comes from the surface cards in the brandbook
-and is now a documented component there. The monospaced line is the point of it — if a section has no
-figures worth printing, it does not get a card. No solid shadow on these: the colour already separates
-them, and the shadow is reserved for one block per view.
-
-**The console is back.** The simulated terminal was the one thing worth keeping from the current site,
-so it returns — rebuilt in this system and stripped of the theatre. It answers only with what is
-already on the page: the same three services, the same method, the same two case studies, the same
-articles, word for word. No simulated assistant, no fake demo, no metrics without a source. Deep blue
-surface with the solid shadow, Plex Mono, commands in green, the interruption device instead of the
-three operating-system circles in the title bar. Real keyboard behaviour — ↑ recalls, Tab completes,
-`ir <section>` scrolls the page — plus tappable command chips underneath, because nobody types on a
-phone. Bilingual, and the language switch reloads it.
-
-**The mark moves on hover.** The header isotype is now a live SVG rather than a PNG, built from the
-measured geometry (113 stroke on a 1000 canvas, bars at x=148 and x=848, diagonal (308,288) to
-(686,738)). On hover the three strokes fold into a single vertical stroke and unfold back into the N
-with a short overshoot: 1.15 s, once per gesture, disabled under `prefers-reduced-motion`. It says in
-one gesture what the whole system repeats — the mark is three strokes that never touch.
-
-**Colour as surface.** Backgrounds are paper or blue, and nothing else. Paper carries the long reading
-in its three tones (`#F7F9FC` raised, `#EDF1F6` base, `#DEE6F0` sunken); deep blue takes the method
-section, the console block, the hero and contact. **Green is never a background.** It was tried as a
-full-bleed surface for the About section and the contrast was fine on paper — 13.0:1 with dark ink —
-but at full page it is punishing to look at and swallows everything on top of it; that section now uses
-the sunken paper, which separates without introducing colour. Green survives where it earns its keep:
-as a highlight on blue — labels, strokes, ticks, the hero field, the fill of a button or a chip. A
-bright colour reads louder in small doses than in large ones.
-
-And **red is not drawn as a line anywhere**: not a rule, not a mark, not a border, on the site or in the
-brandbook. The interruption is the gap alone; the emphasis marker takes the ink of its surface; diagram
-callouts are brand blue on paper and green on blue. Red is left with three jobs: the button shadow when
-the button leads to contact, the click halo in the hero, and the deep-red status text at 5.5:1.
-
-**Mobile menu**, which is the priority in the brief, is specified as: 64 px header on opaque paper with
-a 1 px rule, nothing translucent; a 44×44 px menu button with a text label, not only an icon;
-full-screen panel with 56 px tall targets; current page marked by a cobalt rule on the left and not by
-colour alone; **the ES/EN switch visible in the header without opening the menu**, which is the most
-irritating thing about the current one; booking button pinned to the bottom of the open panel, within
-thumb reach; close on escape, on the button and on outside tap; focus trapped while open and returned
-to the button on close.
+| Header nav | Servicios · Arquitectura Frontend · Blog · Cómo trabajo · Sobre mí | Servicios · Proyectos · Casos · Escritos · Sobre mí · Contacto | Services · Projects · Case studies · Writing · About · Contact |
+| Header button | Agendar Llamada | Agendar llamada gratuita (mobile: Agendar llamada) | Book a free call (mobile: Book a call) |
+| Hero badges | ⚙️ Python y .NET · 🧪 Guiado por especificaciones | Data block: Lenguajes Python · C# / Backend FastAPI · .NET / Datos PostgreSQL · SQL Server / Frontend e IA Vue 3 · MCP | Languages Python · C# / Backend FastAPI · .NET / Data PostgreSQL · SQL Server / Frontend and AI Vue 3 · MCP |
+| Hero panel | Cómo conecto el backend · API / Lógica / Datos | Moves to "El problema" as a diagram: API, IA generativa aislada, dominio, datos | Same, in English |
+| The problem (new) | — | Tres fallos que suelen tener la misma causa (three cards and the diagram) | Three failures that usually share a cause |
+| Service families | Conformidad determinista de productos · Integración IA Generativa & Agentes · Backend crítico (Python y .NET) | Conformidad determinista y 3D · IA generativa con revisión humana · Backend crítico en Python y .NET | Deterministic conformance and 3D · Generative AI with human review · Critical backend in Python and .NET |
+| Service families, added | — | **Entrega** / **No incluye** per family (e.g. "Motor de reglas versionadas, API e informe por producto" / "Modelado, arte ni corrección manual del contenido") | **Delivers** / **Not included** per family |
+| Services card (new) | — | Por proyecto y en remoto. Cada servicio se contrata por proyecto, a tiempo parcial y en remoto. El precio se habla en la llamada, cuando el alcance está claro. | Per project, remote. Each service is hired per project, part-time and remote. The price is discussed on the call, once the scope is clear. |
+| Method heading | Así organizo un trabajo pequeño | Cuatro pasos y lo que entrega cada uno | Four steps and what each one delivers |
+| Method steps | Entender la tarea · Preparar el cambio · Desarrollar y probar · Entregar | Acotar · Diseñar · Construir · Traspasar (one deliverable each, as in round 1) | Scope · Design · Build · Hand over |
+| Method link | ¿Quieres ver cómo aplico esta metodología a gran escala? … Leer el artículo técnico | Removed; the article is in Writing | — |
+| Projects heading | Portfolio · Proyectos y demos | Proyectos · Lo que he construido | Projects · What I have built |
+| Project "Visor 3D" proof | Motor Three.js optimizado (peso inferior a 600 KB gzip, 60 fps en móvil y escritorio), … | Motor Three.js optimizado, … | Optimized Three.js engine, … |
+| Project "CRM web colaborativo" | … con estado en PostgreSQL y coste operativo cero. | … con estado en PostgreSQL. | … with state in PostgreSQL. |
+| Project "Flota local de runners" | … para repositorios privados, con coste de CI cero. | … para repositorios privados. | … for private repositories. |
+| Case studies (proposal) | Removed (spec 007) | Dos decisiones de arquitectura y lo que costaron, with `[METRIC]` for results | Two architecture decisions and what they cost |
+| Writing on the home (new) | — | Artículos técnicos del blog; five articles and "Los once artículos" | Technical articles from the blog |
+| Checklist block (new) | Footer link "📥 Checklist Arquitectura IA" | Checklist de arquitectura para IA. Diez puntos para revisar un sistema con IA antes de llevarlo a producción … Se pide por correo desde su página; no hay formulario ni lista de correo. | AI architecture checklist. Ten points to review an AI system before it goes to production … |
+| Terminal commands | help, story, metrics, diagram, stack, why-me, workflow, demo, philosophy, chat, experience, status, contact, clear | ayuda, stack, servicios, contacto, ir, limpiar | help, stack, services, contact, go, clear |
+| About heading | Arquitecto de Software & Especialista Backend | Arquitecto de software full stack | Full stack software architect |
+| About, added | — | Cómo trabajo: proyectos a tiempo parcial y en remoto · Python y .NET al mismo nivel, del modelo de datos al frontend · Guiado por especificaciones: cada requisito tiene su prueba | How I work: part-time, remote projects · Python and .NET at the same level · Spec-driven: every requirement has its test |
+| Contact heading | ¿Tu backend no escala o tu IA es impredecible? | Una llamada de 30 minutos para ver tu caso | A 30-minute call to look at your case |
+| Contact text | La deuda técnica y los cuellos de botella te hacen perder velocidad. Escríbeme y diseñemos un plan … | Es una conversación para entender qué necesitas y ver si encaja con lo que hago. No tiene coste. Si hay proyecto, el presupuesto se habla ahí. | It is a conversation to understand what you need and see whether it fits what I do. It is free. If there is a project, the budget is discussed there. |
+| Contact buttons | Agendar Videollamada · Copiar email | Agendar llamada gratuita · Escríbeme por WhatsApp · email · LinkedIn | Book a free call · Message me on WhatsApp · email · LinkedIn |
+| Contact page (new, `/contacto/`) | — (contact is a home section) | Agenda una llamada gratuita de 30 minutos; three steps (Me cuentas el caso · Vemos si encaja · Siguiente paso); four channels | Book a free 30-minute call; You tell me the case · We see whether it fits · Next step |
+| Footer | Especialidades Técnicas … © NainDev. Analytics privacy-first integradas (0% cookies) … | Four columns (services, content, technology, contact) · © 2026 NainDev · Analítica sin cookies · Política de privacidad · Diseño: David Suárez | Same, in English |
+| Privacy notice | 🔒 Este sitio no utiliza cookies … | Same sentence without the emoji, plus "Política de privacidad" | Same, in English |
+| Services hub | Consultoría y Desarrollo · Servicios de Ingeniería · Soluciones arquitectónicas de alto nivel … | Servicios · Servicios de arquitectura de software · Quince servicios en tres familias … | Services · Software architecture services · Fifteen services in three families … |
+| Service "Arquitectura IA para Fintech", description | … Cumplimiento normativo, seguridad Zero-Trust y baja latencia garantizada. | … Cumplimiento normativo y seguridad Zero-Trust. ("guaranteed" is a promise with no source, same family as OQ-008) | … Regulatory compliance and Zero-Trust security. |
+| Service template (`/servicios/validacion-3d/`) | Beneficios clave · Casos de uso comunes | El problema · Cinco familias de regla · Qué devuelve (with a response example using `[METRIC]`) · Artículos sobre validación 3D | Same, in English |
+| Blog index | Notas y Arquitectura · Blog Técnico | Blog · Artículos sobre arquitectura backend, 3D e IA | Blog · Articles on backend architecture, 3D and AI |
+| Technology page | Tecnología Especializada · Experiencia con C# · Servicios relacionados con C#. | Tecnología · Experiencia con C# · Servicios, proyectos y artículos donde C# forma parte del stack | Technology · Experience with C# · Services, projects and articles where C# is part of the stack |
 
 ## Preferred design credit
 
-Proposed, and entirely optional — happy to ship without it:
+Proposed, and entirely optional:
 
 - **Name:** David Suárez
 - **Link:** `https://contrast3d.com`
-- **Where:** footer, small, in tertiary ink, next to the legal line. Not in the header, not on every
-  page section.
-
-Separately, and this one is a request rather than a credit: David would like a single line in the
-footer noting that engineering projects are done in collaboration with Contrast, worded as
-*"Proyectos de ingeniería en colaboración con Contrast · contrast3d.com"* — plain text, no logo, no
-Contrast colours, nothing that ties the two visual identities together. It is Aitor's site and Aitor's
-call; see open question 3.
+- **Where:** footer, small, next to the privacy link. Not in the header, not on every section.
 
 ## Third-party assets
 
-| Asset | Source | License |
+| Asset | Source | Licence |
 | :--- | :--- | :--- |
-| Urbanist (300, 400, 500, 600) | fonts.google.com/specimen/Urbanist | SIL OFL 1.1 — the logo's typeface. Self-hosted woff2, same as Inter and Outfit today |
-| IBM Plex Mono (400, 500) | github.com/IBM/plex | SIL OFL 1.1 — replaces the `Cascadia Code` system fallback, which does not exist on macOS or Linux |
-| Blueprint grid background | Drawn in CSS (`repeating-linear-gradient`) | None — no file, no library |
-| Architecture diagram | Hand-drawn inline SVG | None |
-| Corrected logo variants | Recoloured from your own `Full-Blue.png` | Yours — construction untouched, only the colour split |
+| Urbanist, variable, weights 300–600, Latin subset | `@fontsource-variable/urbanist` 5.3.0 (Google Fonts build); weight axis limited with fontTools 4.66 | SIL OFL 1.1, `assets/fonts/urbanist-OFL.txt`. The logo's own typeface |
+| IBM Plex Mono 400 and 500, Latin subset | `@fontsource/ibm-plex-mono` 5.3.0 | SIL OFL 1.1, `assets/fonts/ibm-plex-mono-OFL.txt` |
+| Stroke pattern `assets/trama.svg` | Generated from the brandbook rule (4 × 26 px strokes at 52°, 22 px grid) | None, own work |
+| Diagrams (problem, article) | Hand-drawn inline SVG | None |
+| External-link arrow | Inline SVG in the CSS (`mask`, data URI) | None |
+| Logos in `assets/logo/` | Aitor's PNG files, recoloured in round 1 | NainDev's |
 
-No icon library, no image assets, no CDN, no third-party script. The fonts are self-hosted exactly as
-Inter and Outfit are today, so the CSP does not need to change.
-
-**One family, not three.** Urbanist covers display and body, so Outfit and Inter come out of the
-system even though they are already in the repo — the text on the page is then built the same way the
-mark is. Alternative to Plex Mono if unwanted: JetBrains Mono, also SIL OFL 1.1.
-
-**One risk, stated:** a geometric face at body size tires the eye faster than a screen grotesque over
-very long paragraphs. On a site of tables, spec pages and technical articles set to a 68-character
-measure this is fine, but if the blog moves toward 2,000-word pieces it is worth measuring. Inter
-would stay available as the reading face for articles only.
+No icon library, no image bank, no CDN, no third-party script.
 
 ## Ideas beyond the brief
 
-- **`src/data/testimonials.json` should be emptied to `[]`.** The component already refuses to render
-  it, but the placeholder testimonial and its 40 % claim are readable by anyone browsing a public
-  repository — including a prospect auditing the code, which this repo invites them to do.
-- **Collapse the sixteen service pages to three.** Fintech, healthcare, logistics, SaaS startups,
-  monolith migration, REST performance and front-end architecture read as a generalist agency and work
-  against the specialist the headline claims. Suggestion: keep whichever ones actually earn traffic,
-  but as **articles**, not as services — they keep the URL and the ranking while no longer promising a
-  service that is not for sale. Anything with no traffic and no fit gets a 301 to the nearest service
-  or article. This needs Search Console data, which David does not have access to.
-- **Promote `/blog/` in the navigation**, labelled "Escritos". Suggest **not** changing the route
-  unless the traffic data says it is safe.
-- **Structured data:** `Person` and `ProfessionalService` on the home page, `TechArticle` on articles,
-  `BreadcrumbList` everywhere. No `Review` or `AggregateRating` — there are no real reviews.
-- **A hero worth the niche, later.** The stroke field is the brand speaking; the next step would be the
-  work speaking — a real malformed mesh and the rule that catches it, with the same break language.
-  Out of scope for this pass, worth noting.
+- **Retire the sector service pages, as a proposal.** Fintech, healthcare, logistics, SaaS startups,
+  monolith migration, REST performance and front-end architecture read as a generalist agency next to
+  a specialist headline. The ones that earn traffic could become articles (same URL, same ranking);
+  the rest could get a 301 to the nearest service. This needs Search Console data. The design keeps
+  all 15 pages until Aitor decides.
+- **Empty `src/data/testimonials.json` to `[]`.** The component refuses to render it, but the
+  placeholder testimonial and its "40%" claim are readable in a public repository.
+- **Structured data:** `Person` and `ProfessionalService` on the home page, `TechArticle` on
+  articles, `BreadcrumbList` everywhere. No `Review` or `AggregateRating`.
 
 ## Open questions for Aitor
 
-1. **Do you accept narrowing to three services** and retiring the sector pages as described above? It
-   changes the navigation, the home page and the sitemap, so it is the first thing to settle.
-2. **The figures.** `impact-metrics.json` and the two case studies carry numbers with no citable source
-   on the page — `40 → 6 min`, `99.99%`, `10+ desarrolladores mentorizados`, `3 arquitecturas
-   migradas`, `cero downtime en 12 meses`, `50k peticiones concurrentes`, `2.3 s → 300 ms`. Same family
-   as the `+50M` badge you already ruled out in `specs/005`. Two workable options: give each one a
-   frame it can stand behind ("own system, SaaS platform, not externally verified"), or drop the
-   number and keep the architecture decision, which sells on its own. Which do you want?
-3. **The Contrast line in the footer** — yes or no, and with what wording? Worth knowing that the site
-   currently presents you as an independent architect and as lead architect of a stealth startup; a
-   line tying the site to another brand is a positioning decision, not a detail, and it is yours.
-4. **The confidential case study.** It describes "our client, a promising stealth startup". If the
-   footer also names Contrast, an attentive reader can join those dots. Does the case get reframed as
-   your own project, or does the footer line stay off?
-5. **Availability.** Is "one engagement at a time, fixed scope, committed date" accurate? If not, tell
-   me what is, and the page will say that instead. What it should not do is say two different things.
-6. **The method section** — comfortable moving it from task level to engagement level as proposed?
-7. **Search Console.** Can you share the top pages by impressions and clicks for the last 6–12 months?
-   Without it, the keep/redirect list above is a guess, and I would rather not guess about your
-   traffic.
-8. **Light theme** — any objection in principle, before screens get built on it?
-9. **The logo files.** Two things, both small. First, the colour split in `Full-*.png` does not flip
-   with the background (detail above), so three of the five are unusable — corrected versions are in
-   `assets/logos/` for comparison, but re-exporting from the `.ai` is the right fix. Second, the site
-   needs **SVG** rather than PNG, and a **horizontal lockup** for the 64 px header, which does not
-   exist yet. Can you export both from the source file?
-10. **The ink.** The wordmark puts `NAIN` in black and the accent in colour, which pulls the system
-   toward black ink with blue as the accent. The site currently goes the other way — blue ink — and
-   the lockup used on the page has `NAIN` in the site's deep blue so the mark and the page share an
-   ink. Either reading works; tell me which you prefer and it is two tokens.
+**Resolved in `main`:**
+
+- ~~The figures in the metrics and case studies~~. Removed: spec 005 (`c78c854`), spec 006
+  (`5d17ae2`, OQ-001 to OQ-006) and spec 009 (`c2f17a4`). The design shows `[METRIC]`.
+- ~~The Contrast line in the footer~~. The About section names "CTO en Contrast3D x NainDev"
+  (spec 009 `c2f17a4`, spec 010 `3b711c4`, spec 011 `c9e93fa`), so the footer keeps only the design
+  credit.
+- ~~Availability~~. Part-time, remote projects for companies in any country (spec 009, `c2f17a4`).
+- ~~Contact email~~. `contact@naindev.com` (spec 008, `12e0ace`).
+
+**Still open:**
+
+1. **Case studies.** Do you accept the [proposal](#proposal-keep-the-case-studies) and the removal of
+   the `/casos` redirects?
+2. **The confidential case and Contrast3D.** With the About section naming the collaboration, could
+   a reader link the confidential 3D case to it? If yes, should the case change or stay off?
+3. **Sector service pages.** Keep all 15, or retire some as described above?
+4. **Search Console.** Top pages by impressions and clicks for the last 6–12 months, to decide 3.
+5. **The method section** at engagement level (scope, design, build, hand over): comfortable with it?
+6. **Contact page.** Is a `/contacto/` page welcome, or should contact stay a home section only?
+7. **"Entrega / No incluye" per family** and the five rule families on the service template: do they
+   match what you actually deliver?
+8. **Light theme:** any objection in principle?
+9. **FinOps title.** "Cómo reducir tu factura de OpenAI un 80% en Azure" is a figure in a published
+   title, same family as OQ-011. Keep, reword or verify?
+10. **The ink.** The wordmark puts `NAIN` in black; the site uses blue ink. Which reading do you prefer?
+    It is two tokens.
+11. **Footer link to ONNX.** `src/components/Footer.astro` links `/tecnologia/ONNX/`, which redirects
+    since spec 007. Replace it with a live technology page?
+
+## Design checklist before asking for review
+
+- [x] Desktop (1440 px) and mobile (390 px) screens, including the open mobile menu
+- [x] Spanish and English version of every screen
+- [x] Hover, focus and active states for buttons and links
+- [x] Contrast checked (table above, and axe-core on every page)
+- [x] Colors, font sizes and spacing listed in this `README.md`
+- [x] Only real content, placeholders marked `[TEXT]`, `[METRIC]` or `[PHOTO]`
+- [x] WhatsApp shown as a button without a visible phone number
+- [x] One H1 per page and all important text as real text, not images
+- [ ] No case studies, prices, testimonials or client logos. No prices, testimonials or client logos;
+      the case studies stay as a [proposal](#proposal-keep-the-case-studies)
+- [ ] If the logo changes: original design, no protected symbols, licensed fonts, all versions in
+      `logo/`, works at 16 px. Pending: clean SVGs from David's `.ai`
+- [x] Main action offers a free call, not a free audit; availability described as part-time and remote
+- [x] Third-party asset sources and preferred design credit listed in `README.md`
+- [x] Copy changes listed in this `README.md` for Aitor's approval
+- [x] PNG exports included
