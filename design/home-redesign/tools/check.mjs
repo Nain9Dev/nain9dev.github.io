@@ -73,7 +73,8 @@ try {
   await rm(tmp, { force: true });
   info(`${BLOCKED_CLAIMS.length} patterns from origin/main:scripts/check-claims.mjs`);
 } catch (e) { fail('could not read BLOCKED_CLAIMS from origin/main (run `git fetch origin main`): ' + e.message.split('\n')[0]); }
-const PHRASES = [/auditor[ií]a gratuita/i, /free audit/i];
+// Split so this file does not contain the phrases it forbids.
+const PHRASES = [new RegExp('auditor' + '[ií]a gratu' + 'ita', 'i'), new RegExp('free ' + 'aud' + 'it', 'i')];
 const PHONES = [/(?:\+|\b00)\d{1,3}[\s.-]?\d{2,3}[\s.-]?\d{3}[\s.-]?\d{3}\b/, /\b[6789]\d{2}[\s.-]?\d{3}[\s.-]?\d{3}\b/, /wa\.me\/\d/i, /\btel:/i, /api\.whatsapp\.com\/send\?phone/i];
 const TEXT_FILES = [...PAGES, 'README.md', 'brandbook-addendum.md', 'assets/nain.js', 'assets/motion.js', 'assets/boot.js', 'assets/fix.js', 'assets/fix.data.js', 'assets/nain.css'];
 const sources = {};
@@ -82,7 +83,7 @@ for (const f of TEXT_FILES) {
   const s = sources[f];
   const visible = f.endsWith('.html') ? s.replace(/<svg[\s\S]*?<\/svg>/g, ' ').replace(/<[^>]+>/g, ' ') : s;
   if (f.endsWith('.html') || f.endsWith('.js')) for (const re of BLOCKED_CLAIMS) if (re.test(s)) fail(`${f}: blocked claim ${re}`);
-  if (f !== 'README.md' && f !== 'brandbook-addendum.md') for (const re of PHRASES) if (re.test(s)) fail(`${f}: forbidden phrase ${re}`);
+  for (const re of PHRASES) if (re.test(s)) fail(`${f}: forbidden phrase ${re}`);
   for (const re of PHONES) { const m = visible.match(re) || (f.endsWith('.html') && s.match(re)); if (m) fail(`${f}: phone-like text "${m[0]}"`); }
 }
 

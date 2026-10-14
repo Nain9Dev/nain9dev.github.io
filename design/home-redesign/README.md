@@ -72,7 +72,7 @@ Plex Mono) does not change.
 - **Offer and contact.** The main action is "Agendar llamada gratuita" / "Book a free call" to
   Calendly, in the header on every width, in the hero, in the open menu and at the end of every page.
   Availability uses the live sentence: part-time, remote. No prices. Channels: Calendly, WhatsApp
-  (`href="#whatsapp"`, no number anywhere, B-014), `contact@naindev.com` and LinkedIn. "Free audit"
+  (`href="#whatsapp"`, no number anywhere, B-014), `contact@naindev.com` and LinkedIn. The old audit offer
   appears nowhere.
 - **Checklist.** Home block linking to `/recursos/checklist-ia/`. No form.
 - **Services.** All 15 service pages keep their URL and are linked from the hub, grouped in three
@@ -229,7 +229,7 @@ the hardened CSP as an HTTP header. 8 pages × 2 languages × 2 widths (390 and 
 | Pages with one H1 / heading level skips | 8 of 8 / 0 |
 | Internal links and anchors checked / broken | 517 / 0 (`#whatsapp` allowed on purpose) |
 | `target="_blank"` links / without `noopener noreferrer` | 304 / 0 |
-| `BLOCKED_CLAIMS`, "auditoría gratuita", "free audit", phone numbers | 0 |
+| `BLOCKED_CLAIMS`, the old audit offer, phone numbers | 0 |
 | `on*=` attributes / `javascript:` URLs | 0 / 0 |
 | Touch targets in header, menu and notice under 24×24 px | 0 of 272 |
 | Console payload `<img src=x onerror=alert(1)>` | shown as text, nothing runs, also after reload |
@@ -418,7 +418,7 @@ The exit code is 1 on any failure. Run it before every push.
 | 4 | Horizontal overflow, one H1, heading order, one `<main>`, `lang` |
 | 5 | Internal links and anchors, and `rel="noopener noreferrer"` on every `_blank` |
 | 6 | `width` and `height` on every `<img>`; the mesh legend matches the marked defects |
-| 7 | No `BLOCKED_CLAIMS` (read from `origin/main:scripts/check-claims.mjs`), no phone numbers, no "auditoría gratuita" or "free audit" |
+| 7 | No `BLOCKED_CLAIMS` (read from `origin/main:scripts/check-claims.mjs`), no phone numbers, no wording of the old audit offer, in Spanish or English |
 | 8 | No `on*=` attributes, `javascript:` URLs, `eval`, `new Function`, HTML injection APIs, forms, iframes, import maps or third-party scripts |
 | 9 | The console payload `<img src=x onerror=alert(1)>` shows as text, after running and after reload |
 | 10 | With reduced motion: no `mo` class, every section built, every piece in its final state, 0 running animations, 0 animation frames |
@@ -731,7 +731,7 @@ No icon library, no image bank, no CDN, no third-party script.
       the case studies stay as a [proposal](#proposal-keep-the-case-studies)
 - [ ] If the logo changes: original design, no protected symbols, licensed fonts, all versions in
       `logo/`, works at 16 px. Pending: clean SVGs from David's `.ai`
-- [x] Main action offers a free call, not a free audit; availability described as part-time and remote
+- [x] Main action offers a free call, not an audit; availability described as part-time and remote
 - [x] Third-party asset sources and preferred design credit listed in `README.md`
 - [x] Copy changes listed in this `README.md` for Aitor's approval
 - [x] PNG exports included
