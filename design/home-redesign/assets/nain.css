@@ -470,7 +470,8 @@ pre.panel .c{color:var(--green)}
 .heroCard .lede{margin-top:var(--s6)}
 /* W2 · page heads: a 7.2 block where the paper was empty */
 .ph-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,340px);gap:var(--s12);align-items:stretch}
-.ph-trama{min-height:200px;border-radius:var(--radius);background-color:var(--paper)}
+.ph-agd{min-height:200px;border-radius:var(--radius);background:var(--surface-sunken);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.ph-agd svg{display:block;width:100%;height:auto;max-height:100%}
 /* W11 · footer: the pattern as a bounded block, not a strip */
 footer .fhead{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--s8)}
 .ftrama{width:min(360px,60%);height:160px;flex:none}
@@ -491,8 +492,8 @@ footer .fhead{display:flex;justify-content:space-between;align-items:flex-start;
 .trama-blk{position:relative;overflow:hidden}
 .trama-blk:not(.built){background:url("trama.svg") left center/auto 100% repeat-x}
 .trama-blk svg{position:absolute;inset:0;width:100%;height:100%;display:block}
-.ph-trama:not(.built),.check-trama:not(.built){background-color:var(--blue-deep)}
-.ph-trama.built,.check-trama.built{background:var(--surface-sunken)}
+.check-trama:not(.built){background-color:var(--blue-deep)}
+.check-trama.built{background:var(--surface-sunken)}
 .on-sunken .check-trama.built{background:var(--paper)}
 /* W7 · the 7.1 interruption, with its label */
 .brk2{display:flex;align-items:center;gap:var(--s3);margin-top:var(--s6);max-width:none}
@@ -541,7 +542,7 @@ nav.main a:hover:after,nav.main a:focus-visible:after,footer .fcols li a:hover:a
   .grid,.contact,.cards,.svc,.deliv,.pair2,.projs{grid-template-columns:minmax(0,1fr)}
   .chgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .ph-grid{grid-template-columns:minmax(0,1fr)}
-  .ph-trama{min-height:160px}
+  .ph-agd{min-height:160px}
   .checkbox{grid-template-columns:minmax(0,1fr)}
   .mesh-box{padding:var(--s4);box-shadow:12px 12px 0 var(--brand-black);margin-right:12px}
   .m-leg{grid-template-columns:minmax(0,1fr)}
@@ -554,7 +555,7 @@ nav.main a:hover:after,nav.main a:focus-visible:after,footer .fcols li a:hover:a
   .heroCard .facts{order:5}
   .heroCard .avail{order:6}
   .heroCard h1{order:2}
-  .ph-trama{display:none}
+  .ph-agd{display:none}
   footer .fhead{flex-direction:column}
   .ftrama{width:100%}
   .cota-lbl{position:static;display:block;margin-top:var(--s3);text-align:right}
@@ -676,3 +677,49 @@ nav.main a:hover:after,nav.main a:focus-visible:after,footer .fcols li a:hover:a
    content-visibility clips like paint containment: the 24 px margin keeps the 18 px drop of .cae,
    the 6 px solid shadows and the focus stroke visible. */
 main > section ~ section > .shell > :not(.projs):not(.entries):not(.svc):not(.lab-grid),main > article ~ section > .shell > *,footer > .shell > :not(.fcols){content-visibility:auto;contain-intrinsic-block-size:auto 360px;overflow-clip-margin:24px}
+
+/* ============================================================
+   THE MARK THAT BECOMES AN AGENDA — living surface of the inner pages (addendum 1.1).
+   The N folds into one stroke, the stroke turns into the header line of an agenda, the agenda
+   draws from that line, and everything goes back to the N. 8 s loop, CSS only. Each stroke of the
+   N is one line of 520 units seen through a dash: translate + rotate move it, the dash sets its
+   length, so the round caps never stretch. At rest (no motion, reduced motion, ?vivo=0, script
+   missing) it is the agenda. motion.js pauses it off screen.
+   ============================================================ */
+.agd .mk{transform-box:view-box;transform-origin:0 0;transform:translate(500px,300px);stroke-dasharray:1 2;stroke-dashoffset:0}
+.agd .ag-f,.agd .ag-r,.agd .ag-ok{stroke-dasharray:1 2;stroke-dashoffset:0}
+.mo .agd:not(.still) .mk,.mo .agd:not(.still) .ag-f,.mo .agd:not(.still) .ag-r,.mo .agd:not(.still) .ag-d,.mo .agd:not(.still) .ag-ok{
+  animation-duration:8s;animation-iteration-count:infinite;animation-fill-mode:both;animation-play-state:paused;
+  animation-timing-function:cubic-bezier(.65,0,.35,1)}
+.mo .agd.on:not(.still) *{animation-play-state:running}
+.mo .agd:not(.still) .mk-l{animation-name:agL}
+.mo .agd:not(.still) .mk-d{animation-name:agD}
+.mo .agd:not(.still) .mk-r{animation-name:agR}
+.mo .agd:not(.still) .ag-f{animation-name:agF}
+.mo .agd:not(.still) .ag-r{animation-name:agRing}
+.mo .agd:not(.still) .ag-d{animation-name:agDay;animation-delay:calc(var(--i) * 70ms)}
+.mo .agd:not(.still) .ag-ok{animation-name:agOk}
+/* N → one stroke (the 7.9 fold, D first) → the line → … → back with a short overshoot */
+@keyframes agL{
+  0%,18%{transform:translate(360px,350px) rotate(90deg);stroke-dasharray:.5385 2;stroke-dashoffset:-.2308}
+  24.5%,30%{transform:translate(500px,350px) rotate(90deg);stroke-dasharray:.5385 2;stroke-dashoffset:-.2308}
+  38%,86%{transform:translate(500px,300px) rotate(0deg);stroke-dasharray:1 2;stroke-dashoffset:0}
+  91%,93%{transform:translate(500px,350px) rotate(90deg);stroke-dasharray:.5385 2;stroke-dashoffset:-.2308;animation-timing-function:cubic-bezier(.34,1.56,.64,1)}
+  99.5%,100%{transform:translate(360px,350px) rotate(90deg);stroke-dasharray:.5385 2;stroke-dashoffset:-.2308}}
+@keyframes agD{
+  0%,17%{transform:translate(499.6px,356px) rotate(49.97deg);stroke-dasharray:.4521 2;stroke-dashoffset:-.274}
+  23%,30%{transform:translate(500px,350px) rotate(90deg);stroke-dasharray:.5385 2;stroke-dashoffset:-.2308}
+  38%,86%{transform:translate(500px,300px) rotate(0deg);stroke-dasharray:1 2;stroke-dashoffset:0}
+  91%,94.5%{transform:translate(500px,350px) rotate(90deg);stroke-dasharray:.5385 2;stroke-dashoffset:-.2308;animation-timing-function:cubic-bezier(.34,1.56,.64,1)}
+  100%{transform:translate(499.6px,356px) rotate(49.97deg);stroke-dasharray:.4521 2;stroke-dashoffset:-.274}}
+@keyframes agR{
+  0%,19%{transform:translate(640px,350px) rotate(90deg);stroke-dasharray:.5385 2;stroke-dashoffset:-.2308}
+  26%,30%{transform:translate(500px,350px) rotate(90deg);stroke-dasharray:.5385 2;stroke-dashoffset:-.2308}
+  38%,86%{transform:translate(500px,300px) rotate(0deg);stroke-dasharray:1 2;stroke-dashoffset:0}
+  91%,93.8%{transform:translate(500px,350px) rotate(90deg);stroke-dasharray:.5385 2;stroke-dashoffset:-.2308;animation-timing-function:cubic-bezier(.34,1.56,.64,1)}
+  99%,100%{transform:translate(640px,350px) rotate(90deg);stroke-dasharray:.5385 2;stroke-dashoffset:-.2308}}
+/* the agenda grows out of the ends of the line, then its rings, its days and the booked one */
+@keyframes agF{0%,38%{stroke-dashoffset:1;opacity:0}38.5%{opacity:1}48%,80%{stroke-dashoffset:0;opacity:1}84%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes agRing{0%,46%{stroke-dashoffset:1;opacity:0}46.5%{opacity:1}52%,80%{stroke-dashoffset:0;opacity:1}84%,100%{stroke-dashoffset:0;opacity:0}}
+@keyframes agDay{0%,50%{opacity:0}53%,79%{opacity:1}82%,100%{opacity:0}}
+@keyframes agOk{0%,57%{stroke-dashoffset:1;opacity:0}57.5%{opacity:1}63%,80%{stroke-dashoffset:0;opacity:1}84%,100%{stroke-dashoffset:0;opacity:0}}

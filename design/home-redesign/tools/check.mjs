@@ -305,6 +305,26 @@ const behaviour = {};
   if (!behaviour.heroRunningInView || !behaviour.heroStopsOffscreen) fail(`hero loop: running in view ${behaviour.heroRunningInView}, stops off screen ${behaviour.heroStopsOffscreen}`);
 }
 {
+  // The mark that becomes an agenda: the living surface of the inner pages runs on screen and pauses off it.
+  const { ctx, page, log } = await open({ viewport: { width: 1440, height: 900 } }, 'servicios.html', '?lang=es');
+  const state = () => page.evaluate(() => [...new Set(document.querySelector('.agd').getAnimations({ subtree: true }).map((a) => a.playState))].join(','));
+  await page.waitForTimeout(300);
+  const onScreen = await state();
+  await page.evaluate(() => scrollTo({ top: document.documentElement.scrollHeight, behavior: 'instant' }));
+  await page.waitForTimeout(400);
+  const offScreen = await state();
+  await drain(page, log, 'agenda loop');
+  await ctx.close();
+  const { ctx: c2, page: p2 } = await open({ viewport: { width: 1440, height: 900 } }, 'servicios.html', '?vivo=0');
+  const still = await p2.evaluate(() => document.querySelector('.agd').getAnimations({ subtree: true }).length);
+  await c2.close();
+  behaviour.agenda = { onScreen, offScreen, stillAnimations: still };
+  current = results.find((x) => x.id === 11);
+  if (onScreen !== 'running' || offScreen !== 'paused') fail(`agenda loop: ${onScreen} on screen, ${offScreen} off screen`);
+  if (still) fail(`agenda loop: ${still} animations with ?vivo=0`);
+  info(`agenda loop in the page heads: running on screen, paused off screen, still with ?vivo=0`);
+}
+{
   // LAB replay buttons.
   const { ctx, page, log } = await open({ viewport: { width: 1440, height: 900 } }, 'lab.html', '?lang=es');
   const n = await page.locator('[data-replay-target]').count();

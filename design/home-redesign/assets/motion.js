@@ -1,8 +1,10 @@
 /* ============================================================
    NainDev · motion system (round 3, brandbook addendum 1.1)
    Construction: plays once on entry, CSS transitions only, no JS per
-   frame. Response: only while the visitor acts. The only loop is the
-   hero field (nain.js). Reduced motion: final state, no frames.
+   frame. Response: only while the visitor acts. Living surfaces, one per
+   page: the hero field (nain.js) on the home, the mark that becomes an
+   agenda (CSS) in the head of inner pages. Reduced motion: final state,
+   no frames.
    ES5 syntax on purpose (iOS 15 and older engines).
    ============================================================ */
 (function () {
@@ -143,37 +145,50 @@
     });
   }
 
-  /* ---------- the mark: 7.5 contraction and spring on hover ---------- */
+  /* ---------- the mark on hover (7.9): the N folds into one stroke and opens again ----------
+     Geometry measured from the file: stroke 113 on a 1000 canvas. Frames run only while it plays. */
   (function () {
     var host = d.getElementById('brandMark');
-    var lines = host ? host.querySelectorAll('line') : [];
-    if (!host || lines.length !== 3 || reduce) return;
-    var base = [], st = [];
-    for (var i = 0; i < 3; i++) {
-      var l = lines[i];
-      base.push([+l.getAttribute('x1'), +l.getAttribute('y1'), +l.getAttribute('x2'), +l.getAttribute('y2')]);
-      st.push({ s: 1, v: 0 });
-    }
-    var target = 1, raf = 0, MIN = 0.6;
-    function frame() {
-      raf = 0;
-      var moving = false;
-      for (var i = 0; i < 3; i++) {
-        var c = st[i], k = target < c.s ? 0.34 : 0.13;
-        c.v = (c.v + (target - c.s) * k) * 0.74;
-        c.s += c.v;
-        if (c.s > 1.06) c.s = 1.06;
-        if (Math.abs(target - c.s) < 0.001 && Math.abs(c.v) < 0.001) { c.s = target; c.v = 0; } else moving = true;
-        var p = base[i], mx = (p[0] + p[2]) / 2, my = (p[1] + p[3]) / 2;
-        lines[i].setAttribute('x1', (mx + (p[0] - mx) * c.s).toFixed(1)); lines[i].setAttribute('y1', (my + (p[1] - my) * c.s).toFixed(1));
-        lines[i].setAttribute('x2', (mx + (p[2] - mx) * c.s).toFixed(1)); lines[i].setAttribute('y2', (my + (p[3] - my) * c.s).toFixed(1));
+    var Lk = d.getElementById('mkL'), Dg = d.getElementById('mkD'), Rk = d.getElementById('mkR');
+    if (!host || !Lk || !Dg || !Rk || reduce) return;
+    var N = { L: [148, 148, 148, 848], D: [308, 288, 686, 738], R: [848, 148, 848, 848] };
+    var B = [500, 148, 500, 848];
+    var DUR = 1150, playing = false, t0 = 0;
+    var OFF = { D: 0, L: 0.07, R: 0.13 }, OFF2 = { L: 0, R: 0.06, D: 0.13 };
+    var els = { L: Lk, D: Dg, R: Rk }, keys = ['L', 'D', 'R'];
+    function clamp(v) { return v < 0 ? 0 : (v > 1 ? 1 : v); }
+    function easeInOut(x) { return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; }
+    function easeOutBack(x) { var c1 = 1.70158, c3 = c1 + 1; return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2); }
+    function setLine(n, a) { n.setAttribute('x1', a[0].toFixed(1)); n.setAttribute('y1', a[1].toFixed(1)); n.setAttribute('x2', a[2].toFixed(1)); n.setAttribute('y2', a[3].toFixed(1)); }
+    function mix(a, b, k) { var o = [], i; for (i = 0; i < 4; i++) o.push(a[i] + (b[i] - a[i]) * k); return o; }
+    function frame(ts) {
+      if (!t0) t0 = ts;
+      var p = (ts - t0) / DUR, i, k;
+      if (p >= 1) { for (i = 0; i < 3; i++) setLine(els[keys[i]], N[keys[i]]); playing = false; t0 = 0; return; }
+      for (i = 0; i < 3; i++) {
+        k = keys[i];
+        if (p < 0.46) setLine(els[k], mix(N[k], B, easeInOut(clamp((p - OFF[k] * 0.46) / (0.46 - OFF[k] * 0.46 * 0.6)))));
+        else if (p < 0.54) setLine(els[k], B);
+        else setLine(els[k], mix(B, N[k], easeOutBack(clamp((p - 0.54 - OFF2[k] * 0.30) / (0.46 - OFF2[k] * 0.30)))));
       }
-      if (moving) raf = window.requestAnimationFrame(frame);   // stops at rest: no idle frames
+      window.requestAnimationFrame(frame);
     }
-    function go(t) { target = t; if (!raf) raf = window.requestAnimationFrame(frame); }
-    host.addEventListener('mouseenter', function () { go(MIN); });
-    host.addEventListener('mouseleave', function () { go(1); });
-    host.addEventListener('focus', function () { go(MIN); window.setTimeout(function () { go(1); }, 260); });
+    function play() { if (playing) return; playing = true; t0 = 0; window.requestAnimationFrame(frame); }
+    host.addEventListener('mouseenter', play);
+    host.addEventListener('focus', play);
+  })();
+
+  /* ---------- the mark that becomes an agenda: runs only while on screen ---------- */
+  (function () {
+    var loops = d.querySelectorAll('.agd');
+    if (!loops.length) return;
+    var still = /[?&]vivo=0\b/.test(window.location.search);
+    for (var i = 0; i < loops.length; i++) if (still) loops[i].classList.add('still');
+    if (still || reduce || !('IntersectionObserver' in window)) return;
+    var lio = new IntersectionObserver(function (es) {
+      for (var e = 0; e < es.length; e++) es[e].target.classList.toggle('on', es[e].isIntersecting);
+    });
+    for (var j = 0; j < loops.length; j++) lio.observe(loops[j]);
   })();
 
   window.naindevMotion = { replay: replay, trama: trama };
