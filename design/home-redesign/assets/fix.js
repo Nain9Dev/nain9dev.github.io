@@ -26,17 +26,19 @@
     }
   }
 
+  function num(x){ x = Number(x); return isFinite(x) ? Math.round(x) : 0; }
   function applyOne(el,v){
-    if(!el) return;
+    if(!el || !v) return;
     var t = '';
-    if (v.dx || v.dy) t = 'translate('+(v.dx||0)+'px,'+(v.dy||0)+'px)';
+    v.dx = num(v.dx); v.dy = num(v.dy); if (v.w) v.w = num(v.w); if (v.mw) v.mw = num(v.mw);
+    if (v.dx || v.dy) t = 'translate('+v.dx+'px,'+v.dy+'px)';
     el.style.transform = t;
     if (v.w) el.style.width = v.w+'px';
     if (v.mw) el.style.maxWidth = v.mw+'px';
   }
   function applyAll(data){
     for (var k in data){
-      var el = document.querySelector('[data-fix="'+k.replace(/"/g,'\\"')+'"]');
+      var el = document.querySelector('[data-fix="'+CSS.escape(k)+'"]');
       applyOne(el, data[k]);
     }
   }
@@ -45,7 +47,7 @@
   if (window.NAIN_FIX) { state = JSON.parse(JSON.stringify(window.NAIN_FIX)); applyAll(state); }
   if (!ON) return;                                   // sin #fix, solo se aplican los arreglos
 
-  try { var saved = localStorage.getItem(KEY); if (saved){ state = JSON.parse(saved); applyAll(state); } } catch(e){}
+  try { var saved = localStorage.getItem(KEY); if (saved){ var parsed = JSON.parse(saved); if (parsed && typeof parsed === 'object') { state = parsed; applyAll(state); } } } catch(e){}
 
   /* — interfaz — */
   var css = document.createElement('style');
@@ -71,20 +73,26 @@
 
   var bar = document.createElement('div');
   bar.className = 'fixui';
-  bar.innerHTML = '<b>MODO FIX</b><span id="fixsel">nada seleccionado</span>'+
-    '<span class="sp"></span>'+
-    '<button id="fixCopy">Copiar JSON</button>'+
-    '<button id="fixShow">Ver JSON</button>'+
-    '<button id="fixResetOne">Reiniciar elemento</button>'+
-    '<button id="fixResetAll">Reiniciar todo</button>'+
-    '<button id="fixExit">Salir</button>';
+  function node(tag, attrs, text){
+    var n = document.createElement(tag);
+    for (var a in attrs) n.setAttribute(a, attrs[a]);
+    if (text) n.textContent = text;
+    return n;
+  }
+  bar.appendChild(node('b', {}, 'MODO FIX'));
+  bar.appendChild(node('span', {id:'fixsel'}, 'nada seleccionado'));
+  bar.appendChild(node('span', {'class':'sp'}));
+  [['fixCopy','Copiar JSON'],['fixShow','Ver JSON'],['fixResetOne','Reiniciar elemento'],
+   ['fixResetAll','Reiniciar todo'],['fixExit','Salir']].forEach(function(b){
+    bar.appendChild(node('button', {id:b[0], type:'button'}, b[1]));
+  });
   document.body.appendChild(bar);
 
   var panel = document.createElement('div');
   panel.className = 'fixui fixjson';
   panel.style.background = 'transparent';
   panel.style.border = '0';
-  panel.innerHTML = '<textarea id="fixArea" spellcheck="false"></textarea>';
+  panel.appendChild(node('textarea', {id:'fixArea', spellcheck:'false', 'aria-label':'JSON del modo FIX'}));
   document.body.appendChild(panel);
 
   var handle = document.createElement('div');
@@ -173,12 +181,12 @@
 
   /* — botones — */
   function json(){ return JSON.stringify(clean(), null, 2); }
-  document.getElementById('fixShow').onclick = function(){
+  document.getElementById('fixShow').addEventListener('click', function(){
     var p = document.querySelector('.fixjson');
     p.style.display = p.style.display==='block' ? 'none' : 'block';
     document.getElementById('fixArea').value = json();
-  };
-  document.getElementById('fixCopy').onclick = function(){
+  });
+  document.getElementById('fixCopy').addEventListener('click', function(){
     var a = document.getElementById('fixArea');
     document.querySelector('.fixjson').style.display='block';
     a.value = json(); a.select();
@@ -187,22 +195,22 @@
     if (!ok && navigator.clipboard) navigator.clipboard.writeText(a.value).then(function(){ok=true;});
     this.textContent = ok ? 'Copiado ✓' : 'Selecciona y copia';
     var b=this; setTimeout(function(){ b.textContent='Copiar JSON'; }, 1800);
-  };
-  document.getElementById('fixResetOne').onclick = function(){
+  });
+  document.getElementById('fixResetOne').addEventListener('click', function(){
     if(!sel) return;
     delete state[sel.getAttribute('data-fix')];
     sel.style.transform=''; sel.style.width=''; label(); placeHandle(); save();
-  };
-  document.getElementById('fixResetAll').onclick = function(){
+  });
+  document.getElementById('fixResetAll').addEventListener('click', function(){
     for (var k in state){
-      var el = document.querySelector('[data-fix="'+k.replace(/"/g,'\\"')+'"]');
+      var el = document.querySelector('[data-fix="'+CSS.escape(k)+'"]');
       if (el){ el.style.transform=''; el.style.width=''; }
     }
     state = {}; save(); label(); placeHandle();
-  };
-  document.getElementById('fixExit').onclick = function(){
+  });
+  document.getElementById('fixExit').addEventListener('click', function(){
     location.hash = '';
     location.reload();
-  };
+  });
   window.NainFix = { json: json, state: function(){ return clean(); } };
 })();

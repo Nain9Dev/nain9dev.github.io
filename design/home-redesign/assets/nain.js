@@ -1,434 +1,522 @@
 /* ============================================================
-   EL CAMPO DE TRAZOS — la única superficie animada del sistema.
-   El átomo es el trazo del logotipo: 4 px, extremos redondos, 52°.
-   Donde pasa el puntero, los trazos SE ROMPEN y la rotura se marca
-   en rojo: es la interrupción del brandbook, en movimiento.
-   Determinista salvo por el tiempo y el puntero; respeta
-   prefers-reduced-motion dibujando un solo fotograma sin interacción.
+   NainDev · comportamiento del prototipo (ronda 2, 14-10-2026)
+   Reglas: sin librerías, sin peticiones de red, sin innerHTML con
+   datos del visitante, sin manejadores en atributos, sin eval.
+   Todo localStorage va dentro de try/catch y guarda datos, no HTML.
    ============================================================ */
-(function(){
-  var cv=document.getElementById('field'); if(!cv) return;
-  var ctx=cv.getContext('2d',{alpha:true});
-  var out=document.getElementById('breakCount');
-  var host=cv.parentNode;
-  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  
-  var ANG=-52*Math.PI/180, DX=Math.cos(ANG), DY=Math.sin(ANG);
-  var LEN=30, W=0, H=0, STEP=26, cells=[], t=0, mx=-9999, my=-9999, ripples=[], broken=0, shown=0;
-  var R=210, MIN=0.18;   // radio de influencia y longitud mínima del trazo contraído
+(function () {
+  'use strict';
 
-  function hash(i,j){ var n=Math.sin(i*127.1+j*311.7)*43758.5453; return n-Math.floor(n); }
-  function build(){
-    var dpr=Math.min(2,window.devicePixelRatio||1);
-    W=cv.clientWidth; H=cv.clientHeight;
-    STEP = W<760 ? 30 : 26;
-    cv.width=Math.round(W*dpr); cv.height=Math.round(H*dpr);
-    ctx.setTransform(dpr,0,0,dpr,0,0);
-    cells.length=0;
-    for(var j=0; j*STEP<H+STEP; j++){
-      for(var i=0; i*STEP<W+STEP; i++){
-        cells.push({x:i*STEP+((j%2)?STEP/2:0), y:j*STEP, h:hash(i,j), s:1, v:0});
-      }
-    }
-  }
-  function draw(){
-    ctx.clearRect(0,0,W,H);
-    ctx.lineCap='round';
-    var hx=DX*LEN/2, hy=DY*LEN/2, n=0;
-    for(var k=0;k<cells.length;k++){
-      var c=cells[k];
-      var wave = reduce ? 0 : 0.17*Math.sin(c.x*0.0055 + c.y*0.004 + t*0.55);
-      var d = (c.x/W)*1.15 - 0.04 + wave;
-      if(d<0) d=0; else if(d>1) d=1;
-      if(c.h > d) continue;
-
-      // — cuánto empuja el puntero sobre este trazo —
-      var push=0;
-      if(!reduce){
-        var dx=c.x-mx, dy=c.y-my, dist=Math.sqrt(dx*dx+dy*dy);
-        if(dist<R){ var u=1-dist/R; push=u*u*(3-2*u); }   // caída suave, no cónica
-      }
-      var heat=0;                                       // el halo del clic: verde -> rojo -> verde
-      for(var r=0;r<ripples.length;r++){
-        var Rp=ripples[r], rdx=c.x-Rp.x, rdy=c.y-Rp.y;
-        var rd=Math.abs(Math.sqrt(rdx*rdx+rdy*rdy)-Rp.r);
-        if(rd<52){ var pv=(1-rd/52)*Rp.a, hv=pv*1.9; if(pv>push) push=pv; if(hv>heat) heat=hv; }
-      }
-
-      // — muelle: se contrae deprisa, vuelve a su sitio con inercia —
-      if(!reduce){
-        var target=1-(1-MIN)*push;
-        c.v += (target-c.s)*(target<c.s ? 0.34 : 0.13);   // rigidez
-        c.v *= 0.74;                                      // amortiguación
-        c.s += c.v;
-        if(c.s<MIN*0.9) c.s=MIN*0.9;
-        if(c.s>1.06) c.s=1.06;                            // rebote corto al volver
-        if(c.s<0.92) n++;
-      }
-
-      var op=0.26+d*0.74;
-      var ct=1-c.s;                                        // contraído -> más presente
-      var ob=op+(1-op)*ct*1.4; if(ob>1) ob=1;
-      ctx.lineWidth=4;
-      if(heat>0.02){                                       // mezcla hacia el rojo de marca
-        var kh=heat>1?1:heat;
-        var cr=Math.round(128+127*kh), cg=Math.round(255-255*kh), cb=Math.round(0+31*kh);
-        ctx.strokeStyle='rgba('+cr+','+cg+','+cb+','+ob.toFixed(3)+')';
-      }else{
-        ctx.strokeStyle='rgba(128,255,0,'+ob.toFixed(3)+')';
-      }
-      ctx.beginPath();
-      ctx.moveTo(c.x-hx*c.s, c.y-hy*c.s);
-      ctx.lineTo(c.x+hx*c.s, c.y+hy*c.s);
-      ctx.stroke();
-    }
-    broken=n;
-  }
-  function frame(){
-    t+=0.016;
-    for(var i=ripples.length-1;i>=0;i--){
-      ripples[i].r+=8; ripples[i].a-=0.011;
-      if(ripples[i].a<=0) ripples.splice(i,1);
-    }
-    draw();
-    if(out){
-      shown += (broken-shown)*0.18;
-      out.textContent=('000'+Math.round(shown)).slice(-4);
-    }
-    requestAnimationFrame(frame);
-  }
-  function ripple(x,y){ if(ripples.length<4) ripples.push({x:x,y:y,r:0,a:1}); }
-
-  build();
-  addEventListener('resize',function(){ build(); if(reduce) draw(); },{passive:true});
-  if(reduce){ draw(); }
-  else{
-    host.addEventListener('pointermove',function(e){
-      var r=cv.getBoundingClientRect(); mx=e.clientX-r.left; my=e.clientY-r.top;
-    },{passive:true});
-    host.addEventListener('pointerleave',function(){ mx=-9999; my=-9999; },{passive:true});
-    host.addEventListener('pointerdown',function(e){
-      var r=cv.getBoundingClientRect(); ripple(e.clientX-r.left, e.clientY-r.top);
-    },{passive:true});
-    requestAnimationFrame(frame);
-  }
-})();
-
-/* ============================================================
-   EL ISOTIPO AL PASAR EL RATÓN — la N se pliega y se despliega.
-   Los tres trazos convergen en uno vertical en el centro y vuelven
-   a abrirse a la N, con un rebote corto. Una vez por gesto.
-   Geometría medida del archivo: trazo 113 sobre lienzo de 1000,
-   barras en x=148 y x=848, diagonal (308,288)->(686,738).
-   ============================================================ */
-(function(){
-  var host=document.getElementById('brandMark'); if(!host) return;
-  var L=document.getElementById('mkL'), D=document.getElementById('mkD'), R=document.getElementById('mkR');
-  if(!L||!D||!R) return;
-  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-  var N={ L:[148,148,148,848], D:[308,288,686,738], R:[848,148,848,848] };   // la N
-  var B={ L:[500,148,500,848], D:[500,148,500,848], R:[500,148,500,848] };   // el haz
-  var DUR=1150, playing=false, t0=0;
-  var OFF={ D:0, L:0.07, R:0.13 };            // al plegar manda la diagonal
-  var OFF2={ L:0, R:0.06, D:0.13 };           // al desplegar mandan las barras
-
-  function clamp(v){ return v<0?0:(v>1?1:v); }
-  function easeInOut(x){ return x<0.5 ? 4*x*x*x : 1-Math.pow(-2*x+2,3)/2; }
-  function easeOutBack(x){ var c1=1.70158, c3=c1+1; return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2); }
-
-  function setLine(el,a){ el.setAttribute('x1',a[0].toFixed(1)); el.setAttribute('y1',a[1].toFixed(1));
-                          el.setAttribute('x2',a[2].toFixed(1)); el.setAttribute('y2',a[3].toFixed(1)); }
-  function mix(a,b,k){ var o=[],i; for(i=0;i<4;i++) o.push(a[i]+(b[i]-a[i])*k); return o; }
-
-  function frame(ts){
-    if(!t0) t0=ts;
-    var p=(ts-t0)/DUR;
-    if(p>=1){ setLine(L,N.L); setLine(D,N.D); setLine(R,N.R); playing=false; t0=0; return; }
-    ['L','D','R'].forEach(function(k){
-      var el = k==='L'?L:(k==='D'?D:R), v;
-      if(p<0.46){                                     // plegar
-        var q=clamp((p-OFF[k]*0.46)/(0.46-OFF[k]*0.46*0.6));
-        v=mix(N[k],B[k],easeInOut(q));
-      }else if(p<0.54){                               // el haz, un respiro
-        v=B[k];
-      }else{                                          // desplegar, con rebote
-        var q2=clamp((p-0.54-OFF2[k]*0.30)/(0.46-OFF2[k]*0.30));
-        v=mix(B[k],N[k],easeOutBack(q2));
-      }
-      setLine(el,v);
-    });
-    requestAnimationFrame(frame);
-  }
-  function play(){ if(playing) return; playing=true; t0=0; requestAnimationFrame(frame); }
-
-  host.addEventListener('mouseenter',play);
-  host.addEventListener('focus',play);
-  host.addEventListener('touchstart',play,{passive:true});
-  window.naindevMark={ play:play };
-})();
-
-/* ============================================================
-   LA CONSOLA — índice de la página por teclado.
-   Todo lo que responde sale de la propia página: ni datos
-   inventados, ni asistente simulado, ni métricas sin origen.
-   ============================================================ */
-(function(){
-  var out=document.getElementById('termOut'), form=document.getElementById('termForm'),
-      inp=document.getElementById('termIn'), chips=document.getElementById('termChips'),
-      term=document.getElementById('term');
-  if(!out||!form) return;
-
-  var L=function(){ return document.documentElement.lang==='en' ? 'en' : 'es'; };
-  var hist=[], hp=-1;
-
-  var D={
-    es:{
-      banner:['<b>naindev · consola del sitio</b>',
-              '<span class="mut">Arquitectura backend para sistemas que procesan 3D e IA a escala.</span>',
-              '<span class="mut">Escribe <b>ayuda</b> para ver los comandos. ↑ recupera el anterior, Tab completa.</span>'],
-      help:[{c:'servicios',d:'Los tres encargos que se pueden contratar'},
-            {c:'stack',d:'Con qué está construido'},
-            {c:'metodo',d:'Los cuatro pasos y su entregable'},
-            {c:'casos',d:'Dos decisiones y lo que costaron'},
-            {c:'escritos',d:'Los artículos, que son la muestra de trabajo'},
-            {c:'sobre',d:'Quién está detrás'},
-            {c:'disponibilidad',d:'Cómo se trabaja y qué hay libre'},
-            {c:'contacto',d:'Correo y repositorio'},
-            {c:'repo',d:'El código de este sitio'},
-            {c:'ir <seccion>',d:'Salta a esa sección de la página'},
-            {c:'limpiar',d:'Limpia la consola'}],
-      servicios:['<b>01 · Validación geométrica</b>',
-                 'Reglas deterministas sobre la malla: normales, topología, manifold, escala y presupuesto',
-                 'de polígonos. Entrega un veredicto reproducible, no una estimación.',
-                 '<b>02 · IA aislada del dominio</b>',
-                 'El modelo entra como proveedor externo, detrás de un contrato. El dominio conserva las',
-                 'reglas y sigue siendo determinista.',
-                 '<b>03 · Backend que aguanta</b>',
-                 'Concurrencia, cachés, particionado, mensajería y despliegue sin corte.',
-                 '<span class="mut">No incluye: frontend ni infraestructura gestionada de forma continuada.</span>'],
-      stack:['<b>.NET 8 · C#</b>        lenguaje y plataforma',
-             '<b>SQL Server · Redis</b> datos y caché de primer nivel',
-             '<b>RabbitMQ</b>           mensajería entre servicios',
-             '<b>Azure · Kubernetes</b> despliegue',
-             '<b>ONNX</b>              modelos, siempre detrás de un contrato',
-             '<span class="mut">Huso horario UE · GMT+1.</span>'],
-      metodo:['<b>01 Acotar</b>    qué entra, qué queda fuera y cuándo se da por terminado',
-              '<b>02 Diseñar</b>   decisiones registradas como ADR, con la alternativa descartada',
-              '<b>03 Construir</b> por hitos, con criterio de aceptación en cada uno',
-              '<b>04 Entregar</b>  traspaso al equipo, con lo que hay que saber para operarlo'],
-      casos:['<b>01 · Aislar el proveedor de IA detrás del dominio</b>',
-             '<span class="mut">Proyecto confidencial · industria 3D</span>',
-             'Clean Architecture y DDD en .NET, con el motor geométrico en un dominio puro.',
-             'Compromiso: más piezas que operar — bus de mensajes, workers, binarios aparte.',
-             '<b>02 · Partir la base por tenant antes que cambiar de motor</b>',
-             '<span class="mut">Plataforma SaaS</span>',
-             'Particionado por tenant y Redis como caché, con escrituras asíncronas por cola.',
-             'Compromiso: invalidación de caché más compleja y monitorización distribuida.',
-             '<span class="mut">Los dos completos, con alternativa y stack, en la sección Casos.</span>'],
-      escritos:['<b>01</b> Arquitectura backend para sistemas de validación 3D deterministas',
-                '<b>02</b> Control de concurrencia optimista en sistemas distribuidos',
-                '<b>03</b> Clean Architecture en .NET para sistemas de IA generativa',
-                '<b>04</b> FinOps para IA: cómo reducir la factura de OpenAI en Azure',
-                '<b>05</b> Cómo procesar masivamente modelos 3D sin colgar tu backend',
-                '<span class="mut">Once artículos en total. Son la muestra de trabajo, no relleno.</span>'],
-      sobre:['<b>Aitor Nain Mendoza Vallejo</b> · arquitecto backend',
-             'Diseña el backend de sistemas que procesan 3D e IA a escala, en .NET, y lleva la parte',
-             'que no puede fallar.',
-             '<span class="mut">Un arquitecto, no una agencia. Si necesitas un desarrollador a jornada completa, no es la persona.</span>'],
-      disponibilidad:['<b>Trabajo por encargos acotados</b>, no por dedicación completa.',
-                      'Auditoría, diseño de arquitectura o implementación por hitos.',
-                      'Un encargo a la vez, con alcance cerrado y fecha comprometida.'],
-      contacto:['<b>hola@naindev.com</b>',
-                '<b>github.com/Nain9Dev</b>',
-                '<span class="mut">Escribe <b>ir contacto</b> para ir al formulario.</span>'],
-      repo:['Este sitio es estático y su repositorio es público: se puede auditar antes de escribir',
-            'el primer correo. <b>github.com/Nain9Dev</b>'],
-      nf:function(c){ return ['<span class="mut">comando no encontrado: </span><b>'+c+'</b>',
-                              '<span class="mut">escribe <b>ayuda</b> para ver la lista</span>']; },
-      goto:function(n){ return ['<span class="mut">saltando a </span><b>'+n+'</b>']; },
-      nogoto:['<span class="mut">esa sección no existe. secciones: problema, servicios, metodo, casos, escritos, consola, sobre, contacto</span>']
-    },
-    en:{
-      banner:['<b>naindev · site console</b>',
-              '<span class="mut">Backend architecture for systems that process 3D and AI at scale.</span>',
-              '<span class="mut">Type <b>help</b> for the commands. ↑ recalls the last one, Tab completes.</span>'],
-      help:[{c:'services',d:'The three engagements on offer'},
-            {c:'stack',d:'What it is built with'},
-            {c:'method',d:'The four steps and their deliverable'},
-            {c:'cases',d:'Two decisions and what they cost'},
-            {c:'writing',d:'The articles, which are the work sample'},
-            {c:'about',d:'Who is behind it'},
-            {c:'availability',d:'How the work is scoped and what is free'},
-            {c:'contact',d:'Email and repository'},
-            {c:'repo',d:'The code of this site'},
-            {c:'go <section>',d:'Jump to that section of the page'},
-            {c:'clear',d:'Clear the console'}],
-      servicios:['<b>01 · Geometric validation</b>',
-                 'Deterministic rules over the mesh: normals, topology, manifold, scale and polygon',
-                 'budget. It returns a reproducible verdict, not an estimate.',
-                 '<b>02 · AI isolated from the domain</b>',
-                 'The model enters as an external vendor behind a contract. The domain keeps the rules',
-                 'and stays deterministic.',
-                 '<b>03 · Backend that holds</b>',
-                 'Concurrency, caching, partitioning, messaging and zero-downtime deployment.',
-                 '<span class="mut">Not included: front-end or continuously managed infrastructure.</span>'],
-      stack:['<b>.NET 8 · C#</b>        language and platform',
-             '<b>SQL Server · Redis</b> data and first-level cache',
-             '<b>RabbitMQ</b>           messaging between services',
-             '<b>Azure · Kubernetes</b> deployment',
-             '<b>ONNX</b>              models, always behind a contract',
-             '<span class="mut">Time zone EU · GMT+1.</span>'],
-      metodo:['<b>01 Scope</b>   what is in, what is out and when it is done',
-              '<b>02 Design</b>  decisions recorded as ADRs, with the discarded alternative',
-              '<b>03 Build</b>   by milestones, each with an acceptance criterion',
-              '<b>04 Hand over</b> to the team, with what they need to operate it'],
-      casos:['<b>01 · Isolate the AI vendor behind the domain</b>',
-             '<span class="mut">Confidential project · 3D industry</span>',
-             'Clean Architecture and DDD in .NET, with the geometry engine in a pure domain.',
-             'Trade-off: more moving parts — message bus, workers, separate binary storage.',
-             '<b>02 · Shard by tenant rather than change engines</b>',
-             '<span class="mut">SaaS platform</span>',
-             'Partitioning by tenant and Redis as a cache, with asynchronous writes over a queue.',
-             'Trade-off: more complex cache invalidation and distributed monitoring.',
-             '<span class="mut">Both in full, with alternative and stack, in the Case studies section.</span>'],
-      escritos:['<b>01</b> Backend architecture for deterministic 3D validation systems',
-                '<b>02</b> Optimistic concurrency control in distributed systems',
-                '<b>03</b> Clean Architecture in .NET for generative AI systems',
-                '<b>04</b> FinOps for AI: cutting the OpenAI bill on Azure',
-                '<b>05</b> Processing 3D models in bulk without hanging your backend',
-                '<span class="mut">Eleven articles in total. They are the work sample, not filler.</span>'],
-      sobre:['<b>Aitor Nain Mendoza Vallejo</b> · backend architect',
-             'Designs the backend of systems that process 3D and AI at scale, in .NET, and takes on',
-             'the part that cannot fail.',
-             '<span class="mut">One architect, not an agency. If you need a full-time developer, this is not the fit.</span>'],
-      disponibilidad:['<b>Scoped engagements</b>, not full-time dedication.',
-                      'Audit, architecture design or milestone implementation.',
-                      'One engagement at a time, with fixed scope and a committed date.'],
-      contacto:['<b>hola@naindev.com</b>',
-                '<b>github.com/Nain9Dev</b>',
-                '<span class="mut">Type <b>go contact</b> to jump to the form.</span>'],
-      repo:['This site is static and its repository is public: you can audit it before writing the',
-            'first email. <b>github.com/Nain9Dev</b>'],
-      nf:function(c){ return ['<span class="mut">command not found: </span><b>'+c+'</b>',
-                              '<span class="mut">type <b>help</b> for the list</span>']; },
-      goto:function(n){ return ['<span class="mut">jumping to </span><b>'+n+'</b>']; },
-      nogoto:['<span class="mut">no such section. sections: problema, servicios, metodo, casos, escritos, consola, sobre, contacto</span>']
-    }
+  var store = {
+    get: function (k) { try { return window.localStorage.getItem(k); } catch (e) { return null; } },
+    set: function (k, v) { try { window.localStorage.setItem(k, v); } catch (e) { /* bloqueado: no pasa nada */ } },
+    del: function (k) { try { window.localStorage.removeItem(k); } catch (e) { /* idem */ } }
   };
+  var reduceMQ = window.matchMedia('(prefers-reduced-motion: reduce)');
+  function lang() { return document.documentElement.lang === 'en' ? 'en' : 'es'; }
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
 
-  // alias -> clave
-  var ALIAS={ayuda:'help',help:'help',servicios:'servicios',services:'servicios',stack:'stack',
-             metodo:'metodo','método':'metodo',method:'metodo',casos:'casos',cases:'casos',
-             escritos:'escritos',writing:'escritos',articulos:'escritos','artículos':'escritos',
-             sobre:'sobre',about:'sobre',disponibilidad:'disponibilidad',availability:'disponibilidad',
-             contacto:'contacto',contact:'contacto',repo:'repo',github:'repo',
-             limpiar:'clear',clear:'clear',cls:'clear'};
-  var SEC={problema:'problema',servicios:'servicios',metodo:'metodo','método':'metodo',method:'metodo',
-           casos:'casos',cases:'casos',escritos:'escritos',writing:'escritos',consola:'consola',
-           console:'consola',sobre:'sobre',about:'sobre',contacto:'contacto',contact:'contacto'};
-
-  function line(html,cls){ var d=document.createElement('div'); if(cls) d.className=cls;
-    d.innerHTML=html; out.appendChild(d); }
-  function sep(){ var d=document.createElement('div'); d.className='sep'; out.appendChild(d); }
-  function blank(){ line('&nbsp;'); }
-  function scroll(){ out.scrollTop=out.scrollHeight; }
-
-  function banner(){ out.innerHTML=''; D[L()].banner.forEach(function(x){ line(x); }); scroll(); }
-
-  function help(){
-    D[L()].help.forEach(function(h){
-      line('<span>'+h.c+'</span><span class="mut">'+h.d+'</span>','row');
+  /* ----------------------------------------------------------
+     IDIOMA — en producción son dos rutas (/ y /en/). Aquí se
+     conmuta en el sitio para revisar las dos versiones.
+     ---------------------------------------------------------- */
+  var langListeners = [];
+  function setLang(l, persist) {
+    if (l !== 'es' && l !== 'en') return;
+    var root = document.documentElement;
+    root.lang = l;
+    var t = root.getAttribute('data-title-' + l);
+    if (t) document.title = t;
+    document.querySelectorAll('[data-lang]').forEach(function (b) {
+      b.setAttribute('aria-pressed', b.getAttribute('data-lang') === l ? 'true' : 'false');
     });
+    if (persist) store.set('naindev-lang', l);
+    langListeners.forEach(function (fn) { fn(l); });
   }
-
-  function run(raw){
-    var t=raw.trim(); if(!t) return;
-    line('<span class="mut">[aitor@naindev ~]$</span> <span class="cmd">'+t.replace(/[<>&]/g,'')+'</span>');
-    var parts=t.toLowerCase().split(/\s+/), c=parts[0], arg=parts[1];
-    var d=D[L()];
-    if(c==='ir'||c==='go'||c==='cd'){
-      var id=SEC[arg||''];
-      if(id){ d.goto(arg).forEach(function(x){line(x);});
-              var el=document.getElementById(id); if(el) el.scrollIntoView({behavior:'smooth'}); }
-      else d.nogoto.forEach(function(x){line(x);});
-      blank(); scroll(); return;
-    }
-    var key=ALIAS[c];
-    if(key==='clear'){ banner(); return; }
-    if(key==='help'){ help(); blank(); scroll(); return; }
-    if(key && d[key]){ d[key].forEach(function(x){ line(x); }); blank(); scroll(); return; }
-    d.nf(c.replace(/[<>&]/g,'')).forEach(function(x){ line(x); }); blank(); scroll();
-  }
-
-  function buildChips(){
-    chips.innerHTML='';
-    D[L()].help.slice(0,9).forEach(function(h){
-      var b=document.createElement('button'); b.type='button'; b.className='chip';
-      b.textContent=h.c.split(' ')[0];
-      b.addEventListener('click',function(){ run(b.textContent); inp.focus(); });
-      chips.appendChild(b);
-    });
-  }
-  function placeholder(){ inp.placeholder = inp.getAttribute('data-ph-'+L()); }
-
-  form.addEventListener('submit',function(e){ e.preventDefault();
-    var v=inp.value; if(!v.trim()) return; hist.unshift(v); hp=-1; run(v); inp.value=''; });
-
-  inp.addEventListener('keydown',function(e){
-    if(e.key==='ArrowUp'){ if(hist.length){ hp=Math.min(hp+1,hist.length-1); inp.value=hist[hp];
-      e.preventDefault(); } }
-    else if(e.key==='ArrowDown'){ if(hp>0){ hp--; inp.value=hist[hp]; } else { hp=-1; inp.value=''; }
-      e.preventDefault(); }
-    else if(e.key==='Tab'){
-      var v=inp.value.trim().toLowerCase(); if(!v) return;
-      var all=Object.keys(ALIAS).filter(function(k){ return k.indexOf(v)===0; });
-      if(all.length){ inp.value=all[0]; e.preventDefault(); }
-    }
+  document.querySelectorAll('[data-lang]').forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang'), true); });
   });
-  term.addEventListener('click',function(e){ if(e.target.tagName!=='A') inp.focus(); });
+  var q = /[?&]lang=(es|en)\b/.exec(window.location.search);
+  setLang(q ? q[1] : (store.get('naindev-lang') || 'es'), !!q);
 
-  window.naindevConsole={ reload:function(){ banner(); buildChips(); placeholder(); } };
-  banner(); buildChips(); placeholder();
+  /* ----------------------------------------------------------
+     MENÚ MÓVIL — diálogo modal: aria-expanded, foco atrapado,
+     Esc cierra y el foco vuelve al botón que lo abrió.
+     ---------------------------------------------------------- */
+  (function () {
+    var sheet = document.getElementById('sheet');
+    var opener = document.getElementById('menuOpen');
+    var closer = document.getElementById('menuClose');
+    if (!sheet || !opener) return;
+    var isOpen = false;
+    function focusables() {
+      return Array.prototype.filter.call(sheet.querySelectorAll('a[href],button:not([disabled])'),
+        function (n) { return n.offsetParent !== null; });
+    }
+    function open() {
+      isOpen = true;
+      sheet.hidden = false;
+      opener.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('menu-open');
+      var cur = sheet.querySelector('nav a[aria-current="page"]') || sheet.querySelector('nav a');
+      if (cur) cur.focus();
+    }
+    function close(returnFocus) {
+      if (!isOpen) return;
+      isOpen = false;
+      sheet.hidden = true;
+      opener.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('menu-open');
+      if (returnFocus !== false) opener.focus();
+    }
+    opener.addEventListener('click', open);
+    if (closer) closer.addEventListener('click', function () { close(); });
+    sheet.querySelectorAll('nav a, .foot a').forEach(function (a) {
+      a.addEventListener('click', function () { close(false); });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (!isOpen) return;
+      if (e.key === 'Escape') { e.preventDefault(); close(); return; }
+      if (e.key !== 'Tab') return;
+      var f = focusables();
+      if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && (document.activeElement === first || !sheet.contains(document.activeElement))) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && (document.activeElement === last || !sheet.contains(document.activeElement))) { e.preventDefault(); first.focus(); }
+    });
+    window.matchMedia('(min-width: 981px)').addEventListener('change', function (m) { if (m.matches) close(false); });
+    window.naindevMenu = { open: open, close: close };
+  })();
+
+  /* ----------------------------------------------------------
+     EL CAMPO DE TRAZOS — la única superficie animada.
+     Canvas 2D, sin librerías. Se detiene fuera de pantalla y con
+     la pestaña oculta; con movimiento reducido pinta un fotograma.
+     ---------------------------------------------------------- */
+  (function () {
+    var cv = document.getElementById('field');
+    if (!cv || !cv.getContext) return;
+    var ctx = cv.getContext('2d', { alpha: true });
+    var out = document.getElementById('breakCount');
+    var host = cv.parentNode;
+    var reduce = reduceMQ.matches;
+
+    var ANG = -52 * Math.PI / 180, DX = Math.cos(ANG), DY = Math.sin(ANG);
+    var LEN = 30, W = 0, H = 0, STEP = 26, cells = [], t = 0, mx = -9999, my = -9999, ripples = [], broken = 0, shown = 0;
+    var R = 210, MIN = 0.18;
+    var raf = 0, onScreen = true, last = 0, active = false;
+
+    function hash(i, j) { var n = Math.sin(i * 127.1 + j * 311.7) * 43758.5453; return n - Math.floor(n); }
+    function build() {
+      var dpr = Math.min(2, window.devicePixelRatio || 1);
+      W = cv.clientWidth; H = cv.clientHeight;
+      STEP = W < 760 ? 30 : 26;
+      cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      cells.length = 0;
+      for (var j = 0; j * STEP < H + STEP; j++) {
+        for (var i = 0; i * STEP < W + STEP; i++) {
+          cells.push({ x: i * STEP + ((j % 2) ? STEP / 2 : 0), y: j * STEP, h: hash(i, j), s: 1, v: 0 });
+        }
+      }
+    }
+    // Los trazos se agrupan por opacidad (11 niveles): un trazado y un stroke() por nivel en lugar de
+    // uno por trazo. Solo los trazos que toca el halo del clic se pintan sueltos, en rojo.
+    var BUCKETS = 11, paths = [];
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      ctx.lineCap = 'round';
+      ctx.lineWidth = 4;
+      var hx = DX * LEN / 2, hy = DY * LEN / 2, n = 0, hot = [];
+      for (var bI = 0; bI < BUCKETS; bI++) paths[bI] = [];
+      for (var k = 0; k < cells.length; k++) {
+        var c = cells[k];
+        var wave = reduce ? 0 : 0.17 * Math.sin(c.x * 0.0055 + c.y * 0.004 + t * 0.55);
+        var d = (c.x / W) * 1.15 - 0.04 + wave;
+        if (d < 0) d = 0; else if (d > 1) d = 1;
+        if (c.h > d) continue;
+        var push = 0, heat = 0;
+        if (!reduce) {
+          if (active) {
+            var dx = c.x - mx, dy = c.y - my, d2 = dx * dx + dy * dy;
+            if (d2 < R * R) { var u = 1 - Math.sqrt(d2) / R; push = u * u * (3 - 2 * u); }
+            for (var r = 0; r < ripples.length; r++) {
+              var Rp = ripples[r], rdx = c.x - Rp.x, rdy = c.y - Rp.y;
+              var rd = Math.abs(Math.sqrt(rdx * rdx + rdy * rdy) - Rp.r);
+              if (rd < 52) { var pv = (1 - rd / 52) * Rp.a, hv = pv * 1.9; if (pv > push) push = pv; if (hv > heat) heat = hv; }
+            }
+          }
+          if (push > 0 || c.s !== 1 || c.v !== 0) {
+            var target = 1 - (1 - MIN) * push;
+            c.v += (target - c.s) * (target < c.s ? 0.34 : 0.13);
+            c.v *= 0.74;
+            c.s += c.v;
+            if (c.s < MIN * 0.9) c.s = MIN * 0.9;
+            if (c.s > 1.06) c.s = 1.06;
+            if (Math.abs(c.s - 1) < 0.002 && Math.abs(c.v) < 0.002) { c.s = 1; c.v = 0; }
+            if (c.s < 0.92) n++;
+          }
+        }
+        var op = 0.26 + d * 0.74;
+        var ob = op + (1 - op) * (1 - c.s) * 1.4; if (ob > 1) ob = 1;
+        var x1 = c.x - hx * c.s, y1 = c.y - hy * c.s, x2 = c.x + hx * c.s, y2 = c.y + hy * c.s;
+        if (heat > 0.02) hot.push(x1, y1, x2, y2, heat > 1 ? 1 : heat, ob);
+        else paths[Math.round(ob * (BUCKETS - 1))].push(x1, y1, x2, y2);
+      }
+      ctx.strokeStyle = '#80FF00';
+      for (var q = 1; q < BUCKETS; q++) {
+        var pp = paths[q];
+        if (!pp.length) continue;
+        ctx.globalAlpha = q / (BUCKETS - 1);
+        ctx.beginPath();
+        for (var i = 0; i < pp.length; i += 4) { ctx.moveTo(pp[i], pp[i + 1]); ctx.lineTo(pp[i + 2], pp[i + 3]); }
+        ctx.stroke();
+      }
+      for (var h = 0; h < hot.length; h += 6) {
+        var kh = hot[h + 4];
+        ctx.globalAlpha = hot[h + 5];
+        ctx.strokeStyle = 'rgb(' + Math.round(128 + 127 * kh) + ',' + Math.round(255 - 255 * kh) + ',' + Math.round(31 * kh) + ')';
+        ctx.beginPath(); ctx.moveTo(hot[h], hot[h + 1]); ctx.lineTo(hot[h + 2], hot[h + 3]); ctx.stroke();
+      }
+      ctx.globalAlpha = 1;
+      broken = n;
+    }
+    // Sin interacción el campo solo respira (onda de 0,55 rad/s): basta con 20 fotogramas por segundo.
+    var skip = 0;
+    function frame(ts) {
+      raf = 0;
+      if (!active && broken === 0) { skip = (skip + 1) % 3; if (skip) { schedule(); return; } }
+      var dt = last ? Math.min(0.05, (ts - last) / 1000) : 0.016;
+      last = ts;
+      t += dt;
+      for (var i = ripples.length - 1; i >= 0; i--) {
+        ripples[i].r += 480 * dt; ripples[i].a -= 0.66 * dt;
+        if (ripples[i].a <= 0) ripples.splice(i, 1);
+      }
+      if (!ripples.length && mx < -999) active = false;
+      draw();
+      if (out) { shown += (broken - shown) * 0.18; out.textContent = ('000' + Math.round(shown)).slice(-4); }
+      schedule();
+    }
+    function running() { return !reduce && onScreen && !document.hidden; }
+    function schedule() { if (!raf && running()) raf = window.requestAnimationFrame(frame); }
+    function stop() { if (raf) { window.cancelAnimationFrame(raf); raf = 0; } last = 0; }
+    function still() { stop(); build(); draw(); if (out) out.textContent = '0000'; }
+
+    build();
+    if (reduce) draw(); else schedule();
+
+    window.addEventListener('resize', function () { build(); if (!running()) draw(); }, { passive: true });
+    document.addEventListener('visibilitychange', function () { if (document.hidden) stop(); else schedule(); });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        onScreen = entries[0].isIntersecting;
+        if (onScreen) schedule(); else stop();
+      }).observe(cv);
+    }
+    reduceMQ.addEventListener('change', function (m) { reduce = m.matches; if (reduce) still(); else schedule(); });
+    host.addEventListener('pointermove', function (e) {
+      var r = cv.getBoundingClientRect(); mx = e.clientX - r.left; my = e.clientY - r.top; active = true;
+    }, { passive: true });
+    host.addEventListener('pointerleave', function () { mx = -9999; my = -9999; active = ripples.length > 0; }, { passive: true });
+    host.addEventListener('pointerdown', function (e) {
+      if (reduce) return;
+      var r = cv.getBoundingClientRect();
+      if (ripples.length < 4) ripples.push({ x: e.clientX - r.left, y: e.clientY - r.top, r: 0, a: 1 });
+      active = true;
+    }, { passive: true });
+    window.naindevField = { running: function () { return !!raf; } };
+  })();
+
+  /* ----------------------------------------------------------
+     EL ISOTIPO — la N se pliega en un trazo y vuelve a abrirse.
+     Geometría medida del archivo: trazo 113 sobre lienzo de 1000.
+     ---------------------------------------------------------- */
+  (function () {
+    var host = document.getElementById('brandMark');
+    var Lk = document.getElementById('mkL'), Dg = document.getElementById('mkD'), Rk = document.getElementById('mkR');
+    if (!host || !Lk || !Dg || !Rk) return;
+    var N = { L: [148, 148, 148, 848], D: [308, 288, 686, 738], R: [848, 148, 848, 848] };
+    var B = { L: [500, 148, 500, 848], D: [500, 148, 500, 848], R: [500, 148, 500, 848] };
+    var DUR = 1150, playing = false, t0 = 0;
+    var OFF = { D: 0, L: 0.07, R: 0.13 }, OFF2 = { L: 0, R: 0.06, D: 0.13 };
+    var els = { L: Lk, D: Dg, R: Rk };
+    function clamp(v) { return v < 0 ? 0 : (v > 1 ? 1 : v); }
+    function easeInOut(x) { return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; }
+    function easeOutBack(x) { var c1 = 1.70158, c3 = c1 + 1; return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2); }
+    function setLine(n, a) { n.setAttribute('x1', a[0].toFixed(1)); n.setAttribute('y1', a[1].toFixed(1)); n.setAttribute('x2', a[2].toFixed(1)); n.setAttribute('y2', a[3].toFixed(1)); }
+    function mix(a, b, k) { var o = [], i; for (i = 0; i < 4; i++) o.push(a[i] + (b[i] - a[i]) * k); return o; }
+    function frame(ts) {
+      if (!t0) t0 = ts;
+      var p = (ts - t0) / DUR;
+      if (p >= 1) { setLine(Lk, N.L); setLine(Dg, N.D); setLine(Rk, N.R); playing = false; t0 = 0; return; }
+      ['L', 'D', 'R'].forEach(function (k) {
+        var v;
+        if (p < 0.46) v = mix(N[k], B[k], easeInOut(clamp((p - OFF[k] * 0.46) / (0.46 - OFF[k] * 0.46 * 0.6))));
+        else if (p < 0.54) v = B[k];
+        else v = mix(B[k], N[k], easeOutBack(clamp((p - 0.54 - OFF2[k] * 0.30) / (0.46 - OFF2[k] * 0.30))));
+        setLine(els[k], v);
+      });
+      window.requestAnimationFrame(frame);
+    }
+    function play() { if (playing || reduceMQ.matches) return; playing = true; t0 = 0; window.requestAnimationFrame(frame); }
+    host.addEventListener('mouseenter', play);
+    host.addEventListener('focus', play);
+  })();
+
+  /* ----------------------------------------------------------
+     LA CONSOLA — solo stack, servicios y contacto, con el mismo
+     texto que la página. La entrada del visitante se pinta con
+     textContent. El historial guarda comandos (JSON), no HTML, y
+     la salida se reconstruye a partir de ellos.
+     ---------------------------------------------------------- */
+  (function () {
+    var out = document.getElementById('termOut'), form = document.getElementById('termForm'),
+      inp = document.getElementById('termIn'), chips = document.getElementById('termChips'),
+      term = document.getElementById('term');
+    if (!out || !form || !inp) return;
+    var KEY = 'naindev-console';
+    var MAX = 20;
+    var CAL = 'https://calendly.com/aitornainmendozavallejo-ksez/30min';
+    var LI = 'https://www.linkedin.com/in/aitor-nain-mendoza-vallejo/';
+
+    // Una línea es una lista de piezas: texto plano, {b:texto}, {m:texto} o {a:url, t:texto}.
+    var D = {
+      es: {
+        banner: [[{ b: 'naindev · consola del sitio' }],
+                 [{ m: 'Escribe ' }, { b: 'ayuda' }, { m: ' para ver los comandos. ↑ recupera el anterior y Tab completa.' }]],
+        help: [['stack', 'Con qué trabajo, por áreas'], ['servicios', 'Las tres familias de servicios'],
+               ['contacto', 'Llamada, correo y LinkedIn'], ['ir <sección>', 'Salta a esa sección de la página'],
+               ['limpiar', 'Limpia la consola y su historial']],
+        stack: [[{ b: '>> BACKEND & DATOS' }], ['- Python (FastAPI, Pydantic v2, SQLAlchemy) y C# (.NET, ASP.NET)'], ['- PostgreSQL y SQL Server'],
+                [{ b: '>> FRONTEND' }], ['- Vue 3, TypeScript, Tailwind CSS, Astro y Three.js'],
+                [{ b: '>> IA & OPS' }], ['- MCP con humano en el bucle'], ['- Docker, GitHub Actions, Linux y Azure']],
+        servicios: [[{ b: '01 · Conformidad determinista y 3D' }],
+                    ['Arquitectura multidominio que valida cada producto contra especificaciones versionadas. El primer dominio son los modelos 3D.'],
+                    [{ b: '02 · IA generativa con revisión humana' }],
+                    ['Ecosistemas agénticos robustos para integrar modelos de IA en flujos corporativos.'],
+                    [{ b: '03 · Backend crítico en Python y .NET' }],
+                    ['Sistemas de misión crítica donde la consistencia del dato es innegociable, sobre PostgreSQL y SQL Server.'],
+                    [{ m: 'Quince páginas de servicio en total. Escribe ' }, { b: 'ir servicios' }, { m: ' para verlas.' }]],
+        contacto: [[{ m: 'Llamada   ' }, { a: CAL, t: 'Agendar llamada gratuita (Calendly)' }],
+                   [{ m: 'Email     ' }, { a: 'mailto:contact@naindev.com', t: 'contact@naindev.com' }],
+                   [{ m: 'LinkedIn  ' }, { a: LI, t: 'linkedin.com/in/aitor-nain-mendoza-vallejo' }],
+                   ['Acepto proyectos a tiempo parcial y en remoto para empresas de cualquier país.']],
+        nf: 'comando no encontrado: ', nfHint: 'escribe ayuda para ver la lista',
+        go: 'saltando a ', nogo: 'esa sección no existe. secciones: ',
+        prompt: 'escribe ayuda y pulsa intro'
+      },
+      en: {
+        banner: [[{ b: 'naindev · site console' }],
+                 [{ m: 'Type ' }, { b: 'help' }, { m: ' for the commands. ↑ recalls the last one and Tab completes.' }]],
+        help: [['stack', 'What I work with, by area'], ['services', 'The three service families'],
+               ['contact', 'Call, email and LinkedIn'], ['go <section>', 'Jump to that section of the page'],
+               ['clear', 'Clear the console and its history']],
+        stack: [[{ b: '>> BACKEND & DATA' }], ['- Python (FastAPI, Pydantic v2, SQLAlchemy) and C# (.NET, ASP.NET)'], ['- PostgreSQL and SQL Server'],
+                [{ b: '>> FRONTEND' }], ['- Vue 3, TypeScript, Tailwind CSS, Astro and Three.js'],
+                [{ b: '>> AI & OPS' }], ['- MCP with human-in-the-loop'], ['- Docker, GitHub Actions, Linux and Azure']],
+        servicios: [[{ b: '01 · Deterministic conformance and 3D' }],
+                    ['A multi-domain architecture that validates each product against versioned specifications. The first domain is 3D models.'],
+                    [{ b: '02 · Generative AI with human review' }],
+                    ['Robust agentic ecosystems to integrate AI models into corporate workflows.'],
+                    [{ b: '03 · Critical backend in Python and .NET' }],
+                    ['Mission-critical systems where data consistency is non-negotiable, on PostgreSQL and SQL Server.'],
+                    [{ m: 'Fifteen service pages in total. Type ' }, { b: 'go services' }, { m: ' to see them.' }]],
+        contacto: [[{ m: 'Call      ' }, { a: CAL, t: 'Book a free call (Calendly)' }],
+                   [{ m: 'Email     ' }, { a: 'mailto:contact@naindev.com', t: 'contact@naindev.com' }],
+                   [{ m: 'LinkedIn  ' }, { a: LI, t: 'linkedin.com/in/aitor-nain-mendoza-vallejo' }],
+                   ['I take on part-time, remote projects for companies in any country.']],
+        nf: 'command not found: ', nfHint: 'type help for the list',
+        go: 'jumping to ', nogo: 'no such section. sections: ',
+        prompt: 'type help and press enter'
+      }
+    };
+    var ALIAS = { ayuda: 'help', help: 'help', '?': 'help', stack: 'stack', servicios: 'servicios', services: 'servicios',
+                  contacto: 'contacto', contact: 'contacto', limpiar: 'clear', clear: 'clear', cls: 'clear' };
+    var SEC = { problema: 'problema', problem: 'problema', servicios: 'servicios', services: 'servicios',
+                metodo: 'metodo', 'método': 'metodo', method: 'metodo', proyectos: 'proyectos', projects: 'proyectos',
+                casos: 'casos', cases: 'casos', escritos: 'escritos', writing: 'escritos', checklist: 'checklist',
+                consola: 'consola', console: 'consola', sobre: 'sobre', about: 'sobre', contacto: 'contacto', contact: 'contacto' };
+    var SEC_LIST = { es: 'problema, servicios, metodo, proyectos, casos, escritos, checklist, consola, sobre, contacto',
+                     en: 'problem, services, method, projects, cases, writing, checklist, console, about, contact' };
+
+    var hist = [], hp = -1;
+    function load() {
+      var raw = store.get(KEY);
+      if (!raw) return [];
+      try {
+        var d = JSON.parse(raw);
+        if (!d || d.v !== 1 || !Array.isArray(d.cmds)) return [];
+        return d.cmds.filter(function (c) { return typeof c === 'string' && c.length <= 80; }).slice(-MAX);
+      } catch (e) { return []; }
+    }
+    function save() { store.set(KEY, JSON.stringify({ v: 1, cmds: hist.slice(-MAX) })); }
+
+    function piece(p) {
+      if (typeof p === 'string') return document.createTextNode(p);
+      if (p.b != null) return el('b', null, p.b);
+      if (p.m != null) return el('span', 'mut', p.m);
+      if (p.a) {
+        var a = el('a', null, p.t);
+        a.href = p.a;
+        if (/^https:/.test(p.a)) { a.target = '_blank'; a.rel = 'noopener noreferrer'; }
+        return a;
+      }
+      return document.createTextNode('');
+    }
+    function line(parts, cls) {
+      var d = el('div', cls || null);
+      parts.forEach(function (p) { d.appendChild(piece(p)); });
+      out.appendChild(d);
+    }
+    function blank() { line([' ']); }
+    function scrollEnd() { out.scrollTop = out.scrollHeight; }
+    function banner() {
+      while (out.firstChild) out.removeChild(out.firstChild);
+      D[lang()].banner.forEach(function (x) { line(x); });
+    }
+    function echo(raw) {
+      var d = el('div');
+      d.appendChild(el('span', 'mut', '[aitor@naindev ~]$ '));
+      d.appendChild(el('span', 'cmd', raw));          // textContent: lo escrito se ve, no se interpreta
+      out.appendChild(d);
+    }
+    function run(raw, replay) {
+      var t = String(raw).trim().slice(0, 80);
+      if (!t) return;
+      echo(t);
+      var parts = t.toLowerCase().split(/\s+/), c = parts[0], arg = parts[1] || '';
+      var d = D[lang()];
+      if (c === 'ir' || c === 'go' || c === 'cd') {
+        var id = SEC[arg];
+        if (id && document.getElementById(id)) {
+          line([{ m: d.go }, { b: arg }]);
+          if (!replay) document.getElementById(id).scrollIntoView({ behavior: reduceMQ.matches ? 'auto' : 'smooth' });
+        } else {
+          line([{ m: d.nogo + SEC_LIST[lang()] }]);
+        }
+      } else {
+        var key = ALIAS[c];
+        if (key === 'clear') { hist = []; save(); banner(); return; }
+        if (key === 'help') d.help.forEach(function (h) { line([{ b: h[0] }, { m: h[1] }], 'trow'); });
+        else if (key && d[key]) d[key].forEach(function (x) { line(x); });
+        else { line([{ m: d.nf }, c]); line([{ m: d.nfHint }]); }
+      }
+      blank();
+      scrollEnd();
+    }
+    function rebuild() {
+      banner();
+      hist.forEach(function (c) { run(c, true); });
+      scrollEnd();
+    }
+    function buildChips() {
+      while (chips.firstChild) chips.removeChild(chips.firstChild);
+      D[lang()].help.forEach(function (h) {
+        var name = h[0].split(' ')[0];
+        if (name === 'ir' || name === 'go') return;
+        var b = el('button', 'chip', name);
+        b.type = 'button';
+        b.addEventListener('click', function () { submit(name); inp.focus(); });
+        chips.appendChild(b);
+      });
+    }
+    function submit(v) {
+      v = String(v).trim().slice(0, 80);
+      if (!v) return;
+      var isClear = ALIAS[v.toLowerCase()] === 'clear';
+      run(v, false);
+      if (!isClear) { hist.push(v); if (hist.length > MAX) hist.shift(); save(); }
+      hp = -1;
+    }
+    form.addEventListener('submit', function (e) { e.preventDefault(); submit(inp.value); inp.value = ''; });
+    inp.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowUp') {
+        if (hist.length) { hp = Math.min(hp + 1, hist.length - 1); inp.value = hist[hist.length - 1 - hp]; }
+        e.preventDefault();
+      } else if (e.key === 'ArrowDown') {
+        if (hp > 0) { hp--; inp.value = hist[hist.length - 1 - hp]; } else { hp = -1; inp.value = ''; }
+        e.preventDefault();
+      } else if (e.key === 'Tab') {
+        var v = inp.value.trim().toLowerCase();
+        if (!v) return;
+        var all = Object.keys(ALIAS).filter(function (k) { return k.indexOf(v) === 0; });
+        if (all.length) { inp.value = all[0]; e.preventDefault(); }
+      }
+    });
+    if (term) term.addEventListener('click', function (e) {
+      if (e.target.closest('a') || (window.getSelection && String(window.getSelection()))) return;
+      inp.focus({ preventScroll: true });
+    });
+    function placeholder() { inp.placeholder = D[lang()].prompt; }
+
+    hist = load();
+    rebuild(); buildChips(); placeholder();
+    langListeners.push(function () { rebuild(); buildChips(); placeholder(); });
+    window.naindevConsole = { run: submit };
+  })();
+
+  /* ----------------------------------------------------------
+     PROYECTOS — filtros y "ver todos". Sin JavaScript se ven
+     todos los proyectos y no aparecen los controles.
+     ---------------------------------------------------------- */
+  (function () {
+    var list = document.getElementById('projList');
+    if (!list) return;
+    var bar = document.querySelector('.pfilters');
+    var more = document.getElementById('projMore');
+    var count = document.getElementById('projCount');
+    var cards = Array.prototype.slice.call(list.querySelectorAll('.proj'));
+    var filter = 'all', expanded = false;
+    function apply() {
+      var shown = 0;
+      cards.forEach(function (c) {
+        var cats = (c.getAttribute('data-cats') || '').split(' ');
+        var match = filter === 'all' || cats.indexOf(filter) >= 0;
+        var visible = match && (expanded || filter !== 'all' || !c.hasAttribute('data-extra'));
+        c.hidden = !visible;
+        if (visible) shown++;
+      });
+      if (count) count.textContent = lang() === 'en' ? shown + ' of ' + cards.length + ' projects' : shown + ' de ' + cards.length + ' proyectos';
+      if (more) {
+        more.hidden = expanded || filter !== 'all';
+        more.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      }
+    }
+    if (bar) {
+      bar.hidden = false;
+      bar.querySelectorAll('[data-filter]').forEach(function (b) {
+        b.addEventListener('click', function () {
+          filter = b.getAttribute('data-filter');
+          bar.querySelectorAll('[data-filter]').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+          apply();
+        });
+      });
+    }
+    if (more) more.addEventListener('click', function () {
+      expanded = true; apply();
+      var first = cards.filter(function (c) { return c.hasAttribute('data-extra'); })[0];
+      if (first) { first.setAttribute('tabindex', '-1'); first.focus(); }
+    });
+    langListeners.push(apply);
+    apply();
+  })();
+
+  /* ----------------------------------------------------------
+     AVISO DE PRIVACIDAD — se cierra y se recuerda en este
+     navegador. Sin almacenamiento disponible, vuelve a salir.
+     ---------------------------------------------------------- */
+  (function () {
+    var b = document.getElementById('pbanner'), x = document.getElementById('pbannerClose');
+    if (!b) return;
+    function hide() { b.hidden = true; document.body.classList.remove('has-banner'); }
+    if (store.get('naindev-privacy-closed') === '1' && !/[?&]banner=1\b/.test(window.location.search)) { hide(); return; }
+    document.body.classList.add('has-banner');
+    if (x) x.addEventListener('click', function () { hide(); store.set('naindev-privacy-closed', '1'); });
+  })();
 })();
-
-// Idioma — en producción son dos rutas (/ y /en/); aquí se conmuta para poder revisar las dos.
-function setLang(l){
-  document.documentElement.lang=l;
-  document.querySelectorAll('[data-lang]').forEach(b=>b.setAttribute('aria-pressed', b.dataset.lang===l?'true':'false'));
-  if(window.naindevConsole) window.naindevConsole.reload();
-  try{localStorage.setItem('naindev-lang',l)}catch(e){}
-}
-document.querySelectorAll('[data-lang]').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
-try{const s=localStorage.getItem('naindev-lang'); if(s) setLang(s)}catch(e){}
-
-// Menú móvil — foco atrapado, cierre con escape, con el botón y al elegir destino.
-const sheet=document.getElementById('sheet');
-const openers=document.querySelectorAll('.top .burger');
-let lastFocus=null;
-function openSheet(){
-  lastFocus=document.activeElement;
-  sheet.dataset.open='true';
-  openers.forEach(b=>b.setAttribute('aria-expanded','true'));
-  document.body.style.overflow='hidden';
-  sheet.querySelector('nav a').focus();
-}
-function closeSheet(){
-  sheet.dataset.open='false';
-  openers.forEach(b=>b.setAttribute('aria-expanded','false'));
-  document.body.style.overflow='';
-  if(lastFocus) lastFocus.focus();
-}
-openers.forEach(b=>b.addEventListener('click',openSheet));
-sheet.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',closeSheet));
-sheet.querySelectorAll('nav a, .foot a').forEach(a=>a.addEventListener('click',closeSheet));
-document.addEventListener('keydown',e=>{
-  if(sheet.dataset.open!=='true') return;
-  if(e.key==='Escape'){closeSheet();return}
-  if(e.key!=='Tab') return;
-  const f=[...sheet.querySelectorAll('a[href],button')].filter(el=>el.offsetParent!==null);
-  if(!f.length) return;
-  const first=f[0], last=f[f.length-1];
-  if(e.shiftKey && document.activeElement===first){e.preventDefault();last.focus()}
-  else if(!e.shiftKey && document.activeElement===last){e.preventDefault();first.focus()}
-});
