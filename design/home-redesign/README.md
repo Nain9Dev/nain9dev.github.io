@@ -19,7 +19,7 @@ Designer: David (`davidesuarez`)
 | `brandbook-addendum.md` | Brandbook addendum v1.1: motion. A proposal for Aitor |
 | `assets/nain.js` | Language switch, mobile menu, hero field, console, project filters, privacy notice |
 | `assets/boot.js` | Runs before the first paint: turns construction motion on (unless reduced motion is asked) and preloads the fonts |
-| `assets/motion.js` | Section entrance, the pattern built from its seed, the diagram replay, the mark spring, the LAB buttons |
+| `assets/motion.js` | Section entrance, the pattern built from its seed, the diagram replay, the mark's fold on hover, the pause of the agenda loop off screen, the LAB buttons |
 | `assets/fix.js` + `assets/fix.data.js` | FIX mode, described below |
 | `assets/fonts/` | Urbanist and IBM Plex Mono, WOFF2, Latin subset, with their OFL licences |
 | `assets/trama.svg` | The static stroke pattern, shown where a pattern block has not been built yet |
@@ -264,7 +264,7 @@ page is in [`exports/`](exports/).
 | # | Where | What fails | Rule that fixes it | What was done |
 | :-- | :--- | :--- | :--- | :--- |
 | 1 | Home, sections 2 to 10, both widths | Eight of the nine content sections sit on the same paper, six of them in a row (projects, cases, writing, checklist, console, about). Chapters are only told apart by a thin rule, so the home reads as one long column | 03 Color, "Las superficies": one surface per section; sunken paper is the second paper | Paper and sunken paper alternate. Deep blue stays on method and contact |
-| 2 | Inner page heads at 1440: services, service, cases, writing, contact | The H1 and the lede fill the left 60 %. The right 40 % is empty paper and the head looks unfinished | 7.2 The pattern: a bounded block that stands where a photo would go, at least 240 × 160 px, one per view, never behind text | A pattern block in the right column of each head, with its own seed per page. It builds once (addendum) and has a measuring dimension under the head |
+| 2 | Inner page heads at 1440: services, service, cases, writing, contact | The H1 and the lede fill the left 60 %. The right 40 % is empty paper and the head looks unfinished | 7.9 The mark in motion, and the 7.5 quota of one living surface per page | A first fix put a pattern block there; David preferred the mark. The right column now carries the mark that becomes an agenda: the N folds into one stroke (the 7.9 gesture), the stroke becomes the header line of an agenda, the agenda draws itself and folds back into the N, every 8 s. It is the page's only living surface, stops off screen, and is a still agenda with reduced motion. A measuring dimension runs under the head |
 | 3 | Home, problem diagram at 390 | The desktop diagram is scaled down to the phone width. Box labels are about 6 px and overflow their boxes | 7.4 The diagram: drawn for its frame, labels in Plex Mono at label size; 05 stroke weights | A vertical version for narrow screens, laid out again so every label fits its box at 12 px |
 | 4 | Home hero at 390 | The kicker "Aitor Nain Mendoza Vallejo · Arquitecto de software full stack" wraps to three lines of tracked capitals | 04 Typography: brand register for the name, data label for everything else | The name stays in the brand register on its own line, and the role becomes a Plex Mono data label |
 | 5 | Home hero at 390 | "Agendar llamada gratuita" comes after the lede and the stack row, more than a screen down | 08 Applied system: the header and hero lead with the call to action | On narrow screens the actions come right after the H1, then the lede and the stack |
@@ -300,7 +300,8 @@ The rules are in [`brandbook-addendum.md`](brandbook-addendum.md). Three classes
 - **Construction.** It plays once when an element enters the screen and ends still. It lasts at
   most 1.2 s.
 - **Response.** It plays only while the visitor acts, and returns to rest on the 7.5 spring.
-- **Living surface.** This is the 7.5 quota: one per page, the hero field. `?vivo=0` turns it off.
+- **Living surface.** This is the 7.5 quota, one per page: the hero field on the home, and the mark
+  that becomes an agenda in the head of inner pages. Both stop off screen. `?vivo=0` turns them off.
 
 **Classes.** The markup carries the whole system. No JavaScript runs per frame for construction.
 
@@ -313,7 +314,8 @@ The rules are in [`brandbook-addendum.md`](brandbook-addendum.md). Three classes
 | `.brk` | The interruption that opens (7.1) |
 | `.trama-blk data-seed data-ink data-dir` | The pattern that builds. `motion.js` draws it from its seed into an SVG, about 900 ms by density, and then it stays static |
 | `figure[data-replay]` | The diagram that runs. The pulse stops at the gap and the label appears. It plays again on hover and focus |
-| `#brandMark` | The mark builds once per browser session (600 ms). On hover it contracts and springs back (7.5) |
+| `#brandMark` | The mark builds once per browser session (600 ms). On hover the N folds into one stroke and opens again (7.9, as in round 2) |
+| `.ph-agd` | The mark that becomes an agenda, in the head of inner pages. CSS keyframes, 8 s loop; `motion.js` only adds `.on` while it is on screen. At rest, with reduced motion or `?vivo=0`, it is a still agenda |
 
 Every piece uses `cubic-bezier(.22,1,.36,1)` and animates only `transform`, `opacity`, `clip-path`
 and SVG stroke offsets. All motion CSS hangs from `html.mo`, which `assets/boot.js` sets before the
@@ -336,8 +338,8 @@ The page generator does steps 2 and 3 on its own.
 | :--- | :--- |
 | No animation frames when nothing moves | 0 animation frames in the 3 s after 3 s at rest, on all 9 pages, with the hero off screen. With reduced motion, 0 frames and 0 running animations |
 | Hero canvas | DPR capped at 2, and 1 under 760 px wide (on a phone the field only shows around the opaque card; this halves the raster cost of each frame). Stops off screen and with the tab hidden. 20 fps while it only breathes. No `shadowBlur` |
-| New JavaScript under 12 KB gz | 3.74 KB gz: `boot.js` 711 B + `motion.js` 3121 B |
-| No long task over 50 ms while loading or scrolling (390 px, 4× CPU, measured with CDP) | After the first paint: 0 long tasks while loading and 0 while scrolling, on all 9 pages. **Not met before the first paint:** the one task that parses the HTML and lays out the page takes up to 93 ms (6 of 9 pages are over 50 ms). Nothing is on screen yet, so it delays the first paint rather than blocking an interaction. It went down from 160–257 ms in round 3's first build, and the check reports it apart. Getting it under 50 ms means a smaller first screen of HTML (for example, the 19 project cards rendered on demand) |
+| New JavaScript under 12 KB gz | 4.19 KB gz: `boot.js` 711 B + `motion.js` 3581 B |
+| No long task over 50 ms while loading or scrolling (390 px, 4× CPU, measured with CDP) | After the first paint: 0 long tasks while loading and 0 while scrolling, on all 9 pages. **Not met before the first paint:** the one task that parses the HTML and lays out the page takes up to 97 ms (7 of 9 pages are over 50 ms). Nothing is on screen yet, so it delays the first paint rather than blocking an interaction. It went down from 160–257 ms in round 3's first build, and the check reports it apart. Getting it under 50 ms means a smaller first screen of HTML (for example, the 19 project cards rendered on demand) |
 | Grids | Every `fr` track is `minmax(0,1fr)`, and grid children have `min-width:0` |
 | Touch | `touch-action: pan-y` on the hero, so the field never traps the scroll |
 | iOS 15 | ES5 in `boot.js` and `motion.js`. No import maps, no modules, no APIs newer than Safari 15 |
@@ -449,29 +451,30 @@ PASS  10. Reduced motion: final state, no animation frames
         9 pages: no motion class, 0 animation frames, 0 running animations, every section built
 PASS  11. Motion budget: idle loop, long tasks, JavaScript weight
         assets/boot.js 711 B gz
-        assets/motion.js 3121 B gz
-        new JavaScript this round: 3.74 KB gz (budget 12 KB)
+        assets/motion.js 3581 B gz
+        new JavaScript this round: 4.19 KB gz (budget 12 KB)
         fr tracks in the stylesheet without minmax(0,…) before overrides: 27
+        agenda loop in the page heads: running on screen, paused off screen, still with ?vivo=0
         9 pages: 0 animation frames in the 3 s after 3 s at rest with the hero off screen; every section built after scrolling
         390 px, DPR 2, 4× CPU via CDP, scroll at 3000 px/s. Longest task in ms — first render (parse and first layout, before first paint) / after first paint / scrolling:
-          articulo.html                   83 /   0 /   0
-          casos.html                      79 /   0 /   0
+          articulo.html                   90 /   0 /   0
+          casos.html                      61 /   0 /   0
           contacto.html                    0 /   0 /   0
-          escritos.html                    0 /   0 /   0
-          index.html                      93 /   0 /   0
-          lab.html                        81 /   0 /   0
-          servicio-validacion-3d.html      0 /   0 /  50
-          servicios.html                  92 /   0 /   0
-          tecnologia.html                 60 /   0 /   0
+          escritos.html                   52 /   0 /   0
+          index.html                      97 /   0 /   0
+          lab.html                        52 /   0 /   0
+          servicio-validacion-3d.html     68 /   0 /   0
+          servicios.html                   0 /   0 /   0
+          tecnologia.html                 70 /   0 /   0
         hero canvas: backing ratio 1.00 on a DPR 3 phone, touch-action pan-y, stops with the tab hidden; no shadowBlur in the code: true
 PASS  12. Secret scan of the files to upload
-        321 files in the upload set, 21 text files scanned by pattern
+        293 files in the upload set, 21 text files scanned by pattern
         gitleaks: no leaks found
-        commits ahead of the remote: 1
+        commits ahead of the remote: 0
 PASS  13. Exports
         240 section captures in exports/ (390 and 1440 px, ES and EN), 8.5 MB, quantised to 256 colours
 
-PASS: 13 of 13 checks · 334 s
+PASS: 13 of 13 checks · 335 s
 ```
 
 Not in the script, run by hand this round: **axe-core 4.11.0, WCAG 2.2 AA, 0 violations in 36 runs**
@@ -715,7 +718,8 @@ No icon library, no image bank, no CDN, no third-party script.
 12. **Brandbook addendum v1.1 (motion).** Do you approve [`brandbook-addendum.md`](brandbook-addendum.md)?
     It adds two kinds of motion that end still (construction and response) and keeps the one-living-
     surface quota. It also amends three texts: 7.2 (the pattern may build once), 7.5 ("the only living
-    surface") and 7.9 (the mark's hover uses the 7.5 contraction).
+    surface", one per page) and 7.9 (the fold also drives the loop in the head of inner pages, where
+    the mark becomes an agenda; the hover gesture does not change).
 
 ## Design checklist before asking for review
 
