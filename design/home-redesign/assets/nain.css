@@ -450,3 +450,223 @@ pre.panel .c{color:var(--green)}
   html{scroll-behavior:auto}
   *,*:before,*:after{transition:none!important;animation:none!important}
 }
+
+/* ============================================================
+   ROUND 3 · layout fixes from the visual critique
+   ============================================================ */
+/* grids never push the page wider than the screen */
+.grid{grid-template-columns:minmax(0,2fr) minmax(0,1fr)}
+.cards{grid-template-columns:repeat(3,minmax(0,1fr))}
+.projs{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pair2,.deliv{grid-template-columns:repeat(2,minmax(0,1fr))}
+.contact{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}
+.svc{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr)}
+.chgrid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.cards>*,.projs>*,.pair2>*,.svc>*,.contact>*,.grid>*,.chgrid>*{min-width:0}
+/* W4 · hero: name in the brand register, role as a data label, then the H1 */
+.heroCard{display:flex;flex-direction:column}
+.heroCard .kick{margin-bottom:var(--s1)}
+.heroCard .role{margin-bottom:var(--s6)}
+.heroCard .lede{margin-top:var(--s6)}
+/* W2 · page heads: a 7.2 block where the paper was empty */
+.ph-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,340px);gap:var(--s12);align-items:stretch}
+.ph-trama{min-height:200px;border-radius:var(--radius);background-color:var(--paper)}
+/* W11 · footer: the pattern as a bounded block, not a strip */
+footer .fhead{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--s8)}
+.ftrama{width:min(360px,60%);height:160px;flex:none}
+/* W12 · services: a flow diagram in the empty side column */
+.svc-side{display:flex;flex-direction:column}
+.flow{width:100%;max-width:300px;height:auto;margin-top:var(--s6);color:var(--blue);overflow:visible}
+.flow .fl-t{font-size:11px;fill:var(--blue-2)}
+.on-sunken .flow .fl-t{fill:var(--blue-2)}
+/* W9 · project cards: production marker and the 7.7 response */
+.pmark{display:inline-block;width:14px;height:2px;margin-right:8px;vertical-align:middle;border-radius:var(--cap);background:var(--blue-3)}
+.is-prod .pmark{height:4px;background:var(--blue)}
+.proj{transition:box-shadow .14s ease-out,border-color .14s ease-out}
+.proj:hover,.proj:focus-within{box-shadow:6px 6px 0 var(--blue);border-color:var(--blue-2)}
+/* checklist: text and its pattern block */
+.checkbox{grid-template-columns:minmax(0,1fr) minmax(240px,320px);align-items:stretch;background:var(--surface)}
+.check-trama{min-height:180px;border-radius:var(--radius)}
+/* the 7.2 block before it is built (or without script) */
+.trama-blk{position:relative;overflow:hidden}
+.trama-blk:not(.built){background:url("trama.svg") left center/auto 100% repeat-x}
+.trama-blk svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.ph-trama:not(.built),.check-trama:not(.built){background-color:var(--blue-deep)}
+.ph-trama.built,.check-trama.built{background:var(--surface-sunken)}
+.on-sunken .check-trama.built{background:var(--paper)}
+/* W7 · the 7.1 interruption, with its label */
+.brk2{display:flex;align-items:center;gap:var(--s3);margin-top:var(--s6);max-width:none}
+.brk-l{position:relative;display:block;width:96px;height:4px;flex:none}
+.brk-l i{position:absolute;top:0;width:calc(50% - 12px);height:4px;border-radius:var(--cap);background:var(--blue)}
+.brk-l i:first-child{left:0}
+.brk-l i:last-child{right:0}
+.brk-t{font-size:11px;font-weight:500;letter-spacing:var(--track-label);text-transform:uppercase;color:var(--blue-2)}
+.on-deep .brk-l i{background:var(--green)}
+.on-deep .brk-t{color:var(--on-deep-soft)}
+.case dd .brk2{margin-top:var(--s2)}
+/* W6 · the 7.3 dimension that points: a label in Plex Mono */
+.cota-w{position:relative;margin-top:var(--s8)}
+.cota-w .cota{margin-top:0}
+.cota-lbl{position:absolute;right:0;bottom:12px;font-size:11px;font-weight:500;letter-spacing:var(--track-label);color:var(--blue);white-space:nowrap}
+.on-deep .cota-lbl{color:var(--green)}
+.cota-lbl>span{display:inline-block}
+/* the diagram that runs */
+.diagram{cursor:default}
+.diagram .pl{opacity:0}
+.diagram:focus-visible{outline:2px solid var(--green);outline-offset:4px}
+/* the mesh that validates */
+.meshfig{margin:0}
+.meshfig:focus-visible{outline:2px solid var(--blue);outline-offset:6px}
+.mesh-box{background:var(--blue-deep);border-radius:var(--radius);padding:var(--s8);box-shadow:22px 22px 0 var(--brand-black)}
+.mesh{width:100%;height:auto;display:block;touch-action:manipulation}
+.m-e,.m-n{vector-effect:non-scaling-stroke}
+.m-leg{list-style:none;padding:0;margin:var(--s12) 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s6)}
+.m-leg li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:var(--s2) var(--s3);align-items:center}
+.m-leg .m-k{font-size:12px;font-weight:500;letter-spacing:var(--track-label);color:var(--blue-deep)}
+.m-leg .m-k b{font-weight:500}
+.m-leg .m-d{grid-column:2;font-size:15px;color:var(--blue-deep)}
+.m-cap{font-size:14px;color:var(--blue-2);margin-top:var(--s6);max-width:68ch}
+/* the hero accepts vertical scrolling on touch screens */
+.hero{touch-action:pan-y}
+/* footer links: the dimension underline */
+footer .fcols li a{position:relative;text-decoration:none}
+footer .fcols li a:after,nav.main a:after{content:"";position:absolute;left:0;right:0;height:2px;border-radius:var(--cap);background:currentColor;transform:scaleX(0);transform-origin:left}
+footer .fcols li a:after{bottom:6px}
+nav.main a:after{bottom:4px}
+nav.main a[aria-current="page"]:after{transform:none;background:var(--blue)}
+nav.main a:hover:after,nav.main a:focus-visible:after,footer .fcols li a:hover:after,footer .fcols li a:focus-visible:after{transform:none}
+.mo nav.main a:after,.mo footer .fcols li a:after{transition:transform .35s var(--ease)}
+
+@media (max-width:980px){
+  .grid,.contact,.cards,.svc,.deliv,.pair2,.projs{grid-template-columns:minmax(0,1fr)}
+  .chgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ph-grid{grid-template-columns:minmax(0,1fr)}
+  .ph-trama{min-height:160px}
+  .checkbox{grid-template-columns:minmax(0,1fr)}
+  .mesh-box{padding:var(--s4);box-shadow:12px 12px 0 var(--brand-black);margin-right:12px}
+  .m-leg{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:600px){
+  .chgrid{grid-template-columns:minmax(0,1fr)}
+  /* W5 · the call action right under the H1 on phones */
+  .heroCard .cta{order:3;margin:var(--s6) 0 0}
+  .heroCard .lede{order:4}
+  .heroCard .facts{order:5}
+  .heroCard .avail{order:6}
+  .heroCard h1{order:2}
+  .ph-trama{display:none}
+  footer .fhead{flex-direction:column}
+  .ftrama{width:100%}
+  .cota-lbl{position:static;display:block;margin-top:var(--s3);text-align:right}
+}
+
+/* ============================================================
+   MOTION · brandbook addendum 1.1
+   Everything below only applies under html.mo (set by boot.js when
+   the visitor has not asked for reduced motion). Without it, every
+   element is in its final state.
+   ============================================================ */
+:root{--ease:cubic-bezier(.22,1,.36,1);--step:85ms;--dur:600ms}
+/* — construction: section entrance — */
+.mo .apar .cae{opacity:0;transform:translateY(18px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);transition-delay:calc(var(--o,0) * var(--step))}
+.mo .apar .masc{display:block;clip-path:inset(0 -100vw)}
+.mo .apar .linea{display:block;transform:translateY(-112%);transition:transform var(--dur) var(--ease);transition-delay:calc(var(--o,0) * var(--step))}
+.mo .apar.aparece .cae,.mo .apar.aparece .linea{opacity:1;transform:none}
+/* — construction: the dimension measures (7.3) — */
+.mo .apar .cota{transform:scaleX(0);transform-origin:left;transition:transform var(--dur) var(--ease);transition-delay:calc(var(--o,0) * var(--step))}
+.mo .apar .cota i{transform:scaleY(0);transition:transform .2s var(--ease);transition-delay:calc(var(--o,0) * var(--step) + var(--ti,0) * 90ms + 120ms)}
+.cota i:nth-child(2){--ti:1} .cota i:nth-child(3){--ti:2} .cota i:nth-child(4){--ti:3} .cota i:nth-child(5){--ti:4}
+.mo .apar .cota-lbl>span{clip-path:inset(0 100% 0 0);transition:clip-path min(600ms, calc(var(--n,10) * 32ms)) steps(var(--n,10),end);transition-delay:calc(var(--o,0) * var(--step) + 320ms)}
+.mo .apar.aparece .cota,.mo .apar.aparece .cota i{transform:none}
+.mo .apar.aparece .cota-lbl>span{clip-path:inset(0 0 0 0)}
+/* — construction: the interruption opens (7.1) — variant a: draw, then open — */
+.mo [data-brk] .apar .brk-l{transform:scaleX(0);transform-origin:left}
+.mo [data-brk] .apar .brk-t{opacity:0}
+.mo [data-brk="a"] .apar.aparece .brk-l{animation:brkDraw .35s var(--ease) both;animation-delay:calc(var(--o,0) * var(--step))}
+.mo [data-brk="a"] .apar.aparece .brk-l i:first-child{animation:brkOpenL .3s var(--ease) both;animation-delay:calc(var(--o,0) * var(--step) + 330ms)}
+.mo [data-brk="a"] .apar.aparece .brk-l i:last-child{animation:brkOpenR .3s var(--ease) both;animation-delay:calc(var(--o,0) * var(--step) + 330ms)}
+.mo [data-brk] .apar.aparece .brk-t{animation:fadeIn .3s var(--ease) both;animation-delay:calc(var(--o,0) * var(--step) + 560ms)}
+/* variant b: the whole line appears, the gap springs open from the middle */
+.mo [data-brk="b"] .apar .brk-l{transform:none;opacity:0}
+.mo [data-brk="b"] .apar.aparece .brk-l{animation:fadeIn .15s linear both;animation-delay:calc(var(--o,0) * var(--step))}
+.mo [data-brk="b"] .apar.aparece .brk-l i:first-child{animation:brkOpenL .5s cubic-bezier(.3,1.45,.5,1) both;animation-delay:calc(var(--o,0) * var(--step) + 150ms)}
+.mo [data-brk="b"] .apar.aparece .brk-l i:last-child{animation:brkOpenR .5s cubic-bezier(.3,1.45,.5,1) both;animation-delay:calc(var(--o,0) * var(--step) + 150ms)}
+/* variant c: the line draws, then the gap is cut out of it */
+.mo [data-brk="c"] .apar.aparece .brk-l{animation:brkDraw .35s var(--ease) both;animation-delay:calc(var(--o,0) * var(--step))}
+.mo [data-brk="c"] .apar .brk-l:after{content:"";position:absolute;left:calc(50% - 13px);width:26px;top:0;height:4px;background:var(--blue);transform-origin:center}
+.mo [data-brk="c"] .on-deep .brk-l:after,.mo .on-deep [data-brk="c"] .brk-l:after{background:var(--green)}
+.mo [data-brk="c"] .apar.aparece .brk-l:after{animation:brkCut .25s var(--ease) both;animation-delay:calc(var(--o,0) * var(--step) + 380ms)}
+@keyframes brkDraw{from{transform:scaleX(0)}to{transform:none}}
+@keyframes brkOpenL{from{transform:translateX(12px)}to{transform:none}}
+@keyframes brkOpenR{from{transform:translateX(-12px)}to{transform:none}}
+@keyframes brkCut{from{transform:scaleX(1)}to{transform:scaleX(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+/* — construction: the pattern builds once (7.2 amended) — */
+.mo .apar .trama-blk.built path{opacity:0}
+.mo [data-trama="a"] .apar.aparece .trama-blk path,.mo [data-trama="b"] .apar.aparece .trama-blk path{animation:fadeIn .26s var(--ease) both;animation-delay:var(--td)}
+.mo [data-trama="c"] .apar .trama-blk.built path{opacity:1;stroke-dasharray:32;stroke-dashoffset:32}
+.mo [data-trama="c"] .apar.aparece .trama-blk path{animation:grow .3s var(--ease) both;animation-delay:var(--td)}
+@keyframes grow{from{stroke-dashoffset:32}to{stroke-dashoffset:0}}
+/* — construction: the diagram runs — variant a: a pulse travels and stops at the gap — */
+.mo [data-pulse] .apar:not(.aparece) .gap-lbl{opacity:0}
+.mo [data-pulse="a"] .apar.aparece .diagram .pl{stroke-dasharray:.24 2}
+.mo [data-pulse="a"] .apar.aparece .diagram .pl.p1{animation:pulse .42s linear both;animation-delay:calc(var(--o,0) * var(--step) + 200ms)}
+.mo [data-pulse="a"] .apar.aparece .diagram .pl.p4{animation:pulse .36s linear both;animation-delay:calc(var(--o,0) * var(--step) + 600ms)}
+.mo [data-pulse="a"] .apar.aparece .diagram .pl.p2{animation:pulseStop .7s linear both;animation-delay:calc(var(--o,0) * var(--step) + 200ms)}
+.mo [data-pulse] .apar.aparece .diagram .gap-lbl{animation:fadeIn .25s var(--ease) both;animation-delay:calc(var(--o,0) * var(--step) + 560ms)}
+@keyframes pulse{0%{opacity:1;stroke-dashoffset:.24}99%{opacity:1;stroke-dashoffset:-1}100%{opacity:0;stroke-dashoffset:-1}}
+@keyframes pulseStop{0%{opacity:1;stroke-dashoffset:.24}45%{opacity:1;stroke-dashoffset:-.76}80%{opacity:1;stroke-dashoffset:-.76}100%{opacity:0;stroke-dashoffset:-.76}}
+/* variant b: the path draws itself, the line from the AI ends at the gap */
+.mo [data-pulse="b"] .apar .diagram .dp{stroke-dasharray:1}
+.mo [data-pulse="b"] .apar.aparece .diagram .dp{animation:draw .3s var(--ease) both;animation-delay:calc(var(--o,0) * var(--step) + 200ms)}
+.mo [data-pulse="b"] .apar.aparece .diagram .dp.p4{animation-delay:calc(var(--o,0) * var(--step) + 480ms)}
+.mo [data-pulse="b"] .apar.aparece .diagram .dp.p3{animation-delay:calc(var(--o,0) * var(--step) + 640ms)}
+@keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+/* variant c: relay, each box takes the data in turn */
+.mo [data-pulse="c"] .apar.aparece .diagram .bx{animation:relay .3s var(--ease) both}
+.mo [data-pulse="c"] .apar.aparece .diagram .b1{animation-delay:calc(var(--o,0) * var(--step) + 150ms)}
+.mo [data-pulse="c"] .apar.aparece .diagram .b2{animation-delay:calc(var(--o,0) * var(--step) + 250ms)}
+.mo [data-pulse="c"] .apar.aparece .diagram .b3{animation-delay:calc(var(--o,0) * var(--step) + 400ms)}
+.mo [data-pulse="c"] .apar.aparece .diagram .b4{animation-delay:calc(var(--o,0) * var(--step) + 550ms)}
+@keyframes relay{0%{stroke-opacity:.25}60%{stroke-opacity:1}100%{stroke-opacity:1}}
+/* — construction: the mesh is validated — variant a: a scanning dimension sweeps it — */
+.mesh .m-scan{opacity:0}
+.mo [data-scan] .apar:not(.aparece) .mesh .m-def,.mo [data-scan] .apar:not(.aparece) .m-leg li{opacity:0}
+.mo [data-scan="a"] .apar.aparece .mesh .m-e{animation:fadeIn .3s var(--ease) both;animation-delay:calc(var(--o,0) * var(--step) + var(--c) * 12ms)}
+.mo [data-scan="a"] .apar.aparece .mesh .m-scan{animation:scan .7s cubic-bezier(.45,0,.55,1) both;animation-delay:calc(var(--o,0) * var(--step) + 200ms)}
+.mo [data-scan="a"] .apar.aparece .mesh .m-def,.mo [data-scan="a"] .apar.aparece .m-leg li{animation:fadeIn .2s var(--ease) both;animation-delay:calc(var(--o,0) * var(--step) + 200ms + var(--x) * 700ms)}
+@keyframes scan{0%{opacity:1;transform:translateX(0)}92%{opacity:1;transform:translateX(640px)}100%{opacity:0;transform:translateX(640px)}}
+/* variant b: edges build column by column, then the defects are marked */
+.mo [data-scan="b"] .apar.aparece .mesh .m-e{animation:fadeIn .25s var(--ease) both;animation-delay:calc(var(--o,0) * var(--step) + var(--c) * 45ms)}
+.mo [data-scan="b"] .apar.aparece .mesh .m-def,.mo [data-scan="b"] .apar.aparece .m-leg li{animation:fadeIn .25s var(--ease) both;animation-delay:calc(var(--o,0) * var(--step) + 700ms)}
+/* variant c: a radial scan opens from the centre */
+.mo [data-scan="c"] .apar.aparece .mesh{animation:radial .75s var(--ease) both;animation-delay:calc(var(--o,0) * var(--step))}
+.mo [data-scan="c"] .apar.aparece .mesh .m-def,.mo [data-scan="c"] .apar.aparece .m-leg li{animation:fadeIn .25s var(--ease) both;animation-delay:calc(var(--o,0) * var(--step) + 650ms)}
+@keyframes radial{from{clip-path:circle(0% at 50% 50%)}to{clip-path:circle(75% at 50% 50%)}}
+/* replay without leaving the section: every animation inside restarts */
+.rst,.rst *{animation:none!important}
+/* — construction: the mark assembles, once per session — */
+.mo.mk-build #brandMark line{stroke-dasharray:1;stroke-dashoffset:1;animation:draw .44s var(--ease) forwards}
+.mo.mk-build #mkD{animation-delay:80ms!important}
+.mo.mk-build #mkR{animation-delay:160ms!important}
+/* — response: buttons contract on press and spring back — */
+.mo .btn{transition:box-shadow .14s ease-out,transform .45s cubic-bezier(.3,1.35,.5,1)}
+.mo .btn:active{transform:scale(.97);transition-duration:.14s,.08s}
+/* — LAB (lab.html, noindex) — */
+.lab-sec{padding:var(--s16) 0;border-top:1px solid var(--line)}
+.lab-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s6);margin-top:var(--s8)}
+.lab-cell{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:var(--s6);min-width:0}
+.lab-head{display:flex;justify-content:space-between;align-items:center;gap:var(--s3)}
+.lab-desc{font-size:15px;margin:var(--s3) 0 var(--s6)}
+.lab-stage{min-height:120px}
+.lab-trama{height:200px;border-radius:var(--radius)}
+.lab-trama.built{background:var(--paper)}
+.lab-stage .diagram{margin:0;padding:var(--s4);box-shadow:12px 12px 0 var(--brand-black)}
+.lab-stage .mesh-box{padding:var(--s4);box-shadow:12px 12px 0 var(--brand-black)}
+.lab-stage .m-leg{grid-template-columns:minmax(0,1fr);gap:var(--s3);margin-top:var(--s8)}
+@media (max-width:980px){.lab-grid{grid-template-columns:minmax(0,1fr)}}
+/* — weight: content below the first section is laid out only when it comes near the screen, in
+     small pieces (sections, then cards and rows), so neither the first load nor scrolling builds a
+     long task on a slow phone — */
+main > section ~ section,main > article ~ section,footer{content-visibility:auto;contain-intrinsic-size:auto 900px}
+.proj,.svitem,.entry,.case,.svc,.row,.chcard,.card,.lab-cell{content-visibility:auto;contain-intrinsic-size:auto 320px}

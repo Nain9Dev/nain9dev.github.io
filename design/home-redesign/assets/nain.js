@@ -21,6 +21,20 @@
     return n;
   }
 
+  // Work for sections far below the fold waits until they come near (keeps the first load free of
+  // long tasks on slow phones). Without IntersectionObserver it runs at once.
+  function whenNear(id, fn) {
+    var target = document.getElementById(id);
+    if (!target) return;
+    if (!('IntersectionObserver' in window)) { fn(); return; }
+    var io = new IntersectionObserver(function (es) {
+      if (!es[0].isIntersecting) return;
+      io.disconnect();
+      fn();
+    }, { rootMargin: '800px 0px' });
+    io.observe(target);
+  }
+
   /* ----------------------------------------------------------
      IDIOMA — en producción son dos rutas (/ y /en/). Aquí se
      conmuta en el sitio para revisar las dos versiones.
@@ -104,7 +118,9 @@
     var ctx = cv.getContext('2d', { alpha: true });
     var out = document.getElementById('breakCount');
     var host = cv.parentNode;
-    var reduce = reduceMQ.matches;
+    // ?vivo=0 stops the living surface (addendum 1.1, section 7) to compare the page without it.
+    var still0 = /[?&]vivo=0\b/.test(window.location.search);
+    var reduce = reduceMQ.matches || still0;
 
     var ANG = -52 * Math.PI / 180, DX = Math.cos(ANG), DY = Math.sin(ANG);
     var LEN = 30, W = 0, H = 0, STEP = 26, cells = [], t = 0, mx = -9999, my = -9999, ripples = [], broken = 0, shown = 0;
@@ -113,7 +129,8 @@
 
     function hash(i, j) { var n = Math.sin(i * 127.1 + j * 311.7) * 43758.5453; return n - Math.floor(n); }
     function build() {
-      var dpr = Math.min(2, window.devicePixelRatio || 1);
+      // DPR capped at 2, and at 1.5 on narrow screens: the strokes stay sharp and rasterising costs less.
+      var dpr = Math.min(window.innerWidth < 760 ? 1.5 : 2, window.devicePixelRatio || 1);
       W = cv.clientWidth; H = cv.clientHeight;
       STEP = W < 760 ? 30 : 26;
       cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
@@ -208,8 +225,11 @@
     function stop() { if (raf) { window.cancelAnimationFrame(raf); raf = 0; } last = 0; }
     function still() { stop(); build(); draw(); if (out) out.textContent = '0000'; }
 
-    build();
-    if (reduce) draw(); else schedule();
+    // First paint goes out without the canvas work: layout is settled by then, so reading the size
+    // forces nothing, and the build runs in its own task.
+    window.requestAnimationFrame(function () {
+      window.setTimeout(function () { build(); if (reduce) draw(); else schedule(); }, 0);
+    });
 
     window.addEventListener('resize', function () { build(); if (!running()) draw(); }, { passive: true });
     document.addEventListener('visibilitychange', function () { if (document.hidden) stop(); else schedule(); });
@@ -219,7 +239,7 @@
         if (onScreen) schedule(); else stop();
       }).observe(cv);
     }
-    reduceMQ.addEventListener('change', function (m) { reduce = m.matches; if (reduce) still(); else schedule(); });
+    reduceMQ.addEventListener('change', function (m) { reduce = m.matches || still0; if (reduce) still(); else schedule(); });
     host.addEventListener('pointermove', function (e) {
       var r = cv.getBoundingClientRect(); mx = e.clientX - r.left; my = e.clientY - r.top; active = true;
     }, { passive: true });
@@ -234,52 +254,15 @@
   })();
 
   /* ----------------------------------------------------------
-     EL ISOTIPO — la N se pliega en un trazo y vuelve a abrirse.
-     Geometría medida del archivo: trazo 113 sobre lienzo de 1000.
-     ---------------------------------------------------------- */
-  (function () {
-    var host = document.getElementById('brandMark');
-    var Lk = document.getElementById('mkL'), Dg = document.getElementById('mkD'), Rk = document.getElementById('mkR');
-    if (!host || !Lk || !Dg || !Rk) return;
-    var N = { L: [148, 148, 148, 848], D: [308, 288, 686, 738], R: [848, 148, 848, 848] };
-    var B = { L: [500, 148, 500, 848], D: [500, 148, 500, 848], R: [500, 148, 500, 848] };
-    var DUR = 1150, playing = false, t0 = 0;
-    var OFF = { D: 0, L: 0.07, R: 0.13 }, OFF2 = { L: 0, R: 0.06, D: 0.13 };
-    var els = { L: Lk, D: Dg, R: Rk };
-    function clamp(v) { return v < 0 ? 0 : (v > 1 ? 1 : v); }
-    function easeInOut(x) { return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; }
-    function easeOutBack(x) { var c1 = 1.70158, c3 = c1 + 1; return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2); }
-    function setLine(n, a) { n.setAttribute('x1', a[0].toFixed(1)); n.setAttribute('y1', a[1].toFixed(1)); n.setAttribute('x2', a[2].toFixed(1)); n.setAttribute('y2', a[3].toFixed(1)); }
-    function mix(a, b, k) { var o = [], i; for (i = 0; i < 4; i++) o.push(a[i] + (b[i] - a[i]) * k); return o; }
-    function frame(ts) {
-      if (!t0) t0 = ts;
-      var p = (ts - t0) / DUR;
-      if (p >= 1) { setLine(Lk, N.L); setLine(Dg, N.D); setLine(Rk, N.R); playing = false; t0 = 0; return; }
-      ['L', 'D', 'R'].forEach(function (k) {
-        var v;
-        if (p < 0.46) v = mix(N[k], B[k], easeInOut(clamp((p - OFF[k] * 0.46) / (0.46 - OFF[k] * 0.46 * 0.6))));
-        else if (p < 0.54) v = B[k];
-        else v = mix(B[k], N[k], easeOutBack(clamp((p - 0.54 - OFF2[k] * 0.30) / (0.46 - OFF2[k] * 0.30))));
-        setLine(els[k], v);
-      });
-      window.requestAnimationFrame(frame);
-    }
-    function play() { if (playing || reduceMQ.matches) return; playing = true; t0 = 0; window.requestAnimationFrame(frame); }
-    host.addEventListener('mouseenter', play);
-    host.addEventListener('focus', play);
-  })();
-
-  /* ----------------------------------------------------------
      LA CONSOLA — solo stack, servicios y contacto, con el mismo
      texto que la página. La entrada del visitante se pinta con
      textContent. El historial guarda comandos (JSON), no HTML, y
      la salida se reconstruye a partir de ellos.
      ---------------------------------------------------------- */
-  (function () {
-    var out = document.getElementById('termOut'), form = document.getElementById('termForm'),
-      inp = document.getElementById('termIn'), chips = document.getElementById('termChips'),
+  whenNear('termOut', function () {
+    var out = document.getElementById('termOut'), inp = document.getElementById('termIn'), chips = document.getElementById('termChips'),
       term = document.getElementById('term');
-    if (!out || !form || !inp) return;
+    if (!out || !inp) return;
     var KEY = 'naindev-console';
     var MAX = 20;
     var CAL = 'https://calendly.com/aitornainmendozavallejo-ksez/30min';
@@ -379,6 +362,9 @@
     function banner() {
       while (out.firstChild) out.removeChild(out.firstChild);
       D[lang()].banner.forEach(function (x) { line(x); });
+      blank();
+      D[lang()].help.forEach(function (h) { line([{ b: h[0] }, { m: h[1] }], 'trow'); });
+      blank();
     }
     function echo(raw) {
       var d = el('div');
@@ -434,7 +420,10 @@
       if (!isClear) { hist.push(v); if (hist.length > MAX) hist.shift(); save(); }
       hp = -1;
     }
-    form.addEventListener('submit', function (e) { e.preventDefault(); submit(inp.value); inp.value = ''; });
+    inp.addEventListener('keydown', function (e) {
+      if (e.key !== 'Enter' || e.isComposing) return;
+      e.preventDefault(); submit(inp.value); inp.value = '';
+    });
     inp.addEventListener('keydown', function (e) {
       if (e.key === 'ArrowUp') {
         if (hist.length) { hp = Math.min(hp + 1, hist.length - 1); inp.value = hist[hist.length - 1 - hp]; }
@@ -459,13 +448,13 @@
     rebuild(); buildChips(); placeholder();
     langListeners.push(function () { rebuild(); buildChips(); placeholder(); });
     window.naindevConsole = { run: submit };
-  })();
+  });
 
   /* ----------------------------------------------------------
      PROYECTOS — filtros y "ver todos". Sin JavaScript se ven
      todos los proyectos y no aparecen los controles.
      ---------------------------------------------------------- */
-  (function () {
+  whenNear('projList', function () {
     var list = document.getElementById('projList');
     if (!list) return;
     var bar = document.querySelector('.pfilters');
@@ -505,7 +494,7 @@
     });
     langListeners.push(apply);
     apply();
-  })();
+  });
 
   /* ----------------------------------------------------------
      AVISO DE PRIVACIDAD — se cierra y se recuerda en este

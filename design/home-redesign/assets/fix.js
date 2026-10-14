@@ -43,8 +43,10 @@
     }
   }
 
+  var hasFix = window.NAIN_FIX && Object.keys(window.NAIN_FIX).length > 0;
+  if (!ON && !hasFix) return;                        // nothing to do: no DOM walk on normal visits
   tagAll();
-  if (window.NAIN_FIX) { state = JSON.parse(JSON.stringify(window.NAIN_FIX)); applyAll(state); }
+  if (hasFix) { state = JSON.parse(JSON.stringify(window.NAIN_FIX)); applyAll(state); }
   if (!ON) return;                                   // sin #fix, solo se aplican los arreglos
 
   try { var saved = localStorage.getItem(KEY); if (saved){ var parsed = JSON.parse(saved); if (parsed && typeof parsed === 'object') { state = parsed; applyAll(state); } } } catch(e){}

@@ -8,23 +8,25 @@
 <title>Casos de arquitectura | NainDev</title>
 <meta name="description" content="Dos decisiones de arquitectura backend con la alternativa descartada, el compromiso aceptado y su consecuencia.">
 <meta name="description-en" content="Two backend architecture decisions with the discarded alternative, the accepted trade-off and its consequence.">
+<script src="assets/boot.js"></script>
 <link rel="stylesheet" href="assets/nain.css">
 <script src="assets/nain.js" defer></script>
+<script src="assets/motion.js" defer></script>
 <script src="assets/fix.data.js" defer></script>
 <script src="assets/fix.js" defer></script>
 </head>
-<body data-page="casos">
+<body data-page="casos" data-brk="a" data-trama="a" data-pulse="a" data-scan="a">
 <a class="skip" href="#contenido"><span class="es">Saltar al contenido</span><span class="en">Skip to content</span></a>
 <header class="top">
   <div class="shell">
-    <a class="brand" href="index.html" id="brandMark"><svg viewBox="0 0 1000 1000" aria-hidden="true" focusable="false"><g stroke="currentColor" stroke-width="113" stroke-linecap="round" fill="none"><line id="mkL" x1="148" y1="148" x2="148" y2="848"/><line id="mkD" x1="308" y1="288" x2="686" y2="738"/><line id="mkR" x1="848" y1="148" x2="848" y2="848"/></g></svg><span class="sr">NainDev · <span class="es">inicio</span><span class="en">home</span></span></a>
+    <a class="brand" href="index.html" id="brandMark"><svg viewBox="0 0 1000 1000" aria-hidden="true" focusable="false"><g stroke="currentColor" stroke-width="113" stroke-linecap="round" fill="none"><line id="mkL" pathLength="1" x1="148" y1="148" x2="148" y2="848"/><line id="mkD" pathLength="1" x1="308" y1="288" x2="686" y2="738"/><line id="mkR" pathLength="1" x1="848" y1="148" x2="848" y2="848"/></g></svg><span class="sr">NainDev · <span class="es">inicio</span><span class="en">home</span></span></a>
     <nav class="main" aria-label="Principal / Main">
-      <a href="servicios.html"><span class="es">Servicios</span><span class="en">Services</span></a>
-      <a href="index.html#proyectos"><span class="es">Proyectos</span><span class="en">Projects</span></a>
-      <a href="casos.html" aria-current="page"><span class="es">Casos</span><span class="en">Case studies</span></a>
-      <a href="escritos.html"><span class="es">Escritos</span><span class="en">Writing</span></a>
-      <a href="index.html#sobre"><span class="es">Sobre mí</span><span class="en">About</span></a>
-      <a href="contacto.html"><span class="es">Contacto</span><span class="en">Contact</span></a>
+      <a class="u" href="servicios.html"><span class="es">Servicios</span><span class="en">Services</span></a>
+      <a class="u" href="index.html#proyectos"><span class="es">Proyectos</span><span class="en">Projects</span></a>
+      <a class="u" href="casos.html" aria-current="page"><span class="es">Casos</span><span class="en">Case studies</span></a>
+      <a class="u" href="escritos.html"><span class="es">Escritos</span><span class="en">Writing</span></a>
+      <a class="u" href="index.html#sobre"><span class="es">Sobre mí</span><span class="en">About</span></a>
+      <a class="u" href="contacto.html"><span class="es">Contacto</span><span class="en">Contact</span></a>
     </nav>
     <div class="tools">
       <div class="lang" role="group" aria-label="Idioma / Language"><button type="button" data-lang="es" aria-pressed="true" lang="es">ES</button><i aria-hidden="true">/</i><button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button></div>
@@ -38,7 +40,7 @@
 
 <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" hidden>
   <div class="bar">
-    <span class="sheet-mark" aria-hidden="true"><svg viewBox="0 0 1000 1000" aria-hidden="true" focusable="false"><g stroke="currentColor" stroke-width="113" stroke-linecap="round" fill="none"><line x1="148" y1="148" x2="148" y2="848"/><line x1="308" y1="288" x2="686" y2="738"/><line x1="848" y1="148" x2="848" y2="848"/></g></svg></span>
+    <span class="sheet-mark" aria-hidden="true"><svg viewBox="0 0 1000 1000" aria-hidden="true" focusable="false"><g stroke="currentColor" stroke-width="113" stroke-linecap="round" fill="none"><line pathLength="1" x1="148" y1="148" x2="148" y2="848"/><line pathLength="1" x1="308" y1="288" x2="686" y2="738"/><line pathLength="1" x1="848" y1="148" x2="848" y2="848"/></g></svg></span>
     <h2 class="sr" id="sheetTitle"><span class="es">Menú</span><span class="en">Menu</span></h2>
     <div class="tools">
       <div class="lang" role="group" aria-label="Idioma / Language"><button type="button" data-lang="es" aria-pressed="true" lang="es">ES</button><i aria-hidden="true">/</i><button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button></div>
@@ -46,12 +48,12 @@
     </div>
   </div>
   <nav aria-label="Menú móvil / Mobile menu">
-      <a href="servicios.html"><span class="es">Servicios</span><span class="en">Services</span></a>
-      <a href="index.html#proyectos"><span class="es">Proyectos</span><span class="en">Projects</span></a>
-      <a href="casos.html" aria-current="page"><span class="es">Casos</span><span class="en">Case studies</span></a>
-      <a href="escritos.html"><span class="es">Escritos</span><span class="en">Writing</span></a>
-      <a href="index.html#sobre"><span class="es">Sobre mí</span><span class="en">About</span></a>
-      <a href="contacto.html"><span class="es">Contacto</span><span class="en">Contact</span></a>
+      <a class="u" href="servicios.html"><span class="es">Servicios</span><span class="en">Services</span></a>
+      <a class="u" href="index.html#proyectos"><span class="es">Proyectos</span><span class="en">Projects</span></a>
+      <a class="u" href="casos.html" aria-current="page"><span class="es">Casos</span><span class="en">Case studies</span></a>
+      <a class="u" href="escritos.html"><span class="es">Escritos</span><span class="en">Writing</span></a>
+      <a class="u" href="index.html#sobre"><span class="es">Sobre mí</span><span class="en">About</span></a>
+      <a class="u" href="contacto.html"><span class="es">Contacto</span><span class="en">Contact</span></a>
   </nav>
   <div class="foot">
     <a class="btn btn-p btn-lg btn-block" href="https://calendly.com/aitornainmendozavallejo-ksez/30min" target="_blank" rel="noopener noreferrer"><span class="es">Agendar llamada gratuita</span><span class="en">Book a free call</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a>
@@ -67,57 +69,62 @@
   </div>
 </aside>
 <main id="contenido" tabindex="-1">
-<section class="pagehead" aria-labelledby="pageTitle">
+<section class="apar pagehead" aria-labelledby="pageTitle">
   <div class="shell">
-    <p class="dnote"><span class="lbl"><span class="es">Nota de diseño</span><span class="en">Design note</span></span> <span class="es">Propuesta de David. Hoy /casos y /casos/* redirigen a /servicios/ (astro.config.mjs, spec 007). Si Aitor la acepta, hay que quitar esas redirecciones. Las cifras sin fuente van como [METRIC].</span><span class="en">David's proposal. Today /casos and /casos/* redirect to /servicios/ (astro.config.mjs, spec 007). If Aitor accepts it, those redirects must go. Figures without a source are shown as [METRIC].</span></p>
-    <p class="kick"><span class="es">Casos</span><span class="en">Case studies</span></p>
-    <h1 id="pageTitle"><span class="es">Dos decisiones de arquitectura y lo que costaron</span><span class="en">Two architecture decisions and what they cost</span></h1>
-    <p class="lede"><span class="es">Cada caso cuenta la decisión que se tomó, la alternativa que se descartó, el compromiso que se aceptó y su consecuencia. Sin logotipos de cliente y sin cifras que no se puedan citar.</span><span class="en">Each case tells the decision that was made, the alternative that was discarded, the trade-off that was accepted and its consequence. No client logos and no figures that cannot be cited.</span></p>
-    <div class="cota q2" aria-hidden="true"><i></i><i></i><i></i></div>
+    <p class="cae dnote" style="--o:1""><span class="lbl"><span class="es">Nota de diseño</span><span class="en">Design note</span></span> <span class="es">Propuesta de David. Hoy /casos y /casos/* redirigen a /servicios/ (astro.config.mjs, spec 007). Si Aitor la acepta, hay que quitar esas redirecciones. Las cifras sin fuente van como [METRIC].</span><span class="en">David's proposal. Today /casos and /casos/* redirect to /servicios/ (astro.config.mjs, spec 007). If Aitor accepts it, those redirects must go. Figures without a source are shown as [METRIC].</span></p>
+    <div class="ph-grid">
+      <div>
+        <p class="cae kick" style="--o:2""><span class="es">Casos</span><span class="en">Case studies</span></p>
+        <h1 id="pageTitle"><span class="masc"><span class="linea" style="--o:3"><span class="es">Dos decisiones de arquitectura y lo que costaron</span><span class="en">Two architecture decisions and what they cost</span></span></span></h1>
+        <p class="cae lede" style="--o:4""><span class="es">Cada caso cuenta la decisión que se tomó, la alternativa que se descartó, el compromiso que se aceptó y su consecuencia. Sin logotipos de cliente y sin cifras que no se puedan citar.</span><span class="en">Each case tells the decision that was made, the alternative that was discarded, the trade-off that was accepted and its consequence. No client logos and no figures that cannot be cited.</span></p>
+      </div>
+      <div class="trama-blk ph-trama" data-seed="13" data-ink="#0047AB" data-dir="r" aria-hidden="true"></div>
+    </div>
+    <div class="cota-w" style="--o:4"><div class="cota q2" aria-hidden="true"><i></i><i></i><i></i></div><span class="cota-lbl mono"><span class="es" style="--n:36">2 CASOS · 2 ALTERNATIVAS DESCARTADAS</span><span class="en" style="--n:34">2 CASES · 2 DISCARDED ALTERNATIVES</span></span></div>
   </div>
 </section>
 
-<section aria-labelledby="casesTitle">
+<section aria-labelledby="casesTitle" class="apar">
   <div class="shell">
-    <h2 class="sr" id="casesTitle"><span class="es">Los casos</span><span class="en">The cases</span></h2>
-    <div class="pair2">
-      <article class="case" id="caso-validacion" aria-labelledby="c1Title">
+    <h2 class="sr" id="casesTitle"><span class="masc"><span class="linea" style="--o:1"><span class="es">Los casos</span><span class="en">The cases</span></span></span></h2>
+    <div class="cae pair2" style="--o:2"">
+      <article class="cae case" style="--o:3"" id="caso-validacion" aria-labelledby="c1Title">
         <p class="lbl meta"><span class="es">Cliente confidencial · industria 3D · colaborador técnico</span><span class="en">Confidential client · 3D industry · technical collaborator</span></p>
         <h3 id="c1Title"><span class="es">Sacar la IA del camino crítico de la validación</span><span class="en">Taking AI off the validation critical path</span></h3>
-        <dl><dt><span class="es">Situación</span><span class="en">Situation</span></dt><dd><span class="es">La lógica de negocio llamaba directamente al proveedor de IA y la validación geométrica se ejecutaba en el mismo hilo que las peticiones HTTP. Cada cambio en la API del proveedor rompía funciones sin relación, y con carga se agotaba el pool de hilos.</span><span class="en">Business logic called the AI vendor directly and geometric validation ran on the same thread as the HTTP requests. Every change in the vendor's API broke unrelated features, and under load the thread pool ran dry.</span></dd><dt><span class="es">Decisión</span><span class="en">Decision</span></dt><dd><span class="es">Clean Architecture y DDD en .NET, con el motor geométrico en un dominio puro y la IA tratada como proveedor de datos asíncrono. La validación corre en memoria con ONNX Runtime dentro de .NET.</span><span class="en">Clean Architecture and DDD in .NET, with the geometry engine in a pure domain and AI treated as an asynchronous data provider. Validation runs in memory with ONNX Runtime inside .NET.</span></dd><dt><span class="es">Alternativa descartada</span><span class="en">Discarded alternative</span></dt><dd><span class="es">Un microservicio en Python para la validación geométrica. Se descartó por el coste de serializar mallas pesadas y por la latencia de red en cada llamada.</span><span class="en">A Python microservice for geometric validation. Discarded because of the cost of serialising heavy meshes and the network latency on every call.</span></dd><dt><span class="es">Compromiso</span><span class="en">Trade-off</span></dt><dd><span class="es">Más memoria en los workers de .NET y más piezas que operar: bus de mensajes, workers y almacenamiento de binarios aparte.</span><span class="en">More memory on the .NET workers and more moving parts to operate: message bus, workers and separate binary storage.</span></dd><dt><span class="es">Consecuencia</span><span class="en">Consequence</span></dt><dd><span class="es">Los fallos de red salieron del camino crítico de la validación. Tiempo de validación por modelo: <span class="ph">[METRIC]</span>.</span><span class="en">Network failures left the validation critical path. Validation time per model: <span class="ph">[METRIC]</span>.</span></dd><dt>Stack</dt><dd class="mono">C# .NET · RabbitMQ · SQL Server · S3 · ONNX</dd></dl>
+        <dl><dt><span class="es">Situación</span><span class="en">Situation</span></dt><dd><span class="es">La lógica de negocio llamaba directamente al proveedor de IA y la validación geométrica se ejecutaba en el mismo hilo que las peticiones HTTP. Cada cambio en la API del proveedor rompía funciones sin relación, y con carga se agotaba el pool de hilos.</span><span class="en">Business logic called the AI vendor directly and geometric validation ran on the same thread as the HTTP requests. Every change in the vendor's API broke unrelated features, and under load the thread pool ran dry.</span></dd><dt><span class="es">Decisión</span><span class="en">Decision</span></dt><dd><span class="es">Clean Architecture y DDD en .NET, con el motor geométrico en un dominio puro y la IA tratada como proveedor de datos asíncrono. La validación corre en memoria con ONNX Runtime dentro de .NET.</span><span class="en">Clean Architecture and DDD in .NET, with the geometry engine in a pure domain and AI treated as an asynchronous data provider. Validation runs in memory with ONNX Runtime inside .NET.</span></dd><dt><span class="es">Alternativa descartada</span><span class="en">Discarded alternative</span></dt><dd><span class="es">Un microservicio en Python para la validación geométrica. Se descartó por el coste de serializar mallas pesadas y por la latencia de red en cada llamada.</span><span class="en">A Python microservice for geometric validation. Discarded because of the cost of serialising heavy meshes and the network latency on every call.</span><span class="brk2 " style="--o:4"><span class="brk-l" aria-hidden="true"><i></i><i></i></span><span class="brk-t mono"><span class="es">DESCARTADA</span><span class="en">DISCARDED</span></span></span></dd><dt><span class="es">Compromiso</span><span class="en">Trade-off</span></dt><dd><span class="es">Más memoria en los workers de .NET y más piezas que operar: bus de mensajes, workers y almacenamiento de binarios aparte.</span><span class="en">More memory on the .NET workers and more moving parts to operate: message bus, workers and separate binary storage.</span></dd><dt><span class="es">Consecuencia</span><span class="en">Consequence</span></dt><dd><span class="es">Los fallos de red salieron del camino crítico de la validación. Tiempo de validación por modelo: <span class="ph">[METRIC]</span>.</span><span class="en">Network failures left the validation critical path. Validation time per model: <span class="ph">[METRIC]</span>.</span></dd><dt>Stack</dt><dd class="mono">C# .NET · RabbitMQ · SQL Server · S3 · ONNX</dd></dl>
       </article>
-      <article class="case" id="caso-saas" aria-labelledby="c2Title">
+      <article class="cae case" style="--o:4"" id="caso-saas" aria-labelledby="c2Title">
         <p class="lbl meta"><span class="es">Plataforma SaaS · especialista backend</span><span class="en">SaaS platform · backend specialist</span></p>
         <h3 id="c2Title"><span class="es">Particionar por tenant antes que cambiar de motor</span><span class="en">Partition by tenant rather than change engines</span></h3>
-        <dl><dt><span class="es">Situación</span><span class="en">Situation</span></dt><dd><span class="es">Tiempos de respuesta altos en hora punta y una base de datos SQL Server que recibía todas las lecturas repetitivas. Sobre la mesa había una propuesta de migrar a NoSQL.</span><span class="en">High response times at peak hours and a SQL Server database taking every repeated read. There was a proposal on the table to move to NoSQL.</span></dd><dt><span class="es">Decisión</span><span class="en">Decision</span></dt><dd><span class="es">Particionado de la base de datos por tenant y Redis como caché de primer nivel, con escrituras asíncronas por RabbitMQ.</span><span class="en">Partitioning the database by tenant and Redis as a first-level cache, with asynchronous writes over RabbitMQ.</span></dd><dt><span class="es">Alternativa descartada</span><span class="en">Discarded alternative</span></dt><dd><span class="es">Migrar a NoSQL. Se descartó porque la facturación necesita consistencia ACID.</span><span class="en">Moving to NoSQL. Discarded because billing needs ACID consistency.</span></dd><dt><span class="es">Compromiso</span><span class="en">Trade-off</span></dt><dd><span class="es">Invalidación de caché más compleja y monitorización distribuida, mitigadas con despliegues blue-green en Kubernetes.</span><span class="en">More complex cache invalidation and distributed monitoring, mitigated with blue-green deployments on Kubernetes.</span></dd><dt><span class="es">Consecuencia</span><span class="en">Consequence</span></dt><dd><span class="es">Las lecturas repetitivas pasaron a Redis y la base de datos quedó para escrituras y consultas transaccionales. Lecturas servidas desde caché: <span class="ph">[METRIC]</span>. Tiempo de respuesta en hora punta: <span class="ph">[METRIC]</span>.</span><span class="en">Repeated reads moved to Redis and the database was left for writes and transactional queries. Reads served from cache: <span class="ph">[METRIC]</span>. Peak-hour response time: <span class="ph">[METRIC]</span>.</span></dd><dt>Stack</dt><dd class="mono">.NET Core · Redis · RabbitMQ · SQL Server · Azure · Kubernetes</dd></dl>
+        <dl><dt><span class="es">Situación</span><span class="en">Situation</span></dt><dd><span class="es">Tiempos de respuesta altos en hora punta y una base de datos SQL Server que recibía todas las lecturas repetitivas. Sobre la mesa había una propuesta de migrar a NoSQL.</span><span class="en">High response times at peak hours and a SQL Server database taking every repeated read. There was a proposal on the table to move to NoSQL.</span></dd><dt><span class="es">Decisión</span><span class="en">Decision</span></dt><dd><span class="es">Particionado de la base de datos por tenant y Redis como caché de primer nivel, con escrituras asíncronas por RabbitMQ.</span><span class="en">Partitioning the database by tenant and Redis as a first-level cache, with asynchronous writes over RabbitMQ.</span></dd><dt><span class="es">Alternativa descartada</span><span class="en">Discarded alternative</span></dt><dd><span class="es">Migrar a NoSQL. Se descartó porque la facturación necesita consistencia ACID.</span><span class="en">Moving to NoSQL. Discarded because billing needs ACID consistency.</span><span class="brk2 " style="--o:4"><span class="brk-l" aria-hidden="true"><i></i><i></i></span><span class="brk-t mono"><span class="es">DESCARTADA</span><span class="en">DISCARDED</span></span></span></dd><dt><span class="es">Compromiso</span><span class="en">Trade-off</span></dt><dd><span class="es">Invalidación de caché más compleja y monitorización distribuida, mitigadas con despliegues blue-green en Kubernetes.</span><span class="en">More complex cache invalidation and distributed monitoring, mitigated with blue-green deployments on Kubernetes.</span></dd><dt><span class="es">Consecuencia</span><span class="en">Consequence</span></dt><dd><span class="es">Las lecturas repetitivas pasaron a Redis y la base de datos quedó para escrituras y consultas transaccionales. Lecturas servidas desde caché: <span class="ph">[METRIC]</span>. Tiempo de respuesta en hora punta: <span class="ph">[METRIC]</span>.</span><span class="en">Repeated reads moved to Redis and the database was left for writes and transactional queries. Reads served from cache: <span class="ph">[METRIC]</span>. Peak-hour response time: <span class="ph">[METRIC]</span>.</span></dd><dt>Stack</dt><dd class="mono">.NET Core · Redis · RabbitMQ · SQL Server · Azure · Kubernetes</dd></dl>
       </article>
     </div>
     <div class="grid mt20">
       <div>
-        <h2><span class="es">Cómo leer estos casos</span><span class="en">How to read these cases</span></h2>
+        <h2><span class="masc"><span class="linea" style="--o:5"><span class="es">Cómo leer estos casos</span><span class="en">How to read these cases</span></span></span></h2>
         <p class="mt6"><span class="es">Ninguna decisión de arquitectura sale gratis. Si un caso solo cuenta lo que salió bien, esconde el precio, y el precio es lo que sirve para decidir en otro proyecto.</span><span class="en">No architecture decision comes free. A case that only tells what went well hides the price, and the price is what helps you decide on another project.</span></p>
         <p class="mt4"><span class="es">Por eso cada caso trae la alternativa descartada. Sin ella no se sabe si hubo una decisión o solo costumbre.</span><span class="en">That is why each case carries the discarded alternative. Without it you cannot tell whether there was a decision or just habit.</span></p>
       </div>
-      <aside class="note-col">
+      <aside class="cae note-col" style="--o:6"">
         <p class="lbl block"><span class="es">Lo que falta a propósito</span><span class="en">What is missing on purpose</span></p>
         <p class="soft"><span class="es">Las cifras de resultado aparecen como [METRIC] hasta que tengan una fuente que se pueda citar. Los clientes no se nombran.</span><span class="en">Result figures appear as [METRIC] until they have a source that can be cited. Clients are not named.</span></p>
       </aside>
     </div>
   </div>
 </section>
-<section class="on-deep closing" aria-labelledby="closingTitle">
+<section class="on-deep closing apar" aria-labelledby="closingTitle">
   <div class="shell">
     <div class="contact">
       <div>
-        <p class="kick"><span class="es">Siguiente paso</span><span class="en">Next step</span></p>
-        <h2 id="closingTitle"><span class="es">Una llamada de 30 minutos para ver tu caso</span><span class="en">A 30-minute call to look at your case</span></h2>
-        <p class="big on-paper-text mt6"><span class="es">Es una conversación para entender qué necesitas y ver si encaja con lo que hago. No tiene coste. Si hay proyecto, el presupuesto se habla ahí.</span><span class="en">It is a conversation to understand what you need and see whether it fits what I do. It is free. If there is a project, the budget is discussed there.</span></p>
-        <div class="cta">
+        <p class="kick cae" style="--o:0"><span class="es">Siguiente paso</span><span class="en">Next step</span></p>
+        <h2 id="closingTitle"><span class="masc"><span class="linea" style="--o:1"><span class="es">Una llamada de 30 minutos para ver tu caso</span><span class="en">A 30-minute call to look at your case</span></span></span></h2>
+        <p class="big on-paper-text mt6 cae" style="--o:2"><span class="es">Es una conversación para entender qué necesitas y ver si encaja con lo que hago. No tiene coste. Si hay proyecto, el presupuesto se habla ahí.</span><span class="en">It is a conversation to understand what you need and see whether it fits what I do. It is free. If there is a project, the budget is discussed there.</span></p>
+        <div class="cta cae" style="--o:3">
           <a class="btn btn-g btn-lg" href="https://calendly.com/aitornainmendozavallejo-ksez/30min" target="_blank" rel="noopener noreferrer"><span class="es">Agendar llamada gratuita</span><span class="en">Book a free call</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a>
           <a class="btn btn-s btn-lg" href="#whatsapp"><span class="es">Escríbeme por WhatsApp</span><span class="en">Message me on WhatsApp</span></a>
         </div>
       </div>
-      <div>
+      <div class="cae" style="--o:4">
         <p class="lbl block"><span class="es">Otros canales</span><span class="en">Other channels</span></p>
         <ul class="channels">
           <li><span class="lbl">Email</span><a href="mailto:contact@naindev.com">contact@naindev.com</a></li>
@@ -131,10 +138,12 @@
 </section>
 
 </main>
-<div class="tramaBand" aria-hidden="true"></div>
-<footer>
+<footer class="apar">
   <div class="shell">
-    <img class="flogo" src="assets/logo/full-white.png" alt="NainDev" width="56" height="56">
+    <div class="fhead">
+      <img class="flogo cae" style="--o:0" src="assets/logo/full-white.png" alt="NainDev" width="56" height="56">
+      <div class="trama-blk ftrama" data-seed="23" data-ink="#80FF00" data-dir="r" aria-hidden="true"></div>
+    </div>
     <div class="fcols">
       <div>
         <h2 class="lbl"><span class="es">Servicios</span><span class="en">Services</span></h2>
