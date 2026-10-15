@@ -2,7 +2,7 @@
 
 // Five runs: GitHub runners show isolated long tasks; the median of five absorbs up to two outliers.
 export const RUNS = 5;
-export const PAGES = ['/', '/en/', '/servicios/'];
+export const PAGES =['/', '/en/', '/servicios/'];
 
 // Thresholds apply to the median of the runs for each page, measured with Lighthouse's default mobile emulation.
 export const BUDGET = {
@@ -26,6 +26,17 @@ export function cpuSlowdownFor(benchmarkIndex) {
 export function median(values) {
   const sorted = [...values].sort((a, b) => a - b);
   return sorted[Math.floor(sorted.length / 2)];
+}
+
+// A rare browser-internal long task hits most runs of one Chrome process (spec 037), so a failing measurement is
+// repeated in a new process; the gate fails only when every attempt breaks a limit (ADR-0006).
+export const ATTEMPTS = 3;
+
+// attemptRows: the evaluate() rows of each attempt made so far. Reports the first clean attempt, or the least broken one.
+export function settleAttempts(attemptRows) {
+  const outcomes = attemptRows.map((rows, index) => ({ attempt: index + 1, failures: rows.filter((row) => row.failed).length }));
+  const best = outcomes.reduce((a, b) => (b.failures < a.failures ? b : a));
+  return { passed: best.failures === 0, rows: attemptRows[best.attempt - 1], outcomes };
 }
 
 // Returns one row per page and metric, with the median and whether it breaks the budget.

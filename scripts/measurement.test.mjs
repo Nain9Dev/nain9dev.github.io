@@ -44,6 +44,25 @@ test('RUM-002: one Web Vitals event with ratings, buckets and device, sent once 
   assert.equal(sent[0][1].props.lcp_ms, '750-1000');
 });
 
+test('LHCI-002: the gate fails only when every attempt breaks a limit; LHCI-003: attempts are logged', async () => {
+  const { ATTEMPTS, settleAttempts } = await import('./lib/performance-budget.mjs');
+  assert.equal(ATTEMPTS, 3);
+  const row = (failed) => ({ page: '/', metric: 'tbt', value: failed ? 300 : 0, limit: 200, failed });
+  const pass = settleAttempts([[row(true)], [row(false)]]);
+  assert.equal(pass.passed, true, 'one clean attempt is enough');
+  assert.deepEqual(pass.outcomes, [{ attempt: 1, failures: 1 }, { attempt: 2, failures: 0 }]);
+  const fail = settleAttempts([[row(true)], [row(true), row(true)], [row(true)]]);
+  assert.equal(fail.passed, false, 'a limit broken in every attempt still fails');
+  assert.equal(fail.rows.filter((r) => r.failed).length, 1, 'the least broken attempt is reported');
+  assert.equal(fail.outcomes.length, 3);
+  assert.equal(settleAttempts([[row(false)]]).passed, true);
+
+  const runner = await read('scripts/check-budget.mjs');
+  assert.match(runner, /ATTEMPTS/, 'the runner repeats the measurement');
+  assert.match(runner, /hostUserAgent|userAgent/, 'the runner logs the Chrome version');
+  assert.equal((runner.match(/chromeLauncher\.launch/g) ?? []).length, 1, 'one launch call, inside the attempt loop');
+});
+
 test('LHCI-001: strict budget evaluated on medians, pinned Lighthouse and CI wiring', async () => {
   const { BUDGET, PAGES, RUNS, evaluate, median, cpuSlowdownFor } = await import('./lib/performance-budget.mjs');
   // Calibrated CPU slowdown: a high-end desktop (index 1800) gets 4x, a low-end desktop (1100) about 2.4x, clamped to 1x–10x.

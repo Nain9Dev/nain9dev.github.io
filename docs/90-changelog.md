@@ -6,6 +6,7 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ### Fixed
 
+- Spec 037: the Lighthouse gate no longer fails deploys on a rare browser-internal 66–72 ms task that hits most runs of one Chrome process: a failing measurement is repeated in a new process, up to three attempts, with unchanged limits (ADR-0006, Proposed); the Chrome version and each attempt are logged.
 - Spec 035: intermittent TBT 250–400 ms on GitHub runners: deferred modules now start one per idle slot (`runQueueWhenIdle`) instead of in one task, and the SVG favicon is no longer declared because Chrome parses it on the main thread (about 47 ms at 6x CPU); the SVG file stays published.
 - Spec 034: incident 2026-10-13 (home page 404 for about 13 minutes): GitHub Pages also published the raw repository on every push; the Pages source is now GitHub Actions only.
 

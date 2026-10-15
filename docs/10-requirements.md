@@ -309,3 +309,5 @@ Spec 005 is committed as `c78c854`; production confirmation after deployment is 
 | :--- | :--- | :--- | :--- |
 | PERF-017 | When deferred work runs, each module shall start in its own idle slot, so a timed-out idle callback runs one module only. | specs/035-intermittent-long-tasks | Implemented |
 | PERF-018 | When a page is rendered, it shall declare no SVG favicon; the 96 px PNG, ICO and 180 px touch icon remain declared, and the SVG file stays published at its stable URL (SEO-002). | specs/035-intermittent-long-tasks | Implemented |
+| LHCI-002 | When a budget measurement breaks a limit, the gate shall repeat the whole measurement in a new Chrome process, up to three attempts, and fail only when every attempt breaks a limit; limits, runs and the median are unchanged. | specs/037-budget-gate-attempts (ADR-0006, Proposed) | Implemented |
+| LHCI-003 | When the gate finishes, it shall print the Chrome version and the outcome of each attempt. | specs/037-budget-gate-attempts | Implemented |
