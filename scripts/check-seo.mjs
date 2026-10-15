@@ -72,6 +72,10 @@ for (const file of files.filter(file => file.endsWith('.html'))) {
   }
   const website = graph.find(node => node['@type'] === 'WebSite');
   check(website?.name === 'NainDev' && website.url === `${origin}/`, `${path}: missing consistent WebSite identity`);
+  const organization = graph.find(node => node['@type'] === 'Organization');
+  check(organization?.['@id'] === `${origin}/#organization` && organization.name === 'NainDev' && organization.url === `${origin}/`, `${path}: missing consistent Organization identity`);
+  check(organization?.logo?.startsWith(`${origin}/`) && existingPath(new URL(organization.logo).pathname), `${path}: Organization logo must be an existing asset`);
+  check(website?.publisher?.['@id'] === organization?.['@id'], `${path}: WebSite must be published by the Organization`);
   const page = graph.find(node => ['WebPage', 'ProfilePage'].includes(node['@type']));
   check(page?.url === canonical && page?.['@id'] === `${canonical}#webpage`, `${path}: missing distinct page entity`);
   const article = graph.find(node => node['@type'] === 'BlogPosting');

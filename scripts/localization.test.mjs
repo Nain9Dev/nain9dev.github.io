@@ -67,6 +67,16 @@ test('Page identity is localized while the publisher and website identities rema
   assert.ok(html.includes('"inLanguage":["es-ES","en-US"]'));
 });
 
+test('SEO-017: the organization identity stays shared across languages', () => {
+  const source = '<script type="application/ld+json">{"@graph":[{"@type":"Organization","@id":"https://www.naindev.com/#organization","name":"NainDev","url":"https://www.naindev.com/","logo":"https://www.naindev.com/apple-touch-icon.png","founder":{"@id":"https://www.naindev.com/#person"}},{"@type":"WebSite","@id":"https://www.naindev.com/#website","url":"https://www.naindev.com/","publisher":{"@id":"https://www.naindev.com/#organization"}}]}</script>';
+  const segments = extractSegments(parse(source));
+  assert.equal(segments.length, 0);
+  const html = localizeDocument(source, {});
+  assert.ok(html.includes('"@id":"https://www.naindev.com/#organization","name":"NainDev","url":"https://www.naindev.com/"'));
+  assert.ok(html.includes('"publisher":{"@id":"https://www.naindev.com/#organization"}'));
+  assert.ok(html.includes('"logo":"https://www.naindev.com/apple-touch-icon.png"'));
+});
+
 test('Inline translate=no content remains immutable', () => {
   const source = '<p>Usa <span translate="no">Official Brand</span> ahora.</p>';
   const segments = extractSegments(parse(source));

@@ -87,7 +87,7 @@ export function extractSegments(document) {
     if (typeof value === 'string' && schemaProse.has(key)) add(value, apply, `schema:${key}`);
     else if (Array.isArray(value)) value.forEach((item, index) => schemaValues(item, key, replacement => { value[index] = replacement; }));
     else if (value && typeof value === 'object') for (const [childKey, item] of Object.entries(value)) {
-      if (['Person', 'WebSite'].includes(value['@type']) && childKey === 'name') continue;
+      if (['Person', 'WebSite', 'Organization'].includes(value['@type']) && childKey === 'name') continue;
       schemaValues(item, childKey, replacement => { value[childKey] = replacement; });
     }
   }
@@ -168,7 +168,7 @@ export function localizeDocument(source, catalog) {
         if (value && typeof value === 'object') return Object.fromEntries(Object.entries(value).map(([k, v]) => [k, localize(v, k, value['@type'])]));
         if (key === 'inLanguage') return type === 'WebSite' ? ['es-ES', 'en-US'] : 'en-US';
         if (typeof value === 'string' && ['url', '@id', 'item'].includes(key)) {
-          if ([`${origin}/#person`, `${origin}/#website`].includes(value) || (key === 'url' && ['Person', 'WebSite'].includes(type))) return value;
+          if ([`${origin}/#person`, `${origin}/#organization`, `${origin}/#website`].includes(value) || (key === 'url' && ['Person', 'WebSite', 'Organization'].includes(type))) return value;
           return englishPath(value);
         }
         return value;

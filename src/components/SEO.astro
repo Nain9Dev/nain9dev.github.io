@@ -29,6 +29,7 @@ const isArticle = !!date;
 const isHome = Astro.url.pathname === '/';
 const siteURL = new URL('/', Astro.site || 'https://www.naindev.com').toString();
 const personId = `${siteURL}#person`;
+const organizationId = `${siteURL}#organization`;
 const websiteId = `${siteURL}#website`;
 const webpageId = `${canonicalURL.toString()}#webpage`;
 const articleId = `${canonicalURL.toString()}#article`;
@@ -48,7 +49,22 @@ const personSchema = {
     "https://github.com/Nain9Dev",
     "https://github.com/naindev-contrast3d",
     "https://www.linkedin.com/in/aitor-nain-mendoza-vallejo/",
+    "https://gitlab.com/aitornainmendozavallejo",
+    "https://x.com/Nain9Dev"
+  ]
+};
+
+const organizationSchema = {
+  "@type": "Organization",
+  "@id": organizationId,
+  "name": "NainDev",
+  "url": siteURL,
+  "logo": new URL('/apple-touch-icon.png', siteURL).toString(),
+  "founder": { "@id": personId },
+  "sameAs": [
     "https://www.linkedin.com/company/146215151/",
+    "https://github.com/Nain9Dev",
+    "https://gitlab.com/aitornainmendozavallejo",
     "https://x.com/Nain9Dev"
   ]
 };
@@ -60,7 +76,7 @@ const websiteSchema = {
   "name": defaultSEO.siteName,
   "alternateName": ["naindev.com", "Aitor Nain"],
   "inLanguage": "es",
-  "publisher": { "@id": personId }
+  "publisher": { "@id": organizationId }
 };
 
 const articleSchema = isArticle ? {
@@ -72,7 +88,7 @@ const articleSchema = isArticle ? {
   "image": [absoluteImageUrl],
   "datePublished": date.toISOString(),
   "author": { "@id": personId },
-  "publisher": { "@id": personId },
+  "publisher": { "@id": organizationId },
   "isPartOf": { "@id": websiteId },
   "mainEntityOfPage": { "@id": webpageId },
   "inLanguage": "es"
@@ -110,6 +126,7 @@ const schema = {
   "@context": "https://schema.org",
   "@graph": [
     personSchema,
+    organizationSchema,
     websiteSchema,
     webpageSchema,
     ...(articleSchema ? [articleSchema] : []),
