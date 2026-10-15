@@ -322,3 +322,13 @@ Spec 005 is committed as `c78c854`; production confirmation after deployment is 
 | ECO-004 | When the user triggers the collapse/expand toggle, the bar shall toggle between a full horizontal top bar and a minimal floating corner pill to prevent obstructing full-screen viewports. | specs/038-ecosystem-suite-bar | Implemented |
 | ECO-005 | When keyboard navigation is used (Tab, Escape, Enter), the menu shall conform to WCAG 2.2 AA accessibility with visible focus indicators, `aria-expanded` and role attributes, and close on Escape keypress. | specs/038-ecosystem-suite-bar | Implemented |
 
+## Status hub integration (spec 039)
+
+| ID | Requirement | Source | Status |
+| :--- | :--- | :--- | :--- |
+| STAT-001 | When the global footer is rendered, it shall expose a direct link to `https://status.naindev.com/`. | specs/039-status-hub-integration | Implemented |
+| STAT-002 | When the status indicator is rendered, it shall display an operational status dot (`#22c55e`) and human-readable label ("Sistemas Operativos"). | specs/039-status-hub-integration | Implemented |
+| STAT-003 | When the status link is clicked, it shall open in a new browsing context with secure `target="_blank"` and `rel="noopener noreferrer"`. | specs/039-status-hub-integration | Implemented |
+| STAT-004 | The status element shall satisfy WCAG 2.2 AA accessibility with semantic anchor text, accessible contrast, and `aria-hidden="true"` on the visual indicator dot. | specs/039-status-hub-integration | Implemented |
+| STAT-005 | The status integration shall introduce zero runtime scripts or initial client-side network calls, preserving the 100% Lighthouse performance budget. | specs/039-status-hub-integration | Implemented |
+
