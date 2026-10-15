@@ -11,9 +11,9 @@ const readJson = async (file) => JSON.parse(await read(file));
 const text = (html) => html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
 
 const PUBLIC_REPOS = [
-  'parametricad-ai', 'NainOrder', 'GameHaven', 'Microservicio-Notificaciones', 'API-Gestion-Financiera',
-  'Gestion-Autoescuela-Python', 'SistemaOposicionesTAI', 'tai-study-system-js', 'pong-arcade-js',
-  'orbe-runner-3d', 'NainConfigurator', 'HaveTickets',
+  'parametricad-ai', 'NainOrder', 'GameHaven', 'NainNotify', 'NainPolicy',
+  'NainDrive', 'NainTAI', 'tai-study-system-js', 'PongArcade',
+  'Orbe3D', 'NainConfigurator', 'HaveTickets',
 ];
 const PRIVATE_COUNT = 8;
 // Names of private products, partners and the employer that must never reach the catalog.

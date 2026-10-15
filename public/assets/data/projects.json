@@ -63,7 +63,7 @@
     "categories": ["backend", "data", "demo", "dotnet"],
     "links": [
       { "label": "Probar API", "url": "https://nain-policy-demo-api.azurewebsites.net/demo/" },
-      { "label": "Revisar código", "url": "https://github.com/Nain9Dev/API-Gestion-Financiera" }
+      { "label": "Revisar código", "url": "https://github.com/Nain9Dev/NainPolicy" }
     ],
     "featured": true,
     "order": 4
@@ -92,7 +92,7 @@
     "technologies": ["C#", ".NET 10", "MassTransit", "RabbitMQ", "Docker"],
     "categories": ["backend", "dotnet"],
     "links": [
-      { "label": "Revisar código", "url": "https://github.com/Nain9Dev/Microservicio-Notificaciones" }
+      { "label": "Revisar código", "url": "https://github.com/Nain9Dev/NainNotify" }
     ],
     "featured": true,
     "order": 6
@@ -121,7 +121,7 @@
     "categories": ["backend", "data", "demo", "python"],
     "links": [
       { "label": "Probar demo", "url": "https://gestion-autoescuela-nain9dev.streamlit.app/" },
-      { "label": "Revisar código", "url": "https://github.com/Nain9Dev/Gestion-Autoescuela-Python" }
+      { "label": "Revisar código", "url": "https://github.com/Nain9Dev/NainDrive" }
     ],
     "featured": true,
     "order": 8
@@ -136,7 +136,7 @@
     "categories": ["backend", "data", "demo", "dotnet"],
     "links": [
       { "label": "Abrir demo", "url": "https://tai.naindev.com" },
-      { "label": "Código de la API", "url": "https://github.com/Nain9Dev/SistemaOposicionesTAI" },
+      { "label": "Código de la API", "url": "https://github.com/Nain9Dev/NainTAI" },
       { "label": "Código del cliente", "url": "https://github.com/Nain9Dev/tai-study-system-js" }
     ],
     "featured": true,
@@ -165,7 +165,7 @@
     "categories": ["demo", "3d"],
     "links": [
       { "label": "Jugar", "url": "https://orbe.naindev.com" },
-      { "label": "Ver código", "url": "https://github.com/Nain9Dev/orbe-runner-3d" }
+      { "label": "Ver código", "url": "https://github.com/Nain9Dev/Orbe3D" }
     ],
     "featured": false,
     "order": 11
@@ -180,7 +180,7 @@
     "categories": ["demo", "3d"],
     "links": [
       { "label": "Jugar", "url": "https://pong.naindev.com" },
-      { "label": "Ver código", "url": "https://github.com/Nain9Dev/pong-arcade-js" }
+      { "label": "Ver código", "url": "https://github.com/Nain9Dev/PongArcade" }
     ],
     "featured": false,
     "order": 12
