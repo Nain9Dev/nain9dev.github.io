@@ -311,3 +311,14 @@ Spec 005 is committed as `c78c854`; production confirmation after deployment is 
 | PERF-018 | When a page is rendered, it shall declare no SVG favicon; the 96 px PNG, ICO and 180 px touch icon remain declared, and the SVG file stays published at its stable URL (SEO-002). | specs/035-intermittent-long-tasks | Implemented |
 | LHCI-002 | When a budget measurement breaks a limit, the gate shall repeat the whole measurement in a new Chrome process, up to three attempts, and fail only when every attempt breaks a limit; limits, runs and the median are unchanged. | specs/037-budget-gate-attempts (ADR-0006, Proposed) | Implemented |
 | LHCI-003 | When the gate finishes, it shall print the Chrome version and the outcome of each attempt. | specs/037-budget-gate-attempts | Implemented |
+
+## Ecosystem suite navigation bar (spec 038)
+
+| ID | Requirement | Source | Status |
+| :--- | :--- | :--- | :--- |
+| ECO-001 | When `<nain-ecosystem-bar>` is mounted, the component shall attach a Shadow DOM with closed encapsulation to isolate layout and styles from the host application. | specs/038-ecosystem-suite-bar | Implemented |
+| ECO-002 | When rendered, the bar shall display the canonical NainDev brand link (`https://www.naindev.com/`), the current project label when specified, a categorized quick-navigation dropdown for all public portfolio demos, and a link to the platform status page (`https://status.naindev.com/`). | specs/038-ecosystem-suite-bar | Implemented |
+| ECO-003 | The component script shall be self-contained in a single file under `public/assets/js/ecosystem-bar.js` weighing under 15 KB uncompressed, with no external runtime dependencies. | specs/038-ecosystem-suite-bar | Implemented |
+| ECO-004 | When the user triggers the collapse/expand toggle, the bar shall toggle between a full horizontal top bar and a minimal floating corner pill to prevent obstructing full-screen viewports. | specs/038-ecosystem-suite-bar | Implemented |
+| ECO-005 | When keyboard navigation is used (Tab, Escape, Enter), the menu shall conform to WCAG 2.2 AA accessibility with visible focus indicators, `aria-expanded` and role attributes, and close on Escape keypress. | specs/038-ecosystem-suite-bar | Implemented |
+
