@@ -1,6 +1,6 @@
 # ADR-0006: Repeat the budget measurement before failing a deploy
 
-Status: Proposed
+Status: Approved (owner, 2026-10-15)
 Date: 2026-10-15
 
 ## Context
