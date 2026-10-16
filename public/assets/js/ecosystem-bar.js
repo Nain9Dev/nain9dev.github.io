@@ -867,16 +867,57 @@
     }
 
     _setupTelemetryBus() {
+      // Automatic non-intrusive fetch observer for real HTTP / API calls
+      if (typeof window !== 'undefined' && window.fetch && !window.__nain_fetch_observed__) {
+        window.__nain_fetch_observed__ = true;
+        const origFetch = window.fetch;
+        window.fetch = async (...args) => {
+          const start = performance.now();
+          const rawUrl = typeof args[0] === 'string' ? args[0] : (args[0]?.url || '');
+          const method = (args[1]?.method || 'GET').toUpperCase();
+          try {
+            const res = await origFetch(...args);
+            const duration = Math.round(performance.now() - start);
+            if (rawUrl && !rawUrl.includes('.js') && !rawUrl.includes('.css') && !rawUrl.includes('.svg') && !rawUrl.includes('.ico') && !rawUrl.includes('fonts.googleapis')) {
+              window.dispatchEvent(new CustomEvent('nain:telemetry', {
+                detail: {
+                  type: method === 'GET' ? 'Query' : 'Command',
+                  name: `${method} ${rawUrl.replace(window.location.origin, '')}`,
+                  latencyMs: duration,
+                  status: res.status,
+                  payload: { method, endpoint: rawUrl.replace(window.location.origin, ''), status: res.status, ok: res.ok }
+                }
+              }));
+            }
+            return res;
+          } catch (err) {
+            const duration = Math.round(performance.now() - start);
+            if (rawUrl && !rawUrl.includes('.js') && !rawUrl.includes('.css')) {
+              window.dispatchEvent(new CustomEvent('nain:telemetry', {
+                detail: {
+                  type: 'Fallback',
+                  name: `${method} ${rawUrl.replace(window.location.origin, '')}`,
+                  latencyMs: duration,
+                  status: 200,
+                  payload: { notice: 'Offline / In-Browser Fallback Engine Engaged', endpoint: rawUrl.replace(window.location.origin, '') }
+                }
+              }));
+            }
+            throw err;
+          }
+        };
+      }
+
       window.addEventListener('nain:telemetry', (e) => {
         if (e.detail) {
           this._customTelemetry.unshift({
             type: e.detail.type || 'CustomEvent',
             name: e.detail.name || e.detail.action || 'DomainMutation',
-            latencyMs: e.detail.latencyMs || Math.floor(Math.random() * 25 + 5),
+            latencyMs: e.detail.latencyMs !== undefined ? e.detail.latencyMs : Math.floor(Math.random() * 25 + 5),
             status: e.detail.status || 200,
             payload: e.detail.payload || e.detail
           });
-          if (this._customTelemetry.length > 20) this._customTelemetry.pop();
+          if (this._customTelemetry.length > 30) this._customTelemetry.pop();
           if (this._drawerOpen && this._activeTab === 'telemetry') {
             this.render();
           }
