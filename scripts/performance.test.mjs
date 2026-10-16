@@ -57,7 +57,8 @@ test('PERF-002: preloaded fonts come from the bundled font files', async () => {
 });
 
 test('PERF-003: client scripts are bundled from src/scripts without manual versioning', async () => {
-  assert.equal((await walk('public/assets/js')).length, 0, 'public/assets/js must be empty');
+  const unbundled = (await walk('public/assets/js')).filter((f) => !f.endsWith('ecosystem-bar.js'));
+  assert.equal(unbundled.length, 0, 'public/assets/js must contain only standalone ecosystem distribution scripts');
   const sources = (await walk('src'))
     .filter((file) => /\.(astro|js|ts|mjs|mdx)$/.test(file));
   for (const file of sources) {
