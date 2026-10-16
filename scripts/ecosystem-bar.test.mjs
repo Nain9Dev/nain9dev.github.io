@@ -47,7 +47,9 @@ test('ECO-002: component includes brand link, status link, and public project ca
     'https://tai.naindev.com/',
     'https://tickets.naindev.com/',
     'https://gamehaven.naindev.com/',
-    'https://configurator.naindev.com/'
+    'https://configurator.naindev.com/',
+    'https://brand.naindev.com/',
+    'https://github.com/Nain9Dev/engineering-handbook'
   ];
 
   for (const url of expectedProjects) {

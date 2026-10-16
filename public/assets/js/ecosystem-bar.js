@@ -40,6 +40,14 @@
         { name: 'Orbe3D', desc: 'Procedural 3D arcade endless runner', url: 'https://orbe.naindev.com/', tag: 'Three.js' },
         { name: 'PongArcade', desc: 'Continuous collision 3D arena pong', url: 'https://pong.naindev.com/', tag: 'Canvas / WebGL' }
       ]
+    },
+    {
+      category: 'Arquitectura & Plataforma',
+      items: [
+        { name: 'Manual de Marca', desc: 'Design tokens, geometría e identidad visual v1.5', url: 'https://brand.naindev.com/', tag: 'Tokens' },
+        { name: 'Engineering Handbook', desc: 'Estándares de arquitectura limpia, TDD y 3D determinista', url: 'https://github.com/Nain9Dev/engineering-handbook', tag: 'Paved Road' },
+        { name: 'Observabilidad', desc: 'Monitor determinista y disponibilidad en tiempo real', url: 'https://status.naindev.com/', tag: 'Status' }
+      ]
     }
   ];
 
