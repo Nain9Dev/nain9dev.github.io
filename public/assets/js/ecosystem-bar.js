@@ -181,6 +181,26 @@
         { type: 'Billing', name: 'ReconcileInvoiceTotal', latencyMs: 4, status: 200, payload: { base: '350.50', vatRate: '21%', vat: '73.61', total: '424.11', delta: '0.00' } },
         { type: 'Security', name: 'VerifyDniChecksum', latencyMs: 1, status: 200, payload: { dni: '12345678Z', computedLetter: 'Z', valid: true } }
       ]
+    },
+    'parametricad': {
+      name: 'ParametriCAD AI',
+      title: 'Motor CAD Paramétrico & Validación Topológica de Mallas',
+      stack: 'Python 3.12 · OpenCASCADE (PythonOCC) · Trimesh · Three.js · FastAPI',
+      pattern: 'Sólidos B-Rep Deterministas, Pipeline de Teselación, Compuertas Manifold',
+      invariants: [
+        { label: 'Estanqueidad Topológica (Watertight)', rule: 'La representación de frontera (B-Rep) debe ser cerrada sin aristas de contorno abiertas.' },
+        { label: 'Característica de Euler Manifold', rule: 'Sólidos genus-0 exigen V - E + F = 2; tuberías toroidales genus-1 exigen V - E + F = 0.' },
+        { label: 'Cálculo Exacto de Masa y Volumen', rule: 'Cálculo analítico sobre el sólido exacto (teorema de divergencia) con desviación < 0.1%.' },
+        { label: 'Determinismo Multiformato', rule: 'Exportación simultánea de STEP, STL, DXF y GLB binario optimizado.' }
+      ],
+      sla: 'Teselación Subsegundo · Verificación 100% Watertight · Coste 0,00 €',
+      repo: 'https://github.com/Nain9Dev/parametricad-ai',
+      docs: 'https://github.com/Nain9Dev/parametricad-ai/tree/main/docs',
+      sampleEvents: [
+        { type: 'GeometryAssert', name: 'AssertWatertightSolid', latencyMs: 8, status: 200, payload: { boundaryEdges: 0, nonManifoldEdges: 0, isWatertight: true } },
+        { type: 'EulerCheck', name: 'VerifyEulerCharacteristic', latencyMs: 3, status: 200, payload: { vertices: 336, edges: 1008, faces: 672, euler: 0, genus: 1 } },
+        { type: 'ExportPipeline', name: 'ExportCADArtifacts', latencyMs: 25, status: 200, payload: { formats: ['glb', 'step', 'stl', 'dxf'], glbBytes: 12928, status: 'READY' } }
+      ]
     }
   };
 
