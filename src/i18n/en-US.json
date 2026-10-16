@@ -7383,5 +7383,15 @@
     "source": "Testing basado en propiedades (Hypothesis/xUnit)",
     "target": "Property-based testing (Hypothesis/xUnit)",
     "status": "reviewed"
+  },
+  "b90f89f90c5a3ccbdb6353a27bfd3d16d3381a4aba2dc4607b4d58ab25f588be": {
+    "source": "Ver monitor público de disponibilidad y latencia",
+    "target": "View public availability and latency monitor",
+    "status": "reviewed"
+  },
+  "dcd13a482fdf02f00f231c45a3573d6f32a5726158ded215acbd16569a88a7eb": {
+    "source": "⟦0⟧⟦1/⟧⟦2⟧Sistemas Operativos⟦/2⟧⟦/0⟧⟦3⟧📥 Checklist Arquitectura IA⟦/3⟧⟦4⟧Privacidad⟦/4⟧⟦5⟧Volver arriba⟦/5⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2⟧Systems Operational⟦/2⟧⟦/0⟧⟦3⟧📥 AI Architecture Checklist⟦/3⟧⟦4⟧Privacy⟦/4⟧⟦5⟧Back to top⟦/5⟧",
+    "status": "reviewed"
   }
 }
