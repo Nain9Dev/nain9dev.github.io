@@ -19,7 +19,7 @@ Two things are wrong, and a bigger number fixes neither:
    - `ecosystem-bar-panel.js` (ES module): drawer markup, drawer styles, tab rendering. Loaded with `import()` the first time the panel opens.
    - `ecosystem.v1.json`: project catalog and architecture profiles. Fetched by the entry after upgrade; its `schemaVersion` is the contract.
 3. **Versioned data contract.** A breaking change to the data shape creates `ecosystem.v2.json` and keeps `v1` until consumers move. Adding a project or profile is a data change, with no script change.
-4. **Degrade, never throw.** If the data cannot be fetched, the bar keeps the brand and status links and a link to the portfolio.
+4. **Degrade, never throw.** If the data cannot be fetched, the bar keeps the brand link (the portfolio) and the status link, without menu and panel.
 5. **Self-locating.** The entry resolves its siblings from its own script URL, with `https://www.naindev.com/assets/` as the fallback, so hosts that load it from another origin keep working.
 
 ## Consequences

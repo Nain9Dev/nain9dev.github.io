@@ -1,0 +1,536 @@
+{
+  "schemaVersion": 1,
+  "catalog": [
+    {
+      "category": "Backend & Cloud (.NET / Python)",
+      "items": [
+        {
+          "name": "NainPolicy",
+          "desc": "Insurance operations engine & accounting",
+          "url": "https://policy.naindev.com/",
+          "tag": ".NET 10"
+        },
+        {
+          "name": "NainOrder",
+          "desc": "Tactical DDD e-commerce order API",
+          "url": "https://order.naindev.com/",
+          "tag": ".NET 10"
+        },
+        {
+          "name": "NainDrive",
+          "desc": "Driving school management & accounting",
+          "url": "https://drive.naindev.com/",
+          "tag": "Python"
+        },
+        {
+          "name": "NainNotify",
+          "desc": "Asynchronous notification dispatch worker",
+          "url": "https://notify.naindev.com/",
+          "tag": ".NET 10"
+        },
+        {
+          "name": "NainTAI",
+          "desc": "Civil service examination simulator",
+          "url": "https://tai.naindev.com/",
+          "tag": ".NET 10"
+        }
+      ]
+    },
+    {
+      "category": "3D Geometry & Validation",
+      "items": [
+        {
+          "name": "Nain3D",
+          "desc": "Deterministic 3D asset validation engine",
+          "url": "https://3d.naindev.com/",
+          "tag": "FastAPI"
+        },
+        {
+          "name": "ParametriCAD AI",
+          "desc": "Parametric CAD engine & WebGL viewer",
+          "url": "https://parametricad.naindev.com/",
+          "tag": "OpenCASCADE"
+        },
+        {
+          "name": "NainConfigurator",
+          "desc": "Modular product configurator engine",
+          "url": "https://configurator.naindev.com/",
+          "tag": ".NET 10"
+        }
+      ]
+    },
+    {
+      "category": "Workbenches & Applications",
+      "items": [
+        {
+          "name": "NainProspect",
+          "desc": "B2B lead generation & outreach pipeline",
+          "url": "https://prospect.naindev.com/",
+          "tag": "FastAPI"
+        },
+        {
+          "name": "NainWrite",
+          "desc": "Deterministic Spanish text rewriting workbench",
+          "url": "https://write.naindev.com/",
+          "tag": "TypeScript"
+        },
+        {
+          "name": "HaveTickets",
+          "desc": "Cinema ticketing & seat reservation platform",
+          "url": "https://tickets.naindev.com/",
+          "tag": "Blazor"
+        },
+        {
+          "name": "GameHaven",
+          "desc": "Indie game digital desktop storefront",
+          "url": "https://gamehaven.naindev.com/",
+          "tag": "WPF / Web"
+        }
+      ]
+    },
+    {
+      "category": "Web Games (Zero Engine)",
+      "items": [
+        {
+          "name": "Orbe3D",
+          "desc": "Procedural 3D arcade endless runner",
+          "url": "https://orbe.naindev.com/",
+          "tag": "Three.js"
+        },
+        {
+          "name": "PongArcade",
+          "desc": "Continuous collision 3D arena pong",
+          "url": "https://pong.naindev.com/",
+          "tag": "Canvas / WebGL"
+        }
+      ]
+    },
+    {
+      "category": "Arquitectura & Plataforma",
+      "items": [
+        {
+          "name": "Manual de Marca",
+          "desc": "Design tokens, geometría e identidad visual v1.5",
+          "url": "https://brand.naindev.com/",
+          "tag": "Tokens"
+        },
+        {
+          "name": "Engineering Handbook",
+          "desc": "Estándares de arquitectura limpia, TDD y 3D determinista",
+          "url": "https://github.com/Nain9Dev/engineering-handbook",
+          "tag": "Paved Road"
+        },
+        {
+          "name": "Observabilidad",
+          "desc": "Monitor determinista y disponibilidad en tiempo real",
+          "url": "https://status.naindev.com/",
+          "tag": "Status"
+        }
+      ]
+    }
+  ],
+  "profiles": {
+    "nainorder": {
+      "name": "NainOrder",
+      "title": "Tactical DDD E-Commerce Order API",
+      "stack": ".NET 10 · Clean Architecture · EF Core & Dapper",
+      "pattern": "Domain-Driven Design (DDD), CQRS, Optimistic Concurrency, Outbox",
+      "invariants": [
+        {
+          "label": "Stock Concurrency Safe",
+          "rule": "ETag / RowVersion token check eliminates inventory overselling."
+        },
+        {
+          "label": "Exact Cent Arithmetic",
+          "rule": "Integer minor-units for zero floating-point accumulation error."
+        },
+        {
+          "label": "Zero Node Dependencies",
+          "rule": "Self-hosted native presentation served directly by ASP.NET Core."
+        }
+      ],
+      "sla": "52/52 Passing Tests · Cost 0.00 €",
+      "repo": "https://github.com/Nain9Dev/NainOrder",
+      "docs": "https://github.com/Nain9Dev/NainOrder/tree/main/docs",
+      "sampleEvents": [
+        {
+          "type": "Command",
+          "name": "SubmitOrderCommand",
+          "latencyMs": 38,
+          "status": 201,
+          "payload": {
+            "orderId": "ord_9182",
+            "items": 3,
+            "totalCents": 4590,
+            "concurrencyCheck": "PASSED"
+          }
+        },
+        {
+          "type": "DomainEvent",
+          "name": "OrderPlacedDomainEvent",
+          "latencyMs": 2,
+          "status": 200,
+          "payload": {
+            "aggregate": "Order",
+            "version": 1,
+            "eventId": "evt_0192a"
+          }
+        }
+      ]
+    },
+    "nain3d": {
+      "name": "Nain3D",
+      "title": "Deterministic 3D Geometric Validation Engine",
+      "stack": "Python 3.12 · FastAPI · OpenCASCADE · Trimesh · WebGL",
+      "pattern": "Fail-Closed Geometric Gateway, Dual-Contract Reporting, Vector Bounds",
+      "invariants": [
+        {
+          "label": "Quantum Limit Threshold",
+          "rule": "Degenerate triangles with area <= 10^-12 m² are strictly rejected."
+        },
+        {
+          "label": "Checks C1 to C10 Fail-Closed",
+          "rule": "Manifoldness, normal consistency, UV overlap and vertex bounds."
+        },
+        {
+          "label": "Khronos glTF Conformance",
+          "rule": "Official validator gate required before asset publishing approval."
+        }
+      ],
+      "sla": "Sub-millimeter Evaluation · Zero False Approvals · Cost 0.00 €",
+      "repo": "https://github.com/Nain9Dev/Nain3D",
+      "docs": "https://github.com/Nain9Dev/Nain3D/tree/master/docs",
+      "sampleEvents": [
+        {
+          "type": "GateCheck",
+          "name": "AssertMeshQuantumThreshold",
+          "latencyMs": 14,
+          "status": 200,
+          "payload": {
+            "minFaceArea": "1.42e-9 m²",
+            "quantumLimit": "1.00e-12 m²",
+            "result": "VALID"
+          }
+        },
+        {
+          "type": "ValidationReport",
+          "name": "KhronosConformanceGate",
+          "latencyMs": 45,
+          "status": 200,
+          "payload": {
+            "checksPassed": "C1-C10",
+            "nonManifoldEdges": 0,
+            "dualContract": "EMITTED"
+          }
+        }
+      ]
+    },
+    "nainpolicy": {
+      "name": "NainPolicy",
+      "title": "High-Assurance Insurance Lifecycle & Accounting Engine",
+      "stack": ".NET 10 · Clean Architecture · SQL Server / Postgres · Dapper",
+      "pattern": "Strict Tenant Isolation, Immutable Event Ledger, CQRS Read Models",
+      "invariants": [
+        {
+          "label": "Row-Level Tenant Gating",
+          "rule": "Every query and mutation strictly partitioned by verified TenantId."
+        },
+        {
+          "label": "Immutable Ledger Audit",
+          "rule": "Policy adjustments append to transaction history with zero updates."
+        },
+        {
+          "label": "Deterministic Balance",
+          "rule": "Premium + Tax equals Invoice Total with 0.00 € tolerance."
+        }
+      ],
+      "sla": "Sub-10ms Ledger Calculations · 100% Tests Passing · Cost 0.00 €",
+      "repo": "https://github.com/Nain9Dev/API-Gestion-Financiera",
+      "docs": "https://github.com/Nain9Dev/API-Gestion-Financiera/tree/main/docs",
+      "sampleEvents": [
+        {
+          "type": "Query",
+          "name": "GetPolicyLedgerQuery",
+          "latencyMs": 8,
+          "status": 200,
+          "payload": {
+            "tenantId": "ten_eur_01",
+            "balance": "1240.50 EUR",
+            "reconciliation": "BALANCED"
+          }
+        },
+        {
+          "type": "Lifecycle",
+          "name": "TransitionPolicyState",
+          "latencyMs": 12,
+          "status": 200,
+          "payload": {
+            "from": "Draft",
+            "to": "Active",
+            "effectiveDate": "2026-10-16"
+          }
+        }
+      ]
+    },
+    "nainprospect": {
+      "name": "NainProspect",
+      "title": "B2B Prospecting & Compliance Gateway",
+      "stack": "Python 3.12 · FastAPI · Claude Haiku 4.5 · Vue 3 + TypeScript",
+      "pattern": "Decoupled Scraping, Structured Ingestion, Fail-Closed Legal Gate",
+      "invariants": [
+        {
+          "label": "LSSI-CE Art. 21 Hard Gate",
+          "rule": "Cold outreach email dispatch is physically disabled in source code."
+        },
+        {
+          "label": "RGPD Role-Mail Invariant",
+          "rule": "Only public generic corporate inboxes (info@, contacto@) extracted."
+        },
+        {
+          "label": "Pydantic v2 Validation",
+          "rule": "Strict schema enforcement on all external model completions."
+        }
+      ],
+      "sla": "Sub-100ms Ingestion · 15/15 Pytest Passing · Cost 0.00 €",
+      "repo": "https://github.com/Nain9Dev/NainProspect",
+      "docs": "https://github.com/Nain9Dev/NainProspect/tree/main/docs",
+      "sampleEvents": [
+        {
+          "type": "Compliance",
+          "name": "AssertLssiCeArticle21Gate",
+          "latencyMs": 1,
+          "status": 200,
+          "payload": {
+            "gateActive": true,
+            "coldDispatchBlocked": true,
+            "simulatedPreview": "ALLOWED"
+          }
+        },
+        {
+          "type": "Ingestion",
+          "name": "ExtractCorporateRoleMail",
+          "latencyMs": 22,
+          "status": 200,
+          "payload": {
+            "domain": "corp-sample.es",
+            "inboxType": "ROLE_BASED",
+            "status": "VALIDATED"
+          }
+        }
+      ]
+    },
+    "nainwrite": {
+      "name": "NainWrite ES",
+      "title": "Fail-Closed Spanish Rewriting Workbench",
+      "stack": "Python 3.12 · Local Ollama · LanguageTool · Diff Engine",
+      "pattern": "Invariant Preservation, Single Constrained Repair, Dual Consensus",
+      "invariants": [
+        {
+          "label": "Invariant Preservation",
+          "rule": "Negations, entities, numbers and technical terms strictly preserved."
+        },
+        {
+          "label": "Single Constrained Repair",
+          "rule": "Deterministic drift allows exactly 1 correction before review gate."
+        },
+        {
+          "label": "Dual Auditor Consensus",
+          "rule": "Qwen and Gemma auditors must both agree before candidate approval."
+        }
+      ],
+      "sla": "100% Local Inference · Zero API Billable Cost · Cost 0.00 €",
+      "repo": "https://github.com/Nain9Dev/NainWrite",
+      "docs": "https://github.com/Nain9Dev/NainWrite/tree/main/docs",
+      "sampleEvents": [
+        {
+          "type": "InvariantCheck",
+          "name": "VerifyProtectedEntities",
+          "latencyMs": 16,
+          "status": 200,
+          "payload": {
+            "entitiesTracked": 14,
+            "driftDetected": 0,
+            "invariantsPreserved": true
+          }
+        },
+        {
+          "type": "AuditorGate",
+          "name": "ConsensusAuditorEvaluation",
+          "latencyMs": 64,
+          "status": 200,
+          "payload": {
+            "qwenScore": 0.98,
+            "gemmaScore": 0.96,
+            "decision": "ACCEPTED"
+          }
+        }
+      ]
+    },
+    "havetickets": {
+      "name": "HaveTickets",
+      "title": "Deterministic Cinema Ticketing & Seat Reservation Platform",
+      "stack": ".NET 10 · Blazor WebAssembly · Clean Architecture · SQLite",
+      "pattern": "Database-Level Concurrency, Minor-Unit Accounting, Turnstile Gate",
+      "invariants": [
+        {
+          "label": "Deterministic Seat Allocation",
+          "rule": "Partial unique index UX_Tickets_ShowtimeId_Seat_Active blocks races."
+        },
+        {
+          "label": "Exact Cent Arithmetic",
+          "rule": "Integer Money value object eliminates IEEE-754 cent drift."
+        },
+        {
+          "label": "Turnstile Window Gate",
+          "rule": "Idempotent QR door admission restricted to [-30m, +30m] range."
+        }
+      ],
+      "sla": "Zero Overbooking Races · Property-Based Tests · Cost 0.00 €",
+      "repo": "https://github.com/Nain9Dev/HaveTickets",
+      "docs": "https://github.com/Nain9Dev/HaveTickets/tree/master/docs",
+      "sampleEvents": [
+        {
+          "type": "Reservation",
+          "name": "ReserveSeatCommand",
+          "latencyMs": 11,
+          "status": 200,
+          "payload": {
+            "showtimeId": 104,
+            "seat": "H12",
+            "concurrencyLocked": true,
+            "status": "RESERVED"
+          }
+        },
+        {
+          "type": "Admission",
+          "name": "TurnstileValidateQr",
+          "latencyMs": 3,
+          "status": 200,
+          "payload": {
+            "windowCheck": "VALID",
+            "outcome": "ADMITTED",
+            "idempotent": true
+          }
+        }
+      ]
+    },
+    "naindrive": {
+      "name": "NainDrive",
+      "title": "Deterministic Driving School Billing & Accounting Engine",
+      "stack": "Python 3.12 · FastAPI · Vue 3 + TS · ReportLab In-Memory",
+      "pattern": "Decimal Banking Rounding, Modulo-23 DNI Gate, In-Memory PDF",
+      "invariants": [
+        {
+          "label": "Money is Never a Float",
+          "rule": "Explicit Decimal half-up rounding (Tax on 350.50 = 73.61, not 73.60)."
+        },
+        {
+          "label": "Mod-23 Identity Verification",
+          "rule": "DNI/NIE control letter calculated deterministically from numbers."
+        },
+        {
+          "label": "In-Memory PDF Stream",
+          "rule": "Zero temporary files written to disk; compiled in-memory byte streams."
+        }
+      ],
+      "sla": "100% Traceability (14 REQs -> 55 Tests) · Cost 0.00 €",
+      "repo": "https://github.com/Nain9Dev/Gestion-Autoescuela-Python",
+      "docs": "https://github.com/Nain9Dev/Gestion-Autoescuela-Python/tree/main/docs",
+      "sampleEvents": [
+        {
+          "type": "Billing",
+          "name": "ReconcileInvoiceTotal",
+          "latencyMs": 4,
+          "status": 200,
+          "payload": {
+            "base": "350.50",
+            "vatRate": "21%",
+            "vat": "73.61",
+            "total": "424.11",
+            "delta": "0.00"
+          }
+        },
+        {
+          "type": "Security",
+          "name": "VerifyDniChecksum",
+          "latencyMs": 1,
+          "status": 200,
+          "payload": {
+            "dni": "12345678Z",
+            "computedLetter": "Z",
+            "valid": true
+          }
+        }
+      ]
+    },
+    "parametricad": {
+      "name": "ParametriCAD AI",
+      "title": "Motor CAD Paramétrico & Validación Topológica de Mallas",
+      "stack": "Python 3.12 · OpenCASCADE (PythonOCC) · Trimesh · Three.js · FastAPI",
+      "pattern": "Sólidos B-Rep Deterministas, Pipeline de Teselación, Compuertas Manifold",
+      "invariants": [
+        {
+          "label": "Estanqueidad Topológica (Watertight)",
+          "rule": "La representación de frontera (B-Rep) debe ser cerrada sin aristas de contorno abiertas."
+        },
+        {
+          "label": "Característica de Euler Manifold",
+          "rule": "Sólidos genus-0 exigen V - E + F = 2; tuberías toroidales genus-1 exigen V - E + F = 0."
+        },
+        {
+          "label": "Cálculo Exacto de Masa y Volumen",
+          "rule": "Cálculo analítico sobre el sólido exacto (teorema de divergencia) con desviación < 0.1%."
+        },
+        {
+          "label": "Determinismo Multiformato",
+          "rule": "Exportación simultánea de STEP, STL, DXF y GLB binario optimizado."
+        }
+      ],
+      "sla": "Teselación Subsegundo · Verificación 100% Watertight · Coste 0,00 €",
+      "repo": "https://github.com/Nain9Dev/parametricad-ai",
+      "docs": "https://github.com/Nain9Dev/parametricad-ai/tree/main/docs",
+      "sampleEvents": [
+        {
+          "type": "GeometryAssert",
+          "name": "AssertWatertightSolid",
+          "latencyMs": 8,
+          "status": 200,
+          "payload": {
+            "boundaryEdges": 0,
+            "nonManifoldEdges": 0,
+            "isWatertight": true
+          }
+        },
+        {
+          "type": "EulerCheck",
+          "name": "VerifyEulerCharacteristic",
+          "latencyMs": 3,
+          "status": 200,
+          "payload": {
+            "vertices": 336,
+            "edges": 1008,
+            "faces": 672,
+            "euler": 0,
+            "genus": 1
+          }
+        },
+        {
+          "type": "ExportPipeline",
+          "name": "ExportCADArtifacts",
+          "latencyMs": 25,
+          "status": 200,
+          "payload": {
+            "formats": [
+              "glb",
+              "step",
+              "stl",
+              "dxf"
+            ],
+            "glbBytes": 12928,
+            "status": "READY"
+          }
+        }
+      ]
+    }
+  }
+}
