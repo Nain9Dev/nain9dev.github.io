@@ -60,6 +60,26 @@ test('SEO-016: the website and articles are published by the organization', asyn
   assert.match(component, /personSchema,\s+organizationSchema,\s+websiteSchema/);
 });
 
+const BRAND_CHANNELS = [
+  'https://www.youtube.com/@Nain9Dev',
+  'https://www.instagram.com/nainndev/',
+  'https://www.tiktok.com/@nain9dev'
+];
+
+test('SEO-018: the Organization lists the brand YouTube, Instagram and TikTok profiles', async () => {
+  const component = await read('src/components/SEO.astro');
+  const organization = component.match(/const organizationSchema = \{([\s\S]*?)\n\};/)?.[1] ?? '';
+  for (const url of BRAND_CHANNELS) assert.ok(organization.includes(`"${url}"`), url);
+  assert.equal(organization.match(/"https:\/\/github\.com\/Nain9Dev"/g)?.length, 1);
+  assert.equal(organization.match(/"https:\/\/x\.com\/Nain9Dev"/g)?.length, 1);
+});
+
+test('SEO-019: the Person does not list the brand-only channels', async () => {
+  const component = await read('src/components/SEO.astro');
+  const person = component.match(/const personSchema = \{([\s\S]*?)\n\};/)?.[1] ?? '';
+  for (const url of BRAND_CHANNELS) assert.ok(!person.includes(url), url);
+});
+
 test('SEO-013: the blog and service hubs drop the old positioning', async () => {
   for (const file of ['src/pages/blog/index.astro', 'src/pages/servicios/index.astro']) {
     const page = await read(file);

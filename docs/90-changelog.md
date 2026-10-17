@@ -4,6 +4,10 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ## [Unreleased]
 
+### Added
+
+- Spec 040: the `Organization` structured data now lists the brand YouTube, Instagram and TikTok profiles in `sameAs`; the `Person` does not.
+
 ### Fixed
 
 - Spec 037: the Lighthouse gate no longer fails deploys on a rare browser-internal 66–72 ms task that hits most runs of one Chrome process: a failing measurement is repeated in a new process, up to three attempts, with unchanged limits (ADR-0006, Proposed); the Chrome version and each attempt are logged.

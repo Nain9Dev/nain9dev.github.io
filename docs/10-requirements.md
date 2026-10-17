@@ -45,6 +45,8 @@ Status values: `Implemented` (released, evidence recorded in the spec handoff), 
 | SEO-015 | When any page is rendered, the `Person` shall keep only personal profile links (without the company LinkedIn page) and the `Organization` shall name the person as founder. | specs/036-organization-structured-data | Implemented |
 | SEO-016 | When any page is rendered, the `WebSite` and every `BlogPosting` shall name the `Organization` as publisher. | specs/036-organization-structured-data | Implemented |
 | SEO-017 | When an English page is built, the `Organization` identifier, URL and name shall stay identical to the Spanish ones. | specs/036-organization-structured-data | Implemented |
+| SEO-018 | When any page is rendered, the `Organization` `sameAs` shall also list the brand YouTube channel, Instagram and TikTok profiles. | specs/040-organization-brand-profiles | Implemented (not deployed) |
+| SEO-019 | When any page is rendered, the `Person` `sameAs` shall not list the brand-only channels (YouTube, Instagram, TikTok). | specs/040-organization-brand-profiles | Implemented (not deployed) |
 | SEO-010 | When collection content declares a social image, the generated page shall refer to an existing asset; stale references shall use the collection default. | specs/002-search-brand-presentation | Implemented |
 
 ## English localization
