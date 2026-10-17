@@ -4,14 +4,15 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ## [Unreleased]
 
+### Added
+
+- Spec 042: the `Organization` structured data also lists the Google Business Profile share link and the Threads profile in `sameAs`; the `Person` does not.
+- Spec 040: the `Organization` structured data now lists the brand YouTube, Instagram and TikTok profiles in `sameAs`; the `Person` does not.
+
 ### Changed
 
 - Spec 041 phase B: the ecosystem bar is split into a core script (`ecosystem-bar.js`, 5.0 KB gzip), an architecture panel loaded on first open (`ecosystem-bar-panel.js`) and a versioned data file (`public/assets/data/ecosystem.v1.json`); without the data the bar keeps the brand and status links. Telemetry values are now escaped before rendering.
 - Spec 041 phase A: ECO-003 now budgets the ecosystem bar by gzip transfer size (15 KB, was 15 KB raw); the 42 KB raw script (10.8 KB gzip) failed `npm run check` and blocked the deploys since 2026-10-16. ADR-0007 (Proposed).
-
-### Added
-
-- Spec 040: the `Organization` structured data now lists the brand YouTube, Instagram and TikTok profiles in `sameAs`; the `Person` does not.
 
 ### Fixed
 

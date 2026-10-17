@@ -124,6 +124,7 @@ Before the copy change, `scripts/offer-copy.test.mjs` failed 6 of 6 and the new 
 | COPY-015 to COPY-018 | `scripts/services-coherence.test.mjs` tests of the same IDs (COPY-017 scans components, pages and content) | unit | Pass: local `npm run check` 2026-09-27 |
 | SEO-014 to SEO-016 | `scripts/seo-profile.test.mjs` tests of the same IDs; `scripts/check-seo.mjs` validates Organization identity, logo and publisher over `dist/` | unit + contract | Pass: local checks 2026-10-15 (full `npm run check` pending) |
 | SEO-017 | `scripts/localization.test.mjs` test of the same ID; `dist/en/index.html` carries the shared Organization identity | unit + build | Pass: local checks 2026-10-15 |
+| SEO-020, SEO-021 | `scripts/seo-profile.test.mjs` tests of the same IDs | unit | Pass: local 2026-10-17 |
 | SEO-018, SEO-019 | `scripts/seo-profile.test.mjs` tests of the same IDs | unit | Pass: local 2026-10-17 (full `npm run check` pending) |
 | SEO-011 to SEO-013 | `scripts/seo-profile.test.mjs` tests of the same IDs; `scripts/check-seo.mjs` keeps validating uniqueness and SEO-003 over `dist/` | unit + contract | Pass: local `npm run check` 2026-09-27 |
 | PRJ-004 | `scripts/profile-coherence.test.mjs` "PRJ-004: public live demos are linked from the catalog" | unit | Pass: local `npm run check` 2026-09-27 |

@@ -80,6 +80,24 @@ test('SEO-019: the Person does not list the brand-only channels', async () => {
   for (const url of BRAND_CHANNELS) assert.ok(!person.includes(url), url);
 });
 
+const LISTING_AND_THREADS = [
+  'https://share.google/1tIQO3tlW8K8qVZ9R',
+  'https://www.threads.com/@nainndev'
+];
+
+test('SEO-020: the Organization lists the Google Business Profile and Threads', async () => {
+  const component = await read('src/components/SEO.astro');
+  const organization = component.match(/const organizationSchema = \{([\s\S]*?)\n\};/)?.[1] ?? '';
+  for (const url of LISTING_AND_THREADS) assert.ok(organization.includes(`"${url}"`), url);
+  assert.doesNotMatch(organization, /g\.page\/r\//, 'the review link is not a profile link');
+});
+
+test('SEO-021: the Person does not list the Google Business Profile or Threads', async () => {
+  const component = await read('src/components/SEO.astro');
+  const person = component.match(/const personSchema = \{([\s\S]*?)\n\};/)?.[1] ?? '';
+  for (const url of LISTING_AND_THREADS) assert.ok(!person.includes(url), url);
+});
+
 test('SEO-013: the blog and service hubs drop the old positioning', async () => {
   for (const file of ['src/pages/blog/index.astro', 'src/pages/servicios/index.astro']) {
     const page = await read(file);
