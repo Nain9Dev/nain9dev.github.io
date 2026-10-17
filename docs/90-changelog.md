@@ -4,6 +4,10 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ## [Unreleased]
 
+### Changed
+
+- Spec 041 phase A: ECO-003 now budgets the ecosystem bar by gzip transfer size (15 KB, was 15 KB raw); the 42 KB raw script (10.8 KB gzip) failed `npm run check` and blocked the deploys since 2026-10-16. ADR-0007 (Proposed).
+
 ### Added
 
 - Spec 040: the `Organization` structured data now lists the brand YouTube, Instagram and TikTok profiles in `sameAs`; the `Person` does not.

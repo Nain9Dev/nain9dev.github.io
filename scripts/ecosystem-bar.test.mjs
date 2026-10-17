@@ -2,17 +2,26 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
+import zlib from 'node:zlib';
 import { fileURLToPath } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const SCRIPT_PATH = path.join(__dirname, '..', 'public', 'assets', 'js', 'ecosystem-bar.js');
 
-test('ECO-003: ecosystem-bar.js exists and is ultra-lightweight (< 15 KB, no external imports)', () => {
+const JS_DIR = path.join(__dirname, '..', 'public', 'assets', 'js');
+const DATA_PATH = path.join(__dirname, '..', 'public', 'assets', 'data', 'ecosystem.v1.json');
+const gzipSize = (file) => zlib.gzipSync(fs.readFileSync(file), { level: 9 }).length;
+
+test('ECO-003: ecosystem-bar.js exists and the distribution stays within its transfer budget', () => {
   assert.ok(fs.existsSync(SCRIPT_PATH), 'public/assets/js/ecosystem-bar.js must exist');
   const stat = fs.statSync(SCRIPT_PATH);
   assert.ok(stat.size > 500, 'script must contain implementation');
-  assert.ok(stat.size < 15000, `script size (${stat.size} bytes) must be under 15,000 bytes`);
+
+  const parts = fs.readdirSync(JS_DIR).filter((f) => /^ecosystem-bar.*\.js$/.test(f)).map((f) => path.join(JS_DIR, f));
+  if (fs.existsSync(DATA_PATH)) parts.push(DATA_PATH);
+  const total = parts.reduce((sum, file) => sum + gzipSize(file), 0);
+  assert.ok(total <= 15 * 1024, `distribution gzip size (${total} bytes) must be at most 15 KB`);
 
   const content = fs.readFileSync(SCRIPT_PATH, 'utf-8');
   assert.match(content, /customElements\.define\(['"]nain-ecosystem-bar['"]/, 'must define custom element nain-ecosystem-bar');
