@@ -1,7 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import QuoteSimulator from '../../components/tools/QuoteSimulator.astro';
 
 // Obtener y ordenar los servicios
 const servicios = await getCollection('servicios', ({ data }) => data.draft !== true);
@@ -39,6 +38,4 @@ const sortedServicios = servicios.sort((a, b) => a.data.order - b.data.order);
       </div>
     </div>
   </main>
-
-  <QuoteSimulator />
 </BaseLayout>

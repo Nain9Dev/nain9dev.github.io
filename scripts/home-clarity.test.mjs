@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFile, readdir } from 'node:fs/promises';
+import { access, readFile, readdir } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
 
@@ -52,6 +52,12 @@ test('AVAIL-001: availability is stated as part-time remote work, without weeken
   const hero = await read('src/components/home/Hero.astro');
   assert.doesNotMatch(hero, /<span class="panel-state">Disponible<\/span>/);
   assert.match(hero, /<span class="panel-state">Tiempo parcial<\/span>/);
+});
+
+test('SIM-001: the services page has no scope simulator with invented timelines or deliverables', async () => {
+  const page = await read('src/pages/servicios/index.astro');
+  assert.doesNotMatch(page, /QuoteSimulator|simulador-presupuestos/);
+  await assert.rejects(access(join(ROOT, 'src/components/tools/QuoteSimulator.astro')), { code: 'ENOENT' });
 });
 
 test('CTA-001: every booking link offers a call, never a free audit or diagnosis', async () => {

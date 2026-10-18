@@ -15,6 +15,7 @@ Make the home page clearer and more useful for a CTO or founder arriving for the
 - CAT-001: When the home page is served as static HTML, the project catalog shall be present in the markup (no "Cargando proyectos…" placeholder as the only content).
 - FOOT-001: The footer status link shall be labelled by its destination ("Estado del servicio"), not "Sistemas Operativos".
 - AVAIL-001: The home page shall state availability as part-time, remote work with scope agreed on the first call; it shall not mention weekends and the hero panel badge shall read "Tiempo parcial" instead of a bare "Disponible" (owner decision 2026-10-18).
+- SIM-001: The services page shall not include the scope and proposal simulator: its timelines, "100 % tests", "0 € cost" and audit scope were formulas without evidence and contradicted the offer rules (owner decision 2026-10-18).
 - CTA-001: Every booking link shall offer a call ("Agendar llamada gratuita"; the header uses "Agendar llamada"; the audit service page may keep "Agendar Auditoría de Sistemas") and no link shall promise a free audit, diagnosis or consultancy, matching the brief (owner decision 2026-10-18).
 
 ## Edge cases
@@ -30,6 +31,7 @@ Make the home page clearer and more useful for a CTO or founder arriving for the
 
 - Last updated: 2026-10-18
 - Done: HERO-001..003, LABEL-001, FOOT-001 (commit 2ce2b92); CTA-001 (commit 9ba5d1a); CAT-001 implemented as a static `catalog-index` list built from `projects.json` and replaced by the client cards, `npm run check` green, budget passes (attempt 2; attempt 1 was runner noise), verified in the browser. Not committed.
-- Next: owner review and commit.
+- Done (later): AVAIL-001 (commit b9dc968); SIM-001 implemented (component removed, page cleaned), `npm run check` green, not committed. English catalog keeps orphan entries as before (79 already existed).
+- Next: owner review and commit; problem pages and the performance-gate diagnosis remain open.
 - Noted, out of scope: `QuoteSimulator.astro` on `/servicios/` estimates scope and the brief says no prices; ask the owner.
 - Blocked: —
