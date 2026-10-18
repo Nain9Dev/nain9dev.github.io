@@ -98,6 +98,20 @@ test('SEO-021: the Person does not list the Google Business Profile or Threads',
   for (const url of LISTING_AND_THREADS) assert.ok(!person.includes(url), url);
 });
 
+const FACEBOOK_PAGE = 'https://www.facebook.com/profile.php?id=61595195565055';
+
+test('SEO-022: the Organization lists the brand Facebook page', async () => {
+  const component = await read('src/components/SEO.astro');
+  const organization = component.match(/const organizationSchema = \{([\s\S]*?)\n\};/)?.[1] ?? '';
+  assert.ok(organization.includes(`"${FACEBOOK_PAGE}"`), FACEBOOK_PAGE);
+});
+
+test('SEO-023: the Person does not list the brand Facebook page', async () => {
+  const component = await read('src/components/SEO.astro');
+  const person = component.match(/const personSchema = \{([\s\S]*?)\n\};/)?.[1] ?? '';
+  assert.ok(!person.includes(FACEBOOK_PAGE), FACEBOOK_PAGE);
+});
+
 test('SEO-013: the blog and service hubs drop the old positioning', async () => {
   for (const file of ['src/pages/blog/index.astro', 'src/pages/servicios/index.astro']) {
     const page = await read(file);

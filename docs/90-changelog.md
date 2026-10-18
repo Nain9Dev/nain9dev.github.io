@@ -6,6 +6,7 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ### Added
 
+- Spec 043: the `Organization` structured data also lists the brand Facebook page in `sameAs`; the `Person` does not.
 - Spec 042: the `Organization` structured data also lists the Google Business Profile share link and the Threads profile in `sameAs`; the `Person` does not.
 - Spec 040: the `Organization` structured data now lists the brand YouTube, Instagram and TikTok profiles in `sameAs`; the `Person` does not.
 
