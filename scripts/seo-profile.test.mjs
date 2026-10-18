@@ -57,7 +57,7 @@ test('SEO-016: the website and articles are published by the organization', asyn
   const article = component.match(/const articleSchema = [\s\S]*?\n\} : undefined;/)?.[0] ?? '';
   assert.match(website, /"publisher": \{ "@id": organizationId \}/);
   assert.match(article, /"publisher": \{ "@id": organizationId \}/);
-  assert.match(component, /personSchema,\s+organizationSchema,\s+websiteSchema/);
+  assert.match(component, /personSchema,\s+organizationSchema,\s+contrast3dSchema,\s+websiteSchema/);
 });
 
 const BRAND_CHANNELS = [

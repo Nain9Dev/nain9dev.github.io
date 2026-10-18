@@ -7393,5 +7393,40 @@
     "source": "⟦0⟧⟦1/⟧⟦2⟧Sistemas Operativos⟦/2⟧⟦/0⟧⟦3⟧📥 Checklist Arquitectura IA⟦/3⟧⟦4⟧Privacidad⟦/4⟧⟦5⟧Volver arriba⟦/5⟧",
     "target": "⟦0⟧⟦1/⟧⟦2⟧Systems Operational⟦/2⟧⟦/0⟧⟦3⟧📥 AI Architecture Checklist⟦/3⟧⟦4⟧Privacy⟦/4⟧⟦5⟧Back to top⟦/5⟧",
     "status": "reviewed"
+  },
+  "4332d03334af3e5d95eaa70b71c42c34311169ddaec857396b87876d8795f42b": {
+    "source": "⟦0⟧Conocer el estudio Contrast3D ⟦1⟧↗⟦/1⟧⟦/0⟧",
+    "target": "⟦0⟧Visit the Contrast3D studio ⟦1⟧↗⟦/1⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "71e6c2cd926c865fdafc5c09a08be184d944879072ccea703eb6cb702a3115ec": {
+    "source": "Dirección creativa, CGI y movimiento, 3D en tiempo real y diseño visual de producto.",
+    "target": "Creative direction, CGI and motion, real-time 3D and visual product design.",
+    "status": "reviewed"
+  },
+  "a3c3c2f2c84f2d0f1cff7b2d21b7469e39083be91a8e8046e0e6fbf48d805bd8": {
+    "source": "Contrast3D",
+    "target": "Contrast3D",
+    "status": "reviewed"
+  },
+  "a8d3364b6eeb3aa4e409001ae04c231c9cf5f1e26cc6e9aab1f74780fe4914a4": {
+    "source": "Backend en .NET y Python, validación determinista, integraciones de IA con revisión humana y auditoría de sistemas críticos.",
+    "target": "Backend in .NET and Python, deterministic validation, AI integrations with human review and critical-system audits.",
+    "status": "reviewed"
+  },
+  "b057fce986027ac00da07535bdf224a012766a0b2b2c328130fb4023f5f23589": {
+    "source": "Contrast3D x NainDev: diseño y software, de la idea a producción",
+    "target": "Contrast3D x NainDev: design and software, from idea to production",
+    "status": "reviewed"
+  },
+  "df679d691718ea7f802fd0f1427de927c51d86ab785797ce7636e8ceaac1bfd9": {
+    "source": "NainDev colabora con Contrast3D, un estudio de dirección creativa, CGI y 3D en tiempo real. Cada uno se ocupa de lo suyo para que un producto se vea bien y funcione de forma fiable.",
+    "target": "NainDev collaborates with Contrast3D, a studio for creative direction, CGI and real-time 3D. Each handles its own part so a product looks good and works reliably.",
+    "status": "reviewed"
+  },
+  "e96a0571e859cb4a73d72c5ae1e980543ca368ebba45a37fd9e43ca9693e1bb9": {
+    "source": "Colaboración",
+    "target": "Collaboration",
+    "status": "reviewed"
   }
 }

@@ -31,6 +31,7 @@ const siteURL = new URL('/', Astro.site || 'https://www.naindev.com').toString()
 const personId = `${siteURL}#person`;
 const organizationId = `${siteURL}#organization`;
 const websiteId = `${siteURL}#website`;
+const contrast3dId = 'https://www.contrast3d.com/#organization';
 const webpageId = `${canonicalURL.toString()}#webpage`;
 const articleId = `${canonicalURL.toString()}#article`;
 
@@ -45,6 +46,7 @@ const personSchema = {
   "alternateName": ["NainDev", "Aitor Nain", "Aitor Mendoza", "Aitor Mendoza Vallejo"],
   "url": siteURL,
   "jobTitle": "Arquitecto de Software Full Stack",
+  "affiliation": { "@id": contrast3dId },
   "sameAs": [
     "https://github.com/Nain9Dev",
     "https://github.com/naindev-contrast3d",
@@ -72,6 +74,13 @@ const organizationSchema = {
     "https://www.threads.com/@nainndev",
     "https://share.google/1tIQO3tlW8K8qVZ9R"
   ]
+};
+
+const contrast3dSchema = {
+  "@type": "Organization",
+  "@id": contrast3dId,
+  "name": "Contrast3D",
+  "url": "https://www.contrast3d.com/"
 };
 
 const websiteSchema = {
@@ -132,6 +141,7 @@ const schema = {
   "@graph": [
     personSchema,
     organizationSchema,
+    contrast3dSchema,
     websiteSchema,
     webpageSchema,
     ...(articleSchema ? [articleSchema] : []),
