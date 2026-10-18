@@ -7528,5 +7528,10 @@
     "source": "Agendar llamada gratuita",
     "target": "Schedule a free call",
     "status": "reviewed"
+  },
+  "42283098514e77953d2b6cbf5281b447ea21dafcd86fe852f76a9526554d9cb7": {
+    "source": "Activa JavaScript para filtrar el catálogo y ver el detalle de cada proyecto. También puedes revisar el código directamente en ⟦0⟧GitHub⟦/0⟧.",
+    "target": "Enable JavaScript to filter the catalog and see each project in detail. You can also review the code directly at ⟦0⟧GitHub⟦/0⟧.",
+    "status": "reviewed"
   }
 }

@@ -33,6 +33,18 @@ test('HERO-003: the eyebrow does not repeat the job title', async () => {
   assert.doesNotMatch(eyebrow, /Arquitecto de Software/i);
 });
 
+test('CAT-001: the project catalog is rendered in the static markup, not only after JavaScript runs', async () => {
+  const section = await read('src/components/home/ProjectsSection.astro');
+  assert.doesNotMatch(section, /Cargando proyectos/);
+  assert.match(section, /import projects from '\.\.\/\.\.\/\.\.\/public\/assets\/data\/projects\.json'/);
+  const list = section.match(/<ul class="project-index"[\s\S]*?<\/ul>/)?.[0] ?? '';
+  assert.match(list, /catalog\.map\(/);
+  assert.match(section, /const catalog = \[\.\.\.projects\]/);
+  assert.match(list, /project\.title/);
+  assert.match(list, /project\.status/);
+  assert.match(section, /<div class="project-grid" data-project-list/, 'the client renderer keeps its container');
+});
+
 test('CTA-001: every booking link offers a call, never a free audit or diagnosis', async () => {
   const allowed = new Set(['Agendar llamada gratuita', 'Agendar llamada', 'Agendar Auditoría de Sistemas']);
   const files = (await readdir(join(ROOT, 'src'), { recursive: true }))
