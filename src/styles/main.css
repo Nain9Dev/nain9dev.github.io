@@ -714,6 +714,18 @@ main[tabindex="-1"]:focus {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.card-grid-two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.card-grid-two .service-card {
+  min-height: 0;
+}
+
+.partnership-links {
+  margin-top: 2rem;
+}
+
 .service-card,
 .project-card {
   position: relative;
@@ -1229,7 +1241,8 @@ main[tabindex="-1"]:focus {
     width: min(100%, 40rem);
   }
 
-  .card-grid-three {
+  .card-grid-three,
+  .card-grid-two {
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
   }
 
@@ -1337,6 +1350,7 @@ main[tabindex="-1"]:focus {
 
 @media (max-width: 480px) {
   .card-grid-three,
+  .card-grid-two,
   .project-grid,
   .impact-metrics-grid {
     grid-template-columns: 1fr;
