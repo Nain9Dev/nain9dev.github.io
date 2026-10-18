@@ -7473,5 +7473,60 @@
     "source": "⟦0⟧⟦1/⟧⟦2⟧Estado del servicio⟦/2⟧⟦/0⟧⟦3⟧📥 Checklist Arquitectura IA⟦/3⟧⟦4⟧Privacidad⟦/4⟧⟦5⟧Volver arriba⟦/5⟧",
     "target": "⟦0⟧⟦1/⟧⟦2⟧Service status⟦/2⟧⟦/0⟧⟦3⟧📥 AI Architecture Checklist⟦/3⟧⟦4⟧Privacy⟦/4⟧⟦5⟧Back to top⟦/5⟧",
     "status": "reviewed"
+  },
+  "2929f7ee6ee043db9502ee345e3b3ef55936d267c18a82cc98b040a45ee4646e": {
+    "source": "⟦0⟧⟦1⟧Agenda una llamada gratuita⟦/1⟧⟦/0⟧ para trazar el mapa de ruta (Roadmap) de migración de tu monolito.",
+    "target": "⟦0⟧⟦1⟧Schedule a free call⟦/1⟧⟦/0⟧ to map out the roadmap for migrating your monolith.",
+    "status": "reviewed"
+  },
+  "293fb06f1504bc07cae38d589b1d591aa61b189aa99f39cafb407570f6fe1bee": {
+    "source": "⟦0⟧📋 Descarga nuestra checklist para evaluar tu arquitectura⟦/0⟧⟦1/⟧ ⟦2⟧Agendar llamada gratuita⟦/2⟧",
+    "target": "⟦0⟧📋 Download our checklist to evaluate your architecture⟦/0⟧⟦1/⟧ ⟦2⟧Schedule a free call⟦/2⟧",
+    "status": "reviewed"
+  },
+  "2982c9a2a7c6b6698f2026207d6cd4b643fafa8c53becab9bc1cd77a93eb4949": {
+    "source": "“¿Tu sistema de IA procesa datos financieros sin una capa de validación determinista?” ⟦0⟧Agendar llamada gratuita⟦/0⟧ o ⟦1⟧descarga el Checklist de Arquitectura IA⟦/1⟧.",
+    "target": "“Does your AI system process financial data without a deterministic validation layer?” ⟦0⟧Schedule a free call⟦/0⟧ or ⟦1⟧download the AI Architecture Checklist⟦/1⟧.",
+    "status": "reviewed"
+  },
+  "31a2fa60fd3acdf80dbe8665ae1df9070fe7253ce1c4987fe5823a2b499b7252": {
+    "source": "Asegura el éxito de tu renderizado, simulación o impresión 3D desde el servidor. ⟦0⟧⟦1⟧Agenda una llamada gratuita⟦/1⟧⟦/0⟧ para evaluar cómo podemos implementar un nodo de validación geométrica en tu arquitectura.",
+    "target": "Ensure the success of your rendering, simulation or 3D printing from the server. ⟦0⟧⟦1⟧Schedule a free call⟦/1⟧⟦/0⟧ to evaluate how we can implement a geometric validation node in your architecture.",
+    "status": "reviewed"
+  },
+  "4203807c4c21f247e5a90d2441bf8a9526b7e0b43ebae4d1007b98963cb6a123": {
+    "source": "“¿Tu sistema logístico pierde eventos durante los picos de carga?” ⟦0⟧Agendar llamada gratuita⟦/0⟧.",
+    "target": "“Is your logistics system losing events during load peaks?” ⟦0⟧Schedule a free call⟦/0⟧.",
+    "status": "reviewed"
+  },
+  "43aa61c23fe083aceeb487625e645f316e3bb9c3e4933bfde3c566a28169e1c7": {
+    "source": "Si tus APIs sufren lentitud o tu infraestructura cuesta más de lo que debería, ⟦0⟧⟦1⟧agenda una llamada gratuita⟦/1⟧⟦/0⟧ o comienza analizando tu base técnica con el ⟦2⟧Checklist de Arquitectura Gratuito⟦/2⟧.",
+    "target": "If your APIs are slow or your infrastructure costs more than it should, ⟦0⟧⟦1⟧schedule a free call⟦/1⟧⟦/0⟧ or start by analyzing your technical foundation with the ⟦2⟧Free Architecture Checklist⟦/2⟧.",
+    "status": "reviewed"
+  },
+  "51af4a7e2368af2250000b3ebf795a747177574afe1b7400cf00fd415891afdf": {
+    "source": "¿Tu sistema ya está en producción y necesitas estabilizarlo? ⟦0⟧Agenda una llamada gratuita conmigo.⟦/0⟧",
+    "target": "Is your system already in production and you need to stabilize it? ⟦0⟧Schedule a free call with me.⟦/0⟧",
+    "status": "reviewed"
+  },
+  "61e753bd23909bf14cd61d5916ee5788c74b8706ddb2057655a68979c71d28d4": {
+    "source": "⟦0⟧⟦1⟧Agendar llamada gratuita⟦/1⟧⟦/0⟧⟦2⟧⟦3⟧Ver Proyectos⟦/3⟧⟦/2⟧",
+    "target": "⟦0⟧⟦1⟧Schedule a free call⟦/1⟧⟦/0⟧⟦2⟧⟦3⟧View Projects⟦/3⟧⟦/2⟧",
+    "status": "reviewed"
+  },
+  "688b33fe949efa9e8375cde999f4ff3a7996410b99b5040e21b4595b0d001c4a": {
+    "source": "Agendar llamada",
+    "target": "Schedule a call",
+    "status": "reviewed"
+  },
+  "6c911571948198aa4c4652ee32f8d73cf8679484aa2696226a808e8dbb1e1b29": {
+    "source": "⟦0⟧⟦1⟧Agendar llamada gratuita⟦/1⟧⟦/0⟧⟦2⟧⟦3⟧Ver mis trabajos⟦/3⟧⟦/2⟧",
+    "target": "⟦0⟧⟦1⟧Schedule a free call⟦/1⟧⟦/0⟧⟦2⟧⟦3⟧View my work⟦/3⟧⟦/2⟧",
+    "status": "reviewed"
+  },
+  "80400ad0029516d4e4c8eade032a112601688ca97be61bc161d208871cecb3b2": {
+    "source": "Agendar llamada gratuita",
+    "target": "Schedule a free call",
+    "status": "reviewed"
   }
 }
