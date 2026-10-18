@@ -36,7 +36,7 @@ test('STAT-002 & STAT-004: Status element includes indicator dot and accessible 
 
   assert.match(
     content,
-    /Sistemas Operativos|Estado de Servicios/,
+    /Estado del servicio/,
     'Status indicator must display clear operational text'
   );
 

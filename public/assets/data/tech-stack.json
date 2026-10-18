@@ -1,7 +1,7 @@
 {
   "categories": [
     {
-      "name": "Languages",
+      "name": "Lenguajes",
       "items": [
         { "name": "Python", "icon": "/assets/icons/python-original.svg" },
         { "name": "C#", "icon": "/assets/icons/csharp-original.svg" },
@@ -27,14 +27,14 @@
       ]
     },
     {
-      "name": "Data",
+      "name": "Datos",
       "items": [
         { "name": "PostgreSQL", "icon": "/assets/icons/postgresql.svg" },
         { "name": "SQL Server", "icon": "/assets/icons/microsoftsqlserver-plain.svg" }
       ]
     },
     {
-      "name": "AI & DevOps",
+      "name": "IA y DevOps",
       "items": [
         { "name": "MCP", "icon": "/assets/icons/modelcontextprotocol.svg" },
         { "name": "Docker", "icon": "/assets/icons/docker-original.svg" },
@@ -44,7 +44,7 @@
       ]
     },
     {
-      "name": "Tools",
+      "name": "Herramientas",
       "items": [
         { "name": "Git", "icon": "/assets/icons/git-original.svg" },
         { "name": "GitHub", "icon": "/assets/icons/github-original.svg" },

@@ -7428,5 +7428,50 @@
     "source": "Colaboración",
     "target": "Collaboration",
     "status": "reviewed"
+  },
+  "39bc4bd966b413af8ee4daca4e31ead73b433c4c6dc255352edd76dbd9ebcdd8": {
+    "source": "Aitor Nain Mendoza Vallejo · NainDev",
+    "target": "Aitor Nain Mendoza Vallejo · NainDev",
+    "status": "reviewed"
+  },
+  "3cf4dd569cdd7208b3b21ffac183c052d757cb70cd8f71609ea219fe763458e4": {
+    "source": "Stack tecnológico",
+    "target": "Tech stack",
+    "status": "reviewed"
+  },
+  "57cd049f7992c5671e50aee0e73bd859f1099207f98bf4057a06ab6815c68540": {
+    "source": "Tecnologías",
+    "target": "Technologies",
+    "status": "reviewed"
+  },
+  "5a741fed908f14f47b408d581f12f86582ce99a76a30547322e4c7954c47a911": {
+    "source": "IA y DevOps",
+    "target": "AI & DevOps",
+    "status": "reviewed"
+  },
+  "848ab3312041625d8cba4c4e2187526527e7c16773a19bedfedf3e7e50d2d992": {
+    "source": "Arquitecto de software full stack: ⟦0⟧backend fiable e IA verificable.⟦/0⟧",
+    "target": "Full stack software architect: ⟦0⟧reliable backend and verifiable AI.⟦/0⟧",
+    "status": "reviewed"
+  },
+  "925fce281235dee3a2a013beb914698eccfcb6eaeb86a6049dee3c3e9ddb54e0": {
+    "source": "Lenguajes",
+    "target": "Languages",
+    "status": "reviewed"
+  },
+  "a558a4d8c3e61bcd1670e9b671812404493ccc61278cda5cf80efdc706f4a21a": {
+    "source": "Herramientas",
+    "target": "Tools",
+    "status": "reviewed"
+  },
+  "b37a39e17a623f1805c938c9332a417b2aeb017870b8a2384577530dd09d6424": {
+    "source": "Diseño y desarrollo sistemas en Python y .NET, con IA bajo revisión humana y una arquitectura de conformidad determinista y multidominio: cada producto se mide contra especificaciones explícitas y versionadas, con veredictos reproducibles. El primer dominio son los modelos 3D. Entrego el producto completo, del modelo de datos al frontend.",
+    "target": "I design and build systems in Python and .NET, with AI under human review and a deterministic, multi-domain conformance architecture: every product is measured against explicit, versioned specifications, with reproducible verdicts. The first domain is 3D models. I deliver the complete product, from the data model to the frontend.",
+    "status": "reviewed"
+  },
+  "791ee6653ee8fe31446be733a7049cf5cecb29e43305cf57facd8d4585d5199e": {
+    "source": "⟦0⟧⟦1/⟧⟦2⟧Estado del servicio⟦/2⟧⟦/0⟧⟦3⟧📥 Checklist Arquitectura IA⟦/3⟧⟦4⟧Privacidad⟦/4⟧⟦5⟧Volver arriba⟦/5⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2⟧Service status⟦/2⟧⟦/0⟧⟦3⟧📥 AI Architecture Checklist⟦/3⟧⟦4⟧Privacy⟦/4⟧⟦5⟧Back to top⟦/5⟧",
+    "status": "reviewed"
   }
 }
