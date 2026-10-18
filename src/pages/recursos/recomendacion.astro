@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "Cuéntame cómo ha sido trabajar conmigo | NainDev";
+const description = "Cuatro preguntas para dejar una recomendación honesta sobre NainDev.";
+---
+
+<BaseLayout title={title} description={description} robots="noindex, nofollow">
+  <main class="shell section" id="main-content" tabindex="-1">
+    <div style="max-width: 46rem; margin: 0 auto;">
+      <div data-reveal>
+        <p class="eyebrow">Recomendación</p>
+        <h1>Cuéntame cómo ha sido trabajar conmigo</h1>
+        <p class="section-intro">Gracias por dedicar unos minutos. No busco una reseña favorable, sino tu opinión
+          honesta: si algo no funcionó, también me sirve, y lo hablaremos en privado.</p>
+      </div>
+
+      <div data-reveal style="margin-top: 2.5rem;">
+        <h2>Cuatro preguntas</h2>
+        <p>Responde con tus palabras y con la extensión que quieras. No hace falta aportar cifras.</p>
+        <ol class="step-list">
+          <li class="question"><span>01</span><div><h3>¿Qué necesitabas resolver cuando empezamos?</h3></div></li>
+          <li class="question"><span>02</span><div><h3>¿Qué hicimos juntos?</h3></div></li>
+          <li class="question"><span>03</span><div><h3>¿Qué cambió o qué resultado viste?</h3></div></li>
+          <li class="question"><span>04</span><div><h3>¿A quién se lo recomendarías y por qué?</h3></div></li>
+        </ol>
+        <p>Añade tu nombre, tu cargo y tu empresa, y un enlace si ya lo has publicado en otro sitio (por ejemplo
+          LinkedIn o Google).</p>
+      </div>
+
+      <div data-reveal style="margin-top: 2.5rem;">
+        <h2>Cómo enviarlo</h2>
+        <p>Copia mi correo y envíame tus respuestas por email.</p>
+        <div class="contact-actions">
+          {/* The address is split so Cloudflare email obfuscation finds nothing to rewrite (MAIL-006). */}
+          <button class="button button-primary" type="button" data-copy-email data-email-user="contact" data-email-domain="naindev.com">Copiar email</button>
+          <p class="copy-status" data-copy-status role="status"></p>
+        </div>
+      </div>
+
+      <div data-reveal style="margin-top: 2.5rem;">
+        <h2>Qué haré con tu texto</h2>
+        <p>Al enviarlo, me autorizas a publicar tu texto, tu nombre, tu cargo y tu empresa en naindev.com. Solo
+          publicaré lo que tú hayas escrito; como mucho corregiré erratas, y lo acordaré contigo. No publicaré nada
+          sin tu confirmación por escrito.</p>
+        <p>Puedes retirar tu permiso cuando quieras escribiéndome al mismo correo, y lo quitaré de la web en la
+          siguiente publicación. Ten en cuenta que el repositorio es público: lo que se retire de la web puede seguir
+          visible en el historial de cambios.</p>
+      </div>
+    </div>
+  </main>
+</BaseLayout>

@@ -5,7 +5,8 @@ import mdx from '@astrojs/mdx';
 
 const excludedSitemapPaths = new Set([
   '/privacidad/',
-  '/recursos/gracias/'
+  '/recursos/gracias/',
+  '/recursos/recomendacion/'
 ]);
 
 // https://astro.build/config

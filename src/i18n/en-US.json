@@ -7568,5 +7568,90 @@
     "source": "Tengo modelos 3D que procesar o validar a escala",
     "target": "I have 3D models to process or validate at scale",
     "status": "reviewed"
+  },
+  "0a842aedaf4dab96bd746609e92a87efe6854aec49a049bb6e096e91c92b0b4d": {
+    "source": "Añade tu nombre, tu cargo y tu empresa, y un enlace si ya lo has publicado en otro sitio (por ejemplo LinkedIn o Google).",
+    "target": "Add your name, role and company, and a link if you have already published it somewhere else (for example LinkedIn or Google).",
+    "status": "reviewed"
+  },
+  "0db1e705c6cd8d7df6b74f145b111904682123e0ba7ca2ee98a262f41e77c75d": {
+    "source": "¿Qué necesitabas resolver cuando empezamos?",
+    "target": "What did you need to solve when we started?",
+    "status": "reviewed"
+  },
+  "0f15d9ca89da9ea6824f3997f22486fce81a05c7892b01bd24f1948572975057": {
+    "source": "Recomendación",
+    "target": "Recommendation",
+    "status": "reviewed"
+  },
+  "3e12d899d565321d5b07a625cc37c7ebd07ea9ad03133d3baaf683c57f4b2f64": {
+    "source": "Qué haré con tu texto",
+    "target": "What I will do with your text",
+    "status": "reviewed"
+  },
+  "59ec72924d81eb2f61cdf6ec868a2077d576ead8f7a5f1a1ca6bb7c045908dbb": {
+    "source": "Puedes retirar tu permiso cuando quieras escribiéndome al mismo correo, y lo quitaré de la web en la siguiente publicación. Ten en cuenta que el repositorio es público: lo que se retire de la web puede seguir visible en el historial de cambios.",
+    "target": "You can withdraw your permission at any time by writing to me at the same address, and I will remove it from the site in the next release. Keep in mind that the repository is public: what is removed from the site may remain visible in the change history.",
+    "status": "reviewed"
+  },
+  "63ad7d58d2841d5b056aee5de676e10b7d4a1eefc55136630ae5c0b8846ab841": {
+    "source": "Cuatro preguntas para dejar una recomendación honesta sobre NainDev.",
+    "target": "Four questions to leave an honest recommendation about NainDev.",
+    "status": "reviewed"
+  },
+  "7828c77cc6b96811ad7f15f4f3073158c97cb3e770a446a6ad7e70f51ad982fd": {
+    "source": "Cuatro preguntas",
+    "target": "Four questions",
+    "status": "reviewed"
+  },
+  "84946cb4d407f4b67be0768db350fcd2a3f23d94197cf9f9074d495f648ab235": {
+    "source": "Al enviarlo, me autorizas a publicar tu texto, tu nombre, tu cargo y tu empresa en naindev.com. Solo publicaré lo que tú hayas escrito; como mucho corregiré erratas, y lo acordaré contigo. No publicaré nada sin tu confirmación por escrito.",
+    "target": "By sending it, you authorize me to publish your text, name, role and company on naindev.com. I will only publish what you wrote; at most I will fix typos, and I will agree them with you. I will not publish anything without your written confirmation.",
+    "status": "reviewed"
+  },
+  "8acf53c292517efe2d1344f35ec8ca3a4a75a04969c5f73e0f43ad882d2455ab": {
+    "source": "Cómo enviarlo",
+    "target": "How to send it",
+    "status": "reviewed"
+  },
+  "9d0fa58ca7b080881673218ae4550b477693b33b5d79a6279a721a11a130c426": {
+    "source": "Copia mi correo y envíame tus respuestas por email.",
+    "target": "Copy my email address and send me your answers by email.",
+    "status": "reviewed"
+  },
+  "a18ca2ca87b09647f733d58f135fa409b113b9bc1fa36c227113ba31c80d55d0": {
+    "source": "¿Qué cambió o qué resultado viste?",
+    "target": "What changed, or what result did you see?",
+    "status": "reviewed"
+  },
+  "ba053348c83e01cfdd9359d90cdae0c2dc33ce58524e248dc07862e45d9a0194": {
+    "source": "Responde con tus palabras y con la extensión que quieras. No hace falta aportar cifras.",
+    "target": "Answer in your own words and at whatever length you like. No figures are needed.",
+    "status": "reviewed"
+  },
+  "cc0ab99c804e73ba72649f4b21f30751d8d81a04a4aa18ac6a136918d2e185b2": {
+    "source": "¿Qué hicimos juntos?",
+    "target": "What did we do together?",
+    "status": "reviewed"
+  },
+  "d9b5b638c53bc3c9aea3aa58a7dcc3ef987759c74f0c086a9041ac5f25c01e65": {
+    "source": "Cuéntame cómo ha sido trabajar conmigo",
+    "target": "Tell me what it was like to work with me",
+    "status": "reviewed"
+  },
+  "e140c652faa0e5edbd77c96d33f415a3a0ec4d17e04106032cd5037f05006e30": {
+    "source": "¿A quién se lo recomendarías y por qué?",
+    "target": "Who would you recommend it to, and why?",
+    "status": "reviewed"
+  },
+  "fe5a4321fb9d64401d4e39aa03270826cc6b75788ac9ae72f91fa3012d148cb5": {
+    "source": "Gracias por dedicar unos minutos. No busco una reseña favorable, sino tu opinión honesta: si algo no funcionó, también me sirve, y lo hablaremos en privado.",
+    "target": "Thank you for taking a few minutes. I am not looking for a favorable review but for your honest opinion: if something did not work, that helps me too, and we will talk about it in private.",
+    "status": "reviewed"
+  },
+  "ff69de23a4e3bf65b23993bb9dff85416e98106aeadd9612225972155b550d39": {
+    "source": "Cuéntame cómo ha sido trabajar conmigo | NainDev",
+    "target": "Tell me what it was like to work with me | NainDev",
+    "status": "reviewed"
   }
 }
