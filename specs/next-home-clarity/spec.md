@@ -28,7 +28,7 @@ Make the home page clearer and more useful for a CTO or founder arriving for the
 ## Session state
 
 - Last updated: 2026-10-18
-- Done: HERO-001..003, LABEL-001, FOOT-001 (commit 2ce2b92); CTA-001 implemented, uncommitted, `npm run check` green.
-- Next: CAT-001 (server-rendered project catalog; needs a design decision because the catalog is loaded post-paint on purpose, specs 020/021).
+- Done: HERO-001..003, LABEL-001, FOOT-001 (commit 2ce2b92); CTA-001 (commit 9ba5d1a); CAT-001 implemented as a static `catalog-index` list built from `projects.json` and replaced by the client cards, `npm run check` green, budget passes (attempt 2; attempt 1 was runner noise), verified in the browser. Not committed.
+- Next: owner review and commit.
 - Noted, out of scope: `QuoteSimulator.astro` on `/servicios/` estimates scope and the brief says no prices; ask the owner.
 - Blocked: —

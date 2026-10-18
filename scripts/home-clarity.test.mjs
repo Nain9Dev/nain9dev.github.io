@@ -37,7 +37,7 @@ test('CAT-001: the project catalog is rendered in the static markup, not only af
   const section = await read('src/components/home/ProjectsSection.astro');
   assert.doesNotMatch(section, /Cargando proyectos/);
   assert.match(section, /import projects from '\.\.\/\.\.\/\.\.\/public\/assets\/data\/projects\.json'/);
-  const list = section.match(/<ul class="project-index"[\s\S]*?<\/ul>/)?.[0] ?? '';
+  const list = section.match(/<ul class="catalog-index"[\s\S]*?<\/ul>/)?.[0] ?? '';
   assert.match(list, /catalog\.map\(/);
   assert.match(section, /const catalog = \[\.\.\.projects\]/);
   assert.match(list, /project\.title/);

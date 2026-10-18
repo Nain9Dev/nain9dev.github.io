@@ -35,11 +35,11 @@ const catalog = [...projects].sort((a, b) => a.order - b.order);
     </div>
 
     <div class="project-grid" data-project-list aria-live="polite" aria-busy="true">
-      <ul class="project-index">
+      <ul class="catalog-index">
         {catalog.map((project) => (
           <li>
             <h3>{project.title}</h3>
-            <p class="project-index-status">{project.status}</p>
+            <p class="catalog-index-status">{project.status}</p>
             <p>{project.summary}</p>
           </li>
         ))}

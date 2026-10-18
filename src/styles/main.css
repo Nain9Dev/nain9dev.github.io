@@ -904,7 +904,7 @@ main[tabindex="-1"]:focus {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 27rem), 1fr));
 }
 
-.project-index {
+.catalog-index {
   display: grid;
   grid-column: 1 / -1;
   margin: 0;
@@ -914,24 +914,24 @@ main[tabindex="-1"]:focus {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
 }
 
-.project-index li {
+.catalog-index li {
   padding: 1.25rem;
   border: 1px solid var(--color-line);
   border-radius: var(--radius-medium);
 }
 
-.project-index h3 {
+.catalog-index h3 {
   margin: 0 0 0.35rem;
   font-size: 1.1rem;
 }
 
-.project-index p {
+.catalog-index p {
   margin: 0 0 0.5rem;
   color: var(--color-text-muted);
   font-size: 0.95rem;
 }
 
-.project-index .project-index-status {
+.catalog-index .catalog-index-status {
   color: var(--color-secondary);
   font-size: 0.8rem;
 }
