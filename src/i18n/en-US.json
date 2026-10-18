@@ -7543,5 +7543,30 @@
     "source": "⟦0⟧Alcance claro⟦/0⟧⟦1⟧Proyectos a tiempo parcial y en remoto, con el alcance acordado desde la primera llamada.⟦/1⟧",
     "target": "⟦0⟧Clear scope⟦/0⟧⟦1⟧Part-time, remote projects, with the scope agreed on the first call.⟦/1⟧",
     "status": "reviewed"
+  },
+  "7e795304ba6af75e90aad1019d74cb1ddc508b3804c380123ccfb95ae9b10dfa": {
+    "source": "Mi backend es lento o no aguanta la carga",
+    "target": "My backend is slow or cannot handle the load",
+    "status": "reviewed"
+  },
+  "82c2e342c0466e686a1298dcad07eae361054507e30adf3018808d432a371ee1": {
+    "source": "Quiero usar IA, pero no puedo fiarme de ella",
+    "target": "I want to use AI, but I cannot trust it",
+    "status": "reviewed"
+  },
+  "874abed581e8aa07fc4431f0e709dfa7a12f77a4fec475d52ceb079c9da85aa3": {
+    "source": "Mi frontend o mi web va lento",
+    "target": "My frontend or website is slow",
+    "status": "reviewed"
+  },
+  "d9f2cce24e70eff57d875b073214b4c52c8405c5f781dc3010d7cc94a76d721a": {
+    "source": "Tengo un sistema legacy difícil de cambiar",
+    "target": "I have a legacy system that is hard to change",
+    "status": "reviewed"
+  },
+  "ef388baa2961a775596fc3517f38ece8866a4fae8dc0225e6b846bfa89a2a12c": {
+    "source": "Tengo modelos 3D que procesar o validar a escala",
+    "target": "I have 3D models to process or validate at scale",
+    "status": "reviewed"
   }
 }

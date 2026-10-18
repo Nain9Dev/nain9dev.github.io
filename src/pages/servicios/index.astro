@@ -2,9 +2,43 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-// Obtener y ordenar los servicios
 const servicios = await getCollection('servicios', ({ data }) => data.draft !== true);
 const sortedServicios = servicios.sort((a, b) => a.data.order - b.data.order);
+
+// Services grouped by the problem a client brings (spec: services by problem).
+// A service missing here is shown under "Otros servicios" and the test fails until it is assigned.
+const problemGroups = [
+  {
+    title: 'Mi backend es lento o no aguanta la carga',
+    slugs: ['optimizacion-rendimiento-apirest-dotnet', 'sistemas-criticos-dotnet', 'backend-critico-logistica'],
+  },
+  {
+    title: 'Tengo un sistema legacy difícil de cambiar',
+    slugs: ['auditoria-sistemas', 'migracion-monolito-microservicios-ia'],
+  },
+  {
+    title: 'Quiero usar IA, pero no puedo fiarme de ella',
+    slugs: ['arquitectura-ia-generativa', 'arquitectura-ia-escalable', 'arquitectura-ia-fintech', 'arquitectura-ia-generativa-startups-saas'],
+  },
+  {
+    title: 'Tengo modelos 3D que procesar o validar a escala',
+    slugs: ['validacion-3d', 'optimizacion-carga-3d', 'backend-escalable-modelos-3d-azure', 'sistemas-validacion-geometrica-nube', 'procesamiento-3d-healthcare'],
+  },
+  {
+    title: 'Mi frontend o mi web va lento',
+    slugs: ['arquitectura-frontend-alto-rendimiento'],
+  },
+];
+
+const assigned = new Set(problemGroups.flatMap((group) => group.slugs));
+const groups = problemGroups
+  .map((group) => ({
+    title: group.title,
+    items: group.slugs.flatMap((slug) => sortedServicios.filter((servicio) => servicio.id === slug)),
+  }))
+  .filter((group) => group.items.length > 0);
+const unassigned = sortedServicios.filter((servicio) => !assigned.has(servicio.id));
+if (unassigned.length > 0) groups.push({ title: 'Otros servicios', items: unassigned });
 ---
 
 <BaseLayout title="Servicios de arquitectura de software | NainDev" description="Arquitectura de software full stack: validación determinista y 3D, IA generativa con supervisión humana y sistemas críticos en Python y .NET. Consultoría técnica de Aitor Nain Mendoza Vallejo.">
@@ -18,19 +52,23 @@ const sortedServicios = servicios.sort((a, b) => a.data.order - b.data.order);
         <p>Soluciones arquitectónicas de alto nivel para problemas complejos. Ayudo a empresas B2B e industrias técnicas a escalar sus plataformas de forma segura y determinista.</p>
       </div>
 
-      <div class="card-grid card-grid-three">
-        {sortedServicios.map((servicio, index) => (
-          <article class="service-card" data-reveal>
-            <span class="card-number" aria-hidden="true">0{index + 1}</span>
-            <h3>{servicio.data.title}</h3>
-            <p>{servicio.data.description}</p>
-            <a href={`/servicios/${servicio.id}`} class="button button-outline button-small" style="margin-top: 1.5rem;">
-              Ver detalles
-            </a>
-          </article>
-        ))}
-      </div>
-      
+      {groups.map((group, index) => (
+        <section class="service-group" aria-labelledby={`service-group-${index}`}>
+          <h2 class="service-group-title" id={`service-group-${index}`} data-reveal>{group.title}</h2>
+          <div class="card-grid card-grid-three">
+            {group.items.map((servicio) => (
+              <article class="service-card" data-reveal>
+                <h3>{servicio.data.title}</h3>
+                <p>{servicio.data.description}</p>
+                <a href={`/servicios/${servicio.id}`} class="button button-outline button-small" style="margin-top: 1.5rem;">
+                  Ver detalles
+                </a>
+              </article>
+            ))}
+          </div>
+        </section>
+      ))}
+
       <div style="margin-top: 4rem; text-align: center;" data-reveal>
         <a class="button button-primary" href="https://calendly.com/aitornainmendozavallejo-ksez/30min" target="_blank" rel="noopener noreferrer" data-calendly-track="servicios-index">
           Agendar llamada gratuita

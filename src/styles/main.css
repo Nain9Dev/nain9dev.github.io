@@ -904,6 +904,15 @@ main[tabindex="-1"]:focus {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 27rem), 1fr));
 }
 
+.service-group {
+  margin-top: clamp(2.5rem, 6vw, 4rem);
+}
+
+.service-group-title {
+  margin-bottom: 1.5rem;
+  font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+}
+
 .catalog-index {
   display: grid;
   grid-column: 1 / -1;
