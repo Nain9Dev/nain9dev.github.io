@@ -14,6 +14,7 @@ Make the home page clearer and more useful for a CTO or founder arriving for the
 - LABEL-001: When the Spanish home page is rendered, the tech stack section and its categories shall use Spanish labels (no "Skills", "Tech Stack", "Languages", "Tools", "Data", "AI & DevOps").
 - CAT-001: When the home page is served as static HTML, the project catalog shall be present in the markup (no "Cargando proyectos…" placeholder as the only content).
 - FOOT-001: The footer status link shall be labelled by its destination ("Estado del servicio"), not "Sistemas Operativos".
+- AVAIL-001: The home page shall state availability as part-time, remote work with scope agreed on the first call; it shall not mention weekends and the hero panel badge shall read "Tiempo parcial" instead of a bare "Disponible" (owner decision 2026-10-18).
 - CTA-001: Every booking link shall offer a call ("Agendar llamada gratuita"; the header uses "Agendar llamada"; the audit service page may keep "Agendar Auditoría de Sistemas") and no link shall promise a free audit, diagnosis or consultancy, matching the brief (owner decision 2026-10-18).
 
 ## Edge cases

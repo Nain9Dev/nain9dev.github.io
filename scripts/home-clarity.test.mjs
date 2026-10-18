@@ -45,6 +45,15 @@ test('CAT-001: the project catalog is rendered in the static markup, not only af
   assert.match(section, /<div class="project-grid" data-project-list/, 'the client renderer keeps its container');
 });
 
+test('AVAIL-001: availability is stated as part-time remote work, without weekend wording or a bare "Disponible"', async () => {
+  const proof = text(await read('src/components/home/ProofStrip.astro'));
+  assert.doesNotMatch(proof, /fines? de semana/i);
+  assert.match(proof, /tiempo parcial y en remoto/);
+  const hero = await read('src/components/home/Hero.astro');
+  assert.doesNotMatch(hero, /<span class="panel-state">Disponible<\/span>/);
+  assert.match(hero, /<span class="panel-state">Tiempo parcial<\/span>/);
+});
+
 test('CTA-001: every booking link offers a call, never a free audit or diagnosis', async () => {
   const allowed = new Set(['Agendar llamada gratuita', 'Agendar llamada', 'Agendar Auditoría de Sistemas']);
   const files = (await readdir(join(ROOT, 'src'), { recursive: true }))

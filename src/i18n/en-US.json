@@ -7533,5 +7533,15 @@
     "source": "Activa JavaScript para filtrar el catálogo y ver el detalle de cada proyecto. También puedes revisar el código directamente en ⟦0⟧GitHub⟦/0⟧.",
     "target": "Enable JavaScript to filter the catalog and see each project in detail. You can also review the code directly at ⟦0⟧GitHub⟦/0⟧.",
     "status": "reviewed"
+  },
+  "2c772df98675ff66dbd9c33106872addb32310e577555234a701cc392f353254": {
+    "source": "Tiempo parcial",
+    "target": "Part-time",
+    "status": "reviewed"
+  },
+  "8c4ac336340213a2801d1e047885cf99f8e2d2ece2a70f91096f26368f73835b": {
+    "source": "⟦0⟧Alcance claro⟦/0⟧⟦1⟧Proyectos a tiempo parcial y en remoto, con el alcance acordado desde la primera llamada.⟦/1⟧",
+    "target": "⟦0⟧Clear scope⟦/0⟧⟦1⟧Part-time, remote projects, with the scope agreed on the first call.⟦/1⟧",
+    "status": "reviewed"
   }
 }
