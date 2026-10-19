@@ -13,7 +13,8 @@ const text = (html) => html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
 const PUBLIC_REPOS = [
   'parametricad-ai', 'NainOrder', 'GameHaven', 'NainNotify', 'NainPolicy',
   'NainDrive', 'NainTAI', 'tai-study-system-js', 'PongArcade',
-  'Orbe3D', 'NainConfigurator', 'HaveTickets',
+  'Orbe3D', 'NainConfigurator', 'HaveTickets', 'NainLegacyModernizer',
+  'nain-mcp-validator',
 ];
 const PRIVATE_COUNT = 8;
 // Names of private products, partners and the employer that must never reach the catalog.
@@ -118,7 +119,9 @@ test('PRJ-008: projects are ordered by complexity hierarchy (specs/017-catalog-c
     'interactive-3d-viewer',
     'collaborative-crm',
     'parametricad-ai',
+    'nain-mcp-validator',
     'financial-management-api',
+    'nain-legacy-modernizer',
     'nainorder-ecommerce-api',
     'notification-worker',
     'nainconfigurator',

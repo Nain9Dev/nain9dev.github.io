@@ -7653,5 +7653,55 @@
     "source": "Cuéntame cómo ha sido trabajar conmigo | NainDev",
     "target": "Tell me what it was like to work with me | NainDev",
     "status": "reviewed"
+  },
+  "f5f9f13c390d6f97ed52d199b16dad66d7b8588a6a1ad50322528d0fa4128158": {
+    "source": "Servidor MCP de validación 3D determinista",
+    "target": "Deterministic 3D Validation MCP Server",
+    "status": "reviewed"
+  },
+  "33e9d546d8efd6e02b1792bced870b205593237a3662bfd9ab70b753d2738189": {
+    "source": "Herramienta pública",
+    "target": "Public Tool",
+    "status": "reviewed"
+  },
+  "5f970846e8735234e4471a04464d11d389dc0bd09f388f7e6ea64ac86f269438": {
+    "source": "Servidor Model Context Protocol (MCP) en Python que expone herramientas de validación de mallas 3D para agentes de IA.",
+    "target": "Python Model Context Protocol (MCP) server exposing 3D mesh validation tools for AI agents.",
+    "status": "reviewed"
+  },
+  "7d56b85c5b74090f4aa61ba5517b4ecc80ab04d671e5383ac22155c4aea6ac6e": {
+    "source": "Chequeos topológicos C1 a C10 con umbral cuántico de 1e-12 m², direccionamiento inmutable por SHA-256 e informes conformes en JSON canónico y Markdown sin tolerar alucinaciones.",
+    "target": "Topological checks C1 to C10 with a quantum threshold of 1e-12 m², SHA-256 immutable content addressing, and canonical JSON and Markdown conformance reports without tolerating hallucinations.",
+    "status": "reviewed"
+  },
+  "4d32bbc9998f079f1a742330198fbe83b2fd4400564d483f48f9e3d6f8d1c5ec": {
+    "source": "Harness de modernización .NET (YARP y Shadow Runner)",
+    "target": ".NET Modernization Harness (YARP & Shadow Runner)",
+    "status": "reviewed"
+  },
+  "670efd611d5061391f3fc67f7f7867724ec7c1dad9bd54bc5eb697818ede2bc8": {
+    "source": "Demostración de arquitectura",
+    "target": "Architectural Demo",
+    "status": "reviewed"
+  },
+  "306af1fb1b9183231c6e35f96115b680157aa3915b32f6a2fa8aa426394e6e7f": {
+    "source": "Harness de modernización para monolitos .NET heredados mediante Strangler Fig con proxy inverso YARP y auditoría de escritura dual en paralelo.",
+    "target": "Modernization harness for legacy .NET monoliths via Strangler Fig with YARP reverse proxying and parallel dual-write auditing.",
+    "status": "reviewed"
+  },
+  "2170f015da505fa7e7120169e851dd511c3ef8a7cd64291d3aa86519312edd68": {
+    "source": "Enrutamiento transparente entre monolito heredado y microservicios modernos en .NET 10, ejecución paralela Shadow Runner con comparación semántica de payloads y cero tiempo de inactividad.",
+    "target": "Transparent routing between legacy monolith and modern .NET 10 microservices, parallel Shadow Runner execution with semantic payload diffing, and zero downtime.",
+    "status": "reviewed"
+  },
+  "5bf552445ceeeda2fe3734b7a173608a5e818f868e5761012739a3ddadc6bbd7": {
+    "source": "JSON-RPC",
+    "target": "JSON-RPC",
+    "status": "reviewed"
+  },
+  "8f0534a0b1a258f49d83ee125cd06d05128aaddbf6adb606fa77e037710a2eb5": {
+    "source": "YARP",
+    "target": "YARP",
+    "status": "reviewed"
   }
 }
