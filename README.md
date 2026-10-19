@@ -5,6 +5,7 @@
 [![DotNet](https://img.shields.io/badge/.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)](https://dotnet.microsoft.com/)
 [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![Three.js](https://img.shields.io/badge/Three.js-WebGL-black?style=for-the-badge&logo=three.js&logoColor=white)](https://threejs.org/)
+[![License](https://img.shields.io/badge/License-All_Rights_Reserved-red?style=for-the-badge)](LICENSE)
 [![Deployed on GitHub Pages](https://img.shields.io/badge/Deployed_on-GitHub_Pages-222222?style=for-the-badge&logo=github&logoColor=white)](https://naindev.com)
 
 Professional portfolio and technical showcase focused on software architecture: .NET enterprise APIs, Python data processing and AI integrations, deterministic product conformance (3D assets and technical specifications), and interactive WebGL/WebGPU visualization.
@@ -59,8 +60,10 @@ npm run preview
 
 ## Security & Intellectual Property
 
-This repository is public to allow open auditing of frontend architecture and verification contracts. However:
-- Proprietary customer data, internal business logic, and private commercial details remain strictly excluded.
+This repository is public to allow open technical auditing of frontend architecture, verification contracts, and Core Web Vitals. However:
+- **License**: Source-Available / All Rights Reserved ([LICENSE](LICENSE)). The source code is available for technical evaluation and auditing. No permission is granted to re-host, publish, replicate the visual design, or copy the case studies and marketing text.
+- **Brand Protection**: The "NainDev" name, trademarks, logos, and visual identity tokens remain the exclusive intellectual property of Aitor Nain Mendoza Vallejo.
+- **Data Privacy**: Proprietary customer data, internal business logic, and private commercial details remain strictly excluded.
 - Private architectural records and working drafts belong exclusively in the git-ignored `docs/private/` directory.
 - All environment variables, API tokens, and signing certificates are excluded via `.gitignore`.
 
