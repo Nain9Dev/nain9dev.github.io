@@ -25,6 +25,6 @@ On 2026-10-18 the owner created the brand Facebook page "NainDev" (category soft
 ## Session state
 
 - Last updated: 2026-10-18
-- Done: spec, tests (SEO-022 observed failing first), implementation.
-- Next: owner push and deploy; production check (ES and EN).
+- Done: spec, tests (SEO-022 observed failing first), implementation, owner push (`aaf4b92`), deploy (first run failed on the intermittent Lighthouse TBT gate; the rerun passed), production check: the Facebook URL is in the JSON-LD of `/` and `/en/` on 2026-10-18.
+- Next: —
 - Blocked: —

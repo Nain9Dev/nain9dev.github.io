@@ -37,3 +37,16 @@ The owner chose to stop declaring the SVG favicon (keeping the file and the PNG,
 - Verified: `node --test scripts/performance.test.mjs scripts/post-paint.test.mjs` (17 pass) and `npm run check:brand-icons` pass locally.
 - Next: none. If the residual browser-internal outlier blocks deploys often, consider disabling Chrome's page-content extraction in the budget runner (ADR-0005 update).
 - Blocked: —
+
+## Follow-up 2026-10-18 (deploy gate failing again, 4 of the last 8 deploys)
+
+Measured locally on the built home page with Lighthouse at a fixed 5.5x CPU slowdown, the Node process limited to 2 cores (`ProcessorAffinity = 3`), 8 runs per variant. With 16 cores TBT is 0 in 8 of 8 runs; with 2 cores it reproduces the CI failures.
+
+- Baseline (home as deployed): TBT 228, 416, 91, 323, 219, 272, 157, 356 (median about 250). The long task is a single full-document layout of 260-470 ms that runs inside whichever script executes first after parsing, usually Plausible's `script.js` at about 1.55-1.65 s.
+- Loading Plausible after `load` and in idle time did not help (TBT 167, 44, 330, 329, 177, 287, 244, 130): the same layout moved to the entry bundle (about 500 ms at about 0.78 s). Not adopted.
+- Removing the static project index (spec next-home-clarity, CAT-001) did not help (median about 240): it is not the cause.
+- Hero only (rest of the sections removed): TBT 0 in 6 of 8 runs; the two bad runs were again the Plausible task. The cost therefore sits in the sections below the hero.
+- `content-visibility: auto` is already applied to every `main > .section` (PERF-008) and works: the sections measure the placeholder height of 900 px plus padding. A new CSS rule would not add coverage.
+- The CI hosts that failed had a calibration index of about 2000-2480 (slowdown 4.5-5.5x), the passing ones 3350-4131. The calibration measures one thread; a VM with contended cores passes it and still gets a slow layout.
+
+Conclusion: no site-side change found that removes the layout cost cheaply; the remaining lever is the gate (measure effective CPU, or treat attempts on slow hosts as inconclusive), which needs an ADR and the owner's approval. Not implemented.
