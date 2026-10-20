@@ -208,3 +208,18 @@ test('SEO-020: the home JSON-LD lists the catalog projects as an ItemList', asyn
   assert.match(seo, /projects\.json/);
   assert.match(seo, /isHome/);
 });
+
+test('VIS-011: the checklist and blog index pages are styled by classes, not inline styles', async () => {
+  const checklist = await read('src/pages/recursos/checklist-ia.astro');
+  const blog = await read('src/pages/blog/index.astro');
+  assert.doesNotMatch(checklist, /style=/);
+  assert.doesNotMatch(blog, /style=/);
+  assert.match(checklist, /class="[^"]*\bcheck-list\b[^"]*"/);
+  assert.match(checklist, /<!--email_off-->/);
+  assert.match(checklist, /mailto:contact@naindev\.com/);
+  assert.match(blog, /class="blog-card-link"|button-outline blog-action/);
+  const css = await read('src/styles/main.css');
+  for (const selector of ['.check-list', '.lead-layout', '.lead-card', '.blog-action', '.page-intro']) {
+    assert.ok(css.includes(`${selector} {`) || css.includes(`${selector}\n`) || css.includes(`${selector},`), `${selector} is styled`);
+  }
+});
