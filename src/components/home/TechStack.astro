@@ -23,7 +23,7 @@ const availableTechnologies = new Set(servicios.flatMap(servicio => servicio.dat
           <h3 class="tech-category-title">{category.name}</h3>
           <div class="tech-category">
             {category.items.map(item => availableTechnologies.has(item.name) ? (
-              <a href={getTechnologyHref(item.name)} class="tech-badge" data-reveal style="text-decoration: none; color: inherit;">
+              <a href={getTechnologyHref(item.name)} class="tech-badge tech-link" data-reveal>
                 <img src={item.icon} alt={`Icono de ${item.name}`} loading="lazy" class="tech-icon" />
                 <span class="tech-name">{item.name}</span>
               </a>

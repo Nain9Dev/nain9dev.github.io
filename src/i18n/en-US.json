@@ -7898,5 +7898,20 @@
     "source": "¿Tu sistema ya está en producción y sufres cuellos de botella? ⟦0⟧Reserva una llamada gratuita conmigo⟦/0⟧.",
     "target": "Is your system already in production and suffering from bottlenecks? ⟦0⟧Book a free call with me⟦/0⟧.",
     "status": "reviewed"
+  },
+  "97ff57b8b8961d275c2b3ac87c2a8c46182e367ebc8b6a25edf1bd10b54d12ff": {
+    "source": "⟦0/⟧⟦1⟧Experiencia real⟦/1⟧⟦2⟧Trabajo a diario con .NET y SQL Server.⟦/2⟧",
+    "target": "⟦0/⟧⟦1⟧Real experience⟦/1⟧⟦2⟧Daily work with .NET and SQL Server.⟦/2⟧",
+    "status": "reviewed"
+  },
+  "f0312685d77eb8553589def52603b59b4dcb594d271990a044ee2266fce2bf06": {
+    "source": "⟦0/⟧⟦1⟧Alcance claro⟦/1⟧⟦2⟧Proyectos a tiempo parcial y en remoto, con el alcance acordado desde la primera llamada.⟦/2⟧",
+    "target": "⟦0/⟧⟦1⟧Clear scope⟦/1⟧⟦2⟧Part-time, remote projects, with the scope agreed on the first call.⟦/2⟧",
+    "status": "reviewed"
+  },
+  "fce77df6bf1ef7d0b1e4535ada6dd163dcf67ce084802fbffd409276372bad40": {
+    "source": "⟦0/⟧⟦1⟧Código revisable⟦/1⟧⟦2⟧Los proyectos y las demos están enlazados.⟦/2⟧",
+    "target": "⟦0/⟧⟦1⟧Reviewable code⟦/1⟧⟦2⟧The projects and demos are linked.⟦/2⟧",
+    "status": "reviewed"
   }
 }

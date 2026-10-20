@@ -242,3 +242,16 @@ test('VIS-012: the 404, thank-you and technology pages are styled by classes, no
   const thanks = await read('src/pages/recursos/gracias.astro');
   assert.ok(thanks.includes('https://calendly.com/aitornainmendozavallejo-ksez/30min?utm_source=gracias&utm_medium=website'));
 });
+
+test('VIS-013: proof strip and partnership cards lead with icons, the stack badges use a class', async () => {
+  const proof = await read('src/components/home/ProofStrip.astro');
+  assert.equal(proof.match(/<svg class="proof-icon"[^>]*aria-hidden="true"/g)?.length, 3);
+  const partnership = await read('src/components/home/PartnershipSection.astro');
+  assert.equal(partnership.match(/<svg class="service-icon"[^>]*aria-hidden="true"/g)?.length, 2);
+  const stack = await read('src/components/home/TechStack.astro');
+  assert.doesNotMatch(stack, /style=/);
+  assert.match(stack, /class="tech-badge tech-link"/);
+  const css = await read('src/styles/main.css');
+  assert.match(css, /\.proof-icon\s*\{/);
+  assert.match(css, /\.tech-link\s*\{/);
+});
