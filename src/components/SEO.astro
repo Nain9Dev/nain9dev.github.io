@@ -28,6 +28,10 @@ const {
 
 const isArticle = !!date;
 const isHome = Astro.url.pathname === '/';
+// The review intake origin is allowed to receive connections only when it is configured (specs/next-reviews-intake, REV-010).
+const reviewsEndpoint = import.meta.env.PUBLIC_REVIEWS_ENDPOINT;
+const connectSources = ["'self'", 'https://plausible.io', ...(reviewsEndpoint ? [new URL(reviewsEndpoint).origin] : [])].join(' ');
+const contentSecurityPolicy = `default-src 'self'; base-uri 'self'; connect-src ${connectSources}; font-src 'self' https://fonts.gstatic.com; form-action 'self'; frame-src 'none'; img-src 'self' data: https:; object-src 'none'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://plausible.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; upgrade-insecure-requests`;
 const siteURL = new URL('/', Astro.site || 'https://www.naindev.com').toString();
 const personId = `${siteURL}#person`;
 const organizationId = `${siteURL}#organization`;
@@ -177,7 +181,7 @@ const schema = {
 <meta name="theme-color" content="#090A0F">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta http-equiv="Content-Security-Policy"
-  content="default-src 'self'; base-uri 'self'; connect-src 'self' https://plausible.io; font-src 'self' https://fonts.gstatic.com; form-action 'self'; frame-src 'none'; img-src 'self' data: https:; object-src 'none'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://plausible.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; upgrade-insecure-requests">
+  content={contentSecurityPolicy}>
 {keywords.length > 0 && <meta name="keywords" content={keywords.join(', ')}>}
 
 <meta property="og:type" content={isArticle ? "article" : "website"}>

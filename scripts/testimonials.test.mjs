@@ -29,6 +29,8 @@ test('TEST-007: stored recommendations are consented, not placeholders and not m
   assert.ok(Array.isArray(entries));
   for (const entry of entries) {
     assert.notEqual(entry.name, 'Cliente de Prueba');
+    // The repository is public: a pending entry is a decision not taken yet, so it must be approved or rejected before any commit.
+    assert.equal(entry.status, 'approved', `${entry.id}: approve or reject it before committing`);
     assert.equal(entry.consent?.granted, true, `${entry.id}: consent`);
     assert.ok(entry.consent?.evidence?.length >= 10, `${entry.id}: evidence`);
     assert.ok(['client', 'partner'].includes(entry.relationship), `${entry.id}: relationship`);
@@ -67,7 +69,11 @@ test('TEST-005: no ratings or self-published review markup anywhere', async () =
 test('TEST-006: the request page is private, form-free and states the rules', async () => {
   const page = await read(REQUEST_PAGE);
   assert.match(page, /robots="noindex, nofollow"/);
-  assert.doesNotMatch(page, /<form|<script[^>]+src=|<iframe|<link[^>]+href="https?:/i);
+  assert.doesNotMatch(page, /<script[^>]+src=|<iframe|<link[^>]+href="https?:/i);
+  // The form exists only when the invite-only intake is configured (specs/next-reviews-intake, REV-009).
+  const guard = page.indexOf('{reviewsEndpoint && (');
+  assert.ok(guard > 0, 'the form is behind the endpoint guard');
+  for (const match of page.matchAll(/<form/g)) assert.ok(match.index > guard, 'no form outside the guard');
   const body = text(page);
   assert.equal(page.match(/<h1[\s>]/g)?.length, 1);
   assert.equal(page.match(/<li class="question"/g)?.length, 4);
@@ -86,6 +92,11 @@ test('TEST-007b: the dormant placeholder data is gone and the process is documen
   const data = await read('src/data/testimonials.json');
   assert.doesNotMatch(data, /Cliente de Prueba|placeholder|40%/);
   await access(join(ROOT, 'docs/06-runbook/testimonials.md'));
+  await access(join(ROOT, 'docs/06-runbook/review-intake.md'));
+  assert.match(await read('docs/06-runbook/testimonials.md'), /\(review-intake\.md\)/);
   const adr = await read('docs/30-decisions/ADR-0008-curated-testimonials-collection.md');
   assert.match(adr, /^Status: Proposed$/m);
+  const scale = await read('docs/30-decisions/ADR-0009-reviews-service-for-scale.md');
+  assert.match(scale, /^Status: Proposed$/m, 'the reviews service is a proposal until the owner approves it');
+  assert.match(scale, /the browser never calls the service at runtime/i);
 });

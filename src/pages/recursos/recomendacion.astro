@@ -3,6 +3,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const title = "Cuéntame cómo ha sido trabajar conmigo | NainDev";
 const description = "Cuatro preguntas para dejar una recomendación honesta sobre NainDev.";
+
+// Origin of the invite-only review intake (specs/next-reviews-intake). Unset = the email flow only.
+const reviewsEndpoint = import.meta.env.PUBLIC_REVIEWS_ENDPOINT?.replace(/\/$/, '');
 ---
 
 <BaseLayout title={title} description={description} robots="noindex, nofollow">
@@ -28,8 +31,47 @@ const description = "Cuatro preguntas para dejar una recomendación honesta sobr
           LinkedIn o Google).</p>
       </div>
 
+      {reviewsEndpoint && (
+        <div data-reviews data-endpoint={reviewsEndpoint} style="margin-top: 2.5rem;">
+          <h2>Escribe tu opinión aquí</h2>
+          <p data-state="checking" hidden>Comprobando tu enlace…</p>
+          <p data-state="invalid" hidden>Este enlace no es válido, ha caducado o ya se ha usado. Pídeme uno nuevo o envíame tu opinión por correo, como se explica más abajo.</p>
+          <p data-state="unavailable" hidden>Ahora mismo no puedo recibir tu opinión desde esta página. Envíamela por correo, como se explica más abajo.</p>
+
+          <form data-state="form" hidden novalidate>
+            <p>Invitación para: <strong data-label></strong></p>
+            <label for="review-name">Tu nombre</label>
+            <input id="review-name" name="name" type="text" maxlength="80" required autocomplete="name">
+            <label for="review-role">Tu cargo</label>
+            <input id="review-role" name="role" type="text" maxlength="120" required autocomplete="organization-title">
+            <label for="review-company">Tu empresa</label>
+            <input id="review-company" name="company" type="text" maxlength="120" required autocomplete="organization">
+            <label for="review-company-url">Web de tu empresa (opcional)</label>
+            <input id="review-company-url" name="companyUrl" type="url" maxlength="300" placeholder="https://" autocomplete="url">
+            <label for="review-source-url">Enlace donde ya lo hayas publicado (opcional)</label>
+            <input id="review-source-url" name="sourceUrl" type="url" maxlength="300" placeholder="https://">
+            <label for="review-quote">Tu opinión</label>
+            <textarea id="review-quote" name="quote" rows="8" minlength="20" maxlength="1500" required></textarea>
+            <div class="review-trap" aria-hidden="true">
+              <label for="review-website">No rellenes este campo</label>
+              <input id="review-website" name="website" type="text" tabindex="-1" autocomplete="off">
+            </div>
+            <label class="review-consent">
+              <input name="consent" type="checkbox" required>
+              <span>Autorizo que se publique mi texto, mi nombre, mi cargo y mi empresa en naindev.com. Puedo retirar este permiso cuando quiera escribiendo a contact arroba naindev.com.</span>
+            </label>
+            <p data-state="error-fields" hidden>Revisa los campos: faltan datos, algún enlace no empieza por https o el texto es demasiado corto o largo.</p>
+            <p data-state="error-rate" hidden>Has hecho demasiados intentos. Prueba de nuevo dentro de una hora.</p>
+            <p data-state="error" hidden>No he podido enviar tu opinión. Inténtalo de nuevo o envíamela por correo.</p>
+            <button class="button button-primary" type="submit">Enviar mi opinión</button>
+          </form>
+
+          <p data-state="success" hidden role="status">Gracias. He recibido tu opinión y la leeré personalmente. Solo se publicará con tu confirmación por escrito.</p>
+        </div>
+      )}
+
       <div data-reveal style="margin-top: 2.5rem;">
-        <h2>Cómo enviarlo</h2>
+        <h2>Cómo enviarlo por correo</h2>
         <p>Copia mi correo y envíame tus respuestas por email.</p>
         <div class="contact-actions">
           {/* The address is split so Cloudflare email obfuscation finds nothing to rewrite (MAIL-006). */}
@@ -50,3 +92,81 @@ const description = "Cuatro preguntas para dejar una recomendación honesta sobr
     </div>
   </main>
 </BaseLayout>
+
+{reviewsEndpoint && (
+  <style is:global>
+    [data-reviews] form { display: grid; gap: 0.6rem; }
+    [data-reviews] label { font-weight: 600; margin-top: 0.6rem; }
+    [data-reviews] input[type="text"], [data-reviews] input[type="url"], [data-reviews] textarea {
+      width: 100%; padding: 0.7rem 0.85rem; border: 1px solid var(--color-line); border-radius: 0.6rem;
+      background: var(--color-surface); color: inherit; font: inherit;
+    }
+    [data-reviews] .review-consent { display: flex; gap: 0.7rem; align-items: flex-start; font-weight: 400; }
+    [data-reviews] .review-consent input { margin-top: 0.3rem; }
+    [data-reviews] .review-trap { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+    [data-reviews] button[type="submit"] { margin-top: 1rem; justify-self: start; }
+  </style>
+)}
+
+{reviewsEndpoint && (
+  <script is:inline>
+    (function () {
+      var root = document.querySelector('[data-reviews]');
+      if (!root) return;
+      var endpoint = root.getAttribute('data-endpoint');
+      var token = new URLSearchParams(window.location.search).get('t');
+      var form = root.querySelector('form');
+      var show = function () {
+        var names = Array.prototype.slice.call(arguments);
+        root.querySelectorAll('[data-state]').forEach(function (element) {
+          element.hidden = names.indexOf(element.getAttribute('data-state')) === -1;
+        });
+      };
+      var field = function (name) { return form.elements[name]; };
+
+      if (!token) { show('invalid'); return; }
+      show('checking');
+      fetch(endpoint + '/v1/invitations/' + encodeURIComponent(token), { credentials: 'omit' })
+        .then(function (response) {
+          if (!response.ok) { show('invalid'); return null; }
+          return response.json();
+        })
+        .then(function (body) {
+          if (!body) return;
+          root.querySelector('[data-label]').textContent = body.label;
+          show('form');
+        })
+        .catch(function () { show('unavailable'); });
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        var payload = {
+          token: token,
+          name: field('name').value,
+          role: field('role').value,
+          company: field('company').value,
+          quote: field('quote').value,
+          consent: field('consent').checked === true,
+          website: field('website').value
+        };
+        ['companyUrl', 'sourceUrl'].forEach(function (name) {
+          if (field(name).value.trim() !== '') payload[name] = field(name).value.trim();
+        });
+        var button = form.querySelector('button[type="submit"]');
+        button.disabled = true;
+        fetch(endpoint + '/v1/submissions', {
+          method: 'POST',
+          credentials: 'omit',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify(payload)
+        })
+          .then(function (response) {
+            if (response.status === 201) { show('success'); return; }
+            button.disabled = false;
+            show('form', response.status === 422 ? 'error-fields' : response.status === 429 ? 'error-rate' : response.status === 404 ? 'invalid' : 'error');
+          })
+          .catch(function () { button.disabled = false; show('form', 'error'); });
+      });
+    })();
+  </script>
+)}
