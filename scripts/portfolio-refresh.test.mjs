@@ -223,3 +223,22 @@ test('VIS-011: the checklist and blog index pages are styled by classes, not inl
     assert.ok(css.includes(`${selector} {`) || css.includes(`${selector}\n`) || css.includes(`${selector},`), `${selector} is styled`);
   }
 });
+
+test('VIS-012: the 404, thank-you and technology pages are styled by classes, not inline styles', async () => {
+  const css = await read('src/styles/main.css');
+  const pages = {
+    'src/pages/404.astro': ['page-intro', 'center-actions'],
+    'src/pages/recursos/gracias.astro': ['lead-page', 'thanks-card', 'thanks-emoji'],
+    'src/pages/tecnologia/[tech].astro': ['tech-grid', 'tech-link-card'],
+  };
+  for (const [file, classes] of Object.entries(pages)) {
+    const source = await read(file);
+    assert.doesNotMatch(source, /style=/, `${file} has no inline style`);
+    for (const name of classes) {
+      assert.ok(source.includes(name), `${file} uses ${name}`);
+      assert.ok(css.includes(`.${name}`), `${name} is styled`);
+    }
+  }
+  const thanks = await read('src/pages/recursos/gracias.astro');
+  assert.ok(thanks.includes('https://calendly.com/aitornainmendozavallejo-ksez/30min?utm_source=gracias&utm_medium=website'));
+});
