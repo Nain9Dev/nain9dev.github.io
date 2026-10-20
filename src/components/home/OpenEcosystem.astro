@@ -1,0 +1,32 @@
+---
+// OpenEcosystem.astro: public repositories that are not products (spec next-portfolio-ecosystem-hero, ECO-020).
+const repositories = [
+  { name: 'engineering-handbook', note: 'Manual de ingeniería: arquitectura limpia, validación determinista y pruebas.' },
+  { name: 'template-dotnet-clean-arch', note: 'Plantilla full stack con .NET, Vue 3 y Docker Compose.' },
+  { name: 'template-fastapi-vue-clean-arch', note: 'Plantilla full stack con FastAPI, Vue 3 y Docker Compose.' },
+  { name: 'brandbook', note: 'Sistema de diseño y manual de marca de NainDev.' },
+  { name: 'status', note: 'Estado y latencia de los servicios públicos.' },
+  { name: '.github', note: 'Estándares de ingeniería y flujos de CI reutilizables.' },
+];
+---
+<section class="section" id="open-ecosystem" aria-labelledby="open-ecosystem-title">
+  <div class="shell">
+    <div class="section-heading" data-reveal>
+      <div>
+        <p class="eyebrow">Código abierto</p>
+        <h2 id="open-ecosystem-title">Ecosistema abierto</h2>
+      </div>
+      <p>Plantillas, estándares y herramientas que uso en todos mis proyectos.</p>
+    </div>
+    <ul class="live-demos-grid">
+      {repositories.map((repository) => (
+        <li>
+          <a class="live-demo" href={`https://github.com/Nain9Dev/${repository.name}`} target="_blank" rel="noopener noreferrer">
+            <strong translate="no">{repository.name}</strong>
+            <span class="live-demo-tech">{repository.note}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
