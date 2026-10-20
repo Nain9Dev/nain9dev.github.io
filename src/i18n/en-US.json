@@ -7873,5 +7873,30 @@
     "source": "Seguridad Zero-Trust: Protección contra Prompt Injection y filtrado de PII.",
     "target": "Zero-Trust Security: Protection against Prompt Injection and PII leakage.",
     "status": "reviewed"
+  },
+  "1f7e3c3aed40ec4f8f56538416183f7f08113a049b198d8ce0181f974d3635d9": {
+    "source": "Pídelo por email: un checklist para auditar tu infraestructura y evitar el ⟦0⟧vendor lock-in⟦/0⟧.",
+    "target": "Ask for it by email: a checklist to audit your infrastructure and avoid ⟦0⟧vendor lock-in⟦/0⟧.",
+    "status": "reviewed"
+  },
+  "289b5665625a5a618ac8f011100f567414b891804bda680a81b030581af3e18e": {
+    "source": "⟦0⟧Ver el checklist⟦/0⟧",
+    "target": "⟦0⟧View the checklist⟦/0⟧",
+    "status": "reviewed"
+  },
+  "28c6b5d0ae03d2546c0b852396c45d5679baaff9c84930aa2f71b13fa30fe44b": {
+    "source": "🎁 Checklist de Arquitectura 3D/IA para asegurar la escalabilidad de tu sistema",
+    "target": "🎁 3D/AI Architecture Checklist to secure your system’s scalability",
+    "status": "reviewed"
+  },
+  "73e3c904a593f3a698c8d5e6b4e3f90dffa4aa65e313135e00154fcae96325c8": {
+    "source": "🎁 Checklist de Arquitectura 3D/IA",
+    "target": "🎁 3D/AI Architecture Checklist",
+    "status": "reviewed"
+  },
+  "eec95cf0a78afb3d0ce1878438d3429e82f67714e04601c6fa4e532b202bd5e5": {
+    "source": "¿Tu sistema ya está en producción y sufres cuellos de botella? ⟦0⟧Reserva una llamada gratuita conmigo⟦/0⟧.",
+    "target": "Is your system already in production and suffering from bottlenecks? ⟦0⟧Book a free call with me⟦/0⟧.",
+    "status": "reviewed"
   }
 }
