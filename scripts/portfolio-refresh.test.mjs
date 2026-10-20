@@ -94,6 +94,14 @@ test('ECO-020 and ECO-021: the home page lists the open repositories after the c
   assert.doesNotMatch(section, /<script|<iframe/);
 });
 
+test('HERO-022: the hero title is sized so summary and actions reach the first screen', async () => {
+  const css = await read('src/styles/main.css');
+  const rule = css.match(/\.hero h1\s*\{([^}]*)\}/)?.[1] ?? '';
+  assert.match(rule, /max-width:\s*(1[4-9]|2\d)ch/);
+  const max = Number(rule.match(/font-size:\s*clamp\([^,]+,[^,]+,\s*([\d.]+)rem\)/)?.[1]);
+  assert.ok(max > 0 && max <= 4.6, `hero title tops out at ${max}rem`);
+});
+
 test('HERO-020: the hero summary is at most two sentences and keeps its required terms', async () => {
   const hero = await read('src/components/home/Hero.astro');
   const summary = hero.match(/<p class="hero-summary"[^>]*>([\s\S]*?)<\/p>/)[1].replace(/\s+/g, ' ').trim();

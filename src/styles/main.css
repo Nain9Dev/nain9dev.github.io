@@ -451,6 +451,12 @@ main[tabindex="-1"]:focus {
   -webkit-text-fill-color: transparent;
 }
 
+.hero h1 {
+  max-width: 16ch;
+  margin-bottom: 1.25rem;
+  font-size: clamp(2.5rem, 5.2vw, 4.4rem);
+}
+
 .hero-summary {
   max-width: 41rem;
   margin-bottom: 2rem;
