@@ -14,23 +14,23 @@ const specialtyTechnologies = [
 ---
 
 <footer class="site-footer">
-  <div class="shell" data-nosnippet style="padding-bottom: 2rem; margin-bottom: 2rem; border-bottom: 1px solid var(--color-line);">
-    <h4 style="font-size: 1rem; margin-bottom: 1rem; color: var(--color-text);">Especialidades Técnicas</h4>
-    <div style="display: flex; flex-wrap: wrap; gap: 1.5rem;">
+  <div class="shell footer-specialties" data-nosnippet>
+    <h4>Especialidades Técnicas</h4>
+    <div class="footer-chips">
       {specialtyTechnologies.map(technology => (
-        <a href={getTechnologyHref(technology.name)} style="color: var(--color-text-muted); text-decoration: none; font-size: 0.9rem;">{technology.label}</a>
+        <a class="footer-chip" href={getTechnologyHref(technology.name)}>{technology.label}</a>
       ))}
     </div>
   </div>
 
   <div class="shell footer-layout" data-nosnippet>
     <p>© <span data-current-year>2026</span> NainDev. Analytics privacy-first integradas (0% cookies). Sin dependencias de terceros que rastreen datos personales.</p>
-    <div style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap;">
-      <a href="https://status.naindev.com/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.45rem; color: var(--color-text-muted); text-decoration: none; font-size: 0.85rem;" title="Ver monitor público de disponibilidad y latencia">
-        <span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; background: #22c55e; display: inline-block;"></span>
+    <div class="footer-links">
+      <a class="status-pill" href="https://status.naindev.com/" target="_blank" rel="noopener noreferrer" title="Ver monitor público de disponibilidad y latencia">
+        <span aria-hidden="true" class="status-dot" style="background: #22c55e;"></span>
         <span>Estado del servicio</span>
       </a>
-      <a href="/recursos/checklist-ia" data-calendly-track="footer" style="color: var(--color-primary-strong); text-decoration: none; font-weight: 500;">📥 Checklist Arquitectura IA</a>
+      <a class="footer-checklist" href="/recursos/checklist-ia" data-calendly-track="footer">📥 Checklist Arquitectura IA</a>
       <a href="/privacidad">Privacidad</a>
       <a href="#top">Volver arriba</a>
     </div>
