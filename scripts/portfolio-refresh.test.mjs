@@ -162,6 +162,15 @@ test('VIS-008: the about links are icon pills and the resource call to action ha
   assert.match(css, /\.resource-cta\s*\{/);
 });
 
+test('VIS-010: page titles stay readable and the service detail page has no inline style', async () => {
+  const css = await read('src/styles/main.css');
+  const rule = css.match(/\nh1\s*\{([^}]*)\}/)?.[1] ?? '';
+  const max = Number(rule.match(/font-size:\s*clamp\([^,]+,[^,]+,\s*([\d.]+)rem\)/)?.[1]);
+  assert.ok(max > 0 && max <= 4.8, `global h1 tops out at ${max}rem`);
+  const detail = await read('src/pages/servicios/[categoria].astro');
+  assert.doesNotMatch(detail, /style=/);
+});
+
 test('VIS-009: the footer shows specialties as chips and the services index has no inline styles', async () => {
   const footer = await read('src/components/Footer.astro');
   assert.equal(footer.match(/style=/g)?.length, 1, 'only the green status dot keeps an inline style');

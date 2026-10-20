@@ -30,7 +30,7 @@ const serviceSchema = {
 <BaseLayout title={servicio.data.title} description={servicio.data.description} keywords={servicio.data.keywords} image={servicio.data.ogImage}>
   <script is:inline slot="head" type="application/ld+json" set:html={serializeJsonLd(serviceSchema)} />
   <main id="main-content" tabindex="-1">
-  <article class="shell section" style="padding-top: 8rem;">
+  <article class="shell section page-top">
     {servicio.data.renderTitle && <h1>{servicio.data.title}</h1>}
     <Content />
   </article>
