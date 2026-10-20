@@ -94,6 +94,74 @@ test('ECO-020 and ECO-021: the home page lists the open repositories after the c
   assert.doesNotMatch(section, /<script|<iframe/);
 });
 
+test('VIS-004: technology chips carry a decorative icon when the repository ships one', async () => {
+  const icons = await read('src/scripts/tech-icons.js');
+  const paths = [...icons.matchAll(/'(\/assets\/icons\/[\w.-]+\.svg)'/g)].map((match) => match[1]);
+  assert.ok(paths.length >= 12, `${paths.length} icons mapped`);
+  for (const path of paths) await stat(join(ROOT, 'public', path));
+  const projects = await readJson('public/assets/data/projects.json');
+  const used = projects.flatMap((project) => project.technologies);
+  const mapped = used.filter((technology) => icons.includes(`'${technology}'`));
+  assert.ok(mapped.length / used.length > 0.45, 'most technology tags have an icon');
+  const view = await read('src/scripts/project-view.js');
+  assert.match(view, /techIcon/);
+  assert.match(view, /alt = ""/);
+});
+
+test('VIS-005: the long proof text is folded behind a detail control and live demos carry a badge', async () => {
+  const view = await read('src/scripts/project-view.js');
+  assert.match(view, /createElement\("details", "project-detail"\)/);
+  assert.match(view, /message\('projectDetail'\)/);
+  assert.match(view, /is-live/);
+  const runtime = await readJson('src/i18n/runtime.json');
+  assert.equal(runtime.projectDetail, 'Ver detalle');
+  const css = await read('src/styles/main.css');
+  assert.match(css, /\.project-status\.is-live::before/);
+  assert.match(css, /\.project-detail summary/);
+});
+
+test('VIS-006: each service card leads with a decorative icon and the links use a shared class', async () => {
+  const services = await read('src/components/home/ServicesSection.astro');
+  const cards = services.match(/<article class="service-card"[\s\S]*?<\/article>/g);
+  assert.equal(cards.length, 3);
+  for (const card of cards) {
+    assert.match(card, /<svg class="service-icon"[^>]*aria-hidden="true"/);
+    assert.match(card, /<a class="card-link" href="\/servicios\//);
+  }
+  assert.doesNotMatch(services, /style=/);
+  const css = await read('src/styles/main.css');
+  assert.match(css, /\.service-icon\s*\{/);
+  assert.match(css, /\.card-link\s*\{/);
+});
+
+test('VIS-007: the method steps form a connected timeline without inline styles', async () => {
+  const method = await read('src/components/home/MethodSection.astro');
+  assert.doesNotMatch(method, /style=/);
+  assert.match(method, /class="method-cta"/);
+  const css = await read('src/styles/main.css');
+  assert.match(css, /\.step-list > li::before/);
+  assert.match(css, /\.method-cta\s*\{/);
+});
+
+test('VIS-008: the about links are icon pills and the resource call to action has no inline styles', async () => {
+  const about = await read('src/components/home/AboutSection.astro');
+  const links = about.match(/<a class="social-pill"[\s\S]*?<\/a>/g);
+  assert.equal(links.length, 4);
+  for (const link of links) {
+    assert.match(link, /<svg[^>]*aria-hidden="true"/);
+    assert.match(link, /rel="noopener noreferrer"/);
+  }
+  for (const url of ['https://github.com/Nain9Dev', 'https://github.com/naindev-contrast3d', 'https://www.linkedin.com/in/aitor-nain-mendoza-vallejo/', 'https://x.com/Nain9Dev']) {
+    assert.ok(about.includes(`href="${url}"`), `${url} stays linked`);
+  }
+  const impact = await read('src/components/home/ImpactMetrics.astro');
+  assert.doesNotMatch(impact, /style=/);
+  assert.match(impact, /class="resource-cta"/);
+  const css = await read('src/styles/main.css');
+  assert.match(css, /\.social-pill\s*\{/);
+  assert.match(css, /\.resource-cta\s*\{/);
+});
+
 test('HERO-022: the hero title is sized so summary and actions reach the first screen', async () => {
   const css = await read('src/styles/main.css');
   const rule = css.match(/\.hero h1\s*\{([^}]*)\}/)?.[1] ?? '';
