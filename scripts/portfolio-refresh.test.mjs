@@ -143,6 +143,25 @@ test('VIS-007: the method steps form a connected timeline without inline styles'
   assert.match(css, /\.method-cta\s*\{/);
 });
 
+test('VIS-008: the about links are icon pills and the resource call to action has no inline styles', async () => {
+  const about = await read('src/components/home/AboutSection.astro');
+  const links = about.match(/<a class="social-pill"[\s\S]*?<\/a>/g);
+  assert.equal(links.length, 4);
+  for (const link of links) {
+    assert.match(link, /<svg[^>]*aria-hidden="true"/);
+    assert.match(link, /rel="noopener noreferrer"/);
+  }
+  for (const url of ['https://github.com/Nain9Dev', 'https://github.com/naindev-contrast3d', 'https://www.linkedin.com/in/aitor-nain-mendoza-vallejo/', 'https://x.com/Nain9Dev']) {
+    assert.ok(about.includes(`href="${url}"`), `${url} stays linked`);
+  }
+  const impact = await read('src/components/home/ImpactMetrics.astro');
+  assert.doesNotMatch(impact, /style=/);
+  assert.match(impact, /class="resource-cta"/);
+  const css = await read('src/styles/main.css');
+  assert.match(css, /\.social-pill\s*\{/);
+  assert.match(css, /\.resource-cta\s*\{/);
+});
+
 test('HERO-022: the hero title is sized so summary and actions reach the first screen', async () => {
   const css = await read('src/styles/main.css');
   const rule = css.match(/\.hero h1\s*\{([^}]*)\}/)?.[1] ?? '';
