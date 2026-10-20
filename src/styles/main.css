@@ -459,9 +459,9 @@ main[tabindex="-1"]:focus {
 
 .hero-summary {
   max-width: 41rem;
-  margin-bottom: 2rem;
+  margin: 1.5rem 0 1rem;
   color: var(--color-text-muted);
-  font-size: clamp(1.08rem, 2vw, 1.3rem);
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
 }
 
 .button-group,

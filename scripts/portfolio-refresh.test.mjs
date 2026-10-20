@@ -260,6 +260,11 @@ test('HERO-023: the hero shows what is offered as three icon tiles linked to the
   const hero = await read('src/components/home/Hero.astro');
   const tiles = hero.match(/<a class="offer-tile"[\s\S]*?<\/a>/g) ?? [];
   assert.equal(tiles.length, 3);
+  // Visual order: title, offer tiles, actions, then the short summary.
+  const at = (needle) => hero.indexOf(needle);
+  assert.ok(at('<h1') < at('class="offer-row"') && at('class="offer-row"') < at('class="button-group"') && at('class="button-group"') < at('class="hero-summary"'));
+  const summaryWords = hero.match(/<p class="hero-summary"[^>]*>([\s\S]*?)<\/p>/)[1].trim().split(/\s+/).length;
+  assert.ok(summaryWords <= 25, `hero summary has ${summaryWords} words`);
   const targets = ['/servicios/sistemas-criticos-dotnet', '/servicios/arquitectura-ia-generativa', '/servicios/validacion-3d'];
   tiles.forEach((tile, index) => {
     assert.ok(tile.includes(`href="${targets[index]}"`), `tile ${index} links ${targets[index]}`);

@@ -7933,5 +7933,10 @@
     "source": "Qué ofrezco",
     "target": "What I offer",
     "status": "reviewed"
+  },
+  "74bceea09e30351d5cefac3077e958235e03b81b6cecc2dd09fbd8008f27ca20": {
+    "source": "Producto completo en Python y .NET, con IA bajo revisión humana. Conformidad determinista: su primer dominio son los modelos 3D.",
+    "target": "Complete product in Python and .NET, with AI under human review. Deterministic conformance: its first domain is 3D models.",
+    "status": "reviewed"
   }
 }
