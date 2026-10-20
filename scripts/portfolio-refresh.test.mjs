@@ -242,3 +242,37 @@ test('VIS-012: the 404, thank-you and technology pages are styled by classes, no
   const thanks = await read('src/pages/recursos/gracias.astro');
   assert.ok(thanks.includes('https://calendly.com/aitornainmendozavallejo-ksez/30min?utm_source=gracias&utm_medium=website'));
 });
+
+test('VIS-013: proof strip and partnership cards lead with icons, the stack badges use a class', async () => {
+  const proof = await read('src/components/home/ProofStrip.astro');
+  assert.equal(proof.match(/<svg class="proof-icon"[^>]*aria-hidden="true"/g)?.length, 3);
+  const partnership = await read('src/components/home/PartnershipSection.astro');
+  assert.equal(partnership.match(/<svg class="service-icon"[^>]*aria-hidden="true"/g)?.length, 2);
+  const stack = await read('src/components/home/TechStack.astro');
+  assert.doesNotMatch(stack, /style=/);
+  assert.match(stack, /class="tech-badge tech-link"/);
+  const css = await read('src/styles/main.css');
+  assert.match(css, /\.proof-icon\s*\{/);
+  assert.match(css, /\.tech-link\s*\{/);
+});
+
+test('HERO-023: the hero shows what is offered as three icon tiles linked to the services', async () => {
+  const hero = await read('src/components/home/Hero.astro');
+  const tiles = hero.match(/<a class="offer-tile"[\s\S]*?<\/a>/g) ?? [];
+  assert.equal(tiles.length, 3);
+  // Visual order: title, offer tiles, actions, then the short summary.
+  const at = (needle) => hero.indexOf(needle);
+  assert.ok(at('<h1') < at('class="offer-row"') && at('class="offer-row"') < at('class="button-group"') && at('class="button-group"') < at('class="hero-summary"'));
+  const summaryWords = hero.match(/<p class="hero-summary"[^>]*>([\s\S]*?)<\/p>/)[1].trim().split(/\s+/).length;
+  assert.ok(summaryWords <= 25, `hero summary has ${summaryWords} words`);
+  const targets = ['/servicios/sistemas-criticos-dotnet', '/servicios/arquitectura-ia-generativa', '/servicios/validacion-3d'];
+  tiles.forEach((tile, index) => {
+    assert.ok(tile.includes(`href="${targets[index]}"`), `tile ${index} links ${targets[index]}`);
+    assert.match(tile, /<svg class="offer-icon"[^>]*aria-hidden="true"/);
+    assert.match(tile, /<strong>[^<]+<\/strong>/);
+  });
+  assert.doesNotMatch(hero, /badge-icon|⚙️|🧪/, 'the emoji badges are gone');
+  const css = await read('src/styles/main.css');
+  assert.match(css, /\.offer-tile\s*\{/);
+  assert.doesNotMatch(css, /\.trust-badges/, 'dead badge styles are removed');
+});

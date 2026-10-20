@@ -7998,5 +7998,45 @@
     "source": "Comprobando tu enlace…",
     "target": "Checking your link…",
     "status": "reviewed"
+  },
+  "97ff57b8b8961d275c2b3ac87c2a8c46182e367ebc8b6a25edf1bd10b54d12ff": {
+    "source": "⟦0/⟧⟦1⟧Experiencia real⟦/1⟧⟦2⟧Trabajo a diario con .NET y SQL Server.⟦/2⟧",
+    "target": "⟦0/⟧⟦1⟧Real experience⟦/1⟧⟦2⟧Daily work with .NET and SQL Server.⟦/2⟧",
+    "status": "reviewed"
+  },
+  "f0312685d77eb8553589def52603b59b4dcb594d271990a044ee2266fce2bf06": {
+    "source": "⟦0/⟧⟦1⟧Alcance claro⟦/1⟧⟦2⟧Proyectos a tiempo parcial y en remoto, con el alcance acordado desde la primera llamada.⟦/2⟧",
+    "target": "⟦0/⟧⟦1⟧Clear scope⟦/1⟧⟦2⟧Part-time, remote projects, with the scope agreed on the first call.⟦/2⟧",
+    "status": "reviewed"
+  },
+  "fce77df6bf1ef7d0b1e4535ada6dd163dcf67ce084802fbffd409276372bad40": {
+    "source": "⟦0/⟧⟦1⟧Código revisable⟦/1⟧⟦2⟧Los proyectos y las demos están enlazados.⟦/2⟧",
+    "target": "⟦0/⟧⟦1⟧Reviewable code⟦/1⟧⟦2⟧The projects and demos are linked.⟦/2⟧",
+    "status": "reviewed"
+  },
+  "375d0d65f580837e8c424a87521a0c829b9708d8781d041d916179ae0627701d": {
+    "source": "⟦0/⟧⟦1⟧Validación 3D⟦/1⟧⟦2⟧Veredictos reproducibles⟦/2⟧",
+    "target": "⟦0/⟧⟦1⟧3D validation⟦/1⟧⟦2⟧Reproducible verdicts⟦/2⟧",
+    "status": "reviewed"
+  },
+  "38132837065354dfdb1323ab3cec8972298a99cd8fcde1503e55c3c03a5f8047": {
+    "source": "⟦0/⟧⟦1⟧IA con revisión humana⟦/1⟧⟦2⟧Agentes y flujos verificables⟦/2⟧",
+    "target": "⟦0/⟧⟦1⟧AI with human review⟦/1⟧⟦2⟧Verifiable agents and workflows⟦/2⟧",
+    "status": "reviewed"
+  },
+  "4b36cb306c015d841e0358de469311eec84e30be86bb4cc3270311bcd4a73586": {
+    "source": "⟦0/⟧⟦1⟧Backend crítico⟦/1⟧⟦2⟧Python y .NET con datos consistentes⟦/2⟧",
+    "target": "⟦0/⟧⟦1⟧Critical backend⟦/1⟧⟦2⟧Python and .NET with consistent data⟦/2⟧",
+    "status": "reviewed"
+  },
+  "eb7d38e789be4cd42ee45e3c642d69c350acf246b8f9f808caf613d10c417da0": {
+    "source": "Qué ofrezco",
+    "target": "What I offer",
+    "status": "reviewed"
+  },
+  "74bceea09e30351d5cefac3077e958235e03b81b6cecc2dd09fbd8008f27ca20": {
+    "source": "Producto completo en Python y .NET, con IA bajo revisión humana. Conformidad determinista: su primer dominio son los modelos 3D.",
+    "target": "Complete product in Python and .NET, with AI under human review. Deterministic conformance: its first domain is 3D models.",
+    "status": "reviewed"
   }
 }
