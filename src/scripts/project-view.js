@@ -55,6 +55,18 @@ function createProjectCard(project, index) {
   }
   project.links.forEach((link) => links.append(createProjectLink(link)));
 
+  if (project.thumbnail) {
+    // Decorative preview of the live demo; the title below names it (spec next-portfolio-refresh, VIS-003).
+    const picture = createElement("img", "project-thumb");
+    picture.src = project.thumbnail;
+    picture.alt = "";
+    picture.loading = "lazy";
+    picture.decoding = "async";
+    picture.width = 640;
+    picture.height = 360;
+    article.append(picture);
+  }
+
   article.append(header, title, summary, proof, technologies, links);
   return article;
 }

@@ -7703,5 +7703,90 @@
     "source": "YARP",
     "target": "YARP",
     "status": "reviewed"
+  },
+  "0205379f2f48e45601f6e6499e7867a563462e40c48d531c8d7183b08049b98d": {
+    "source": "⟦0⟧⟦1⟧NainOrder (motor de pedidos)⟦/1⟧⟦2/⟧⟦3/⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1⟧NainOrder (order engine)⟦/1⟧⟦2/⟧⟦3/⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "1027ae2d8826acc2bd4e9368bb38a25b2be0c2acd5051d4931a5c017cb0d361e": {
+    "source": "Motor de validación geométrica determinista para activos 3D y pasarela de conformidad Khronos, con backend en Python y cliente Vue 3 con Three.js.",
+    "target": "Deterministic geometric validation engine for 3D assets and Khronos conformance gateway, with a Python backend and a Vue 3 client using Three.js.",
+    "status": "reviewed"
+  },
+  "143568d2a0f1601e08698a42103f0ee25f8998836d3c06e5fbfc0d49154a1f3d": {
+    "source": "⟦0⟧⟦1⟧Nain3D⟦/1⟧⟦2/⟧⟦3/⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1⟧Nain3D⟦/1⟧⟦2/⟧⟦3/⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "21a331b59925ebca3e6b94535defa471f899325de1c2f57f747f5d94b407bfb8": {
+    "source": "⟦0⟧⟦1⟧Microservicio de notificaciones⟦/1⟧⟦2/⟧⟦3/⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1⟧Notification microservice⟦/1⟧⟦2/⟧⟦3/⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "2c36e5552e25169ccecae52524c3195f9a9765c69499fa1feb3d2f507105cd3e": {
+    "source": "⟦0⟧⟦1⟧API de Operaciones de Pólizas⟦/1⟧⟦2/⟧⟦3/⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1⟧Policy Operations API⟦/1⟧⟦2/⟧⟦3/⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "4c35218e63e3a70ea19f0ccca3db114a2d1ae533f7ac9c12e63bf5d444d04b67": {
+    "source": "trimesh",
+    "target": "trimesh",
+    "status": "reviewed"
+  },
+  "7fa88341803fb6a0fc8096dc9d162de26ba458e25d1c0c34155518ff482502fb": {
+    "source": "Proyectos y demos de NainDev",
+    "target": "NainDev projects and demos",
+    "status": "reviewed"
+  },
+  "83901664cf3a63db43a10a0f60a3b1ab4d4c94d1da7dc7ce7ca3c5dae449159f": {
+    "source": "⟦0/⟧Demos en vivo",
+    "target": "⟦0/⟧Live demos",
+    "status": "reviewed"
+  },
+  "8e2f091414153bd53fce1f50884c1fef393338f9b89c5d2bc956b216282f5cfa": {
+    "source": "Nain3D",
+    "target": "Nain3D",
+    "status": "reviewed"
+  },
+  "92c4d7959796a7b6f0c0d9354f2fc3e9da8c019343b38ad6c8d18aac3e32f390": {
+    "source": "⟦0⟧⟦1⟧ParametriCAD AI⟦/1⟧⟦2/⟧⟦3/⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1⟧ParametriCAD AI⟦/1⟧⟦2/⟧⟦3/⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "988abaae6ba9b182807dfbb2f770d7dc7a079827ea99c5c5dba23d4853a53ac7": {
+    "source": "⟦0⟧⟦1⟧Facturación determinista para autoescuelas⟦/1⟧⟦2/⟧⟦3/⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1⟧Deterministic billing for driving schools⟦/1⟧⟦2/⟧⟦3/⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "cdb419cb2bf293c32251a1674b213315418c86f705af0e30c0f63c4ffbe0a4a0": {
+    "source": "Mide la malla con OpenCASCADE y trimesh y devuelve un veredicto reproducible para el mismo archivo. Es un caso de estudio de ingeniería: contratos explícitos, pruebas y despliegue propio.",
+    "target": "Measures the mesh with OpenCASCADE and trimesh and returns a reproducible verdict for the same file. It is an engineering case study: explicit contracts, tests and its own deployment.",
+    "status": "reviewed"
+  },
+  "4d4f94eece2e2efb34775610dcc0eede91ad3cf5ddde274fc4c3305eb6b9a80c": {
+    "source": "⟦0⟧⟦1⟧Simulacros de oposición TAI⟦/1⟧⟦2/⟧⟦3/⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1⟧TAI civil service exam simulator⟦/1⟧⟦2/⟧⟦3/⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "71c52228b603166502f60d58b3d297e36038d0bf821c4ff0e7d00714853e0e1b": {
+    "source": "⟦0⟧⟦1⟧Orbe Runner 3D⟦/1⟧⟦2/⟧⟦3/⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1⟧Orbe Runner 3D⟦/1⟧⟦2/⟧⟦3/⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "dd358b3753484ce14a41668ae0a257b7ef20443711611b2a0343c2900064e5a4": {
+    "source": "⟦0⟧⟦1⟧Pong Arcade 3D⟦/1⟧⟦2/⟧⟦3/⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1⟧Pong Arcade 3D⟦/1⟧⟦2/⟧⟦3/⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "53c50ffcd65513dfaedf199f8974c4be387dd51d996cfc03e4b3988c008ffe74": {
+    "source": "Proyecto público · Prototipo en simulación",
+    "target": "Public project · Simulation prototype",
+    "status": "reviewed"
+  },
+  "32a8b3a3810b1743290701c9e995f825722894f2e00830ae0187159470c58f0f": {
+    "source": "Proyecto público · Preliminar",
+    "target": "Public project · Preliminary",
+    "status": "reviewed"
   }
 }

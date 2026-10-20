@@ -107,8 +107,42 @@
         "url": "https://github.com/Nain9Dev/parametricad-ai"
       }
     ],
+    "thumbnail": "/assets/images/demos/parametricad-ai.webp",
     "featured": true,
     "order": 3
+  },
+  {
+    "id": "nain3d-conformance-gateway",
+    "title": "Nain3D",
+    "status": "Demo pública activa",
+    "summary": "Motor de validación geométrica determinista para activos 3D y pasarela de conformidad Khronos, con backend en Python y cliente Vue 3 con Three.js.",
+    "proof": "Mide la malla con OpenCASCADE y trimesh y devuelve un veredicto reproducible para el mismo archivo. Es un caso de estudio de ingeniería: contratos explícitos, pruebas y despliegue propio.",
+    "technologies": [
+      "Python",
+      "OpenCASCADE",
+      "trimesh",
+      "Vue 3",
+      "Three.js"
+    ],
+    "categories": [
+      "backend",
+      "demo",
+      "3d",
+      "python"
+    ],
+    "links": [
+      {
+        "label": "Probar demo",
+        "url": "https://3d.naindev.com/"
+      },
+      {
+        "label": "Revisar código",
+        "url": "https://github.com/Nain9Dev/Nain3D"
+      }
+    ],
+    "thumbnail": "/assets/images/demos/nain3d-conformance-gateway.webp",
+    "featured": true,
+    "order": 4
   },
   {
     "id": "nain-mcp-validator",
@@ -137,7 +171,7 @@
     ],
     "private": false,
     "featured": true,
-    "order": 4
+    "order": 5
   },
   {
     "id": "financial-management-api",
@@ -161,15 +195,16 @@
     "links": [
       {
         "label": "Probar API",
-        "url": "https://nain-policy-demo-api.azurewebsites.net/demo/"
+        "url": "https://policy.naindev.com/"
       },
       {
         "label": "Revisar código",
         "url": "https://github.com/Nain9Dev/NainPolicy"
       }
     ],
+    "thumbnail": "/assets/images/demos/financial-management-api.webp",
     "featured": true,
-    "order": 5
+    "order": 6
   },
   {
     "id": "nain-legacy-modernizer",
@@ -197,7 +232,7 @@
     ],
     "private": false,
     "featured": true,
-    "order": 6
+    "order": 7
   },
   {
     "id": "nainorder-ecommerce-api",
@@ -222,15 +257,16 @@
     "links": [
       {
         "label": "Probar API",
-        "url": "https://nainorder.onrender.com/index.html"
+        "url": "https://order.naindev.com/"
       },
       {
         "label": "Revisar código",
         "url": "https://github.com/Nain9Dev/NainOrder"
       }
     ],
+    "thumbnail": "/assets/images/demos/nainorder-ecommerce-api.webp",
     "featured": true,
-    "order": 7
+    "order": 8
   },
   {
     "id": "notification-worker",
@@ -251,12 +287,17 @@
     ],
     "links": [
       {
+        "label": "Probar demo",
+        "url": "https://notify.naindev.com/"
+      },
+      {
         "label": "Revisar código",
         "url": "https://github.com/Nain9Dev/NainNotify"
       }
     ],
+    "thumbnail": "/assets/images/demos/notification-worker.webp",
     "featured": true,
-    "order": 8
+    "order": 9
   },
   {
     "id": "nainconfigurator",
@@ -284,7 +325,7 @@
       }
     ],
     "featured": false,
-    "order": 9
+    "order": 10
   },
   {
     "id": "driving-school-management",
@@ -308,15 +349,16 @@
     "links": [
       {
         "label": "Probar demo",
-        "url": "https://gestion-autoescuela-nain9dev.streamlit.app/"
+        "url": "https://drive.naindev.com/"
       },
       {
         "label": "Revisar código",
         "url": "https://github.com/Nain9Dev/NainDrive"
       }
     ],
+    "thumbnail": "/assets/images/demos/driving-school-management.webp",
     "featured": true,
-    "order": 10
+    "order": 11
   },
   {
     "id": "tai-study-system",
@@ -352,8 +394,9 @@
         "url": "https://github.com/Nain9Dev/tai-study-system-js"
       }
     ],
+    "thumbnail": "/assets/images/demos/tai-study-system.webp",
     "featured": true,
-    "order": 11
+    "order": 12
   },
   {
     "id": "self-hosted-ci-runners",
@@ -373,7 +416,7 @@
     "links": [],
     "private": true,
     "featured": false,
-    "order": 12
+    "order": 13
   },
   {
     "id": "orbe-runner-3d",
@@ -402,8 +445,9 @@
         "url": "https://github.com/Nain9Dev/Orbe3D"
       }
     ],
+    "thumbnail": "/assets/images/demos/orbe-runner-3d.webp",
     "featured": false,
-    "order": 13
+    "order": 14
   },
   {
     "id": "pong-arcade",
@@ -431,13 +475,14 @@
         "url": "https://github.com/Nain9Dev/PongArcade"
       }
     ],
+    "thumbnail": "/assets/images/demos/pong-arcade.webp",
     "featured": false,
-    "order": 14
+    "order": 15
   },
   {
     "id": "b2b-prospecting-pipeline",
     "title": "Pipeline de prospección B2B con IA",
-    "status": "Privado · Prototipo en simulación",
+    "status": "Proyecto público · Prototipo en simulación",
     "summary": "Pipeline de bajo coste que localiza empresas a partir de datos públicos, las clasifica con un LLM y genera plantillas de email. No envía correo.",
     "proof": "Clasificación de sector, tamaño y prioridad con un modelo ligero, alertas y ejecución programada. Se detiene antes del envío, en modo simulación.",
     "technologies": [
@@ -449,15 +494,19 @@
       "data",
       "python"
     ],
-    "links": [],
-    "private": true,
+    "links": [
+      {
+        "label": "Revisar código",
+        "url": "https://github.com/Nain9Dev/NainProspect"
+      }
+    ],
     "featured": false,
-    "order": 15
+    "order": 16
   },
   {
     "id": "local-rewriting-agent",
     "title": "Agente local de reescritura en español",
-    "status": "Privado · Preliminar",
+    "status": "Proyecto público · Preliminar",
     "summary": "Agente local que reescribe borradores en español de España conservando el significado, las condiciones y los literales protegidos.",
     "proof": "Un LLM local reescribe y un validador determinista de invariantes lo comprueba. Si dos auditores independientes no aprueban, el resultado pasa a revisión humana.",
     "technologies": [
@@ -469,10 +518,14 @@
       "data",
       "python"
     ],
-    "links": [],
-    "private": true,
+    "links": [
+      {
+        "label": "Revisar código",
+        "url": "https://github.com/Nain9Dev/NainWrite"
+      }
+    ],
     "featured": false,
-    "order": 16
+    "order": 17
   },
   {
     "id": "local-quotation-generator",
@@ -491,7 +544,7 @@
     "links": [],
     "private": true,
     "featured": false,
-    "order": 17
+    "order": 18
   },
   {
     "id": "gamehaven-blazor-store",
@@ -521,7 +574,7 @@
       }
     ],
     "featured": false,
-    "order": 18
+    "order": 19
   },
   {
     "id": "havetickets",
@@ -546,7 +599,7 @@
       }
     ],
     "featured": false,
-    "order": 19
+    "order": 20
   },
   {
     "id": "driving-exam-simulator",
@@ -567,6 +620,6 @@
     "links": [],
     "private": true,
     "featured": false,
-    "order": 20
+    "order": 21
   }
 ]

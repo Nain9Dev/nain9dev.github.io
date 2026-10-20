@@ -14,11 +14,12 @@ const PUBLIC_REPOS = [
   'parametricad-ai', 'NainOrder', 'GameHaven', 'NainNotify', 'NainPolicy',
   'NainDrive', 'NainTAI', 'tai-study-system-js', 'PongArcade',
   'Orbe3D', 'NainConfigurator', 'HaveTickets', 'NainLegacyModernizer',
-  'nain-mcp-validator',
+  'nain-mcp-validator', 'Nain3D', 'NainProspect', 'NainWrite',
 ];
-const PRIVATE_COUNT = 8;
+// Owner decision 2026-10-19 (specs/next-portfolio-refresh): NainProspect and NainWrite became public projects.
+const PRIVATE_COUNT = 6;
 // Names of private products, partners and the employer that must never reach the catalog.
-const CONFIDENTIAL = /\bDSE\b|Datum Statutum|\bE3C\b|\bRT-(?:FIN-)?\d+|Contrast|crm-platform|ProspectAI|NainWrite|Facturae|gha-local-runners|NainDriveSimulator|Avalisto|Fidelidade|Alcal[aá]|Torrej[oó]n/i;
+const CONFIDENTIAL = /\bDSE\b|Datum Statutum|\bE3C\b|\bRT-(?:FIN-)?\d+|Contrast|crm-platform|ProspectAI|Facturae|gha-local-runners|NainDriveSimulator|Avalisto|Fidelidade|Alcal[aá]|Torrej[oó]n/i;
 
 test('COPY-010: the hero presents multi-domain conformance without industrial-scale claims', async () => {
   const hero = text(await read('src/components/home/Hero.astro'));
@@ -87,7 +88,7 @@ test('PRJ-002: private entries have no links and no confidential names', async (
 test('PRJ-004: public live demos are linked from the catalog (specs/015-catalog-demo-links)', async () => {
   const projects = await readJson('public/assets/data/projects.json');
   const order = projects.find((project) => project.id === 'nainorder-ecommerce-api');
-  assert.ok(order.links.some((link) => link.url === 'https://nainorder.onrender.com/index.html'));
+  assert.ok(order.links.some((link) => link.url === 'https://order.naindev.com/'));
   assert.match(order.status, /Demo pública/);
 });
 
@@ -119,6 +120,7 @@ test('PRJ-008: projects are ordered by complexity hierarchy (specs/017-catalog-c
     'interactive-3d-viewer',
     'collaborative-crm',
     'parametricad-ai',
+    'nain3d-conformance-gateway',
     'nain-mcp-validator',
     'financial-management-api',
     'nain-legacy-modernizer',
