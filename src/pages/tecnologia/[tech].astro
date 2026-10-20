@@ -35,20 +35,20 @@ const description = `Descubre cómo utilizamos ${tech} en arquitecturas de backe
     </div>
 
     {servicios.length > 0 && (
-      <section data-reveal style="margin-top: 4rem;">
-        <h2 style="font-size: 1.8rem; margin-bottom: 2rem; border-bottom: 1px solid var(--color-line); padding-bottom: 0.5rem;">Servicios Relacionados</h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;">
+      <section class="related-services" data-reveal>
+        <h2 class="related-title">Servicios Relacionados</h2>
+        <div class="tech-grid">
           {servicios.map(servicio => (
-            <a href={`/servicios/${servicio.id}`} class="case-study-card" style="text-decoration: none;">
-              <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--color-text);">{servicio.data.title}</h3>
-              <p style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.5;">{servicio.data.description}</p>
+            <a href={`/servicios/${servicio.id}`} class="case-study-card tech-link-card">
+              <h3>{servicio.data.title}</h3>
+              <p>{servicio.data.description}</p>
             </a>
           ))}
         </div>
       </section>
     )}
-    
-    <div style="margin-top: 4rem; text-align: center;">
+
+    <div class="page-cta">
       <a href="/" class="button button-outline">Volver a inicio</a>
     </div>
   </main>
