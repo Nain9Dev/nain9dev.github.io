@@ -42,7 +42,7 @@ if (unassigned.length > 0) groups.push({ title: 'Otros servicios', items: unassi
 ---
 
 <BaseLayout title="Servicios de arquitectura de software | NainDev" description="Arquitectura de software full stack: validación determinista y 3D, IA con supervisión humana y sistemas críticos en Python y .NET. Consultoría de Aitor Nain.">
-  <main class="section" id="main-content" style="padding-top: 8rem;" tabindex="-1">
+  <main class="section page-top" id="main-content" tabindex="-1">
     <div class="shell">
       <div class="section-heading" data-reveal>
         <div>
@@ -60,7 +60,7 @@ if (unassigned.length > 0) groups.push({ title: 'Otros servicios', items: unassi
               <article class="service-card" data-reveal>
                 <h3>{servicio.data.title}</h3>
                 <p>{servicio.data.description}</p>
-                <a href={`/servicios/${servicio.id}`} class="button button-outline button-small" style="margin-top: 1.5rem;">
+                <a href={`/servicios/${servicio.id}`} class="button button-outline button-small card-action">
                   Ver detalles
                 </a>
               </article>
@@ -69,7 +69,7 @@ if (unassigned.length > 0) groups.push({ title: 'Otros servicios', items: unassi
         </section>
       ))}
 
-      <div style="margin-top: 4rem; text-align: center;" data-reveal>
+      <div class="page-cta" data-reveal>
         <a class="button button-primary" href="https://calendly.com/aitornainmendozavallejo-ksez/30min" target="_blank" rel="noopener noreferrer" data-calendly-track="servicios-index">
           Agendar llamada gratuita
         </a>

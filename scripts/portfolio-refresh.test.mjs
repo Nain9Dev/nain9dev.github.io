@@ -162,6 +162,19 @@ test('VIS-008: the about links are icon pills and the resource call to action ha
   assert.match(css, /\.resource-cta\s*\{/);
 });
 
+test('VIS-009: the footer shows specialties as chips and the services index has no inline styles', async () => {
+  const footer = await read('src/components/Footer.astro');
+  assert.equal(footer.match(/style=/g)?.length, 1, 'only the green status dot keeps an inline style');
+  assert.match(footer, /class="footer-chip"/);
+  assert.match(footer, /class="status-pill"/);
+  const services = await read('src/pages/servicios/index.astro');
+  assert.doesNotMatch(services, /style=/);
+  const css = await read('src/styles/main.css');
+  assert.match(css, /\.footer-chip\s*\{/);
+  assert.match(css, /\.status-pill\s*\{/);
+  assert.match(css, /\.page-cta\s*\{/);
+});
+
 test('HERO-022: the hero title is sized so summary and actions reach the first screen', async () => {
   const css = await read('src/styles/main.css');
   const rule = css.match(/\.hero h1\s*\{([^}]*)\}/)?.[1] ?? '';
