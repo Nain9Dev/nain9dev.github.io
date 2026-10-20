@@ -1,0 +1,28 @@
+---
+// LiveDemos.astro: static strip of the public demos hosted on naindev.com subdomains (spec next-portfolio-refresh).
+import projects from '../../../public/assets/data/projects.json';
+
+const isOwnDemo = (url: string) => /^https:\/\/[a-z0-9-]+\.naindev\.com(?:\/|$)/.test(url);
+const demos = [...projects]
+  .sort((a, b) => a.order - b.order)
+  .flatMap((project) => {
+    const link = project.links.find((entry) => isOwnDemo(entry.url));
+    return link ? [{ title: project.title, url: link.url, host: new URL(link.url).hostname, tech: project.technologies.slice(0, 2).join(' · ') }] : [];
+  });
+---
+<section class="live-demos" aria-labelledby="live-demos-title">
+  <div class="shell">
+    <h2 id="live-demos-title" class="live-demos-title"><span class="live-dot" aria-hidden="true"></span>Demos en vivo</h2>
+    <ul class="live-demos-grid">
+      {demos.map((demo) => (
+        <li>
+          <a class="live-demo" href={demo.url} target="_blank" rel="noopener noreferrer">
+            <strong>{demo.title}</strong>
+            <span class="live-demo-host" translate="no">{demo.host}</span>
+            <span class="live-demo-tech" translate="no">{demo.tech}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

@@ -1,5 +1,6 @@
 ---
 import { defaultSEO, getBreadcrumbItems, serializeJsonLd } from '../utils/seo';
+import projects from '../../public/assets/data/projects.json';
 
 interface Props {
   title?: string;
@@ -137,6 +138,22 @@ const breadcrumbSchema = {
   }))
 };
 
+// Home only: the public catalog as an ItemList so search engines read the projects and repositories (SEO-020).
+const catalogSchema = isHome ? {
+  "@type": "ItemList",
+  "@id": `${siteURL}#projects`,
+  "name": "Proyectos y demos de NainDev",
+  "itemListElement": [...projects]
+    .sort((a, b) => a.order - b.order)
+    .filter((project) => project.links.length > 0)
+    .map((project, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": project.title,
+      "url": project.links[0].url
+    }))
+} : undefined;
+
 const schema = {
   "@context": "https://schema.org",
   "@graph": [
@@ -146,6 +163,7 @@ const schema = {
     websiteSchema,
     webpageSchema,
     ...(articleSchema ? [articleSchema] : []),
+    ...(catalogSchema ? [catalogSchema] : []),
     ...(breadcrumbs.length > 1 ? [breadcrumbSchema] : [])
   ]
 };
