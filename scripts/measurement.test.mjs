@@ -63,6 +63,35 @@ test('LHCI-002: the gate fails only when every attempt breaks a limit; LHCI-003:
   assert.equal((runner.match(/chromeLauncher\.launch/g) ?? []).length, 1, 'one launch call, inside the attempt loop');
 });
 
+test('LHCI-004 to LHCI-006: time-only failures on slow hosts are inconclusive, everything else still fails', async () => {
+  const { SLOW_HOST_INDEX, TIME_ONLY_METRICS, settleAttempts } = await import('./lib/performance-budget.mjs');
+  assert.equal(SLOW_HOST_INDEX, 3300);
+  assert.deepEqual([...TIME_ONLY_METRICS].sort(), ['performance', 'tbt']);
+  const row = (metric, failed = true) => ({ page: '/servicios/', metric, value: 1, limit: 1, failed });
+  const slow = [2173, 2947, 3086];
+
+  const tbtOnly = settleAttempts([[row('tbt'), row('performance')], [row('tbt')], [row('tbt'), row('performance')]], slow);
+  assert.equal(tbtOnly.passed, false);
+  assert.equal(tbtOnly.inconclusive, true, 'TBT and score failures on three slow hosts are not a verdict');
+
+  const fastHost = settleAttempts([[row('tbt')], [row('tbt')], [row('tbt')]], [2173, 3400, 3086]);
+  assert.equal(fastHost.inconclusive, false, 'one attempt on a fast host makes the failure real');
+
+  const lcp = settleAttempts([[row('tbt'), row('lcp')], [row('tbt')], [row('tbt')]], slow);
+  assert.equal(lcp.inconclusive, false, 'a broken LCP, CLS or size limit is never inconclusive');
+
+  const noHosts = settleAttempts([[row('tbt')], [row('tbt')], [row('tbt')]]);
+  assert.equal(noHosts.inconclusive, false, 'without host data the failure stays a failure');
+
+  const clean = settleAttempts([[row('tbt')], [row('tbt', false)]], [2173, 2947]);
+  assert.equal(clean.passed, true);
+  assert.equal(clean.inconclusive, false);
+
+  const runner = await read('scripts/check-budget.mjs');
+  assert.match(runner, /::warning title=/, 'the inconclusive outcome is visible in the workflow log');
+  assert.match(runner, /inconclusive/);
+});
+
 test('LHCI-001: strict budget evaluated on medians, pinned Lighthouse and CI wiring', async () => {
   const { BUDGET, PAGES, RUNS, evaluate, median, cpuSlowdownFor } = await import('./lib/performance-budget.mjs');
   // Calibrated CPU slowdown: a high-end desktop (index 1800) gets 4x, a low-end desktop (1100) about 2.4x, clamped to 1x–10x.
