@@ -69,14 +69,39 @@ test('VIS-003: every live demo has a small lazy-loaded thumbnail on its card', a
 test('VIS-001 and VIS-002: the home page shows a static live-demos strip', async () => {
   const home = await read('src/pages/index.astro');
   assert.match(home, /import LiveDemos from '\.\.\/components\/home\/LiveDemos\.astro'/);
-  assert.ok(home.indexOf('<ProofStrip />') < home.indexOf('<LiveDemos />'));
-  assert.ok(home.indexOf('<LiveDemos />') < home.indexOf('<ServicesSection />'));
+  // HERO-021: the strip follows the hero directly.
+  assert.ok(home.indexOf('<Hero />') < home.indexOf('<LiveDemos />'));
+  assert.ok(home.indexOf('<LiveDemos />') < home.indexOf('<TerminalSection />'));
   const strip = await read('src/components/home/LiveDemos.astro');
   assert.match(strip, /projects\.json/);
   assert.match(strip, /naindev\\\.com/);
   assert.match(strip, /rel="noopener noreferrer"/);
   assert.match(strip, /translate="no"/);
   assert.doesNotMatch(strip, /<script|<iframe/);
+});
+
+test('ECO-020 and ECO-021: the home page lists the open repositories after the catalog', async () => {
+  const home = await read('src/pages/index.astro');
+  assert.ok(home.indexOf('<ProjectsSection />') < home.indexOf('<OpenEcosystem />'));
+  assert.ok(home.indexOf('<OpenEcosystem />') < home.indexOf('<MethodSection />'));
+  const section = await read('src/components/home/OpenEcosystem.astro');
+  for (const repo of ['engineering-handbook', 'template-dotnet-clean-arch', 'template-fastapi-vue-clean-arch', 'brandbook', 'status', '.github']) {
+    assert.ok(section.includes(`name: '${repo}'`), `${repo} is listed`);
+  }
+  assert.match(section, /https:\/\/github\.com\/Nain9Dev\/\$\{/);
+  assert.match(section, /rel="noopener noreferrer"/);
+  assert.match(section, /translate="no"/);
+  assert.doesNotMatch(section, /<script|<iframe/);
+});
+
+test('HERO-020: the hero summary is at most two sentences and keeps its required terms', async () => {
+  const hero = await read('src/components/home/Hero.astro');
+  const summary = hero.match(/<p class="hero-summary"[^>]*>([\s\S]*?)<\/p>/)[1].replace(/\s+/g, ' ').trim();
+  assert.ok((summary.match(/[.!?](\s|$)/g) ?? []).length <= 2, summary);
+  assert.match(summary, /conformidad determinista/i);
+  assert.match(summary, /primer dominio[^.]*3D/i);
+  assert.match(summary, /Python y \.NET/);
+  assert.match(summary, /revisión humana/i);
 });
 
 test('SEO-020: the home JSON-LD lists the catalog projects as an ItemList', async () => {

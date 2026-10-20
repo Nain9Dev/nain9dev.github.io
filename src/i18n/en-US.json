@@ -7788,5 +7788,60 @@
     "source": "Proyecto público · Preliminar",
     "target": "Public project · Preliminary",
     "status": "reviewed"
+  },
+  "20995bf81167831e80b799eec2944f68253d6e6709baab8cc9144c035d903cdb": {
+    "source": "Plantillas, estándares y herramientas que uso en todos mis proyectos.",
+    "target": "Templates, standards and tools I use across all my projects.",
+    "status": "reviewed"
+  },
+  "269e3e99569442fb500ff4939baa4bea284b64d75b681bb94b7322817698b0b3": {
+    "source": "Ecosistema abierto",
+    "target": "Open ecosystem",
+    "status": "reviewed"
+  },
+  "624a20cc9488dd03e6ec1f5d68b7db18a3ddd1e5d649a6cf23c2dd612ed06403": {
+    "source": "Código abierto",
+    "target": "Open source",
+    "status": "reviewed"
+  },
+  "3ea6d4793ea30ded460555d3acc8bbbe4f61125e22746e152fad42624fad9599": {
+    "source": "⟦0⟧⟦1/⟧⟦2⟧Estado y latencia de los servicios públicos.⟦/2⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2⟧Status and latency of the public services.⟦/2⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "4006c83f51dd9da2d8001c6cb52b8aee31e439d168e78f720b423f6a62941f1b": {
+    "source": "⟦0⟧⟦1/⟧⟦2⟧Manual de ingeniería: arquitectura limpia, validación determinista y pruebas.⟦/2⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2⟧Engineering handbook: clean architecture, deterministic validation and testing.⟦/2⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "4aff19a7fd34879f003ced9437da94e8d8757f171547c0a0fcbf4d3e63a5a2bb": {
+    "source": "⟦0⟧⟦1/⟧⟦2⟧Sistema de diseño y manual de marca de NainDev.⟦/2⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2⟧NainDev design system and brand book.⟦/2⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "5cab462685e9143b8c4ec05836b58ca9f8fac9bcb8cdc8f71c475ae87f58d4d0": {
+    "source": "⟦0⟧⟦1/⟧⟦2⟧Plantilla full stack con .NET, Vue 3 y Docker Compose.⟦/2⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2⟧Full stack template with .NET, Vue 3 and Docker Compose.⟦/2⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "81ec68d6cadf113739538ba110ee25e3f741f9093f6b7c220f228fca9100c0e8": {
+    "source": "⟦0⟧⟦1/⟧⟦2⟧Estándares de ingeniería y flujos de CI reutilizables.⟦/2⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2⟧Engineering standards and reusable CI workflows.⟦/2⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "929306bc19747effc412ef81bb46437ec12359cc4a9dd980f64a5d556e432d83": {
+    "source": "⟦0⟧⟦1/⟧⟦2⟧Plantilla full stack con FastAPI, Vue 3 y Docker Compose.⟦/2⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2⟧Full stack template with FastAPI, Vue 3 and Docker Compose.⟦/2⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "42a4a4791febe2ad7777a9d0a627684b20f0ec7e2aa264ef6a5cd2ee56e3d616": {
+    "source": "Entrego el producto completo, del dato al frontend, en Python y .NET, con IA bajo revisión humana. Mi arquitectura de conformidad determinista mide cada producto contra especificaciones versionadas; su primer dominio son los modelos 3D.",
+    "target": "I deliver the complete product, from data to frontend, in Python and .NET, with AI under human review. My deterministic conformance architecture measures each product against versioned specifications; its first domain is 3D models.",
+    "status": "reviewed"
+  },
+  "44f1e716dd0e7b70d48910f51c46f74f1e04ca7137c5ffcb12320cd4f65ffaf4": {
+    "source": "Arquitectura de software full stack: validación determinista y 3D, IA con supervisión humana y sistemas críticos en Python y .NET. Consultoría de Aitor Nain.",
+    "target": "Full stack software architecture: deterministic and 3D validation, AI under human oversight, and critical systems in Python and .NET. Consulting by Aitor Nain.",
+    "status": "reviewed"
   }
 }
