@@ -207,6 +207,23 @@ main > .section:not(.hero) {
   contain-intrinsic-size: auto 900px;
 }
 
+/* The same for blocks that rule never matched: later service groups, strips and the footer (PERF-021). */
+.service-group + .service-group {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 560px;
+}
+
+.proof-strip,
+.live-demos,
+.site-footer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 220px;
+}
+
+.live-demos {
+  contain-intrinsic-size: auto 440px;
+}
+
 .section-muted {
   border-block: 1px solid var(--color-line);
   background:

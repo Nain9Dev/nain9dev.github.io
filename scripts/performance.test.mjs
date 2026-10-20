@@ -117,3 +117,20 @@ test('PERF-008: off-screen home sections can skip rendering', async () => {
   assert.match(rule[1], /content-visibility:\s*auto/);
   assert.match(rule[1], /contain-intrinsic-size:\s*auto \d+px/);
 });
+
+test('PERF-021: blocks outside the main > .section rule also skip rendering until near the viewport', async () => {
+  // /servicios/ nests its groups inside main.section, and the proof strip, the live demos strip and the
+  // footer are not .section children, so PERF-008 never covered them (spec next-portfolio-ecosystem-hero).
+  const main = await read('src/styles/main.css');
+  const rule = main.match(/\.service-group \+ \.service-group[^{]*\{([^}]*)\}/);
+  assert.ok(rule, 'missing content-visibility rule for the later service groups');
+  assert.match(rule[1], /content-visibility:\s*auto/);
+  assert.match(rule[1], /contain-intrinsic-size:\s*auto \d+px/);
+  for (const selector of ['.proof-strip', '.live-demos', '.site-footer']) {
+    assert.ok(main.includes(selector), `${selector} exists`);
+  }
+  const block = main.match(/\.proof-strip,\s*\.live-demos,\s*\.site-footer\s*\{([^}]*)\}/);
+  assert.ok(block, 'missing shared content-visibility rule');
+  assert.match(block[1], /content-visibility:\s*auto/);
+  assert.match(block[1], /contain-intrinsic-size:\s*auto \d+px/);
+});
