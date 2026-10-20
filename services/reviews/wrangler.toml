@@ -1,0 +1,23 @@
+# Cloudflare Worker for the invite-only review intake (specs/next-reviews-intake, ADR-0010).
+# Not deployed yet: it needs blockers B-018 to B-021 in docs/41-blockers.md.
+name = "naindev-reviews"
+main = "src/worker.mjs"
+compatibility_date = "2026-10-01"
+
+# Only the custom domain serves the Worker; no second public workers.dev address.
+workers_dev = false
+
+# B-019: deploying creates the DNS record for this hostname (the hostname must not already have a CNAME).
+[[routes]]
+pattern = "reviews.naindev.com"
+custom_domain = true
+
+[vars]
+ALLOWED_ORIGIN = "https://www.naindev.com"
+
+# Create the namespace with `npx wrangler kv namespace create REVIEWS` and paste its id here.
+[[kv_namespaces]]
+binding = "REVIEWS"
+id = "1dc916ebf05245ae81a3eda767f70dac"
+
+# The admin secret is never stored here: `npx wrangler secret put ADMIN_TOKEN` after the first deploy.

@@ -38,5 +38,6 @@ Let real people recommend NainDev and show only honest, consented recommendation
 
 - Last updated: 2026-10-18
 - Done: spec, ADR-0008 (`Proposed`), tests (`scripts/testimonials.test.mjs`, registered in `npm run check`), collection with mandatory consent, section that renders only approved entries, request page `/recursos/recomendacion/` (ES and EN, noindex, not in sitemap), runbook, 17 reviewed English strings. `npm run check` green. Verified: a temporary approved entry rendered the section and the partner label with no rating markup; an entry without consent failed the build (`consent: Required`); both temporary entries were removed, the collection is `[]`. Not committed.
-- Next: owner approves or rejects ADR-0008, sends the request link to David, adds the first entry after his written confirmation.
+- Done (2026-10-19): `npm run testimonial -- add|approve|list` (`scripts/testimonial.mjs`, `scripts/lib/testimonials.mjs`, tests in `scripts/testimonial-cli.test.mjs`): validates consent, dates, https links and duplicates, always saves as `pending`, publishes only with an explicit `approve`. ADR-0009 (`Proposed`) designs the long-term reviews service (separate backend, PostgreSQL, single-use links, build-time export, same JSON contract).
+- Next: owner approves or rejects ADR-0008 and ADR-0009, sends the request link to David, adds the first entry after his written confirmation.
 - Blocked: first real recommendation (`[H]`: the author writes it and gives consent).

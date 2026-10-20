@@ -7899,6 +7899,106 @@
     "target": "Is your system already in production and suffering from bottlenecks? ⟦0⟧Book a free call with me⟦/0⟧.",
     "status": "reviewed"
   },
+  "049dc639e4ab98c9efdc4686150b3733a9ce2692f462c141aab9c7dbb347365d": {
+    "source": "Revisa los campos: faltan datos, algún enlace no empieza por https o el texto es demasiado corto o largo.",
+    "target": "Check the fields: some data is missing, a link does not start with https, or the text is too short or too long.",
+    "status": "reviewed"
+  },
+  "07f025645156671337d8746ffd65d17c4a07965cc918ba503a326a41f0382fda": {
+    "source": "Tu cargo",
+    "target": "Your role",
+    "status": "reviewed"
+  },
+  "3d0db8e222d88595a401eaea711556d34a26ebd9f5032aed02ec15d4ee10645c": {
+    "source": "Tu opinión",
+    "target": "Your opinion",
+    "status": "reviewed"
+  },
+  "43b6fb486d31384a9ddce24da2f43a6385410f717a4c8bc49a3d9aa16b04fa55": {
+    "source": "Cómo enviarlo por correo",
+    "target": "How to send it by email",
+    "status": "reviewed"
+  },
+  "447486b3728cf32354fa02f82722d9abb692ccf0df7752bc5e0f1e4e34b5c5ca": {
+    "source": "Ahora mismo no puedo recibir tu opinión desde esta página. Envíamela por correo, como se explica más abajo.",
+    "target": "I cannot receive your opinion from this page right now. Please send it by email, as explained below.",
+    "status": "reviewed"
+  },
+  "44cd7e12b5d2a11e96bb97c9277f964afd5550ab154a396ab5300fb682865e89": {
+    "source": "No he podido enviar tu opinión. Inténtalo de nuevo o envíamela por correo.",
+    "target": "Your opinion could not be sent. Try again or send it by email.",
+    "status": "reviewed"
+  },
+  "5eb63328d43e734cd5ab7c9dd547847a94591a0e1aca2506644e012a4d6abdaf": {
+    "source": "Enlace donde ya lo hayas publicado (opcional)",
+    "target": "Link where you have already published it (optional)",
+    "status": "reviewed"
+  },
+  "64081cb75635c51b74c899e3647eccf2819df9c46f203f15d2b60dff2624ef96": {
+    "source": "Web de tu empresa (opcional)",
+    "target": "Your company website (optional)",
+    "status": "reviewed"
+  },
+  "658de53b3c927229d2848fc340b63ce51b06f349284f0e51b6865f06dba7adf6": {
+    "source": "Gracias. He recibido tu opinión y la leeré personalmente. Solo se publicará con tu confirmación por escrito.",
+    "target": "Thank you. I have received your opinion and I will read it personally. It will only be published with your written confirmation.",
+    "status": "reviewed"
+  },
+  "66dfeeedabf1f022d223bd6b9f464d1ca241d6da54ab7ade5b2c7758b4e08fa8": {
+    "source": "https://",
+    "target": "https://",
+    "status": "reviewed"
+  },
+  "7290588e536bbe1367491f0018c1152856156e1acbfd7287031bc1b946525348": {
+    "source": "Este enlace no es válido, ha caducado o ya se ha usado. Pídeme uno nuevo o envíame tu opinión por correo, como se explica más abajo.",
+    "target": "This link is not valid, has expired or has already been used. Ask me for a new one or send me your opinion by email, as explained below.",
+    "status": "reviewed"
+  },
+  "74edc7c7a38d73211413badf7881e76301164d3bedefb11449627c8dd6275c13": {
+    "source": "Autorizo que se publique mi texto, mi nombre, mi cargo y mi empresa en naindev.com. Puedo retirar este permiso cuando quiera escribiendo a contact arroba naindev.com.",
+    "target": "I authorize the publication of my text, name, role and company on naindev.com. I can withdraw this permission at any time by writing to contact at naindev.com.",
+    "status": "reviewed"
+  },
+  "7a83c0f347e6c647d6b11f2a0db1c96c352d3c3ec9af1c512630f1d7063ef8de": {
+    "source": "No rellenes este campo",
+    "target": "Do not fill in this field",
+    "status": "reviewed"
+  },
+  "8b5040e12f3cb2fd349497062d385f360ff10d5e2f0e937a6cc957e21b18f9f6": {
+    "source": "Tu empresa",
+    "target": "Your company",
+    "status": "reviewed"
+  },
+  "9cbf8655a32926b8fcde37edffed581349a50869f98c187aa284a5917c3ef7ec": {
+    "source": "Enviar mi opinión",
+    "target": "Send my opinion",
+    "status": "reviewed"
+  },
+  "c14e3c6d699971f9c7b144bb79113f8895faa7953149dc8f068284f60853ac23": {
+    "source": "Escribe tu opinión aquí",
+    "target": "Write your opinion here",
+    "status": "reviewed"
+  },
+  "c30234a1c8d20ec898ce73e3f75e00e620f6f876387edec58254cbe5190d10da": {
+    "source": "Invitación para: ⟦0/⟧",
+    "target": "Invitation for: ⟦0/⟧",
+    "status": "reviewed"
+  },
+  "c72adb2292406eac242bd0e921b91010b4a4ff00cf7887acd97b6ce22a8717ca": {
+    "source": "Has hecho demasiados intentos. Prueba de nuevo dentro de una hora.",
+    "target": "You have made too many attempts. Try again in an hour.",
+    "status": "reviewed"
+  },
+  "d36ae2c1bf451e93fce1b4d6882474d2c72dd6ac9f13265034673faa5089d48b": {
+    "source": "Tu nombre",
+    "target": "Your name",
+    "status": "reviewed"
+  },
+  "ec8a1b0770003417a8770d33e614e9b93bd7b02f7ad1f22de7aae85cf5b07c0b": {
+    "source": "Comprobando tu enlace…",
+    "target": "Checking your link…",
+    "status": "reviewed"
+  },
   "97ff57b8b8961d275c2b3ac87c2a8c46182e367ebc8b6a25edf1bd10b54d12ff": {
     "source": "⟦0/⟧⟦1⟧Experiencia real⟦/1⟧⟦2⟧Trabajo a diario con .NET y SQL Server.⟦/2⟧",
     "target": "⟦0/⟧⟦1⟧Real experience⟦/1⟧⟦2⟧Daily work with .NET and SQL Server.⟦/2⟧",
