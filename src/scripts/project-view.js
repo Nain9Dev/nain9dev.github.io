@@ -34,19 +34,34 @@ function createProjectCard(project, index) {
   article.style.transitionDelay = `${index * 80}ms`;
 
   const header = createElement("div", "project-card-header");
+  const hasLiveDemo = project.links.some((link) => /^https:\/\/[a-z0-9-]+\.naindev\.com(\/|$)/.test(link.url));
   header.append(
-    createElement("p", "project-status", project.status),
+    createElement("p", hasLiveDemo ? "project-status is-live" : "project-status", project.status),
     createElement("span", "project-index", String(index + 1).padStart(2, "0"))
   );
 
   const title = createElement("h3", "project-title", project.title);
   const summary = createElement("p", "project-summary", project.summary);
-  const proof = createElement("p", "project-proof", project.proof);
+  // The long technical proof stays one click away so the card reads visually first (VIS-005).
+  const detail = createElement("details", "project-detail");
+  detail.append(createElement("summary", "", message('projectDetail')), createElement("p", "project-proof", project.proof));
 
   const technologies = createElement("ul", "tag-list");
   technologies.setAttribute("aria-label", message('projectTechnologies', { name: project.title }));
   project.technologies.forEach((technology) => {
-    technologies.append(createElement("li", "", technology));
+    const chip = createElement("li");
+    const iconPath = techIcon(technology);
+    if (iconPath) {
+      const icon = createElement("img", "tech-chip-icon");
+      icon.src = iconPath;
+      icon.alt = "";
+      icon.width = 14;
+      icon.height = 14;
+      icon.loading = "lazy";
+      chip.append(icon);
+    }
+    chip.append(technology);
+    technologies.append(chip);
   });
 
   const links = createElement("div", "project-links");
@@ -67,7 +82,7 @@ function createProjectCard(project, index) {
     article.append(picture);
   }
 
-  article.append(header, title, summary, proof, technologies, links);
+  article.append(header, title, summary, technologies, detail, links);
   return article;
 }
 
@@ -95,3 +110,4 @@ export function renderProjectError(container) {
   container.setAttribute("aria-busy", "false");
 }
 import { message } from './locale.js';
+import { techIcon } from './tech-icons.js';

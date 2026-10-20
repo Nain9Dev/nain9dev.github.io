@@ -94,6 +94,32 @@ test('ECO-020 and ECO-021: the home page lists the open repositories after the c
   assert.doesNotMatch(section, /<script|<iframe/);
 });
 
+test('VIS-004: technology chips carry a decorative icon when the repository ships one', async () => {
+  const icons = await read('src/scripts/tech-icons.js');
+  const paths = [...icons.matchAll(/'(\/assets\/icons\/[\w.-]+\.svg)'/g)].map((match) => match[1]);
+  assert.ok(paths.length >= 12, `${paths.length} icons mapped`);
+  for (const path of paths) await stat(join(ROOT, 'public', path));
+  const projects = await readJson('public/assets/data/projects.json');
+  const used = projects.flatMap((project) => project.technologies);
+  const mapped = used.filter((technology) => icons.includes(`'${technology}'`));
+  assert.ok(mapped.length / used.length > 0.45, 'most technology tags have an icon');
+  const view = await read('src/scripts/project-view.js');
+  assert.match(view, /techIcon/);
+  assert.match(view, /alt = ""/);
+});
+
+test('VIS-005: the long proof text is folded behind a detail control and live demos carry a badge', async () => {
+  const view = await read('src/scripts/project-view.js');
+  assert.match(view, /createElement\("details", "project-detail"\)/);
+  assert.match(view, /message\('projectDetail'\)/);
+  assert.match(view, /is-live/);
+  const runtime = await readJson('src/i18n/runtime.json');
+  assert.equal(runtime.projectDetail, 'Ver detalle');
+  const css = await read('src/styles/main.css');
+  assert.match(css, /\.project-status\.is-live::before/);
+  assert.match(css, /\.project-detail summary/);
+});
+
 test('HERO-022: the hero title is sized so summary and actions reach the first screen', async () => {
   const css = await read('src/styles/main.css');
   const rule = css.match(/\.hero h1\s*\{([^}]*)\}/)?.[1] ?? '';
