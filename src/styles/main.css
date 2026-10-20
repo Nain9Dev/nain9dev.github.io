@@ -850,10 +850,43 @@ main[tabindex="-1"]:focus {
 
 .card-number {
   display: block;
-  margin-bottom: 4.5rem;
+  margin-bottom: 1.25rem;
   color: var(--color-secondary);
   font-family: var(--font-mono);
   font-size: 0.78rem;
+}
+
+.service-icon {
+  width: 3.4rem;
+  height: 3.4rem;
+  margin-bottom: 1.5rem;
+  padding: 0.7rem;
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  border-radius: var(--radius-small);
+  background: linear-gradient(145deg, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.04));
+  fill: none;
+  stroke: var(--color-primary-strong);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.2;
+  transition: transform 250ms ease;
+}
+
+.service-card:hover .service-icon {
+  transform: translateY(-3px) scale(1.06);
+}
+
+.card-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.card-link:hover,
+.card-link:focus-visible {
+  text-decoration: underline;
 }
 
 .service-card p,
@@ -1174,21 +1207,59 @@ main[tabindex="-1"]:focus {
 }
 
 .step-list li {
+  position: relative;
   display: grid;
   grid-template-columns: 3rem 1fr;
   padding: 1.6rem 0;
   gap: 1.25rem;
-  border-top: 1px solid var(--color-line);
 }
 
-.step-list li:last-child {
-  border-bottom: 1px solid var(--color-line);
+/* Timeline rail joining the numbered steps. */
+.step-list > li::before {
+  position: absolute;
+  top: 3.6rem;
+  bottom: -1.6rem;
+  left: 1.5rem;
+  width: 2px;
+  background: linear-gradient(var(--color-primary), rgba(59, 130, 246, 0.08));
+  content: "";
+}
+
+.step-list > li:last-child::before {
+  display: none;
 }
 
 .step-list > li > span {
-  color: var(--color-secondary);
+  display: grid;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid rgba(59, 130, 246, 0.45);
+  border-radius: 50%;
+  background: rgba(59, 130, 246, 0.12);
+  color: var(--color-primary-strong);
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  place-items: center;
+}
+
+.method-cta {
+  margin-top: 4rem;
+  padding: 2.5rem;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-medium);
+  background: var(--color-surface);
+  text-align: center;
+}
+
+.method-cta h3 {
+  margin-top: 0;
+  font-size: 1.4rem;
+}
+
+.method-cta p {
+  margin-bottom: 1.5rem;
+  color: var(--color-text-muted);
 }
 
 .step-list h3 {

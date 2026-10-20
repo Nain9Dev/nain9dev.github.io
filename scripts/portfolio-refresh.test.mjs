@@ -120,6 +120,29 @@ test('VIS-005: the long proof text is folded behind a detail control and live de
   assert.match(css, /\.project-detail summary/);
 });
 
+test('VIS-006: each service card leads with a decorative icon and the links use a shared class', async () => {
+  const services = await read('src/components/home/ServicesSection.astro');
+  const cards = services.match(/<article class="service-card"[\s\S]*?<\/article>/g);
+  assert.equal(cards.length, 3);
+  for (const card of cards) {
+    assert.match(card, /<svg class="service-icon"[^>]*aria-hidden="true"/);
+    assert.match(card, /<a class="card-link" href="\/servicios\//);
+  }
+  assert.doesNotMatch(services, /style=/);
+  const css = await read('src/styles/main.css');
+  assert.match(css, /\.service-icon\s*\{/);
+  assert.match(css, /\.card-link\s*\{/);
+});
+
+test('VIS-007: the method steps form a connected timeline without inline styles', async () => {
+  const method = await read('src/components/home/MethodSection.astro');
+  assert.doesNotMatch(method, /style=/);
+  assert.match(method, /class="method-cta"/);
+  const css = await read('src/styles/main.css');
+  assert.match(css, /\.step-list > li::before/);
+  assert.match(css, /\.method-cta\s*\{/);
+});
+
 test('HERO-022: the hero title is sized so summary and actions reach the first screen', async () => {
   const css = await read('src/styles/main.css');
   const rule = css.match(/\.hero h1\s*\{([^}]*)\}/)?.[1] ?? '';
