@@ -255,3 +255,19 @@ test('VIS-013: proof strip and partnership cards lead with icons, the stack badg
   assert.match(css, /\.proof-icon\s*\{/);
   assert.match(css, /\.tech-link\s*\{/);
 });
+
+test('HERO-023: the hero shows what is offered as three icon tiles linked to the services', async () => {
+  const hero = await read('src/components/home/Hero.astro');
+  const tiles = hero.match(/<a class="offer-tile"[\s\S]*?<\/a>/g) ?? [];
+  assert.equal(tiles.length, 3);
+  const targets = ['/servicios/sistemas-criticos-dotnet', '/servicios/arquitectura-ia-generativa', '/servicios/validacion-3d'];
+  tiles.forEach((tile, index) => {
+    assert.ok(tile.includes(`href="${targets[index]}"`), `tile ${index} links ${targets[index]}`);
+    assert.match(tile, /<svg class="offer-icon"[^>]*aria-hidden="true"/);
+    assert.match(tile, /<strong>[^<]+<\/strong>/);
+  });
+  assert.doesNotMatch(hero, /badge-icon|⚙️|🧪/, 'the emoji badges are gone');
+  const css = await read('src/styles/main.css');
+  assert.match(css, /\.offer-tile\s*\{/);
+  assert.doesNotMatch(css, /\.trust-badges/, 'dead badge styles are removed');
+});

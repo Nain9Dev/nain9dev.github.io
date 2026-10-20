@@ -7913,5 +7913,25 @@
     "source": "⟦0/⟧⟦1⟧Código revisable⟦/1⟧⟦2⟧Los proyectos y las demos están enlazados.⟦/2⟧",
     "target": "⟦0/⟧⟦1⟧Reviewable code⟦/1⟧⟦2⟧The projects and demos are linked.⟦/2⟧",
     "status": "reviewed"
+  },
+  "375d0d65f580837e8c424a87521a0c829b9708d8781d041d916179ae0627701d": {
+    "source": "⟦0/⟧⟦1⟧Validación 3D⟦/1⟧⟦2⟧Veredictos reproducibles⟦/2⟧",
+    "target": "⟦0/⟧⟦1⟧3D validation⟦/1⟧⟦2⟧Reproducible verdicts⟦/2⟧",
+    "status": "reviewed"
+  },
+  "38132837065354dfdb1323ab3cec8972298a99cd8fcde1503e55c3c03a5f8047": {
+    "source": "⟦0/⟧⟦1⟧IA con revisión humana⟦/1⟧⟦2⟧Agentes y flujos verificables⟦/2⟧",
+    "target": "⟦0/⟧⟦1⟧AI with human review⟦/1⟧⟦2⟧Verifiable agents and workflows⟦/2⟧",
+    "status": "reviewed"
+  },
+  "4b36cb306c015d841e0358de469311eec84e30be86bb4cc3270311bcd4a73586": {
+    "source": "⟦0/⟧⟦1⟧Backend crítico⟦/1⟧⟦2⟧Python y .NET con datos consistentes⟦/2⟧",
+    "target": "⟦0/⟧⟦1⟧Critical backend⟦/1⟧⟦2⟧Python and .NET with consistent data⟦/2⟧",
+    "status": "reviewed"
+  },
+  "eb7d38e789be4cd42ee45e3c642d69c350acf246b8f9f808caf613d10c417da0": {
+    "source": "Qué ofrezco",
+    "target": "What I offer",
+    "status": "reviewed"
   }
 }

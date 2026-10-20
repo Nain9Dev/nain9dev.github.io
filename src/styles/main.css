@@ -398,7 +398,7 @@ main[tabindex="-1"]:focus {
   min-height: min(55rem, calc(100vh - var(--header-height)));
   align-items: start;
   overflow: hidden;
-  padding-block: clamp(3.75rem, 6vw, 6rem);
+  padding-block: clamp(2.5rem, 4vw, 3.5rem) clamp(2.5rem, 4vw, 4rem);
 }
 
 .hero-3d-canvas {
@@ -428,7 +428,7 @@ main[tabindex="-1"]:focus {
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(20rem, 0.75fr);
   align-items: center;
-  gap: clamp(3rem, 7vw, 7rem);
+  gap: 1.5rem clamp(3rem, 7vw, 7rem);
 }
 
 .eyebrow,
@@ -2239,44 +2239,64 @@ main[tabindex="-1"]:focus {
   white-space: nowrap;
 }
 
-/* --- Trust Badges --- */
-.trust-badges {
-  grid-column: 1 / -1;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: clamp(1.5rem, 3vw, 3rem);
-  margin-top: 4rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--color-line);
+/* --- What I offer, at a glance (HERO-023) --- */
+.offer-row {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 1.5rem;
 }
 
-.badge {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+.offer-tile {
+  display: grid;
+  align-content: start;
+  padding: 0.9rem;
+  gap: 0.15rem 0;
+  grid-template-columns: 1fr;
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-small);
+  background: rgba(19, 22, 34, 0.72);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
-.badge-icon {
-  font-size: 1.8rem;
-  opacity: 0.8;
+.offer-tile:hover,
+.offer-tile:focus-visible {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
 }
 
-.badge-text {
-  display: flex;
-  flex-direction: column;
+.offer-icon {
+  width: 2.6rem;
+  height: 2.6rem;
+  margin-bottom: 0.5rem;
+  padding: 0.55rem;
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  border-radius: var(--radius-small);
+  background: linear-gradient(145deg, rgba(59, 130, 246, 0.22), rgba(59, 130, 246, 0.04));
+  fill: none;
+  stroke: var(--color-primary-strong);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.2;
 }
 
-.badge-text strong {
-  color: var(--color-text);
+.offer-tile strong {
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   line-height: 1.2;
 }
 
-.badge-text span {
+.offer-tile span {
   color: var(--color-text-muted);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
+}
+
+@media (max-width: 48rem) {
+  .offer-row {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* --- Blog Structure --- */
