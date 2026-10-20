@@ -7853,5 +7853,25 @@
     "source": "⟦0⟧⟦1/⟧GitHub ⟦2⟧↗⟦/2⟧⟦/0⟧⟦3⟧⟦4/⟧Contrast3D & NainDev ⟦5⟧↗⟦/5⟧⟦/3⟧⟦6⟧⟦7/⟧LinkedIn ⟦8⟧↗⟦/8⟧⟦/6⟧⟦9⟧⟦10/⟧X ⟦11⟧↗⟦/11⟧⟦/9⟧",
     "target": "⟦0⟧⟦1/⟧GitHub ⟦2⟧↗⟦/2⟧⟦/0⟧⟦3⟧⟦4/⟧Contrast3D & NainDev ⟦5⟧↗⟦/5⟧⟦/3⟧⟦6⟧⟦7/⟧LinkedIn ⟦8⟧↗⟦/8⟧⟦/6⟧⟦9⟧⟦10/⟧X ⟦11⟧↗⟦/11⟧⟦/9⟧",
     "status": "reviewed"
+  },
+  "107cc3a1729b928dabfabb0caf0ecc604f9a8064d8e31f0ba62660368cdb5b1f": {
+    "source": "Estrategias FinOps: Técnicas de caché semántica para reducir la factura de API hasta un 80%.",
+    "target": "FinOps Strategies: Semantic caching techniques to reduce API bills by up to 80%.",
+    "status": "reviewed"
+  },
+  "23e0dd9b59c9611bff1136d154090ff0aad13e2d720f6ed668bf707c9c96c315": {
+    "source": "Cómo aislar los LLMs de tu lógica de negocio (Clean Architecture).",
+    "target": "How to isolate LLMs from your business logic (Clean Architecture).",
+    "status": "reviewed"
+  },
+  "80a63d16e248b83105d49c0482624730ac551a7f9535f047bfa47f939c7b86bd": {
+    "source": "Patrones para manejar la estocasticidad y ⟦0⟧timeouts⟦/0⟧ sin que el servidor caiga.",
+    "target": "Patterns to handle stochasticity and ⟦0⟧timeouts⟦/0⟧ without the server crashing.",
+    "status": "reviewed"
+  },
+  "86f3ee5e44fe0611e7cb32bf50a7079e74d99aa8aab4e5efe4775b76791af051": {
+    "source": "Seguridad Zero-Trust: Protección contra Prompt Injection y filtrado de PII.",
+    "target": "Zero-Trust Security: Protection against Prompt Injection and PII leakage.",
+    "status": "reviewed"
   }
 }

@@ -7,67 +7,47 @@ const description = "Asegura que tu sistema de IA cumpla con los estándares de 
 
 <BaseLayout title={title} description={description}>
   <main class="shell section" id="main-content" tabindex="-1">
-    <div class="case-study-card" style="box-shadow: none; border: none; background: transparent; padding: 0; max-width: 800px; margin: 0 auto;">
-      <div class="section-heading" data-reveal style="text-align: center;">
+    <div class="case-study-card lead-page">
+      <div class="section-heading page-intro" data-reveal>
         <p class="eyebrow">Lead Magnet Técnico</p>
-        <h1 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Descubre los 10 Puntos Ciegos que Hacen Fracasar a los Sistemas de IA</h1>
-        <p style="font-size: 1.1rem; color: var(--color-text-muted);">Evita sobrecostes masivos, caídas en producción y modelos que alucinan. Descarga el <strong>Checklist Definitivo de Arquitectura IA</strong> y blinda tu plataforma B2B hoy mismo.</p>
+        <h1>Descubre los 10 Puntos Ciegos que Hacen Fracasar a los Sistemas de IA</h1>
+        <p>Evita sobrecostes masivos, caídas en producción y modelos que alucinan. Descarga el <strong>Checklist Definitivo de Arquitectura IA</strong> y blinda tu plataforma B2B hoy mismo.</p>
       </div>
 
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3rem;" class="checklist-layout">
-        
+      <div class="lead-layout">
+
         <!-- Beneficios -->
         <div data-reveal>
-          <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem;">¿Qué vas a descubrir?</h2>
-          <ul class="case-study-list" style="margin-left: 0; list-style: none;">
-            <li style="margin-bottom: 1rem; position: relative; padding-left: 1.5rem;">
-              <span style="position: absolute; left: 0; color: var(--color-primary);">✓</span>
-              Cómo aislar los LLMs de tu lógica de negocio (Clean Architecture).
-            </li>
-            <li style="margin-bottom: 1rem; position: relative; padding-left: 1.5rem;">
-              <span style="position: absolute; left: 0; color: var(--color-primary);">✓</span>
-              Patrones para manejar la estocasticidad y <em>timeouts</em> sin que el servidor caiga.
-            </li>
-            <li style="margin-bottom: 1rem; position: relative; padding-left: 1.5rem;">
-              <span style="position: absolute; left: 0; color: var(--color-primary);">✓</span>
-              Estrategias FinOps: Técnicas de caché semántica para reducir la factura de API hasta un 80%.
-            </li>
-            <li style="margin-bottom: 1rem; position: relative; padding-left: 1.5rem;">
-              <span style="position: absolute; left: 0; color: var(--color-primary);">✓</span>
-              Seguridad Zero-Trust: Protección contra Prompt Injection y filtrado de PII.
-            </li>
+          <h2>¿Qué vas a descubrir?</h2>
+          <ul class="case-study-list check-list">
+            <li>Cómo aislar los LLMs de tu lógica de negocio (Clean Architecture).</li>
+            <li>Patrones para manejar la estocasticidad y <em>timeouts</em> sin que el servidor caiga.</li>
+            <li>Estrategias FinOps: Técnicas de caché semántica para reducir la factura de API hasta un 80%.</li>
+            <li>Seguridad Zero-Trust: Protección contra Prompt Injection y filtrado de PII.</li>
           </ul>
-          
-          <blockquote style="border-left: 3px solid var(--color-primary); padding-left: 1.5rem; margin-top: 2rem; font-style: italic; color: var(--color-text-muted);">
+
+          <blockquote class="lead-quote">
             "Aplicar el paso 3 de este checklist redujo nuestra factura de OpenAI a la mitad y estabilizó nuestra API en picos de tráfico."
             <br/><br/>
-            <span style="font-size: 0.9rem; color: #fff;">— CT0 de una Startup SaaS B2B</span>
+            <span>— CT0 de una Startup SaaS B2B</span>
           </blockquote>
         </div>
 
-        <div class="form-container" data-reveal style="background: var(--color-surface); padding: 2rem; border-radius: 12px; border: 1px solid var(--color-line);">
-          <h3 style="margin-top: 0; margin-bottom: 1.5rem; font-size: 1.3rem;">Pídelo por email</h3>
-          <p style="color: var(--color-text-muted);">Escríbeme desde tu correo profesional y te envío el checklist en PDF. Respondo personalmente; no hay lista de correo.</p>
+        <div class="form-container lead-card" data-reveal>
+          <h3>Pídelo por email</h3>
+          <p>Escríbeme desde tu correo profesional y te envío el checklist en PDF. Respondo personalmente; no hay lista de correo.</p>
           {/* The markers stop Cloudflare from obfuscating the link and injecting a decoder script (LEAD-003). */}
-          <div style="margin-top: 1.5rem; text-align: center;">
+          <div class="lead-action">
             <!--email_off-->
-            <p style="margin: 0;"><a class="button button-primary" href="mailto:contact@naindev.com?subject=Solicitud%20Checklist%20IA" style="width: 100%;">Pedir el checklist a contact@naindev.com</a></p>
+            <p><a class="button button-primary" href="mailto:contact@naindev.com?subject=Solicitud%20Checklist%20IA">Pedir el checklist a contact@naindev.com</a></p>
             <!--/email_off-->
           </div>
-          <p style="margin-top: 1.5rem; font-size: 0.8rem; color: var(--color-text-muted); text-align: center;">
-            Consulta la <a href="/privacidad" style="color: var(--color-primary);">Política de Privacidad</a>.
+          <p class="lead-note">
+            Consulta la <a href="/privacidad">Política de Privacidad</a>.
           </p>
         </div>
 
       </div>
     </div>
   </main>
-
-  <style>
-    @media (max-width: 768px) {
-      .checklist-layout {
-        grid-template-columns: 1fr !important;
-      }
-    }
-  </style>
 </BaseLayout>
