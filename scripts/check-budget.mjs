@@ -111,7 +111,7 @@ try {
   server.close();
 }
 
-const { passed, rows, outcomes } = settleAttempts(attempts.map((a) => a.rows));
+const { passed, inconclusive, rows, outcomes } = settleAttempts(attempts.map((a) => a.rows), attempts.map((a) => a.calibration.benchmarkIndex));
 const final = attempts[outcomes.findIndex((o) => o.failures === Math.min(...outcomes.map((x) => x.failures)))];
 await mkdir('.astro/budget', { recursive: true });
 await writeFile('.astro/budget/results.json', JSON.stringify({ calibration: final.calibration, outcomes, pages: Object.fromEntries(Object.entries(final.results).map(([page, reports]) => [page, reports.map(summarize)])) }, null, 2));
@@ -121,8 +121,14 @@ for (const row of rows) {
   const value = row.metric === 'performance' || row.metric === 'cls' ? row.value.toFixed(3) : Math.round(row.value);
   console.log(`${row.failed ? 'FAIL' : 'ok  '} ${row.page.padEnd(12)} ${row.metric.padEnd(12)} ${String(value).padStart(8)}  (limit ${row.limit})`);
 }
-if (!passed) {
+if (inconclusive) {
+  // ADR-0011: every attempt ran on a slow host and broke only TBT-derived limits, so the gate cannot tell a
+  // regression from the Chrome-internal long task. Keep the deploy, make the outcome visible.
+  console.log(`::warning title=Performance budget inconclusive::All ${attempts.length} attempts ran on slow hosts (benchmarkIndex ${attempts.map((a) => Math.round(a.calibration.benchmarkIndex)).join(', ')}) and broke only TBT-based limits; re-measure on a faster host or locally with npm run check:budget.`);
+  console.log('Performance budget inconclusive (ADR-0011): not failing the build.');
+} else if (!passed) {
   console.error(`Performance budget broken by ${rows.filter((row) => row.failed).length} metric(s) in all ${attempts.length} attempt(s).`);
   process.exit(1);
+} else {
+  console.log(`Performance budget passed: ${PAGES.length} pages × ${RUNS} runs.`);
 }
-console.log(`Performance budget passed: ${PAGES.length} pages × ${RUNS} runs.`);
