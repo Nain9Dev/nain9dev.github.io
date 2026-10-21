@@ -43,7 +43,18 @@ One task at a time, test first. Stop after each task. Update the `Session state`
   - **Covers**: documentation flow
   - **Done when**: the spec status is `Implemented` and the index rows are updated.
 
+## Phase 3 · Visual storytelling (owner request 2026-10-22; scope to be specified after PR 5)
+
+Owner goal: the portfolio explains itself with visuals and as little visible text as possible. Decision: reduce visible text by moving it into progressive disclosure (details, reveal on interaction) while it stays in the HTML, so content, SEO and screen readers are unchanged (VP-010 holds). Rewriting copy is not authorised; it would need its own spec and approval.
+
+- [ ] **T07** `[A]` Write the phase 3 spec (`specs/046-visual-storytelling/`) and ADR `Proposed`: animated SVG architecture diagram in the hero (data → backend → validated AI → frontend), demos as large captures with hover, stack as a layered visual map, method as an illustrated timeline, one dominant contact call to action, hidden-but-present text pattern, performance and CSS budget.
+  - **Done when**: spec, plan and tasks exist; the text-disclosure pattern is tested for accessibility (content reachable by keyboard and screen reader, no hover-only information).
+- [ ] **T08** `[M]` Implement phase 3 in small PRs after T05, each approved by the owner.
+  - **Needs from owner**: copy approval if any wording changes; PR approvals.
+
 ## Session log
+
+- 2026-10-22 · PR 1 opened as https://github.com/Nain9Dev/nain9dev.github.io/pull/13 (not merged). Owner asked for a more visual, less textual portfolio; phase 3 added above.
 
 - 2026-10-21 · Phase 1 delivered: spec, plan, tasks, captures. Waiting for T00b.
 - 2026-10-21 · T00b: direction B chosen; ADR-0012 written; OQ-013 to OQ-016 closed. Catalog fix committed on `main` (`b3a24c7`). PR 1 started in worktree `D:/wt/nain9dev.github.io-visual-01-tokens` (branch `visual/01-tokens`, claimed in `D:/wt/CLAIMS.md`). Note: branches `feat/portfolio-refresh` (1 commit) and `feat/portfolio-visual-3` (6 commits) are unmerged and touch `main.css`; check with the owner whether they are stale before PR 1 is merged.
