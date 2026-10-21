@@ -320,12 +320,17 @@
     ],
     "links": [
       {
+        "label": "Probar demo",
+        "url": "https://configurator.naindev.com/"
+      },
+      {
         "label": "Revisar código",
         "url": "https://github.com/Nain9Dev/NainConfigurator"
       }
     ],
     "featured": false,
-    "order": 10
+    "order": 10,
+    "thumbnail": "/assets/images/demos/nainconfigurator.webp"
   },
   {
     "id": "driving-school-management",
@@ -496,12 +501,17 @@
     ],
     "links": [
       {
+        "label": "Probar demo",
+        "url": "https://prospect.naindev.com/"
+      },
+      {
         "label": "Revisar código",
         "url": "https://github.com/Nain9Dev/NainProspect"
       }
     ],
     "featured": false,
-    "order": 16
+    "order": 16,
+    "thumbnail": "/assets/images/demos/b2b-prospecting-pipeline.webp"
   },
   {
     "id": "local-rewriting-agent",
@@ -520,12 +530,17 @@
     ],
     "links": [
       {
+        "label": "Probar demo",
+        "url": "https://write.naindev.com/"
+      },
+      {
         "label": "Revisar código",
         "url": "https://github.com/Nain9Dev/NainWrite"
       }
     ],
     "featured": false,
-    "order": 17
+    "order": 17,
+    "thumbnail": "/assets/images/demos/local-rewriting-agent.webp"
   },
   {
     "id": "local-quotation-generator",
@@ -566,7 +581,7 @@
     "links": [
       {
         "label": "Probar tienda",
-        "url": "https://nain9dev.github.io/GameHaven/"
+        "url": "https://gamehaven.naindev.com/"
       },
       {
         "label": "Revisar código",
@@ -574,7 +589,8 @@
       }
     ],
     "featured": false,
-    "order": 19
+    "order": 19,
+    "thumbnail": "/assets/images/demos/gamehaven-blazor-store.webp"
   },
   {
     "id": "havetickets",
@@ -594,12 +610,17 @@
     ],
     "links": [
       {
+        "label": "Probar demo",
+        "url": "https://tickets.naindev.com/"
+      },
+      {
         "label": "Revisar código",
         "url": "https://github.com/Nain9Dev/HaveTickets"
       }
     ],
     "featured": false,
-    "order": 20
+    "order": 20,
+    "thumbnail": "/assets/images/demos/havetickets.webp"
   },
   {
     "id": "driving-exam-simulator",
