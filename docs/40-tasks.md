@@ -14,6 +14,7 @@ Consolidated task index. Feature-level detail and handoff state live in `../spec
 | 006 Remove unverified metrics | [tasks.md](../specs/006-remove-unverified-metrics/tasks.md) | Done | None |
 | 007 Remove case studies | [tasks.md](../specs/007-remove-case-studies/tasks.md) | Implemented, not committed | 1 (owner review and commit) |
 | 009 Honest offer copy | [tasks.md](../specs/009-honest-offer-copy/tasks.md) | Implemented, not committed | 1 (owner review and commit) |
+| 045 Visual polish | [tasks.md](../specs/045-visual-polish/tasks.md) | Direction B approved (ADR-0012 Proposed); PR 1 in progress | 5 PR approvals |
 
 ## Open human-dependent tasks
 

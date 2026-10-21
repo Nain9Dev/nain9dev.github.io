@@ -6,7 +6,7 @@ import PrivacyBanner from '../components/PrivacyBanner.astro';
 import { defaultSEO } from '../utils/seo';
 import runtimeMessages from '../i18n/runtime.json';
 import interFont from '../assets/fonts/inter-var.woff2?url';
-import outfitFont from '../assets/fonts/outfit-var.woff2?url';
+import urbanistFont from '../assets/fonts/urbanist-var.woff2?url';
 import '../styles/main.css';
 import '../styles/terminal.css';
 import '../styles/locales.css';
@@ -44,7 +44,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.nain
   <link rel="icon" type="image/x-icon" href="/favicon-naindev.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="preload" href={interFont} as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href={outfitFont} as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href={urbanistFont} as="font" type="font/woff2" crossorigin>
   <script defer data-domain="naindev.com" src="https://plausible.io/js/script.js"></script>
   <script is:inline>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
   <title>{title}</title>

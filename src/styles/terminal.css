@@ -1,5 +1,6 @@
+/* Terminal skin on the design tokens (spec 045); the amber token exists for its output lines only. */
 .terminal-wrapper {
-  background-color: #1e1e2e;
+  background-color: var(--color-surface);
   border-radius: var(--radius-small);
   border: 1px solid var(--color-line-strong);
   box-shadow: var(--shadow-card);
@@ -10,7 +11,7 @@
   margin: 0 auto;
 }
 .terminal-header {
-  background-color: #181825;
+  background-color: var(--color-bg-raised);
   padding: 0.6rem 1rem;
   display: flex;
   align-items: center;
@@ -22,9 +23,9 @@
   height: 12px;
   border-radius: 50%;
 }
-.terminal-btn.close { background-color: #f38ba8; }
-.terminal-btn.min { background-color: #f9e2af; }
-.terminal-btn.max { background-color: #a6e3a1; }
+.terminal-btn.close { background-color: var(--color-red); }
+.terminal-btn.min { background-color: var(--color-amber); }
+.terminal-btn.max { background-color: var(--color-green); }
 .terminal-title {
   color: var(--color-text-muted);
   font-size: 0.8rem;
@@ -46,32 +47,32 @@
   align-items: center;
   padding: 0 1.25rem 1.25rem;
   gap: 0.75rem;
-  background-color: #1e1e2e;
+  background-color: var(--color-surface);
 }
 .prompt-text {
-  color: #a6e3a1;
+  color: var(--color-green);
   font-weight: 700;
 }
 .terminal-input {
   background: transparent;
   border: none;
-  color: #cdd6f4;
+  color: var(--color-ink);
   font-family: inherit;
-  font-size: 16px; /* 16px evita zoom automático en iOS */
+  font-size: 16px; /* 16px avoids the automatic zoom on iOS */
   flex: 1;
   outline: none;
-  caret-color: #cdd6f4;
+  caret-color: var(--color-ink);
 }
 /* Visible keyboard focus on the dark terminal background (WCAG 2.4.7, spec 033). */
 .terminal-input:focus-visible {
-  outline: 2px solid #89b4fa;
+  outline: 2px solid var(--color-green);
   outline-offset: 4px;
   border-radius: 2px;
 }
-.term-text-green { color: #a6e3a1; }
-.term-text-blue { color: #89b4fa; }
-.term-text-yellow { color: #f9e2af; }
-.term-text-red { color: #f38ba8; }
+.term-text-green { color: var(--color-green); }
+.term-text-blue { color: var(--color-link); }
+.term-text-yellow { color: var(--color-amber); }
+.term-text-red { color: color-mix(in srgb, var(--color-red) 70%, var(--color-ink)); }
 .term-ascii { 
   font-size: 0.75rem; 
   white-space: pre; 

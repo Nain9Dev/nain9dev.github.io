@@ -47,7 +47,7 @@ test('PERF-004 and CSS-001: styles are inlined and no page links a stylesheet', 
     assert.equal(styles.length, 0, `${page} links ${styles.map((l) => l.href).join(', ')}`);
     const head = html.slice(0, html.indexOf('</head>'));
     const inlined = [...head.matchAll(/<style>([\s\S]*?)<\/style>/g)].map((m) => m[1]).join('');
-    assert.match(inlined, /--color-background:#090a0f/i, `${page} lacks the inlined design tokens`);
+    assert.match(inlined, /--color-bg:#070b16/i, `${page} lacks the inlined design tokens`);
   }
 });
 
