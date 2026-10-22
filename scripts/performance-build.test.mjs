@@ -51,10 +51,11 @@ test('PERF-004 and CSS-001: styles are inlined and no page links a stylesheet', 
   }
 });
 
-test('CSS-002: the compressed home page stays within 25 KiB', async () => {
+test('CSS-002: the compressed home page stays within 30 KiB (ADR-0013)', async () => {
   const { gzipSync } = await import('node:zlib');
   const size = gzipSync(await readFile('dist/index.html')).length;
-  assert.ok(size <= 25 * 1024, `home page is ${(size / 1024).toFixed(1)} KiB compressed`);
+  // 25 KiB until spec 046; ADR-0013 raised the tripwire to 30 KiB for the storytelling markup and captures.
+  assert.ok(size <= 30 * 1024, `home page is ${(size / 1024).toFixed(1)} KiB compressed`);
 });
 
 test('PERF-011: built home pages keep the email_off markers around the terminal prompt', async () => {

@@ -1,6 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Quiet from '../../components/home/Quiet.astro';
+import ServiceIcon from '../../components/ServiceIcon.astro';
 
 const servicios = await getCollection('servicios', ({ data }) => data.draft !== true);
 const sortedServicios = servicios.sort((a, b) => a.data.order - b.data.order);
@@ -49,7 +51,7 @@ if (unassigned.length > 0) groups.push({ title: 'Otros servicios', items: unassi
           <p class="eyebrow">Consultoría y Desarrollo</p>
           <h1>Servicios de Ingeniería</h1>
         </div>
-        <p>Soluciones arquitectónicas de alto nivel para problemas complejos. Ayudo a empresas B2B e industrias técnicas a escalar sus plataformas de forma segura y determinista.</p>
+        <Quiet><p>Soluciones arquitectónicas de alto nivel para problemas complejos. Ayudo a empresas B2B e industrias técnicas a escalar sus plataformas de forma segura y determinista.</p></Quiet>
       </div>
 
       {groups.map((group, index) => (
@@ -58,6 +60,7 @@ if (unassigned.length > 0) groups.push({ title: 'Otros servicios', items: unassi
           <div class="card-grid card-grid-three">
             {group.items.map((servicio) => (
               <article class="service-card" data-reveal>
+                <ServiceIcon name={servicio.data.icon} />
                 <h3>{servicio.data.title}</h3>
                 <p>{servicio.data.description}</p>
                 <a href={`/servicios/${servicio.id}`} class="button button-outline button-small card-action">

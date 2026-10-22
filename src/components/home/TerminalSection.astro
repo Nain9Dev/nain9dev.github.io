@@ -1,5 +1,6 @@
 ---
 // TerminalSection.astro
+import Quiet from './Quiet.astro';
 ---
 <section class="terminal-section section section-accent" id="terminal" aria-labelledby="terminal-title">
   <div class="shell">
@@ -8,7 +9,7 @@
         <p class="eyebrow">Interactúa con mi perfil</p>
         <h2 id="terminal-title">Terminal Profesional</h2>
       </div>
-      <p>Prueba mi terminal interactiva. Escribe <code>help</code> para empezar.</p>
+      <Quiet><p>Prueba mi terminal interactiva. Escribe <code>help</code> para empezar.</p></Quiet>
     </div>
     
     <div class="terminal-wrapper" role="application" aria-label="Terminal interactiva">

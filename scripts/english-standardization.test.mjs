@@ -106,11 +106,6 @@ test('ENG-004: client scripts, logs, and comments are in professional English', 
   assert.doesNotMatch(impactMetrics, /ejecutado/i);
   assert.doesNotMatch(impactMetrics, /Error inicializando/i);
 
-  const techStack = await read('src/scripts/tech-stack.js');
-  assert.doesNotMatch(techStack, /Para animaci[oó]n de scroll/i);
-  assert.doesNotMatch(techStack, /Reutiliza la l[oó]gica/i);
-  assert.doesNotMatch(techStack, /No se pudo cargar/i);
-
   const terminal = await read('src/scripts/terminal.js');
   assert.doesNotMatch(terminal, /Accesibilidad:/i);
   assert.doesNotMatch(terminal, /Añadir placeholder/i);

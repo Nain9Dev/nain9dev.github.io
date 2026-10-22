@@ -1,11 +1,10 @@
 import { initializeDemoModal } from "./demo-modal.js";
 import { initializeAmbientGlow } from "./ambient-glow.js";
-import { initializeCardTilt } from "./card-tilt.js";
 import { initializeScrollStorytelling } from "./scroll-storytelling.js";
-import { initializeParticles } from "./particles.js";
 import {
   initializeEmailCopy,
   initializeHeaderState,
+  initializeMobileMenu,
   initializeRevealMotion,
   initializeSectionNavigation
 } from "./site-interactions.js";
@@ -38,7 +37,12 @@ function initApp() {
     header: document.querySelector("[data-site-header]"),
     progress: document.querySelector("[data-scroll-progress]")
   }));
-  safeInit('SectionNav', () => initializeSectionNavigation(document.querySelectorAll("[data-section-link]")));
+  safeInit('MobileMenu', () => initializeMobileMenu({
+    header: document.querySelector("[data-site-header]"),
+    button: document.querySelector("[data-nav-toggle]"),
+    navigation: document.getElementById("primary-navigation")
+  }));
+  safeInit('SectionNav',() => initializeSectionNavigation(document.querySelectorAll("[data-section-link]")));
   safeInit('RevealMotion', () => initializeRevealMotion(document.querySelectorAll("[data-reveal]")));
   safeInit('EmailCopy', () => initializeEmailCopy({
     button: document.querySelector("[data-copy-email]"),
@@ -55,9 +59,7 @@ function initApp() {
   // one module per idle slot so no single task blocks input on slow devices (PERF-017).
   runQueueWhenIdle([
     () => safeInit('AmbientGlow', initializeAmbientGlow),
-    () => safeInit('CardTilt', initializeCardTilt),
     () => safeInit('ScrollStory', initializeScrollStorytelling),
-    () => safeInit('Particles', initializeParticles),
     () => safeInit('ScrollTracking', initializeScrollTracking),
     // The effects above have already run the capability probe, so constrained devices skip the download.
     () => {

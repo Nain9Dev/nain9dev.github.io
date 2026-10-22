@@ -57,7 +57,6 @@
 
 @media (max-width: 40rem) {
   body { min-width: 0; }
-  .ambient-particles { max-width: 100%; }
   .terminal-input-line { flex-wrap: wrap; }
   .terminal-input { flex-basis: 100%; min-width: 0; }
   .header-actions { max-width: 12rem; }

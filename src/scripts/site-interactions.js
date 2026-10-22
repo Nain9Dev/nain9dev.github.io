@@ -154,6 +154,41 @@ export function initializeRevealMotion(elements) {
   };
 }
 
+// Phone menu (spec 045, VP-009): a disclosure button that shows the navigation as a panel.
+// The CSS shows the toggle and folds the links from first paint when html.motion-ready is set by the head script.
+export function initializeMobileMenu({ header, button, navigation }) {
+  if (!header || !button || !navigation) {
+    return () => {};
+  }
+
+  const setOpen = (open) => {
+    button.setAttribute("aria-expanded", String(open));
+    header.dataset.menu = open ? "open" : "closed";
+  };
+
+  const onToggle = () => setOpen(button.getAttribute("aria-expanded") !== "true");
+  const onKeydown = (event) => {
+    if (event.key === "Escape" && header.dataset.menu === "open") {
+      setOpen(false);
+      button.focus();
+    }
+  };
+  const onNavigate = (event) => {
+    if (event.target.closest("a")) setOpen(false);
+  };
+
+  setOpen(false);
+  button.addEventListener("click", onToggle);
+  header.addEventListener("keydown", onKeydown);
+  navigation.addEventListener("click", onNavigate);
+
+  return () => {
+    button.removeEventListener("click", onToggle);
+    header.removeEventListener("keydown", onKeydown);
+    navigation.removeEventListener("click", onNavigate);
+  };
+}
+
 export function initializeEmailCopy({ button, status }) {
   if (!button || !status) {
     return () => {};

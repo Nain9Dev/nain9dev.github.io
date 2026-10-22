@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceIcon from '../../components/ServiceIcon.astro';
 import { serializeJsonLd } from '../../utils/seo';
 
 export async function getStaticPaths() {
@@ -30,8 +31,11 @@ const serviceSchema = {
 <BaseLayout title={servicio.data.title} description={servicio.data.description} keywords={servicio.data.keywords} image={servicio.data.ogImage}>
   <script is:inline slot="head" type="application/ld+json" set:html={serializeJsonLd(serviceSchema)} />
   <main id="main-content" tabindex="-1">
-  <article class="shell section page-top">
-    {servicio.data.renderTitle && <h1>{servicio.data.title}</h1>}
+  <article class="shell section page-top service-article">
+    <header class="service-head">
+      <ServiceIcon name={servicio.data.icon} />
+      {servicio.data.renderTitle && <h1>{servicio.data.title}</h1>}
+    </header>
     <Content />
   </article>
   </main>

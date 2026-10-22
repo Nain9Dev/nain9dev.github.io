@@ -31,9 +31,26 @@
 @media (prefers-reduced-motion: no-preference) {
   @view-transition { navigation: auto; }
 
-  ::view-transition-old(root),
+  /* The old page fades out quickly; the new one rises 12 px into place (spec 045). The header stays put. */
+  ::view-transition-old(root) {
+    animation: 120ms var(--ease-standard) both page-out;
+  }
+
   ::view-transition-new(root) {
-    animation-duration: 180ms;
+    animation: 220ms var(--ease-out-quart) both page-in;
+  }
+}
+
+@keyframes page-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
   }
 }
 
@@ -175,24 +192,19 @@ body::before {
   pointer-events: none;
 }
 
-.ambient-particles {
-  position: fixed;
-  inset: 0;
-  z-index: -3;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
+/* Pointer-lit grid: a brighter copy of the grid shows only around the pointer (ambient-glow.js writes
+   --mouse-x/--mouse-y). Without a pointer position the mask sits off screen, so nothing is drawn. */
+@media (prefers-reduced-motion: no-preference) and (pointer: fine) {
   body::after {
-    content: "";
     position: fixed;
     inset: 0;
     z-index: -1;
-    background: radial-gradient(
-      circle 600px at var(--mouse-x, 50%) var(--mouse-y, 50%),
-      color-mix(in srgb, var(--color-link) 8%, transparent),
-      transparent 80%
-    );
+    background-image:
+      linear-gradient(color-mix(in srgb, var(--color-link) 22%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in srgb, var(--color-link) 22%, transparent) 1px, transparent 1px);
+    background-size: 4rem 4rem;
+    content: "";
+    mask-image: radial-gradient(circle 420px at var(--mouse-x, -100vw) var(--mouse-y, -100vh), black, transparent 70%);
     pointer-events: none;
   }
 }
@@ -407,25 +419,29 @@ main[tabindex="-1"]:focus {
   transition: color 150ms ease;
 }
 
+/* Signature sweep: a green line draws from the left on hover and keyboard focus, and stays for the current section. */
 .primary-navigation a::after {
   position: absolute;
   right: 0;
   bottom: -0.55rem;
   left: 0;
   height: 2px;
-  border-radius: 999px;
-  background: var(--color-secondary);
+  background: var(--color-green);
   content: "";
   transform: scaleX(0);
-  transition: transform 160ms ease;
+  transform-origin: left;
+  transition: transform var(--dur-base) var(--ease-out-quart);
 }
 
 .primary-navigation a:hover,
+.primary-navigation a:focus-visible,
 .primary-navigation a[aria-current="location"],
 .site-footer a:hover {
-  color: var(--color-text);
+  color: var(--color-ink);
 }
 
+.primary-navigation a:hover::after,
+.primary-navigation a:focus-visible::after,
 .primary-navigation a[aria-current="location"]::after {
   transform: scaleX(1);
 }
@@ -509,6 +525,12 @@ main[tabindex="-1"]:focus {
   z-index: -1;
   pointer-events: none;
   opacity: 0.8;
+  transition: opacity 600ms linear;
+}
+
+/* The scene fades in once its first frame is drawn (hero-scene.js removes the class), so it never pops. */
+.hero-3d-canvas.canvas-placeholder {
+  opacity: 0;
 }
 
 .hero::before {
@@ -856,17 +878,21 @@ main[tabindex="-1"]:focus {
   padding: 1rem 1.1rem;
   gap: 0.2rem;
   border: 1px solid var(--color-line);
-  border-radius: var(--radius-small);
+  border-radius: var(--radius);
   background: var(--color-surface);
   color: inherit;
   text-decoration: none;
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  transition:
+    transform var(--dur-base) var(--ease-standard),
+    box-shadow var(--dur-base) var(--ease-standard),
+    border-color var(--dur-fast) var(--ease-standard);
 }
 
 .live-demo:hover,
 .live-demo:focus-visible {
-  border-color: var(--color-primary);
-  transform: translateY(-2px);
+  border-color: var(--color-green);
+  box-shadow: var(--shadow-raised);
+  transform: translate(-2px, -2px);
 }
 
 .live-demo-host {
@@ -935,7 +961,9 @@ main[tabindex="-1"]:focus {
 }
 
 .service-card:hover,
-.project-card:hover {
+.service-card:focus-within,
+.project-card:hover,
+.project-card:focus-within {
   border-color: var(--color-line-strong);
   box-shadow: var(--shadow-raised);
   transform: translateY(-4px);
@@ -946,38 +974,6 @@ main[tabindex="-1"]:focus {
   padding: 1.8rem;
 }
 
-.service-card::after,
-.project-card::after {
-  position: absolute;
-  right: -4rem;
-  bottom: -5rem;
-  width: 10rem;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: color-mix(in srgb, var(--color-cobalt-bright) 5%, transparent);
-  content: "";
-  pointer-events: none;
-}
-
-.project-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: radial-gradient(
-    800px circle at var(--card-mouse-x, -500px) var(--card-mouse-y, -500px),
-    color-mix(in srgb, var(--color-cobalt-bright) 12%, transparent),
-    transparent 40%
-  );
-  pointer-events: none;
-  z-index: 0;
-  transition: opacity 250ms ease;
-  opacity: 0;
-}
-
-.project-card:hover::before {
-  opacity: 1;
-}
 
 .card-number {
   display: block;
@@ -1000,24 +996,29 @@ main[tabindex="-1"]:focus {
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 2.2;
-  transition: transform 250ms ease;
+  transition: transform var(--dur-base) var(--ease-out-quart), stroke var(--dur-fast) var(--ease-standard);
 }
 
-.service-card:hover .service-icon {
-  transform: translateY(-3px) scale(1.06);
+.service-card:hover .service-icon,
+.service-card:focus-within .service-icon {
+  stroke: var(--color-green);
+  transform: translateY(-3px);
 }
 
 .card-link {
   display: inline-block;
+  min-height: 24px;
   margin-top: 1rem;
   color: var(--color-primary);
   font-weight: 600;
   text-decoration: none;
+  text-decoration-color: var(--color-green);
+  text-underline-offset: 0.25rem;
 }
 
 .card-link:hover,
 .card-link:focus-visible {
-  text-decoration: underline;
+  text-decoration-line: underline;
 }
 
 .service-card p,
@@ -1157,7 +1158,7 @@ main[tabindex="-1"]:focus {
 .catalog-index li {
   padding: 1.25rem;
   border: 1px solid var(--color-line);
-  border-radius: var(--radius-medium);
+  border-radius: var(--radius);
 }
 
 .catalog-index h3 {
@@ -1195,9 +1196,15 @@ main[tabindex="-1"]:focus {
   height: auto;
   margin-bottom: 1.25rem;
   border: 1px solid var(--color-line);
-  border-radius: var(--radius-small);
+  border-radius: var(--radius);
   aspect-ratio: 16 / 9;
   object-fit: cover;
+  transition: border-color var(--dur-fast) var(--ease-standard);
+}
+
+.project-card:hover .project-thumb,
+.project-card:focus-within .project-thumb {
+  border-color: var(--color-green);
 }
 
 .project-card-header {
@@ -1208,7 +1215,7 @@ main[tabindex="-1"]:focus {
 }
 
 .project-index {
-  color: color-mix(in srgb, var(--color-ink-muted) 62%, transparent);
+  color: var(--color-ink-muted);
   font-family: var(--font-mono);
   font-size: 0.78rem;
 }
@@ -1241,6 +1248,12 @@ main[tabindex="-1"]:focus {
 }
 
 .project-detail summary {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  min-width: 24px;
   width: fit-content;
   color: var(--color-primary-strong);
   cursor: pointer;
@@ -1284,7 +1297,7 @@ main[tabindex="-1"]:focus {
   gap: 0.4rem;
   padding: 0.35rem 0.6rem;
   border: 1px solid var(--color-line);
-  border-radius: 0.45rem;
+  border-radius: var(--radius);
   color: var(--color-text-soft);
   font-family: var(--font-mono);
   font-size: 0.72rem;
@@ -1304,15 +1317,21 @@ main[tabindex="-1"]:focus {
 }
 
 .project-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
   color: var(--color-text);
   font-size: 0.9rem;
   font-weight: 720;
+  text-decoration-color: var(--color-line-strong);
   text-underline-offset: 0.25rem;
-  transition: color 150ms ease;
+  transition: color var(--dur-fast) var(--ease-standard), text-decoration-color var(--dur-fast) var(--ease-standard);
 }
 
-.project-link:hover {
-  color: var(--color-secondary);
+.project-link:hover,
+.project-link:focus-visible {
+  color: var(--color-ink);
+  text-decoration-color: var(--color-green);
 }
 
 .loading-message,
@@ -1524,21 +1543,29 @@ main[tabindex="-1"]:focus {
   text-align: right;
 }
 
+/* Footer as a deep-blue band that closes every page (spec 045). */
 .site-footer {
-  padding-block: 1.9rem;
-  border-top: 1px solid var(--color-line);
+  padding-block: var(--s12) var(--s8);
+  border-top: 1px solid var(--color-line-strong);
+  background:
+    linear-gradient(180deg, var(--color-band), var(--color-bg));
 }
 
 .footer-specialties {
-  margin-bottom: 2rem;
-  padding-bottom: 2rem;
+  margin-bottom: var(--s8);
+  padding-bottom: var(--s8);
   border-bottom: 1px solid var(--color-line);
 }
 
-.footer-specialties h4 {
-  margin-bottom: 1rem;
-  color: var(--color-text);
-  font-size: 1rem;
+.footer-title {
+  max-width: none;
+  margin-bottom: var(--s4);
+  color: var(--color-ink-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
 }
 
 .footer-chips,
@@ -1554,17 +1581,49 @@ main[tabindex="-1"]:focus {
 }
 
 .site-footer a.footer-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.25rem;
   padding: 0.4rem 0.85rem;
   border: 1px solid var(--color-line-strong);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   font-size: 0.85rem;
-  transition: border-color 0.2s ease, background 0.2s ease;
+  transition:
+    border-color var(--dur-fast) var(--ease-standard),
+    color var(--dur-fast) var(--ease-standard),
+    transform var(--dur-base) var(--ease-standard);
 }
 
 .site-footer a.footer-chip:hover,
 .site-footer a.footer-chip:focus-visible {
-  border-color: var(--color-primary);
-  background: color-mix(in srgb, var(--color-cobalt-bright) 12%, transparent);
+  border-color: var(--color-green);
+  color: var(--color-ink);
+  transform: translateY(-2px);
+}
+
+/* Plain footer links draw the same green underline as the navigation. */
+.footer-links a:not(.status-pill) {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+}
+
+.footer-links a:not(.status-pill)::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: var(--color-green);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-base) var(--ease-out-quart);
+}
+
+.footer-links a:not(.status-pill):hover::after,
+.footer-links a:not(.status-pill):focus-visible::after {
+  transform: scaleX(1);
 }
 
 .site-footer a.status-pill {
@@ -1582,6 +1641,7 @@ main[tabindex="-1"]:focus {
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 50%;
+  background: var(--color-green);
 }
 
 .site-footer a.footer-checklist {
@@ -1714,13 +1774,13 @@ main[tabindex="-1"]:focus {
 
 .tech-link-card {
   text-decoration: none;
-  transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
 .tech-link-card:hover,
 .tech-link-card:focus-visible {
-  border-color: var(--color-primary);
-  transform: translateY(-2px);
+  border-color: var(--color-green);
+  box-shadow: var(--shadow-raised);
+  transform: translate(-2px, -2px);
 }
 
 .tech-link-card h3 {
@@ -1886,19 +1946,12 @@ main[tabindex="-1"]:focus {
   transform: translateY(0);
 }
 
-.motion-ready .card-grid [data-reveal]:nth-child(2),
-.motion-ready .project-grid [data-reveal]:nth-child(2) {
-  transition-delay: 70ms;
-}
-
-.motion-ready .card-grid [data-reveal]:nth-child(3),
-.motion-ready .project-grid [data-reveal]:nth-child(3) {
-  transition-delay: 140ms;
-}
-
-.motion-ready .project-grid [data-reveal]:nth-child(4) {
-  transition-delay: 210ms;
-}
+/* Siblings in a grid enter one after another; after the sixth they share the last step. */
+.motion-ready :is(.card-grid, .project-grid, .tech-category) > [data-reveal]:nth-child(2) { transition-delay: calc(var(--stagger) * 1); }
+.motion-ready :is(.card-grid, .project-grid, .tech-category) > [data-reveal]:nth-child(3) { transition-delay: calc(var(--stagger) * 2); }
+.motion-ready :is(.card-grid, .project-grid, .tech-category) > [data-reveal]:nth-child(4) { transition-delay: calc(var(--stagger) * 3); }
+.motion-ready :is(.card-grid, .project-grid, .tech-category) > [data-reveal]:nth-child(5) { transition-delay: calc(var(--stagger) * 4); }
+.motion-ready :is(.card-grid, .project-grid, .tech-category) > [data-reveal]:nth-child(n + 6) { transition-delay: calc(var(--stagger) * 5); }
 
 @keyframes availability-pulse {
   0%,
@@ -2131,12 +2184,11 @@ main[tabindex="-1"]:focus {
 }
 
 .project-grid-container {
-  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+  transition: opacity var(--dur-fast) var(--ease-standard);
 }
 
 .project-grid-container.is-filtering {
   opacity: 0;
-  transform: scale(0.95) translateY(10px);
   pointer-events: none;
 }
 
@@ -2182,22 +2234,22 @@ main[tabindex="-1"]:focus {
   padding: 1.25rem 1rem;
   background-color: var(--color-surface);
   border: 1px solid var(--color-line);
-  border-radius: var(--radius-small);
-  transition: transform 0.3s var(--ease-spring), border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease, transform 0.6s ease;
-  opacity: 0;
-  transform: translateY(1rem);
+  border-radius: var(--radius);
 }
 
-.tech-badge.is-revealed {
-  opacity: 1;
-  transform: translateY(0);
+.motion-ready .tech-badge.is-visible {
+  transition:
+    opacity 520ms var(--ease-out-quart),
+    transform var(--dur-base) var(--ease-standard),
+    box-shadow var(--dur-base) var(--ease-standard),
+    border-color var(--dur-fast) var(--ease-standard);
 }
 
-.tech-badge:hover {
-  transform: translateY(-4px);
-  border-color: var(--color-primary);
-  box-shadow: 0 8px 24px color-mix(in srgb, var(--color-cobalt-bright) 15%, transparent);
-  background-color: var(--color-surface-strong);
+a.tech-badge:hover,
+a.tech-badge:focus-visible {
+  border-color: var(--color-green);
+  box-shadow: var(--shadow-raised);
+  transform: translate(-2px, -2px);
 }
 
 .tech-icon {
@@ -2232,9 +2284,12 @@ main[tabindex="-1"]:focus {
   flex-direction: column;
   background-color: var(--color-surface-warm);
   border: 1px solid var(--color-line);
-  border-radius: var(--radius-large);
+  border-radius: var(--radius);
   padding: 2rem;
-  transition: transform 0.4s var(--ease-spring), box-shadow 0.4s var(--ease-spring), border-color 0.4s ease;
+  transition:
+    transform var(--dur-base) var(--ease-standard),
+    box-shadow var(--dur-base) var(--ease-standard),
+    border-color var(--dur-fast) var(--ease-standard);
   height: 100%;
 }
 
@@ -2281,10 +2336,13 @@ main[tabindex="-1"]:focus {
 .impact-metric-card {
   background-color: var(--color-surface-warm);
   border: 1px solid var(--color-line);
-  border-radius: var(--radius-large);
+  border-radius: var(--radius);
   padding: 2rem;
   text-align: center;
-  transition: transform 0.4s var(--ease-spring), box-shadow 0.4s var(--ease-spring), border-color 0.4s ease;
+  transition:
+    transform var(--dur-base) var(--ease-standard),
+    box-shadow var(--dur-base) var(--ease-standard),
+    border-color var(--dur-fast) var(--ease-standard);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -2351,17 +2409,26 @@ main[tabindex="-1"]:focus {
   gap: 0.15rem 0;
   grid-template-columns: 1fr;
   border: 1px solid var(--color-line-strong);
-  border-radius: var(--radius-small);
+  border-radius: var(--radius);
   background: color-mix(in srgb, var(--color-bg-raised) 72%, transparent);
   color: inherit;
   text-decoration: none;
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  transition:
+    transform var(--dur-base) var(--ease-standard),
+    box-shadow var(--dur-base) var(--ease-standard),
+    border-color var(--dur-fast) var(--ease-standard);
 }
 
 .offer-tile:hover,
 .offer-tile:focus-visible {
-  border-color: var(--color-primary);
-  transform: translateY(-2px);
+  border-color: var(--color-green);
+  box-shadow: var(--shadow-raised);
+  transform: translate(-2px, -2px);
+}
+
+.offer-tile:hover .offer-icon,
+.offer-tile:focus-visible .offer-icon {
+  stroke: var(--color-green);
 }
 
 .offer-icon {
@@ -2390,9 +2457,34 @@ main[tabindex="-1"]:focus {
   font-size: 0.82rem;
 }
 
+/* On phones the three offers read as icons with a title; the detail line stays in the HTML for search
+   and screen readers but is clipped from view, so the calls to action reach the first screen. */
 @media (max-width: 48rem) {
   .offer-row {
-    grid-template-columns: 1fr;
+    gap: var(--s2);
+  }
+
+  .offer-tile {
+    justify-items: center;
+    padding: var(--s3) var(--s2);
+    text-align: center;
+  }
+
+  .offer-icon {
+    margin-bottom: var(--s1);
+  }
+
+  .offer-tile strong {
+    font-size: var(--text-sm);
+  }
+
+  .offer-tile span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
   }
 }
 
@@ -2407,14 +2499,19 @@ main[tabindex="-1"]:focus {
 .blog-card {
   background: var(--color-surface);
   border: 1px solid var(--color-line);
-  border-radius: var(--radius-medium);
+  border-radius: var(--radius);
   padding: 2rem;
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  transition:
+    transform var(--dur-base) var(--ease-standard),
+    box-shadow var(--dur-base) var(--ease-standard),
+    border-color var(--dur-fast) var(--ease-standard);
 }
 
-.blog-card:hover {
+.blog-card:hover,
+.blog-card:focus-within {
+  border-color: var(--color-line-strong);
+  box-shadow: var(--shadow-raised);
   transform: translateY(-4px);
-  border-color: var(--color-primary-strong);
 }
 
 .blog-card h2 {
@@ -2487,16 +2584,9 @@ main[tabindex="-1"]:focus {
 .pain-card {
   background: var(--color-surface);
   border: 1px solid var(--color-line);
-  border-radius: var(--radius-medium);
+  border-radius: var(--radius);
   padding: 2.5rem 2rem;
   text-align: center;
-  transition: transform 0.3s var(--ease-spring), border-color 0.3s ease;
-}
-@media (prefers-reduced-motion: no-preference) {
-  .pain-card:hover {
-    transform: scale(1.02);
-    border-color: var(--color-primary-strong);
-  }
 }
 .pain-icon {
   font-size: 2.5rem;
@@ -2558,117 +2648,6 @@ main[tabindex="-1"]:focus {
   line-height: 1.6;
 }
 
-.comparison-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  align-items: center;
-  margin-top: 4rem;
-}
-@media (min-width: 768px) {
-  .comparison-wrapper {
-    flex-direction: row;
-    justify-content: center;
-  }
-}
-.comparison-box {
-  flex: 1;
-  max-width: 400px;
-  width: 100%;
-}
-.comparison-divider {
-  font-size: 2rem;
-  color: var(--color-line-strong);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-@media (max-width: 767px) {
-  .comparison-divider {
-    transform: rotate(90deg);
-  }
-}
-.mock-ui {
-  background: var(--color-surface);
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-medium);
-  height: 250px;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  box-shadow: var(--shadow-card);
-}
-.blur-ui {
-  filter: blur(3px) grayscale(80%);
-  opacity: 0.7;
-}
-.sharp-ui {
-  border-color: var(--color-primary);
-  background: linear-gradient(180deg, var(--color-surface-strong) 0%, var(--color-surface) 100%);
-}
-.mock-header {
-  height: 20px;
-  background: var(--color-line-strong);
-  border-radius: 4px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 0.5rem;
-}
-.sharp-ui .mock-header {
-  background: transparent;
-}
-.mock-logo {
-  width: 40px;
-  height: 12px;
-  background: var(--color-primary);
-  border-radius: 2px;
-}
-.mock-nav {
-  width: 80px;
-  height: 8px;
-  background: var(--color-line-strong);
-  border-radius: 2px;
-}
-.mock-content {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  flex: 1;
-  justify-content: center;
-}
-.mock-line {
-  height: 12px;
-  background: var(--color-line-strong);
-  border-radius: 4px;
-  width: 90%;
-}
-.mock-short {
-  width: 60%;
-}
-.mock-primary {
-  background: var(--color-primary-strong);
-}
-.mock-btn {
-  height: 24px;
-  background: var(--color-primary);
-  border-radius: 12px;
-  width: 100px;
-  margin-top: 1rem;
-}
-.comparison-label {
-  text-align: center;
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
-  font-weight: 500;
-}
-.after-box .comparison-label {
-  color: var(--color-primary-strong);
-}
-
 /* Adaptive low-performance overrides: eliminate CPU bottlenecks on devices without hardware acceleration */
 html.low-performance {
   scroll-behavior: auto !important;
@@ -2721,9 +2700,6 @@ html.low-performance .hero-3d-canvas {
   display: none !important;
 }
 
-html.low-performance .ambient-particles {
-  display: none !important;
-}
 
 html.low-performance body::after {
   display: none !important;
@@ -2753,3 +2729,782 @@ html.low-performance [data-parallax="true"] {
   transform: none !important;
 }
 
+
+/* --- Spec 045 PR 2: hero entrance, scroll progress and phone menu --- */
+
+/* Hero composes in reading order: each block is uncovered from the top and settles 0.6 rem.
+   "backwards" only holds the first frame, so once the animation ends the page is plain HTML again. */
+@keyframes compose-in {
+  from {
+    clip-path: inset(0 0 100% 0);
+    transform: translateY(0.6rem);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.low-performance) .hero-copy > *,
+  html:not(.low-performance) .hero-panel {
+    animation: compose-in var(--dur-slow) var(--ease-out-quart) backwards;
+  }
+
+  html:not(.low-performance) .hero-copy > :nth-child(2) { animation-delay: calc(var(--stagger) * 1.5); }
+  html:not(.low-performance) .hero-copy > :nth-child(3) { animation-delay: calc(var(--stagger) * 3); }
+  html:not(.low-performance) .hero-copy > :nth-child(4) { animation-delay: calc(var(--stagger) * 4.5); }
+  html:not(.low-performance) .hero-copy > :nth-child(n + 5) { animation-delay: calc(var(--stagger) * 6); }
+  html:not(.low-performance) .hero-panel { animation-delay: calc(var(--stagger) * 5); }
+}
+
+/* Reading progress: a green line under the header driven by the page scroll, no JavaScript. */
+@keyframes header-progress {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .site-header::after {
+      position: absolute;
+      right: 0;
+      bottom: -1px;
+      left: 0;
+      height: 2px;
+      background: var(--color-green);
+      content: "";
+      transform: scaleX(0);
+      transform-origin: left;
+      animation: header-progress linear both;
+      animation-timeline: scroll(root block);
+    }
+  }
+}
+
+/* Phone menu (VP-009): one toggle replaces the clipped scrolling row of links. */
+.nav-toggle {
+  display: none;
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-0.5rem);
+  }
+}
+
+@media (max-width: 42rem) {
+  .site-header .header-layout {
+    grid-template-areas:
+      "brand action toggle"
+      "navigation navigation navigation";
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    min-height: 0;
+    gap: 0 var(--s2);
+    padding-block: var(--s2);
+  }
+
+  /* A slimmer sticky header on phones covers less of the page while scrolling (diagnosis 8). */
+  .site-header .header-layout .brand-logo {
+    width: auto;
+    max-width: none;
+    height: 2.4rem;
+  }
+
+  .motion-ready .nav-toggle {
+    display: inline-grid;
+    grid-area: toggle;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    place-items: center;
+    border: 1px solid var(--color-line-strong);
+    border-radius: var(--radius);
+    background: transparent;
+    color: var(--color-ink);
+    cursor: pointer;
+  }
+
+  .nav-toggle svg {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-width: 2;
+    transition: transform var(--dur-base) var(--ease-standard);
+  }
+
+  .nav-toggle[aria-expanded="true"] {
+    border-color: var(--color-green);
+  }
+
+  .nav-toggle[aria-expanded="true"] svg {
+    transform: rotate(90deg);
+  }
+
+  .motion-ready .site-header:not([data-menu="open"]) .primary-navigation {
+    display: none;
+  }
+
+  .site-header[data-menu="open"] .primary-navigation {
+    display: grid;
+    justify-content: stretch;
+    padding-block: var(--s2) var(--s3);
+    gap: 0;
+    overflow: visible;
+    white-space: normal;
+  }
+
+  .site-header[data-menu="open"] .primary-navigation a {
+    padding-block: var(--s3);
+    border-top: 1px solid var(--color-line);
+    font-size: var(--text-base);
+  }
+
+  .site-header[data-menu="open"] .primary-navigation a::after {
+    bottom: 0;
+  }
+}
+
+@media (max-width: 42rem) and (prefers-reduced-motion: no-preference) {
+  .site-header[data-menu="open"] .primary-navigation {
+    animation: menu-in var(--dur-base) var(--ease-out-quart);
+  }
+}
+
+/* --- Spec 046: visual storytelling --- */
+
+/* Quiet text (VS-001): the paragraph stays in the document; a plus button reveals it. */
+.quiet {
+  margin: 0;
+}
+
+.quiet > summary {
+  display: inline-grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius);
+  color: var(--color-ink-muted);
+  cursor: pointer;
+  list-style: none;
+  transition: border-color var(--dur-fast) var(--ease-standard), color var(--dur-fast) var(--ease-standard);
+}
+
+.quiet > summary::-webkit-details-marker {
+  display: none;
+}
+
+.quiet > summary svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-width: 2;
+  transition: transform var(--dur-base) var(--ease-out-quart);
+}
+
+.quiet > summary:hover,
+.quiet > summary:focus-visible,
+.quiet[open] > summary {
+  border-color: var(--color-green);
+  color: var(--color-ink);
+}
+
+.quiet[open] > summary svg {
+  transform: rotate(45deg);
+}
+
+.quiet > :not(summary) {
+  margin-top: var(--s3);
+  color: var(--color-ink-muted);
+}
+
+.quiet > :not(summary):last-child {
+  margin-bottom: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .quiet[open] > :not(summary) {
+    animation: compose-in var(--dur-base) var(--ease-out-quart) backwards;
+  }
+}
+
+.section-heading .quiet {
+  justify-self: end;
+}
+
+.section-heading .quiet[open] {
+  justify-self: stretch;
+}
+
+.about-copy .quiet {
+  margin-bottom: var(--s4);
+}
+
+.resource-cta .quiet,
+.method-cta .quiet,
+.contact-panel .quiet {
+  margin-bottom: var(--s4);
+}
+
+.resource-cta .quiet > summary,
+.method-cta .quiet > summary {
+  margin-inline: auto;
+}
+
+.resource-cta .quiet > :not(summary) {
+  max-width: 37.5rem;
+  margin-inline: auto;
+}
+
+/* Hero map (VS-002): the capability panel reads as a pipeline; details stay in the markup, visually hidden. */
+.system-node small,
+.panel-hint {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.system-map {
+  gap: var(--s3);
+}
+
+.system-node {
+  min-height: 3.25rem;
+  align-items: center;
+  border-radius: var(--radius);
+  transition:
+    transform var(--dur-base) var(--ease-standard),
+    box-shadow var(--dur-base) var(--ease-standard),
+    border-color var(--dur-fast) var(--ease-standard);
+}
+
+.system-node:hover,
+.system-node:focus-visible {
+  border-color: var(--color-green);
+  box-shadow: var(--shadow-raised);
+  transform: translate(-2px, -2px);
+}
+
+.system-node strong {
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+}
+
+.system-map::before {
+  background: linear-gradient(var(--color-cobalt-bright), var(--color-green));
+}
+
+/* A pulse travels down the rail between the three nodes (transform only, PERF-007). */
+@keyframes rail-pulse {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(8.5rem);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .system-map::after {
+    position: absolute;
+    top: 1.35rem;
+    left: 1.42rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: var(--color-green);
+    box-shadow: 0 0 0 0.25rem color-mix(in srgb, var(--color-green) 25%, transparent);
+    content: "";
+    transform: translateX(-50%);
+    animation: rail-pulse 2.4s var(--ease-standard) infinite;
+    pointer-events: none;
+  }
+}
+
+html.low-performance .system-map::after {
+  animation: none !important;
+  display: none !important;
+}
+
+.panel-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s1) var(--s2);
+}
+
+/* Demo gallery (VS-003): the capture is the tile. */
+.live-demos .live-demos-grid {
+  gap: var(--s3);
+  grid-template-columns: repeat(auto-fill, minmax(11.5rem, 1fr));
+}
+
+.live-demos .live-demo {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  aspect-ratio: 16 / 10;
+}
+
+.live-demo-thumb {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  opacity: 0.82;
+  transition: transform var(--dur-slow) var(--ease-out-quart), opacity var(--dur-base) var(--ease-standard);
+}
+
+.live-demos .live-demo strong {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: var(--s6) var(--s3) var(--s2);
+  background: linear-gradient(transparent, color-mix(in srgb, var(--color-bg) 94%, transparent) 60%);
+  font-size: var(--text-sm);
+  line-height: 1.25;
+}
+
+.live-demos .live-demo-host,
+.live-demos .live-demo-tech {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.live-demos .live-demo:hover .live-demo-thumb,
+.live-demos .live-demo:focus-visible .live-demo-thumb {
+  opacity: 1;
+  transform: scale(1.04);
+}
+
+@media (max-width: 42rem) {
+  .live-demos .live-demos-grid {
+    display: flex;
+    margin-inline: calc(-1 * var(--s3));
+    padding-inline: var(--s3);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .live-demos .live-demos-grid > li {
+    flex: 0 0 54%;
+    scroll-snap-align: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .live-demos .live-demo:hover .live-demo-thumb,
+  .live-demos .live-demo:focus-visible .live-demo-thumb {
+    transform: none;
+  }
+}
+
+/* --- Spec 046 PR 7: stack map and method timeline --- */
+
+/* Stack map (VS-004): each category is a layer band; on wide screens a spine joins the layers. */
+.tech-stack-container {
+  position: relative;
+  gap: 0;
+  margin-top: var(--s6);
+}
+
+.tech-category-group {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s3);
+  padding-block: var(--s4);
+  border-top: 1px solid var(--color-line);
+}
+
+.tech-category-group:last-child {
+  border-bottom: 1px solid var(--color-line);
+}
+
+.tech-category-title {
+  padding: 0;
+  border: 0;
+  color: var(--color-ink-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+.tech-category {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+}
+
+.tech-badge {
+  flex: 0 0 auto;
+  min-width: 5.5rem;
+  padding: var(--s2) var(--s3);
+  gap: var(--s2);
+}
+
+.tech-icon {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.tech-name {
+  font-size: var(--text-xs);
+}
+
+@media (min-width: 60rem) {
+  .tech-category-group {
+    grid-template-columns: 11rem 1fr;
+    align-items: start;
+  }
+
+  .tech-category-title {
+    padding-top: var(--s2);
+  }
+
+  .tech-stack-container::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 10rem;
+    width: 1px;
+    background: linear-gradient(var(--color-cobalt-bright), var(--color-green));
+    content: "";
+  }
+
+  .tech-category-title::after {
+    position: absolute;
+    top: calc(var(--s4) + var(--s2) + 0.3em);
+    left: calc(10rem - 0.25rem);
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: var(--color-green);
+    box-shadow: 0 0 0 0.25rem color-mix(in srgb, var(--color-green) 25%, transparent);
+    content: "";
+  }
+}
+
+/* Method timeline (VS-005): four steps on a horizontal rail that draws itself as it scrolls into view. */
+@keyframes rail-draw {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+@media (min-width: 60rem) {
+  .method-grid {
+    grid-template-columns: 1fr;
+    gap: var(--s8);
+  }
+
+  .step-list {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--s4);
+  }
+
+  .step-list li {
+    grid-template-columns: 1fr;
+    padding: 0;
+    gap: var(--s4);
+  }
+
+  .step-list > li::before {
+    top: 1.5rem;
+    right: calc(-1 * var(--s4));
+    bottom: auto;
+    left: 3rem;
+    width: auto;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-cobalt-bright), color-mix(in srgb, var(--color-cobalt-bright) 12%, transparent));
+    transform-origin: left;
+  }
+
+  .step-list h3 {
+    font-size: var(--text-lg);
+  }
+
+  .step-list p {
+    font-size: var(--text-sm);
+  }
+
+  .method-cta {
+    max-width: 44rem;
+    margin-inline: auto;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (min-width: 60rem) and (prefers-reduced-motion: no-preference) {
+    .step-list > li::before {
+      animation: rail-draw linear both;
+      animation-timeline: view();
+      animation-range: entry 10% entry 60%;
+    }
+  }
+}
+
+/* --- Spec 046 PR 8: cards read visually first --- */
+.service-card .quiet {
+  margin-top: var(--s4);
+}
+
+.service-card .quiet > :not(summary) {
+  margin-top: var(--s3);
+}
+
+.project-detail .project-summary {
+  margin: var(--s3) 0 0;
+}
+
+.project-detail .project-summary + .project-proof {
+  margin-top: var(--s3);
+}
+
+/* Open ecosystem tiles: a repository mark and the name; the note stays in the markup, visually hidden. */
+#open-ecosystem .live-demo {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  min-height: 5.5rem;
+  padding: var(--s4);
+  gap: var(--s3);
+}
+
+.repo-icon {
+  width: 1.75rem;
+  height: 1.75rem;
+  fill: none;
+  stroke: var(--color-link);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+  transition: stroke var(--dur-fast) var(--ease-standard);
+}
+
+#open-ecosystem .live-demo:hover .repo-icon,
+#open-ecosystem .live-demo:focus-visible .repo-icon {
+  stroke: var(--color-green);
+}
+
+#open-ecosystem .live-demo strong {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+#open-ecosystem .live-demo-tech {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* --- Spec 047: inner pages --- */
+
+/* Service glyph: one per service, from the frontmatter icon. */
+.service-glyph {
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0.6rem;
+  border: 1px solid color-mix(in srgb, var(--color-cobalt-bright) 35%, transparent);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--color-cobalt-bright) 12%, transparent);
+  fill: none;
+  stroke: var(--color-link);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+  transition: stroke var(--dur-fast) var(--ease-standard);
+}
+
+/* Services hub: compact cards, glyph first. */
+.service-group .service-card {
+  display: grid;
+  min-height: 0;
+  align-content: start;
+  gap: var(--s3);
+}
+
+.service-group .service-card:hover .service-glyph,
+.service-group .service-card:focus-within .service-glyph {
+  stroke: var(--color-green);
+}
+
+.service-group .service-card h3 {
+  margin: 0;
+  font-size: var(--text-md);
+}
+
+.service-group .service-card p {
+  margin: 0;
+  font-size: var(--text-sm);
+}
+
+.service-group .service-card .card-action {
+  justify-self: start;
+  margin-top: var(--s2);
+}
+
+.service-group-title {
+  max-width: 26ch;
+  font-size: var(--text-xl);
+}
+
+/* Service page: glyph and title head the article; body paragraphs keep a reading measure. */
+.service-head {
+  display: grid;
+  margin-bottom: var(--s8);
+  gap: var(--s4);
+}
+
+.service-head .service-glyph {
+  width: 3.5rem;
+  height: 3.5rem;
+  padding: 0.8rem;
+}
+
+.service-head h1 {
+  margin: 0;
+  max-width: 20ch;
+}
+
+.service-article :is(p, li, blockquote) {
+  max-width: 68ch;
+}
+
+.service-article h2,
+.article h2 {
+  margin-top: var(--s12);
+  padding-left: var(--s4);
+  border-left: 3px solid var(--color-green);
+  font-size: var(--text-xl);
+}
+
+.service-article h3,
+.article h3 {
+  margin-top: var(--s8);
+}
+
+.service-article li::marker,
+.article li::marker {
+  color: var(--color-green);
+}
+
+/* Blog index: each card opens with a numbered cover band; the number is silent for screen readers. */
+.blog-grid {
+  counter-reset: post;
+}
+
+.blog-card {
+  position: relative;
+  display: grid;
+  padding: 0 var(--s6) var(--s6);
+  gap: var(--s3);
+  counter-increment: post;
+  overflow: hidden;
+}
+
+.blog-card::before {
+  display: grid;
+  height: 7.5rem;
+  margin: 0 calc(-1 * var(--s6)) var(--s2);
+  padding: var(--s4) var(--s6);
+  align-items: end;
+  border-bottom: 1px solid var(--color-line);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--color-cobalt) 45%, var(--color-bg-raised)), var(--color-bg-raised));
+  color: color-mix(in srgb, var(--color-ink) 22%, transparent);
+  content: counter(post, decimal-leading-zero) / "";
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.blog-card:nth-child(3n + 2)::before {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--color-green) 16%, var(--color-bg-raised)), var(--color-bg-raised));
+}
+
+.blog-card:nth-child(3n)::before {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--color-link) 30%, var(--color-bg-raised)), var(--color-bg-raised));
+}
+
+.blog-card time.eyebrow,
+.blog-card h2,
+.blog-card .tag-list,
+.blog-card .quiet {
+  margin: 0;
+}
+
+.blog-card h2 {
+  font-size: var(--text-lg);
+}
+
+.blog-card .blog-action {
+  justify-self: start;
+  margin-top: auto;
+}
+
+/* Article: byline as a label, reading measure, share row without inline styles. */
+.article h1 {
+  max-width: 22ch;
+}
+
+.article-byline {
+  margin-bottom: var(--s8);
+  color: var(--color-ink-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+.article-byline a {
+  color: var(--color-link);
+}
+
+.article :is(p, ul, ol, blockquote) {
+  max-width: 68ch;
+}
+
+.article pre {
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+}
+
+.share-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: var(--s16);
+  padding-top: var(--s8);
+  gap: var(--s4);
+  border-top: 1px solid var(--color-line);
+}
+
+.share-label {
+  color: var(--color-ink-muted);
+  font-weight: 600;
+}

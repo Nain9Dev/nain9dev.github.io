@@ -15,7 +15,7 @@ const specialtyTechnologies = [
 
 <footer class="site-footer">
   <div class="shell footer-specialties" data-nosnippet>
-    <h4>Especialidades Técnicas</h4>
+    <h2 class="footer-title">Especialidades Técnicas</h2>
     <div class="footer-chips">
       {specialtyTechnologies.map(technology => (
         <a class="footer-chip" href={getTechnologyHref(technology.name)}>{technology.label}</a>
@@ -27,7 +27,7 @@ const specialtyTechnologies = [
     <p>© <span data-current-year>2026</span> NainDev. Analytics privacy-first integradas (0% cookies). Sin dependencias de terceros que rastreen datos personales.</p>
     <div class="footer-links">
       <a class="status-pill" href="https://status.naindev.com/" target="_blank" rel="noopener noreferrer" title="Ver monitor público de disponibilidad y latencia">
-        <span aria-hidden="true" class="status-dot" style="background: #22c55e;"></span>
+        <span aria-hidden="true" class="status-dot"></span>
         <span>Estado del servicio</span>
       </a>
       <a class="footer-checklist" href="/recursos/checklist-ia" data-calendly-track="footer">📥 Checklist Arquitectura IA</a>

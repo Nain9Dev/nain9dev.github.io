@@ -30,8 +30,8 @@ function createProjectCard(project, index) {
   article.dataset.featured = String(Boolean(project.featured));
   article.dataset.projectCard = "";
   article.dataset.categories = project.categories.join(" ");
+  // The entrance stagger comes from CSS :nth-child steps (spec 045), not from inline delays.
   article.dataset.reveal = "";
-  article.style.transitionDelay = `${index * 80}ms`;
 
   const header = createElement("div", "project-card-header");
   const hasLiveDemo = project.links.some((link) => /^https:\/\/[a-z0-9-]+\.naindev\.com(\/|$)/.test(link.url));
@@ -43,8 +43,11 @@ function createProjectCard(project, index) {
   const title = createElement("h3", "project-title", project.title);
   const summary = createElement("p", "project-summary", project.summary);
   // The long technical proof stays one click away so the card reads visually first (VIS-005).
+  // With a capture, the summary joins it: the picture, the title and the chips carry the card (spec 046, VS-010).
   const detail = createElement("details", "project-detail");
-  detail.append(createElement("summary", "", message('projectDetail')), createElement("p", "project-proof", project.proof));
+  detail.append(createElement("summary", "", message('projectDetail')));
+  if (project.thumbnail) detail.append(summary);
+  detail.append(createElement("p", "project-proof", project.proof));
 
   const technologies = createElement("ul", "tag-list");
   technologies.setAttribute("aria-label", message('projectTechnologies', { name: project.title }));
@@ -82,7 +85,9 @@ function createProjectCard(project, index) {
     article.append(picture);
   }
 
-  article.append(header, title, summary, technologies, detail, links);
+  article.append(header, title);
+  if (!project.thumbnail) article.append(summary);
+  article.append(technologies, detail, links);
   return article;
 }
 

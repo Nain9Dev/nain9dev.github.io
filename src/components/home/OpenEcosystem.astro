@@ -1,5 +1,6 @@
 ---
 // OpenEcosystem.astro: public repositories that are not products (spec next-portfolio-ecosystem-hero, ECO-020).
+import Quiet from './Quiet.astro';
 const repositories = [
   { name: 'engineering-handbook', note: 'Manual de ingeniería: arquitectura limpia, validación determinista y pruebas.' },
   { name: 'template-dotnet-clean-arch', note: 'Plantilla full stack con .NET, Vue 3 y Docker Compose.' },
@@ -16,12 +17,13 @@ const repositories = [
         <p class="eyebrow">Código abierto</p>
         <h2 id="open-ecosystem-title">Ecosistema abierto</h2>
       </div>
-      <p>Plantillas, estándares y herramientas que uso en todos mis proyectos.</p>
+      <Quiet><p>Plantillas, estándares y herramientas que uso en todos mis proyectos.</p></Quiet>
     </div>
     <ul class="live-demos-grid">
       {repositories.map((repository) => (
         <li>
           <a class="live-demo" href={`https://github.com/Nain9Dev/${repository.name}`} target="_blank" rel="noopener noreferrer">
+            <svg class="repo-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="6" cy="5" r="2" /><circle cx="6" cy="19" r="2" /><circle cx="18" cy="9" r="2" /><path d="M6 7v10M18 11c0 3-3 4-6 4H9" /></svg>
             <strong translate="no">{repository.name}</strong>
             <span class="live-demo-tech">{repository.note}</span>
           </a>

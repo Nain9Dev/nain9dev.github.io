@@ -1,5 +1,6 @@
 ---
 // ServicesSection.astro
+import Quiet from './Quiet.astro';
 ---
 <section class="section" id="services">
   <div class="shell">
@@ -8,8 +9,8 @@
         <p class="eyebrow">En qué puedo ayudarte</p>
         <h2>Ingeniería y arquitectura de software</h2>
       </div>
-      <p>Diseño arquitecturas robustas y escalables con una visión agnóstica de infraestructura, priorizando la
-        verdad del dato y la inmutabilidad.</p>
+      <Quiet><p>Diseño arquitecturas robustas y escalables con una visión agnóstica de infraestructura, priorizando la
+        verdad del dato y la inmutabilidad.</p></Quiet>
     </div>
 
     <div class="card-grid card-grid-three">
@@ -22,11 +23,11 @@
         <h3>Conformidad determinista de productos</h3>
         <p>Arquitectura multidominio que valida cada producto contra especificaciones versionadas. El primer dominio son los modelos 3D.
         </p>
-        <ul class="compact-list">
+        <Quiet><ul class="compact-list">
           <li>Perfiles versionados por dominio (primero glTF/GLB)</li>
           <li>Validación topológica y geométrica</li>
           <li>Veredictos reproducibles y reparación bajo contrato</li>
-        </ul>
+        </ul></Quiet>
         <a class="card-link" href="/servicios/validacion-3d">Saber más →</a>
       </article>
 
@@ -39,11 +40,11 @@
         </svg>
         <h3>Integración IA Generativa & Agentes</h3>
         <p>Ecosistemas agénticos robustos para integrar modelos de IA en flujos corporativos.</p>
-        <ul class="compact-list">
+        <Quiet><ul class="compact-list">
           <li>Integración transversal de agentes</li>
           <li>Trustworthy AI y determinismo</li>
           <li>Flujos Human-in-the-loop</li>
-        </ul>
+        </ul></Quiet>
         <a class="card-link" href="/servicios/arquitectura-ia-generativa">Saber más →</a>
       </article>
 
@@ -55,11 +56,11 @@
         </svg>
         <h3>Backend crítico (Python y .NET)</h3>
         <p>Sistemas de misión crítica donde la consistencia del dato es innegociable, sobre PostgreSQL y SQL Server.</p>
-        <ul class="compact-list">
+        <Quiet><ul class="compact-list">
           <li>Clean Architecture y arquitectura en capas</li>
           <li>Modernización incremental de .NET Framework</li>
           <li>Control de concurrencia (versiones y ETag)</li>
-        </ul>
+        </ul></Quiet>
         <a class="card-link" href="/servicios/sistemas-criticos-dotnet">Saber más →</a>
       </article>
     </div>

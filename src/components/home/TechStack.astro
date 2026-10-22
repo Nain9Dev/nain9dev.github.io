@@ -1,5 +1,6 @@
 ---
 // TechStack.astro
+import Quiet from './Quiet.astro';
 import { getCollection } from 'astro:content';
 import techStackData from '../../../public/assets/data/tech-stack.json';
 import { getTechnologyHref } from '../../utils/technologyRoutes';
@@ -14,7 +15,7 @@ const availableTechnologies = new Set(servicios.flatMap(servicio => servicio.dat
         <p class="eyebrow">Tecnologías</p>
         <h2>Stack tecnológico</h2>
       </div>
-      <p>Lenguajes, herramientas y plataformas que utilizo para construir arquitecturas robustas.</p>
+      <Quiet><p>Lenguajes, herramientas y plataformas que utilizo para construir arquitecturas robustas.</p></Quiet>
     </div>
     
     <div id="tech-stack-container" class="tech-stack-container">

@@ -10,7 +10,13 @@ import logo from '../assets/images/logo_horizontal.png';
       <Image src={logo} alt="NainDev" class="brand-logo" format="webp" width={536} widths={[268, 536]} sizes="268px" priority />
     </a>
 
-    <nav class="primary-navigation" aria-label="Navegación principal">
+    <!-- Phone menu toggle (spec 045, VP-009): shown only when the head script ran (html.motion-ready),
+         so without JavaScript the links stay visible and the layout never shifts when the script loads. -->
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Menú" data-nav-toggle>
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h10" /></svg>
+    </button>
+
+    <nav class="primary-navigation" id="primary-navigation" aria-label="Navegación principal">
       <a href="/servicios/">Servicios</a>
       <a href="/servicios/arquitectura-frontend-alto-rendimiento/">Arquitectura Frontend</a>
       <a href="/blog/">Blog</a>

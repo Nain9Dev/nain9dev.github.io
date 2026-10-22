@@ -17,7 +17,7 @@ const { Content } = await render(post);
 
 <BaseLayout title={post.data.seoTitle ?? post.data.title} description={post.data.description} keywords={post.data.keywords} tags={post.data.tags} date={post.data.pubDate} image={post.data.ogImage}>
   <main id="main-content" tabindex="-1">
-  <article class="shell section" style="padding-top: 8rem;">
+  <article class="shell section page-top article">
     <h1>{post.data.title}</h1>
     <p class="article-byline">
       Por <a href="/#about" rel="author">{defaultSEO.author}</a> ·
@@ -27,8 +27,8 @@ const { Content } = await render(post);
     </p>
     <Content />
     
-    <div class="share-buttons" data-reveal style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--color-line); display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
-      <span style="color: var(--color-text-muted); font-weight: 600;">Compartir este artículo:</span>
+    <div class="share-buttons" data-reveal>
+      <span class="share-label">Compartir este artículo:</span>
       <button class="button button-secondary button-small" onclick="shareOnLinkedIn()" aria-label="Compartir en LinkedIn">LinkedIn</button>
       <button class="button button-secondary button-small" onclick="shareOnTwitter()" aria-label="Compartir en Twitter">Twitter</button>
       <button class="button button-secondary button-small" onclick="shareViaWebShare()" aria-label="Compartir en otras apps">Compartir</button>
