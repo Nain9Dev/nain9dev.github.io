@@ -1,6 +1,6 @@
 # Specification: Visual polish and motion system
 
-Status: Approved direction (B, 2026-10-21); implementation pending
+Status: Implemented (PRs #13 to #17 merged 2026-10-22; VP-003 section tiers pending)
 
 ## Objective
 

@@ -1,6 +1,6 @@
 # Specification: Visual storytelling
 
-Status: In progress (phase 3 of the visual polish, owner request 2026-10-22)
+Status: Implemented (PRs #18 to #21 merged 2026-10-22)
 
 ## Objective
 
