@@ -8173,5 +8173,40 @@
     "source": "⟦0⟧⟦1/⟧⟦2/⟧⟦3⟧Estándares de ingeniería y flujos de CI reutilizables.⟦/3⟧⟦/0⟧",
     "target": "⟦0⟧⟦1/⟧⟦2/⟧⟦3⟧Engineering standards and reusable CI workflows.⟦/3⟧⟦/0⟧",
     "status": "reviewed"
+  },
+  "09cafc72a8f49420422e8ee6d994d2ce69f7f4200d450d5709c8612497f8b658": {
+    "source": "⟦0⟧⟦1/⟧⟦2/⟧⟦3/⟧⟦4/⟧⟦5⟧Manual de ingeniería: arquitectura limpia, validación determinista y pruebas.⟦/5⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2/⟧⟦3/⟧⟦4/⟧⟦5⟧Engineering handbook: clean architecture, deterministic validation and testing.⟦/5⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "220b147a19501178019ab347e52e48fbb8df6f742b4946d16eb11547695f68fe": {
+    "source": "⟦0⟧⟦1/⟧⟦2/⟧⟦3/⟧⟦4/⟧⟦5⟧Plantilla full stack con FastAPI, Vue 3 y Docker Compose.⟦/5⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2/⟧⟦3/⟧⟦4/⟧⟦5⟧Full stack template with FastAPI, Vue 3 and Docker Compose.⟦/5⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "39ad3c831cb32e3c87dedc450c9f7de7eac074691991bd3f5d096e41c499cb08": {
+    "source": "⟦0⟧⟦1/⟧⟦2/⟧⟦3/⟧⟦4/⟧⟦5⟧Estado y latencia de los servicios públicos.⟦/5⟧⟦/0⟧⟦6/⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2/⟧⟦3/⟧⟦4/⟧⟦5⟧Status and latency of the public services.⟦/5⟧⟦/0⟧⟦6/⟧",
+    "status": "reviewed"
+  },
+  "4f5882b2e8ebd18ab88627d10381f76a1f998882e6416223d65c320e9d3c02c7": {
+    "source": "⟦0⟧⟦1/⟧⟦2⟧Harness de modernización .NET (YARP y Shadow Runner)⟦/2⟧⟦3/⟧⟦4/⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2⟧.NET Modernization Harness (YARP & Shadow Runner)⟦/2⟧⟦3/⟧⟦4/⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "6e45fb4f184023bcaa6db82b4e23914aef237815a583afd7103b2f209ab92bd8": {
+    "source": "⟦0⟧⟦1/⟧⟦2/⟧⟦3/⟧⟦4/⟧⟦5⟧Estándares de ingeniería y flujos de CI reutilizables.⟦/5⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2/⟧⟦3/⟧⟦4/⟧⟦5⟧Engineering standards and reusable CI workflows.⟦/5⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "fa3da30631b2aedfae823516851441138d65fe9ef948c7e20ce612f89f1dfff3": {
+    "source": "⟦0⟧⟦1/⟧⟦2/⟧⟦3/⟧⟦4/⟧⟦5⟧Plantilla full stack con .NET, Vue 3 y Docker Compose.⟦/5⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2/⟧⟦3/⟧⟦4/⟧⟦5⟧Full stack template with .NET, Vue 3 and Docker Compose.⟦/5⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "fd436b7dcfbf15a7a10acc2b1708b13ade92c98cb7ae7d8de8f5f81d2caeccd4": {
+    "source": "⟦0⟧⟦1/⟧⟦2/⟧⟦3/⟧⟦4/⟧⟦5⟧Sistema de diseño y manual de marca de NainDev.⟦/5⟧⟦/0⟧⟦6/⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2/⟧⟦3/⟧⟦4/⟧⟦5⟧NainDev design system and brand book.⟦/5⟧⟦/0⟧⟦6/⟧",
+    "status": "reviewed"
   }
 }

@@ -3278,20 +3278,31 @@ html.low-performance .system-map::after {
   margin-top: var(--s3);
 }
 
-/* Open ecosystem tiles: a repository mark and the name; the note stays in the markup, visually hidden. */
+/* Open ecosystem tiles: a capture of the site or of the README, the repository mark as a corner badge and the
+   name over a gradient; the host and the note stay in the markup, visually hidden (spec next-portfolio-coverage). */
 #open-ecosystem .live-demo {
   position: relative;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: center;
-  min-height: 5.5rem;
-  padding: var(--s4);
-  gap: var(--s3);
+  display: block;
+  overflow: hidden;
+  padding: 0;
+  aspect-ratio: 16 / 10;
+}
+
+/* README and site captures are left-aligned documents: anchor them to the top-left corner so the 16:10 tile
+   crops the right side, never the first letters. The repository mark sits in the bottom-right corner. */
+#open-ecosystem .live-demo-thumb {
+  object-position: left top;
 }
 
 .repo-icon {
+  position: absolute;
+  right: var(--s3);
+  bottom: var(--s3);
   width: 1.75rem;
   height: 1.75rem;
+  padding: 0.3rem;
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--color-bg) 85%, transparent);
   fill: none;
   stroke: var(--color-link);
   stroke-linecap: round;
@@ -3306,12 +3317,26 @@ html.low-performance .system-map::after {
 }
 
 #open-ecosystem .live-demo strong {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: var(--s6) var(--s3) var(--s2);
+  background: linear-gradient(transparent, color-mix(in srgb, var(--color-bg) 94%, transparent) 60%);
   font-family: var(--font-mono);
   font-size: var(--text-sm);
   font-weight: 600;
+  line-height: 1.25;
   overflow-wrap: anywhere;
 }
 
+#open-ecosystem .live-demo:hover .live-demo-thumb,
+#open-ecosystem .live-demo:focus-visible .live-demo-thumb {
+  opacity: 1;
+  transform: scale(1.04);
+}
+
+#open-ecosystem .live-demo-host,
 #open-ecosystem .live-demo-tech {
   position: absolute;
   width: 1px;
@@ -3319,6 +3344,38 @@ html.low-performance .system-map::after {
   overflow: hidden;
   clip-path: inset(50%);
   white-space: nowrap;
+}
+
+/* Secondary link to the repository when the tile opens the live site (ECO-023). */
+#open-ecosystem .live-demos-grid > li {
+  position: relative;
+}
+
+.repo-code {
+  position: absolute;
+  top: var(--s3);
+  right: var(--s3);
+  padding: 0.15rem var(--s2);
+  border: 1px solid color-mix(in srgb, var(--color-link) 45%, transparent);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--color-bg) 88%, transparent);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs, 0.75rem);
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+.repo-code:hover,
+.repo-code:focus-visible {
+  border-color: var(--color-green);
+  color: var(--color-green);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #open-ecosystem .live-demo:hover .live-demo-thumb,
+  #open-ecosystem .live-demo:focus-visible .live-demo-thumb {
+    transform: none;
+  }
 }
 
 /* --- Spec 047: inner pages --- */
