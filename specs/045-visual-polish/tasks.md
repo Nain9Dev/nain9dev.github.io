@@ -41,6 +41,8 @@ One task at a time, test first. Stop after each task. Update the `Session state`
 - [ ] **T05** `[M]` PR 5 · Polish (`visual/05-polish`): 404, thank-you and checklist pages, terminal reduced-motion, icon and social image review.
   - **Covers**: VP-006 (terminal), VP-013, VP-016
   - **Done when**: full axe sweep, Lighthouse mobile and desktop on the three budget pages, final before/after set shown to the owner.
+  - **Status 2026-10-22**: implemented and verified: terminal writes in one step under reduced motion (A11Y-005 kept); privacy notice is a compact corner card on desktop that steps aside after the first screen or when the footer is visible, and closes the page in the normal flow on phones; phone header logo 2.4 rem. `npm run check` pass; budget pass (perf 1.00, CLS 0); axe 0 violations on 11 page types at both widths; reduced-motion probe clean. The 404, thank-you and checklist pages already use the shared tokens and needed no change; favicon and social image stay (dark, brand-coherent).
+  - **Known tool artefact**: Lighthouse mobile reports `target-size` on links inside `content-visibility: auto` sections (PERF-008) that are off screen at audit time; measured sizes are 37 px / 42 px and an axe sweep after a scroll pass reports none. Not changed: removing `content-visibility` would cost rendering time on every phone.
   - **Needs from owner**: PR approval.
 - [ ] **T06** `[A]` Consolidate: move VP-001 to VP-016 into `docs/10-requirements.md` with their status, update `docs/90-changelog.md` and `docs/40-tasks.md`.
   - **Covers**: documentation flow

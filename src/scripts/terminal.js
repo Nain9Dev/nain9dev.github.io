@@ -105,8 +105,13 @@ function initializeTerminal() {
     const tempDiv = document.createElement('div');
     tempDiv.innerHTML = htmlString;
     
+    // With a reduced-motion preference the text is written in one step instead of letter by letter (spec 045, VP-006).
+    const instant = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     async function processNode(node, parent) {
-      if (node.nodeType === Node.TEXT_NODE) {
+      if (node.nodeType === Node.TEXT_NODE && instant) {
+        parent.appendChild(document.createTextNode(node.textContent));
+      } else if (node.nodeType === Node.TEXT_NODE) {
         const text = node.textContent;
         for (let i = 0; i < text.length; i++) {
           parent.appendChild(document.createTextNode(text.charAt(i)));

@@ -6,40 +6,79 @@
   <button class="privacy-banner-close" aria-label="Cerrar aviso">×</button>
 </div>
 <style>
+  /* Compact notice in the bottom-left corner (spec 045): it informs without covering the page's
+     controls, and it steps aside once the visitor scrolls past the first screen. */
   .privacy-banner {
     position: fixed;
-    bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--color-surface);
-    border: 1px solid var(--color-line);
-    border-radius: 8px;
-    padding: 0.75rem 1.5rem;
-    font-size: 0.9rem;
-    color: var(--color-text-muted);
+    bottom: var(--s4);
+    left: var(--s4);
+    z-index: 999;
     display: flex;
     align-items: center;
-    gap: 1rem;
-    backdrop-filter: blur(8px);
-    z-index: 999;
-    box-shadow: var(--shadow-glow);
-    white-space: nowrap;
+    max-width: min(24rem, calc(100vw - 2 * var(--s4)));
+    padding: var(--s2) var(--s2) var(--s2) var(--s4);
+    gap: var(--s2);
+    border: 1px solid var(--color-line-strong);
+    border-radius: var(--radius);
+    background: var(--color-bg-raised);
+    box-shadow: 6px 6px 0 var(--color-cobalt-deep);
+    color: var(--color-text-muted);
+    font-size: var(--text-xs);
+    line-height: 1.4;
+    transition: opacity var(--dur-base) var(--ease-standard), transform var(--dur-base) var(--ease-standard);
   }
-  .privacy-banner-close {
-    background: none;
-    border: none;
-    font-size: 1.2rem;
-    cursor: pointer;
-    color: var(--color-text-soft);
-    padding: 0 0.25rem;
+
+  .privacy-banner.is-away {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(calc(100% + var(--s4)));
+    visibility: hidden;
+    transition-property: opacity, transform, visibility;
   }
-  @media (max-width: 768px) {
-    .privacy-banner {
-      width: 90%;
-      white-space: normal;
-      text-align: center;
-      bottom: 1rem;
+
+  /* On phones a fixed layer would sit over the content at every scroll position, so the notice
+     closes the page in the normal flow instead, after the footer. */
+  @media (max-width: 42rem) {
+    .privacy-banner,
+    .privacy-banner.is-away {
+      position: static;
+      max-width: none;
+      margin: 0;
+      padding-block: var(--s3) var(--s8);
+      border-width: 1px 0 0;
+      border-radius: 0;
+      box-shadow: none;
+      opacity: 1;
+      pointer-events: auto;
+      transform: none;
+      visibility: visible;
     }
+  }
+
+  .privacy-banner > span {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .privacy-banner-close {
+    position: relative;
+    z-index: 1;
+    display: inline-grid;
+    flex: 0 0 auto;
+    width: 32px;
+    height: 32px;
+    place-items: center;
+    border: 0;
+    border-radius: var(--radius);
+    background: none;
+    color: var(--color-text-soft);
+    cursor: pointer;
+    font-size: 1.1rem;
+  }
+
+  .privacy-banner-close:hover,
+  .privacy-banner-close:focus-visible {
+    color: var(--color-ink);
   }
 </style>
 <script>
@@ -61,5 +100,26 @@
         localStorage.setItem('privacyBannerClosed', 'true');
       } catch {}
     });
+
+    // The notice is informational: once the visitor scrolls past the first screen, or the footer comes into
+    // view, it moves out of the way so it never covers controls further down; it comes back near the top.
+    let footerInView = false;
+    let ticking = false;
+    const update = () => {
+      banner.classList.toggle('is-away', footerInView || window.scrollY > window.innerHeight * 0.6);
+      ticking = false;
+    };
+    window.addEventListener('scroll', () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(update);
+    }, { passive: true });
+    const footer = document.querySelector('.site-footer');
+    if (footer && 'IntersectionObserver' in window) {
+      new IntersectionObserver(([entry]) => {
+        footerInView = entry.isIntersecting;
+        update();
+      }).observe(footer);
+    }
   }
 </script>
