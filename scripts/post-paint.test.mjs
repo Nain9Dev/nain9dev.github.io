@@ -128,11 +128,14 @@ test('PERF-015: decorative effects and the WebGL probe start when the browser is
   const app = await read('src/scripts/app.js');
   const idle = app.match(/runQueueWhenIdle\(\[([\s\S]*?)\n  \]\);/);
   assert.ok(idle, 'missing runQueueWhenIdle block');
-  for (const effect of ['initializeAmbientGlow', 'initializeCardTilt', 'initializeScrollStorytelling', 'initializeParticles']) {
+  // The particle canvas was retired in spec 045 (ADR-0012); the pointer-lit grid replaces it.
+  const effects = ['initializeAmbientGlow', 'initializeCardTilt', 'initializeScrollStorytelling'];
+  for (const effect of effects) {
     assert.match(idle[1], new RegExp(effect), `${effect} must start when idle`);
   }
+  assert.doesNotMatch(app, /particles\.js|initializeParticles/);
   const outside = app.replace(idle[0], '');
-  for (const effect of ['initializeAmbientGlow', 'initializeCardTilt', 'initializeScrollStorytelling', 'initializeParticles']) {
+  for (const effect of effects) {
     assert.doesNotMatch(outside.replace(/^import.*$/gm, ''), new RegExp(`${effect}\\b`), `${effect} also runs eagerly`);
   }
 });
