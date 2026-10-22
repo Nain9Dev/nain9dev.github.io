@@ -42,7 +42,9 @@ test('VS-002: the hero map hides its detail lines in CSS and animates only trans
 
 test('VS-003: the demo gallery shows lazy captures and keeps host and technologies in the markup', async () => {
   const strip = await read(`${HOME}LiveDemos.astro`);
-  assert.match(strip, /<img class="live-demo-thumb" src=\{demo\.thumbnail\} alt="" width="640" height="360" loading="lazy" decoding="async" \/>/);
+  // The 400 px variant is the default; the 640 px capture only where the rendered size asks for it (spec 032 transfer budget).
+  assert.match(strip, /<img class="live-demo-thumb" src=\{demo\.small\} srcset=\{`\$\{demo\.small\} 400w, \$\{demo\.thumbnail\} 640w`\} sizes="\(max-width: 42rem\) 54vw, 12rem" alt="" width="400" height="225" loading="lazy" decoding="async" \/>/);
+  assert.match(strip, /-400\.webp/);
   assert.match(strip, /<span class="live-demo-host" translate="no">/);
   assert.match(strip, /<span class="live-demo-tech" translate="no">/);
   const css = await read('src/styles/main.css');
