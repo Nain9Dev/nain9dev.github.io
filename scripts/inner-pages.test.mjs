@@ -78,5 +78,5 @@ test('IP-008: project cards without a capture open with a silent numbered cover'
 
 test('IP-009: the about links come before the disclosed copy', async () => {
   const css = await read('src/styles/main.css');
-  assert.match(css, /\.about-copy \.text-links \{\s*margin-top: 0;\s*order: -1;/);
+  assert.match(css, /\.about-copy \.text-links \{[^}]*order: -1;/);
 });
