@@ -53,3 +53,13 @@ test('VS-003: the demo gallery shows lazy captures and keeps host and technologi
   assert.match(css, /scroll-snap-type: x mandatory;/);
   assert.match(css, /@media \(prefers-reduced-motion: reduce\) \{\s*\.live-demo:hover \.live-demo-thumb/);
 });
+
+test('VS-010: service lists fold behind the toggle and captured project cards keep their summary in the detail', async () => {
+  const services = await read(`${HOME}ServicesSection.astro`);
+  assert.equal(services.match(/<Quiet><ul class="compact-list">/g)?.length, 3);
+  assert.equal(services.match(/<\/ul><\/Quiet>/g)?.length, 3);
+  const view = await read('src/scripts/project-view.js');
+  assert.match(view, /if \(project\.thumbnail\) detail\.append\(summary\);/);
+  assert.match(view, /if \(!project\.thumbnail\) article\.append\(summary\);/);
+  assert.match(view, /detail\.append\(createElement\("summary", "", message\('projectDetail'\)\)\);/, 'the summary element stays first inside details');
+});

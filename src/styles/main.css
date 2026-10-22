@@ -3260,3 +3260,20 @@ html.low-performance .system-map::after {
     }
   }
 }
+
+/* --- Spec 046 PR 8: cards read visually first --- */
+.service-card .quiet {
+  margin-top: var(--s4);
+}
+
+.service-card .quiet > :not(summary) {
+  margin-top: var(--s3);
+}
+
+.project-detail .project-summary {
+  margin: var(--s3) 0 0;
+}
+
+.project-detail .project-summary + .project-proof {
+  margin-top: var(--s3);
+}

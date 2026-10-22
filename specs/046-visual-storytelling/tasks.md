@@ -12,6 +12,9 @@ One task at a time, test first. Every PR waits for the owner's explicit approval
   - **Done when**: guards pass; same audits.
   - **Status 2026-10-22**: implemented (CSS only, no markup change): stack as layer bands joined by a spine on wide screens; method on a horizontal rail drawn by a CSS scroll timeline. Verified: `npm run check` pass; axe 0 violations; reduced-motion probe clean; captures of the stack, method and contact sections reviewed.
   - **Needs from owner**: PR approval.
+- [ ] **T04** `[M]` PR 8 · Cards first (`visual/08-cards-first`, stacked on 07): service bullet lists behind the quiet toggle; project summaries inside the detail when the card has a capture.
+  - **Covers**: VS-010
+  - **Done when**: guards pass; same audits.
 - [ ] **T03** `[A]` Consolidate VS-001 to VS-009 into `docs/10-requirements.md` and `docs/50-traceability.md`; changelog entry.
 
 ## Session log
