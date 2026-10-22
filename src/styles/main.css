@@ -79,7 +79,6 @@
   --color-link: #6d9bf5;
   --color-green: #80ff00;
   --color-red: #ff001f;
-  --color-amber: #f9e2af; /* terminal output lines only */
 
   /* Type: fluid modular scale, display in Urbanist, body in Inter */
   --font-display: "Urbanist", "Urbanist Fallback", ui-sans-serif, system-ui, sans-serif;
@@ -118,8 +117,8 @@
   /* Shape and elevation */
   --radius: 4px;
   --radius-pill: 999px;
-  --shadow-raised: 8px 8px 0 var(--color-cobalt-deep);
-  --shadow-panel: 12px 12px 0 var(--color-cobalt-deep);
+  --shadow-raised: 8px 8px 0 var(--color-shadow);
+  --shadow-panel: 12px 12px 0 var(--color-shadow);
   --shadow-button: 6px 6px 0 var(--color-green);
 
   /* Motion */
@@ -130,6 +129,21 @@
   --ease-standard: cubic-bezier(0.2, 0, 0, 1);
   --ease-out-quart: cubic-bezier(0.22, 1, 0.36, 1);
   --glow-opacity: 0.08;
+
+  /* Solid shadows take this colour: deep cobalt on the dark surface, brand black on paper (spec 048). */
+  --color-shadow: var(--color-cobalt-deep);
+
+  /* The terminal keeps its dark skin in both themes (spec 048). */
+  --terminal-bg: #111c36;
+  --terminal-raised: #0d1730;
+  --terminal-ink: #edf1f6;
+  --terminal-muted: #a9b8cf;
+  --terminal-green: #80ff00;
+  --terminal-link: #6d9bf5;
+  --terminal-red: #ff001f;
+  --terminal-amber: #f9e2af;
+  --terminal-line: color-mix(in srgb, var(--terminal-ink) 10%, transparent);
+  --terminal-line-strong: color-mix(in srgb, var(--terminal-ink) 18%, transparent);
 
   /* Aliases for selectors not yet migrated to the names above; PR 3 of spec 045 removes them. */
   --color-background: var(--color-bg);
@@ -515,7 +529,7 @@ main[tabindex="-1"]:focus {
 .button-outline:hover,
 .button-outline:focus-visible {
   border-color: var(--color-green);
-  box-shadow: 6px 6px 0 var(--color-cobalt-deep);
+  box-shadow: 6px 6px 0 var(--color-shadow);
 }
 
 .hero {
@@ -3581,4 +3595,140 @@ html.low-performance .system-map::after {
 
 .about-copy .quiet {
   margin-bottom: 0;
+}
+
+/* --- Spec 048: themes --- */
+
+/* Paper palette (brandbook v1.5) when the visitor chose light, or when the system prefers light and no choice was made. */
+:root[data-theme="light"] {
+  color-scheme: light;
+  --color-bg: #edf1f6;
+  --color-bg-raised: #f7f9fc;
+  --color-band: #dee6f0;
+  --color-surface: #ffffff;
+  --color-ink: #002b66;
+  --color-ink-soft: #1f3b6e;
+  --color-ink-muted: #3c5f94;
+  --color-cobalt: #0047ab;
+  --color-cobalt-bright: #1f63d1;
+  --color-cobalt-deep: #003a8c;
+  --color-link: #0047ab;
+  --color-green: #2e6b00;
+  --color-red: #c4001a;
+  --color-shadow: #1d1d1b;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+  color-scheme: light;
+  --color-bg: #edf1f6;
+  --color-bg-raised: #f7f9fc;
+  --color-band: #dee6f0;
+  --color-surface: #ffffff;
+  --color-ink: #002b66;
+  --color-ink-soft: #1f3b6e;
+  --color-ink-muted: #3c5f94;
+  --color-cobalt: #0047ab;
+  --color-cobalt-bright: #1f63d1;
+  --color-cobalt-deep: #003a8c;
+  --color-link: #0047ab;
+  --color-green: #2e6b00;
+  --color-red: #c4001a;
+  --color-shadow: #1d1d1b;
+  }
+}
+
+/* Marks drawn for the dark surface read as they are on paper. */
+:root[data-theme="light"] .tech-icon,
+:root[data-theme="light"] .tech-chip-icon[src*="threejs"] {
+  filter: none;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .tech-icon,
+  :root:not([data-theme="dark"]) .tech-chip-icon[src*="threejs"] {
+    filter: none;
+  }
+}
+
+/* Theme toggle in the header: moon on the dark surface, sun on paper; the pressed state means light.
+   Shown only once the head script ran (html.motion-ready): without JavaScript it could not switch anything. */
+.theme-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  place-items: center;
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--color-ink);
+  cursor: pointer;
+  transition: border-color var(--dur-fast) var(--ease-standard), color var(--dur-fast) var(--ease-standard);
+}
+
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  border-color: var(--color-green);
+}
+
+.theme-toggle .icon-sun {
+  display: none;
+}
+
+.theme-toggle[aria-pressed="true"] .icon-sun {
+  display: block;
+}
+
+.theme-toggle[aria-pressed="true"] .icon-moon {
+  display: none;
+}
+
+.motion-ready .theme-toggle {
+  display: inline-grid;
+}
+
+/* Phones: the header row has no room for a fourth control beside the logo, the language switcher and the menu
+   button, so the toggle joins the folded menu as its last row (the system preference covers the closed state). */
+@media (max-width: 42rem) {
+  .site-header .header-layout {
+    grid-template-areas:
+      "brand action toggle"
+      "navigation navigation navigation"
+      "theme theme theme";
+  }
+
+  .site-header .header-actions {
+    display: contents;
+  }
+
+  .site-header .language-switcher {
+    grid-area: action;
+  }
+
+  .site-header .theme-toggle {
+    grid-area: theme;
+    justify-self: start;
+    margin-block: var(--s2) var(--s3);
+  }
+
+  .motion-ready .site-header:not([data-menu="open"]) .theme-toggle {
+    display: none;
+  }
+}
+
+@media (max-width: 42rem) and (prefers-reduced-motion: no-preference) {
+  .site-header[data-menu="open"] .theme-toggle {
+    animation: menu-in var(--dur-base) var(--ease-out-quart);
+  }
 }

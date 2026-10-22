@@ -392,3 +392,13 @@ Spec 005 is committed as `c78c854`; production confirmation after deployment is 
 | IP-007 | When a technology page renders, the heading shall lead with the technology's stack mark when the stack lists it (by name or by family), eyebrow and title shall share one column, and the intro line shall sit behind the quiet toggle. | specs/047-inner-pages | Implemented |
 | IP-008 | When a project card has no capture, it shall open with a numbered cover band drawn by CSS from the card's index, silent for assistive technology; the small index stays in the markup, visually hidden. | specs/047-inner-pages | Implemented |
 | IP-009 | When the About section renders, the profile links shall come before the disclosed copy. | specs/047-inner-pages | Implemented |
+
+## Themes (spec 048)
+
+| ID | Requirement | Source | Status |
+| :--- | :--- | :--- | :--- |
+| TH-001 | When the document carries `data-theme="light"`, or the system prefers light and no choice was made, the tokens shall switch to the brandbook paper values (`#EDF1F6` paper, `#002B66` ink, `#0047AB` cobalt, green ink `#2E6B00`, red ink `#C4001A`, brand black for solid shadows), every text token reaching 4.5:1 on paper and on white. | specs/048-themes | Implemented |
+| TH-002 | While no choice and no light preference exist, the dark palette shall apply; the terminal shall keep its dark skin in both themes. | specs/048-themes | Implemented |
+| TH-003 | When the visitor presses the header toggle, the theme shall switch, the choice shall persist in `localStorage` and apply before first paint on the next load; the toggle is a `button` with an accessible name and `aria-pressed` meaning light, shown only once the head script ran, and on phones inside the folded menu. | specs/048-themes | Implemented |
+| TH-004 | One new accessible name ("Modo claro" / "Light mode"); no other text, link, route or metadata changes. | specs/048-themes | Implemented |
+| TH-005 | axe reports no violation in either theme on the key pages at 1440 and 390 px; the Lighthouse budget holds. | specs/048-themes | Implemented |

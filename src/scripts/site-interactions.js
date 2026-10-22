@@ -189,6 +189,36 @@ export function initializeMobileMenu({ header, button, navigation }) {
   };
 }
 
+// Theme toggle (spec 048): an explicit choice is stored; without one the system preference decides.
+export function initializeThemeToggle({ button }) {
+  if (!button) {
+    return () => {};
+  }
+
+  const root = document.documentElement;
+  const prefersLight = window.matchMedia("(prefers-color-scheme: light)");
+  const isLight = () => (root.dataset.theme ? root.dataset.theme === "light" : prefersLight.matches);
+  const render = () => button.setAttribute("aria-pressed", String(isLight()));
+
+  const onClick = () => {
+    const next = isLight() ? "dark" : "light";
+    root.dataset.theme = next;
+    try {
+      localStorage.setItem("theme", next);
+    } catch {}
+    render();
+  };
+
+  render();
+  button.addEventListener("click", onClick);
+  prefersLight.addEventListener("change", render);
+
+  return () => {
+    button.removeEventListener("click", onClick);
+    prefersLight.removeEventListener("change", render);
+  };
+}
+
 export function initializeEmailCopy({ button, status }) {
   if (!button || !status) {
     return () => {};
