@@ -285,9 +285,17 @@ h3 {
   margin-inline: auto;
 }
 
+/* Section rhythm (VP-003): main sections on the large tier, supporting sections on the medium tier. */
 .section {
   position: relative;
-  padding-block: clamp(7rem, 12vw, 11rem);
+  padding-block: var(--section-lg);
+}
+
+#impact-metrics,
+#open-ecosystem,
+#partnership,
+#terminal {
+  padding-block: var(--section-md);
 }
 
 /* Let the browser skip layout and paint of home sections until they approach the viewport (PERF-008). */
@@ -909,7 +917,7 @@ main[tabindex="-1"]:focus {
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(17rem, 0.75fr);
   align-items: end;
-  margin-bottom: clamp(2.8rem, 6vw, 5rem);
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
   gap: 3rem;
 }
 
@@ -1498,7 +1506,7 @@ main[tabindex="-1"]:focus {
 }
 
 .contact-section {
-  padding-block: clamp(4.5rem, 8vw, 7.5rem);
+  padding-block: var(--section-md);
 }
 
 .contact-panel {

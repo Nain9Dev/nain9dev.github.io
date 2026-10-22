@@ -75,3 +75,11 @@ test('VP-007: the focus ring is the green token and the selection is cobalt', as
   assert.match(main, /:focus-visible \{\s*outline: 3px solid var\(--color-green\)/);
   assert.match(main, /::selection \{\s*background: var\(--color-cobalt\)/);
 });
+
+test('VP-003: sections use the spacing tiers, supporting sections on the medium one', async () => {
+  const main = await read('src/styles/main.css');
+  assert.match(main, /\n\.section \{[^}]*padding-block: var\(--section-lg\);/);
+  assert.match(main, /#impact-metrics,\s*#open-ecosystem,\s*#partnership,\s*#terminal \{\s*padding-block: var\(--section-md\);/);
+  assert.match(main, /\.contact-section \{\s*padding-block: var\(--section-md\);/);
+  assert.doesNotMatch(main, /padding-block: clamp\(7rem, 12vw, 11rem\)/);
+});

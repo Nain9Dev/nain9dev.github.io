@@ -6,7 +6,7 @@ import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import sharp from 'sharp';
 
-const IMAGE = '/assets/images/og-cover-v3.jpg';
+const IMAGE = '/assets/images/og-cover-v4.jpg';
 
 async function walk(dir) {
   const entries = await readdir(dir, { withFileTypes: true });
