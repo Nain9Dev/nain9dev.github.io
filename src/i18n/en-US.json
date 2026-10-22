@@ -8063,5 +8063,10 @@
     "source": "Producto completo en Python y .NET, con IA bajo revisión humana. Conformidad determinista: su primer dominio son los modelos 3D.",
     "target": "Complete product in Python and .NET, with AI under human review. Deterministic conformance: its first domain is 3D models.",
     "status": "reviewed"
+  },
+  "23fbd830a5c5c09ca20ac2e9038b851338b104405266e8516e49c8524340ce66": {
+    "source": "Menú",
+    "target": "Menu",
+    "status": "reviewed"
   }
 }

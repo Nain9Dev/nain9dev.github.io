@@ -22,10 +22,11 @@ One task at a time, test first. Stop after each task. Update the `Session state`
 - [ ] **T01** `[M]` PR 1 · Design tokens (`visual/01-tokens`): tokens block, literals removed, font swap, fallback metrics, guard tests updated.
   - **Covers**: VP-001, VP-002, VP-011, VP-015
   - **Done when**: `scripts/visual-tokens.test.mjs` and `npm run check` pass; home gzip ≤ 25 KiB; content diff empty; Lighthouse and captures in the PR.
-  - **Needs from owner**: the Urbanist font file (OQ-015) and the PR approval.
-- [ ] **T02** `[M]` PR 2 · Hero and navigation (`visual/02-hero-nav`): compose sequence, header shrink, mobile disclosure menu, scene fade-in, particles retired.
+  - **Status 2026-10-22**: PR #13 open. Verified: `npm run check`, budget (perf 1.00, CLS 0), desktop perf 1.00, axe 0 violations on 11 page types at 1440 and 390 px. Merged `origin/main` (#11, #12) into the branch and tokenized the colours it brought. Waiting for owner approval.
+- [ ] **T02** `[M]` PR 2 · Hero and navigation (`visual/02-hero-nav`): compose sequence, phone disclosure menu, scroll progress, pointer-lit grid, scene fade-in, particles retired.
   - **Covers**: VP-005, VP-009, VP-006 (hero)
-  - **Done when**: `scripts/hero-compose.test.mjs` passes; keyboard pass captured; reduced-motion probe clean on `/`.
+  - **Done when**: `scripts/hero-nav.test.mjs` passes; keyboard pass captured; reduced-motion probe clean on `/`.
+  - **Status 2026-10-22**: implemented and verified: `npm run check` pass; budget pass (perf 0.98–1.00, CLS 0 after moving the menu fold to first paint via `html.motion-ready`); axe 0 violations; reduced-motion probe clean on 5 pages; menu opens, closes with Escape and returns focus; offer tiles compact on phones (detail line clipped, kept in HTML). Dead `comparison`/`mock-*` CSS removed (home 24.4 KiB gzip). Header shrink dropped: changing the sticky header height shifts the page (CLS). Remaining Lighthouse a11y items are pre-existing and scheduled: footer `h4` (PR 4) and small card links (PR 3).
   - **Needs from owner**: PR approval.
 - [ ] **T03** `[M]` PR 3 · Cards and skills (`visual/03-cards`): card system, stagger without inline styles, tilt and dead code retired, focus states.
   - **Covers**: VP-004, VP-007, VP-008

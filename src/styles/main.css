@@ -175,24 +175,19 @@ body::before {
   pointer-events: none;
 }
 
-.ambient-particles {
-  position: fixed;
-  inset: 0;
-  z-index: -3;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
+/* Pointer-lit grid: a brighter copy of the grid shows only around the pointer (ambient-glow.js writes
+   --mouse-x/--mouse-y). Without a pointer position the mask sits off screen, so nothing is drawn. */
+@media (prefers-reduced-motion: no-preference) and (pointer: fine) {
   body::after {
-    content: "";
     position: fixed;
     inset: 0;
     z-index: -1;
-    background: radial-gradient(
-      circle 600px at var(--mouse-x, 50%) var(--mouse-y, 50%),
-      color-mix(in srgb, var(--color-link) 8%, transparent),
-      transparent 80%
-    );
+    background-image:
+      linear-gradient(color-mix(in srgb, var(--color-link) 22%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in srgb, var(--color-link) 22%, transparent) 1px, transparent 1px);
+    background-size: 4rem 4rem;
+    content: "";
+    mask-image: radial-gradient(circle 420px at var(--mouse-x, -100vw) var(--mouse-y, -100vh), black, transparent 70%);
     pointer-events: none;
   }
 }
@@ -407,25 +402,29 @@ main[tabindex="-1"]:focus {
   transition: color 150ms ease;
 }
 
+/* Signature sweep: a green line draws from the left on hover and keyboard focus, and stays for the current section. */
 .primary-navigation a::after {
   position: absolute;
   right: 0;
   bottom: -0.55rem;
   left: 0;
   height: 2px;
-  border-radius: 999px;
-  background: var(--color-secondary);
+  background: var(--color-green);
   content: "";
   transform: scaleX(0);
-  transition: transform 160ms ease;
+  transform-origin: left;
+  transition: transform var(--dur-base) var(--ease-out-quart);
 }
 
 .primary-navigation a:hover,
+.primary-navigation a:focus-visible,
 .primary-navigation a[aria-current="location"],
 .site-footer a:hover {
-  color: var(--color-text);
+  color: var(--color-ink);
 }
 
+.primary-navigation a:hover::after,
+.primary-navigation a:focus-visible::after,
 .primary-navigation a[aria-current="location"]::after {
   transform: scaleX(1);
 }
@@ -509,6 +508,12 @@ main[tabindex="-1"]:focus {
   z-index: -1;
   pointer-events: none;
   opacity: 0.8;
+  transition: opacity 600ms linear;
+}
+
+/* The scene fades in once its first frame is drawn (hero-scene.js removes the class), so it never pops. */
+.hero-3d-canvas.canvas-placeholder {
+  opacity: 0;
 }
 
 .hero::before {
@@ -2351,17 +2356,26 @@ main[tabindex="-1"]:focus {
   gap: 0.15rem 0;
   grid-template-columns: 1fr;
   border: 1px solid var(--color-line-strong);
-  border-radius: var(--radius-small);
+  border-radius: var(--radius);
   background: color-mix(in srgb, var(--color-bg-raised) 72%, transparent);
   color: inherit;
   text-decoration: none;
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  transition:
+    transform var(--dur-base) var(--ease-standard),
+    box-shadow var(--dur-base) var(--ease-standard),
+    border-color var(--dur-fast) var(--ease-standard);
 }
 
 .offer-tile:hover,
 .offer-tile:focus-visible {
-  border-color: var(--color-primary);
-  transform: translateY(-2px);
+  border-color: var(--color-green);
+  box-shadow: var(--shadow-raised);
+  transform: translate(-2px, -2px);
+}
+
+.offer-tile:hover .offer-icon,
+.offer-tile:focus-visible .offer-icon {
+  stroke: var(--color-green);
 }
 
 .offer-icon {
@@ -2390,9 +2404,34 @@ main[tabindex="-1"]:focus {
   font-size: 0.82rem;
 }
 
+/* On phones the three offers read as icons with a title; the detail line stays in the HTML for search
+   and screen readers but is clipped from view, so the calls to action reach the first screen. */
 @media (max-width: 48rem) {
   .offer-row {
-    grid-template-columns: 1fr;
+    gap: var(--s2);
+  }
+
+  .offer-tile {
+    justify-items: center;
+    padding: var(--s3) var(--s2);
+    text-align: center;
+  }
+
+  .offer-icon {
+    margin-bottom: var(--s1);
+  }
+
+  .offer-tile strong {
+    font-size: var(--text-sm);
+  }
+
+  .offer-tile span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
   }
 }
 
@@ -2558,117 +2597,6 @@ main[tabindex="-1"]:focus {
   line-height: 1.6;
 }
 
-.comparison-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  align-items: center;
-  margin-top: 4rem;
-}
-@media (min-width: 768px) {
-  .comparison-wrapper {
-    flex-direction: row;
-    justify-content: center;
-  }
-}
-.comparison-box {
-  flex: 1;
-  max-width: 400px;
-  width: 100%;
-}
-.comparison-divider {
-  font-size: 2rem;
-  color: var(--color-line-strong);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-@media (max-width: 767px) {
-  .comparison-divider {
-    transform: rotate(90deg);
-  }
-}
-.mock-ui {
-  background: var(--color-surface);
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-medium);
-  height: 250px;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  box-shadow: var(--shadow-card);
-}
-.blur-ui {
-  filter: blur(3px) grayscale(80%);
-  opacity: 0.7;
-}
-.sharp-ui {
-  border-color: var(--color-primary);
-  background: linear-gradient(180deg, var(--color-surface-strong) 0%, var(--color-surface) 100%);
-}
-.mock-header {
-  height: 20px;
-  background: var(--color-line-strong);
-  border-radius: 4px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 0.5rem;
-}
-.sharp-ui .mock-header {
-  background: transparent;
-}
-.mock-logo {
-  width: 40px;
-  height: 12px;
-  background: var(--color-primary);
-  border-radius: 2px;
-}
-.mock-nav {
-  width: 80px;
-  height: 8px;
-  background: var(--color-line-strong);
-  border-radius: 2px;
-}
-.mock-content {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  flex: 1;
-  justify-content: center;
-}
-.mock-line {
-  height: 12px;
-  background: var(--color-line-strong);
-  border-radius: 4px;
-  width: 90%;
-}
-.mock-short {
-  width: 60%;
-}
-.mock-primary {
-  background: var(--color-primary-strong);
-}
-.mock-btn {
-  height: 24px;
-  background: var(--color-primary);
-  border-radius: 12px;
-  width: 100px;
-  margin-top: 1rem;
-}
-.comparison-label {
-  text-align: center;
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
-  font-weight: 500;
-}
-.after-box .comparison-label {
-  color: var(--color-primary-strong);
-}
-
 /* Adaptive low-performance overrides: eliminate CPU bottlenecks on devices without hardware acceleration */
 html.low-performance {
   scroll-behavior: auto !important;
@@ -2721,9 +2649,6 @@ html.low-performance .hero-3d-canvas {
   display: none !important;
 }
 
-html.low-performance .ambient-particles {
-  display: none !important;
-}
 
 html.low-performance body::after {
   display: none !important;
@@ -2753,3 +2678,136 @@ html.low-performance [data-parallax="true"] {
   transform: none !important;
 }
 
+
+/* --- Spec 045 PR 2: hero entrance, scroll progress and phone menu --- */
+
+/* Hero composes in reading order: each block is uncovered from the top and settles 0.6 rem.
+   "backwards" only holds the first frame, so once the animation ends the page is plain HTML again. */
+@keyframes compose-in {
+  from {
+    clip-path: inset(0 0 100% 0);
+    transform: translateY(0.6rem);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.low-performance) .hero-copy > *,
+  html:not(.low-performance) .hero-panel {
+    animation: compose-in var(--dur-slow) var(--ease-out-quart) backwards;
+  }
+
+  html:not(.low-performance) .hero-copy > :nth-child(2) { animation-delay: calc(var(--stagger) * 1.5); }
+  html:not(.low-performance) .hero-copy > :nth-child(3) { animation-delay: calc(var(--stagger) * 3); }
+  html:not(.low-performance) .hero-copy > :nth-child(4) { animation-delay: calc(var(--stagger) * 4.5); }
+  html:not(.low-performance) .hero-copy > :nth-child(n + 5) { animation-delay: calc(var(--stagger) * 6); }
+  html:not(.low-performance) .hero-panel { animation-delay: calc(var(--stagger) * 5); }
+}
+
+/* Reading progress: a green line under the header driven by the page scroll, no JavaScript. */
+@keyframes header-progress {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .site-header::after {
+      position: absolute;
+      right: 0;
+      bottom: -1px;
+      left: 0;
+      height: 2px;
+      background: var(--color-green);
+      content: "";
+      transform: scaleX(0);
+      transform-origin: left;
+      animation: header-progress linear both;
+      animation-timeline: scroll(root block);
+    }
+  }
+}
+
+/* Phone menu (VP-009): one toggle replaces the clipped scrolling row of links. */
+.nav-toggle {
+  display: none;
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-0.5rem);
+  }
+}
+
+@media (max-width: 42rem) {
+  .site-header .header-layout {
+    grid-template-areas:
+      "brand action toggle"
+      "navigation navigation navigation";
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    gap: 0 var(--s2);
+    padding-block: var(--s2);
+  }
+
+  .motion-ready .nav-toggle {
+    display: inline-grid;
+    grid-area: toggle;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    place-items: center;
+    border: 1px solid var(--color-line-strong);
+    border-radius: var(--radius);
+    background: transparent;
+    color: var(--color-ink);
+    cursor: pointer;
+  }
+
+  .nav-toggle svg {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-width: 2;
+    transition: transform var(--dur-base) var(--ease-standard);
+  }
+
+  .nav-toggle[aria-expanded="true"] {
+    border-color: var(--color-green);
+  }
+
+  .nav-toggle[aria-expanded="true"] svg {
+    transform: rotate(90deg);
+  }
+
+  .motion-ready .site-header:not([data-menu="open"]) .primary-navigation {
+    display: none;
+  }
+
+  .site-header[data-menu="open"] .primary-navigation {
+    display: grid;
+    justify-content: stretch;
+    padding-block: var(--s2) var(--s3);
+    gap: 0;
+    overflow: visible;
+    white-space: normal;
+  }
+
+  .site-header[data-menu="open"] .primary-navigation a {
+    padding-block: var(--s3);
+    border-top: 1px solid var(--color-line);
+    font-size: var(--text-base);
+  }
+
+  .site-header[data-menu="open"] .primary-navigation a::after {
+    bottom: 0;
+  }
+}
+
+@media (max-width: 42rem) and (prefers-reduced-motion: no-preference) {
+  .site-header[data-menu="open"] .primary-navigation {
+    animation: menu-in var(--dur-base) var(--ease-out-quart);
+  }
+}
