@@ -3112,3 +3112,151 @@ html.low-performance .system-map::after {
     transform: none;
   }
 }
+
+/* --- Spec 046 PR 7: stack map and method timeline --- */
+
+/* Stack map (VS-004): each category is a layer band; on wide screens a spine joins the layers. */
+.tech-stack-container {
+  position: relative;
+  gap: 0;
+  margin-top: var(--s6);
+}
+
+.tech-category-group {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s3);
+  padding-block: var(--s4);
+  border-top: 1px solid var(--color-line);
+}
+
+.tech-category-group:last-child {
+  border-bottom: 1px solid var(--color-line);
+}
+
+.tech-category-title {
+  padding: 0;
+  border: 0;
+  color: var(--color-ink-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+.tech-category {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+}
+
+.tech-badge {
+  flex: 0 0 auto;
+  min-width: 5.5rem;
+  padding: var(--s2) var(--s3);
+  gap: var(--s2);
+}
+
+.tech-icon {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.tech-name {
+  font-size: var(--text-xs);
+}
+
+@media (min-width: 60rem) {
+  .tech-category-group {
+    grid-template-columns: 11rem 1fr;
+    align-items: start;
+  }
+
+  .tech-category-title {
+    padding-top: var(--s2);
+  }
+
+  .tech-stack-container::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 10rem;
+    width: 1px;
+    background: linear-gradient(var(--color-cobalt-bright), var(--color-green));
+    content: "";
+  }
+
+  .tech-category-title::after {
+    position: absolute;
+    top: calc(var(--s4) + var(--s2) + 0.3em);
+    left: calc(10rem - 0.25rem);
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: var(--color-green);
+    box-shadow: 0 0 0 0.25rem color-mix(in srgb, var(--color-green) 25%, transparent);
+    content: "";
+  }
+}
+
+/* Method timeline (VS-005): four steps on a horizontal rail that draws itself as it scrolls into view. */
+@keyframes rail-draw {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+@media (min-width: 60rem) {
+  .method-grid {
+    grid-template-columns: 1fr;
+    gap: var(--s8);
+  }
+
+  .step-list {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--s4);
+  }
+
+  .step-list li {
+    grid-template-columns: 1fr;
+    padding: 0;
+    gap: var(--s4);
+  }
+
+  .step-list > li::before {
+    top: 1.5rem;
+    right: calc(-1 * var(--s4));
+    bottom: auto;
+    left: 3rem;
+    width: auto;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-cobalt-bright), color-mix(in srgb, var(--color-cobalt-bright) 12%, transparent));
+    transform-origin: left;
+  }
+
+  .step-list h3 {
+    font-size: var(--text-lg);
+  }
+
+  .step-list p {
+    font-size: var(--text-sm);
+  }
+
+  .method-cta {
+    max-width: 44rem;
+    margin-inline: auto;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (min-width: 60rem) and (prefers-reduced-motion: no-preference) {
+    .step-list > li::before {
+      animation: rail-draw linear both;
+      animation-timeline: view();
+      animation-range: entry 10% entry 60%;
+    }
+  }
+}
