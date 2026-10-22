@@ -9,4 +9,4 @@
 ## Session log
 
 - 2026-10-22 · Spec written; implementation started.
-- 2026-10-22 · Implemented and verified (guards, axe in both schemes, captures, Lighthouse); docs consolidated; PR open, owner review pending.
+- 2026-10-22 · Implemented and verified (guards, axe in both schemes, captures, Lighthouse, budget); docs consolidated; PR #27 open on `visual/11-rhythm` (which #26 carries to `main`), owner review pending.
