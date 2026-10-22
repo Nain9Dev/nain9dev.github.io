@@ -4,6 +4,9 @@
   - **Covers**: IP-001 to IP-006
   - **Done when**: `scripts/inner-pages.test.mjs` and `npm run check` pass; axe and reduced-motion probe clean; Lighthouse recorded; captures shown.
   - **Needs from owner**: PR approval (after the spec 045 and 046 stack).
+- [ ] **T03** `[M]` Follow-up PR (`visual/10-finish`, from `main`): technology page header and mark, covers for project cards without a capture, about order.
+  - **Covers**: IP-007, IP-008, IP-009
+  - **Done when**: guards pass; same audits.
 - [ ] **T02** `[A]` Consolidate IP-001 to IP-006 into `docs/10-requirements.md` and `docs/50-traceability.md`.
 
 ## Session log

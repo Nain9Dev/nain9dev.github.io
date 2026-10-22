@@ -3508,3 +3508,69 @@ html.low-performance .system-map::after {
   color: var(--color-ink-muted);
   font-weight: 600;
 }
+
+/* --- Spec 047 follow-up: covers, technology header, about order --- */
+
+/* Project cards without a capture open with a numbered cover band, silent for assistive technology. */
+.project-card-plain::before {
+  display: grid;
+  height: 6.5rem;
+  margin: calc(-1 * clamp(1.5rem, 4vw, 2.3rem)) calc(-1 * clamp(1.5rem, 4vw, 2.3rem)) var(--s4);
+  padding: var(--s4) clamp(1.5rem, 4vw, 2.3rem);
+  align-items: end;
+  border-bottom: 1px solid var(--color-line);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--color-cobalt) 40%, var(--color-bg-raised)), var(--color-bg-raised));
+  color: color-mix(in srgb, var(--color-ink) 22%, transparent);
+  content: attr(data-index) / "";
+  font-family: var(--font-display);
+  font-size: 2.75rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.project-card-plain:nth-child(3n + 2)::before {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--color-green) 14%, var(--color-bg-raised)), var(--color-bg-raised));
+}
+
+.project-card-plain:nth-child(3n)::before {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--color-link) 28%, var(--color-bg-raised)), var(--color-bg-raised));
+}
+
+.project-card-plain .project-index {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Technology page: the stack mark heads the title. */
+.tech-hero-icon {
+  width: 4rem;
+  height: 4rem;
+  margin-bottom: var(--s4);
+  padding: 0.75rem;
+  filter: none;
+  border: 1px solid color-mix(in srgb, var(--color-cobalt-bright) 35%, transparent);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--color-cobalt-bright) 12%, transparent);
+}
+
+/* About: the profile links come first, the long copy stays behind the toggle below them. */
+.about-copy {
+  display: grid;
+  align-content: start;
+  gap: var(--s4);
+}
+
+.about-copy .text-links {
+  margin-top: 0;
+  align-items: center;
+  order: -1;
+}
+
+.about-copy .quiet {
+  margin-bottom: 0;
+}

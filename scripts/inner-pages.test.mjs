@@ -58,3 +58,25 @@ test('IP-005: the article page has no inline style and keeps its share row', asy
   assert.match(css, /\.share-buttons \{[^}]*border-top: 1px solid var\(--color-line\);/);
   assert.match(css, /\.article-byline \{/);
 });
+
+test('IP-007: the technology page heads with the stack mark and discloses its intro', async () => {
+  const page = await read('src/pages/tecnologia/[tech].astro');
+  assert.match(page, /import Quiet from '\.\.\/\.\.\/components\/home\/Quiet\.astro'/);
+  assert.match(page, /<div class="section-heading tech-head" data-reveal>\s*<div>\s*\{icon && <img class="tech-icon tech-hero-icon" src=\{icon\} alt="" width="64" height="64" decoding="async" \/>\}\s*<p class="eyebrow">/);
+  assert.match(page, /<Quiet><p>Servicios relacionados con \{tech\}\.<\/p><\/Quiet>/);
+  assert.doesNotMatch(page, /style=/);
+});
+
+test('IP-008: project cards without a capture open with a silent numbered cover', async () => {
+  const view = await read('src/scripts/project-view.js');
+  assert.match(view, /article\.dataset\.index = String\(index \+ 1\)\.padStart\(2, "0"\);/);
+  assert.match(view, /if \(!project\.thumbnail\) article\.classList\.add\("project-card-plain"\);/);
+  const css = await read('src/styles/main.css');
+  assert.match(css, /\.project-card-plain::before \{[^}]*content: attr\(data-index\) \/ "";/);
+  assert.match(css, /\.project-card-plain \.project-index \{[^}]*clip-path: inset\(50%\);/, 'the small index stays in the markup, hidden');
+});
+
+test('IP-009: the about links come before the disclosed copy', async () => {
+  const css = await read('src/styles/main.css');
+  assert.match(css, /\.about-copy \.text-links \{[^}]*order: -1;/);
+});

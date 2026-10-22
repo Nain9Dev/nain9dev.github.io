@@ -32,6 +32,9 @@ function createProjectCard(project, index) {
   article.dataset.categories = project.categories.join(" ");
   // The entrance stagger comes from CSS :nth-child steps (spec 045), not from inline delays.
   article.dataset.reveal = "";
+  // Cards without a capture open with a numbered cover band drawn by CSS from this value (spec 047, IP-008).
+  article.dataset.index = String(index + 1).padStart(2, "0");
+  if (!project.thumbnail) article.classList.add("project-card-plain");
 
   const header = createElement("div", "project-card-header");
   const hasLiveDemo = project.links.some((link) => /^https:\/\/[a-z0-9-]+\.naindev\.com(\/|$)/.test(link.url));

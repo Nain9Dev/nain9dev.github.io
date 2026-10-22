@@ -2,6 +2,8 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getTechnologyRouteParam } from '../../utils/technologyRoutes';
+import Quiet from '../../components/home/Quiet.astro';
+import techStackData from '../../../public/assets/data/tech-stack.json';
 
 export async function getStaticPaths() {
   const servicios = await getCollection('servicios', ({ data }) => !data.draft);
@@ -22,16 +24,23 @@ export async function getStaticPaths() {
 const { tech } = Astro.props;
 const servicios = await getCollection('servicios', ({ data }) => data.techStack?.includes(tech) && !data.draft);
 
+// The stack icon for this technology, by exact name or by the family it belongs to (".NET 8" shows the .NET mark).
+const stackItems = techStackData.categories.flatMap((category) => category.items);
+const icon = (stackItems.find((item) => item.name === tech) ?? stackItems.find((item) => tech.startsWith(item.name)))?.icon ?? null;
+
 const title = `Proyectos y Servicios con ${tech} | NainDev`;
 const description = `Descubre cómo utilizamos ${tech} en arquitecturas de backend escalables y sistemas críticos 3D.`;
 ---
 
 <BaseLayout title={title} description={description} robots="noindex, follow">
   <main class="shell section" id="main-content" tabindex="-1">
-    <div class="section-heading" data-reveal>
-      <p class="eyebrow">Tecnología Especializada</p>
-      <h1>Experiencia con <span class="title-accent">{tech}</span></h1>
-      <p>Servicios relacionados con {tech}.</p>
+    <div class="section-heading tech-head" data-reveal>
+      <div>
+        {icon && <img class="tech-icon tech-hero-icon" src={icon} alt="" width="64" height="64" decoding="async" />}
+        <p class="eyebrow">Tecnología Especializada</p>
+        <h1>Experiencia con <span class="title-accent">{tech}</span></h1>
+      </div>
+      <Quiet><p>Servicios relacionados con {tech}.</p></Quiet>
     </div>
 
     {servicios.length > 0 && (
