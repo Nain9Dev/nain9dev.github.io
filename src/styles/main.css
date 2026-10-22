@@ -31,9 +31,26 @@
 @media (prefers-reduced-motion: no-preference) {
   @view-transition { navigation: auto; }
 
-  ::view-transition-old(root),
+  /* The old page fades out quickly; the new one rises 12 px into place (spec 045). The header stays put. */
+  ::view-transition-old(root) {
+    animation: 120ms var(--ease-standard) both page-out;
+  }
+
   ::view-transition-new(root) {
-    animation-duration: 180ms;
+    animation: 220ms var(--ease-out-quart) both page-in;
+  }
+}
+
+@keyframes page-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
   }
 }
 
@@ -1523,21 +1540,29 @@ main[tabindex="-1"]:focus {
   text-align: right;
 }
 
+/* Footer as a deep-blue band that closes every page (spec 045). */
 .site-footer {
-  padding-block: 1.9rem;
-  border-top: 1px solid var(--color-line);
+  padding-block: var(--s12) var(--s8);
+  border-top: 1px solid var(--color-line-strong);
+  background:
+    linear-gradient(180deg, var(--color-band), var(--color-bg));
 }
 
 .footer-specialties {
-  margin-bottom: 2rem;
-  padding-bottom: 2rem;
+  margin-bottom: var(--s8);
+  padding-bottom: var(--s8);
   border-bottom: 1px solid var(--color-line);
 }
 
-.footer-specialties h4 {
-  margin-bottom: 1rem;
-  color: var(--color-text);
-  font-size: 1rem;
+.footer-title {
+  max-width: none;
+  margin-bottom: var(--s4);
+  color: var(--color-ink-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
 }
 
 .footer-chips,
@@ -1553,17 +1578,49 @@ main[tabindex="-1"]:focus {
 }
 
 .site-footer a.footer-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.25rem;
   padding: 0.4rem 0.85rem;
   border: 1px solid var(--color-line-strong);
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   font-size: 0.85rem;
-  transition: border-color 0.2s ease, background 0.2s ease;
+  transition:
+    border-color var(--dur-fast) var(--ease-standard),
+    color var(--dur-fast) var(--ease-standard),
+    transform var(--dur-base) var(--ease-standard);
 }
 
 .site-footer a.footer-chip:hover,
 .site-footer a.footer-chip:focus-visible {
-  border-color: var(--color-primary);
-  background: color-mix(in srgb, var(--color-cobalt-bright) 12%, transparent);
+  border-color: var(--color-green);
+  color: var(--color-ink);
+  transform: translateY(-2px);
+}
+
+/* Plain footer links draw the same green underline as the navigation. */
+.footer-links a:not(.status-pill) {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+}
+
+.footer-links a:not(.status-pill)::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: var(--color-green);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-base) var(--ease-out-quart);
+}
+
+.footer-links a:not(.status-pill):hover::after,
+.footer-links a:not(.status-pill):focus-visible::after {
+  transform: scaleX(1);
 }
 
 .site-footer a.status-pill {
@@ -1581,6 +1638,7 @@ main[tabindex="-1"]:focus {
   width: 0.5rem;
   height: 0.5rem;
   border-radius: 50%;
+  background: var(--color-green);
 }
 
 .site-footer a.footer-checklist {
