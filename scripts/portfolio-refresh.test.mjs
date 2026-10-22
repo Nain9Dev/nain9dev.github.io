@@ -44,8 +44,8 @@ test('PRJ-023: NainProspect and NainWrite are public catalog entries', async () 
   const projects = await readJson('public/assets/data/projects.json');
   const prospect = projects.find((project) => project.id === 'b2b-prospecting-pipeline');
   const write = projects.find((project) => project.id === 'local-rewriting-agent');
-  assert.deepEqual(urlsOf(prospect), ['https://github.com/Nain9Dev/NainProspect']);
-  assert.deepEqual(urlsOf(write), ['https://github.com/Nain9Dev/NainWrite']);
+  assert.deepEqual(urlsOf(prospect), ['https://prospect.naindev.com/', 'https://github.com/Nain9Dev/NainProspect']);
+  assert.deepEqual(urlsOf(write), ['https://write.naindev.com/', 'https://github.com/Nain9Dev/NainWrite']);
   assert.ok(!prospect.private && !write.private);
   assert.equal(projects.filter((project) => project.private).length, 6);
 });
@@ -53,7 +53,7 @@ test('PRJ-023: NainProspect and NainWrite are public catalog entries', async () 
 test('VIS-003: every live demo has a small lazy-loaded thumbnail on its card', async () => {
   const projects = await readJson('public/assets/data/projects.json');
   const live = projects.filter((project) => project.links.some((link) => /^https:\/\/[a-z0-9-]+\.naindev\.com(\/|$)/.test(link.url)));
-  assert.equal(live.length, 9);
+  assert.equal(live.length, 14);
   for (const project of live) {
     assert.equal(project.thumbnail, `/assets/images/demos/${project.id}.webp`);
     const { size } = await stat(join(ROOT, 'public', project.thumbnail));

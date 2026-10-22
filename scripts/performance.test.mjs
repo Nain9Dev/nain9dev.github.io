@@ -40,8 +40,11 @@ test('PERF-001: one variable font file and one @font-face rule per family', asyn
   assert.equal((await walk('public/assets/fonts')).length, 0, 'public/assets/fonts must be empty');
 
   const css = await read('src/styles/main.css');
-  const faces = [...css.matchAll(/@font-face\s*\{([^}]*)\}/g)].map((match) => match[1]);
+  const allFaces = [...css.matchAll(/@font-face\s*\{([^}]*)\}/g)].map((match) => match[1]);
+  // A metrics-matched local() fallback face (spec 045) loads no file, so only url() faces count here.
+  const faces = allFaces.filter((face) => face.includes('url('));
   assert.equal(faces.length, 2);
+  for (const face of allFaces.filter((face) => !faces.includes(face))) assert.match(face, /src:\s*local\(/);
   for (const face of faces) {
     assert.match(face, /font-weight:\s*300 800/);
     assert.equal((face.match(/url\(/g) ?? []).length, 1);

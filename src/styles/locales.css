@@ -18,7 +18,7 @@
   align-items: center;
   min-height: 44px;
   padding: 0.25rem 0.5rem;
-  border-radius: 0.4rem;
+  border-radius: var(--radius);
   color: var(--color-text-muted);
   font-size: 0.8rem;
   text-decoration: none;
@@ -26,11 +26,11 @@
 
 .language-switcher a[aria-current="page"] {
   color: var(--color-text);
-  background: rgba(255, 255, 255, 0.08);
+  background: color-mix(in srgb, var(--color-ink) 8%, transparent);
 }
 
 .language-switcher a:focus-visible {
-  outline: 2px solid var(--color-secondary);
+  outline: 2px solid var(--color-green);
   outline-offset: 2px;
 }
 

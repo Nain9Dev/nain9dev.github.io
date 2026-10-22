@@ -34,7 +34,8 @@ const decode = (text) => text
 
 test('FONT-001: subset fonts stay within their budgets', async () => {
   assert.ok((await stat('src/assets/fonts/inter-var.woff2')).size <= 34 * KB, 'Inter over 34 KB');
-  assert.ok((await stat('src/assets/fonts/outfit-var.woff2')).size <= 30 * KB, 'Outfit over 30 KB');
+  // Urbanist replaced Outfit in spec 045 (ADR-0012); subset with the same range and features.
+  assert.ok((await stat('src/assets/fonts/urbanist-var.woff2')).size <= 26 * KB, 'Urbanist over 26 KB');
 });
 
 test('FONT-002: visible text is covered by the declared unicode-range', { skip: !existsSync('dist/index.html') && 'run npm run build first' }, async () => {
