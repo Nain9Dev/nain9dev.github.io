@@ -861,17 +861,21 @@ main[tabindex="-1"]:focus {
   padding: 1rem 1.1rem;
   gap: 0.2rem;
   border: 1px solid var(--color-line);
-  border-radius: var(--radius-small);
+  border-radius: var(--radius);
   background: var(--color-surface);
   color: inherit;
   text-decoration: none;
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  transition:
+    transform var(--dur-base) var(--ease-standard),
+    box-shadow var(--dur-base) var(--ease-standard),
+    border-color var(--dur-fast) var(--ease-standard);
 }
 
 .live-demo:hover,
 .live-demo:focus-visible {
-  border-color: var(--color-primary);
-  transform: translateY(-2px);
+  border-color: var(--color-green);
+  box-shadow: var(--shadow-raised);
+  transform: translate(-2px, -2px);
 }
 
 .live-demo-host {
@@ -940,7 +944,9 @@ main[tabindex="-1"]:focus {
 }
 
 .service-card:hover,
-.project-card:hover {
+.service-card:focus-within,
+.project-card:hover,
+.project-card:focus-within {
   border-color: var(--color-line-strong);
   box-shadow: var(--shadow-raised);
   transform: translateY(-4px);
@@ -951,38 +957,6 @@ main[tabindex="-1"]:focus {
   padding: 1.8rem;
 }
 
-.service-card::after,
-.project-card::after {
-  position: absolute;
-  right: -4rem;
-  bottom: -5rem;
-  width: 10rem;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: color-mix(in srgb, var(--color-cobalt-bright) 5%, transparent);
-  content: "";
-  pointer-events: none;
-}
-
-.project-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: radial-gradient(
-    800px circle at var(--card-mouse-x, -500px) var(--card-mouse-y, -500px),
-    color-mix(in srgb, var(--color-cobalt-bright) 12%, transparent),
-    transparent 40%
-  );
-  pointer-events: none;
-  z-index: 0;
-  transition: opacity 250ms ease;
-  opacity: 0;
-}
-
-.project-card:hover::before {
-  opacity: 1;
-}
 
 .card-number {
   display: block;
@@ -1005,24 +979,29 @@ main[tabindex="-1"]:focus {
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 2.2;
-  transition: transform 250ms ease;
+  transition: transform var(--dur-base) var(--ease-out-quart), stroke var(--dur-fast) var(--ease-standard);
 }
 
-.service-card:hover .service-icon {
-  transform: translateY(-3px) scale(1.06);
+.service-card:hover .service-icon,
+.service-card:focus-within .service-icon {
+  stroke: var(--color-green);
+  transform: translateY(-3px);
 }
 
 .card-link {
   display: inline-block;
+  min-height: 24px;
   margin-top: 1rem;
   color: var(--color-primary);
   font-weight: 600;
   text-decoration: none;
+  text-decoration-color: var(--color-green);
+  text-underline-offset: 0.25rem;
 }
 
 .card-link:hover,
 .card-link:focus-visible {
-  text-decoration: underline;
+  text-decoration-line: underline;
 }
 
 .service-card p,
@@ -1162,7 +1141,7 @@ main[tabindex="-1"]:focus {
 .catalog-index li {
   padding: 1.25rem;
   border: 1px solid var(--color-line);
-  border-radius: var(--radius-medium);
+  border-radius: var(--radius);
 }
 
 .catalog-index h3 {
@@ -1200,9 +1179,15 @@ main[tabindex="-1"]:focus {
   height: auto;
   margin-bottom: 1.25rem;
   border: 1px solid var(--color-line);
-  border-radius: var(--radius-small);
+  border-radius: var(--radius);
   aspect-ratio: 16 / 9;
   object-fit: cover;
+  transition: border-color var(--dur-fast) var(--ease-standard);
+}
+
+.project-card:hover .project-thumb,
+.project-card:focus-within .project-thumb {
+  border-color: var(--color-green);
 }
 
 .project-card-header {
@@ -1246,6 +1231,9 @@ main[tabindex="-1"]:focus {
 }
 
 .project-detail summary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
   width: fit-content;
   color: var(--color-primary-strong);
   cursor: pointer;
@@ -1289,7 +1277,7 @@ main[tabindex="-1"]:focus {
   gap: 0.4rem;
   padding: 0.35rem 0.6rem;
   border: 1px solid var(--color-line);
-  border-radius: 0.45rem;
+  border-radius: var(--radius);
   color: var(--color-text-soft);
   font-family: var(--font-mono);
   font-size: 0.72rem;
@@ -1309,15 +1297,21 @@ main[tabindex="-1"]:focus {
 }
 
 .project-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
   color: var(--color-text);
   font-size: 0.9rem;
   font-weight: 720;
+  text-decoration-color: var(--color-line-strong);
   text-underline-offset: 0.25rem;
-  transition: color 150ms ease;
+  transition: color var(--dur-fast) var(--ease-standard), text-decoration-color var(--dur-fast) var(--ease-standard);
 }
 
-.project-link:hover {
-  color: var(--color-secondary);
+.project-link:hover,
+.project-link:focus-visible {
+  color: var(--color-ink);
+  text-decoration-color: var(--color-green);
 }
 
 .loading-message,
@@ -1719,13 +1713,13 @@ main[tabindex="-1"]:focus {
 
 .tech-link-card {
   text-decoration: none;
-  transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
 .tech-link-card:hover,
 .tech-link-card:focus-visible {
-  border-color: var(--color-primary);
-  transform: translateY(-2px);
+  border-color: var(--color-green);
+  box-shadow: var(--shadow-raised);
+  transform: translate(-2px, -2px);
 }
 
 .tech-link-card h3 {
@@ -1891,19 +1885,12 @@ main[tabindex="-1"]:focus {
   transform: translateY(0);
 }
 
-.motion-ready .card-grid [data-reveal]:nth-child(2),
-.motion-ready .project-grid [data-reveal]:nth-child(2) {
-  transition-delay: 70ms;
-}
-
-.motion-ready .card-grid [data-reveal]:nth-child(3),
-.motion-ready .project-grid [data-reveal]:nth-child(3) {
-  transition-delay: 140ms;
-}
-
-.motion-ready .project-grid [data-reveal]:nth-child(4) {
-  transition-delay: 210ms;
-}
+/* Siblings in a grid enter one after another; after the sixth they share the last step. */
+.motion-ready :is(.card-grid, .project-grid, .tech-category) > [data-reveal]:nth-child(2) { transition-delay: calc(var(--stagger) * 1); }
+.motion-ready :is(.card-grid, .project-grid, .tech-category) > [data-reveal]:nth-child(3) { transition-delay: calc(var(--stagger) * 2); }
+.motion-ready :is(.card-grid, .project-grid, .tech-category) > [data-reveal]:nth-child(4) { transition-delay: calc(var(--stagger) * 3); }
+.motion-ready :is(.card-grid, .project-grid, .tech-category) > [data-reveal]:nth-child(5) { transition-delay: calc(var(--stagger) * 4); }
+.motion-ready :is(.card-grid, .project-grid, .tech-category) > [data-reveal]:nth-child(n + 6) { transition-delay: calc(var(--stagger) * 5); }
 
 @keyframes availability-pulse {
   0%,
@@ -2136,12 +2123,11 @@ main[tabindex="-1"]:focus {
 }
 
 .project-grid-container {
-  transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+  transition: opacity var(--dur-fast) var(--ease-standard);
 }
 
 .project-grid-container.is-filtering {
   opacity: 0;
-  transform: scale(0.95) translateY(10px);
   pointer-events: none;
 }
 
@@ -2187,22 +2173,22 @@ main[tabindex="-1"]:focus {
   padding: 1.25rem 1rem;
   background-color: var(--color-surface);
   border: 1px solid var(--color-line);
-  border-radius: var(--radius-small);
-  transition: transform 0.3s var(--ease-spring), border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease, transform 0.6s ease;
-  opacity: 0;
-  transform: translateY(1rem);
+  border-radius: var(--radius);
 }
 
-.tech-badge.is-revealed {
-  opacity: 1;
-  transform: translateY(0);
+.motion-ready .tech-badge.is-visible {
+  transition:
+    opacity 520ms var(--ease-out-quart),
+    transform var(--dur-base) var(--ease-standard),
+    box-shadow var(--dur-base) var(--ease-standard),
+    border-color var(--dur-fast) var(--ease-standard);
 }
 
-.tech-badge:hover {
-  transform: translateY(-4px);
-  border-color: var(--color-primary);
-  box-shadow: 0 8px 24px color-mix(in srgb, var(--color-cobalt-bright) 15%, transparent);
-  background-color: var(--color-surface-strong);
+a.tech-badge:hover,
+a.tech-badge:focus-visible {
+  border-color: var(--color-green);
+  box-shadow: var(--shadow-raised);
+  transform: translate(-2px, -2px);
 }
 
 .tech-icon {
@@ -2237,9 +2223,12 @@ main[tabindex="-1"]:focus {
   flex-direction: column;
   background-color: var(--color-surface-warm);
   border: 1px solid var(--color-line);
-  border-radius: var(--radius-large);
+  border-radius: var(--radius);
   padding: 2rem;
-  transition: transform 0.4s var(--ease-spring), box-shadow 0.4s var(--ease-spring), border-color 0.4s ease;
+  transition:
+    transform var(--dur-base) var(--ease-standard),
+    box-shadow var(--dur-base) var(--ease-standard),
+    border-color var(--dur-fast) var(--ease-standard);
   height: 100%;
 }
 
@@ -2286,10 +2275,13 @@ main[tabindex="-1"]:focus {
 .impact-metric-card {
   background-color: var(--color-surface-warm);
   border: 1px solid var(--color-line);
-  border-radius: var(--radius-large);
+  border-radius: var(--radius);
   padding: 2rem;
   text-align: center;
-  transition: transform 0.4s var(--ease-spring), box-shadow 0.4s var(--ease-spring), border-color 0.4s ease;
+  transition:
+    transform var(--dur-base) var(--ease-standard),
+    box-shadow var(--dur-base) var(--ease-standard),
+    border-color var(--dur-fast) var(--ease-standard);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -2446,14 +2438,19 @@ main[tabindex="-1"]:focus {
 .blog-card {
   background: var(--color-surface);
   border: 1px solid var(--color-line);
-  border-radius: var(--radius-medium);
+  border-radius: var(--radius);
   padding: 2rem;
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  transition:
+    transform var(--dur-base) var(--ease-standard),
+    box-shadow var(--dur-base) var(--ease-standard),
+    border-color var(--dur-fast) var(--ease-standard);
 }
 
-.blog-card:hover {
+.blog-card:hover,
+.blog-card:focus-within {
+  border-color: var(--color-line-strong);
+  box-shadow: var(--shadow-raised);
   transform: translateY(-4px);
-  border-color: var(--color-primary-strong);
 }
 
 .blog-card h2 {
@@ -2526,16 +2523,9 @@ main[tabindex="-1"]:focus {
 .pain-card {
   background: var(--color-surface);
   border: 1px solid var(--color-line);
-  border-radius: var(--radius-medium);
+  border-radius: var(--radius);
   padding: 2.5rem 2rem;
   text-align: center;
-  transition: transform 0.3s var(--ease-spring), border-color 0.3s ease;
-}
-@media (prefers-reduced-motion: no-preference) {
-  .pain-card:hover {
-    transform: scale(1.02);
-    border-color: var(--color-primary-strong);
-  }
 }
 .pain-icon {
   font-size: 2.5rem;

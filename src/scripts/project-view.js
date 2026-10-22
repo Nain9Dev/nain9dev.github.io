@@ -30,8 +30,8 @@ function createProjectCard(project, index) {
   article.dataset.featured = String(Boolean(project.featured));
   article.dataset.projectCard = "";
   article.dataset.categories = project.categories.join(" ");
+  // The entrance stagger comes from CSS :nth-child steps (spec 045), not from inline delays.
   article.dataset.reveal = "";
-  article.style.transitionDelay = `${index * 80}ms`;
 
   const header = createElement("div", "project-card-header");
   const hasLiveDemo = project.links.some((link) => /^https:\/\/[a-z0-9-]+\.naindev\.com(\/|$)/.test(link.url));
