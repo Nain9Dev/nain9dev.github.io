@@ -1,6 +1,6 @@
 # Specification: Inner pages, visual first
 
-Status: In progress (owner request 2026-10-22, after spec 046)
+Status: Implemented (PRs #21 and #22 merged 2026-10-22)
 
 ## Objective
 

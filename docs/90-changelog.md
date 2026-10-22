@@ -6,12 +6,15 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ### Added
 
+- Spec 047: services hub and pages lead with a glyph resolved from the service frontmatter; blog cards open with a numbered cover band; technology pages head with the stack mark; project cards without a capture get a cover band (#21, #22).
+- Spec 046: explanatory text on the home sits behind an icon-only `<details>` toggle (text kept in the HTML); the hero capability panel reads as a pipeline with a travelling pulse; the live-demo strip shows the fourteen captures (400 px variants on phones); stack as layer bands, method as a scroll-drawn rail; service lists and captured project summaries behind the toggle (#18 to #20). ADR-0013 (Approved) raises the home document tripwire to 30 KiB gzip.
 - Spec 043: the `Organization` structured data also lists the brand Facebook page in `sameAs`; the `Person` does not.
 - Spec 042: the `Organization` structured data also lists the Google Business Profile share link and the Threads profile in `sameAs`; the `Person` does not.
 - Spec 040: the `Organization` structured data now lists the brand YouTube, Instagram and TikTok profiles in `sameAs`; the `Person` does not.
 
 ### Changed
 
+- Spec 045 (ADR-0012, Approved): design tokens from the brand palette on the dark surface, Urbanist as display font with a metrics-matched fallback, one fluid type scale, one card system with solid-shadow lifts, choreographed hero entrance, phone disclosure menu, CSS scroll progress, pointer-lit grid instead of particles, page transitions with the header kept in place, deep-blue footer band, compact privacy notice, terminal in one step under reduced motion (#13 to #17).
 - Spec 041 phase B: the ecosystem bar is split into a core script (`ecosystem-bar.js`, 5.0 KB gzip), an architecture panel loaded on first open (`ecosystem-bar-panel.js`) and a versioned data file (`public/assets/data/ecosystem.v1.json`); without the data the bar keeps the brand and status links. Telemetry values are now escaped before rendering.
 - Spec 041 phase A: ECO-003 now budgets the ecosystem bar by gzip transfer size (15 KB, was 15 KB raw); the 42 KB raw script (10.8 KB gzip) failed `npm run check` and blocked the deploys since 2026-10-16. ADR-0007 (Proposed).
 
