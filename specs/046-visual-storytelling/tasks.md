@@ -15,6 +15,8 @@ One task at a time, test first. Every PR waits for the owner's explicit approval
 - [ ] **T04** `[M]` PR 8 · Cards first (`visual/08-cards-first`, stacked on 07): service bullet lists behind the quiet toggle; project summaries inside the detail when the card has a capture.
   - **Covers**: VS-010
   - **Done when**: guards pass; same audits.
+  - **Status 2026-10-22**: PR #20 open. Second commit scopes the gallery styles to the live-demos strip (the open-ecosystem tiles had inherited them) and gives the repository tiles a branch mark; six ecosystem segments added to the English catalog. Verified: `npm run check` pass; axe 0 violations; reduced-motion probe clean; Lighthouse desktop 1.00/1.00 on the three pages, mobile accessibility 1.00 on `/` and `/en/`; budget gate in the PR comment. Home height after the stack: 18 100 px desktop (was 21 400), 25 900 px mobile (was 31 000).
+  - **Needs from owner**: PR approval.
 - [ ] **T03** `[A]` Consolidate VS-001 to VS-009 into `docs/10-requirements.md` and `docs/50-traceability.md`; changelog entry.
 
 ## Session log
