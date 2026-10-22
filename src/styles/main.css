@@ -3101,7 +3101,7 @@ html.low-performance .system-map::after {
   }
 
   .live-demos-grid > li {
-    flex: 0 0 64%;
+    flex: 0 0 54%;
     scroll-snap-align: start;
   }
 }
