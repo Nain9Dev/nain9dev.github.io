@@ -43,8 +43,11 @@ function createProjectCard(project, index) {
   const title = createElement("h3", "project-title", project.title);
   const summary = createElement("p", "project-summary", project.summary);
   // The long technical proof stays one click away so the card reads visually first (VIS-005).
+  // With a capture, the summary joins it: the picture, the title and the chips carry the card (spec 046, VS-010).
   const detail = createElement("details", "project-detail");
-  detail.append(createElement("summary", "", message('projectDetail')), createElement("p", "project-proof", project.proof));
+  detail.append(createElement("summary", "", message('projectDetail')));
+  if (project.thumbnail) detail.append(summary);
+  detail.append(createElement("p", "project-proof", project.proof));
 
   const technologies = createElement("ul", "tag-list");
   technologies.setAttribute("aria-label", message('projectTechnologies', { name: project.title }));
@@ -82,7 +85,9 @@ function createProjectCard(project, index) {
     article.append(picture);
   }
 
-  article.append(header, title, summary, technologies, detail, links);
+  article.append(header, title);
+  if (!project.thumbnail) article.append(summary);
+  article.append(technologies, detail, links);
   return article;
 }
 
