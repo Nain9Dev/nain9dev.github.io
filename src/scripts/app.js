@@ -5,6 +5,7 @@ import {
   initializeEmailCopy,
   initializeHeaderState,
   initializeMobileMenu,
+  initializeThemeToggle,
   initializeRevealMotion,
   initializeSectionNavigation
 } from "./site-interactions.js";
@@ -42,6 +43,7 @@ function initApp() {
     button: document.querySelector("[data-nav-toggle]"),
     navigation: document.getElementById("primary-navigation")
   }));
+  safeInit('ThemeToggle', () => initializeThemeToggle({ button: document.querySelector("[data-theme-toggle]") }));
   safeInit('SectionNav',() => initializeSectionNavigation(document.querySelectorAll("[data-section-link]")));
   safeInit('RevealMotion', () => initializeRevealMotion(document.querySelectorAll("[data-reveal]")));
   safeInit('EmailCopy', () => initializeEmailCopy({
