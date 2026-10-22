@@ -1,6 +1,6 @@
 # ADR-0012: Visual direction "deep-blue precision" and the motion system
 
-Status: Proposed
+Status: Approved (owner, 2026-10-22)
 Date: 2026-10-21
 
 ## Context

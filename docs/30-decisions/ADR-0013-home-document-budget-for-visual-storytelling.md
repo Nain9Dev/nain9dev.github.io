@@ -1,6 +1,6 @@
 # ADR-0013: Home document budget of 30 KiB for visual storytelling
 
-Status: Proposed
+Status: Approved (owner, 2026-10-22)
 Date: 2026-10-22
 
 ## Context
