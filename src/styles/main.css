@@ -1248,9 +1248,12 @@ main[tabindex="-1"]:focus {
 }
 
 .project-detail summary {
+  position: relative;
+  z-index: 1;
   display: inline-flex;
   align-items: center;
   min-height: 24px;
+  min-width: 24px;
   width: fit-content;
   color: var(--color-primary-strong);
   cursor: pointer;
@@ -2794,8 +2797,16 @@ html.low-performance [data-parallax="true"] {
       "brand action toggle"
       "navigation navigation navigation";
     grid-template-columns: minmax(0, 1fr) auto auto;
+    min-height: 0;
     gap: 0 var(--s2);
     padding-block: var(--s2);
+  }
+
+  /* A slimmer sticky header on phones covers less of the page while scrolling (diagnosis 8). */
+  .site-header .header-layout .brand-logo {
+    width: auto;
+    max-width: none;
+    height: 2.4rem;
   }
 
   .motion-ready .nav-toggle {
