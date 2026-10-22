@@ -6,6 +6,7 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ### Added
 
+- Social preview image `og-cover-v4.jpg` (1200×630 JPEG, 74 KB) in the spec 045 style: cobalt surface, grid, the hero title, the horizontal logo and the capability panel; replaces the generic illustration of spec 026.
 - Spec 047: services hub and pages lead with a glyph resolved from the service frontmatter; blog cards open with a numbered cover band; technology pages head with the stack mark; project cards without a capture get a cover band (#21, #22).
 - Spec 046: explanatory text on the home sits behind an icon-only `<details>` toggle (text kept in the HTML); the hero capability panel reads as a pipeline with a travelling pulse; the live-demo strip shows the fourteen captures (400 px variants on phones); stack as layer bands, method as a scroll-drawn rail; service lists and captured project summaries behind the toggle (#18 to #20). ADR-0013 (Approved) raises the home document tripwire to 30 KiB gzip.
 - Spec 043: the `Organization` structured data also lists the brand Facebook page in `sameAs`; the `Person` does not.
