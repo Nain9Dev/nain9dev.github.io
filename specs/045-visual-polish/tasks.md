@@ -31,11 +31,13 @@ One task at a time, test first. Stop after each task. Update the `Session state`
 - [ ] **T03** `[M]` PR 3 · Cards and skills (`visual/03-cards`): card system, stagger without inline styles, tilt and dead code retired, focus states.
   - **Covers**: VP-004, VP-007, VP-008
   - **Done when**: `scripts/card-system.test.mjs` passes; axe clean at both widths; Lighthouse mobile ≥ 0.95 on `/`.
+  - **Status 2026-10-22**: PR #15 open. Verified: `npm run check`, budget (perf 1.00, CLS 0), axe 0 violations, reduced-motion probe clean. Lighthouse `target-size` on phones comes from card controls covered by the fixed privacy notice (they measure 42 px / 24 px); scheduled for PR 5.
   - **Needs from owner**: PR approval.
 - [ ] **T04** `[M]` PR 4 · Page transitions and footer (`visual/04-transitions-footer`).
   - **Covers**: VP-006 (transitions), VP-010
-  - **Done when**: NAV-002 guard intact; transition keyframes scoped to `no-preference`; footer restyled without content change (channels wait for OQ-014).
-  - **Needs from owner**: OQ-014 answer; PR approval.
+  - **Done when**: NAV-002 guard intact; transition keyframes scoped to `no-preference`; footer restyled without content change (OQ-014: no new channels).
+  - **Status 2026-10-22**: implemented and verified: `npm run check` pass; budget pass (perf 1.00, TBT 0, CLS 0; a first run on a contended host showed TBT 114–170 ms with no JavaScript change, it cleared after stopping extra preview servers, as ADR-0011 describes); axe 0 violations; reduced-motion probe clean; Lighthouse desktop accessibility 1.00 on `/`, `/en/`, `/servicios/` after the footer `h4` became an `h2` (same text).
+  - **Needs from owner**: PR approval.
 - [ ] **T05** `[M]` PR 5 · Polish (`visual/05-polish`): 404, thank-you and checklist pages, terminal reduced-motion, icon and social image review.
   - **Covers**: VP-006 (terminal), VP-013, VP-016
   - **Done when**: full axe sweep, Lighthouse mobile and desktop on the three budget pages, final before/after set shown to the owner.

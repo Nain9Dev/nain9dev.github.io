@@ -173,7 +173,8 @@ test('VIS-010: page titles stay readable and the service detail page has no inli
 
 test('VIS-009: the footer shows specialties as chips and the services index has no inline styles', async () => {
   const footer = await read('src/components/Footer.astro');
-  assert.equal(footer.match(/style=/g)?.length, 1, 'only the green status dot keeps an inline style');
+  // The status dot colour moved to the green token in spec 045, so the footer has no inline style left.
+  assert.equal(footer.match(/style=/g)?.length ?? 0, 0, 'the footer has no inline style');
   assert.match(footer, /class="footer-chip"/);
   assert.match(footer, /class="status-pill"/);
   const services = await read('src/pages/servicios/index.astro');
