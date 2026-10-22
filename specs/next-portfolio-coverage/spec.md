@@ -1,6 +1,6 @@
 # Portfolio coverage: every public repository with a link and a capture
 
-Status: In progress
+Status: Consolidated (#28 merged 2026-10-22; T06 owner decision open)
 
 ## Objective
 
