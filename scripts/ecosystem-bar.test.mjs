@@ -108,6 +108,8 @@ test('ECO-002: component includes brand link, status link, and public project ca
     'https://tickets.naindev.com/',
     'https://gamehaven.naindev.com/',
     'https://configurator.naindev.com/',
+    // ECO-024 (specs/next-portfolio-coverage): the modernizer demo is reachable from the bar.
+    'https://modernizer.naindev.com/',
     'https://brand.naindev.com/',
     'https://github.com/Nain9Dev/engineering-handbook'
   ];
