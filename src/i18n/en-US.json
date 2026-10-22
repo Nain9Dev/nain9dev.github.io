@@ -8143,5 +8143,35 @@
     "source": "⟦0⟧⟦1/⟧⟦2⟧Microservicio de notificaciones⟦/2⟧⟦3/⟧⟦4/⟧⟦/0⟧",
     "target": "⟦0⟧⟦1/⟧⟦2⟧Notification microservice⟦/2⟧⟦3/⟧⟦4/⟧⟦/0⟧",
     "status": "reviewed"
+  },
+  "174750db28f9adab5609bbc7cdf9a0202ebfeb1b0d07dfce5ccf5f30b017d283": {
+    "source": "⟦0⟧⟦1/⟧⟦2/⟧⟦3⟧Estado y latencia de los servicios públicos.⟦/3⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2/⟧⟦3⟧Status and latency of the public services.⟦/3⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "51ac06862cba12c96b4f13b30a53b310c49e6ff25881c873b4a4a762cc4370c2": {
+    "source": "⟦0⟧⟦1/⟧⟦2/⟧⟦3⟧Plantilla full stack con FastAPI, Vue 3 y Docker Compose.⟦/3⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2/⟧⟦3⟧Full stack template with FastAPI, Vue 3 and Docker Compose.⟦/3⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "73ccebdb2769fa5c62de302bccc81c15fad061978fe5ca6b722d23a8543affc7": {
+    "source": "⟦0⟧⟦1/⟧⟦2/⟧⟦3⟧Plantilla full stack con .NET, Vue 3 y Docker Compose.⟦/3⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2/⟧⟦3⟧Full stack template with .NET, Vue 3 and Docker Compose.⟦/3⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "81ca2d5a7653992adc7fbd36c28d147f291b11b6161a0b35e36049e21fba1638": {
+    "source": "⟦0⟧⟦1/⟧⟦2/⟧⟦3⟧Manual de ingeniería: arquitectura limpia, validación determinista y pruebas.⟦/3⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2/⟧⟦3⟧Engineering handbook: clean architecture, deterministic validation and testing.⟦/3⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "8d7b2a6050d593e062e1521b6263eac22032c757184fe1663a17ed839fad7142": {
+    "source": "⟦0⟧⟦1/⟧⟦2/⟧⟦3⟧Sistema de diseño y manual de marca de NainDev.⟦/3⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2/⟧⟦3⟧NainDev design system and brand book.⟦/3⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "ed52a30a57525231323cee831c7ec49ca194fa55f788d512ad49479492818d98": {
+    "source": "⟦0⟧⟦1/⟧⟦2/⟧⟦3⟧Estándares de ingeniería y flujos de CI reutilizables.⟦/3⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2/⟧⟦3⟧Engineering standards and reusable CI workflows.⟦/3⟧⟦/0⟧",
+    "status": "reviewed"
   }
 }

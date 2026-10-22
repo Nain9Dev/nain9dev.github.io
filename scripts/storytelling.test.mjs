@@ -48,10 +48,14 @@ test('VS-003: the demo gallery shows lazy captures and keeps host and technologi
   assert.match(strip, /<span class="live-demo-host" translate="no">/);
   assert.match(strip, /<span class="live-demo-tech" translate="no">/);
   const css = await read('src/styles/main.css');
-  assert.match(css, /\.live-demo-host,\s*\.live-demo-tech \{[^}]*clip-path: inset\(50%\);/);
-  assert.match(css, /\.live-demo \{[^}]*aspect-ratio: 16 \/ 10;/);
+  assert.match(css, /\.live-demos \.live-demo-host,\s*\.live-demos \.live-demo-tech \{[^}]*clip-path: inset\(50%\);/);
+  assert.match(css, /\.live-demos \.live-demo \{[^}]*aspect-ratio: 16 \/ 10;/, 'gallery styles scoped to the strip');
+  // The open-ecosystem tiles share the grid classes but are repositories, not demos: mark plus name, note hidden.
+  const ecosystem = await read(`${HOME}OpenEcosystem.astro`);
+  assert.match(ecosystem, /<svg class="repo-icon"[^>]*aria-hidden="true"/);
+  assert.match(css, /#open-ecosystem \.live-demo-tech \{[^}]*clip-path: inset\(50%\);/);
   assert.match(css, /scroll-snap-type: x mandatory;/);
-  assert.match(css, /@media \(prefers-reduced-motion: reduce\) \{\s*\.live-demo:hover \.live-demo-thumb/);
+  assert.match(css, /@media \(prefers-reduced-motion: reduce\) \{\s*\.live-demos \.live-demo:hover \.live-demo-thumb/);
 });
 
 test('VS-010: service lists fold behind the toggle and captured project cards keep their summary in the detail', async () => {

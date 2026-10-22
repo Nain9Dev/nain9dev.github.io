@@ -3040,12 +3040,12 @@ html.low-performance .system-map::after {
 }
 
 /* Demo gallery (VS-003): the capture is the tile. */
-.live-demos-grid {
+.live-demos .live-demos-grid {
   gap: var(--s3);
   grid-template-columns: repeat(auto-fill, minmax(11.5rem, 1fr));
 }
 
-.live-demo {
+.live-demos .live-demo {
   position: relative;
   overflow: hidden;
   padding: 0;
@@ -3063,7 +3063,7 @@ html.low-performance .system-map::after {
   transition: transform var(--dur-slow) var(--ease-out-quart), opacity var(--dur-base) var(--ease-standard);
 }
 
-.live-demo strong {
+.live-demos .live-demo strong {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -3074,8 +3074,8 @@ html.low-performance .system-map::after {
   line-height: 1.25;
 }
 
-.live-demo-host,
-.live-demo-tech {
+.live-demos .live-demo-host,
+.live-demos .live-demo-tech {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -3084,14 +3084,14 @@ html.low-performance .system-map::after {
   white-space: nowrap;
 }
 
-.live-demo:hover .live-demo-thumb,
-.live-demo:focus-visible .live-demo-thumb {
+.live-demos .live-demo:hover .live-demo-thumb,
+.live-demos .live-demo:focus-visible .live-demo-thumb {
   opacity: 1;
   transform: scale(1.04);
 }
 
 @media (max-width: 42rem) {
-  .live-demos-grid {
+  .live-demos .live-demos-grid {
     display: flex;
     margin-inline: calc(-1 * var(--s3));
     padding-inline: var(--s3);
@@ -3100,15 +3100,15 @@ html.low-performance .system-map::after {
     scrollbar-width: none;
   }
 
-  .live-demos-grid > li {
+  .live-demos .live-demos-grid > li {
     flex: 0 0 54%;
     scroll-snap-align: start;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .live-demo:hover .live-demo-thumb,
-  .live-demo:focus-visible .live-demo-thumb {
+  .live-demos .live-demo:hover .live-demo-thumb,
+  .live-demos .live-demo:focus-visible .live-demo-thumb {
     transform: none;
   }
 }
@@ -3276,4 +3276,47 @@ html.low-performance .system-map::after {
 
 .project-detail .project-summary + .project-proof {
   margin-top: var(--s3);
+}
+
+/* Open ecosystem tiles: a repository mark and the name; the note stays in the markup, visually hidden. */
+#open-ecosystem .live-demo {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  min-height: 5.5rem;
+  padding: var(--s4);
+  gap: var(--s3);
+}
+
+.repo-icon {
+  width: 1.75rem;
+  height: 1.75rem;
+  fill: none;
+  stroke: var(--color-link);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+  transition: stroke var(--dur-fast) var(--ease-standard);
+}
+
+#open-ecosystem .live-demo:hover .repo-icon,
+#open-ecosystem .live-demo:focus-visible .repo-icon {
+  stroke: var(--color-green);
+}
+
+#open-ecosystem .live-demo strong {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+#open-ecosystem .live-demo-tech {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
