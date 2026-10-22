@@ -1,5 +1,6 @@
 ---
 // ProjectsSection.astro
+import Quiet from './Quiet.astro';
 import projects from '../../../public/assets/data/projects.json';
 
 // Static index of the catalog so crawlers and visitors without JavaScript see real text;
@@ -13,7 +14,7 @@ const catalog = [...projects].sort((a, b) => a.order - b.order);
         <p class="eyebrow">Portfolio</p>
         <h2>Proyectos y demos</h2>
       </div>
-      <p>Indico el estado real de cada proyecto. Los privados se describen solo por arquitectura y stack, sin nombres ni datos de clientes.</p>
+      <Quiet><p>Indico el estado real de cada proyecto. Los privados se describen solo por arquitectura y stack, sin nombres ni datos de clientes.</p></Quiet>
     </div>
 
     <div class="project-toolbar" data-project-toolbar hidden>
