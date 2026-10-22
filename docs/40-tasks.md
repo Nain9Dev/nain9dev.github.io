@@ -14,7 +14,7 @@ Consolidated task index. Feature-level detail and handoff state live in `../spec
 | 006 Remove unverified metrics | [tasks.md](../specs/006-remove-unverified-metrics/tasks.md) | Done | None |
 | 007 Remove case studies | [tasks.md](../specs/007-remove-case-studies/tasks.md) | Implemented, not committed | 1 (owner review and commit) |
 | 009 Honest offer copy | [tasks.md](../specs/009-honest-offer-copy/tasks.md) | Implemented, not committed | 1 (owner review and commit) |
-| 045 Visual polish | [tasks.md](../specs/045-visual-polish/tasks.md) | Done (#13 to #17 merged 2026-10-22; ADR-0012 Approved) | None (VP-003 section tiers left as a follow-up) |
+| 045 Visual polish | [tasks.md](../specs/045-visual-polish/tasks.md) | Done (#13 to #17 merged 2026-10-22; ADR-0012 Approved; VP-003 in the follow-up PR) | None |
 | 046 Visual storytelling | [tasks.md](../specs/046-visual-storytelling/tasks.md) | Done (#18 to #21 merged 2026-10-22; ADR-0013 Approved) | None |
 | 047 Inner pages | [tasks.md](../specs/047-inner-pages/tasks.md) | Done (#21, #22 merged 2026-10-22) | None |
 
