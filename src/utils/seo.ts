@@ -2,7 +2,7 @@ export const defaultSEO = {
   siteName: 'NainDev',
   title: 'NainDev | Aitor Nain · Arquitecto de Software Full Stack',
   description: 'Aitor Nain Mendoza Vallejo (NainDev), arquitecto de software full stack: conformidad determinista de productos, backends en Python y .NET e IA con supervisión humana.',
-  image: '/assets/images/og-cover-v3.jpg',
+  image: '/assets/images/og-cover-v4.jpg',
   imageAlt: 'Representación visual de API, lógica de negocio y datos para NainDev',
   author: 'Aitor Nain Mendoza Vallejo',
   robots: 'index, follow, max-image-preview:large',
