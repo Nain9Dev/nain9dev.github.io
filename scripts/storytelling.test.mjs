@@ -1,0 +1,53 @@
+// Guards for specs/046-visual-storytelling PR 6: quiet text, hero map and demo gallery.
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
+
+const ROOT = fileURLToPath(new URL('..', import.meta.url));
+const read = (file) => readFile(join(ROOT, file), 'utf8');
+const HOME = 'src/components/home/';
+
+test('VS-001: explanatory paragraphs are disclosed by an accessible details element, text kept', async () => {
+  const quiet = await read(`${HOME}Quiet.astro`);
+  assert.match(quiet, /<details class="quiet">\s*<summary aria-label="[^"]+">\s*<svg[^>]*aria-hidden="true"/);
+  assert.doesNotMatch(quiet, /<script/);
+  const sections = ['ServicesSection', 'TechStack', 'ProjectsSection', 'OpenEcosystem', 'PartnershipSection', 'TerminalSection', 'MethodSection', 'AboutSection', 'ContactSection', 'ImpactMetrics'];
+  for (const name of sections) {
+    const markup = await read(`${HOME}${name}.astro`);
+    assert.match(markup, /import Quiet from '\.\/Quiet\.astro'/, `${name} imports Quiet`);
+    assert.match(markup, /<Quiet>[\s\S]*?<p[\s\S]*?<\/p>[\s\S]*?<\/Quiet>/, `${name} wraps a paragraph`);
+  }
+  // The About copy still carries its full text (COPY-003, COPY-007 read the same file).
+  const about = (await read(`${HOME}AboutSection.astro`)).replace(/\s+/g, ' ');
+  assert.match(about, /arquitectura de conformidad determinista y multidominio/i);
+  const css = await read('src/styles/main.css');
+  assert.match(css, /\.quiet > summary \{[^}]*width: 32px;[^}]*height: 32px;/, '24 px+ target');
+  assert.match(css, /\.quiet > summary:hover,\s*\.quiet > summary:focus-visible,/, 'keyboard parity');
+});
+
+test('VS-002: the hero map hides its detail lines in CSS and animates only transform', async () => {
+  const hero = await read(`${HOME}Hero.astro`);
+  assert.match(hero, /<small>Contratos y validación<\/small>/, 'detail lines stay in the markup');
+  assert.match(hero, /<p class="panel-hint">/);
+  const css = await read('src/styles/main.css');
+  assert.match(css, /\.system-node small,\s*\.panel-hint \{[^}]*clip-path: inset\(50%\);/);
+  const keyframes = css.match(/@keyframes rail-pulse \{([\s\S]*?)\n\}/)?.[1] ?? '';
+  assert.ok(keyframes, 'rail pulse keyframes exist');
+  assert.deepEqual([...keyframes.matchAll(/^\s{4}([a-z-]+):/gm)].map((m) => m[1]), ['transform', 'transform']);
+  assert.match(css, /@media \(prefers-reduced-motion: no-preference\) \{\s*\.system-map::after/);
+  assert.match(css, /html\.low-performance \.system-map::after \{[^}]*animation: none/);
+});
+
+test('VS-003: the demo gallery shows lazy captures and keeps host and technologies in the markup', async () => {
+  const strip = await read(`${HOME}LiveDemos.astro`);
+  assert.match(strip, /<img class="live-demo-thumb" src=\{demo\.thumbnail\} alt="" width="640" height="360" loading="lazy" decoding="async" \/>/);
+  assert.match(strip, /<span class="live-demo-host" translate="no">/);
+  assert.match(strip, /<span class="live-demo-tech" translate="no">/);
+  const css = await read('src/styles/main.css');
+  assert.match(css, /\.live-demo-host,\s*\.live-demo-tech \{[^}]*clip-path: inset\(50%\);/);
+  assert.match(css, /\.live-demo \{[^}]*aspect-ratio: 16 \/ 10;/);
+  assert.match(css, /scroll-snap-type: x mandatory;/);
+  assert.match(css, /@media \(prefers-reduced-motion: reduce\) \{\s*\.live-demo:hover \.live-demo-thumb/);
+});

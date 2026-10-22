@@ -1,0 +1,10 @@
+---
+// Quiet.astro: explanatory text kept in the document but shown only on request (spec 046, VS-001).
+// A native <details> needs no script; the summary is an icon button with an accessible name.
+---
+<details class="quiet">
+  <summary aria-label="Más detalle">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14" /></svg>
+  </summary>
+  <slot />
+</details>

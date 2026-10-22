@@ -1215,7 +1215,7 @@ main[tabindex="-1"]:focus {
 }
 
 .project-index {
-  color: color-mix(in srgb, var(--color-ink-muted) 62%, transparent);
+  color: var(--color-ink-muted);
   font-family: var(--font-mono);
   font-size: 0.78rem;
 }
@@ -2868,5 +2868,247 @@ html.low-performance [data-parallax="true"] {
 @media (max-width: 42rem) and (prefers-reduced-motion: no-preference) {
   .site-header[data-menu="open"] .primary-navigation {
     animation: menu-in var(--dur-base) var(--ease-out-quart);
+  }
+}
+
+/* --- Spec 046: visual storytelling --- */
+
+/* Quiet text (VS-001): the paragraph stays in the document; a plus button reveals it. */
+.quiet {
+  margin: 0;
+}
+
+.quiet > summary {
+  display: inline-grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius);
+  color: var(--color-ink-muted);
+  cursor: pointer;
+  list-style: none;
+  transition: border-color var(--dur-fast) var(--ease-standard), color var(--dur-fast) var(--ease-standard);
+}
+
+.quiet > summary::-webkit-details-marker {
+  display: none;
+}
+
+.quiet > summary svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-width: 2;
+  transition: transform var(--dur-base) var(--ease-out-quart);
+}
+
+.quiet > summary:hover,
+.quiet > summary:focus-visible,
+.quiet[open] > summary {
+  border-color: var(--color-green);
+  color: var(--color-ink);
+}
+
+.quiet[open] > summary svg {
+  transform: rotate(45deg);
+}
+
+.quiet > :not(summary) {
+  margin-top: var(--s3);
+  color: var(--color-ink-muted);
+}
+
+.quiet > :not(summary):last-child {
+  margin-bottom: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .quiet[open] > :not(summary) {
+    animation: compose-in var(--dur-base) var(--ease-out-quart) backwards;
+  }
+}
+
+.section-heading .quiet {
+  justify-self: end;
+}
+
+.section-heading .quiet[open] {
+  justify-self: stretch;
+}
+
+.about-copy .quiet {
+  margin-bottom: var(--s4);
+}
+
+.resource-cta .quiet,
+.method-cta .quiet,
+.contact-panel .quiet {
+  margin-bottom: var(--s4);
+}
+
+.resource-cta .quiet > summary,
+.method-cta .quiet > summary {
+  margin-inline: auto;
+}
+
+.resource-cta .quiet > :not(summary) {
+  max-width: 37.5rem;
+  margin-inline: auto;
+}
+
+/* Hero map (VS-002): the capability panel reads as a pipeline; details stay in the markup, visually hidden. */
+.system-node small,
+.panel-hint {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.system-map {
+  gap: var(--s3);
+}
+
+.system-node {
+  min-height: 3.25rem;
+  align-items: center;
+  border-radius: var(--radius);
+  transition:
+    transform var(--dur-base) var(--ease-standard),
+    box-shadow var(--dur-base) var(--ease-standard),
+    border-color var(--dur-fast) var(--ease-standard);
+}
+
+.system-node:hover,
+.system-node:focus-visible {
+  border-color: var(--color-green);
+  box-shadow: var(--shadow-raised);
+  transform: translate(-2px, -2px);
+}
+
+.system-node strong {
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+}
+
+.system-map::before {
+  background: linear-gradient(var(--color-cobalt-bright), var(--color-green));
+}
+
+/* A pulse travels down the rail between the three nodes (transform only, PERF-007). */
+@keyframes rail-pulse {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(8.5rem);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .system-map::after {
+    position: absolute;
+    top: 1.35rem;
+    left: 1.42rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: var(--color-green);
+    box-shadow: 0 0 0 0.25rem color-mix(in srgb, var(--color-green) 25%, transparent);
+    content: "";
+    transform: translateX(-50%);
+    animation: rail-pulse 2.4s var(--ease-standard) infinite;
+    pointer-events: none;
+  }
+}
+
+html.low-performance .system-map::after {
+  animation: none !important;
+  display: none !important;
+}
+
+.panel-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s1) var(--s2);
+}
+
+/* Demo gallery (VS-003): the capture is the tile. */
+.live-demos-grid {
+  gap: var(--s3);
+  grid-template-columns: repeat(auto-fill, minmax(11.5rem, 1fr));
+}
+
+.live-demo {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  aspect-ratio: 16 / 10;
+}
+
+.live-demo-thumb {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  opacity: 0.82;
+  transition: transform var(--dur-slow) var(--ease-out-quart), opacity var(--dur-base) var(--ease-standard);
+}
+
+.live-demo strong {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: var(--s6) var(--s3) var(--s2);
+  background: linear-gradient(transparent, color-mix(in srgb, var(--color-bg) 94%, transparent) 60%);
+  font-size: var(--text-sm);
+  line-height: 1.25;
+}
+
+.live-demo-host,
+.live-demo-tech {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.live-demo:hover .live-demo-thumb,
+.live-demo:focus-visible .live-demo-thumb {
+  opacity: 1;
+  transform: scale(1.04);
+}
+
+@media (max-width: 42rem) {
+  .live-demos-grid {
+    display: flex;
+    margin-inline: calc(-1 * var(--s3));
+    padding-inline: var(--s3);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .live-demos-grid > li {
+    flex: 0 0 64%;
+    scroll-snap-align: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .live-demo:hover .live-demo-thumb,
+  .live-demo:focus-visible .live-demo-thumb {
+    transform: none;
   }
 }

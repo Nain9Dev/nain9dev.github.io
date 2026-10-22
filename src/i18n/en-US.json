@@ -8068,5 +8068,80 @@
     "source": "Menú",
     "target": "Menu",
     "status": "reviewed"
+  },
+  "d3c56d44d03480569cfbc75d5e6446ffbb0add3ca2e303d9f7500abc721bbce4": {
+    "source": "Más detalle",
+    "target": "More detail",
+    "status": "reviewed"
+  },
+  "1446235eb18ce292dd67327dbf09e807bc11ab1fcb67f41f9f9407a450962f97": {
+    "source": "⟦0⟧⟦1/⟧⟦2⟧Nain3D⟦/2⟧⟦3/⟧⟦4/⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2⟧Nain3D⟦/2⟧⟦3/⟧⟦4/⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "26ff40ba74167cae23119eed689ef6a780a60cdced5031b5f68f7a7106ab58b8": {
+    "source": "⟦0⟧⟦1/⟧⟦2⟧Pipeline de prospección B2B con IA⟦/2⟧⟦3/⟧⟦4/⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2⟧AI-assisted B2B prospecting pipeline⟦/2⟧⟦3/⟧⟦4/⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "31faa006c4d9870fe940fecfc3daaaa2c77fcdfa1ef7ff1a2fd95643bfaf54f8": {
+    "source": "⟦0⟧⟦1/⟧⟦2⟧NainConfigurator⟦/2⟧⟦3/⟧⟦4/⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2⟧NainConfigurator⟦/2⟧⟦3/⟧⟦4/⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "39037337f74d5d358fb046c9ed28f18cdd64e7c0a992da7c89018c348a12907a": {
+    "source": "⟦0⟧⟦1/⟧⟦2⟧ParametriCAD AI⟦/2⟧⟦3/⟧⟦4/⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2⟧ParametriCAD AI⟦/2⟧⟦3/⟧⟦4/⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "531b3f1bc07a600526bb3f3c27c3a642775ed945a2bc663fae92c7fe9e45faf2": {
+    "source": "⟦0⟧⟦1/⟧⟦2⟧Pong Arcade 3D⟦/2⟧⟦3/⟧⟦4/⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2⟧Pong Arcade 3D⟦/2⟧⟦3/⟧⟦4/⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "6a22674b5b61fba862c75b55485b67864b25989590b1949afadaf5df918bdec3": {
+    "source": "⟦0⟧⟦1/⟧⟦2⟧NainOrder (motor de pedidos)⟦/2⟧⟦3/⟧⟦4/⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2⟧NainOrder (order engine)⟦/2⟧⟦3/⟧⟦4/⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "7f3d538851b930b22c4e1a937b5311829f142646d576642ba4caf4b061882f71": {
+    "source": "⟦0⟧⟦1/⟧⟦2⟧Simulacros de oposición TAI⟦/2⟧⟦3/⟧⟦4/⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2⟧TAI civil service exam simulator⟦/2⟧⟦3/⟧⟦4/⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "85e0f669a8321f58f8ad0e181e4ade2bfef593886d5138ab362746288ce0774b": {
+    "source": "⟦0⟧⟦1/⟧⟦2⟧Facturación determinista para autoescuelas⟦/2⟧⟦3/⟧⟦4/⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2⟧Deterministic billing for driving schools⟦/2⟧⟦3/⟧⟦4/⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "87a8bdba032c04f5f67c237eaa1170844de94d7386f5c749bf33b047f96b5429": {
+    "source": "⟦0⟧⟦1/⟧⟦2⟧Orbe Runner 3D⟦/2⟧⟦3/⟧⟦4/⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2⟧Orbe Runner 3D⟦/2⟧⟦3/⟧⟦4/⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "9190baa3f4e07be2dd4a56933d1d65f5f13c758c95cf1ca52462b9b22effd4e6": {
+    "source": "⟦0⟧⟦1/⟧⟦2⟧HaveTickets⟦/2⟧⟦3/⟧⟦4/⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2⟧HaveTickets⟦/2⟧⟦3/⟧⟦4/⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "a3ff385f26533f2e270619bc33e7302696ccdd86e57d87f2835b87e89a4630a4": {
+    "source": "⟦0⟧⟦1/⟧⟦2⟧GameHaven⟦/2⟧⟦3/⟧⟦4/⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2⟧GameHaven⟦/2⟧⟦3/⟧⟦4/⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "c92dcb10325d56a8394a65e054f3b45312960ff57ad16f035f4c633ae9bf8bfb": {
+    "source": "⟦0⟧⟦1/⟧⟦2⟧API de Operaciones de Pólizas⟦/2⟧⟦3/⟧⟦4/⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2⟧Policy Operations API⟦/2⟧⟦3/⟧⟦4/⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "d400d9e46ee1556a6f0421f3a5faf5fccc312c84df93e25efef24570cfc6d720": {
+    "source": "⟦0⟧⟦1/⟧⟦2⟧Agente local de reescritura en español⟦/2⟧⟦3/⟧⟦4/⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2⟧Local Spanish rewriting agent⟦/2⟧⟦3/⟧⟦4/⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "e3b7abeac3baf2026898b285af5551bdd2fb9b1a168d381755fa34e809f1f874": {
+    "source": "⟦0⟧⟦1/⟧⟦2⟧Microservicio de notificaciones⟦/2⟧⟦3/⟧⟦4/⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2⟧Notification microservice⟦/2⟧⟦3/⟧⟦4/⟧⟦/0⟧",
+    "status": "reviewed"
   }
 }
