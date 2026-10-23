@@ -20,6 +20,6 @@ One task at a time, test first. Update the `Session state` block in `spec.md` af
 - [ ] **T06** `[H]` Decide whether to build a web page for the repositories without one (nain-mcp-validator, engineering-handbook, both templates) and whether to improve the first screen of NainTAI, NainOrder and ParametriCAD.
   - **Covers**: visual review in `spec.md`
   - **Needs from owner**: the decision and the order; each is work in its own repository.
-- [ ] **T07** `[A]` Consolidate PRJ-024, PRJ-025 and ECO-022 to ECO-024 into `docs/10-requirements.md`, `docs/50-traceability.md`, `docs/40-tasks.md` and `docs/90-changelog.md` once pull request #23 is merged.
+- [x] **T07** `[A]` Consolidate PRJ-024, PRJ-025 and ECO-022 to ECO-024 into `docs/10-requirements.md`, `docs/50-traceability.md`, `docs/40-tasks.md` and `docs/90-changelog.md` once pull request #23 is merged.
   - **Covers**: documentation flow
   - **Done when**: the four documents carry the rows and the spec status reads Consolidated.
