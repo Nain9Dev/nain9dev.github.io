@@ -162,6 +162,8 @@ Spec 005 is committed as `c78c854`; production confirmation after deployment is 
 | PRJ-008 | When the project catalog is served, projects shall be ordered in descending hierarchy of technical complexity and maturity (production conformance ecosystem, enterprise .NET and CAD, procedural 3D engines, local AI, and training foundations). | specs/017-catalog-complexity-ordering-and-filters | Implemented |
 | PRJ-009 | When the project catalog is loaded, every project shall declare supported strategic categories (`backend`, `data`, `demo`, `3d`, `production`, `dotnet`, `python`). | specs/017-catalog-complexity-ordering-and-filters | Implemented |
 | PRJ-010 | When the project section is rendered, the filter toolbar shall expose 6 strategic filter buttons (`all`, `production`, `dotnet`, `python`, `3d`, `demo`) equipped with dynamic count badges. | specs/017-catalog-complexity-ordering-and-filters | Implemented |
+| PRJ-024 | When a catalogued public repository publishes a live site on a `naindev.com` subdomain, the catalog shall link it with the demo label before the repository link, give it the status `Demo pública activa` and show its capture at `/assets/images/demos/<id>.webp` (NainLegacyModernizer → `https://modernizer.naindev.com/`). | specs/next-portfolio-coverage | Implemented (#28) |
+| PRJ-025 | When a catalogued public repository has no live site, its card shall show a capture of its README as rendered on GitHub, at `/assets/images/repos/<id>.webp`, so every public entry carries a picture (nain-mcp-validator). | specs/next-portfolio-coverage | Implemented (#28) |
 | UI-001 | When project filters are applied or resized, the sliding active indicator and card transitions shall adapt smoothly without layout shifts or localization token leakage. | specs/017-catalog-complexity-ordering-and-filters | Implemented |
 
 ## Repository security (spec 018)
@@ -332,6 +334,9 @@ Spec 005 is committed as `c78c854`; production confirmation after deployment is 
 | ECO-008 | When the ecosystem data cannot be loaded or has another `schemaVersion`, the bar shall keep the brand and status links, without menu and panel, and shall not throw. | specs/041-ecosystem-bar-split | Implemented (not deployed) |
 | ECO-009 | When the entry script is loaded from any origin, it shall resolve the panel and data files from its own script URL, falling back to `https://www.naindev.com/assets/`; loading the data shall not be reported as host traffic. | specs/041-ecosystem-bar-split | Implemented (not deployed) |
 | ECO-010 | Every catalog item and profile in the ecosystem data shall have the fields the bar renders, HTTPS URLs and unique names. | specs/041-ecosystem-bar-split | Implemented (not deployed) |
+| ECO-022 | Each open-ecosystem tile shall show a capture (640x360 WebP under 30 KB with a 400x225 variant under 10 KB, lazy-loaded with explicit dimensions): of the live site when the repository publishes one on a `naindev.com` subdomain (`brandbook`, `status`), otherwise of its README on GitHub. | specs/next-portfolio-coverage | Implemented (#28) |
+| ECO-023 | When a repository publishes a live site, its tile shall link that site and keep a secondary link to the repository on GitHub; otherwise the tile shall link GitHub. Every link opens in a new tab with `rel="noopener noreferrer"`. | specs/next-portfolio-coverage | Implemented (#28) |
+| ECO-024 | The suite bar catalog (`public/assets/data/ecosystem.v1.json`) shall list the NainLegacyModernizer demo in the backend category, so every live demo is reachable from the bar on every subdomain. | specs/next-portfolio-coverage | Implemented (#28) |
 
 ## Status hub integration (spec 039)
 

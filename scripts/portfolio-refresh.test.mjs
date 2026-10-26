@@ -53,7 +53,8 @@ test('PRJ-023: NainProspect and NainWrite are public catalog entries', async () 
 test('VIS-003: every live demo has a small lazy-loaded thumbnail on its card', async () => {
   const projects = await readJson('public/assets/data/projects.json');
   const live = projects.filter((project) => project.links.some((link) => /^https:\/\/[a-z0-9-]+\.naindev\.com(\/|$)/.test(link.url)));
-  assert.equal(live.length, 14);
+  // 15 since PRJ-024 linked the NainLegacyModernizer demo (specs/next-portfolio-coverage).
+  assert.equal(live.length, 15);
   for (const project of live) {
     assert.equal(project.thumbnail, `/assets/images/demos/${project.id}.webp`);
     const { size } = await stat(join(ROOT, 'public', project.thumbnail));
@@ -92,6 +93,55 @@ test('ECO-020 and ECO-021: the home page lists the open repositories after the c
   assert.match(section, /rel="noopener noreferrer"/);
   assert.match(section, /translate="no"/);
   assert.doesNotMatch(section, /<script|<iframe/);
+});
+
+// Every public repository with a link and a capture. See specs/next-portfolio-coverage.
+test('PRJ-024: a catalogued repository with a live site links it first, with the active-demo status and its capture', async () => {
+  const projects = await readJson('public/assets/data/projects.json');
+  const modernizer = projects.find((project) => project.id === 'nain-legacy-modernizer');
+  assert.deepEqual(urlsOf(modernizer), ['https://modernizer.naindev.com/', 'https://github.com/Nain9Dev/NainLegacyModernizer']);
+  assert.equal(modernizer.links[0].label, 'Probar demo');
+  assert.equal(modernizer.status, 'Demo pública activa');
+  assert.equal(modernizer.thumbnail, '/assets/images/demos/nain-legacy-modernizer.webp');
+  const small = await stat(join(ROOT, 'public/assets/images/demos/nain-legacy-modernizer-400.webp'));
+  assert.ok(small.size > 500 && small.size <= 10000, `small capture weighs ${small.size} bytes`);
+});
+
+test('PRJ-025: every public catalog entry carries a picture; without a live site it is the README capture', async () => {
+  const projects = await readJson('public/assets/data/projects.json');
+  for (const project of projects.filter((project) => !project.private)) {
+    assert.ok(project.thumbnail, `${project.id} carries a picture`);
+  }
+  const validator = projects.find((project) => project.id === 'nain-mcp-validator');
+  assert.equal(validator.thumbnail, '/assets/images/repos/nain-mcp-validator.webp');
+  const { size } = await stat(join(ROOT, 'public', validator.thumbnail));
+  assert.ok(size > 1000 && size < 30000, `README capture weighs ${size} bytes`);
+});
+
+test('ECO-022 and ECO-023: every ecosystem tile shows a capture and links the live site when one exists', async () => {
+  const section = await read('src/components/home/OpenEcosystem.astro');
+  const sites = { brandbook: 'https://brand.naindev.com/', status: 'https://status.naindev.com/' };
+  const entries = [...section.matchAll(/\{ name: '([^']+)'(.*?)\},?\n/g)];
+  assert.equal(entries.length, 6);
+  for (const [, name, rest] of entries) {
+    const thumbnail = rest.match(/thumbnail: '([^']+)'/)?.[1];
+    assert.ok(thumbnail, `${name} has a capture`);
+    const big = await stat(join(ROOT, 'public', thumbnail));
+    const small = await stat(join(ROOT, 'public', thumbnail.replace(/\.webp$/, '-400.webp')));
+    assert.ok(big.size > 1000 && big.size < 30000, `${name} capture weighs ${big.size} bytes`);
+    assert.ok(small.size > 500 && small.size <= 10000, `${name} small capture weighs ${small.size} bytes`);
+    const site = rest.match(/site: '([^']+)'/)?.[1];
+    assert.equal(site, sites[name], `${name} links its live site only when it has one`);
+    assert.ok(thumbnail.startsWith(site ? '/assets/images/demos/' : '/assets/images/repos/'), `${name} capture lives in the right folder`);
+  }
+  assert.match(section, /href=\{repository\.site \?\? `https:\/\/github\.com\/Nain9Dev\/\$\{repository\.name\}`\}/);
+  assert.match(section, /<a class="repo-code" href=\{`https:\/\/github\.com\/Nain9Dev\/\$\{repository\.name\}`\} target="_blank" rel="noopener noreferrer"/);
+  assert.match(section, /<img class="live-demo-thumb"[^>]*alt=""[^>]*width="400" height="225" loading="lazy" decoding="async"/);
+  assert.doesNotMatch(section, /<script|<iframe/);
+  const css = await read('src/styles/main.css');
+  assert.match(css, /#open-ecosystem \.live-demo \{[^}]*aspect-ratio: 16 \/ 10;/);
+  assert.match(css, /\.repo-code \{/);
+  assert.match(css, /#open-ecosystem \.live-demo-host,\s*#open-ecosystem \.live-demo-tech \{[^}]*clip-path: inset\(50%\);/);
 });
 
 test('VIS-004: technology chips carry a decorative icon when the repository ships one', async () => {

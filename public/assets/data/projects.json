@@ -169,6 +169,7 @@
         "url": "https://github.com/Nain9Dev/nain-mcp-validator"
       }
     ],
+    "thumbnail": "/assets/images/repos/nain-mcp-validator.webp",
     "private": false,
     "featured": true,
     "order": 5
@@ -209,7 +210,7 @@
   {
     "id": "nain-legacy-modernizer",
     "title": "Harness de modernización .NET (YARP y Shadow Runner)",
-    "status": "Demostración de arquitectura",
+    "status": "Demo pública activa",
     "summary": "Harness de modernización para monolitos .NET heredados mediante Strangler Fig con proxy inverso YARP y auditoría de escritura dual en paralelo.",
     "proof": "Enrutamiento transparente entre monolito heredado y microservicios modernos en .NET 10, ejecución paralela Shadow Runner con comparación semántica de payloads y cero tiempo de inactividad.",
     "technologies": [
@@ -226,10 +227,15 @@
     ],
     "links": [
       {
+        "label": "Probar demo",
+        "url": "https://modernizer.naindev.com/"
+      },
+      {
         "label": "Revisar código",
         "url": "https://github.com/Nain9Dev/NainLegacyModernizer"
       }
     ],
+    "thumbnail": "/assets/images/demos/nain-legacy-modernizer.webp",
     "private": false,
     "featured": true,
     "order": 7
