@@ -35,7 +35,9 @@ test('VP-001: colour literals live only in the token block', async () => {
   assert.match(block, /--radius: 4px/);
   assert.match(block, /--ease-standard: cubic-bezier/);
   const literal = /#[0-9a-f]{3,8}\b|rgba?\(|hsla?\(/gi;
-  assert.deepEqual(rest.match(literal) ?? [], [], 'main.css keeps colour literals inside :root');
+  // Theme blocks (spec 048) are :root selectors too, inside or outside a media query.
+  const outsideRoot = rest.replace(/:root[^{]*\{[^}]*\}/g, '');
+  assert.deepEqual(outsideRoot.match(literal) ?? [], [], 'main.css keeps colour literals inside :root blocks');
   for (const file of STYLESHEETS.slice(1)) {
     const css = await read(file);
     assert.deepEqual(css.match(literal) ?? [], [], `${file} reads colours from the tokens`);

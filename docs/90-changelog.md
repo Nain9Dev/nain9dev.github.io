@@ -6,6 +6,7 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ### Added
 
+- Spec 048: light theme from the brandbook paper palette, applied by the system preference or chosen from a header toggle (persisted, applied before first paint); the terminal keeps its dark skin; solid shadows take a `--color-shadow` role. ADR-0014 (Proposed).
 - Portfolio coverage: every public repository of the account now has a link and a capture on the site; NainLegacyModernizer links its live demo, `brandbook` and `status` tiles link their sites, and the five repositories without a site show a capture of their README (#28).
 - Social preview image `og-cover-v4.jpg` (1200×630 JPEG, 74 KB) in the spec 045 style: cobalt surface, grid, the hero title, the horizontal logo and the capability panel; replaces the generic illustration of spec 026.
 - Spec 047: services hub and pages lead with a glyph resolved from the service frontmatter; blog cards open with a numbered cover band; technology pages head with the stack mark; project cards without a capture get a cover band (#21, #22).

@@ -8208,5 +8208,10 @@
     "source": "⟦0⟧⟦1/⟧⟦2/⟧⟦3/⟧⟦4/⟧⟦5⟧Sistema de diseño y manual de marca de NainDev.⟦/5⟧⟦/0⟧⟦6/⟧",
     "target": "⟦0⟧⟦1/⟧⟦2/⟧⟦3/⟧⟦4/⟧⟦5⟧NainDev design system and brand book.⟦/5⟧⟦/0⟧⟦6/⟧",
     "status": "reviewed"
+  },
+  "3a28469f0c7f07a2b69e949f15b161922ca62f9de69925d819832e9f206bd3b9": {
+    "source": "Modo claro",
+    "target": "Light mode",
+    "status": "reviewed"
   }
 }
