@@ -3732,3 +3732,47 @@ html.low-performance .system-map::after {
     animation: menu-in var(--dur-base) var(--ease-out-quart);
   }
 }
+
+/* --- Micro-interactions (specs/next-micro-interactions) --- */
+
+/* Colour and border feedback stays under reduced motion; movement is added only when motion is welcome. */
+.language-switcher a {
+  transition: background-color var(--dur-fast) var(--ease-standard), color var(--dur-fast) var(--ease-standard);
+}
+
+.language-switcher a:hover,
+.language-switcher a:focus-visible {
+  background: color-mix(in srgb, var(--color-ink) 12%, transparent);
+  color: var(--color-ink);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .theme-toggle svg {
+    transition: transform var(--dur-base) var(--ease-out-quart);
+  }
+
+  .theme-toggle:hover svg,
+  .theme-toggle:focus-visible svg {
+    transform: rotate(18deg);
+  }
+
+  .theme-toggle:active,
+  .filter-button:active,
+  .social-pill:active,
+  .quiet > summary:active {
+    transform: scale(0.96);
+  }
+
+  .social-pill,
+  .filter-button,
+  .quiet > summary {
+    transition-property: border-color, background-color, color, transform;
+    transition-duration: var(--dur-fast);
+    transition-timing-function: var(--ease-standard);
+  }
+
+  .social-pill:hover,
+  .social-pill:focus-visible {
+    transform: translateY(-2px);
+  }
+}
