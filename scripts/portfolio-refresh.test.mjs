@@ -121,7 +121,8 @@ test('PRJ-025: every public catalog entry carries a picture; without a live site
 test('ECO-022 and ECO-023: every ecosystem tile shows a capture and links the live site when one exists', async () => {
   const section = await read('src/components/home/OpenEcosystem.astro');
   const sites = { brandbook: 'https://brand.naindev.com/', status: 'https://status.naindev.com/' };
-  const entries = [...section.matchAll(/\{ name: '([^']+)'(.*?)\},?\n/g)];
+  // `\r?` because a Windows checkout converts the file to CRLF and the pattern used to miss every entry there.
+  const entries = [...section.matchAll(/\{ name: '([^']+)'(.*?)\},?\r?\n/g)];
   assert.equal(entries.length, 6);
   for (const [, name, rest] of entries) {
     const thumbnail = rest.match(/thumbnail: '([^']+)'/)?.[1];
