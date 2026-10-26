@@ -306,7 +306,7 @@ try {
 } catch { info(12, 'no upstream branch: commit checks skipped'); }
 
 // ---------- 17 (structural). theme.js first in <head>, classic, before any stylesheet; no inline script
-for (const p of PAGES) {
+for (const p of PAGES.filter((x) => !STANDALONE(x))) {
   const src = sources[p.file];
   const head = (src.match(/<head[^>]*>([\s\S]*?)<\/head>/i) || [null, ''])[1];
   const tags = [...head.matchAll(/<(script|link|style)\b([^>]*)>/gi)].map((m, i) => ({ i, tag: m[1].toLowerCase(), attrs: m[2] }));
@@ -321,7 +321,7 @@ for (const p of PAGES) {
   if (sheets.length && sheets[0].i < t.i) fail(17, `${p.file}: a stylesheet comes before theme.js`);
   if (/<script\b(?![^>]*\bsrc=)(?![^>]*application\/ld\+json)[^>]*>/i.test(src)) fail(17, `${p.file}: inline <script>`);
 }
-info(17, `structure: ${PAGES.length} pages checked for theme.js as the first script in <head>, classic (no async, defer or module), before every stylesheet, and no inline script; ${S.get(17).detail.length ? `${S.get(17).detail.length} problem(s)` : 'all pass'}`);
+info(17, `structure: ${PAGES.filter((x) => !STANDALONE(x)).length} site pages checked for theme.js as the first script in <head>, classic (no async, defer or module), before every stylesheet, and no inline script; ${S.get(17).detail.length ? `${S.get(17).detail.length} problem(s)` : 'all pass'}`);
 
 // ---------- 20. cache busting
 let manifest = {};
@@ -1133,8 +1133,9 @@ if (EXPORTS) {
   for (const e of await readdir(OUT)) await rm(join(OUT, e), { recursive: true, force: true });
   let exported = 0;
   const jobs = [];
-  for (const p of PAGES) for (const theme of ['deep', 'paper']) for (const width of [390, 1440]) for (const lang of ['es', 'en']) if (!STANDALONE(p) || lang === 'es') jobs.push({ p, theme, width, lang, where: `${p.file} export ${width} ${lang} ${theme}` });
-  for (const p of PAGES) await mkdir(join(OUT, p.name), { recursive: true });
+  for (const p of PAGES) for (const theme of ['deep', 'paper']) for (const width of [390, 1440]) for (const lang of ['es', 'en']) if (!STANDALONE(p)) jobs.push({ p, theme, width, lang, where: `${p.file} export ${width} ${lang} ${theme}` });
+  // The brandbook is a document, not a site page: its own captures are in the README, not in exports/.
+  for (const p of PAGES.filter((x) => !STANDALONE(x))) await mkdir(join(OUT, p.name), { recursive: true });
   await pool(jobs, async ({ p, theme, width, lang }) => {
     const ctx = await browser.newContext(ctxOptions({ width, height: 900, theme, reduced: true }));
     await ctx.addInitScript(PRIVACY_CLOSED);
@@ -1166,7 +1167,7 @@ if (EXPORTS) {
   const py = spawnSync('python3', [join(ROOT, 'tools', 'lib', 'quantise.py'), OUT], { encoding: 'utf8' });
   const size = execFileSync('du', ['-sk', OUT], { encoding: 'utf8' }).split('\t')[0];
   if (py.status !== 0) warn(13, `not quantised: ${(py.stderr || '').trim().split('\n').pop()}`);
-  info(13, `${exported} section captures in exports/<page>/NN-<section>-<width>-<lang>-<theme>.png (${PAGES.length} pages × 390/1440 × ES/EN × deep/paper) + ${ff} first frames in exports/first-frame/; ${exported + ff} files, ${(size / 1024).toFixed(1)} MB${py.status === 0 ? ', quantised to 256 colours, metadata stripped' : ''}`);
+  info(13, `${exported} section captures in exports/<page>/NN-<section>-<width>-<lang>-<theme>.png (${PAGES.filter((x) => !STANDALONE(x)).length} site pages × 390/1440 × ES/EN × deep/paper) + ${ff} first frames in exports/first-frame/; ${exported + ff} files, ${(size / 1024).toFixed(1)} MB${py.status === 0 ? ', quantised to 256 colours, metadata stripped' : ''}`);
   phase('exports (I)');
 } else { S.get(13).skip = true; info(13, `skipped (${QUICK ? '--quick' : '--no-exports'}); first frames of check 17 are in ${globalThis.FF_DIR}`); }
 
