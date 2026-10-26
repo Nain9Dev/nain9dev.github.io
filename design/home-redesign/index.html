@@ -1,28 +1,32 @@
 <!DOCTYPE html>
-<html lang="es" data-title-es="NainDev · Arquitectura de software y conformidad determinista" data-title-en="NainDev · Software architecture and deterministic conformance">
+<html lang="es" data-title-es="NainDev · Arquitecto de software full stack" data-title-en="NainDev · Full stack software architect">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; connect-src 'self' https://plausible.io; font-src 'self' https://fonts.gstatic.com; form-action 'self'; frame-src 'none'; img-src 'self' data: https:; object-src 'none'; script-src 'self' 'unsafe-inline' https://plausible.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>NainDev · Arquitectura de software y conformidad determinista</title>
-<meta name="description" content="Aitor Nain Mendoza Vallejo, arquitecto de software full stack: sistemas que validan productos con reglas deterministas, IA con supervisión humana y backend crítico en Python y .NET.">
-<meta name="description-en" content="Aitor Nain Mendoza Vallejo, full stack software architect: systems that validate products with deterministic rules, AI under human oversight and critical backends in Python and .NET.">
-<script src="assets/boot.js"></script>
-<link rel="stylesheet" href="assets/nain.css">
-<script src="assets/nain.js" defer></script>
-<script src="assets/motion.js" defer></script>
-<script src="assets/fix.data.js" defer></script>
-<script src="assets/fix.js" defer></script>
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" id="themeColor" content="#070B16">
+<title>NainDev · Arquitecto de software full stack</title>
+<meta name="description" content="Aitor Nain Mendoza Vallejo (NainDev), arquitecto de software full stack: conformidad determinista de productos, backends en Python y .NET e IA con supervisión humana.">
+<meta name="description-en" content="Aitor Nain Mendoza Vallejo (NainDev), full stack software architect: deterministic product conformance, Python and .NET backends, and AI under human oversight.">
+<link rel="icon" id="favicon" type="image/svg+xml" href="assets/logo/favicon-deep.svg">
+<script src="assets/theme.js?v=1"></script>
+<script src="assets/boot.js?v=1"></script>
+<link rel="stylesheet" href="assets/nain.css?v=5">
+<script src="assets/nain.js?v=1" defer></script>
+<script src="assets/motion.js?v=2" defer></script>
+<script src="assets/fix.data.js?v=1" defer></script>
+<script src="assets/fix.js?v=1" defer></script>
 </head>
 <body data-page="home" data-brk="a" data-trama="a" data-pulse="a" data-scan="a">
 <a class="skip" href="#contenido"><span class="es">Saltar al contenido</span><span class="en">Skip to content</span></a>
 <header class="top">
   <div class="shell">
-    <a class="brand" href="index.html" id="brandMark" aria-current="page"><svg viewBox="0 0 1000 1000" aria-hidden="true" focusable="false"><g stroke="currentColor" stroke-width="113" stroke-linecap="round" fill="none"><line id="mkL" pathLength="1" x1="148" y1="148" x2="148" y2="848"/><line id="mkD" pathLength="1" x1="308" y1="288" x2="686" y2="738"/><line id="mkR" pathLength="1" x1="848" y1="148" x2="848" y2="848"/></g></svg><span class="sr">NainDev · <span class="es">inicio</span><span class="en">home</span></span></a>
+    <a class="brand" href="index.html" id="brandMark" aria-current="page"><svg viewBox="0 0 1000 1000" aria-hidden="true" focusable="false"><g stroke="currentColor" stroke-width="113" stroke-linecap="round" fill="none"><line id="mkL" pathLength="1" x1="148" y1="148" x2="148" y2="848"/><line id="mkD" pathLength="1" x1="308" y1="288" x2="686" y2="738"/><line id="mkR" pathLength="1" x1="848" y1="148" x2="848" y2="848"/></g></svg><img class="wm only-deep" src="assets/logo/wordmark-white.png" alt="" width="423" height="38"><img class="wm only-paper" src="assets/logo/wordmark-blue.png" alt="" width="423" height="38"><span class="sr">NainDev · <span class="es">inicio</span><span class="en">home</span></span></a>
     <nav class="main" aria-label="Principal / Main">
       <a class="u" href="servicios.html"><span class="es">Servicios</span><span class="en">Services</span></a>
-      <a class="u" href="index.html#proyectos"><span class="es">Proyectos</span><span class="en">Projects</span></a>
+      <a class="u" href="proyectos.html"><span class="es">Proyectos</span><span class="en">Projects</span></a>
       <a class="u" href="casos.html"><span class="es">Casos</span><span class="en">Case studies</span></a>
       <a class="u" href="escritos.html"><span class="es">Escritos</span><span class="en">Writing</span></a>
       <a class="u" href="index.html#sobre"><span class="es">Sobre mí</span><span class="en">About</span></a>
@@ -30,6 +34,7 @@
     </nav>
     <div class="tools">
       <div class="lang" role="group" aria-label="Idioma / Language"><button type="button" data-lang="es" aria-pressed="true" lang="es">ES</button><i aria-hidden="true">/</i><button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button></div>
+      <button class="themesw" type="button" data-theme-toggle aria-pressed="false"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><span class="sr"><span class="es">Modo claro</span><span class="en">Light mode</span></span></button>
       <a class="btn btn-p btn-call" href="https://calendly.com/aitornainmendozavallejo-ksez/30min" target="_blank" rel="noopener noreferrer"><span class="es">Agendar llamada<span class="xl"> gratuita</span></span><span class="en">Book a<span class="xl"> free</span> call</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a>
       <button class="burger" type="button" aria-expanded="false" aria-controls="sheet" id="menuOpen">
         <b aria-hidden="true"></b><span class="es">Menú</span><span class="en">Menu</span>
@@ -49,7 +54,7 @@
   </div>
   <nav aria-label="Menú móvil / Mobile menu">
       <a class="u" href="servicios.html"><span class="es">Servicios</span><span class="en">Services</span></a>
-      <a class="u" href="index.html#proyectos"><span class="es">Proyectos</span><span class="en">Projects</span></a>
+      <a class="u" href="proyectos.html"><span class="es">Proyectos</span><span class="en">Projects</span></a>
       <a class="u" href="casos.html"><span class="es">Casos</span><span class="en">Case studies</span></a>
       <a class="u" href="escritos.html"><span class="es">Escritos</span><span class="en">Writing</span></a>
       <a class="u" href="index.html#sobre"><span class="es">Sobre mí</span><span class="en">About</span></a>
@@ -58,6 +63,7 @@
   <div class="foot">
     <a class="btn btn-p btn-lg btn-block" href="https://calendly.com/aitornainmendozavallejo-ksez/30min" target="_blank" rel="noopener noreferrer"><span class="es">Agendar llamada gratuita</span><span class="en">Book a free call</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a>
     <p class="avail-line"><span class="es">Acepto proyectos a tiempo parcial y en remoto para empresas de cualquier país.</span><span class="en">I take on part-time, remote projects for companies in any country.</span></p>
+    <div class="theme-row"><span class="lbl"><span class="es">Expresión papel (modo claro)</span><span class="en">Paper expression (light mode)</span></span><button class="themesw" type="button" data-theme-toggle aria-pressed="false"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><span class="sr"><span class="es">Modo claro</span><span class="en">Light mode</span></span></button></div>
   </div>
 </div>
 <aside class="pbanner" id="pbanner" aria-labelledby="pbannerTitle" data-nosnippet>
@@ -70,475 +76,229 @@
 </aside>
 <main id="contenido" tabindex="-1">
 
-<!-- ===== HERO · living surface (7.5) ===== -->
+<!-- ===== 1 · HERO · deep blue in both expressions, the 7.5 field is its visual ===== -->
 <section class="hero" aria-labelledby="heroTitle">
-  <canvas id="field" aria-hidden="true"></canvas>
-  <div class="shell">
-    <div class="heroCard">
-      <p class="kick">Aitor Nain Mendoza Vallejo</p>
-      <p class="lbl role"><span class="es">Arquitecto de software full stack</span><span class="en">Full stack software architect</span></p>
-      <h1 id="heroTitle"><span class="es">Diseño sistemas que validan productos con reglas deterministas</span><span class="en">I design systems that validate products with deterministic rules</span></h1>
-      <p class="lede"><span class="es">Arquitectura de conformidad determinista y multidominio: cada producto se mide contra especificaciones explícitas y versionadas, con veredictos reproducibles y la IA bajo supervisión humana. El primer dominio son los modelos 3D. Entrego el producto completo en Python y .NET, del modelo de datos al frontend.</span><span class="en">Deterministic, multi-domain conformance architecture: every product is measured against explicit, versioned specifications, with reproducible verdicts and AI under human oversight. The first domain is 3D models. I deliver the complete product in Python and .NET, from the data model to the frontend.</span></p>
+  <div class="shell hero-in">
+    <div class="hero-txt">
+      <p class="kick">Aitor Nain Mendoza Vallejo · NainDev</p>
+      <h1 id="heroTitle"><span class="es">Arquitecto de software full stack: <span class="acc">backend fiable e IA verificable.</span></span><span class="en">Full stack software architect: <span class="acc">reliable backend and verifiable AI.</span></span></h1>
+      <p class="lede"><span class="es">Producto completo en Python y .NET, con IA bajo revisión humana. Conformidad determinista: su primer dominio son los modelos 3D.</span><span class="en">Complete product in Python and .NET, with AI under human review. Deterministic conformance: its first domain is 3D models.</span></p>
       <div class="cta">
-        <a class="btn btn-p btn-lg" href="https://calendly.com/aitornainmendozavallejo-ksez/30min" target="_blank" rel="noopener noreferrer"><span class="es">Agendar llamada gratuita</span><span class="en">Book a free call</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a>
-        <a class="btn btn-s btn-lg" href="servicios.html"><span class="es">Ver servicios</span><span class="en">See services</span></a>
+        <a class="btn btn-g btn-lg" href="https://calendly.com/aitornainmendozavallejo-ksez/30min" target="_blank" rel="noopener noreferrer"><span class="es">Agendar llamada gratuita</span><span class="en">Book a free call</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a>
+        <a class="tlink" href="#proyectos"><span class="es">Ver proyectos</span><span class="en">See projects</span></a>
       </div>
-      <dl class="facts">
-        <div><dt class="lbl"><span class="es">Lenguajes</span><span class="en">Languages</span></dt><dd class="v">Python · C#</dd></div>
-        <div><dt class="lbl">Backend</dt><dd class="v">FastAPI · .NET</dd></div>
-        <div><dt class="lbl"><span class="es">Datos</span><span class="en">Data</span></dt><dd class="v">PostgreSQL · SQL Server</dd></div>
-        <div><dt class="lbl"><span class="es">Frontend e IA</span><span class="en">Frontend and AI</span></dt><dd class="v">Vue 3 · MCP</dd></div>
-      </dl>
-      <p class="avail"><span class="es">Acepto proyectos a tiempo parcial y en remoto para empresas de cualquier país.</span><span class="en">I take on part-time, remote projects for companies in any country.</span></p>
+      <p class="avail"><i class="live" aria-hidden="true"></i><span class="es">Acepto proyectos a tiempo parcial y en remoto para empresas de cualquier país.</span><span class="en">I take on part-time, remote projects for companies in any country.</span></p>
     </div>
   </div>
-  <div class="heroHint" aria-hidden="true"><div class="in">
-    <span class="t"><span class="es">Pasa el ratón o toca · los trazos se contraen y vuelven a su sitio</span><span class="en">Hover or tap · the strokes contract, then settle back</span></span>
-    <span class="c"><span class="es">Trazos contraídos</span><span class="en">Strokes contracted</span> <b id="breakCount">0000</b></span>
-  </div></div>
+  <div class="hero-field">
+    <canvas id="field" aria-hidden="true"></canvas>
+    <div class="heroHint" aria-hidden="true">
+      <span class="t"><span class="es">Pasa el ratón o toca · los trazos se contraen</span><span class="en">Hover or tap · the strokes contract</span></span>
+      <span class="c"><span class="es">Trazos contraídos</span><span class="en">Strokes contracted</span> <b id="breakCount">0000</b></span>
+    </div>
+  </div>
 </section>
 
-<!-- ===== EL PROBLEMA · papel ===== -->
-<section id="problema" class="apar" aria-labelledby="problemaTitle">
+<!-- ===== 2 · SERVICES · page ===== -->
+<section id="servicios" class="apar" aria-labelledby="serviciosTitle">
   <div class="shell">
     <div class="head">
-      <p class="kick cae" style="--o:0"><span class="es">El problema</span><span class="en">The problem</span></p>
-      <h2 id="problemaTitle"><span class="masc"><span class="linea" style="--o:1"><span class="es">Tres fallos que suelen tener la misma causa</span><span class="en">Three failures that usually share a cause</span></span></span></h2>
-      <div class="cota-w" style="--o:2"><div class="cota q3" aria-hidden="true"><i></i><i></i><i></i><i></i></div><span class="cota-lbl mono"><span class="es" style="--n:20">3 SÍNTOMAS · 1 CAUSA</span><span class="en" style="--n:20">3 SYMPTOMS · 1 CAUSE</span></span></div>
+      <p class="kick cae" style="--o:0"><span class="es">Servicios</span><span class="en">Services</span></p>
+      <div class="hrow"><h2 id="serviciosTitle"><span class="masc"><span class="linea" style="--o:1"><span class="es">Ingeniería y arquitectura de software</span><span class="en">Software engineering and architecture</span></span></span></h2><a class="tlink" href="servicios.html"><span class="es">Los 15 servicios</span><span class="en">All 15 services</span></a></div>
+      <div class="cota-w" style="--o:2"><div class="cota q3" aria-hidden="true"><i></i><i></i><i></i><i></i></div><span class="cota-lbl mono"><span class="es" style="--n:26">3 PROBLEMAS · 15 SERVICIOS</span><span class="en" style="--n:24">3 PROBLEMS · 15 SERVICES</span></span></div>
     </div>
-    <div class="cards">
-      <div class="card cae" style="--o:3">
-        <p class="n">01</p>
-        <h3><span class="es">Lo que genera la IA entra sin revisar</span><span class="en">What the AI generates goes in unchecked</span></h3>
-        <p><span class="es">Modelos 3D con mallas abiertas, normales invertidas o escalas equivocadas llegan a producción. El fallo aparece en el motor, cuando arreglarlo ya es caro.</span><span class="en">3D models with open meshes, flipped normals or wrong scales reach production. The failure shows up in the engine, when fixing it is already expensive.</span></p>
-        <span class="brk2 " style="--o:4"><span class="brk-l" aria-hidden="true"><i></i><i></i></span><span class="brk-t mono"><span class="es">SE ROMPE EN EL MOTOR</span><span class="en">BREAKS IN THE ENGINE</span></span></span>
-      </div><div class="card cae" style="--o:4">
-        <p class="n">02</p>
-        <h3><span class="es">El negocio depende del proveedor de IA</span><span class="en">The business depends on the AI vendor</span></h3>
-        <p><span class="es">La lógica se apoya directamente en lo que devuelve el modelo. Cuando cambia su API, se rompe la aplicación entera.</span><span class="en">Business logic leans directly on what the model returns. When their API changes, the whole application breaks.</span></p>
-        <span class="brk2 " style="--o:5"><span class="brk-l" aria-hidden="true"><i></i><i></i></span><span class="brk-t mono"><span class="es">SE ROMPE CON SU API</span><span class="en">BREAKS WITH THEIR API</span></span></span>
-      </div><div class="card cae" style="--o:5">
-        <p class="n">03</p>
-        <h3><span class="es">Aguanta hasta que llega la carga</span><span class="en">It holds until load arrives</span></h3>
-        <p><span class="es">Bloqueos de base de datos, agotamiento del pool de hilos y tiempos de espera en hora punta.</span><span class="en">Database locks, thread-pool exhaustion and timeouts at peak hours.</span></p>
-        <span class="brk2 " style="--o:6"><span class="brk-l" aria-hidden="true"><i></i><i></i></span><span class="brk-t mono"><span class="es">SE ROMPE EN HORA PUNTA</span><span class="en">BREAKS AT PEAK HOUR</span></span></span>
-      </div>
+    <div class="fams">
+      <article class="card fam cae" style="--o:3">
+        <p class="n">01 · <span class="what"><span class="es">Backend crítico</span><span class="en">Critical backend</span></span></p>
+        <h3><span class="es">Mi sistema es lento, no aguanta la carga o es difícil de cambiar</span><span class="en">My system is slow, cannot handle the load or is hard to change</span></h3>
+        <p class="ans"><span class="es">Python y .NET con datos consistentes.</span><span class="en">Python and .NET with consistent data.</span></p>
+        <svg class="flow" viewBox="0 0 300 64" aria-hidden="true" focusable="false"><g fill="none" stroke-linecap="round"><path class="fl-n" pathLength="1" style="--k:0" d="M12 14V34" stroke="currentColor" stroke-width="4"/><path class="fl-n" pathLength="1" style="--k:1" d="M150 14V34" stroke="currentColor" stroke-width="4"/><path class="fl-n" pathLength="1" style="--k:2" d="M288 14V34" stroke="currentColor" stroke-width="4"/><path class="fl-l" pathLength="1" style="--k:0" d="M22 24H140" stroke="currentColor" stroke-width="2"/><path class="fl-l" pathLength="1" style="--k:1" d="M160 24H278" stroke="currentColor" stroke-width="2"/></g><text class="dg-mono fl-t es" x="10" y="56" text-anchor="start">API</text><text class="dg-mono fl-t en" x="10" y="56" text-anchor="start">API</text><text class="dg-mono fl-t es" x="150" y="56" text-anchor="middle">COLA</text><text class="dg-mono fl-t en" x="150" y="56" text-anchor="middle">QUEUE</text><text class="dg-mono fl-t es" x="290" y="56" text-anchor="end">DATOS</text><text class="dg-mono fl-t en" x="290" y="56" text-anchor="end">DATA</text></svg>
+        <p class="lbl"><span class="es">6 páginas de servicio</span><span class="en">6 service pages</span></p>
+        <ul class="svl">
+            <li><span class="es"><a class="ext" href="https://www.naindev.com/servicios/sistemas-criticos-dotnet/" target="_blank" rel="noopener noreferrer"><span class="es">Optimización de Sistemas Críticos en .NET</span><span class="en">Optimizing Critical Systems in .NET</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a class="ext" href="https://www.naindev.com/en/services/sistemas-criticos-dotnet/" target="_blank" rel="noopener noreferrer"><span class="es">Optimización de Sistemas Críticos en .NET</span><span class="en">Optimizing Critical Systems in .NET</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></li>
+            <li><span class="es"><a class="ext" href="https://www.naindev.com/servicios/optimizacion-rendimiento-apirest-dotnet/" target="_blank" rel="noopener noreferrer"><span class="es">Optimización Extrema de Rendimiento en APIs REST .NET</span><span class="en">Extreme Performance Optimization in .NET REST APIs</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a class="ext" href="https://www.naindev.com/en/services/optimizacion-rendimiento-apirest-dotnet/" target="_blank" rel="noopener noreferrer"><span class="es">Optimización Extrema de Rendimiento en APIs REST .NET</span><span class="en">Extreme Performance Optimization in .NET REST APIs</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></li>
+            <li><span class="es"><a class="ext" href="https://www.naindev.com/servicios/backend-critico-logistica/" target="_blank" rel="noopener noreferrer"><span class="es">Sistemas Críticos Backend para Logística</span><span class="en">Critical Backend Systems for Logistics</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a class="ext" href="https://www.naindev.com/en/services/backend-critico-logistica/" target="_blank" rel="noopener noreferrer"><span class="es">Sistemas Críticos Backend para Logística</span><span class="en">Critical Backend Systems for Logistics</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></li>
+            <li><span class="es"><a class="ext" href="https://www.naindev.com/servicios/auditoria-sistemas/" target="_blank" rel="noopener noreferrer"><span class="es">Auditoría de Sistemas Legacy & Refactoring B2B</span><span class="en">Legacy System Auditing & B2B Refactoring</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a class="ext" href="https://www.naindev.com/en/services/auditoria-sistemas/" target="_blank" rel="noopener noreferrer"><span class="es">Auditoría de Sistemas Legacy & Refactoring B2B</span><span class="en">Legacy System Auditing & B2B Refactoring</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></li>
+            <li><span class="es"><a class="ext" href="https://www.naindev.com/servicios/migracion-monolito-microservicios-ia/" target="_blank" rel="noopener noreferrer"><span class="es">Migración de Monolitos a Microservicios con IA en C#</span><span class="en">Migrating Monoliths to Microservices with AI in C#</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a class="ext" href="https://www.naindev.com/en/services/migracion-monolito-microservicios-ia/" target="_blank" rel="noopener noreferrer"><span class="es">Migración de Monolitos a Microservicios con IA en C#</span><span class="en">Migrating Monoliths to Microservices with AI in C#</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></li>
+            <li><span class="es"><a class="ext" href="https://www.naindev.com/servicios/arquitectura-frontend-alto-rendimiento/" target="_blank" rel="noopener noreferrer"><span class="es">Arquitectura Frontend de Alto Rendimiento</span><span class="en">High-Performance Frontend Architecture</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a class="ext" href="https://www.naindev.com/en/services/arquitectura-frontend-alto-rendimiento/" target="_blank" rel="noopener noreferrer"><span class="es">Arquitectura Frontend de Alto Rendimiento</span><span class="en">High-Performance Frontend Architecture</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></li>
+        </ul>
+        <a class="tlink" href="servicios.html#backend"><span class="es">Ver la familia</span><span class="en">See the family</span></a>
+      </article>
+      <article class="card fam cae" style="--o:4">
+        <p class="n">02 · <span class="what"><span class="es">IA con revisión humana</span><span class="en">AI with human review</span></span></p>
+        <h3><span class="es">Quiero usar IA, pero no puedo fiarme de ella</span><span class="en">I want to use AI, but I cannot trust it</span></h3>
+        <p class="ans"><span class="es">Agentes y flujos verificables.</span><span class="en">Verifiable agents and workflows.</span></p>
+        <svg class="flow" viewBox="0 0 300 64" aria-hidden="true" focusable="false"><g fill="none" stroke-linecap="round"><path class="fl-n" pathLength="1" style="--k:0" d="M12 14V34" stroke="currentColor" stroke-width="4"/><path class="fl-n" pathLength="1" style="--k:1" d="M150 14V34" stroke="currentColor" stroke-width="4"/><path class="fl-n" pathLength="1" style="--k:2" d="M288 14V34" stroke="currentColor" stroke-width="4"/><path class="fl-l" pathLength="1" style="--k:0" d="M22 24H69M93 24H140" stroke="currentColor" stroke-width="2"/><path class="fl-l" pathLength="1" style="--k:1" d="M160 24H278" stroke="currentColor" stroke-width="2"/></g><text class="dg-mono fl-t es" x="10" y="56" text-anchor="start">MODELO</text><text class="dg-mono fl-t en" x="10" y="56" text-anchor="start">MODEL</text><text class="dg-mono fl-t es" x="150" y="56" text-anchor="middle">CONTRATO</text><text class="dg-mono fl-t en" x="150" y="56" text-anchor="middle">CONTRACT</text><text class="dg-mono fl-t es" x="290" y="56" text-anchor="end">DOMINIO</text><text class="dg-mono fl-t en" x="290" y="56" text-anchor="end">DOMAIN</text></svg>
+        <p class="lbl"><span class="es">4 páginas de servicio</span><span class="en">4 service pages</span></p>
+        <ul class="svl">
+            <li><span class="es"><a class="ext" href="https://www.naindev.com/servicios/arquitectura-ia-generativa/" target="_blank" rel="noopener noreferrer"><span class="es">Arquitectura Backend para IA Generativa</span><span class="en">Backend Architecture for Generative AI</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a class="ext" href="https://www.naindev.com/en/services/arquitectura-ia-generativa/" target="_blank" rel="noopener noreferrer"><span class="es">Arquitectura Backend para IA Generativa</span><span class="en">Backend Architecture for Generative AI</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></li>
+            <li><span class="es"><a class="ext" href="https://www.naindev.com/servicios/arquitectura-ia-escalable/" target="_blank" rel="noopener noreferrer"><span class="es">Arquitectura Backend Escalar para Sistemas de IA</span><span class="en">Scalable Backend Architecture for AI Systems</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a class="ext" href="https://www.naindev.com/en/services/arquitectura-ia-escalable/" target="_blank" rel="noopener noreferrer"><span class="es">Arquitectura Backend Escalar para Sistemas de IA</span><span class="en">Scalable Backend Architecture for AI Systems</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></li>
+            <li><span class="es"><a class="ext" href="https://www.naindev.com/servicios/arquitectura-ia-fintech/" target="_blank" rel="noopener noreferrer"><span class="es">Arquitectura IA para Fintech: Seguridad y Precisión</span><span class="en">AI Architecture for Fintech: Security and Precision</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a class="ext" href="https://www.naindev.com/en/services/arquitectura-ia-fintech/" target="_blank" rel="noopener noreferrer"><span class="es">Arquitectura IA para Fintech: Seguridad y Precisión</span><span class="en">AI Architecture for Fintech: Security and Precision</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></li>
+            <li><span class="es"><a class="ext" href="https://www.naindev.com/servicios/arquitectura-ia-generativa-startups-saas/" target="_blank" rel="noopener noreferrer"><span class="es">Arquitectura de IA Generativa para Startups SaaS</span><span class="en">Generative AI Architecture for SaaS Startups</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a class="ext" href="https://www.naindev.com/en/services/arquitectura-ia-generativa-startups-saas/" target="_blank" rel="noopener noreferrer"><span class="es">Arquitectura de IA Generativa para Startups SaaS</span><span class="en">Generative AI Architecture for SaaS Startups</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></li>
+        </ul>
+        <a class="tlink" href="servicios.html#ia"><span class="es">Ver la familia</span><span class="en">See the family</span></a>
+      </article>
+      <article class="card fam key cae" style="--o:5">
+        <p class="n">03 · <span class="what"><span class="es">Validación 3D</span><span class="en">3D validation</span></span></p>
+        <h3><span class="es">Tengo modelos 3D que procesar o validar a escala</span><span class="en">I have 3D models to process or validate at scale</span></h3>
+        <p class="ans"><span class="es">Veredictos reproducibles.</span><span class="en">Reproducible verdicts.</span></p>
+        <svg class="flow" viewBox="0 0 300 64" aria-hidden="true" focusable="false"><g fill="none" stroke-linecap="round"><path class="fl-n" pathLength="1" style="--k:0" d="M12 14V34" stroke="currentColor" stroke-width="4"/><path class="fl-n" pathLength="1" style="--k:1" d="M150 14V34" stroke="currentColor" stroke-width="4"/><path class="fl-n" pathLength="1" style="--k:2" d="M288 14V34" stroke="currentColor" stroke-width="4"/><path class="fl-l" pathLength="1" style="--k:0" d="M22 24H140" stroke="currentColor" stroke-width="2"/><path class="fl-l" pathLength="1" style="--k:1" d="M160 24H278" stroke="currentColor" stroke-width="2"/></g><text class="dg-mono fl-t es" x="10" y="56" text-anchor="start">PRODUCTO</text><text class="dg-mono fl-t en" x="10" y="56" text-anchor="start">PRODUCT</text><text class="dg-mono fl-t es" x="150" y="56" text-anchor="middle">PERFIL vN</text><text class="dg-mono fl-t en" x="150" y="56" text-anchor="middle">PROFILE vN</text><text class="dg-mono fl-t es" x="290" y="56" text-anchor="end">VEREDICTO</text><text class="dg-mono fl-t en" x="290" y="56" text-anchor="end">VERDICT</text></svg>
+        <p class="lbl"><span class="es">5 páginas de servicio</span><span class="en">5 service pages</span></p>
+        <ul class="svl">
+            <li><a href="servicio-validacion-3d.html"><span class="es">Procesamiento y Validación de Modelos 3D</span><span class="en">3D Model Processing and Validation</span></a></li>
+            <li><span class="es"><a class="ext" href="https://www.naindev.com/servicios/optimizacion-carga-3d/" target="_blank" rel="noopener noreferrer"><span class="es">Optimización de Carga y Procesamiento de Modelos 3D</span><span class="en">3D Model Loading and Processing Optimization</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a class="ext" href="https://www.naindev.com/en/services/optimizacion-carga-3d/" target="_blank" rel="noopener noreferrer"><span class="es">Optimización de Carga y Procesamiento de Modelos 3D</span><span class="en">3D Model Loading and Processing Optimization</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></li>
+            <li><span class="es"><a class="ext" href="https://www.naindev.com/servicios/backend-escalable-modelos-3d-azure/" target="_blank" rel="noopener noreferrer"><span class="es">Backend Escalable para Procesamiento de Modelos 3D en Azure</span><span class="en">Scalable Backend for 3D Model Processing on Azure</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a class="ext" href="https://www.naindev.com/en/services/backend-escalable-modelos-3d-azure/" target="_blank" rel="noopener noreferrer"><span class="es">Backend Escalable para Procesamiento de Modelos 3D en Azure</span><span class="en">Scalable Backend for 3D Model Processing on Azure</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></li>
+            <li><span class="es"><a class="ext" href="https://www.naindev.com/servicios/sistemas-validacion-geometrica-nube/" target="_blank" rel="noopener noreferrer"><span class="es">Sistemas de Validación Geométrica de Mallas 3D en la Nube</span><span class="en">Cloud-Based 3D Mesh Geometric Validation Systems</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a class="ext" href="https://www.naindev.com/en/services/sistemas-validacion-geometrica-nube/" target="_blank" rel="noopener noreferrer"><span class="es">Sistemas de Validación Geométrica de Mallas 3D en la Nube</span><span class="en">Cloud-Based 3D Mesh Geometric Validation Systems</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></li>
+            <li><span class="es"><a class="ext" href="https://www.naindev.com/servicios/procesamiento-3d-healthcare/" target="_blank" rel="noopener noreferrer"><span class="es">Procesamiento 3D para Healthcare</span><span class="en">3D Processing for Healthcare</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a class="ext" href="https://www.naindev.com/en/services/procesamiento-3d-healthcare/" target="_blank" rel="noopener noreferrer"><span class="es">Procesamiento 3D para Healthcare</span><span class="en">3D Processing for Healthcare</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></li>
+        </ul>
+        <a class="tlink" href="servicios.html#conformidad"><span class="es">Ver la familia</span><span class="en">See the family</span></a>
+      </article>
     </div>
-    <p class="big mt12 cause cae" style="--o:5"><span class="es">En los tres casos falta la misma separación: <strong>el dominio no está aislado de la infraestructura</strong>.</span><span class="en">In all three, the same separation is missing: <strong>the domain is not isolated from the infrastructure</strong>.</span></p>
-    <figure class="diagram run mt12 cae" style="--o:3" data-replay tabindex="0" aria-labelledby="dgCap">
-      <svg class="diagram-h" viewBox="0 0 900 300" aria-hidden="true" focusable="false">
-        <g fill="none" stroke-linecap="round" stroke-linejoin="round">
-          <rect class="bx b1" x="20" y="30" width="230" height="86" rx="4" stroke="#9FB2CC" stroke-width="2"/>
-          <rect class="bx b2" x="20" y="184" width="230" height="86" rx="4" stroke="#9FB2CC" stroke-width="2"/>
-          <rect class="bx b3" x="330" y="92" width="250" height="116" rx="4" stroke="#80FF00" stroke-width="4"/>
-          <rect class="bx b4" x="660" y="92" width="220" height="116" rx="4" stroke="#9FB2CC" stroke-width="2"/>
-          <path class="dp p1" pathLength="1" d="M258 73L322 123" stroke="#80FF00" stroke-width="4"/>
-          <path class="dp p2" pathLength="1" d="M258 227L290 202" stroke="#80FF00" stroke-width="4"/>
-          <path class="dp p3" pathLength="1" d="M304 190L322 177" stroke="#80FF00" stroke-width="4"/>
-          <path class="dp p4" pathLength="1" d="M588 150L652 150" stroke="#80FF00" stroke-width="4"/>
-          <path class="pl p1" pathLength="1" d="M258 73L322 123" stroke="#EDF1F6" stroke-width="4"/>
-          <path class="pl p2" pathLength="1" d="M258 227L290 202" stroke="#EDF1F6" stroke-width="4"/>
-          <path class="pl p4" pathLength="1" d="M588 150L652 150" stroke="#EDF1F6" stroke-width="4"/>
-        </g>
-        <g class="dg-mono" fill="#9FB2CC">
-          <text x="40" y="62">01 · API</text>
-          <text x="40" y="216" class="es">IA GENERATIVA</text><text x="40" y="216" class="en">GENERATIVE AI</text>
-          <text x="350" y="124" fill="#80FF00" class="es">02 · DOMINIO</text><text x="350" y="124" fill="#80FF00" class="en">02 · DOMAIN</text>
-          <text x="680" y="124" class="es">03 · DATOS</text><text x="680" y="124" class="en">03 · DATA</text>
-        </g>
-        <g class="dg-sans" fill="#EDF1F6">
-          <text x="40" y="92" class="es">Contratos</text><text x="40" y="92" class="en">Contracts</text>
-          <text x="40" y="246" class="es">Proveedor externo</text><text x="40" y="246" class="en">External vendor</text>
-          <text x="350" y="156" class="es">Las reglas viven aquí</text><text x="350" y="156" class="en">The rules live here</text>
-          <text x="350" y="182" font-size="15" fill="#9FB2CC" class="es">y son deterministas</text><text x="350" y="182" font-size="15" fill="#9FB2CC" class="en">and are deterministic</text>
-          <text x="680" y="156">PostgreSQL</text>
-          <text x="680" y="180">SQL Server</text>
-        </g>
-        <g class="gap-lbl dg-mono" font-size="12" fill="#80FF00">
-          <text x="314" y="236" class="es">UN CAMBIO DEL PROVEEDOR SE PARA AQUÍ</text>
-          <text x="314" y="236" class="en">A VENDOR CHANGE STOPS HERE</text>
-        </g>
-        <text x="314" y="268" class="dg-mono es" font-size="12" fill="#EDF1F6">la ia entra aislada · el dominio decide</text>
-        <text x="314" y="268" class="dg-mono en" font-size="12" fill="#EDF1F6">ai comes in isolated · the domain decides</text>
-      </svg>
-      <svg class="diagram-v" viewBox="0 0 340 470" aria-hidden="true" focusable="false">
-        <g fill="none" stroke-linecap="round" stroke-linejoin="round">
-          <rect class="bx b1" x="6" y="6" width="150" height="84" rx="4" stroke="#9FB2CC" stroke-width="2"/>
-          <rect class="bx b2" x="184" y="6" width="150" height="84" rx="4" stroke="#9FB2CC" stroke-width="2"/>
-          <rect class="bx b3" x="6" y="164" width="328" height="100" rx="4" stroke="#80FF00" stroke-width="4"/>
-          <rect class="bx b4" x="6" y="326" width="328" height="78" rx="4" stroke="#9FB2CC" stroke-width="2"/>
-          <path class="dp p1" pathLength="1" d="M81 100L120 154" stroke="#80FF00" stroke-width="4"/>
-          <path class="dp p2" pathLength="1" d="M259 100L246 118" stroke="#80FF00" stroke-width="4"/>
-          <path class="dp p3" pathLength="1" d="M232 136L220 154" stroke="#80FF00" stroke-width="4"/>
-          <path class="dp p4" pathLength="1" d="M170 274L170 316" stroke="#80FF00" stroke-width="4"/>
-          <path class="pl p1" pathLength="1" d="M81 100L120 154" stroke="#EDF1F6" stroke-width="4"/>
-          <path class="pl p2" pathLength="1" d="M259 100L246 118" stroke="#EDF1F6" stroke-width="4"/>
-          <path class="pl p4" pathLength="1" d="M170 274L170 316" stroke="#EDF1F6" stroke-width="4"/>
-        </g>
-        <g class="dg-mono" fill="#9FB2CC" font-size="12">
-          <text x="20" y="30">01 · API</text>
-          <text x="198" y="30" class="es">IA GENERATIVA</text><text x="198" y="30" class="en">GENERATIVE AI</text>
-          <text x="22" y="192" fill="#80FF00" class="es">02 · DOMINIO</text><text x="22" y="192" fill="#80FF00" class="en">02 · DOMAIN</text>
-          <text x="22" y="352" class="es">03 · DATOS</text><text x="22" y="352" class="en">03 · DATA</text>
-        </g>
-        <g class="dg-sans" fill="#EDF1F6" font-size="15">
-          <text x="20" y="62" class="es">Contratos</text><text x="20" y="62" class="en">Contracts</text>
-          <text x="198" y="58" class="es">Proveedor</text><text x="198" y="58" class="en">External</text>
-          <text x="198" y="78" class="es">externo</text><text x="198" y="78" class="en">vendor</text>
-          <text x="22" y="222" class="es">Las reglas viven aquí</text><text x="22" y="222" class="en">The rules live here</text>
-          <text x="22" y="246" font-size="14" fill="#9FB2CC" class="es">y son deterministas</text><text x="22" y="246" font-size="14" fill="#9FB2CC" class="en">and are deterministic</text>
-          <text x="22" y="384">PostgreSQL · SQL Server</text>
-        </g>
-        <g class="gap-lbl dg-mono" font-size="11" fill="#80FF00">
-          <text x="334" y="132" text-anchor="end" class="es">SE PARA AQUÍ</text>
-          <text x="334" y="132" text-anchor="end" class="en">STOPS HERE</text>
-        </g>
-        <text x="6" y="436" class="dg-mono es" font-size="12" fill="#EDF1F6">la ia entra aislada</text>
-        <text x="6" y="456" class="dg-mono es" font-size="12" fill="#EDF1F6">el dominio decide</text>
-        <text x="6" y="436" class="dg-mono en" font-size="12" fill="#EDF1F6">ai comes in isolated</text>
-        <text x="6" y="456" class="dg-mono en" font-size="12" fill="#EDF1F6">the domain decides</text>
-      </svg>
-      <figcaption class="sr" id="dgCap"><span class="es">Diagrama: la API recibe contratos; la IA generativa entra como proveedor externo aislado y un cambio suyo se para en la frontera; el dominio conserva las reglas deterministas y escribe en PostgreSQL y SQL Server.</span><span class="en">Diagram: the API takes contracts; generative AI comes in as an isolated external vendor and a change on its side stops at the boundary; the domain keeps the deterministic rules and writes to PostgreSQL and SQL Server.</span></figcaption>
-    </figure>
-  </div>
-</section>
-
-<!-- ===== SERVICIOS · papel hundido ===== -->
-<section id="servicios" class="apar on-sunken" aria-labelledby="serviciosTitle">
-  <div class="shell">
-    <div class="head apar">
-      <p class="cae kick" style="--o:1" cae" style="--o:0"><span class="es">Servicios</span><span class="en">Services</span></p>
-      <h2 id="serviciosTitle"><span class="masc"><span class="linea" style="--o:1"><span class="es">Ingeniería y arquitectura de software</span><span class="en">Software engineering and architecture</span></span></span></h2>
-      <div class="cota-w" style="--o:2"><div class="cota q3" aria-hidden="true"><i></i><i></i><i></i><i></i></div><span class="cota-lbl mono"><span class="es" style="--n:25">3 FAMILIAS · 15 SERVICIOS</span><span class="en" style="--n:24">3 FAMILIES · 15 SERVICES</span></span></div>
-    </div>
-    <div class="svc apar">
-      <div class="svc-side">
-        <p class="num cae" style="--o:0">01</p>
-        <h3 class="mt2"><span class="masc"><span class="linea" style="--o:1"><span class="es">Conformidad determinista y 3D</span><span class="en">Deterministic conformance and 3D</span></span></span></h3>
-        <p class="lbl block mt3 cae" style="--o:2"><span class="es">5 páginas de servicio</span><span class="en">5 service pages</span></p>
-        <div class="cae" style="--o:3"><svg class="flow" viewBox="0 0 300 64" aria-hidden="true" focusable="false"><g fill="none" stroke-linecap="round"><path class="fl-n" pathLength="1" style="--k:0" d="M12 14V34" stroke="currentColor" stroke-width="4"/><path class="fl-n" pathLength="1" style="--k:1" d="M150 14V34" stroke="currentColor" stroke-width="4"/><path class="fl-n" pathLength="1" style="--k:2" d="M288 14V34" stroke="currentColor" stroke-width="4"/><path class="fl-l" pathLength="1" style="--k:0" d="M22 24H140" stroke="currentColor" stroke-width="2"/><path class="fl-l" pathLength="1" style="--k:1" d="M160 24H278" stroke="currentColor" stroke-width="2"/></g><text class="dg-mono fl-t es" x="10" y="56" text-anchor="start">PRODUCTO</text><text class="dg-mono fl-t en" x="10" y="56" text-anchor="start">PRODUCT</text><text class="dg-mono fl-t es" x="150" y="56" text-anchor="middle">PERFIL vN</text><text class="dg-mono fl-t en" x="150" y="56" text-anchor="middle">PROFILE vN</text><text class="dg-mono fl-t es" x="290" y="56" text-anchor="end">VEREDICTO</text><text class="dg-mono fl-t en" x="290" y="56" text-anchor="end">VERDICT</text></svg></div>
-      </div>
-      <div>
-        <p class="cae" style="--o:2"><span class="es">Arquitectura multidominio que valida cada producto contra especificaciones versionadas. El primer dominio son los modelos 3D.</span><span class="en">Multi-domain architecture that validates every product against versioned specifications. Its first domain is 3D models.</span></p>
-        <ul class="ticks cae" style="--o:3"><li><span class="es">Perfiles versionados por dominio (primero glTF/GLB)</span><span class="en">Versioned profiles per domain (glTF/GLB first)</span></li><li><span class="es">Validación topológica y geométrica</span><span class="en">Topological and Geometric Validation</span></li><li><span class="es">Veredictos reproducibles y reparación bajo contrato</span><span class="en">Reproducible verdicts and repair under contract</span></li></ul>
-        <div class="deliv cae" style="--o:4">
-          <div><span class="lbl"><span class="es">Entrega</span><span class="en">Delivers</span></span><p><span class="es">Motor de reglas versionadas, API e informe por producto.</span><span class="en">Versioned rule engine, API and a report per product.</span></p></div>
-          <div><span class="lbl"><span class="es">No incluye</span><span class="en">Not included</span></span><p><span class="es">Modelado, arte ni corrección manual del contenido.</span><span class="en">Modelling, art or manual content fixes.</span></p></div>
-        </div>
-        <p class="mt6 cae" style="--o:5"><a href="servicios.html#conformidad"><span class="es">Ver los servicios de esta familia</span><span class="en">See the services in this family</span></a></p>
-      </div>
-    </div><div class="svc apar">
-      <div class="svc-side">
-        <p class="num cae" style="--o:0">02</p>
-        <h3 class="mt2"><span class="masc"><span class="linea" style="--o:1"><span class="es">IA generativa con revisión humana</span><span class="en">Generative AI with human review</span></span></span></h3>
-        <p class="lbl block mt3 cae" style="--o:2"><span class="es">5 páginas de servicio</span><span class="en">5 service pages</span></p>
-        <div class="cae" style="--o:3"><svg class="flow" viewBox="0 0 300 64" aria-hidden="true" focusable="false"><g fill="none" stroke-linecap="round"><path class="fl-n" pathLength="1" style="--k:0" d="M12 14V34" stroke="currentColor" stroke-width="4"/><path class="fl-n" pathLength="1" style="--k:1" d="M150 14V34" stroke="currentColor" stroke-width="4"/><path class="fl-n" pathLength="1" style="--k:2" d="M288 14V34" stroke="currentColor" stroke-width="4"/><path class="fl-l" pathLength="1" style="--k:0" d="M22 24H69M93 24H140" stroke="currentColor" stroke-width="2"/><path class="fl-l" pathLength="1" style="--k:1" d="M160 24H278" stroke="currentColor" stroke-width="2"/></g><text class="dg-mono fl-t es" x="10" y="56" text-anchor="start">MODELO</text><text class="dg-mono fl-t en" x="10" y="56" text-anchor="start">MODEL</text><text class="dg-mono fl-t es" x="150" y="56" text-anchor="middle">CONTRATO</text><text class="dg-mono fl-t en" x="150" y="56" text-anchor="middle">CONTRACT</text><text class="dg-mono fl-t es" x="290" y="56" text-anchor="end">DOMINIO</text><text class="dg-mono fl-t en" x="290" y="56" text-anchor="end">DOMAIN</text></svg></div>
-      </div>
-      <div>
-        <p class="cae" style="--o:2"><span class="es">Ecosistemas agénticos robustos para integrar modelos de IA en flujos corporativos.</span><span class="en">Robust agentic ecosystems for integrating AI models into corporate workflows.</span></p>
-        <ul class="ticks cae" style="--o:3"><li><span class="es">Integración transversal de agentes</span><span class="en">Cross-cutting agent integration</span></li><li><span class="es">Trustworthy AI y determinismo</span><span class="en">Trustworthy AI and determinism</span></li><li><span class="es">Flujos Human-in-the-loop</span><span class="en">Human-in-the-loop flows</span></li></ul>
-        <div class="deliv cae" style="--o:4">
-          <div><span class="lbl"><span class="es">Entrega</span><span class="en">Delivers</span></span><p><span class="es">Capa de aislamiento, cola y reintentos, control de coste por llamada y punto de revisión humana.</span><span class="en">Isolation layer, queue and retries, per-call cost control and a human review point.</span></p></div>
-          <div><span class="lbl"><span class="es">No incluye</span><span class="en">Not included</span></span><p><span class="es">Entrenar ni afinar modelos.</span><span class="en">Training or fine-tuning models.</span></p></div>
-        </div>
-        <p class="mt6 cae" style="--o:5"><a href="servicios.html#ia"><span class="es">Ver los servicios de esta familia</span><span class="en">See the services in this family</span></a></p>
-      </div>
-    </div><div class="svc apar">
-      <div class="svc-side">
-        <p class="num cae" style="--o:0">03</p>
-        <h3 class="mt2"><span class="masc"><span class="linea" style="--o:1"><span class="es">Backend crítico en Python y .NET</span><span class="en">Critical backend in Python and .NET</span></span></span></h3>
-        <p class="lbl block mt3 cae" style="--o:2"><span class="es">5 páginas de servicio</span><span class="en">5 service pages</span></p>
-        <div class="cae" style="--o:3"><svg class="flow" viewBox="0 0 300 64" aria-hidden="true" focusable="false"><g fill="none" stroke-linecap="round"><path class="fl-n" pathLength="1" style="--k:0" d="M12 14V34" stroke="currentColor" stroke-width="4"/><path class="fl-n" pathLength="1" style="--k:1" d="M150 14V34" stroke="currentColor" stroke-width="4"/><path class="fl-n" pathLength="1" style="--k:2" d="M288 14V34" stroke="currentColor" stroke-width="4"/><path class="fl-l" pathLength="1" style="--k:0" d="M22 24H140" stroke="currentColor" stroke-width="2"/><path class="fl-l" pathLength="1" style="--k:1" d="M160 24H278" stroke="currentColor" stroke-width="2"/></g><text class="dg-mono fl-t es" x="10" y="56" text-anchor="start">API</text><text class="dg-mono fl-t en" x="10" y="56" text-anchor="start">API</text><text class="dg-mono fl-t es" x="150" y="56" text-anchor="middle">COLA</text><text class="dg-mono fl-t en" x="150" y="56" text-anchor="middle">QUEUE</text><text class="dg-mono fl-t es" x="290" y="56" text-anchor="end">DATOS</text><text class="dg-mono fl-t en" x="290" y="56" text-anchor="end">DATA</text></svg></div>
-      </div>
-      <div>
-        <p class="cae" style="--o:2"><span class="es">Sistemas de misión crítica donde la consistencia del dato es innegociable, sobre PostgreSQL y SQL Server.</span><span class="en">Mission-critical systems where data consistency is non-negotiable, on PostgreSQL and SQL Server.</span></p>
-        <ul class="ticks cae" style="--o:3"><li><span class="es">Clean Architecture y arquitectura en capas</span><span class="en">Clean Architecture and layered architecture</span></li><li><span class="es">Modernización incremental de .NET Framework</span><span class="en">Incremental .NET Framework modernization</span></li><li><span class="es">Control de concurrencia (versiones y ETag)</span><span class="en">Concurrency control (versions and ETag)</span></li></ul>
-        <div class="deliv cae" style="--o:4">
-          <div><span class="lbl"><span class="es">Entrega</span><span class="en">Delivers</span></span><p><span class="es">Diseño con ADRs, implementación por hitos y pruebas que fallan si se rompe un invariante.</span><span class="en">Design with ADRs, milestone implementation and tests that fail when an invariant breaks.</span></p></div>
-          <div><span class="lbl"><span class="es">No incluye</span><span class="en">Not included</span></span><p><span class="es">Infraestructura gestionada de forma continuada.</span><span class="en">Continuously managed infrastructure.</span></p></div>
-        </div>
-        <p class="mt6 cae" style="--o:5"><a href="servicios.html#backend"><span class="es">Ver los servicios de esta familia</span><span class="en">See the services in this family</span></a></p>
-      </div>
-    </div>
-    <div class="cae fic" style="--o:3" apar">
-      <img class="cae" style="--o:0" src="assets/logo/solid-white.png" alt="" width="84" height="84">
-      <div class="cae" style="--o:1">
-        <p class="k"><span class="es">Servicios · cómo se contratan</span><span class="en">Services · how they are hired</span></p>
-        <p class="t"><span class="es">Por proyecto y en remoto</span><span class="en">Per project, remote</span></p>
-        <p class="p"><span class="es">Cada servicio se contrata por proyecto, a tiempo parcial y en remoto. El precio se habla en la llamada, cuando el alcance está claro.</span><span class="en">Each service is hired per project, part-time and remote. The price is discussed on the call, once the scope is clear.</span></p>
-        <div class="r"></div>
-        <p class="n">Python · C# · FastAPI · .NET · PostgreSQL · SQL Server · Vue 3 · MCP</p>
-      </div>
+    <div class="terms cae" style="--o:6">
+      <p class="lbl"><span class="es">Por proyecto y en remoto</span><span class="en">Per project, remote</span></p>
+      <p><span class="es">Cada servicio se contrata por proyecto, a tiempo parcial y en remoto. El precio se habla en la llamada, cuando el alcance está claro.</span><span class="en">Each service is hired per project, part-time and remote. The price is discussed on the call, once the scope is clear.</span></p>
     </div>
   </div>
 </section>
 
-<!-- ===== MÉTODO · azul profundo ===== -->
-<section id="metodo" class="on-deep apar" aria-labelledby="metodoTitle">
+<!-- ===== 3 · FEATURED PROJECTS · band ===== -->
+<section id="proyectos" class="on-sunken apar" aria-labelledby="proyectosTitle">
   <div class="shell">
     <div class="head">
-      <p class="kick cae" style="--o:0"><span class="es">Método</span><span class="en">Method</span></p>
-      <h2 id="metodoTitle"><span class="masc"><span class="linea" style="--o:1"><span class="es">Cuatro pasos y lo que entrega cada uno</span><span class="en">Four steps and what each one delivers</span></span></span></h2>
-      <div class="cota-w" style="--o:2"><div class="cota q4" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><span class="cota-lbl mono"><span class="es" style="--n:23">4 PASOS · 4 ENTREGABLES</span><span class="en" style="--n:24">4 STEPS · 4 DELIVERABLES</span></span></div>
+      <p class="kick cae" style="--o:0"><span class="es">Proyectos</span><span class="en">Projects</span></p>
+      <div class="hrow"><h2 id="proyectosTitle"><span class="masc"><span class="linea" style="--o:1"><span class="es">Lo que he construido</span><span class="en">What I have built</span></span></span></h2><a class="tlink" href="proyectos.html"><span class="es">Los 22 proyectos</span><span class="en">All 22 projects</span></a></div>
+      <div class="cota-w" style="--o:2"><div class="cota q3" aria-hidden="true"><i></i><i></i><i></i><i></i></div><span class="cota-lbl mono"><span class="es" style="--n:27">6 DESTACADOS · 22 PROYECTOS</span><span class="en" style="--n:24">6 FEATURED · 22 PROJECTS</span></span></div>
     </div>
-    <ol class="rows">
-      <li class="row cae" style="--o:3"><span class="num">01</span><h3><span class="es">Acotar</span><span class="en">Scope</span></h3>
-        <p><span class="es">Qué entra, qué queda fuera y con qué criterio se da por terminado.</span><span class="en">What is in, what is out, and how done is defined.</span></p></li>
-      <li class="row cae" style="--o:4"><span class="num">02</span><h3><span class="es">Diseñar</span><span class="en">Design</span></h3>
-        <p><span class="es">Decisiones registradas como ADR, con la alternativa descartada y el motivo.</span><span class="en">Decisions recorded as ADRs, with the discarded alternative and why.</span></p></li>
-      <li class="row cae" style="--o:5"><span class="num">03</span><h3><span class="es">Construir</span><span class="en">Build</span></h3>
-        <p><span class="es">Implementación por hitos, con una prueba que falla si se rompe un invariante.</span><span class="en">Milestone implementation, with a test that fails when an invariant breaks.</span></p></li>
-      <li class="row cae" style="--o:6"><span class="num">04</span><h3><span class="es">Traspasar</span><span class="en">Hand over</span></h3>
-        <p><span class="es">Qué cambió, cómo se probó, qué queda abierto y quién lo mantiene.</span><span class="en">What changed, how it was tested, what is open and who maintains it.</span></p></li>
-    </ol>
-  </div>
-</section>
-
-<!-- ===== PROYECTOS · papel ===== -->
-<section id="proyectos" aria-labelledby="proyectosTitle" class="apar">
-  <div class="shell">
-    <div class="head apar">
-      <p class="cae kick" style="--o:1" cae" style="--o:0"><span class="es">Proyectos</span><span class="en">Projects</span></p>
-      <h2 id="proyectosTitle"><span class="masc"><span class="linea" style="--o:1"><span class="es">Lo que he construido</span><span class="en">What I have built</span></span></span></h2>
-      <div class="cota-w" style="--o:2"><div class="cota q3" aria-hidden="true"><i></i><i></i><i></i><i></i></div><span class="cota-lbl mono"><span class="es" style="--n:27">19 PROYECTOS · 9 DESTACADOS</span><span class="en" style="--n:24">19 PROJECTS · 9 FEATURED</span></span></div>
-      <p class="mt6 intro cae" style="--o:3"><span class="es">Indico el estado real de cada proyecto. Los privados se describen solo por arquitectura y stack, sin nombres ni datos de clientes.</span><span class="en">I state the real status of each project. Private ones are described by architecture and stack only, with no names or client data.</span></p>
-    </div>
-    <div class="pfilters" role="group" aria-label="Filtrar proyectos / Filter projects" hidden>
-      <button type="button" class="chip" data-filter="all" aria-pressed="true"><span class="es">Todos</span><span class="en">All</span></button><button type="button" class="chip" data-filter="production" aria-pressed="false"><span class="es">Producción</span><span class="en">Production</span></button><button type="button" class="chip" data-filter="dotnet" aria-pressed="false"><span class="es">.NET / C#</span><span class="en">.NET / C#</span></button><button type="button" class="chip" data-filter="python" aria-pressed="false"><span class="es">Python y datos</span><span class="en">Python & data</span></button><button type="button" class="chip" data-filter="3d" aria-pressed="false"><span class="es">3D</span><span class="en">3D</span></button><button type="button" class="chip" data-filter="demo" aria-pressed="false"><span class="es">Demos</span><span class="en">Demos</span></button>
-      <p class="pcount lbl" id="projCount" aria-live="polite"></p>
-    </div>
-    <div class="projs" id="projList">
-        <article class="proj is-prod" data-cats="production backend data 3d python" tabindex="-1">
-          <p class="pst"><span class="lbl"><i class="pmark" aria-hidden="true"></i><span class="es">Privado · En producción (dominio 3D)</span><span class="en">Private · In production (3D domain)</span></span><span class="pn mono" aria-hidden="true">01</span></p>
-          <h3><span class="es">Arquitectura de conformidad determinista</span><span class="en">Deterministic conformance architecture</span></h3>
-          <p><span class="es">Arquitectura multidominio que recibe un producto, identifica qué es, mide sus características, aplica el perfil versionado de su dominio y emite un veredicto reproducible. El primer dominio son los modelos 3D glTF/GLB.</span><span class="en">Multi-domain architecture that receives a product, identifies what it is, measures its characteristics, applies the versioned profile for its domain and issues a reproducible verdict. Its first domain is glTF/GLB 3D models.</span></p>
-          <p class="proof"><span class="es">Análisis binario del contenedor, invariantes geométricos exactos y ciclo validar, reparar y revalidar. Informes en JSON canónico y Markdown, servicio HTTP con OpenAPI y herramientas MCP para que agentes de IA validen con supervisión humana.</span><span class="en">Binary container parsing, exact geometric invariants and a validate, repair and revalidate loop. Canonical JSON and Markdown reports, an HTTP service with OpenAPI and MCP tools so AI agents run validations under human oversight.</span></p>
-          <p class="ptech mono">Python · FastAPI · Pydantic · PostgreSQL · MCP · Hypothesis</p>
-          <p class="plinks lbl"><span class="es">Código privado</span><span class="en">Private code</span></p>
-        </article>
-        <article class="proj is-prod" data-cats="production 3d data" tabindex="-1">
-          <p class="pst"><span class="lbl"><i class="pmark" aria-hidden="true"></i><span class="es">Privado · En producción</span><span class="en">Private · In production</span></span><span class="pn mono" aria-hidden="true">02</span></p>
-          <h3><span class="es">Visor 3D interactivo y gemelos digitales</span><span class="en">Interactive 3D viewer and digital twins</span></h3>
-          <p><span class="es">Componente Web Component agnóstico y ultraligero con aislamiento en Shadow DOM, adaptable mediante perfiles JSON para inspección industrial, despiece procedimental y peritaje con marcado de daños.</span><span class="en">Framework-agnostic, lightweight Web Component with Shadow DOM isolation, dynamically adaptable via JSON profiles for industrial inspection, procedural exploded views and damage assessment.</span></p>
-          <p class="proof"><span class="es">Motor Three.js optimizado, descompresión Draco en Web Worker, puerta de integridad SHA-256 ligada a conformidad determinista, pruebas E2E y visuales con Playwright y accesibilidad WCAG 2.2 AA.</span><span class="en">Optimized Three.js engine, Draco decompression in dedicated Web Worker, SHA-256 integrity gate bound to deterministic conformance, E2E and visual tests with Playwright, and WCAG 2.2 AA accessibility.</span></p>
-          <p class="ptech mono">TypeScript · Three.js · Web Components · Vite · Playwright · Vitest</p>
-          <p class="plinks lbl"><span class="es">Código privado</span><span class="en">Private code</span></p>
-        </article>
-        <article class="proj is-prod" data-cats="production backend data python" tabindex="-1">
-          <p class="pst"><span class="lbl"><i class="pmark" aria-hidden="true"></i><span class="es">Privado · En producción</span><span class="en">Private · In production</span></span><span class="pn mono" aria-hidden="true">03</span></p>
-          <h3><span class="es">CRM web colaborativo</span><span class="en">Collaborative web CRM</span></h3>
-          <p><span class="es">Plataforma web multiusuario de gestión comercial, con estado en PostgreSQL.</span><span class="en">Multi-user web platform for sales management, with state in PostgreSQL.</span></p>
-          <p class="proof"><span class="es">Edición concurrente sin pérdida de datos: control de versión por entidad y fusión por campo ante conflictos HTTP 409. Duplicados bloqueados con citext e índices únicos parciales, y registro de actividad en la misma transacción que el cambio.</span><span class="en">Concurrent editing without data loss: per-entity versioning and field-level merge on HTTP 409 conflicts. Duplicates blocked with citext and partial unique indexes, and activity logged in the same transaction as the change.</span></p>
-          <p class="ptech mono">Python · FastAPI · SQLAlchemy · PostgreSQL · Vue 3 · TypeScript · Tailwind CSS · Docker</p>
-          <p class="plinks lbl"><span class="es">Código privado</span><span class="en">Private code</span></p>
-        </article>
-        <article class="proj" data-cats="backend demo 3d python" tabindex="-1">
-          <p class="pst"><span class="lbl"><i class="pmark" aria-hidden="true"></i><span class="es">Demo pública activa</span><span class="en">Active public demo</span></span><span class="pn mono" aria-hidden="true">04</span></p>
-          <h3><span class="es">ParametriCAD AI</span><span class="en">ParametriCAD AI</span></h3>
-          <p><span class="es">Motor CAD paramétrico determinista con validación topológica de mallas y visor 3D web.</span><span class="en">Deterministic parametric CAD engine with topological mesh validation and a 3D web viewer.</span></p>
-          <p class="proof"><span class="es">Construye sólidos B-Rep con OpenCASCADE y comprueba que la malla sea estanca, 2-variedad y con normales hacia fuera. Exporta GLB, glTF, STL, STEP y DXF. Extrae parámetros con un analizador de reglas sin conexión o, de forma opcional, con un LLM.</span><span class="en">Builds B-Rep solids with OpenCASCADE and checks that the mesh is watertight, 2-manifold and outward-facing. Exports GLB, glTF, STL, STEP and DXF. Extracts parameters with an offline rule-based parser or, optionally, an LLM.</span></p>
-          <p class="ptech mono">Python · FastAPI · CadQuery · OpenCASCADE · React · Three.js · Docker</p>
-          <ul class="plinks"><li><a class="ext" href="https://parametricad.naindev.com/" target="_blank" rel="noopener noreferrer"><span class="es">Probar demo</span><span class="en">Try the demo</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></li><li><a class="ext" href="https://github.com/Nain9Dev/parametricad-ai" target="_blank" rel="noopener noreferrer"><span class="es">Revisar código</span><span class="en">Review Code</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></li></ul>
-        </article>
-        <article class="proj" data-cats="backend data demo dotnet" tabindex="-1">
-          <p class="pst"><span class="lbl"><i class="pmark" aria-hidden="true"></i><span class="es">Demo pública disponible</span><span class="en">Public demo available</span></span><span class="pn mono" aria-hidden="true">05</span></p>
+    <p class="intro soft cae" style="--o:2"><span class="es">Seis con demo pública, para abrir y probar. El catálogo completo indica el estado real de los 22.</span><span class="en">Six with a public demo you can open and try. The full catalog states the real status of all 22.</span></p>
+    <div class="feat mt6" id="featList">
+      <article class="card pcard resp cae" style="--o:3" data-project="parametricad-ai">
+        <img class="shot" src="assets/projects/parametricad-ai-400.webp" srcset="assets/projects/parametricad-ai-400.webp 400w, assets/projects/parametricad-ai.webp 640w" sizes="(max-width:600px) 100vw, 240px" alt="" width="400" height="225" loading="lazy" decoding="async">
+        <div class="pbody">
+          <p class="pst lbl"><i class="live" aria-hidden="true"></i><span class="es">Demo pública activa</span><span class="en">Active public demo</span></p>
+          <h3>ParametriCAD AI</h3>
+          <p class="sum"><span class="es">Motor CAD paramétrico determinista con validación topológica de mallas y visor 3D web.</span><span class="en">Deterministic parametric CAD engine with topological mesh validation and a 3D web viewer.</span></p>
+          <p class="ptech mono">Python · FastAPI · CadQuery</p>
+          <p class="plinks"><a class="ext" href="https://parametricad.naindev.com/" target="_blank" rel="noopener noreferrer"><span class="es">Probar demo</span><span class="en">Try the demo</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a> <a class="ext" href="https://github.com/Nain9Dev/parametricad-ai" target="_blank" rel="noopener noreferrer"><span class="es">Revisar código</span><span class="en">Review code</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></p>
+        </div>
+      </article>
+      <article class="card pcard resp cae" style="--o:4" data-project="nain3d-conformance-gateway">
+        <img class="shot" src="assets/projects/nain3d-conformance-gateway-400.webp" srcset="assets/projects/nain3d-conformance-gateway-400.webp 400w, assets/projects/nain3d-conformance-gateway.webp 640w" sizes="(max-width:600px) 100vw, 240px" alt="" width="400" height="225" loading="lazy" decoding="async">
+        <div class="pbody">
+          <p class="pst lbl"><i class="live" aria-hidden="true"></i><span class="es">Demo pública activa</span><span class="en">Active public demo</span></p>
+          <h3>Nain3D</h3>
+          <p class="sum"><span class="es">Motor de validación geométrica determinista para activos 3D y pasarela de conformidad Khronos, con backend en Python y cliente Vue 3 con Three.js.</span><span class="en">Deterministic geometric validation engine for 3D assets and Khronos conformance gateway, with a Python backend and a Vue 3 client using Three.js.</span></p>
+          <p class="ptech mono">Python · OpenCASCADE · trimesh</p>
+          <p class="plinks"><a class="ext" href="https://3d.naindev.com/" target="_blank" rel="noopener noreferrer"><span class="es">Probar demo</span><span class="en">Try the demo</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a> <a class="ext" href="https://github.com/Nain9Dev/Nain3D" target="_blank" rel="noopener noreferrer"><span class="es">Revisar código</span><span class="en">Review code</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></p>
+        </div>
+      </article>
+      <article class="card pcard resp cae" style="--o:5" data-project="financial-management-api">
+        <img class="shot" src="assets/projects/financial-management-api-400.webp" srcset="assets/projects/financial-management-api-400.webp 400w, assets/projects/financial-management-api.webp 640w" sizes="(max-width:600px) 100vw, 240px" alt="" width="400" height="225" loading="lazy" decoding="async">
+        <div class="pbody">
+          <p class="pst lbl"><i class="live" aria-hidden="true"></i><span class="es">Demo pública disponible</span><span class="en">Public demo available</span></p>
           <h3><span class="es">API de Operaciones de Pólizas</span><span class="en">Policy Operations API</span></h3>
-          <p><span class="es">API del ciclo de vida de pólizas con aislamiento de datos por organización e historial auditable. Usa datos sintéticos.</span><span class="en">Insurance policy lifecycle API with per-organization data isolation and an auditable history. Uses synthetic data.</span></p>
-          <p class="proof"><span class="es">Ciclo Borrador, Activa y Cancelada con roles JWT. Concurrencia con rowversion, ETag e If-Match, y ProblemDetails en los errores. Integración continua contra un SQL Server real.</span><span class="en">Draft, Active and Cancelled lifecycle with JWT roles. Concurrency with rowversion, ETag and If-Match, and ProblemDetails for errors. Continuous integration against a real SQL Server.</span></p>
-          <p class="ptech mono">C# · .NET 10 · EF Core · SQL Server · Azure</p>
-          <ul class="plinks"><li><a class="ext" href="https://nain-policy-demo-api.azurewebsites.net/demo/" target="_blank" rel="noopener noreferrer"><span class="es">Probar API</span><span class="en">Test API</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></li><li><a class="ext" href="https://github.com/Nain9Dev/API-Gestion-Financiera" target="_blank" rel="noopener noreferrer"><span class="es">Revisar código</span><span class="en">Review Code</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></li></ul>
-        </article>
-        <article class="proj" data-cats="backend data demo dotnet" tabindex="-1">
-          <p class="pst"><span class="lbl"><i class="pmark" aria-hidden="true"></i><span class="es">Demo pública activa</span><span class="en">Active public demo</span></span><span class="pn mono" aria-hidden="true">06</span></p>
+          <p class="sum"><span class="es">API del ciclo de vida de pólizas con aislamiento de datos por organización e historial auditable. Usa datos sintéticos.</span><span class="en">Insurance policy lifecycle API with per-organization data isolation and an auditable history. Uses synthetic data.</span></p>
+          <p class="ptech mono">C# · .NET 10 · EF Core</p>
+          <p class="plinks"><a class="ext" href="https://policy.naindev.com/" target="_blank" rel="noopener noreferrer"><span class="es">Probar API</span><span class="en">Test API</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a> <a class="ext" href="https://github.com/Nain9Dev/NainPolicy" target="_blank" rel="noopener noreferrer"><span class="es">Revisar código</span><span class="en">Review code</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></p>
+        </div>
+      </article>
+      <article class="card pcard resp cae" style="--o:6" data-project="nain-legacy-modernizer">
+        <img class="shot" src="assets/projects/nain-legacy-modernizer-400.webp" srcset="assets/projects/nain-legacy-modernizer-400.webp 400w, assets/projects/nain-legacy-modernizer.webp 640w" sizes="(max-width:600px) 100vw, 240px" alt="" width="400" height="225" loading="lazy" decoding="async">
+        <div class="pbody">
+          <p class="pst lbl"><i class="live" aria-hidden="true"></i><span class="es">Demo pública activa</span><span class="en">Active public demo</span></p>
+          <h3><span class="es">Harness de modernización .NET (YARP y Shadow Runner)</span><span class="en">.NET Modernization Harness (YARP & Shadow Runner)</span></h3>
+          <p class="sum"><span class="es">Harness de modernización para monolitos .NET heredados mediante Strangler Fig con proxy inverso YARP y auditoría de escritura dual en paralelo.</span><span class="en">Modernization harness for legacy .NET monoliths via Strangler Fig with YARP reverse proxying and parallel dual-write auditing.</span></p>
+          <p class="ptech mono">C# · .NET 10 · YARP</p>
+          <p class="plinks"><a class="ext" href="https://modernizer.naindev.com/" target="_blank" rel="noopener noreferrer"><span class="es">Probar demo</span><span class="en">Try the demo</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a> <a class="ext" href="https://github.com/Nain9Dev/NainLegacyModernizer" target="_blank" rel="noopener noreferrer"><span class="es">Revisar código</span><span class="en">Review code</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></p>
+        </div>
+      </article>
+      <article class="card pcard resp cae" style="--o:7" data-project="nainorder-ecommerce-api">
+        <img class="shot" src="assets/projects/nainorder-ecommerce-api-400.webp" srcset="assets/projects/nainorder-ecommerce-api-400.webp 400w, assets/projects/nainorder-ecommerce-api.webp 640w" sizes="(max-width:600px) 100vw, 240px" alt="" width="400" height="225" loading="lazy" decoding="async">
+        <div class="pbody">
+          <p class="pst lbl"><i class="live" aria-hidden="true"></i><span class="es">Demo pública activa</span><span class="en">Active public demo</span></p>
           <h3><span class="es">NainOrder (motor de pedidos)</span><span class="en">NainOrder (order engine)</span></h3>
-          <p><span class="es">Motor de pedidos para comercio electrónico con Clean Architecture, DDD táctico, CQRS en lectura y panel de cliente propio.</span><span class="en">E-commerce order engine with Clean Architecture, tactical DDD, read-side CQRS and its own customer panel.</span></p>
-          <p class="proof"><span class="es">Máquina de estados del pedido con reserva de stock en la misma transacción, concurrencia optimista (409), importes en céntimos enteros y errores RFC 7807. Panel sin compilación ni dependencias de Node.</span><span class="en">Order state machine with stock reserved in the same transaction, optimistic concurrency (409), amounts in integer cents and RFC 7807 errors. Customer panel with no build step and no Node dependencies.</span></p>
-          <p class="ptech mono">C# · .NET 10 · ASP.NET Core · EF Core · SQLite · xUnit</p>
-          <ul class="plinks"><li><a class="ext" href="https://nainorder.onrender.com/index.html" target="_blank" rel="noopener noreferrer"><span class="es">Probar API</span><span class="en">Test API</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></li><li><a class="ext" href="https://github.com/Nain9Dev/NainOrder" target="_blank" rel="noopener noreferrer"><span class="es">Revisar código</span><span class="en">Review Code</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></li></ul>
-        </article>
-        <article class="proj" data-cats="backend dotnet" tabindex="-1">
-          <p class="pst"><span class="lbl"><i class="pmark" aria-hidden="true"></i><span class="es">Demo en local con Docker</span><span class="en">Local demo with Docker</span></span><span class="pn mono" aria-hidden="true">07</span></p>
-          <h3><span class="es">Microservicio de notificaciones</span><span class="en">Notification microservice</span></h3>
-          <p><span class="es">Despacho asíncrono de correos con Clean Architecture y DDD, con la pasarela HTTP separada del worker.</span><span class="en">Asynchronous email dispatch with Clean Architecture and DDD, with the HTTP gateway separated from the worker.</span></p>
-          <p class="proof"><span class="es">Plantillas HTML y texto compatibles con Outlook, enmascarado de datos personales en los logs, limitación de peticiones y ejecución en un proceso o escalada con workers de RabbitMQ.</span><span class="en">HTML and text templates that render in Outlook, personal data masking in logs, rate limiting, and in-process execution or scale-out with RabbitMQ workers.</span></p>
-          <p class="ptech mono">C# · .NET 10 · MassTransit · RabbitMQ · Docker</p>
-          <ul class="plinks"><li><a class="ext" href="https://github.com/Nain9Dev/Microservicio-Notificaciones" target="_blank" rel="noopener noreferrer"><span class="es">Revisar código</span><span class="en">Review Code</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></li></ul>
-        </article>
-        <article class="proj" data-cats="backend data demo python" tabindex="-1">
-          <p class="pst"><span class="lbl"><i class="pmark" aria-hidden="true"></i><span class="es">Demo interactiva disponible</span><span class="en">Interactive demo available</span></span><span class="pn mono" aria-hidden="true">08</span></p>
-          <h3><span class="es">Facturación determinista para autoescuelas</span><span class="en">Deterministic billing for driving schools</span></h3>
-          <p><span class="es">Motor de facturación donde la aritmética es verificable. Es una pieza de portfolio, no un producto.</span><span class="en">Billing engine where the arithmetic is verifiable. A portfolio piece, not a product.</span></p>
-          <p class="proof"><span class="es">Importes en Decimal con redondeo explícito, totales que cuadran sin tolerancia, DNI y NIE validados con la letra de control y generación de PDF en memoria.</span><span class="en">Decimal amounts with explicit rounding, totals that reconcile with no tolerance, DNI and NIE checked with their control letter, and in-memory PDF generation.</span></p>
-          <p class="ptech mono">Python · Pydantic · SQLAlchemy · SQLite · Streamlit</p>
-          <ul class="plinks"><li><a class="ext" href="https://gestion-autoescuela-nain9dev.streamlit.app/" target="_blank" rel="noopener noreferrer"><span class="es">Probar demo</span><span class="en">Try the demo</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></li><li><a class="ext" href="https://github.com/Nain9Dev/Gestion-Autoescuela-Python" target="_blank" rel="noopener noreferrer"><span class="es">Revisar código</span><span class="en">Review Code</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></li></ul>
-        </article>
-        <article class="proj" data-cats="backend data demo dotnet" tabindex="-1">
-          <p class="pst"><span class="lbl"><i class="pmark" aria-hidden="true"></i><span class="es">Demo pública activa</span><span class="en">Active public demo</span></span><span class="pn mono" aria-hidden="true">09</span></p>
+          <p class="sum"><span class="es">Motor de pedidos para comercio electrónico con Clean Architecture, DDD táctico, CQRS en lectura y panel de cliente propio.</span><span class="en">E-commerce order engine with Clean Architecture, tactical DDD, read-side CQRS and its own customer panel.</span></p>
+          <p class="ptech mono">C# · .NET 10 · ASP.NET Core</p>
+          <p class="plinks"><a class="ext" href="https://order.naindev.com/" target="_blank" rel="noopener noreferrer"><span class="es">Probar API</span><span class="en">Test API</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a> <a class="ext" href="https://github.com/Nain9Dev/NainOrder" target="_blank" rel="noopener noreferrer"><span class="es">Revisar código</span><span class="en">Review code</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></p>
+        </div>
+      </article>
+      <article class="card pcard resp cae" style="--o:8" data-project="tai-study-system">
+        <img class="shot" src="assets/projects/tai-study-system-400.webp" srcset="assets/projects/tai-study-system-400.webp 400w, assets/projects/tai-study-system.webp 640w" sizes="(max-width:600px) 100vw, 240px" alt="" width="400" height="225" loading="lazy" decoding="async">
+        <div class="pbody">
+          <p class="pst lbl"><i class="live" aria-hidden="true"></i><span class="es">Demo pública activa</span><span class="en">Active public demo</span></p>
           <h3><span class="es">Simulacros de oposición TAI</span><span class="en">TAI civil service exam simulator</span></h3>
-          <p><span class="es">Simulador de exámenes de la oposición TAI (INAP): API de preguntas y corrección, y cliente web que funciona también sin servidor.</span><span class="en">Exam simulator for the Spanish TAI civil service exam (INAP): a question and marking API, and a web client that also works without a server.</span></p>
-          <p class="proof"><span class="es">Corrección en el servidor con la escala oficial, sesiones con cookie HttpOnly y token CSRF, cola sin conexión en IndexedDB y panel ordenado por el bloque más débil.</span><span class="en">Server-side marking with the official scale, HttpOnly cookie sessions with a CSRF token, an offline queue in IndexedDB and a dashboard ordered by the weakest block.</span></p>
-          <p class="ptech mono">C# · .NET 10 · Dapper · PostgreSQL · React · TypeScript</p>
-          <ul class="plinks"><li><a class="ext" href="https://tai.naindev.com" target="_blank" rel="noopener noreferrer"><span class="es">Abrir demo</span><span class="en">Open Demo</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></li><li><a class="ext" href="https://github.com/Nain9Dev/SistemaOposicionesTAI" target="_blank" rel="noopener noreferrer"><span class="es">Código de la API</span><span class="en">API code</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></li><li><a class="ext" href="https://github.com/Nain9Dev/tai-study-system-js" target="_blank" rel="noopener noreferrer"><span class="es">Código del cliente</span><span class="en">Client code</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></li></ul>
-        </article>
-        <article class="proj" data-cats="backend data 3d dotnet" data-extra tabindex="-1">
-          <p class="pst"><span class="lbl"><i class="pmark" aria-hidden="true"></i><span class="es">Demo técnica en preparación</span><span class="en">Technical demo in preparation</span></span><span class="pn mono" aria-hidden="true">10</span></p>
-          <h3><span class="es">NainConfigurator</span><span class="en">NainConfigurator</span></h3>
-          <p><span class="es">Configurador de productos B2B dirigido por catálogo, que admite productos distintos sin código específico por cliente.</span><span class="en">Catalog-driven B2B product configurator that supports different products without customer-specific code.</span></p>
-          <p class="proof"><span class="es">Aislamiento por empresa, validación y precios en el servidor, y flujo completo de configurar, guardar y presupuestar aunque el visor 3D no esté disponible.</span><span class="en">Per-company isolation, server-side validation and pricing, and a complete configure, save and quote flow even when the 3D viewer is unavailable.</span></p>
-          <p class="ptech mono">C# · ASP.NET Core · React · TypeScript · SQL Server</p>
-          <ul class="plinks"><li><a class="ext" href="https://github.com/Nain9Dev/NainConfigurator" target="_blank" rel="noopener noreferrer"><span class="es">Revisar código</span><span class="en">Review Code</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></li></ul>
-        </article>
-        <article class="proj" data-cats="backend" data-extra tabindex="-1">
-          <p class="pst"><span class="lbl"><i class="pmark" aria-hidden="true"></i><span class="es">Privado · En uso</span><span class="en">Private · In use</span></span><span class="pn mono" aria-hidden="true">11</span></p>
-          <h3><span class="es">Flota local de runners de GitHub Actions</span><span class="en">Self-hosted GitHub Actions runner fleet</span></h3>
-          <p><span class="es">CLI que gestiona runners self-hosted de GitHub Actions en un equipo de escritorio para repositorios privados.</span><span class="en">CLI that manages self-hosted GitHub Actions runners on a desktop machine for private repositories.</span></p>
-          <p class="proof"><span class="es">Rechaza repositorios públicos, no guarda tokens de registro y permite devolver los trabajos a los runners de GitHub con una variable. Tiene pruebas herméticas.</span><span class="en">Refuses public repositories, never stores registration tokens and can send jobs back to GitHub&#x27;s runners with one variable. Covered by hermetic tests.</span></p>
-          <p class="ptech mono">Bash · WSL · Docker · GitHub Actions</p>
-          <p class="plinks lbl"><span class="es">Código privado</span><span class="en">Private code</span></p>
-        </article>
-        <article class="proj" data-cats="demo 3d" data-extra tabindex="-1">
-          <p class="pst"><span class="lbl"><i class="pmark" aria-hidden="true"></i><span class="es">Juego público</span><span class="en">Public game</span></span><span class="pn mono" aria-hidden="true">12</span></p>
-          <h3><span class="es">Orbe Runner 3D</span><span class="en">Orbe Runner 3D</span></h3>
-          <p><span class="es">Runner 3D arcade hecho sin motor de juego, con modelos y audio procedurales.</span><span class="en">3D arcade runner built without a game engine, with procedural models and audio.</span></p>
-          <p class="proof"><span class="es">ECS propio, niveles compuestos por bloques cuya alcanzabilidad se comprueba antes de construirlos, paso de simulación fijo y controles táctiles.</span><span class="en">Custom ECS, levels built from chunks whose reachability is checked before they are built, a fixed simulation step and touch controls.</span></p>
-          <p class="ptech mono">TypeScript · Three.js · Web Audio · Vite · Vitest</p>
-          <ul class="plinks"><li><a class="ext" href="https://orbe.naindev.com" target="_blank" rel="noopener noreferrer"><span class="es">Jugar</span><span class="en">Play</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></li><li><a class="ext" href="https://github.com/Nain9Dev/orbe-runner-3d" target="_blank" rel="noopener noreferrer"><span class="es">Ver código</span><span class="en">View code</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></li></ul>
-        </article>
-        <article class="proj" data-cats="demo 3d" data-extra tabindex="-1">
-          <p class="pst"><span class="lbl"><i class="pmark" aria-hidden="true"></i><span class="es">Juego público</span><span class="en">Public game</span></span><span class="pn mono" aria-hidden="true">13</span></p>
-          <h3><span class="es">Pong Arcade 3D</span><span class="en">Pong Arcade 3D</span></h3>
-          <p><span class="es">Pong reconstruido como juego 3D en el navegador, sin instalación ni recursos externos.</span><span class="en">Pong rebuilt as a 3D browser game, with no install and no external assets.</span></p>
-          <p class="proof"><span class="es">Detección continua de colisiones, paso fijo con interpolación de render, IA predictiva con cuatro niveles y partidas reproducibles a partir de una semilla.</span><span class="en">Continuous collision detection, a fixed step with render interpolation, predictive AI with four levels and matches reproducible from a seed.</span></p>
-          <p class="ptech mono">TypeScript · Three.js · Web Audio · Vite</p>
-          <ul class="plinks"><li><a class="ext" href="https://pong.naindev.com" target="_blank" rel="noopener noreferrer"><span class="es">Jugar</span><span class="en">Play</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></li><li><a class="ext" href="https://github.com/Nain9Dev/pong-arcade-js" target="_blank" rel="noopener noreferrer"><span class="es">Ver código</span><span class="en">View code</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></li></ul>
-        </article>
-        <article class="proj" data-cats="data python" data-extra tabindex="-1">
-          <p class="pst"><span class="lbl"><i class="pmark" aria-hidden="true"></i><span class="es">Privado · Prototipo en simulación</span><span class="en">Private · Simulation-mode prototype</span></span><span class="pn mono" aria-hidden="true">14</span></p>
-          <h3><span class="es">Pipeline de prospección B2B con IA</span><span class="en">AI-assisted B2B prospecting pipeline</span></h3>
-          <p><span class="es">Pipeline de bajo coste que localiza empresas a partir de datos públicos, las clasifica con un LLM y genera plantillas de email. No envía correo.</span><span class="en">Low-cost pipeline that finds companies from public data, classifies them with an LLM and generates email templates. It does not send email.</span></p>
-          <p class="proof"><span class="es">Clasificación de sector, tamaño y prioridad con un modelo ligero, alertas y ejecución programada. Se detiene antes del envío, en modo simulación.</span><span class="en">Classifies sector, size and priority with a lightweight model, with alerts and scheduled runs. It stops before sending, in simulation mode.</span></p>
-          <p class="ptech mono">Python · LLM · GitHub Actions</p>
-          <p class="plinks lbl"><span class="es">Código privado</span><span class="en">Private code</span></p>
-        </article>
-        <article class="proj" data-cats="data python" data-extra tabindex="-1">
-          <p class="pst"><span class="lbl"><i class="pmark" aria-hidden="true"></i><span class="es">Privado · Preliminar</span><span class="en">Private · Preliminary</span></span><span class="pn mono" aria-hidden="true">15</span></p>
-          <h3><span class="es">Agente local de reescritura en español</span><span class="en">Local Spanish rewriting agent</span></h3>
-          <p><span class="es">Agente local que reescribe borradores en español de España conservando el significado, las condiciones y los literales protegidos.</span><span class="en">Local agent that rewrites drafts in Spanish from Spain while preserving meaning, conditions and protected literals.</span></p>
-          <p class="proof"><span class="es">Un LLM local reescribe y un validador determinista de invariantes lo comprueba. Si dos auditores independientes no aprueban, el resultado pasa a revisión humana.</span><span class="en">A local LLM rewrites and a deterministic invariant validator checks it. If two independent auditors do not approve, the result goes to human review.</span></p>
-          <p class="ptech mono">Python · Ollama · LanguageTool</p>
-          <p class="plinks lbl"><span class="es">Código privado</span><span class="en">Private code</span></p>
-        </article>
-        <article class="proj" data-cats="data python" data-extra tabindex="-1">
-          <p class="pst"><span class="lbl"><i class="pmark" aria-hidden="true"></i><span class="es">Privado · Primera versión</span><span class="en">Private · First version</span></span><span class="pn mono" aria-hidden="true">16</span></p>
-          <h3><span class="es">Generador local de presupuestos y borradores de factura</span><span class="en">Local quotation and invoice-draft generator</span></h3>
-          <p><span class="es">Preparación local de presupuestos, proformas y borradores de factura con exportación a PDF. No emite facturas fiscales definitivas.</span><span class="en">Local preparation of quotations, proformas and invoice drafts with PDF export. It does not issue final tax invoices.</span></p>
-          <p class="proof"><span class="es">Funciona solo en la máquina local, con ayuda opcional de un LLM local para redactar.</span><span class="en">Runs only on the local machine, with optional drafting help from a local LLM.</span></p>
-          <p class="ptech mono">Python · Ollama</p>
-          <p class="plinks lbl"><span class="es">Código privado</span><span class="en">Private code</span></p>
-        </article>
-        <article class="proj" data-cats="backend demo dotnet" data-extra tabindex="-1">
-          <p class="pst"><span class="lbl"><i class="pmark" aria-hidden="true"></i><span class="es">Proyecto de formación · Demo web</span><span class="en">Training project · Web demo</span></span><span class="pn mono" aria-hidden="true">17</span></p>
-          <h3><span class="es">GameHaven</span><span class="en">GameHaven</span></h3>
-          <p><span class="es">Tienda de juegos independientes en Blazor WebAssembly con API propia, evolución de una primera versión de escritorio.</span><span class="en">Indie game store in Blazor WebAssembly with its own API, evolved from an earlier desktop version.</span></p>
-          <p class="proof"><span class="es">Separación en capas de API, aplicación, dominio e infraestructura, con despliegue del frontend en GitHub Pages.</span><span class="en">Layered API, application, domain and infrastructure, with the frontend deployed to GitHub Pages.</span></p>
-          <p class="ptech mono">C# · .NET 10 · Blazor WebAssembly · SQLite</p>
-          <ul class="plinks"><li><a class="ext" href="https://nain9dev.github.io/GameHaven/" target="_blank" rel="noopener noreferrer"><span class="es">Probar tienda</span><span class="en">Try the store</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></li><li><a class="ext" href="https://github.com/Nain9Dev/GameHaven" target="_blank" rel="noopener noreferrer"><span class="es">Revisar código</span><span class="en">Review Code</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></li></ul>
-        </article>
-        <article class="proj" data-cats="backend dotnet" data-extra tabindex="-1">
-          <p class="pst"><span class="lbl"><i class="pmark" aria-hidden="true"></i><span class="es">Proyecto de formación · En desarrollo</span><span class="en">Training project · In development</span></span><span class="pn mono" aria-hidden="true">18</span></p>
-          <h3><span class="es">HaveTickets</span><span class="en">HaveTickets</span></h3>
-          <p><span class="es">Sistema de tickets de soporte con cliente en Blazor WebAssembly y Minimal API.</span><span class="en">Support ticketing system with a Blazor WebAssembly client and a Minimal API.</span></p>
-          <p class="proof"><span class="es">Proyectos separados de dominio, aplicación, infraestructura y contratos.</span><span class="en">Separate domain, application, infrastructure and contracts projects.</span></p>
-          <p class="ptech mono">C# · .NET 10 · Blazor WebAssembly · ASP.NET Core</p>
-          <ul class="plinks"><li><a class="ext" href="https://github.com/Nain9Dev/HaveTickets" target="_blank" rel="noopener noreferrer"><span class="es">Revisar código</span><span class="en">Review Code</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></li></ul>
-        </article>
-        <article class="proj" data-cats="3d dotnet" data-extra tabindex="-1">
-          <p class="pst"><span class="lbl"><i class="pmark" aria-hidden="true"></i><span class="es">Privado · En planificación</span><span class="en">Private · In planning</span></span><span class="pn mono" aria-hidden="true">19</span></p>
-          <h3><span class="es">Simulador de conducción 3D para el examen práctico</span><span class="en">3D driving-exam simulator</span></h3>
-          <p><span class="es">Simulador 3D del examen práctico del permiso B con puntuación determinista de las faltas.</span><span class="en">3D simulator of the Class B practical driving exam with deterministic fault scoring.</span></p>
-          <p class="proof"><span class="es">Diseño de la transmisión manual (embrague, calado y marchas), comprobaciones previas del vehículo y clasificación de faltas en leves, deficientes y eliminatorias.</span><span class="en">Manual transmission design (clutch, stalling and gears), pre-drive vehicle checks and fault classification into minor, deficient and eliminatory.</span></p>
-          <p class="ptech mono">C# · .NET · TypeScript · Three.js</p>
-          <p class="plinks lbl"><span class="es">Código privado</span><span class="en">Private code</span></p>
-        </article>
+          <p class="sum"><span class="es">Simulador de exámenes de la oposición TAI (INAP): API de preguntas y corrección, y cliente web que funciona también sin servidor.</span><span class="en">Exam simulator for the Spanish TAI civil service exam (INAP): a question and marking API, and a web client that also works without a server.</span></p>
+          <p class="ptech mono">C# · .NET 10 · Dapper</p>
+          <p class="plinks"><a class="ext" href="https://tai.naindev.com" target="_blank" rel="noopener noreferrer"><span class="es">Abrir demo</span><span class="en">Open demo</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a> <a class="ext" href="https://github.com/Nain9Dev/NainTAI" target="_blank" rel="noopener noreferrer"><span class="es">Código de la API</span><span class="en">API code</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a> <a class="ext" href="https://github.com/Nain9Dev/tai-study-system-js" target="_blank" rel="noopener noreferrer"><span class="es">Código del cliente</span><span class="en">Client code</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></p>
+        </div>
+      </article>
     </div>
-    <p class="mt8"><button type="button" class="btn btn-s" id="projMore" hidden aria-controls="projList" aria-expanded="false"><span class="es">Ver los 19 proyectos</span><span class="en">See all 19 projects</span></button></p>
   </div>
 </section>
 
-<!-- ===== CASOS · papel hundido · propuesta ===== -->
-<section id="casos" class="on-sunken apar" aria-labelledby="casosTitle">
+<!-- ===== 4 · CASE STUDIES (proposal) and recent writing · page ===== -->
+<section id="casos" class="apar" aria-labelledby="casosTitle">
   <div class="shell">
     <div class="head">
       <p class="kick cae" style="--o:0"><span class="es">Casos</span><span class="en">Case studies</span></p>
       <h2 id="casosTitle"><span class="masc"><span class="linea" style="--o:1"><span class="es">Dos decisiones de arquitectura y lo que costaron</span><span class="en">Two architecture decisions and what they cost</span></span></span></h2>
       <div class="cota-w" style="--o:2"><div class="cota q2" aria-hidden="true"><i></i><i></i><i></i></div><span class="cota-lbl mono"><span class="es" style="--n:41">2 DECISIONES · 2 ALTERNATIVAS DESCARTADAS</span><span class="en" style="--n:38">2 DECISIONS · 2 DISCARDED ALTERNATIVES</span></span></div>
-      <p class="mt6 intro cae" style="--o:3"><span class="es">Los proyectos de arriba enseñan lo que existe. Los casos cuentan una decisión tomada con un cliente: qué se eligió, qué se descartó y qué precio tuvo.</span><span class="en">The projects above show what exists. The case studies tell one decision made with a client: what was chosen, what was discarded and what it cost.</span></p>
     </div>
-    <div class="pair2">
-      <article class="case cae" style="--o:4">
-        <p class="lbl meta"><span class="es">Cliente confidencial · industria 3D</span><span class="en">Confidential client · 3D industry</span></p>
-        <h3><span class="es">Sacar la IA del camino crítico de la validación</span><span class="en">Taking AI off the validation critical path</span></h3>
-        <p class="mt3"><span class="es">Dominio geométrico puro en .NET y validación en memoria con ONNX Runtime, en lugar de un microservicio de Python al otro lado de la red.</span><span class="en">A pure geometry domain in .NET and in-memory validation with ONNX Runtime, instead of a Python microservice across the network.</span></p>
-        <p class="mt4"><a href="casos.html#caso-validacion"><span class="es">Leer el caso</span><span class="en">Read the case</span></a></p>
-      </article>
-      <article class="case cae" style="--o:5">
-        <p class="lbl meta"><span class="es">Plataforma SaaS · especialista backend</span><span class="en">SaaS platform · backend specialist</span></p>
-        <h3><span class="es">Particionar por tenant antes que cambiar de motor</span><span class="en">Partition by tenant rather than change engines</span></h3>
-        <p class="mt3"><span class="es">Particionado por tenant y Redis como caché de primer nivel, en lugar de migrar la facturación a NoSQL.</span><span class="en">Partitioning by tenant and Redis as a first-level cache, instead of moving billing to NoSQL.</span></p>
-        <p class="mt4"><a href="casos.html#caso-saas"><span class="es">Leer el caso</span><span class="en">Read the case</span></a></p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ===== ESCRITOS · papel ===== -->
-<section id="escritos" class="apar" aria-labelledby="escritosTitle">
-  <div class="shell">
-    <div class="grid">
-      <div>
-        <div class="head">
-          <p class="kick cae" style="--o:0"><span class="es">Escritos</span><span class="en">Writing</span></p>
-          <h2 id="escritosTitle"><span class="masc"><span class="linea" style="--o:1"><span class="es">Artículos técnicos del blog</span><span class="en">Technical articles from the blog</span></span></span></h2>
-          <div class="cota-w" style="--o:2"><div class="cota q2" aria-hidden="true"><i></i><i></i><i></i></div><span class="cota-lbl mono"><span class="es" style="--n:12">11 ARTÍCULOS</span><span class="en" style="--n:11">11 ARTICLES</span></span></div>
-        </div>
-        <ol class="posts">
-          <li class="cae" style="--o:3"><span class="num">01</span><h3><span class="es"><a class="ext" href="https://www.naindev.com/blog/arquitectura-backend-validacion-3d/" target="_blank" rel="noopener noreferrer"><span class="es">Arquitectura Backend para Sistemas de Validación 3D Deterministas</span><span class="en">Backend Architecture for Deterministic 3D Validation Systems</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a class="ext" href="https://www.naindev.com/en/blog/arquitectura-backend-validacion-3d/" target="_blank" rel="noopener noreferrer"><span class="es">Arquitectura Backend para Sistemas de Validación 3D Deterministas</span><span class="en">Backend Architecture for Deterministic 3D Validation Systems</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></h3><span class="t mono"><time datetime="2026-08-20"><span class="es">20 ago 2026</span><span class="en">20 Aug 2026</span></time></span></li><li class="cae" style="--o:4"><span class="num">02</span><h3><span class="es"><a class="ext" href="https://www.naindev.com/blog/concurrencia-optimista-3d/" target="_blank" rel="noopener noreferrer"><span class="es">Control de Concurrencia Optimista en Sistemas Distribuidos para Validación 3D con IA</span><span class="en">Optimistic Concurrency Control in Distributed Systems for 3D Validation with AI</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a class="ext" href="https://www.naindev.com/en/blog/concurrencia-optimista-3d/" target="_blank" rel="noopener noreferrer"><span class="es">Control de Concurrencia Optimista en Sistemas Distribuidos para Validación 3D con IA</span><span class="en">Optimistic Concurrency Control in Distributed Systems for 3D Validation with AI</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></h3><span class="t mono"><time datetime="2026-08-19"><span class="es">19 ago 2026</span><span class="en">19 Aug 2026</span></time></span></li><li class="cae" style="--o:5"><span class="num">03</span><h3><a href="articulo.html"><span class="es">Clean Architecture en .NET para Sistemas de IA Generativa: Guía Práctica</span><span class="en">Clean Architecture in .NET for Generative AI Systems: A Practical Guide</span></a></h3><span class="t mono"><time datetime="2026-08-20"><span class="es">20 ago 2026</span><span class="en">20 Aug 2026</span></time></span></li><li class="cae" style="--o:6"><span class="num">04</span><h3><span class="es"><a class="ext" href="https://www.naindev.com/blog/escalar-procesamiento-3d-csharp-nube/" target="_blank" rel="noopener noreferrer"><span class="es">Escalar Procesamiento de Modelos 3D en la Nube con C# y .NET</span><span class="en">Scaling 3D Model Processing in the Cloud with C# and .NET</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a class="ext" href="https://www.naindev.com/en/blog/escalar-procesamiento-3d-csharp-nube/" target="_blank" rel="noopener noreferrer"><span class="es">Escalar Procesamiento de Modelos 3D en la Nube con C# y .NET</span><span class="en">Scaling 3D Model Processing in the Cloud with C# and .NET</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></h3><span class="t mono"><time datetime="2026-08-29"><span class="es">29 ago 2026</span><span class="en">29 Aug 2026</span></time></span></li><li class="cae" style="--o:7"><span class="num">05</span><h3><span class="es"><a class="ext" href="https://www.naindev.com/blog/optimizacion-procesamiento-mallas-3d/" target="_blank" rel="noopener noreferrer"><span class="es">Cómo procesar masivamente modelos 3D sin colgar tu Backend</span><span class="en">How to process 3D models in bulk without crashing your backend</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a class="ext" href="https://www.naindev.com/en/blog/optimizacion-procesamiento-mallas-3d/" target="_blank" rel="noopener noreferrer"><span class="es">Cómo procesar masivamente modelos 3D sin colgar tu Backend</span><span class="en">How to process 3D models in bulk without crashing your backend</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></h3><span class="t mono"><time datetime="2026-08-28"><span class="es">28 ago 2026</span><span class="en">28 Aug 2026</span></time></span></li>
-        </ol>
-        <p class="mt8"><a href="escritos.html"><span class="es">Los once artículos</span><span class="en">All eleven articles</span></a></p>
+    <div class="cases">
+      <div class="case-list">
+        <article class="card case cae" style="--o:3">
+          <p class="lbl meta"><span class="es">Cliente confidencial · industria 3D</span><span class="en">Confidential client · 3D industry</span></p>
+          <h3><span class="es">Sacar la IA del camino crítico de la validación</span><span class="en">Taking AI off the validation critical path</span></h3>
+          <p><span class="es">Dominio geométrico puro en .NET y validación en memoria con ONNX Runtime, en lugar de un microservicio de Python al otro lado de la red.</span><span class="en">A pure geometry domain in .NET and in-memory validation with ONNX Runtime, instead of a Python microservice across the network.</span></p>
+          <span class="brk2"><span class="brk-l" aria-hidden="true"><i></i><i></i></span><span class="brk-t mono"><span class="es">MICROSERVICIO EN PYTHON · DESCARTADO</span><span class="en">PYTHON MICROSERVICE · DISCARDED</span></span></span>
+          <p class="mt4"><a class="tlink" href="casos.html#caso-validacion"><span class="es">Leer el caso</span><span class="en">Read the case</span></a></p>
+        </article>
+        <article class="card case cae" style="--o:4">
+          <p class="lbl meta"><span class="es">Plataforma SaaS · especialista backend</span><span class="en">SaaS platform · backend specialist</span></p>
+          <h3><span class="es">Particionar por tenant antes que cambiar de motor</span><span class="en">Partition by tenant rather than change engines</span></h3>
+          <p><span class="es">Particionado por tenant y Redis como caché de primer nivel, en lugar de migrar la facturación a NoSQL.</span><span class="en">Partitioning by tenant and Redis as a first-level cache, instead of moving billing to NoSQL.</span></p>
+          <span class="brk2"><span class="brk-l" aria-hidden="true"><i></i><i></i></span><span class="brk-t mono"><span class="es">FACTURACIÓN EN NOSQL · DESCARTADA</span><span class="en">BILLING ON NOSQL · DISCARDED</span></span></span>
+          <p class="mt4"><a class="tlink" href="casos.html#caso-saas"><span class="es">Leer el caso</span><span class="en">Read the case</span></a></p>
+        </article>
       </div>
-      <aside class="note-col cae" style="--o:4">
-        <p class="lbl block"><span class="es">Por qué están tan arriba</span><span class="en">Why they sit this high</span></p>
-        <p class="soft"><span class="es">No hay logotipos de clientes que enseñar. Los artículos son la forma más directa de ver cómo razono un problema antes de hablar.</span><span class="en">There are no client logos to show. The articles are the most direct way to see how I reason about a problem before we talk.</span></p>
+      <aside class="recent cae" style="--o:5" aria-labelledby="recentTitle">
+        <h3 class="lbl block" id="recentTitle"><span class="es">Escritos recientes</span><span class="en">Recent writing</span></h3>
+        <ol class="posts">
+          <li><h3><span class="es"><a class="ext" href="https://www.naindev.com/blog/arquitectura-backend-validacion-3d/" target="_blank" rel="noopener noreferrer"><span class="es">Arquitectura Backend para Sistemas de Validación 3D Deterministas</span><span class="en">Backend Architecture for Deterministic 3D Validation Systems</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a class="ext" href="https://www.naindev.com/en/blog/arquitectura-backend-validacion-3d/" target="_blank" rel="noopener noreferrer"><span class="es">Arquitectura Backend para Sistemas de Validación 3D Deterministas</span><span class="en">Backend Architecture for Deterministic 3D Validation Systems</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></h3><span class="t mono"><time datetime="2026-08-20"><span class="es">20 ago 2026</span><span class="en">20 Aug 2026</span></time></span></li>
+          <li><h3><span class="es"><a class="ext" href="https://www.naindev.com/blog/concurrencia-optimista-3d/" target="_blank" rel="noopener noreferrer"><span class="es">Control de Concurrencia Optimista en Sistemas Distribuidos para Validación 3D con IA</span><span class="en">Optimistic Concurrency Control in Distributed Systems for 3D Validation with AI</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a class="ext" href="https://www.naindev.com/en/blog/concurrencia-optimista-3d/" target="_blank" rel="noopener noreferrer"><span class="es">Control de Concurrencia Optimista en Sistemas Distribuidos para Validación 3D con IA</span><span class="en">Optimistic Concurrency Control in Distributed Systems for 3D Validation with AI</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></h3><span class="t mono"><time datetime="2026-08-19"><span class="es">19 ago 2026</span><span class="en">19 Aug 2026</span></time></span></li>
+          <li><h3><a href="articulo.html"><span class="es">Clean Architecture en .NET para Sistemas de IA Generativa: Guía Práctica</span><span class="en">Clean Architecture in .NET for Generative AI Systems: A Practical Guide</span></a></h3><span class="t mono"><time datetime="2026-08-20"><span class="es">20 ago 2026</span><span class="en">20 Aug 2026</span></time></span></li>
+        </ol>
+        <p class="mt4"><a class="tlink" href="escritos.html"><span class="es">Los once artículos</span><span class="en">All eleven articles</span></a></p>
       </aside>
     </div>
   </div>
 </section>
 
-<!-- ===== CHECKLIST · papel hundido, con la trama como imagen ===== -->
-<section id="checklist" class="slim on-sunken apar" aria-labelledby="checklistTitle">
-  <div class="shell">
-    <div class="checkbox">
-      <div>
-        <p class="kick cae" style="--o:0"><span class="es">Recurso gratuito</span><span class="en">Free resource</span></p>
-        <h2 id="checklistTitle"><span class="masc"><span class="linea" style="--o:1"><span class="es">Checklist de arquitectura para IA</span><span class="en">AI architecture checklist</span></span></span></h2>
-        <p class="mt4 cae" style="--o:2"><span class="es">Diez puntos para revisar un sistema con IA antes de llevarlo a producción: aislamiento del modelo, tiempos de espera, coste por llamada y seguridad. Se pide por correo desde su página; no hay formulario ni lista de correo.</span><span class="en">Ten points to review an AI system before it goes to production: model isolation, timeouts, cost per call and security. You request it by email from its page; there is no form and no mailing list.</span></p>
-        <p class="mt6 cae" style="--o:3"><span class="es"><a class="btn btn-s btn-lg" href="https://www.naindev.com/recursos/checklist-ia/" target="_blank" rel="noopener noreferrer"><span class="es">Ver la checklist</span><span class="en">See the checklist</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a class="btn btn-s btn-lg" href="https://www.naindev.com/en/resources/checklist-ia/" target="_blank" rel="noopener noreferrer"><span class="es">Ver la checklist</span><span class="en">See the checklist</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></p>
-      </div>
-      <div class="trama-blk check-trama" data-seed="11" data-ink="#0047AB" data-dir="r" aria-hidden="true"></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== CONSOLA · papel ===== -->
-<section id="consola" class="apar" aria-labelledby="consolaTitle">
+<!-- ===== 5 · HOW I WORK · raised: method, stack, console, checklist ===== -->
+<section id="metodo" class="on-raised apar" aria-labelledby="metodoTitle">
   <div class="shell">
     <div class="head">
-      <p class="kick cae" style="--o:0"><span class="es">Consola</span><span class="en">Console</span></p>
-      <h2 id="consolaTitle"><span class="masc"><span class="linea" style="--o:1"><span class="es">La página, en comandos</span><span class="en">The page, as commands</span></span></span></h2>
-      <div class="cota-w" style="--o:2"><div class="cota q2" aria-hidden="true"><i></i><i></i><i></i></div><span class="cota-lbl mono"><span class="es" style="--n:28">STACK · SERVICIOS · CONTACTO</span><span class="en" style="--n:26">STACK · SERVICES · CONTACT</span></span></div>
-      <p class="mt6 intro cae" style="--o:3"><span class="es">Para quien prefiere escribir a desplazarse. Responde con el stack, los servicios y el contacto, con el mismo texto que la página.</span><span class="en">For anyone who would rather type than scroll. It answers with the stack, the services and contact details, in the same words as the page.</span></p>
+      <p class="kick cae" style="--o:0"><span class="es">Cómo trabajo</span><span class="en">How I work</span></p>
+      <h2 id="metodoTitle"><span class="masc"><span class="linea" style="--o:1"><span class="es">Cuatro pasos y lo que entrega cada uno</span><span class="en">Four steps and what each one delivers</span></span></span></h2>
+      <div class="cota-w" style="--o:2"><div class="cota q4" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><span class="cota-lbl mono"><span class="es" style="--n:23">4 PASOS · 4 ENTREGABLES</span><span class="en" style="--n:24">4 STEPS · 4 DELIVERABLES</span></span></div>
     </div>
-    <div class="term cae" style="--o:4" id="term">
+    <ol class="steps">
+        <li class="cae" style="--o:3"><p class="num">01</p><h3><span class="es">Acotar</span><span class="en">Scope</span></h3><p><span class="es">Qué entra, qué queda fuera y con qué criterio se da por terminado.</span><span class="en">What is in, what is out, and how done is defined.</span></p></li>
+        <li class="cae" style="--o:4"><p class="num">02</p><h3><span class="es">Diseñar</span><span class="en">Design</span></h3><p><span class="es">Decisiones registradas como ADR, con la alternativa descartada y el motivo.</span><span class="en">Decisions recorded as ADRs, with the discarded alternative and why.</span></p></li>
+        <li class="cae" style="--o:5"><p class="num">03</p><h3><span class="es">Construir</span><span class="en">Build</span></h3><p><span class="es">Implementación por hitos, con una prueba que falla si se rompe un invariante.</span><span class="en">Milestone implementation, with a test that fails when an invariant breaks.</span></p></li>
+        <li class="cae" style="--o:6"><p class="num">04</p><h3><span class="es">Traspasar</span><span class="en">Hand over</span></h3><p><span class="es">Qué cambió, cómo se probó, qué queda abierto y quién lo mantiene.</span><span class="en">What changed, how it was tested, what is open and who maintains it.</span></p></li>
+    </ol>
+    <dl class="stack cae" style="--o:6" aria-label="Stack tecnológico / Tech stack">
+        <div><dt class="lbl"><span class="es">Lenguajes</span><span class="en">Languages</span></dt><dd>Python · <a href="tecnologia.html">C#</a> · TypeScript · JavaScript</dd></div>
+        <div><dt class="lbl">Backend</dt><dd>FastAPI · Pydantic · .NET</dd></div>
+        <div><dt class="lbl">Frontend</dt><dd>Vue 3 · Tailwind CSS · Astro · Three.js</dd></div>
+        <div><dt class="lbl"><span class="es">Datos</span><span class="en">Data</span></dt><dd>PostgreSQL · SQL Server</dd></div>
+        <div><dt class="lbl"><span class="es">IA y DevOps</span><span class="en">AI & DevOps</span></dt><dd>MCP · Docker · GitHub Actions · Azure · Linux</dd></div>
+        <div><dt class="lbl"><span class="es">Herramientas</span><span class="en">Tools</span></dt><dd>Git · GitHub · VS Code</dd></div>
+    </dl>
+    <div class="work">
+      <div id="consola">
+        <p class="lbl block cae" style="--o:2"><span class="es">Consola · la página, en comandos</span><span class="en">Console · the page, as commands</span></p>
+        <div class="term compact cae" style="--o:3" id="term">
       <div class="termbar">
         <span class="brk sm" aria-hidden="true"><s></s><u></u><s></s></span>
         <span class="t">aitor@naindev: ~</span>
@@ -552,47 +312,61 @@
                data-ph-es="escribe ayuda y pulsa intro" data-ph-en="type help and press enter">
       </div>
     </div>
-    <div class="termchips" id="termChips"></div>
-  </div>
-</section>
-
-<!-- ===== SOBRE MÍ · papel hundido ===== -->
-<section id="sobre" class="on-sunken apar" aria-labelledby="sobreTitle">
-  <div class="shell">
-    <div class="grid">
-      <div>
-        <p class="kick cae" style="--o:0"><span class="es">Sobre mí</span><span class="en">About</span></p>
-        <h2 id="sobreTitle"><span class="masc"><span class="linea" style="--o:1"><span class="es">Arquitecto de software full stack</span><span class="en">Full stack software architect</span></span></span></h2>
-        <p class="big mt6 cae" style="--o:2"><span class="es">Soy Aitor Nain Mendoza Vallejo, también conocido como Aitor Mendoza y NainDev. Trabajo como CTO en Contrast3D x NainDev, la colaboración con Contrast3D, donde diseño una arquitectura de conformidad determinista y multidominio, con modelo Open Core: diseñada para validar productos de cualquier sector frente a especificaciones explícitas y versionadas, con veredictos reproducibles y un enfoque de &#x27;Trustworthy AI&#x27;. Su primer dominio son los activos 3D generados por IA.</span><span class="en">I am Aitor Nain Mendoza Vallejo, also known as Aitor Mendoza and NainDev. I work as CTO at Contrast3D x NainDev, the collaboration with Contrast3D, where I design a deterministic, multi-domain conformance architecture with an Open Core model: designed to validate products from any sector against explicit, versioned specifications, with reproducible verdicts and a &#x27;Trustworthy AI&#x27; approach. Its first domain is AI-generated 3D assets.</span></p>
-        <p class="mt4 cae" style="--o:3"><span class="es">En paralelo, trabajo a tiempo completo en el sector empresarial como desarrollador y mantenedor de sistemas críticos .NET (C# y SQL Server). Mi enfoque combina el rigor y la escalabilidad del mundo corporativo con la vanguardia de las integraciones Human-in-the-loop y flujos agénticos.</span><span class="en">In parallel, I work full-time in the enterprise sector as a developer and maintainer of critical .NET (C# and SQL Server) systems. My focus combines the rigor and scalability of the corporate world with the cutting edge of Human-in-the-loop and agentic flow integrations.</span></p>
-        <ul class="links mt6 cae" style="--o:4">
-          <li><a class="ext" href="https://github.com/Nain9Dev" target="_blank" rel="noopener noreferrer">GitHub<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></li>
-          <li><a class="ext" href="https://github.com/naindev-contrast3d" target="_blank" rel="noopener noreferrer">Contrast3D &amp; NainDev<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></li>
-          <li><a class="ext" href="https://www.linkedin.com/in/aitor-nain-mendoza-vallejo/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></li>
-          <li><a class="ext" href="https://x.com/Nain9Dev" target="_blank" rel="noopener noreferrer">X<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></li>
-        </ul>
+        <div class="termchips compact" id="termChips"></div>
       </div>
-      <aside class="cae" style="--o:4">
-        <p class="lbl block"><span class="es">Cómo trabajo</span><span class="en">How I work</span></p>
-        <ul class="ticks">
-          <li><span class="es">Proyectos a tiempo parcial y en remoto, para empresas de cualquier país.</span><span class="en">Part-time, remote projects for companies in any country.</span></li>
-          <li><span class="es">Python y .NET al mismo nivel, del modelo de datos al frontend.</span><span class="en">Python and .NET at the same level, from the data model to the frontend.</span></li>
-          <li><span class="es">Guiado por especificaciones: cada requisito tiene su prueba.</span><span class="en">Spec-driven: every requirement has its test.</span></li>
-        </ul>
-        <p class="lbl block mt8"><span class="es">Dónde está el código</span><span class="en">Where the code is</span></p>
-        <p class="soft"><span class="es">Este sitio es estático y su repositorio es público.</span><span class="en">This site is static and its repository is public.</span> <a class="ext" href="https://github.com/Nain9Dev/nain9dev.github.io" target="_blank" rel="noopener noreferrer">Nain9Dev/nain9dev.github.io<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></p>
-      </aside>
+      <div class="side">
+        <div class="card cae" style="--o:4" id="checklist">
+          <p class="kick"><span class="es">Recurso gratuito</span><span class="en">Free resource</span></p>
+          <h3><span class="es">Checklist de arquitectura para IA</span><span class="en">AI architecture checklist</span></h3>
+          <p><span class="es">Diez puntos para revisar un sistema con IA antes de llevarlo a producción: aislamiento del modelo, tiempos de espera, coste por llamada y seguridad. Se pide por correo desde su página; no hay formulario ni lista de correo.</span><span class="en">Ten points to review an AI system before it goes to production: model isolation, timeouts, cost per call and security. You request it by email from its page; there is no form and no mailing list.</span></p>
+          <span class="es"><a class="tlink" href="https://www.naindev.com/recursos/checklist-ia/" target="_blank" rel="noopener noreferrer">Ver la checklist<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a class="tlink" href="https://www.naindev.com/en/resources/checklist-ia/" target="_blank" rel="noopener noreferrer">See the checklist<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span>
+        </div>
+        <div class="cae" style="--o:5">
+          <p class="lbl block"><span class="es">Dónde está el código</span><span class="en">Where the code is</span></p>
+          <p class="soft"><span class="es">Los proyectos y las demos están enlazados, y el repositorio de este sitio es público.</span><span class="en">The projects and demos are linked, and this site&#x27;s repository is public.</span> <a class="ext" href="https://github.com/Nain9Dev/nain9dev.github.io" target="_blank" rel="noopener noreferrer">Nain9Dev/nain9dev.github.io<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- ===== 6 · ABOUT AND THE COLLABORATION · band ===== -->
+<section id="sobre" class="on-sunken apar" aria-labelledby="sobreTitle">
+  <div class="shell collab">
+    <div>
+      <div class="head">
+      <p class="kick cae" style="--o:0"><span class="es">Sobre mí · Colaboración</span><span class="en">About · Collaboration</span></p>
+      <h2 id="sobreTitle"><span class="masc"><span class="linea" style="--o:1"><span class="es">Contrast3D x NainDev: diseño y software, de la idea a producción</span><span class="en">Contrast3D x NainDev: design and software, from idea to production</span></span></span></h2>
+      <div class="cota-w" style="--o:2"><div class="cota q2" aria-hidden="true"><i></i><i></i><i></i></div><span class="cota-lbl mono"><span class="es" style="--n:26">CTO · CONTRAST3D x NAINDEV</span><span class="en" style="--n:26">CTO · CONTRAST3D x NAINDEV</span></span></div>
+    </div>
+      <p class="cae" style="--o:3"><span class="es">NainDev colabora con Contrast3D, un estudio de dirección creativa, CGI y 3D en tiempo real. Cada uno se ocupa de lo suyo para que un producto se vea bien y funcione de forma fiable.</span><span class="en">NainDev collaborates with Contrast3D, a studio for creative direction, CGI and real-time 3D. Each handles its own part so a product looks good and works reliably.</span></p>
+      <p class="bio cae" style="--o:4"><span class="es">Soy Aitor Nain Mendoza Vallejo, también conocido como Aitor Mendoza y NainDev. Trabajo como CTO en Contrast3D x NainDev, la colaboración con Contrast3D, donde diseño una arquitectura de conformidad determinista y multidominio, con modelo Open Core: diseñada para validar productos de cualquier sector frente a especificaciones explícitas y versionadas, con veredictos reproducibles y un enfoque de &#x27;Trustworthy AI&#x27;. Su primer dominio son los activos 3D generados por IA.</span><span class="en">I am Aitor Nain Mendoza Vallejo, also known as Aitor Mendoza and NainDev. I work as CTO at Contrast3D x NainDev, the collaboration with Contrast3D, where I design a deterministic, multi-domain conformance architecture with an Open Core model: designed to validate products from any sector against explicit, versioned specifications, with reproducible verdicts and a &#x27;Trustworthy AI&#x27; approach. Its first domain is AI-generated 3D assets.</span></p>
+      <p class="bio cae" style="--o:4"><span class="es">En paralelo, trabajo a tiempo completo en el sector empresarial como desarrollador y mantenedor de sistemas críticos .NET (C# y SQL Server). Mi enfoque combina el rigor y la escalabilidad del mundo corporativo con la vanguardia de las integraciones Human-in-the-loop y flujos agénticos.</span><span class="en">In parallel, I work full-time in the enterprise sector as a developer and maintainer of critical .NET (C# and SQL Server) systems. My focus combines the rigor and scalability of the corporate world with the cutting edge of Human-in-the-loop and agentic flow integrations.</span></p>
+    </div>
+    <div class="cae" style="--o:5">
+      <div class="duo">
+        <div class="card"><h3>Contrast3D</h3><p><span class="es">Dirección creativa, CGI y movimiento, 3D en tiempo real y diseño visual de producto.</span><span class="en">Creative direction, CGI and motion, real-time 3D and visual product design.</span></p></div>
+        <div class="card"><h3>NainDev</h3><p><span class="es">Backend en .NET y Python, validación determinista, integraciones de IA con revisión humana y auditoría de sistemas críticos.</span><span class="en">Backend in .NET and Python, deterministic validation, AI integrations with human review and critical-system audits.</span></p></div>
+      </div>
+      <p class="mt6"><a class="tlink" href="https://www.contrast3d.com/" target="_blank" rel="noopener noreferrer"><span class="es">Conocer el estudio Contrast3D</span><span class="en">Visit the Contrast3D studio</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></p>
+      <ul class="links mt4">
+        <li><a class="ext" href="https://github.com/Nain9Dev" target="_blank" rel="noopener noreferrer">GitHub<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></li>
+        <li><a class="ext" href="https://github.com/naindev-contrast3d" target="_blank" rel="noopener noreferrer">Contrast3D &amp; NainDev<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></li>
+        <li><a class="ext" href="https://www.linkedin.com/in/aitor-nain-mendoza-vallejo/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></li>
+        <li><a class="ext" href="https://x.com/Nain9Dev" target="_blank" rel="noopener noreferrer">X<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 7 · CONTACT · deep blue in both expressions ===== -->
 <section class="on-deep closing apar" id="contacto" aria-labelledby="closingTitle">
   <div class="shell">
     <div class="contact">
       <div>
         <p class="kick cae" style="--o:0"><span class="es">Contacto</span><span class="en">Contact</span></p>
         <h2 id="closingTitle"><span class="masc"><span class="linea" style="--o:1"><span class="es">Una llamada de 30 minutos para ver tu caso</span><span class="en">A 30-minute call to look at your case</span></span></span></h2>
-        <p class="big on-paper-text mt6 cae" style="--o:2"><span class="es">Es una conversación para entender qué necesitas y ver si encaja con lo que hago. No tiene coste. Si hay proyecto, el presupuesto se habla ahí.</span><span class="en">It is a conversation to understand what you need and see whether it fits what I do. It is free. If there is a project, the budget is discussed there.</span></p>
+        <p class="big mt6 cae" style="--o:2"><span class="es">Es una conversación para entender qué necesitas y ver si encaja con lo que hago. No tiene coste. Si hay proyecto, el presupuesto se habla ahí.</span><span class="en">It is a conversation to understand what you need and see whether it fits what I do. It is free. If there is a project, the budget is discussed there.</span></p>
         <div class="cta cae" style="--o:3">
           <a class="btn btn-g btn-lg" href="https://calendly.com/aitornainmendozavallejo-ksez/30min" target="_blank" rel="noopener noreferrer"><span class="es">Agendar llamada gratuita</span><span class="en">Book a free call</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a>
           <a class="btn btn-s btn-lg" href="#whatsapp"><span class="es">Escríbeme por WhatsApp</span><span class="en">Message me on WhatsApp</span></a>
@@ -605,43 +379,46 @@
           <li><span class="lbl">LinkedIn</span><a href="https://www.linkedin.com/in/aitor-nain-mendoza-vallejo/" target="_blank" rel="noopener noreferrer">aitor-nain-mendoza-vallejo<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></li>
         </ul>
         <p class="lbl block mt8"><span class="es">Disponibilidad</span><span class="en">Availability</span></p>
-        <p class="soft"><span class="es">Acepto proyectos a tiempo parcial y en remoto para empresas de cualquier país.</span><span class="en">I take on part-time, remote projects for companies in any country.</span></p>
+        <p class="soft"><i class="live" aria-hidden="true"></i><span class="es">Acepto proyectos a tiempo parcial y en remoto para empresas de cualquier país.</span><span class="en">I take on part-time, remote projects for companies in any country.</span></p>
       </div>
     </div>
   </div>
 </section>
 
-
 </main>
 <footer class="apar">
   <div class="shell">
     <div class="fhead">
-      <img class="flogo cae" style="--o:0" src="assets/logo/full-white.png" alt="NainDev" width="56" height="56">
-      <div class="trama-blk ftrama" data-seed="23" data-ink="#80FF00" data-dir="r" aria-hidden="true"></div>
+      <a class="flogo-lock cae" style="--o:0" href="index.html"><svg viewBox="0 0 1000 1000" aria-hidden="true" focusable="false"><g stroke="currentColor" stroke-width="113" stroke-linecap="round" fill="none"><line pathLength="1" x1="148" y1="148" x2="148" y2="848"/><line pathLength="1" x1="308" y1="288" x2="686" y2="738"/><line pathLength="1" x1="848" y1="148" x2="848" y2="848"/></g></svg><img class="wm" src="assets/logo/wordmark-white.png" alt="" width="423" height="38"><span class="sr">NainDev · <span class="es">inicio</span><span class="en">home</span></span></a>
+      <div class="trama-blk ftrama" data-seed="23" data-dir="r" aria-hidden="true"></div>
     </div>
     <div class="fcols">
       <div>
         <h2 class="lbl"><span class="es">Servicios</span><span class="en">Services</span></h2>
         <ul>
-          <li><a href="servicios.html#conformidad"><span class="es">Conformidad determinista y 3D</span><span class="en">Deterministic conformance and 3D</span></a></li>
-          <li><a href="servicios.html#ia"><span class="es">IA generativa con revisión humana</span><span class="en">Generative AI with human review</span></a></li>
           <li><a href="servicios.html#backend"><span class="es">Backend crítico en Python y .NET</span><span class="en">Critical backend in Python and .NET</span></a></li>
+          <li><a href="servicios.html#ia"><span class="es">IA generativa con revisión humana</span><span class="en">Generative AI with human review</span></a></li>
+          <li><a href="servicios.html#conformidad"><span class="es">Conformidad determinista y 3D</span><span class="en">Deterministic conformance and 3D</span></a></li>
           <li><a href="servicios.html"><span class="es">Los 15 servicios</span><span class="en">All 15 services</span></a></li>
         </ul>
       </div>
       <div>
         <h2 class="lbl"><span class="es">Contenido</span><span class="en">Content</span></h2>
         <ul>
-          <li><a href="escritos.html"><span class="es">Escritos</span><span class="en">Writing</span></a></li>
+          <li><a href="proyectos.html"><span class="es">Proyectos</span><span class="en">Projects</span></a></li>
           <li><a href="casos.html"><span class="es">Casos</span><span class="en">Case studies</span></a></li>
-          <li><a href="index.html#proyectos"><span class="es">Proyectos</span><span class="en">Projects</span></a></li>
+          <li><a href="escritos.html"><span class="es">Escritos</span><span class="en">Writing</span></a></li>
           <li><span class="es"><a href="https://www.naindev.com/recursos/checklist-ia/" target="_blank" rel="noopener noreferrer"><span class="es">Checklist de arquitectura IA</span><span class="en">AI architecture checklist</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a href="https://www.naindev.com/en/resources/checklist-ia/" target="_blank" rel="noopener noreferrer"><span class="es">Checklist de arquitectura IA</span><span class="en">AI architecture checklist</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></li>
         </ul>
       </div>
       <div>
         <h2 class="lbl"><span class="es">Tecnología</span><span class="en">Technology</span></h2>
         <ul>
-          <li><a href="tecnologia.html">C#</a></li><li><span class="es"><a href="https://www.naindev.com/tecnologia/.NET/" target="_blank" rel="noopener noreferrer">.NET<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a href="https://www.naindev.com/en/technology/.NET/" target="_blank" rel="noopener noreferrer">.NET<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></li><li><span class="es"><a href="https://www.naindev.com/tecnologia/Python/" target="_blank" rel="noopener noreferrer">Python<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a href="https://www.naindev.com/en/technology/Python/" target="_blank" rel="noopener noreferrer">Python<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></li><li><span class="es"><a href="https://www.naindev.com/tecnologia/Three.js/" target="_blank" rel="noopener noreferrer">Three.js<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a href="https://www.naindev.com/en/technology/Three.js/" target="_blank" rel="noopener noreferrer">Three.js<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></li><li><span class="es"><a href="https://www.naindev.com/tecnologia/Azure/" target="_blank" rel="noopener noreferrer">Azure<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a href="https://www.naindev.com/en/technology/Azure/" target="_blank" rel="noopener noreferrer">Azure<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></li>
+          <li><a href="tecnologia.html">C#</a></li>
+          <li><span class="es"><a href="https://www.naindev.com/tecnologia/.NET/" target="_blank" rel="noopener noreferrer">.NET<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a href="https://www.naindev.com/en/technology/.NET/" target="_blank" rel="noopener noreferrer">.NET<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></li>
+          <li><span class="es"><a href="https://www.naindev.com/tecnologia/Python/" target="_blank" rel="noopener noreferrer">Python<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a href="https://www.naindev.com/en/technology/Python/" target="_blank" rel="noopener noreferrer">Python<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></li>
+          <li><span class="es"><a href="https://www.naindev.com/tecnologia/Three.js/" target="_blank" rel="noopener noreferrer">Three.js<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a href="https://www.naindev.com/en/technology/Three.js/" target="_blank" rel="noopener noreferrer">Three.js<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></li>
+          <li><span class="es"><a href="https://www.naindev.com/tecnologia/Azure/" target="_blank" rel="noopener noreferrer">Azure<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a href="https://www.naindev.com/en/technology/Azure/" target="_blank" rel="noopener noreferrer">Azure<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></li>
         </ul>
       </div>
       <div>
@@ -656,6 +433,7 @@
     </div>
     <div class="fin">
       <p>© 2026 NainDev · <span class="es">Analítica sin cookies</span><span class="en">Cookie-free analytics</span></p>
+      <p><a href="https://status.naindev.com/" target="_blank" rel="noopener noreferrer"><i class="live" aria-hidden="true"></i><span class="es">Estado del servicio</span><span class="en">Service status</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></p>
       <p><span class="es"><a href="https://www.naindev.com/privacidad/" target="_blank" rel="noopener noreferrer"><span class="es">Política de privacidad</span><span class="en">Privacy policy</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a href="https://www.naindev.com/en/privacy/" target="_blank" rel="noopener noreferrer"><span class="es">Política de privacidad</span><span class="en">Privacy policy</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></p>
       <p class="credit"><span class="es">Diseño</span><span class="en">Design</span>: <a href="https://contrast3d.com" target="_blank" rel="noopener noreferrer">David Suárez<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></p>
     </div>
