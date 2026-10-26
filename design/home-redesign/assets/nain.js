@@ -460,7 +460,7 @@
     var bar = document.querySelector('.pfilters');
     var more = document.getElementById('projMore');
     var count = document.getElementById('projCount');
-    var cards = Array.prototype.slice.call(list.querySelectorAll('.proj'));
+    var cards = Array.prototype.slice.call(list.querySelectorAll('[data-cats]'));
     var filter = 'all', expanded = false;
     function apply() {
       var shown = 0;

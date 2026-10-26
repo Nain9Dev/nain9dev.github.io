@@ -1,10 +1,12 @@
 /* ============================================================
-   NainDev · motion system (round 3, brandbook addendum 1.1)
-   Construction: plays once on entry, CSS transitions only, no JS per
-   frame. Response: only while the visitor acts. Living surfaces, one per
-   page: the hero field (nain.js) on the home, the mark that becomes an
-   agenda (CSS) in the head of inner pages. Reduced motion: final state,
-   no frames.
+   NainDev · motion system (round 4, brandbook v2.0 / addendum 1.1)
+   The movement itself is CSS (nain.css, MOTION): only transform, opacity,
+   clip-path and mask, 120–520 ms, --ease-out or --ease-std. This file only
+   sets state classes and a few numbers once; it never writes per frame.
+   Construction: plays once on entry. Response: only while the visitor acts.
+   Living surfaces, one per page: the hero field (nain.js) on the home, the
+   mark that becomes an agenda (CSS) in the head of inner pages, run only
+   while on screen. Reduced motion: final state, no frames.
    ES5 syntax on purpose (iOS 15 and older engines).
    ============================================================ */
 (function () {
@@ -39,7 +41,7 @@
     if (!w || !h || box.getAttribute('data-w') === String(w)) return;
     box.setAttribute('data-w', String(w));
     var seed = +box.getAttribute('data-seed') || 7, step = 22, len = 15;
-    var ink = box.getAttribute('data-ink') || '#0047AB', fromRight = box.getAttribute('data-dir') === 'r';
+    var ink = box.getAttribute('data-ink') || 'currentColor', fromRight = box.getAttribute('data-dir') === 'r';
     var variant = attr(box, 'data-trama', 'a');
     var a = 52 * Math.PI / 180, hx = Math.cos(a) * len, hy = Math.sin(a) * len;
     var items = [];
@@ -64,7 +66,7 @@
     for (var n = 0; n < GROUPS; n++) {
       tb.push(d.createElementNS(SVGNS, 'g'));
       tb[n].setAttribute('class', 'tb');
-      tb[n].style.setProperty('--td', Math.round(n / (GROUPS - 1) * 760) + 'ms');
+      tb[n].style.setProperty('--td', n * 68 + 'ms');   // 68 ms apart: the last group ends at 1.01 s
       g.appendChild(tb[n]);
     }
     // One path per group and opacity step: a few dozen nodes instead of hundreds.
@@ -145,38 +147,41 @@
     });
   }
 
-  /* ---------- the mark on hover (7.9): the N folds into one stroke and opens again ----------
-     Geometry measured from the file: stroke 113 on a 1000 canvas. Frames run only while it plays. */
+  /* ---------- the mark: it assembles once per session, and folds on hover and focus (7.9) ----------
+     Both are CSS animations of transform and clip-path (nain.css). Here: drop mk-build when the
+     assembly is over (so the fold never restarts it), and add .mk-fold, then take it off at the end. */
   (function () {
     var host = d.getElementById('brandMark');
-    var Lk = d.getElementById('mkL'), Dg = d.getElementById('mkD'), Rk = d.getElementById('mkR');
-    if (!host || !Lk || !Dg || !Rk || reduce) return;
-    var N = { L: [148, 148, 148, 848], D: [308, 288, 686, 738], R: [848, 148, 848, 848] };
-    var B = [500, 148, 500, 848];
-    var DUR = 1150, playing = false, t0 = 0;
-    var OFF = { D: 0, L: 0.07, R: 0.13 }, OFF2 = { L: 0, R: 0.06, D: 0.13 };
-    var els = { L: Lk, D: Dg, R: Rk }, keys = ['L', 'D', 'R'];
-    function clamp(v) { return v < 0 ? 0 : (v > 1 ? 1 : v); }
-    function easeInOut(x) { return x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; }
-    function easeOutBack(x) { var c1 = 1.70158, c3 = c1 + 1; return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2); }
-    function setLine(n, a) { n.setAttribute('x1', a[0].toFixed(1)); n.setAttribute('y1', a[1].toFixed(1)); n.setAttribute('x2', a[2].toFixed(1)); n.setAttribute('y2', a[3].toFixed(1)); }
-    function mix(a, b, k) { var o = [], i; for (i = 0; i < 4; i++) o.push(a[i] + (b[i] - a[i]) * k); return o; }
-    function frame(ts) {
-      if (!t0) t0 = ts;
-      var p = (ts - t0) / DUR, i, k;
-      if (p >= 1) { for (i = 0; i < 3; i++) setLine(els[keys[i]], N[keys[i]]); playing = false; t0 = 0; return; }
-      for (i = 0; i < 3; i++) {
-        k = keys[i];
-        if (p < 0.46) setLine(els[k], mix(N[k], B, easeInOut(clamp((p - OFF[k] * 0.46) / (0.46 - OFF[k] * 0.46 * 0.6)))));
-        else if (p < 0.54) setLine(els[k], B);
-        else setLine(els[k], mix(B, N[k], easeOutBack(clamp((p - 0.54 - OFF2[k] * 0.30) / (0.46 - OFF2[k] * 0.30)))));
-      }
-      window.requestAnimationFrame(frame);
+    function built() { root.classList.remove('mk-build'); }
+    if (!host || reduce || !d.getElementById('mkD')) { built(); return; }
+    var playing = false, guard = 0;
+    if (root.classList.contains('mk-build')) window.setTimeout(built, 1500);   // in case the end event never comes
+    function done() { window.clearTimeout(guard); host.classList.remove('mk-fold'); playing = false; }
+    function end(e) {
+      if (e.target.id === 'mkR' && /^mkBuild/.test(e.animationName)) built();
+      else if (e.animationName === 'mkOpenD' || e.type === 'animationcancel') done();
     }
-    function play() { if (playing) return; playing = true; t0 = 0; window.requestAnimationFrame(frame); }
+    function play() {
+      if (playing || root.classList.contains('mk-build')) return;
+      playing = true;
+      host.classList.add('mk-fold');
+      guard = window.setTimeout(done, 1600);
+    }
+    host.addEventListener('animationend', end);
+    host.addEventListener('animationcancel', end);
     host.addEventListener('mouseenter', play);
     host.addEventListener('focus', play);
   })();
+
+  /* ---------- the mesh scan eases out: mark each defect when the scan passes it ----------
+     The scan follows cubic-bezier(.22,1,.36,1). Its progress is y(u) = 1 - (1 - u)^3, so the scan
+     reaches x at u = 1 - cbrt(1 - x), that is at time x(u) of the curve. CSS reads it as --xt. */
+  function passAt(x) { var u = 1 - Math.pow(1 - x, 1 / 3), v = 1 - u; return 3 * v * v * u * 0.22 + 3 * v * u * u * 0.36 + u * u * u; }
+  var defs = d.querySelectorAll('.mesh .m-def,.m-leg li');
+  for (var m = 0; m < defs.length; m++) {
+    var x = parseFloat(defs[m].style.getPropertyValue('--x'));
+    if (x >= 0 && x <= 1) defs[m].style.setProperty('--xt', passAt(x).toFixed(3));
+  }
 
   /* ---------- the mark that becomes an agenda: runs only while on screen ---------- */
   (function () {
