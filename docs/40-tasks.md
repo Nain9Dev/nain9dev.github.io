@@ -18,6 +18,7 @@ Consolidated task index. Feature-level detail and handoff state live in `../spec
 | 046 Visual storytelling | [tasks.md](../specs/046-visual-storytelling/tasks.md) | Done (#18 to #21 merged 2026-10-22; ADR-0013 Approved) | None |
 | 047 Inner pages | [tasks.md](../specs/047-inner-pages/tasks.md) | Done (#21, #22 merged 2026-10-22) | None |
 | 048 Themes | [tasks.md](../specs/048-themes/tasks.md) | Implemented on `visual/13-themes` (#27 open; ADR-0014 Proposed) | 1 (owner review and merge; ADR-0014 approval) |
+| next Portfolio coverage | [tasks.md](../specs/next-portfolio-coverage/tasks.md) | Consolidated (#28 merged 2026-10-22); T06 open | 1 (T06, owner decision) |
 
 ## Open human-dependent tasks
 

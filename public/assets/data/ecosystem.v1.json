@@ -33,6 +33,12 @@
           "desc": "Civil service examination simulator",
           "url": "https://tai.naindev.com/",
           "tag": ".NET 10"
+        },
+        {
+          "name": "NainLegacyModernizer",
+          "desc": "Strangler Fig modernization harness (YARP, shadow run)",
+          "url": "https://modernizer.naindev.com/",
+          "tag": ".NET 10"
         }
       ]
     },
