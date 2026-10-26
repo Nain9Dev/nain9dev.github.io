@@ -407,3 +407,13 @@ Spec 005 is committed as `c78c854`; production confirmation after deployment is 
 | TH-003 | When the visitor presses the header toggle, the theme shall switch, the choice shall persist in `localStorage` and apply before first paint on the next load; the toggle is a `button` with an accessible name and `aria-pressed` meaning light, shown only once the head script ran, and on phones inside the folded menu. | specs/048-themes | Implemented |
 | TH-004 | One new accessible name ("Modo claro" / "Light mode"); no other text, link, route or metadata changes. | specs/048-themes | Implemented |
 | TH-005 | axe reports no violation in either theme on the key pages at 1440 and 390 px; the Lighthouse budget holds. | specs/048-themes | Implemented |
+
+## Micro-interactions (specs/next-micro-interactions)
+
+| ID | Requirement | Source | Status |
+| :--- | :--- | :--- | :--- |
+| MI-001 | Where reduced motion is not requested, social pills lift 2 px on hover and focus, the theme toggle icon turns 18 degrees, and the theme toggle, filter buttons, social pills and quiet toggles scale to 0.96 while pressed; under reduced motion none of these movements runs. | specs/next-micro-interactions | Implemented |
+| MI-002 | When the language switcher is hovered or focused, its link tints the background and raises the text to full ink. | specs/next-micro-interactions | Implemented |
+| MI-003 | The micro-interaction rules read colours from the tokens and do not use `transition: all`. | specs/next-micro-interactions | Implemented |
+| MI-004 | axe reports no violation in either theme and the Lighthouse budget holds. | specs/next-micro-interactions | Implemented |
+
