@@ -1,4 +1,4 @@
-# ADR-next: Selected work before the catalog; the home as a narrative, not an inventory
+# ADR-0015: Selected work before the catalog; the home as a narrative, not an inventory
 
 Status: Proposed
 Date: 2026-10-27

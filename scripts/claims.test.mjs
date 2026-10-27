@@ -59,7 +59,7 @@ test('tracked sources publish no blocked claims', async () => {
 });
 
 test('the site keeps a checklist call to action in the footer', async () => {
-  // The home box left with specs/next-selected-work (HN-005); the footer link reaches every page.
+  // The home box left with specs/049-selected-work (HN-005); the footer link reaches every page.
   const markup = await readFile(new URL('../src/components/Footer.astro', import.meta.url), 'utf8');
   assert.match(markup, /href="\/recursos\/checklist-ia/);
 });

@@ -2913,7 +2913,7 @@ html.low-performance .system-map::after {
 
 /* --- Spec 046 PR 7: stack map and method timeline --- */
 
-/* Stack strip (HN-003, specs/next-selected-work): one wrapping row of badges after the service cards; the
+/* Stack strip (HN-003, specs/049-selected-work): one wrapping row of badges after the service cards; the
    category names stay in the document before each group, visually hidden. VS-004 names stay visible. */
 .tech-strip {
   margin-top: var(--s12);
@@ -3518,7 +3518,7 @@ html.low-performance .system-map::after {
   }
 }
 
-/* --- Selected work and home narrative (specs/next-selected-work) --- */
+/* --- Selected work and home narrative (specs/049-selected-work) --- */
 
 /* Four cases told as a story beside their capture (SW-002): side by side from 60 rem, alternating sides;
    stacked on phones. The capture carries a solid panel shadow like the hero panel. */

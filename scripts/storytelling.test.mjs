@@ -13,7 +13,7 @@ test('VS-001: explanatory paragraphs are disclosed by an accessible details elem
   const quiet = await read(`${HOME}Quiet.astro`);
   assert.match(quiet, /<details class="quiet">\s*<summary aria-label="[^"]+">\s*<svg[^>]*aria-hidden="true"/);
   assert.doesNotMatch(quiet, /<script/);
-  // TerminalSection and ImpactMetrics left the home (specs/next-selected-work, HN-002, HN-005).
+  // TerminalSection and ImpactMetrics left the home (specs/049-selected-work, HN-002, HN-005).
   const sections = ['ServicesSection', 'TechStack', 'ProjectsSection', 'OpenEcosystem', 'PartnershipSection', 'MethodSection', 'AboutSection', 'ContactSection'];
   for (const name of sections) {
     const markup = await read(`${HOME}${name}.astro`);
@@ -64,7 +64,7 @@ test('VS-010: service lists fold behind the toggle and captured project cards ke
   assert.equal(services.match(/<Quiet><ul class="compact-list">/g)?.length, 3);
   assert.equal(services.match(/<\/ul><\/Quiet>/g)?.length, 3);
   const view = await read('src/scripts/project-view.js');
-  // Rows keep summary and proof in the detail for every project (specs/next-selected-work, HN-004).
+  // Rows keep summary and proof in the detail for every project (specs/049-selected-work, HN-004).
   assert.match(view, /detail\.append\(summary, createElement\("p", "project-proof", project\.proof\)\);/);
   assert.match(view, /detail\.append\(createElement\("summary", "", message\('projectDetail'\)\)\);/, 'the summary element stays first inside details');
 });

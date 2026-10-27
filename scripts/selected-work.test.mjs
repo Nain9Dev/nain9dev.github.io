@@ -1,4 +1,4 @@
-// Guards for specs/next-selected-work: four cases told as a story after the hero, and the home narrative order.
+// Guards for specs/049-selected-work: four cases told as a story after the hero, and the home narrative order.
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { access, readFile } from 'node:fs/promises';
@@ -146,7 +146,7 @@ test('HN-005: the proof strip and the checklist box left the home; the proof sen
 
 test('SW-007: the new CSS reads tokens and names its transitions', async () => {
   const css = await read('src/styles/main.css');
-  const block = css.slice(css.indexOf('/* --- Selected work and home narrative (specs/next-selected-work) --- */'));
+  const block = css.slice(css.indexOf('/* --- Selected work and home narrative (specs/049-selected-work) --- */'));
   assert.ok(block.length > 100, 'the block exists');
   assert.doesNotMatch(block, /#[0-9a-f]{3,8}\b/i, 'no colour literal');
   assert.doesNotMatch(block, /transition:\s*all/);
