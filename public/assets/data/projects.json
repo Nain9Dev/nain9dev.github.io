@@ -165,11 +165,15 @@
     ],
     "links": [
       {
+        "label": "Ver página",
+        "url": "https://mcp.naindev.com/"
+      },
+      {
         "label": "Revisar código",
         "url": "https://github.com/Nain9Dev/nain-mcp-validator"
       }
     ],
-    "thumbnail": "/assets/images/repos/nain-mcp-validator.webp",
+    "thumbnail": "/assets/images/demos/nain-mcp-validator.webp",
     "private": false,
     "featured": true,
     "order": 5
