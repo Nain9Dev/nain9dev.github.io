@@ -20,6 +20,7 @@ Consolidated task index. Feature-level detail and handoff state live in `../spec
 | 048 Themes | [tasks.md](../specs/048-themes/tasks.md) | Implemented on `visual/13-themes` (#27 open; ADR-0014 Proposed) | 1 (owner review and merge; ADR-0014 approval) |
 | next Portfolio coverage | [tasks.md](../specs/next-portfolio-coverage/tasks.md) | Consolidated (#28 merged 2026-10-22); T06 open | 1 (T06, owner decision) |
 | 049 Selected work | [tasks.md](../specs/049-selected-work/tasks.md) | Consolidated (#35 merged 2026-10-27; ADR-0015 Proposed) | 1 (ADR-0015 approval) |
+| 050 Work pages | [tasks.md](../specs/050-work-pages/tasks.md) | Consolidated (#37 merged 2026-10-27, #38 catalog correction; ADR-0016 and ADR-0017 Proposed) | 1 (ADR-0016 and ADR-0017 approval) |
 
 ## Open human-dependent tasks
 

@@ -1,4 +1,4 @@
-# ADR-next: Inner-page styles leave `main.css`
+# ADR-0017: Inner-page styles leave `main.css`
 
 Status: Proposed
 Date: 2026-10-27
@@ -15,7 +15,7 @@ CSS-001 (spec 031) inlines every stylesheet into each document so first paint ne
 
 ## Consequences
 
-- The home document drops by at least 1 KiB gzip, measured in `specs/next-case-pages/tasks.md`; the tripwire of ADR-0013 stays at 30 KiB.
+- The home document drops by at least 1 KiB gzip, measured in `specs/050-work-pages/tasks.md`; the tripwire of ADR-0013 stays at 30 KiB.
 - Inner pages gain nothing and lose nothing in bytes: the rules they used are still inline, and the home-only rules they also inlined are still there through `site.css`. A later ADR may split the home-only rules the same way if an inner-page budget is ever set.
 - A new inner page must import `inner.css`; a new home-like page imports `site.css`; the layout imports no stylesheet. `scripts/case-pages.test.mjs` asserts the imports on every page under `src/pages`, and `performance.test.mjs` (PERF-004) asserts the chain from `site.css` to `main.css`.
 - Dead rules found by the inventory (no class or id token used anywhere in `src/`) were deleted rather than moved: `.error-page`, `.error-panel`, `.project-grid-container`, `.tech-badge-small`, `.service-hero` and its children.

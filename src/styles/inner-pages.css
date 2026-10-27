@@ -1,5 +1,5 @@
 /* Styles that only inner pages use (service hub and pages, blog, technology, resources, privacy, 404).
-   Moved out of main.css so the home document stops inlining them (ADR-next-inner-page-stylesheets, specs/next-case-pages).
+   Moved out of main.css so the home document stops inlining them (ADR-0017, specs/050-work-pages).
    Import this file from every page under src/pages except index.astro; BaseLayout keeps main.css. */
 
 /* --- (top) --- */

@@ -28,7 +28,7 @@ test('IP-002: the services hub leads each card with its glyph and discloses the 
   assert.match(page, /<ServiceIcon name=\{servicio\.data\.icon\} \/>\s*<h3>\{servicio\.data\.title\}<\/h3>/);
   assert.match(page, /<Quiet><p>Soluciones arquitectónicas[\s\S]*?<\/p><\/Quiet>/);
   assert.doesNotMatch(page, /style=/);
-  const css = (await read('src/styles/main.css')) + '\n' + (await read('src/styles/inner-pages.css')); // inner-page rules moved (specs/next-case-pages IS-001)
+  const css = (await read('src/styles/main.css')) + '\n' + (await read('src/styles/inner-pages.css')); // inner-page rules moved (specs/050-work-pages IS-001)
   assert.match(css, /\.service-group \.service-card \{[^}]*min-height: 0;/);
 });
 
@@ -36,7 +36,7 @@ test('IP-003: the service page heads the article with glyph and title, no inline
   const page = await read('src/pages/servicios/[categoria].astro');
   assert.match(page, /<header class="service-head">\s*<ServiceIcon name=\{servicio\.data\.icon\} \/>\s*\{servicio\.data\.renderTitle && <h1>/);
   assert.doesNotMatch(page, /style=/);
-  const css = (await read('src/styles/main.css')) + '\n' + (await read('src/styles/inner-pages.css')); // inner-page rules moved (specs/next-case-pages IS-001)
+  const css = (await read('src/styles/main.css')) + '\n' + (await read('src/styles/inner-pages.css')); // inner-page rules moved (specs/050-work-pages IS-001)
   assert.match(css, /\.service-article :is\(p, li, blockquote\) \{\s*max-width: 68ch;/);
 });
 
@@ -44,7 +44,7 @@ test('IP-004: blog cards open with a silent numbered cover and disclose the desc
   const page = await read('src/pages/blog/index.astro');
   assert.match(page, /<Quiet><p>\{post\.data\.description\}<\/p><\/Quiet>/);
   assert.match(page, /button-outline blog-action/, 'VIS-011 kept');
-  const css = (await read('src/styles/main.css')) + '\n' + (await read('src/styles/inner-pages.css')); // inner-page rules moved (specs/next-case-pages IS-001)
+  const css = (await read('src/styles/main.css')) + '\n' + (await read('src/styles/inner-pages.css')); // inner-page rules moved (specs/050-work-pages IS-001)
   assert.match(css, /\.blog-card::before \{[^}]*content: counter\(post, decimal-leading-zero\) \/ "";/);
   assert.match(css, /\.blog-grid \{\s*counter-reset: post;/);
 });
@@ -54,7 +54,7 @@ test('IP-005: the article page has no inline style and keeps its share row', asy
   assert.doesNotMatch(page, /style=/);
   assert.match(page, /<article class="shell section page-top article">/);
   assert.match(page, /<div class="share-buttons" data-reveal>\s*<span class="share-label">Compartir este artículo:<\/span>/);
-  const css = (await read('src/styles/main.css')) + '\n' + (await read('src/styles/inner-pages.css')); // inner-page rules moved (specs/next-case-pages IS-001)
+  const css = (await read('src/styles/main.css')) + '\n' + (await read('src/styles/inner-pages.css')); // inner-page rules moved (specs/050-work-pages IS-001)
   assert.match(css, /\.share-buttons \{[^}]*border-top: 1px solid var\(--color-line\);/);
   assert.match(css, /\.article-byline \{/);
 });

@@ -39,7 +39,7 @@ for (const file of files.filter(file => file.endsWith('.html'))) {
     continue;
   }
 
-  // Only the document title counts: an inline SVG diagram carries its own <title> (specs/next-case-pages WK-004).
+  // Only the document title counts: an inline SVG diagram carries its own <title> (specs/050-work-pages WK-004).
   const titles = elements('title').filter(node => node.parentNode?.tagName === 'head');
   const title = text(titles[0]);
   const canonical = attr(elements('link').find(node => attr(node, 'rel') === 'canonical'), 'href');

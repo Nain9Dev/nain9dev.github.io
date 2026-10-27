@@ -1,4 +1,4 @@
-# ADR-next: Work pages for the owner's public projects scope the case-study ban
+# ADR-0016: Work pages for the owner's public projects scope the case-study ban
 
 Status: Proposed (owner decision in the interview of 2026-10-27; approval pending in the pull request)
 Date: 2026-10-27
@@ -19,5 +19,5 @@ Spec 049 (selected work, 2026-10-27) put four of the owner's own public projects
 ## Consequences
 
 - `scripts/case-studies.test.mjs` keeps passing unchanged: the new routes do not match its patterns and the texts avoid its wordings; `scripts/case-pages.test.mjs` adds the positive contract (one page per selected project, anatomy, diagram, vocabulary).
-- `docs/10-requirements.md` marks CASE-001 to CASE-003 as "scoped by ADR-next-work-pages (spec next-case-pages)" at consolidation; the requirements keep their ids.
+- `docs/10-requirements.md` marks CASE-001 to CASE-003 as "scoped by ADR-0016 (spec 050)" at consolidation; the requirements keep their ids.
 - If the owner later wants client case studies again, that is a new decision superseding spec 007, not an extension of this one.

@@ -101,7 +101,7 @@ export function extractSegments(document) {
     }
     if (node.tagName === 'svg') {
       // Inline diagrams opt in with data-translate="yes": their title, description and labels are prose
-      // (specs/next-case-pages, WK-004); icon SVGs stay opaque.
+      // (specs/050-work-pages, WK-004); icon SVGs stay opaque.
       if (attr(node, 'data-translate') === 'yes') for (const child of descendants(node)) {
         const [textNode] = child.childNodes ?? [];
         if (['title', 'desc', 'text', 'tspan'].includes(child.tagName) && child.childNodes.length === 1 && textNode.nodeName === '#text' && textNode.value.trim()) {

@@ -1,4 +1,4 @@
-// Guards for specs/next-case-pages: one work page per selected project, and inner-page styles out of main.css.
+// Guards for specs/050-work-pages: one work page per selected project, and inner-page styles out of main.css.
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { access, readFile, readdir } from 'node:fs/promises';
@@ -6,7 +6,8 @@ import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
-const read = (file) => readFile(join(ROOT, file), 'utf8');
+// CRLF folded to LF: a Windows checkout with autocrlf converts the .mdx and .astro sources and the frontmatter pattern missed them.
+const read = (file) => readFile(join(ROOT, file), 'utf8').then((text) => text.replace(/\r\n/g, '\n'));
 const exists = (file) => access(join(ROOT, file)).then(() => true, () => false);
 const OWN_DEMO = /^https:\/\/[a-z0-9-]+\.naindev\.com(?:\/|$)/;
 const CASE_WORDING = /\bcasos? de (?:estudio|éxito)\b|\bcase[- ]stud(?:y|ies)\b|\bsuccess (?:story|stories|cases?)\b/i;

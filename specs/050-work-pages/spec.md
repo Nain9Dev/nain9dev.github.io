@@ -1,8 +1,8 @@
 # Spec: Work pages for the selected projects, and inner-page styles out of `main.css`
 
-Status: Proposed (owner decisions of 2026-10-27 recorded below)
+Status: Consolidated (#37 merged 2026-10-27; requirements in `docs/10-requirements.md`, ADR-0016 and ADR-0017 Proposed; owner decisions of 2026-10-27 recorded below)
 Branch: `feat/case-pages` · worktree `D:/wt/nain9dev.github.io-feat-case-pages`
-ADRs: `docs/30-decisions/ADR-next-work-pages-scope-the-case-study-ban.md`, `docs/30-decisions/ADR-next-inner-page-stylesheets.md` (both Proposed)
+ADRs: `docs/30-decisions/ADR-0016-work-pages-scope-the-case-study-ban.md`, `docs/30-decisions/ADR-0017-inner-page-stylesheets.md` (both Proposed)
 
 ## Objective
 
@@ -89,5 +89,6 @@ Reading the Nain3D repository for this spec showed that its engine is Trimesh an
 - Last updated: 2026-10-27, case-pages session.
 - Done: owner interview (four decisions above); worktree created from `origin/main` at `26e614b` (spec 049 consolidated, #36); spec, plan, tasks and two ADRs written; T01 guard; T02 split (two passes, 106 rules, `site.css` / `inner.css` import order fix); T03 collection, route, redirect, diagrams, `work.css`, `trabajo → work`, SVG text translation in the localization build; T04 four texts and 137 reviewed English segments; T05 home links. `npm run check` running; captures and audits next.
 - Done (T06): audits, captures, PR Nain9Dev/nain9dev.github.io#37 with base `main`; the owner approved the four texts and the Nain3D catalog correction on 2026-10-27, both recorded above and applied.
-- Next: owner merges #37. After merge: consolidate WK-001 to WK-012 and IS-001 to IS-004 into `docs/10-requirements.md` and `docs/50-traceability.md`, number the spec and the two ADRs (owner sets them to Approved), changelog, remove the worktree by hand.
-- Blocked: nothing. The only remaining `[M]` step is the merge.
+- Merged: #37 on 2026-10-27; #38 applied the Nain3D catalog correction and recorded the owner's approval. Consolidated: spec number 050, ADR-0016 and ADR-0017 assigned; WK-001 to WK-012 and IS-001 to IS-004 in `docs/10-requirements.md` and `docs/50-traceability.md`; CASE-001 to CASE-003 marked as scoped by ADR-0016; changelog entry; task index row; `docs/20-architecture.md` describes the page-level stylesheet imports and the `work` collection.
+- Next: nothing in this spec. The worktree `D:/wt/nain9dev.github.io-feat-case-pages` is removed by hand once its branch is gone.
+- Blocked: nothing. ADR-0016 and ADR-0017 wait for the owner's approval.

@@ -1,25 +1,28 @@
 # Tasks: Work pages and inner-page stylesheets
 
-- [ ] **T01** `[A]` Guard `scripts/case-pages.test.mjs` written first and registered in `npm run check`; it fails on `main`.
+- [x] **T01** `[A]` Guard `scripts/case-pages.test.mjs` written first and registered in `npm run check`; it fails on `main`.
   - **Covers**: IS-004 (asserting WK-001 to WK-004, WK-006, WK-009, WK-012, IS-001)
   - **Done when**: the file exists, is in `package.json` `check`, and fails for the expected reasons before T02 and T03.
-- [ ] **T02** `[A]` Inner-page stylesheets: inventory of `main.css` rules unused by the home, move to `src/styles/inner-pages.css`, imports in the inner page files, guards repointed, before/after captures compared, home gzip measured.
+- [x] **T02** `[A]` Inner-page stylesheets: inventory of `main.css` rules unused by the home, move to `src/styles/inner-pages.css`, imports in the inner page files, guards repointed, before/after captures compared, home gzip measured.
   - **Covers**: IS-001, IS-002, IS-003
   - **Done when**: `npm run check` passes, the home contains none of the moved selectors, the eleven inner-page captures are pixel-identical, the saving is at least 1 KiB and is written below. Own commit.
-- [ ] **T03** `[A]` `work` collection and schema, `src/pages/trabajo/[id].astro`, `/trabajo/` redirect, `Architecture.astro`, four diagram components with their Mermaid sources, `work.css`, `trabajo → work` hub mapping and its localization test.
+- [x] **T03** `[A]` `work` collection and schema, `src/pages/trabajo/[id].astro`, `/trabajo/` redirect, `Architecture.astro`, four diagram components with their Mermaid sources, `work.css`, `trabajo → work` hub mapping and its localization test.
   - **Covers**: WK-001, WK-002, WK-004, WK-007 (route), WK-008, WK-010, WK-012
   - **Done when**: the four pages build in both locales with placeholder bodies, `check:seo` passes, the diagrams render in both themes at 1440 and 390 px.
-- [ ] **T04** `[M]` Texts: four Spanish MDX bodies drafted from each repository's public docs, 450 to 900 words, no claims; English targets drafted locally and reviewed; appendix of `spec.md` filled.
+- [x] **T04** `[M]` Texts: four Spanish MDX bodies drafted from each repository's public docs, 450 to 900 words, no claims; English targets drafted locally and reviewed; appendix of `spec.md` filled.
   - **Covers**: WK-003, WK-005, WK-006, WK-007 (segments)
   - **Needs from owner**: approval of the four Spanish texts and their English in the pull request (given on 2026-10-27, recorded in `spec.md`, with the Nain3D catalog correction).
   - **Done when**: `check:claims`, `check:case-studies`, `check:locales` pass; the guard's word count passes for the four pages.
-- [ ] **T05** `[A]` Home: title link and "Cómo está hecho" link on each selected case; `selected-work.test.mjs` SW-002 assertion extended; home gzip measured.
+- [x] **T05** `[A]` Home: title link and "Cómo está hecho" link on each selected case; `selected-work.test.mjs` SW-002 assertion extended; home gzip measured.
   - **Covers**: WK-009
   - **Done when**: `gzip(dist/index.html)` ≤ 30 720 B, `ItemList` byte-identical, guards green.
-- [ ] **T06** `[M]` Audits and pull request: axe both themes on the four pages, reduced-motion probe, Lighthouse mobile and desktop on one work page, captures at 1440 and 390 px, document sizes; PR with base `main`.
+- [x] **T06** `[M]` Audits and pull request: axe both themes on the four pages, reduced-motion probe, Lighthouse mobile and desktop on one work page, captures at 1440 and 390 px, document sizes; PR with base `main`.
   - **Covers**: WK-010, WK-011
   - **Needs from owner**: merge.
   - **Done when**: the PR carries the evidence and the owner has merged.
+- [x] **T07** `[A]` Consolidate WK-001 to WK-012 and IS-001 to IS-004 into `docs/10-requirements.md`, `docs/50-traceability.md`, `docs/40-tasks.md`, `docs/90-changelog.md` and `docs/20-architecture.md` once #37 is merged; assign the spec number and the two ADR numbers; mark CASE-001 to CASE-003 as scoped.
+  - **Covers**: documentation flow
+  - **Done when**: the documents carry the rows, the spec folder and the ADRs carry their numbers, every reference to the provisional names is updated, and the spec status reads Consolidated.
 
 ## Stylesheet split (IS-001 to IS-003)
 
@@ -41,7 +44,7 @@ Home document: 30 030 B gzip before the split, 28 361 B after the first pass, 28
 
 ## Guard changes
 
-- `scripts/case-pages.test.mjs` (new): WK-001 to WK-004, WK-006, WK-007, WK-009, WK-012, IS-001, IS-004.
+- `scripts/case-pages.test.mjs` (new): WK-001 to WK-004, WK-006, WK-007, WK-009, WK-012, IS-001, IS-004. At consolidation its `read` helper folds CRLF to LF: a Windows checkout with `autocrlf` converts the `.mdx` sources (no `eol` rule in `.gitattributes` for `.mdx`, `.astro`, `.mjs`, `.ts`) and the frontmatter pattern missed every entry there, as `portfolio-refresh.test.mjs` already notes.
 - `scripts/card-system.test.mjs` VP-004, VP-008; `scripts/inner-pages.test.mjs` IP-002 to IP-005; `scripts/portfolio-refresh.test.mjs` VIS-009, VIS-011, VIS-012: read `main.css` + `inner-pages.css` for the moved rules.
 - `scripts/performance.test.mjs` PERF-004: the layout no longer imports `main.css`; asserts `site.css` imports it and the home imports `site.css`. PERF-021: the later-service-group rule is read from `inner-pages.css`.
 - `scripts/localization.test.mjs`: `englishPath('/trabajo/<id>/')` → `/en/work/<id>/`; new test for the SVG opt-in translation (title, desc, text, tspan; icon SVGs untouched).
@@ -62,3 +65,5 @@ Home document: 30 030 B gzip before the split, 28 361 B after the first pass, 28
 
 - 2026-10-27 · Interview done (four owner decisions in `spec.md`); worktree `D:/wt/nain9dev.github.io-feat-case-pages` on `feat/case-pages` from `origin/main` `26e614b`; spec, plan, tasks, two ADRs written.
 - 2026-10-27 · T01 to T05 implemented test first (guard red on `main`, 9 of 10 tests); split measured and pixel-compared against a full build of `origin/main`; four texts drafted from the repositories' docs and translated; `npm run check` run before the audits. The Nain3D catalog discrepancy (OpenCASCADE, Khronos) is recorded in `spec.md` for the owner. Next: T06.
+- 2026-10-27 · T06: audits, captures, pull request #37 opened with base `main`; the owner approved the four texts and the Nain3D catalog correction; #37 merged by the owner, #38 applied the catalog correction and recorded the approval.
+- 2026-10-27 · T07: spec numbered 050, ADRs numbered 0016 and 0017 (status kept Proposed); requirements, traceability, task index, changelog and architecture consolidated; CASE-001 to CASE-003 marked as scoped by ADR-0016.
