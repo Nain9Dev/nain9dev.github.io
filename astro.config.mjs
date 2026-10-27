@@ -42,6 +42,8 @@ export default defineConfig({
     '/tecnologia/.NET Core': '/servicios/optimizacion-rendimiento-apirest-dotnet/',
     '/blog/clean-architecture-3d.html': '/blog/clean-architecture-3d',
     '/servicios/renovacion-web': '/servicios/arquitectura-frontend-alto-rendimiento',
-    '/servicios/renovacion-web.html': '/servicios/arquitectura-frontend-alto-rendimiento'
+    '/servicios/renovacion-web.html': '/servicios/arquitectura-frontend-alto-rendimiento',
+    // The work pages have no listing (specs/next-case-pages, WK-012): the bare hub goes back to the home cases.
+    '/trabajo': '/#selected-work'
   }
 });

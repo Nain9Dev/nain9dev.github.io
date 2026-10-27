@@ -1,0 +1,82 @@
+---
+// Work page of a selected project (specs/next-case-pages, WK-001, WK-002, WK-008): the catalog data comes
+// from projects.json, the write-up from the `work` collection, the diagram from its component.
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { selectedProjects, workPath } from '../../utils/projects';
+import { serializeJsonLd } from '../../utils/seo';
+import '../../styles/inner.css';
+import '../../styles/work.css';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('work');
+  const selected = selectedProjects();
+  return entries.map((entry) => {
+    const index = selected.findIndex((project) => project.id === entry.data.project);
+    if (index < 0) throw new Error(`work entry "${entry.id}" names a project that is not selected: ${entry.data.project}`);
+    return { params: { id: entry.data.project }, props: { entry, index } };
+  });
+}
+
+const { entry, index } = Astro.props;
+const selected = selectedProjects();
+const project = selected[index];
+const previous = selected[(index + selected.length - 1) % selected.length];
+const next = selected[(index + 1) % selected.length];
+const { Content } = await render(entry);
+
+const site = Astro.site ?? new URL('https://www.naindev.com');
+const pageURL = new URL(Astro.url.pathname, site).toString();
+const repository = project.links.find((link) => /^https:\/\/github\.com\//.test(link.url))?.url;
+const sourceCode = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareSourceCode",
+  "name": project.title,
+  "description": entry.data.description,
+  "url": pageURL,
+  "codeRepository": repository,
+  "programmingLanguage": project.technologies,
+  "author": { "@id": `${new URL('/', site).toString()}#person` }
+};
+---
+
+<BaseLayout title={entry.data.title} description={entry.data.description} image={project.thumbnail}>
+  <script is:inline slot="head" type="application/ld+json" set:html={serializeJsonLd(sourceCode)} />
+  <main id="main-content" tabindex="-1">
+  <article class="shell section page-top work">
+    <header class="work-head">
+      <div class="work-copy">
+        <p class="work-eyebrow"><span class="work-index" translate="no">{String(index + 1).padStart(2, '0')}</span><span>{project.status}</span></p>
+        <h1>{project.title}</h1>
+        <p class="work-lead">{entry.data.lead}</p>
+      </div>
+      <figure class="work-media">
+        {/* The capture is decorative: the title and the write-up carry the meaning (WK-002). */}
+        <img src={project.thumbnail} alt="" width="640" height="360" loading="eager" fetchpriority="high" decoding="async" />
+      </figure>
+      <p class="work-links">
+        {project.links.map((link) => (
+          <a class="card-link" href={link.url} target="_blank" rel="noopener noreferrer">{link.label} <span aria-hidden="true">↗</span></a>
+        ))}
+      </p>
+    </header>
+
+    <div class="work-body">
+      <Content />
+    </div>
+
+    <section class="work-stack" aria-labelledby="work-stack-title">
+      <h2 id="work-stack-title">Stack</h2>
+      <ul class="tag-list" translate="no">
+        {project.technologies.map((technology) => <li>{technology}</li>)}
+      </ul>
+    </section>
+
+    <nav class="work-nav" aria-label="Otros proyectos seleccionados">
+      <a href={workPath(previous.id)} rel="prev"><span aria-hidden="true">←</span> {previous.title}</a>
+      <a href="/#selected-work">Todo el trabajo seleccionado</a>
+      <a href={workPath(next.id)} rel="next">{next.title} <span aria-hidden="true">→</span></a>
+    </nav>
+  </article>
+  </main>
+</BaseLayout>

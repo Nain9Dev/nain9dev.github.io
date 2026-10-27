@@ -1,0 +1,31 @@
+---
+project: "financial-management-api"
+title: "API de operaciones de pólizas: ciclo de vida auditado"
+description: "API .NET para el ciclo de vida de pólizas: aislamiento por organización, concurrencia optimista y auditoría en la misma transacción, con demo pública."
+lead: "Una póliza cambia de estado, pertenece a una organización y nunca debe perder una edición concurrente. La API lo garantiza con el token, la versión de fila y una auditoría escrita junto al cambio."
+---
+import Architecture from '../../components/work/Architecture.astro';
+
+## Contexto
+
+El ciclo de vida de una póliza parece sencillo: borrador, activa, cancelada. Lo difícil está alrededor: que una organización nunca vea ni toque las pólizas de otra, que cada transición deje rastro de quién la hizo y por qué, y que dos operadores editando a la vez no se pisen sin saberlo.
+
+El proyecto resuelve esas tres cosas en una API .NET sobre SQL Server, pensada como demostración pública con datos sintéticos. Un borrador puede activarse o cancelarse; una póliza activa puede cancelarse; cancelada es un estado final. Cada transición aceptada registra el actor, la hora, el identificador de correlación y el motivo.
+
+<Architecture project="financial-management-api">
+La interfaz Vue, servida como sitio estático, llama a la API. La API exige un token JWT, toma la organización de una de sus reclamaciones y expone la versión de fila de cada póliza como ETag; cualquier cambio debe traer esa versión en la cabecera If-Match. La capa de aplicación ejecuta la transición sobre el dominio y la infraestructura guarda la póliza y su entrada de auditoría en una sola transacción.
+</Architecture>
+
+## Decisiones
+
+1. **Monolito modular en cuatro proyectos.** Dominio, aplicación, infraestructura y API, sobre la versión con soporte extendido de .NET. El diseño en un solo proyecto no podía demostrar las fronteras que la documentación prometía; ahora unas pruebas de arquitectura las verifican.
+2. **La organización viene del token, no de la petición.** Cada método del repositorio exige el identificador de organización y los números de póliza son únicos dentro de ella. Una póliza de otra organización responde como inexistente, no como prohibida, para no revelar que existe.
+3. **Concurrencia optimista con versión de fila.** Sin cabecera If-Match la API pide la precondición; con una versión obsoleta responde conflicto de concurrencia. Los errores siguen el formato Problem Details con un código estable y un identificador de traza, y la auditoría se escribe en la misma transacción que el cambio.
+4. **Demo pública en nivel gratuito, con sus límites a la vista.** Un único endpoint anónimo y limitado ejecuta el escenario completo sin compartir credenciales. Cuando la base de datos despierta tras una pausa, la API responde que el servicio no está disponible e indica cuándo reintentar, en lugar de un error opaco. La integración continua prueba contra un SQL Server real en contenedor.
+
+## Qué puedes comprobar en la demo
+
+- Ejecutar con un clic el escenario de cinco pasos: crear un borrador, activarlo, ver cómo se rechaza una edición con versión obsoleta, cancelar y leer la auditoría con sus dos transiciones.
+- Seguir cada paso sobre el plano de la arquitectura, que ilumina la capa que responde y marca en rojo el rechazo por concurrencia.
+- Distinguir si la ejecución fue real contra SQL Server o simulada en el navegador: la interfaz lo etiqueta en cada caso.
+- Copiar el comando reproducible para repetir el escenario desde la terminal.

@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Quiet from '../../components/home/Quiet.astro';
 import ServiceIcon from '../../components/ServiceIcon.astro';
+import '../../styles/inner.css';
 
 const servicios = await getCollection('servicios', ({ data }) => data.draft !== true);
 const sortedServicios = servicios.sort((a, b) => a.data.order - b.data.order);

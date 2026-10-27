@@ -1,0 +1,34 @@
+{/* Policy operations API: layers and the two guards (organization and concurrency). Source: docs/assets/diagrams/work-financial-management-api.mmd */}
+<svg viewBox="0 0 720 320" role="img" aria-labelledby="np-title np-desc" data-translate="yes" xmlns="http://www.w3.org/2000/svg">
+  <title id="np-title">Arquitectura de la API de operaciones de pólizas</title>
+  <desc id="np-desc">La interfaz web llama a la API, que valida el token, la organización y la versión de la póliza. La capa de aplicación ejecuta las transiciones del dominio. La infraestructura persiste la póliza y su auditoría en una sola transacción en SQL Server.</desc>
+  <defs>
+    <marker id="np-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="arrow" /></marker>
+    <marker id="np-arrow-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="arrow arrow-accent" /></marker>
+  </defs>
+  <rect class="node" x="20" y="40" width="200" height="64" rx="8" />
+  <text class="label" x="120" y="66" text-anchor="middle">Interfaz web</text>
+  <text class="label-soft" x="120" y="88" text-anchor="middle">Vue 3 · GitHub Pages</text>
+  <rect class="node node-accent" x="260" y="40" width="200" height="64" rx="8" />
+  <text class="label" x="360" y="66" text-anchor="middle">API .NET</text>
+  <text class="label-soft" x="360" y="88" text-anchor="middle">JWT · ETag e If-Match · ProblemDetails</text>
+  <rect class="node" x="500" y="40" width="200" height="64" rx="8" />
+  <text class="label" x="600" y="66" text-anchor="middle">Aplicación</text>
+  <text class="label-soft" x="600" y="88" text-anchor="middle">casos de uso · transiciones</text>
+  <rect class="node" x="500" y="216" width="200" height="64" rx="8" />
+  <text class="label" x="600" y="242" text-anchor="middle">Dominio</text>
+  <text class="label-soft" x="600" y="264" text-anchor="middle">Draft → Active → Cancelled</text>
+  <rect class="node" x="260" y="216" width="200" height="64" rx="8" />
+  <text class="label" x="360" y="242" text-anchor="middle">Infraestructura</text>
+  <text class="label-soft" x="360" y="264" text-anchor="middle">EF Core · rowversion</text>
+  <rect class="node" x="20" y="216" width="200" height="64" rx="8" />
+  <text class="label" x="120" y="242" text-anchor="middle">SQL Server</text>
+  <text class="label-soft" x="120" y="264" text-anchor="middle">póliza y auditoría, una transacción</text>
+  <path class="flow" d="M220 72H258" marker-end="url(#np-arrow)" />
+  <path class="flow" d="M460 72H498" marker-end="url(#np-arrow)" />
+  <path class="flow" d="M600 104V214" marker-end="url(#np-arrow)" />
+  <path class="flow" d="M500 248H462" marker-end="url(#np-arrow)" />
+  <path class="flow flow-accent" d="M260 248H222" marker-end="url(#np-arrow-accent)" />
+  <text class="label-soft" x="360" y="140" text-anchor="middle">organización desde el token · versión obligatoria</text>
+  <path class="flow" d="M360 104V120" />
+</svg>

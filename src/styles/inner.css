@@ -1,0 +1,5 @@
+/* Every page except the home: the site-wide styles followed by the rules only inner pages use
+   (ADR-next-inner-page-stylesheets, specs/next-case-pages IS-001). Order matters: inner-pages.css
+   overrides main.css where the two share specificity, as it did when both lived in one file. */
+@import './site.css';
+@import './inner-pages.css';

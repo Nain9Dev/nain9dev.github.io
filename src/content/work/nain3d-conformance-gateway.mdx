@@ -1,0 +1,33 @@
+---
+project: "nain3d-conformance-gateway"
+title: "Nain3D: un veredicto determinista para cada activo 3D"
+description: "Nain3D evalúa un archivo GLB en el navegador con un motor determinista, agrega las comprobaciones sin dejar pasar fallos y mantiene la IA fuera del veredicto."
+lead: "Un activo 3D generado por IA puede parecer correcto y romper el proceso que viene después. Nain3D devuelve para el mismo archivo siempre el mismo veredicto, y la IA solo propone."
+---
+import Architecture from '../../components/work/Architecture.astro';
+
+## Contexto
+
+Los archivos 3D que llegan a un proceso de producción varían en calidad: escala equivocada, demasiados triángulos, agujeros en la malla. Un modelo de IA que aprueba un activo lo hace con mucha seguridad y, a veces, se equivoca. Hacía falta un veredicto que no dependiera de quién mira el archivo ni de qué día lo mira.
+
+La regla del proyecto cabe en una frase: la IA propone, el contrato decide. El motor que mide la geometría es determinista, las comprobaciones se definen por perfil de uso y el agregador rechaza en cuanto falla cualquier comprobación bloqueante. Una evaluación que no termina también rechaza, y un archivo que no se puede decodificar queda como incompleto, nunca como aprobado.
+
+La demo pública no tiene servidor: el mismo motor existe en Python, tras una API FastAPI para uso local, y en TypeScript dentro del navegador. Unas pruebas de paridad comprueban que los dos motores dan el mismo resultado para los mismos bytes.
+
+<Architecture project="nain3d-conformance-gateway">
+La interfaz lee el archivo en memoria, comprueba la cabecera binaria antes de interpretarlo y calcula su hash. El motor extrae triángulos, extensión y estanqueidad; las comprobaciones del perfil elegido se aplican sobre esas medidas y el agregador compone el veredicto: conforme, conforme con hallazgos o no conforme. La propuesta de la IA, una categoría con su confianza, se muestra al lado pero no vota.
+</Architecture>
+
+## Decisiones
+
+1. **Motor determinista sobre Trimesh y NumPy.** La geometría se mantiene sin comprimir, sin Draco ni meshopt, y se carga sin procesado automático para que los mismos bytes produzcan siempre las mismas medidas. Las extensiones se leen de los límites del acceso de posiciones, no de las transformaciones de los nodos.
+2. **Agregación que falla cerrada.** Basta una comprobación bloqueante fallida para rechazar; las advertencias solo rebajan el veredicto a conforme con hallazgos. El contrato de resultado y la definición de perfil son explícitos, la interfaz nunca vuelve a decidir sobre ellos y un test de arquitectura impide que el dominio importe frameworks.
+3. **La IA fuera del veredicto.** Un clasificador propone la categoría del activo y su confianza para orientar al revisor. No altera ninguna comprobación.
+4. **Interfaz desacoplada y muestras reproducibles.** La interfaz Vue 3 con three.js solo presenta. Las muestras se generan por código con las utilidades del propio entorno de ejecución, y el modelo fotorrealista de la portada es un activo abierto con licencia de atribución. El catálogo de textos en español está tipado y el inglés se comprueba contra él sin librería de internacionalización.
+
+## Qué puedes comprobar en la demo
+
+- Subir un archivo GLB propio: se evalúa en el navegador y no se envía a ningún servidor.
+- Comparar con una tecla un activo conforme y otro no conforme del mismo modelo a distinta escala.
+- Leer el informe: propuesta de la IA, presupuesto de triángulos, escala métrica, estanqueidad, caras degeneradas, veredicto y hash del archivo.
+- Elegir el perfil de uso (monitor, silla, pieza industrial, objeto decorativo), descargar el informe en PDF e instalar la demo como aplicación.

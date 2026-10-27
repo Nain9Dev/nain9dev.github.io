@@ -1,0 +1,33 @@
+{/* Modernization harness: the gateway routes by slice and replays in the shadow. Source: docs/assets/diagrams/work-nain-legacy-modernizer.mmd */}
+<svg viewBox="0 0 720 320" role="img" aria-labelledby="lm-title lm-desc" data-translate="yes" xmlns="http://www.w3.org/2000/svg">
+  <title id="lm-title">Arquitectura del harness de modernización</title>
+  <desc id="lm-desc">El tráfico entra por la pasarela YARP, que decide por ruta si responde el monolito legado o la API moderna. En modo sombra el monolito responde y la petición se repite contra la API moderna; el comparador registra cada diferencia y el informe de paridad decide si la ruta está lista.</desc>
+  <defs>
+    <marker id="lm-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="arrow" /></marker>
+    <marker id="lm-arrow-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="arrow arrow-accent" /></marker>
+  </defs>
+  <rect class="node" x="20" y="40" width="200" height="64" rx="8" />
+  <text class="label" x="120" y="66" text-anchor="middle">Tráfico HTTP</text>
+  <text class="label-soft" x="120" y="88" text-anchor="middle">peticiones de la aplicación</text>
+  <rect class="node node-accent" x="260" y="40" width="200" height="64" rx="8" />
+  <text class="label" x="360" y="66" text-anchor="middle">Pasarela YARP</text>
+  <text class="label-soft" x="360" y="88" text-anchor="middle">una ruta, un modo</text>
+  <rect class="node" x="500" y="40" width="200" height="64" rx="8" />
+  <text class="label" x="600" y="66" text-anchor="middle">Monolito legado</text>
+  <text class="label-soft" x="600" y="88" text-anchor="middle">responde mientras no se corta</text>
+  <rect class="node" x="500" y="216" width="200" height="64" rx="8" />
+  <text class="label" x="600" y="242" text-anchor="middle">API moderna</text>
+  <text class="label-soft" x="600" y="264" text-anchor="middle">.NET · una porción a la vez</text>
+  <rect class="node" x="260" y="216" width="200" height="64" rx="8" />
+  <text class="label" x="360" y="242" text-anchor="middle">Shadow Runner</text>
+  <text class="label-soft" x="360" y="264" text-anchor="middle">comparación semántica del JSON</text>
+  <rect class="node" x="20" y="216" width="200" height="64" rx="8" />
+  <text class="label" x="120" y="242" text-anchor="middle">Auditoría y paridad</text>
+  <text class="label-soft" x="120" y="264" text-anchor="middle">informe HTML · puerta de CI</text>
+  <path class="flow" d="M220 72H258" marker-end="url(#lm-arrow)" />
+  <path class="flow" d="M460 72H498" marker-end="url(#lm-arrow)" />
+  <path class="flow" d="M360 104V214" marker-end="url(#lm-arrow)" stroke-dasharray="4 4" />
+  <text class="label-soft" x="372" y="166">réplica en sombra</text>
+  <path class="flow" d="M460 248H498" marker-end="url(#lm-arrow)" />
+  <path class="flow flow-accent" d="M260 248H222" marker-end="url(#lm-arrow-accent)" />
+</svg>

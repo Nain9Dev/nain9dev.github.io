@@ -1,8 +1,9 @@
 ---
 // SelectedWork.astro: four selected projects told as a story (problem, approach, result) beside their capture
 // (specs/049-selected-work, SW-001 to SW-006). Static HTML built from projects.json; no client JavaScript.
+// Each case links to its work page from the title and from a closing link (specs/next-case-pages, WK-009).
 import projects from '../../../public/assets/data/projects.json';
-import { isOwnDemo } from '../../utils/projects';
+import { isOwnDemo, workPath } from '../../utils/projects';
 
 const cases = projects
   .flatMap((project) => {
@@ -32,7 +33,7 @@ const cases = projects
           </figure>
           <div class="case-body">
             <p class="case-eyebrow"><span class="case-index" translate="no">{String(index + 1).padStart(2, '0')}</span><span class="case-status">{project.status}</span></p>
-            <h3 class="case-title">{project.title}</h3>
+            <h3 class="case-title"><a href={workPath(project.id)}>{project.title}</a></h3>
             <dl class="case-story">
               <div><dt>Problema</dt><dd>{story.problem}</dd></div>
               <div><dt>Enfoque</dt><dd>{story.approach}</dd></div>
@@ -45,6 +46,7 @@ const cases = projects
               {project.links.map((link) => (
                 <a class="card-link" href={link.url} target="_blank" rel="noopener noreferrer">{link.label} <span aria-hidden="true">↗</span></a>
               ))}
+              <a class="card-link" href={workPath(project.id)}>Cómo está hecho <span aria-hidden="true">→</span></a>
             </p>
           </div>
         </li>

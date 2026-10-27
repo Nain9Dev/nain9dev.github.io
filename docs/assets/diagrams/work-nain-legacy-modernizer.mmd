@@ -1,0 +1,7 @@
+%% Source of src/components/work/diagrams/NainLegacyModernizer.astro (specs/next-case-pages, WK-004).
+flowchart LR
+  TRAFFIC["Tráfico HTTP<br/>peticiones de la aplicación"] --> GATEWAY["Pasarela YARP<br/>una ruta, un modo"]
+  GATEWAY --> LEGACY["Monolito legado<br/>responde mientras no se corta"]
+  GATEWAY -. réplica en sombra .-> SHADOW["Shadow Runner<br/>comparación semántica del JSON"]
+  SHADOW --> MODERN["API moderna<br/>.NET · una porción a la vez"]
+  SHADOW --> AUDIT["Auditoría y paridad<br/>informe HTML · puerta de CI"]
