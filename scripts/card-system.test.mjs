@@ -11,7 +11,7 @@ const rule = (css, selector) => css.match(new RegExp(`\\n${selector.replace(/[.*
 
 test('VP-004: every card family uses the shared radius', async () => {
   const css = await read('src/styles/main.css');
-  for (const selector of ['.live-demo', '.blog-card', '.pain-card', '.case-study-card', '.impact-metric-card', '.catalog-index li', '.tech-badge', '.project-thumb']) {
+  for (const selector of ['.live-demo', '.blog-card', '.pain-card', '.case-study-card', '.catalog-index li', '.tech-badge', '.case-media']) {
     const body = rule(css, selector);
     assert.ok(body, `${selector} rule exists`);
     assert.match(body, /border-radius: var\(--radius\);/, `${selector} uses --radius`);
@@ -20,7 +20,8 @@ test('VP-004: every card family uses the shared radius', async () => {
 
 test('VP-008: hover lifts have a keyboard equivalent', async () => {
   const css = await read('src/styles/main.css');
-  assert.match(css, /\.service-card:hover,\s*\.service-card:focus-within,\s*\.project-card:hover,\s*\.project-card:focus-within \{/);
+  assert.match(css, /\.service-card:hover,\s*\.service-card:focus-within \{/);
+  assert.match(css, /\.project-row:hover,\s*\.project-row:focus-within \{/);
   assert.match(css, /\.live-demo:hover,\s*\.live-demo:focus-visible \{[^}]*box-shadow: var\(--shadow-raised\)/);
   assert.match(css, /a\.tech-badge:hover,\s*a\.tech-badge:focus-visible \{/);
   assert.match(css, /\.blog-card:hover,\s*\.blog-card:focus-within \{/);

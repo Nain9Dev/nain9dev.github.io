@@ -8213,5 +8213,105 @@
     "source": "Modo claro",
     "target": "Light mode",
     "status": "reviewed"
+  },
+  "027f0b1e390344736fbb6b4539750c66214b0827731ebf81d12c7f0cc8f986cb": {
+    "source": "El ciclo de vida de una póliza exige aislar los datos de cada organización, auditar cada cambio y resolver ediciones concurrentes sin perder ninguna.",
+    "target": "A policy's life cycle demands isolating each organisation's data, auditing every change and resolving concurrent edits without losing any.",
+    "status": "reviewed"
+  },
+  "02d6a8538edee94fe011472b9fcd8e5db50a0dc3abf2ccf9a4e043749f74b462": {
+    "source": "Enfoque",
+    "target": "Approach",
+    "status": "reviewed"
+  },
+  "126becfd28f0d559da6a3f5c5f0518acece2b788f14d80f6f0701b1c2415a978": {
+    "source": "⟦0⟧Probar API ⟦1⟧↗⟦/1⟧⟦/0⟧⟦2⟧Revisar código ⟦3⟧↗⟦/3⟧⟦/2⟧",
+    "target": "⟦0⟧Test API ⟦1⟧↗⟦/1⟧⟦/0⟧⟦2⟧Review Code ⟦3⟧↗⟦/3⟧⟦/2⟧",
+    "status": "reviewed"
+  },
+  "169911574d2238d75fd8314fc0ef324a61194f064b0891701953e727a3bf82d0": {
+    "source": "Cada sólido se comprueba estanco y 2-variedad antes de exportar a GLB, STL, STEP o DXF; la demo lo enseña en el visor web.",
+    "target": "Every solid is checked to be watertight and 2-manifold before exporting to GLB, STL, STEP or DXF; the demo shows it in the web viewer.",
+    "status": "reviewed"
+  },
+  "28645ed28048bb6dcef4ffcf3720e0c13e2ac2cd24aa2348fe6621d66f796ba2": {
+    "source": "Motor paramétrico determinista con CadQuery y OpenCASCADE; el modelo de lenguaje solo extrae parámetros, y es opcional; la validación topológica es obligatoria.",
+    "target": "A deterministic parametric engine on CadQuery and OpenCASCADE; the language model only extracts parameters, and is optional; topological validation is mandatory.",
+    "status": "reviewed"
+  },
+  "2b8c38ae0f397d45d6d508b167bacec80d990c25e076db015edcf021bbaf06b4": {
+    "source": "Trabajo seleccionado",
+    "target": "Selected work",
+    "status": "reviewed"
+  },
+  "40f77e701815f2be7bba9a6ac44fa0906dbcb3a8ee4ff07f453038853141de5b": {
+    "source": "Validación geométrica determinista con OpenCASCADE y trimesh, contratos explícitos y pasarela de conformidad Khronos, con pruebas y despliegue propio.",
+    "target": "Deterministic geometric validation with OpenCASCADE and trimesh, explicit contracts and a Khronos conformance gateway, with tests and its own deployment.",
+    "status": "reviewed"
+  },
+  "5dc60049cf452f9448c68f0694cb88c32e55219be1f06b56a4d96010d165bbaa": {
+    "source": "API .NET 10 con roles JWT, concurrencia optimista (rowversion, ETag e If-Match), errores ProblemDetails y CI contra un SQL Server real.",
+    "target": "A .NET 10 API with JWT roles, optimistic concurrency (rowversion, ETag and If-Match), ProblemDetails errors and CI against a real SQL Server.",
+    "status": "reviewed"
+  },
+  "6fce275a4fa8df5906cb7895154542088357074b6e5dad6b8e583fff8ad1950c": {
+    "source": "Con datos sintéticos, la API pública permite recorrer Borrador, Activa y Cancelada y provocar un conflicto de concurrencia controlado.",
+    "target": "With synthetic data, the public API lets you walk a policy through Draft, Active and Cancelled and trigger a controlled concurrency conflict.",
+    "status": "reviewed"
+  },
+  "84c6bc7078d2a54b02f639ce3fdfae804c22a02ac07897c29ba1ee99396cadc7": {
+    "source": "⟦0⟧Probar demo ⟦1⟧↗⟦/1⟧⟦/0⟧⟦2⟧Revisar código ⟦3⟧↗⟦/3⟧⟦/2⟧",
+    "target": "⟦0⟧Try the demo ⟦1⟧↗⟦/1⟧⟦/0⟧⟦2⟧Review Code ⟦3⟧↗⟦/3⟧⟦/2⟧",
+    "status": "reviewed"
+  },
+  "92b1dbb1eeaa392c745b086a6122c3160cce67dce9c9fd0150478fd1baecd44c": {
+    "source": "⟦0/⟧⟦1⟧Demo pública disponible⟦/1⟧",
+    "target": "⟦0/⟧⟦1⟧Public demo available⟦/1⟧",
+    "status": "reviewed"
+  },
+  "9f39ed70da33938cda65347915ccacd5fa61d7ec03616bab499e4a20de37e290": {
+    "source": "Un activo 3D generado por IA puede parecer correcto y romper el proceso aguas abajo; hacía falta un veredicto que no dependa de quién lo mira.",
+    "target": "An AI-generated 3D asset can look right and still break the pipeline downstream; it needed a verdict that does not depend on who looks at it.",
+    "status": "reviewed"
+  },
+  "a71bc39fe3f33e42d1164472c83a9a340c52da9718ce3b8114c488647338fdf5": {
+    "source": "Resultado",
+    "target": "Result",
+    "status": "reviewed"
+  },
+  "b0729818a0261114a57f02aad151379b42dc6559edff7e074fa2233295437550": {
+    "source": "Un monolito .NET heredado no se reescribe de golpe, y cada migración parcial arriesga el comportamiento que hoy funciona en producción.",
+    "target": "A legacy .NET monolith is not rewritten in one go, and every partial migration risks the behaviour that works in production today.",
+    "status": "reviewed"
+  },
+  "b6d2278a5043a50a5a03a4d86df449cedb1b964d75b04061988e60aaf666c0cb": {
+    "source": "El mismo archivo devuelve siempre el mismo veredicto; la demo pública permite comprobarlo con cualquier GLB.",
+    "target": "The same file always returns the same verdict; the public demo lets you check it with any GLB.",
+    "status": "reviewed"
+  },
+  "bc086818dfcc843c8021cc86786294cbad61e009cbca001dcb6a29d4c7976391": {
+    "source": "⟦0/⟧⟦1⟧Demo pública activa⟦/1⟧",
+    "target": "⟦0/⟧⟦1⟧Active public demo⟦/1⟧",
+    "status": "reviewed"
+  },
+  "ca6772eb5c49b52fcfb69ce0ccd05858d8a6018a1948fb3eb1edd1e35e0039bd": {
+    "source": "La demo muestra el enrutamiento transparente entre monolito y microservicios .NET 10 y la auditoría de cada diferencia detectada.",
+    "target": "The demo shows transparent routing between the monolith and .NET 10 microservices, and the audit of every difference it detects.",
+    "status": "reviewed"
+  },
+  "cc6c1a06c6f9251634a0ea23205be046568b66205143e7a8edcedab7757e7217": {
+    "source": "Problema",
+    "target": "Problem",
+    "status": "reviewed"
+  },
+  "cff96adfeebd409347fe15353f5b48010a2ba41c4eed3188b565e8415287bf0d": {
+    "source": "Pedir geometría CAD a un modelo de lenguaje sin comprobarla produce mallas abiertas o con normales invertidas, inútiles para fabricar.",
+    "target": "Asking a language model for CAD geometry without checking it yields open meshes or inverted normals, useless for manufacturing.",
+    "status": "reviewed"
+  },
+  "efc39023d28e92198d0f97035d6243d565373f584c08cb2e6f138aeb2eaeb371": {
+    "source": "Strangler Fig con proxy inverso YARP y Shadow Runner: el servicio nuevo corre en paralelo y sus respuestas se comparan semánticamente con las del monolito.",
+    "target": "Strangler Fig with a YARP reverse proxy and a Shadow Runner: the new service runs in parallel and its responses are compared semantically with the monolith's.",
+    "status": "reviewed"
   }
 }

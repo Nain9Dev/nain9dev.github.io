@@ -8,11 +8,11 @@ import { join } from 'node:path';
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const read = (file) => readFile(join(ROOT, file), 'utf8');
 
-test('VS-004: the stack renders as layer bands on a spine, every badge keeping its visible name', async () => {
+test('VS-004 (as revised by HN-003): the stack renders as one strip, every badge keeping its visible name', async () => {
   const css = await read('src/styles/main.css');
-  assert.match(css, /\n\.tech-category-group \{\s*position: relative;\s*display: grid;/);
-  assert.match(css, /\.tech-stack-container::before \{[^}]*background: linear-gradient\(var\(--color-cobalt-bright\), var\(--color-green\)\);/);
-  assert.match(css, /\n\.tech-badge \{\s*flex: 0 0 auto;\s*min-width: 5\.5rem;/);
+  assert.match(css, /\.tech-strip \.tech-category-group,\s*\.tech-strip \.tech-category \{\s*display: contents;/);
+  assert.doesNotMatch(css, /\.tech-stack-container::before/);
+  assert.match(css, /\n\.tech-badge \{\s*flex: 0 0 auto;\s*flex-direction: row;/);
   assert.doesNotMatch(css, /\.tech-name \{[^}]*(display: none|clip-path)/, 'badge names stay visible');
   const stack = await read('src/components/home/TechStack.astro');
   assert.match(stack, /<span class="tech-name">\{item\.name\}<\/span>/);

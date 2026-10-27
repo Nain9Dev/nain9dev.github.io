@@ -1,12 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/home/Hero.astro';
-import TerminalSection from '../components/home/TerminalSection.astro';
-import ProofStrip from '../components/home/ProofStrip.astro';
+import SelectedWork from '../components/home/SelectedWork.astro';
 import LiveDemos from '../components/home/LiveDemos.astro';
 import ServicesSection from '../components/home/ServicesSection.astro';
 import TechStack from '../components/home/TechStack.astro';
-import ImpactMetrics from '../components/home/ImpactMetrics.astro';
 import Testimonials from '../components/home/Testimonials.astro';
 import ProjectsSection from '../components/home/ProjectsSection.astro';
 import OpenEcosystem from '../components/home/OpenEcosystem.astro';
@@ -22,13 +20,14 @@ import { defaultSEO } from '../utils/seo';
   description={defaultSEO.description}
   keywords={["Aitor Nain Mendoza Vallejo", "Aitor Nain", "Aitor Mendoza", "NainDev", "arquitecto backend 3D", "arquitectura IA"]}>
   <main id="main-content" tabindex="-1">
+    {/* Narrative order (specs/next-selected-work, HN-001): offer, selected work, services with the stack,
+        demos, the full catalog, the open ecosystem, method, about with the terminal folded, partnership, contact. */}
     <Hero />
+    <SelectedWork />
+    <ServicesSection>
+      <TechStack />
+    </ServicesSection>
     <LiveDemos />
-    <TerminalSection />
-    <ProofStrip />
-    <ServicesSection />
-    <TechStack />
-    <ImpactMetrics />
     <ProjectsSection />
     <OpenEcosystem />
     <MethodSection />

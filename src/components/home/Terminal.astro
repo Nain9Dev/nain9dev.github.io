@@ -1,0 +1,22 @@
+---
+// Terminal.astro: the interactive terminal widget, shared by the about fold on the home (specs/next-selected-work,
+// HN-002) and the 404 page. The script initialises once per document load (ADR-0003).
+---
+<div class="terminal-wrapper" role="application" aria-label="Terminal interactiva">
+  <div class="terminal-header">
+    <span class="terminal-btn close" aria-hidden="true"></span>
+    <span class="terminal-btn min" aria-hidden="true"></span>
+    <span class="terminal-btn max" aria-hidden="true"></span>
+    <span class="terminal-title" aria-hidden="true">aitor@naindev: ~</span>
+  </div>
+  <div class="terminal-body" id="terminal-output" role="log" aria-live="polite"></div>
+  <div class="terminal-input-line">
+    {/* Decorative prompt, not a contact address: the markers stop Cloudflare from injecting a parser-blocking decoder (PERF-011). */}
+    <span class="prompt-text" aria-hidden="true" translate="no"><!--email_off-->[aitor@naindev.com ~]$<!--/email_off--></span>
+    <input type="text" id="terminal-input" class="terminal-input" role="textbox" aria-label="Línea de comandos de terminal" autocomplete="off" spellcheck="false" placeholder="Escribe 'help' para ver comandos...">
+  </div>
+</div>
+
+<script>
+  import '../../scripts/terminal.js';
+</script>

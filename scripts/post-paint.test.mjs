@@ -39,7 +39,7 @@ function withGlobals(globals, fn) {
 }
 
 test('PERF-011: the decorative terminal prompt is excluded from Cloudflare email obfuscation', async () => {
-  const terminal = await read('src/components/home/TerminalSection.astro');
+  const terminal = await read('src/components/home/Terminal.astro');
   assert.match(terminal, /<!--email_off-->\[aitor@naindev\.com ~\]\$<!--\/email_off-->/);
 });
 

@@ -1,5 +1,6 @@
 ---
-// TechStack.astro
+// TechStack.astro: the stack as one wrapping strip of badges inside the services section
+// (specs/next-selected-work, HN-003). Category names stay in the HTML, visually hidden, before each group.
 import Quiet from './Quiet.astro';
 import { getCollection } from 'astro:content';
 import techStackData from '../../../public/assets/data/tech-stack.json';
@@ -8,35 +9,31 @@ import { getTechnologyHref } from '../../utils/technologyRoutes';
 const servicios = await getCollection('servicios', ({ data }) => !data.draft);
 const availableTechnologies = new Set(servicios.flatMap(servicio => servicio.data.techStack ?? []));
 ---
-<section class="section" id="tech-stack">
-  <div class="shell">
-    <div class="section-heading" data-reveal>
-      <div>
-        <p class="eyebrow">Tecnologías</p>
-        <h2>Stack tecnológico</h2>
-      </div>
-      <Quiet><p>Lenguajes, herramientas y plataformas que utilizo para construir arquitecturas robustas.</p></Quiet>
-    </div>
-    
-    <div id="tech-stack-container" class="tech-stack-container">
-      {techStackData.categories.map(category => (
-        <div class="tech-category-group">
-          <h3 class="tech-category-title">{category.name}</h3>
-          <div class="tech-category">
-            {category.items.map(item => availableTechnologies.has(item.name) ? (
-              <a href={getTechnologyHref(item.name)} class="tech-badge tech-link" data-reveal>
-                <img src={item.icon} alt={`Icono de ${item.name}`} loading="lazy" class="tech-icon" />
-                <span class="tech-name">{item.name}</span>
-              </a>
-            ) : (
-              <span class="tech-badge" data-reveal>
-                <img src={item.icon} alt={`Icono de ${item.name}`} loading="lazy" class="tech-icon" />
-                <span class="tech-name">{item.name}</span>
-              </span>
-            ))}
-          </div>
-        </div>
-      ))}
-    </div>
+<div class="tech-strip" id="tech-stack">
+  <div class="tech-strip-heading">
+    <p class="eyebrow">Tecnologías</p>
+    <h3>Stack tecnológico</h3>
+    <Quiet><p>Lenguajes, herramientas y plataformas que utilizo para construir arquitecturas robustas.</p></Quiet>
   </div>
-</section>
+
+  <div id="tech-stack-container" class="tech-stack-container">
+    {techStackData.categories.map(category => (
+      <div class="tech-category-group">
+        <span class="tech-category-title">{category.name}</span>
+        <div class="tech-category">
+          {category.items.map(item => availableTechnologies.has(item.name) ? (
+            <a href={getTechnologyHref(item.name)} class="tech-badge tech-link" data-reveal>
+              <img src={item.icon} alt={`Icono de ${item.name}`} loading="lazy" class="tech-icon" />
+              <span class="tech-name">{item.name}</span>
+            </a>
+          ) : (
+            <span class="tech-badge" data-reveal>
+              <img src={item.icon} alt={`Icono de ${item.name}`} loading="lazy" class="tech-icon" />
+              <span class="tech-name">{item.name}</span>
+            </span>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+</div>

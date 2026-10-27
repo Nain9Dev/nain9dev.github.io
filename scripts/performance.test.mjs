@@ -129,10 +129,10 @@ test('PERF-021: blocks outside the main > .section rule also skip rendering unti
   assert.ok(rule, 'missing content-visibility rule for the later service groups');
   assert.match(rule[1], /content-visibility:\s*auto/);
   assert.match(rule[1], /contain-intrinsic-size:\s*auto \d+px/);
-  for (const selector of ['.proof-strip', '.live-demos', '.site-footer']) {
+  for (const selector of ['.live-demos', '.site-footer']) {
     assert.ok(main.includes(selector), `${selector} exists`);
   }
-  const block = main.match(/\.proof-strip,\s*\.live-demos,\s*\.site-footer\s*\{([^}]*)\}/);
+  const block = main.match(/\.live-demos,\s*\.site-footer\s*\{([^}]*)\}/);
   assert.ok(block, 'missing shared content-visibility rule');
   assert.match(block[1], /content-visibility:\s*auto/);
   assert.match(block[1], /contain-intrinsic-size:\s*auto \d+px/);
