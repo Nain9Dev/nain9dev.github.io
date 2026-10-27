@@ -2,14 +2,15 @@
 // OpenEcosystem.astro: public repositories that are not products (spec next-portfolio-ecosystem-hero, ECO-020).
 // Each tile shows a capture of the live site when the repository publishes one, otherwise of its README on GitHub,
 // and links the site when there is one while a chip keeps the repository link (spec next-portfolio-coverage, ECO-022, ECO-023).
+// Every tile now has a site: the project pages of spec next-project-sites (ECO-025).
 import Quiet from './Quiet.astro';
 const repositories: { name: string; note: string; thumbnail: string; site?: string }[] = [
-  { name: 'engineering-handbook', note: 'Manual de ingeniería: arquitectura limpia, validación determinista y pruebas.', thumbnail: '/assets/images/repos/engineering-handbook.webp' },
-  { name: 'template-dotnet-clean-arch', note: 'Plantilla full stack con .NET, Vue 3 y Docker Compose.', thumbnail: '/assets/images/repos/template-dotnet-clean-arch.webp' },
-  { name: 'template-fastapi-vue-clean-arch', note: 'Plantilla full stack con FastAPI, Vue 3 y Docker Compose.', thumbnail: '/assets/images/repos/template-fastapi-vue-clean-arch.webp' },
+  { name: 'engineering-handbook', note: 'Manual de ingeniería: arquitectura limpia, validación determinista y pruebas.', site: 'https://handbook.naindev.com/', thumbnail: '/assets/images/demos/engineering-handbook.webp' },
+  { name: 'template-dotnet-clean-arch', note: 'Plantilla full stack con .NET, Vue 3 y Docker Compose.', site: 'https://template-dotnet.naindev.com/', thumbnail: '/assets/images/demos/template-dotnet-clean-arch.webp' },
+  { name: 'template-fastapi-vue-clean-arch', note: 'Plantilla full stack con FastAPI, Vue 3 y Docker Compose.', site: 'https://template-fastapi.naindev.com/', thumbnail: '/assets/images/demos/template-fastapi-vue-clean-arch.webp' },
   { name: 'brandbook', note: 'Sistema de diseño y manual de marca de NainDev.', site: 'https://brand.naindev.com/', thumbnail: '/assets/images/demos/brandbook.webp' },
   { name: 'status', note: 'Estado y latencia de los servicios públicos.', site: 'https://status.naindev.com/', thumbnail: '/assets/images/demos/status.webp' },
-  { name: '.github', note: 'Estándares de ingeniería y flujos de CI reutilizables.', thumbnail: '/assets/images/repos/dot-github.webp' },
+  { name: '.github', note: 'Estándares de ingeniería y flujos de CI reutilizables.', site: 'https://standards.naindev.com/', thumbnail: '/assets/images/demos/dot-github.webp' },
 ];
 const small = (thumbnail: string) => thumbnail.replace(/\.webp$/, '-400.webp');
 ---

@@ -8213,5 +8213,35 @@
     "source": "Modo claro",
     "target": "Light mode",
     "status": "reviewed"
+  },
+  "05a366193df63cbc7a2afff29e0dc77f80467b515a8311842d715cfe7a7bb7f9": {
+    "source": "⟦0⟧⟦1/⟧⟦2/⟧⟦3/⟧⟦4/⟧⟦5⟧Plantilla full stack con .NET, Vue 3 y Docker Compose.⟦/5⟧⟦/0⟧⟦6/⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2/⟧⟦3/⟧⟦4/⟧⟦5⟧Full stack template with .NET, Vue 3 and Docker Compose.⟦/5⟧⟦/0⟧⟦6/⟧",
+    "status": "reviewed"
+  },
+  "2c7bc67fc9053d39bfcfdf273543ef7e5c2d9092d33f100bcef3af546112d317": {
+    "source": "Ver página",
+    "target": "View page",
+    "status": "reviewed"
+  },
+  "4e76c85f3e09c9dc70e31e5717f2c6f0db4de19181badf949a8b89a390c5943d": {
+    "source": "⟦0⟧⟦1/⟧⟦2⟧Servidor MCP de validación 3D determinista⟦/2⟧⟦3/⟧⟦4/⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2⟧Deterministic 3D Validation MCP Server⟦/2⟧⟦3/⟧⟦4/⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "4ebcc98399945cbd82b3c8d19e7a794a1848f9fd2df1221be1b6eafb17474a85": {
+    "source": "⟦0⟧⟦1/⟧⟦2/⟧⟦3/⟧⟦4/⟧⟦5⟧Manual de ingeniería: arquitectura limpia, validación determinista y pruebas.⟦/5⟧⟦/0⟧⟦6/⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2/⟧⟦3/⟧⟦4/⟧⟦5⟧Engineering handbook: clean architecture, deterministic validation and testing.⟦/5⟧⟦/0⟧⟦6/⟧",
+    "status": "reviewed"
+  },
+  "812d752632e3e60ae48acac56c9289e757a24b9749c89ca922903f9fd1faad93": {
+    "source": "⟦0⟧⟦1/⟧⟦2/⟧⟦3/⟧⟦4/⟧⟦5⟧Plantilla full stack con FastAPI, Vue 3 y Docker Compose.⟦/5⟧⟦/0⟧⟦6/⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2/⟧⟦3/⟧⟦4/⟧⟦5⟧Full stack template with FastAPI, Vue 3 and Docker Compose.⟦/5⟧⟦/0⟧⟦6/⟧",
+    "status": "reviewed"
+  },
+  "fa5c519fd1cd85feae33967b817556a12718e3a0d5d2005c2f7e70fb46b1de47": {
+    "source": "⟦0⟧⟦1/⟧⟦2/⟧⟦3/⟧⟦4/⟧⟦5⟧Estándares de ingeniería y flujos de CI reutilizables.⟦/5⟧⟦/0⟧⟦6/⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2/⟧⟦3/⟧⟦4/⟧⟦5⟧Engineering standards and reusable CI workflows.⟦/5⟧⟦/0⟧⟦6/⟧",
+    "status": "reviewed"
   }
 }
