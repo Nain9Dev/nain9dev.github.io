@@ -71,7 +71,7 @@ test('VIS-003: every live demo has a small lazy-loaded thumbnail on its card', a
 test('VIS-001 and VIS-002: the home page shows a static live-demos strip', async () => {
   const home = await read('src/pages/index.astro');
   assert.match(home, /import LiveDemos from '\.\.\/components\/home\/LiveDemos\.astro'/);
-  // HERO-021 superseded by HN-001 (specs/next-selected-work): selected work, then services, then the strip.
+  // HERO-021 superseded by HN-001 (specs/049-selected-work): selected work, then services, then the strip.
   assert.ok(home.indexOf('<Hero />') < home.indexOf('<SelectedWork />'));
   assert.ok(home.indexOf('<SelectedWork />') < home.indexOf('<ServicesSection>'));
   assert.ok(home.indexOf('</ServicesSection>') < home.indexOf('<LiveDemos />'));
@@ -224,7 +224,7 @@ test('VIS-008: the about links are icon pills and the resource call to action ha
   for (const url of ['https://github.com/Nain9Dev', 'https://github.com/naindev-contrast3d', 'https://www.linkedin.com/in/aitor-nain-mendoza-vallejo/', 'https://x.com/Nain9Dev']) {
     assert.ok(about.includes(`href="${url}"`), `${url} stays linked`);
   }
-  // The resource call to action left the home (specs/next-selected-work, HN-005); the checklist keeps its page.
+  // The resource call to action left the home (specs/049-selected-work, HN-005); the checklist keeps its page.
   const css = await read('src/styles/main.css');
   assert.match(css, /\.social-pill\s*\{/);
   assert.doesNotMatch(css, /\.resource-cta\s*\{/);
@@ -313,7 +313,7 @@ test('VIS-012: the 404, thank-you and technology pages are styled by classes, no
 });
 
 test('VIS-013: proof strip and partnership cards lead with icons, the stack badges use a class', async () => {
-  // The three principles moved into the about section (specs/next-selected-work, HN-005).
+  // The three principles moved into the about section (specs/049-selected-work, HN-005).
   const proof = await read('src/components/home/AboutSection.astro');
   assert.equal(proof.match(/<svg class="proof-icon"[^>]*aria-hidden="true"/g)?.length, 3);
   const partnership = await read('src/components/home/PartnershipSection.astro');

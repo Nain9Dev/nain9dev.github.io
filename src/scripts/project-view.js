@@ -27,7 +27,7 @@ function createProjectLink(link) {
 
 function createProjectCard(project, index) {
   // Compact row: the catalog is the complete inventory; the selected work above tells the stories
-  // (specs/next-selected-work, HN-004).
+  // (specs/049-selected-work, HN-004).
   const article = createElement("article", "project-row");
   article.dataset.featured = String(Boolean(project.featured));
   article.dataset.projectCard = "";

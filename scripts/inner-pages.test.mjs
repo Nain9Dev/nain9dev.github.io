@@ -68,7 +68,7 @@ test('IP-007: the technology page heads with the stack mark and discloses its in
 });
 
 test('IP-008 (as revised by HN-004): every catalog row keeps its index in the markup', async () => {
-  // The numbered cover band went with the tall cards (specs/next-selected-work); the row shows the index as text.
+  // The numbered cover band went with the tall cards (specs/049-selected-work); the row shows the index as text.
   const view = await read('src/scripts/project-view.js');
   assert.match(view, /article\.dataset\.index = String\(index \+ 1\)\.padStart\(2, "0"\);/);
   assert.match(view, /createElement\("span", "project-index", String\(index \+ 1\)\.padStart\(2, "0"\)\)/);

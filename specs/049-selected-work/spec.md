@@ -1,6 +1,6 @@
 # Specification: Selected work and home narrative
 
-Status: Draft (owner interview 2026-10-27; spec number assigned by the merge train)
+Status: Consolidated (#35 merged 2026-10-27; requirements in `docs/10-requirements.md`, ADR-0015 Proposed)
 
 ## Objective
 
@@ -94,5 +94,6 @@ Written only from the published `summary` and `proof` fields; no figure, client 
 
 - Last updated: 2026-10-27, selected-work session.
 - Done: interview (four decisions above), live-site review, research of reference portfolios, spec, plan, tasks, ADR `Proposed`; T01 to T05 implemented in worktree `D:/wt/nain9dev.github.io-feat-selected-work` on `feat/selected-work`: `npm run check` green, axe 0 violations in both themes, reduced-motion probe clean, Lighthouse mobile 0.99 / 1.00 on `/`, home document 30 030 B gzip after merging `main` (limit 30 720). Committed, captures taken, pull request #35 open with base `main`. The owner approved the twelve story lines on 2026-10-27 (SW-003).
-- Next: owner merges #35 (ruleset). After merge: consolidate SW and HN requirements into `docs/10-requirements.md` and `docs/50-traceability.md`, changelog entry, `wt-clean.sh`. Follow-up candidates from the interview, not started: a new hero visual, a verifiable-receipts strip, case pages under `/trabajo/<id>/`, and moving page-specific CSS out of `main.css` before the next home change (budget tight).
-- Blocked: nothing. The only remaining `[M]` step is the merge itself.
+- Merged: #35 on 2026-10-27. Consolidated: spec number 049 and ADR-0015 assigned; SW-001 to SW-010 and HN-001 to HN-007 in `docs/10-requirements.md` and `docs/50-traceability.md`; changelog entry; task index row.
+- Next: nothing in this spec. Follow-up candidates from the interview, not started: a new hero visual, a verifiable-receipts strip, case pages under `/trabajo/<id>/`, and moving page-specific CSS out of `main.css` before the next home change (budget tight).
+- Blocked: nothing. ADR-0015 waits for the owner's approval.

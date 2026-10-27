@@ -1,24 +1,27 @@
 # Tasks: Selected work and home narrative
 
-- [ ] **T01** `[A]` Guard test `scripts/selected-work.test.mjs` written first and registered in `npm run check`; it fails on `main`.
+- [x] **T01** `[A]` Guard test `scripts/selected-work.test.mjs` written first and registered in `npm run check`; it fails on `main`.
   - **Covers**: SW-007 (asserting SW-001 to SW-004, HN-001 to HN-005)
   - **Done when**: the test file exists, is in `package.json` `check`, and fails for the expected reasons before T02.
-- [ ] **T02** `[A]` Story data: `story` object on the four featured entries of `public/assets/data/projects.json`, Spanish drafts from the spec appendix; English targets in `src/i18n/en-US.json`.
+- [x] **T02** `[A]` Story data: `story` object on the four featured entries of `public/assets/data/projects.json`, Spanish drafts from the spec appendix; English targets in `src/i18n/en-US.json`.
   - **Covers**: SW-003, SW-004, HN-007
   - **Done when**: `check:claims`, `claims.test.mjs` and `check:locales` pass with the new strings.
-- [ ] **T03** `[A]` `SelectedWork.astro`, shared `isOwnDemo` helper, CSS block, home order.
+- [x] **T03** `[A]` `SelectedWork.astro`, shared `isOwnDemo` helper, CSS block, home order.
   - **Covers**: SW-001, SW-002, SW-005, SW-006, HN-001
   - **Done when**: the section renders four cases in order at 1440 and 390 px, the `ItemList` is byte-identical, the guard passes its SW assertions.
-- [ ] **T04** `[A]` About section with the proof sentences and the folded terminal; `ProofStrip`, `ImpactMetrics` and `TerminalSection` deleted; guards updated (`home-clarity`, `post-paint`, `claims`, `performance`, `storytelling`, `performance-build` marker).
+- [x] **T04** `[A]` About section with the proof sentences and the folded terminal; `ProofStrip`, `ImpactMetrics` and `TerminalSection` deleted; guards updated (`home-clarity`, `post-paint`, `claims`, `performance`, `storytelling`, `performance-build` marker).
   - **Covers**: HN-002, HN-005, HN-006
   - **Done when**: the terminal works inside the disclosure with keyboard and mouse; every relocated sentence is found in the built home; `npm run check` passes.
-- [ ] **T05** `[A]` Stack strip inside the services section; catalog rows in `project-view.js` and CSS; removed CSS listed with sizes.
+- [x] **T05** `[A]` Stack strip inside the services section; catalog rows in `project-view.js` and CSS; removed CSS listed with sizes.
   - **Covers**: HN-003, HN-004, SW-008
   - **Done when**: `gzip(dist/index.html)` ≤ 30 KiB, catalog filters and counts unchanged, `stack-method` and `portfolio-refresh` guards updated and green.
-- [ ] **T06** `[M]` Audits and pull request: axe both themes, reduced-motion probe, Lighthouse mobile and desktop, before and after captures, document size; PR with base `main`.
+- [x] **T06** `[M]` Audits and pull request: axe both themes, reduced-motion probe, Lighthouse mobile and desktop, before and after captures, document size; PR with base `main`.
   - **Covers**: SW-008, SW-009, SW-010
   - **Needs from owner**: approval of the twelve Spanish and twelve English story lines (given on 2026-10-27, recorded in `spec.md`); merge.
   - **Done when**: the PR description carries the evidence and the owner has merged.
+- [x] **T07** `[A]` Consolidate SW-001 to SW-010 and HN-001 to HN-007 into `docs/10-requirements.md`, `docs/50-traceability.md`, `docs/40-tasks.md` and `docs/90-changelog.md` once #35 is merged; assign the spec number and the ADR number.
+  - **Covers**: documentation flow
+  - **Done when**: the four documents carry the rows, the spec folder and the ADR carry their numbers, and the spec status reads Consolidated.
 
 ## Sentences relocated from the home (HN-006)
 
@@ -32,7 +35,7 @@ New strings (all with reviewed English targets in `src/i18n/en-US.json`, 20 segm
 
 ## Guard changes (SW-007)
 
-- `scripts/selected-work.test.mjs` (new, 13 tests): SW-001 to SW-004, SW-007, HN-001 to HN-005.
+- `scripts/selected-work.test.mjs` (new, 10 tests): SW-001 to SW-004, SW-007, HN-001 to HN-005.
 - `scripts/portfolio-refresh.test.mjs`: HERO-021 order line → HN-001 order (selected work, services, strip, catalog); VIS-003 thumbnail assertions read `SelectedWork.astro` instead of `project-view.js`; VIS-008 no longer reads `ImpactMetrics.astro` and asserts `.resource-cta` is gone; VIS-013 counts the proof icons in `AboutSection.astro`.
 - `scripts/storytelling.test.mjs`: VS-001 section list without `TerminalSection` and `ImpactMetrics`; VS-010 asserts summary and proof inside the detail for every row.
 - `scripts/home-clarity.test.mjs`: AVAIL-001 reads the availability sentence from `AboutSection.astro`.
@@ -57,3 +60,4 @@ New strings (all with reviewed English targets in `src/i18n/en-US.json`, 20 segm
 
 - 2026-10-27 · Interview done (four owner decisions in `spec.md`), spec, plan, tasks and ADR written in worktree `D:/wt/nain9dev.github.io-feat-selected-work` (branch `feat/selected-work`).
 - 2026-10-27 · T01 to T05 implemented test first; `npm run check` green; selected work, catalog rows, stack strip and the terminal fold checked in the browser at 1280 px (terminal opens and runs inside the disclosure); audits above. Committed (3e30a92), captures taken (`.astro/visual-polish/selected-work/`), pull request #35 opened with base `main`; `main` (#33, #34) merged into the branch with the translation catalog re-appended, `npm run check` green again. The owner approved the twelve story lines as written in the spec appendix (SW-003 marked approved). Next (T06): the owner merges #35.
+- 2026-10-27 · #35 merged by the owner. T07: spec numbered 049 and ADR numbered 0015 (status kept Proposed); requirements, traceability, task index and changelog consolidated.
