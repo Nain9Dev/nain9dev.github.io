@@ -121,17 +121,17 @@
     "id": "nain3d-conformance-gateway",
     "title": "Nain3D",
     "status": "Demo pública activa",
-    "summary": "Motor de validación geométrica determinista para activos 3D y pasarela de conformidad Khronos, con backend en Python y cliente Vue 3 con Three.js.",
-    "proof": "Mide la malla con OpenCASCADE y trimesh y devuelve un veredicto reproducible para el mismo archivo. Es un caso de estudio de ingeniería: contratos explícitos, pruebas y despliegue propio.",
+    "summary": "Motor de validación geométrica determinista para activos 3D, con el mismo motor en Python y en el navegador, backend FastAPI y cliente Vue 3 con Three.js.",
+    "proof": "Mide la malla con Trimesh y NumPy y devuelve un veredicto reproducible para el mismo archivo. Es un proyecto de ingeniería: contratos explícitos, pruebas de paridad y despliegue propio.",
     "story": {
       "problem": "Un activo 3D generado por IA puede parecer correcto y romper el proceso aguas abajo; hacía falta un veredicto que no dependa de quién lo mira.",
-      "approach": "Validación geométrica determinista con OpenCASCADE y trimesh, contratos explícitos y pasarela de conformidad Khronos, con pruebas y despliegue propio.",
+      "approach": "Validación geométrica determinista con Trimesh y NumPy, agregador que falla cerrado y el mismo motor en Python y en el navegador, con pruebas de paridad.",
       "result": "El mismo archivo devuelve siempre el mismo veredicto; la demo pública permite comprobarlo con cualquier GLB."
     },
     "technologies": [
       "Python",
-      "OpenCASCADE",
       "trimesh",
+      "NumPy",
       "Vue 3",
       "Three.js"
     ],
