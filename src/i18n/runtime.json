@@ -3,6 +3,8 @@
   "projectPlural": "{count} proyectos",
   "projectTechnologies": "Tecnologías de {name}",
   "projectDetail": "Ver detalle",
+  "projectDetailDiagram": "Ver arquitectura y detalle",
+  "projectDiagram": "Diagrama de arquitectura; en pantallas estrechas se desplaza en horizontal",
   "projectPrivate": "Código privado: descrito solo por arquitectura y stack.",
   "projectError": "No se ha podido cargar el catálogo. Puedes revisar los proyectos directamente en GitHub.",
   "openGitHub": "Abrir GitHub ↗",

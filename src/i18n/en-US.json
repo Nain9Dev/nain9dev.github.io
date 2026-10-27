@@ -9043,5 +9043,245 @@
     "source": "NumPy",
     "target": "NumPy",
     "status": "reviewed"
+  },
+  "08f8334b0c94d7adde6ecd0834faf62124757fd298a239db3c70584331aa0d6f": {
+    "source": "TypeScript · Tailwind CSS",
+    "target": "TypeScript · Tailwind CSS",
+    "status": "reviewed"
+  },
+  "0ab6081a43dcbcfd42ae90b6a4ecae7cce22ae0d4da354af4503ffc6fb5876d8": {
+    "source": "JSON canónico · Markdown",
+    "target": "canonical JSON · Markdown",
+    "status": "reviewed"
+  },
+  "0c25befdebade5f068821e32878d0d603d514cd93be8e144d62597e1a5b3d51f": {
+    "source": "Motor Three.js",
+    "target": "Three.js engine",
+    "status": "reviewed"
+  },
+  "0d19c3d1a657a686f9c0269865fc2cba1f04b0625383ee9430a368650dfbc0df": {
+    "source": "inspección · despiece · daños",
+    "target": "inspect · exploded view · damage",
+    "status": "reviewed"
+  },
+  "0d7e64450784217de02da9c0f794a8835834d72ce9eae9c43eb762949267e821": {
+    "source": "API FastAPI",
+    "target": "FastAPI API",
+    "status": "reviewed"
+  },
+  "0ecb260204dcf4d14e20c053bbb4dc00b85fa3ec932ed2ff4619f6e4ebc379cc": {
+    "source": "Cliente Vue 3",
+    "target": "Vue 3 client",
+    "status": "reviewed"
+  },
+  "127280c2b37000f2d565c4ac33fa473f72de4b9341656153b43fc4ab9586decc": {
+    "source": "Conflicto HTTP 409",
+    "target": "HTTP 409 conflict",
+    "status": "reviewed"
+  },
+  "20b2c92a8a1d94d887f1a03c6a032d1b05426d14afc96ae17732fb2ee16a7448": {
+    "source": "en la misma transacción",
+    "target": "in the same transaction",
+    "status": "reviewed"
+  },
+  "23aa0d7018c698508389960d026dbaf7bcc7ee51b3ef52017101bdab4e486d60": {
+    "source": "Web Component",
+    "target": "Web Component",
+    "status": "reviewed"
+  },
+  "254c0d14a814f1e1ed451424d79939959c7d94fb6a9210d20e15445283872f3b": {
+    "source": "Modos de uso",
+    "target": "Usage modes",
+    "status": "reviewed"
+  },
+  "51ccdad6ee7d94206fd6eebd50edafd3f1c7ba3590207ec24f38c6c91235d04c": {
+    "source": "cualquier web · perfil JSON",
+    "target": "any site · JSON profile",
+    "status": "reviewed"
+  },
+  "55291913844a131ddaec48e094f31ee521b001ef95a4cf642ad5ed29b8f054d3": {
+    "source": "el ciclo vuelve a la entrada",
+    "target": "the loop returns to the input",
+    "status": "reviewed"
+  },
+  "59d0a3d4530d51b8f4e099495334af6926366133e00d8a220cd93de5147985eb": {
+    "source": "Un cliente Vue 3 con TypeScript habla con una API FastAPI sobre PostgreSQL. Cada entidad lleva su versión: si dos usuarios editan a la vez, la API responde con un conflicto HTTP 409 y el cliente fusiona campo a campo sin perder datos. Los duplicados se bloquean con citext e índices únicos parciales, y el registro de actividad se escribe en la misma transacción que el cambio. Todo se despliega con Docker a coste operativo cero.",
+    "target": "A Vue 3 client written in TypeScript talks to a FastAPI API over PostgreSQL. Every entity carries its version: when two users edit at once, the API answers with an HTTP 409 conflict and the client merges field by field without losing data. Duplicates are blocked with citext and partial unique indexes, and the activity log is written in the same transaction as the change. Everything is deployed with Docker at zero operating cost.",
+    "status": "reviewed"
+  },
+  "5a6a85bfd1282dae7d7e87935eb945648f857b419c9b6e5f2c29df9da1e627f5": {
+    "source": "Descompresión Draco",
+    "target": "Draco decompression",
+    "status": "reviewed"
+  },
+  "6668f930586b995c33b5c887831e66f5969577e6be277c31c4a1633a337c3bf1": {
+    "source": "Despliegue",
+    "target": "Deployment",
+    "status": "reviewed"
+  },
+  "673fdea24b93c6d507147828bf00047d7e78e3a3969a6d035548f1dea8f13d03": {
+    "source": "Registro de actividad",
+    "target": "Activity log",
+    "status": "reviewed"
+  },
+  "6942de7cbcd78474a2b6e901a9225bda3105f7ff3d1a064ce601bcca4a7cf288": {
+    "source": "versión obsoleta",
+    "target": "stale version",
+    "status": "reviewed"
+  },
+  "69d3532e7c2965f71d65562b682300e5b99bb112537aba0465a20b73afa2f582": {
+    "source": "Arquitectura de la plataforma de conformidad",
+    "target": "Architecture of the conformance platform",
+    "status": "reviewed"
+  },
+  "6b4560d1f9ed7f21e4a5886699b45abe338e9b6a74d690e19687c990f5411145": {
+    "source": "OpenAPI · agentes supervisados",
+    "target": "OpenAPI · supervised agents",
+    "status": "reviewed"
+  },
+  "75c717f957c1801b9d2a74e43ac552522e38baa989e3e63abff4a1f58355a9b9": {
+    "source": "invariantes geométricos exactos",
+    "target": "exact geometric invariants",
+    "status": "reviewed"
+  },
+  "7fbdad667efb078c9ac02d65946eef1026a04938e3f8dc3c8bed5acc1a432c64": {
+    "source": "Veredicto reproducible",
+    "target": "Reproducible verdict",
+    "status": "reviewed"
+  },
+  "8329fe7ff4ced731f7533d7adf4fd6bbf02a3a34584667426eb70f73cee1711d": {
+    "source": "identificación del contenedor",
+    "target": "container identification",
+    "status": "reviewed"
+  },
+  "838d28a77629bdb6d30ac828b3b466fb6e5ed2f3aff5e8a6fe86f79d2a1de60b": {
+    "source": "El producto entra por su contenedor binario y se identifica. La medición calcula invariantes geométricos exactos y el perfil versionado del dominio fija qué se comprueba. El veredicto es reproducible para el mismo archivo y se publica en informes JSON canónico y Markdown, a través de un servicio HTTP con OpenAPI y de herramientas MCP para agentes con supervisión humana. El ciclo reparar y revalidar vuelve a la entrada.",
+    "target": "The product enters through its binary container and is identified. Measurement computes exact geometric invariants and the versioned profile of the domain fixes what is checked. The verdict is reproducible for the same file and is published as canonical JSON and Markdown reports, through an HTTP service with OpenAPI and MCP tools for agents under human supervision. The repair-and-revalidate loop returns to the input.",
+    "status": "reviewed"
+  },
+  "8f1db1b2759909df14d2dd71eccb98f22dfa5ab868a51eca915fe8126b4c2ebb": {
+    "source": "mismo archivo, mismo resultado",
+    "target": "same file, same result",
+    "status": "reviewed"
+  },
+  "8faa5862cd36d283eb17d3e71b0574a4cae7bd1c9adb4b52fedca56df99ae259": {
+    "source": "Arquitectura del visor 3D",
+    "target": "Architecture of the 3D viewer",
+    "status": "reviewed"
+  },
+  "938340fbaf77126b7471edfe216c733971473c78f5c64b32b7e9c11204612e72": {
+    "source": "Página anfitriona",
+    "target": "Host page",
+    "status": "reviewed"
+  },
+  "9882c892068289ccd155188e7aa206eef723621794f92ff4c6544b56db3dd461": {
+    "source": "Puerta de integridad",
+    "target": "Integrity gate",
+    "status": "reviewed"
+  },
+  "9a17726ae66926465144fe721090d6fbed36e3bf4313e2ea89909ad1e1a73585": {
+    "source": "mismo commit",
+    "target": "same commit",
+    "status": "reviewed"
+  },
+  "9aedfe34d582cdea20ce5dfda5b8be100fa29173e81ea455f07f678ed4782e20": {
+    "source": "Perfil del dominio",
+    "target": "Domain profile",
+    "status": "reviewed"
+  },
+  "a75a415e9f5191b7820d92255ef441bb3fccffe99eeb911c20aefe8c69fa63e5": {
+    "source": "citext · índices únicos parciales",
+    "target": "citext · partial unique indexes",
+    "status": "reviewed"
+  },
+  "ad5fa7eca1d49992b3c0e04d5f432ccd000bb5fb220056a06edd1646dc6ffb55": {
+    "source": "versionado · dominio glTF/GLB",
+    "target": "versioned · glTF/GLB domain",
+    "status": "reviewed"
+  },
+  "b15e57d26e6b20cf47f34110200f54dcc927e68b175910adb5d7912a9d026607": {
+    "source": "Entrada del producto",
+    "target": "Product input",
+    "status": "reviewed"
+  },
+  "b41cb43ed2d5634620cc8ef92d58c25b4a175454ef379f4ce46a6d8d6afc0294": {
+    "source": "Pruebas",
+    "target": "Tests",
+    "status": "reviewed"
+  },
+  "b5e4db379050986c4be349df8ad1732fadcf0fa0e84a113e103d68d1f9adcdbc": {
+    "source": "Reparar y revalidar",
+    "target": "Repair and revalidate",
+    "status": "reviewed"
+  },
+  "c6523bb5fa40097aea0f3b7d535d392df1c03069e24786c87d9846a06480b11c": {
+    "source": "en un Web Worker",
+    "target": "in a Web Worker",
+    "status": "reviewed"
+  },
+  "cdc125d44be2be0c1f2c9c1bae46cb74c1fae654f0272ab06dee1bdca4a32992": {
+    "source": "Arquitectura del CRM colaborativo",
+    "target": "Architecture of the collaborative CRM",
+    "status": "reviewed"
+  },
+  "d0fd36d3d4d7975ddb4d8a6da732e3e9844b85aa11324460d73e8f9a11a38ba1": {
+    "source": "móvil y escritorio",
+    "target": "mobile and desktop",
+    "status": "reviewed"
+  },
+  "d27aa08838667c18cbdf941dab64784e248d97212026330b26c42e89108493fe": {
+    "source": "Docker · coste operativo cero",
+    "target": "Docker · zero operating cost",
+    "status": "reviewed"
+  },
+  "d2a309423bae4eef06032f0ce089a69e5b7f1d759d4d03e3a9fd6823df4b8563": {
+    "source": "Informes",
+    "target": "Reports",
+    "status": "reviewed"
+  },
+  "d37fa5064d39b7d8f9acae31d0abe90b31b2070634688bebb0c18062f60e1605": {
+    "source": "Playwright · WCAG 2.2 AA",
+    "target": "Playwright · WCAG 2.2 AA",
+    "status": "reviewed"
+  },
+  "d7ea913c77aea858b2a230dcc0ebfb153b978fd8633c350fa1ffedf7a1e0188b": {
+    "source": "Ver arquitectura y detalle",
+    "target": "View architecture and detail",
+    "status": "reviewed"
+  },
+  "dcb232df734b4f3615683b51c48e5547261129c1e8ea3bb19d372b90f0e107a0": {
+    "source": "Shadow DOM aislado · ultraligero",
+    "target": "isolated Shadow DOM · ultralight",
+    "status": "reviewed"
+  },
+  "df68b0843a5dde087afdcc426e92d8efb70cedfbd470e4f6541461739bc5a828": {
+    "source": "hash SHA-256 · conformidad",
+    "target": "SHA-256 hash · conformance",
+    "status": "reviewed"
+  },
+  "ed917f3984dad4def3bb94c35c81091f67b6e1b04c660d12619d6dc44d47d6dc": {
+    "source": "La página anfitriona monta el Web Component y le pasa un perfil JSON. El componente aísla su interfaz en Shadow DOM y comprueba la integridad del modelo con un hash SHA-256 ligado a la conformidad determinista antes de cargarlo. La descompresión Draco corre en un Web Worker y el motor Three.js renderiza en móvil y escritorio. Los perfiles activan la inspección industrial, el despiece procedimental y el marcado de daños. Pruebas E2E y visuales con Playwright y accesibilidad WCAG 2.2 AA.",
+    "target": "The host page mounts the Web Component and passes it a JSON profile. The component isolates its interface in a Shadow DOM and checks the integrity of the model with a SHA-256 hash tied to deterministic conformance before loading it. Draco decompression runs in a Web Worker and the Three.js engine renders on mobile and desktop. Profiles enable industrial inspection, procedural exploded views and damage marking. E2E and visual tests with Playwright and WCAG 2.2 AA accessibility.",
+    "status": "reviewed"
+  },
+  "ef8ec77e02dae4eb7ab5ff0600fc24bee4997aebf4b61ea96a9973cb3b2578de": {
+    "source": "Servicio HTTP y MCP",
+    "target": "HTTP and MCP service",
+    "status": "reviewed"
+  },
+  "f2a0cfdffa4e3f6ea73b0a8b39c95c9d46bdf04ca7d1c4946d4eac7ae4053fb5": {
+    "source": "SQLAlchemy · versión por entidad",
+    "target": "SQLAlchemy · version per entity",
+    "status": "reviewed"
+  },
+  "f3a11ab8c2afefe639ed36a1bfa2948427929ca12f7475b44f81e3fbec9f31df": {
+    "source": "Medición",
+    "target": "Measurement",
+    "status": "reviewed"
+  },
+  "3132d7fb9f5346ccfbba067749ea0961cd10b2332a328b3c45bd1bad7e502b12": {
+    "source": "fusión campo a campo",
+    "target": "field-by-field merge",
+    "status": "reviewed"
   }
 }

@@ -1,0 +1,9 @@
+%% Source of public/assets/diagrams/interactive-3d-viewer.svg (specs/next-private-diagrams, PD-002).
+%% Anonymized: only the architecture and stack published in the catalog entry.
+flowchart LR
+  HOST["Página anfitriona<br/>cualquier web · perfil JSON"] --> WC["Web Component<br/>Shadow DOM aislado · ultraligero"]
+  WC --> GATE["Puerta de integridad<br/>hash SHA-256 · conformidad"]
+  GATE --> DRACO["Descompresión Draco<br/>en un Web Worker"]
+  DRACO --> ENGINE["Motor Three.js<br/>móvil y escritorio"]
+  ENGINE --> MODES["Modos de uso<br/>inspección · despiece · daños"]
+  TESTS["Pruebas<br/>Playwright · WCAG 2.2 AA"] -.-> WC

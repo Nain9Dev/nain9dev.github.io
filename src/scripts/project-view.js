@@ -25,6 +25,32 @@ function createProjectLink(link) {
   return anchor;
 }
 
+// Private projects in production carry an anonymized architecture diagram (specs/next-private-diagrams, PD-004).
+// The SVG is a static file of this site, fetched the first time the disclosure opens and inlined so it reads the
+// theme tokens; while the row stays closed nothing is requested, and a failed load removes the figure.
+function createDiagram(project, detail) {
+  const figure = createElement("figure", "arch-diagram project-diagram");
+  figure.tabIndex = 0;
+  figure.setAttribute("aria-label", message('projectDiagram'));
+  figure.setAttribute("aria-busy", "true");
+  let requested = false;
+  detail.addEventListener("toggle", async () => {
+    if (!detail.open || requested) return;
+    requested = true;
+    try {
+      const response = await fetch(assetUrl(project.diagram));
+      const svg = response.ok ? await response.text() : "";
+      if (!svg.trimStart().startsWith("<svg")) throw new Error(`Unexpected diagram response for ${project.id}`);
+      figure.innerHTML = svg;
+      figure.removeAttribute("aria-busy");
+    } catch (error) {
+      console.error("Unable to load the architecture diagram.", error);
+      figure.remove();
+    }
+  });
+  return figure;
+}
+
 function createProjectCard(project, index) {
   // Compact row: the catalog is the complete inventory; the selected work above tells the stories
   // (specs/049-selected-work, HN-004).
@@ -49,6 +75,10 @@ function createProjectCard(project, index) {
   const detail = createElement("details", "project-detail");
   detail.append(createElement("summary", "", message('projectDetail')));
   detail.append(summary, createElement("p", "project-proof", project.proof));
+  if (project.diagram) {
+    detail.firstChild.textContent = message('projectDetailDiagram');
+    detail.append(createDiagram(project, detail));
+  }
 
   const technologies = createElement("ul", "tag-list");
   technologies.setAttribute("aria-label", message('projectTechnologies', { name: project.title }));
@@ -101,5 +131,5 @@ export function renderProjectError(container) {
   container.replaceChildren(notice);
   container.setAttribute("aria-busy", "false");
 }
-import { message } from './locale.js';
+import { assetUrl, message } from './locale.js';
 import { techIcon } from './tech-icons.js';

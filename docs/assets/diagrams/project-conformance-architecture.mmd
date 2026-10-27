@@ -1,0 +1,10 @@
+%% Source of public/assets/diagrams/conformance-architecture.svg (specs/next-private-diagrams, PD-002).
+%% Anonymized: only the architecture and stack published in the catalog entry.
+flowchart LR
+  IN["Entrada del producto<br/>identificación del contenedor"] --> MEASURE["Medición<br/>invariantes geométricos exactos"]
+  MEASURE --> PROFILE["Perfil del dominio<br/>versionado · dominio glTF/GLB"]
+  PROFILE --> VERDICT["Veredicto reproducible<br/>mismo archivo, mismo resultado"]
+  VERDICT --> REPORTS["Informes<br/>JSON canónico · Markdown"]
+  REPORTS --> API["Servicio HTTP y MCP<br/>OpenAPI · agentes supervisados"]
+  VERDICT -.-> REPAIR["Reparar y revalidar<br/>el ciclo vuelve a la entrada"]
+  REPAIR -.-> IN

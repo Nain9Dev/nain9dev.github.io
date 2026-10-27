@@ -1,4 +1,4 @@
-import { readFile, writeFile, mkdir, cp, rm } from 'node:fs/promises';
+import { readFile, readdir, writeFile, mkdir, cp, rm } from 'node:fs/promises';
 import { dirname, join, relative, resolve } from 'node:path';
 import { parse, parseFragment, serialize } from 'parse5';
 import { syncTranslations, walk } from './sync-translations.mjs';
@@ -121,6 +121,12 @@ const englishCommands = Object.fromEntries(Object.entries(commands).map(([key, h
   return [key, serialize(body)];
 }));
 pendingWrites.push(['en/assets/data/terminal-commands.json', JSON.stringify(englishCommands, null, 2) + '\n']);
+// Catalog diagrams (specs/next-private-diagrams, PD-005): the English copy of each SVG, fetched by the catalog on /en/ pages.
+for (const file of (await readdir('public/assets/diagrams').catch(() => [])).filter(file => file.endsWith('.svg'))) {
+  const svg = await readFile(`public/assets/diagrams/${file}`, 'utf8');
+  const body = descendants(parse(localizeDocument(svg, catalog))).find(node => node.tagName === 'body');
+  pendingWrites.push([`en/assets/diagrams/${file}`, serialize(body)]);
+}
 pendingWrites.push(['sitemap-0.xml', `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${pages.map(url => `<url><loc>${escapeXml(url)}</loc></url>`).join('')}</urlset>\n`]);
 
 if (preview) {

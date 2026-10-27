@@ -13,6 +13,8 @@ export interface Project {
   technologies: string[];
   links: ProjectLink[];
   thumbnail?: string;
+  /** Anonymized architecture diagram of a private project in production (specs/next-private-diagrams, PD-001). */
+  diagram?: string;
   story?: ProjectStory;
 }
 

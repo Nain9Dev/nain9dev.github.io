@@ -41,6 +41,11 @@ export async function collectSources(directory = 'dist') {
       return value;
     });
   }
+  // Catalog diagrams (specs/next-private-diagrams, PD-005): static SVG files that opt in with data-translate="yes".
+  for (const file of (await readdir('public/assets/diagrams').catch(() => [])).filter(file => file.endsWith('.svg'))) {
+    const svg = await readFile(`public/assets/diagrams/${file}`, 'utf8');
+    for (const segment of extractSegments(parse(svg))) add(segment, `assets/diagrams/${file}`);
+  }
   const runtime = JSON.parse(await readFile('src/i18n/runtime.json', 'utf8'));
   for (const [key, value] of Object.entries(runtime)) {
     const source = normalize(value);

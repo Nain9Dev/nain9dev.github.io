@@ -97,8 +97,9 @@ test('WK-004: one accessible token-coloured diagram per project, with its Mermai
     assert.match(svg, /data-translate="yes"/, `${file}: labels opt into the English build`);
     assert.ok(await exists(`docs/assets/diagrams/work-${project.id}.mmd`), `${project.id}: Mermaid source`);
   }
-  const css = await read('src/styles/work.css');
-  for (const part of ['node', 'label', 'flow', 'arrow']) assert.match(css, new RegExp(`\\.work-diagram \\.${part} \\{[^}]*var\\(--color-`), `.${part} reads a token colour`);
+  // The diagram rules are shared with the catalog since specs/next-private-diagrams (PD-006).
+  const css = await read('src/styles/diagram.css');
+  for (const part of ['node', 'label', 'flow', 'arrow']) assert.match(css, new RegExp(`\\.arch-diagram \\.${part} \\{[^}]*var\\(--color-`), `.${part} reads a token colour`);
 });
 
 test('WK-006: no case-study wording in the work pages, their components or their styles', async () => {

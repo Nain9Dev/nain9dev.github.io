@@ -20,9 +20,9 @@ export const BLOCKED_CLAIMS = [
 ];
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
-const SOURCE_DIRS = ['src/components', 'src/pages', 'src/content', 'public/assets/data'];
+const SOURCE_DIRS = ['src/components', 'src/pages', 'src/content', 'public/assets/data', 'public/assets/diagrams'];
 const IGNORED_DIRS = new Set(['src/content/marketing']);
-const EXTENSIONS = /\.(astro|mdx?|html|json)$/;
+const EXTENSIONS = /\.(astro|mdx?|html|json|svg)$/;
 
 export function findBlockedClaims(text) {
   return BLOCKED_CLAIMS.filter((pattern) => pattern.test(text)).map(String);

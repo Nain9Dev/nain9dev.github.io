@@ -18,7 +18,7 @@ const Diagram = diagrams[Astro.props.project];
 if (!Diagram) throw new Error(`No architecture diagram for project "${Astro.props.project}"`);
 ---
 <h2 id="arquitectura">Arquitectura</h2>
-<figure class="work-diagram" tabindex="0" aria-label="Diagrama de arquitectura; en pantallas estrechas se desplaza en horizontal">
+<figure class="arch-diagram" tabindex="0" aria-label="Diagrama de arquitectura; en pantallas estrechas se desplaza en horizontal">
   <Diagram />
 </figure>
 <slot />
