@@ -1,0 +1,9 @@
+%% Source of public/assets/diagrams/collaborative-crm.svg (specs/next-private-diagrams, PD-002).
+%% Anonymized: only the architecture and stack published in the catalog entry.
+flowchart LR
+  CLIENT["Cliente Vue 3<br/>TypeScript · Tailwind CSS"] --> API["API FastAPI<br/>SQLAlchemy · versión por entidad"]
+  API --> DB["PostgreSQL<br/>citext · índices únicos parciales"]
+  API -- "versión obsoleta" --> CONFLICT["Conflicto HTTP 409<br/>fusión campo a campo"]
+  CONFLICT -.-> CLIENT
+  DB -- "mismo commit" --> LOG["Registro de actividad<br/>en la misma transacción"]
+  DEPLOY["Despliegue<br/>Docker · coste operativo cero"]

@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
+import { readFile, readdir } from 'node:fs/promises';
 import { relative } from 'node:path';
 import { parse, serializeOuter } from 'parse5';
 import { walk } from './sync-translations.mjs';
@@ -63,6 +63,13 @@ for (const [url, page] of pages) {
     if (!page.alternate.length) continue;
     check([page, english].every(item => item.alternate.some(node => attr(node, 'hreflang') === key && attr(node, 'href') === value)), `${url}: language links are not reciprocal`);
   }
+}
+// Catalog diagrams (specs/next-private-diagrams, PD-005): every Spanish SVG has an English copy that differs from it.
+for (const file of (await readdir('public/assets/diagrams').catch(() => [])).filter(file => file.endsWith('.svg'))) {
+  const spanish = await readFile(`public/assets/diagrams/${file}`, 'utf8');
+  const english = await readFile(`${root}/en/assets/diagrams/${file}`, 'utf8').catch(() => null);
+  check(english !== null, `assets/diagrams/${file}: missing English diagram`);
+  if (english !== null) check(english !== spanish && english.startsWith('<svg'), `assets/diagrams/${file}: English diagram is not a translated SVG`);
 }
 const runtime = JSON.parse(await readFile('src/i18n/runtime.json', 'utf8'));
 for (const file of (await walk('src')).filter(file => /\.(?:js|astro|mdx)$/.test(file) && !file.endsWith('.min.js'))) {

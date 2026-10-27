@@ -22,6 +22,7 @@
     ],
     "links": [],
     "private": true,
+    "diagram": "/assets/diagrams/conformance-architecture.svg",
     "featured": true,
     "order": 0
   },
@@ -46,6 +47,7 @@
     ],
     "links": [],
     "private": true,
+    "diagram": "/assets/diagrams/interactive-3d-viewer.svg",
     "featured": true,
     "order": 1
   },
@@ -73,6 +75,7 @@
     ],
     "links": [],
     "private": true,
+    "diagram": "/assets/diagrams/collaborative-crm.svg",
     "featured": true,
     "order": 2
   },

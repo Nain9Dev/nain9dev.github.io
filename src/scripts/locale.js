@@ -2,8 +2,13 @@ export function isEnglish() {
   return document.documentElement.lang === 'en-US';
 }
 
+// Localized copies of static assets (data files, catalog diagrams) live under /en/ in the English build.
+export function assetUrl(path) {
+  return `${isEnglish() ? '/en' : ''}${path}`;
+}
+
 export function dataUrl(file) {
-  return `${isEnglish() ? '/en' : ''}/assets/data/${file}`;
+  return assetUrl(`/assets/data/${file}`);
 }
 
 export function message(key, values = {}) {

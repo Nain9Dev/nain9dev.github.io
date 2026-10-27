@@ -1,0 +1,36 @@
+<svg viewBox="0 0 720 320" role="img" aria-labelledby="ca-title ca-desc" data-translate="yes" xmlns="http://www.w3.org/2000/svg">
+  <title id="ca-title">Arquitectura de la plataforma de conformidad</title>
+  <desc id="ca-desc">El producto entra por su contenedor binario y se identifica. La medición calcula invariantes geométricos exactos y el perfil versionado del dominio fija qué se comprueba. El veredicto es reproducible para el mismo archivo y se publica en informes JSON canónico y Markdown, a través de un servicio HTTP con OpenAPI y de herramientas MCP para agentes con supervisión humana. El ciclo reparar y revalidar vuelve a la entrada.</desc>
+  <defs>
+    <marker id="ca-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="arrow" /></marker>
+    <marker id="ca-arrow-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="arrow arrow-accent" /></marker>
+  </defs>
+  <rect class="node" x="20" y="40" width="200" height="64" rx="8" />
+  <text class="label" x="120" y="66" text-anchor="middle">Entrada del producto</text>
+  <text class="label-soft" x="120" y="88" text-anchor="middle">identificación del contenedor</text>
+  <rect class="node" x="260" y="40" width="200" height="64" rx="8" />
+  <text class="label" x="360" y="66" text-anchor="middle">Medición</text>
+  <text class="label-soft" x="360" y="88" text-anchor="middle">invariantes geométricos exactos</text>
+  <rect class="node" x="500" y="40" width="200" height="64" rx="8" />
+  <text class="label" x="600" y="66" text-anchor="middle">Perfil del dominio</text>
+  <text class="label-soft" x="600" y="88" text-anchor="middle">versionado · dominio glTF/GLB</text>
+  <rect class="node node-accent" x="500" y="216" width="200" height="64" rx="8" />
+  <text class="label" x="600" y="242" text-anchor="middle">Veredicto reproducible</text>
+  <text class="label-soft" x="600" y="264" text-anchor="middle">mismo archivo, mismo resultado</text>
+  <rect class="node" x="260" y="216" width="200" height="64" rx="8" />
+  <text class="label" x="360" y="242" text-anchor="middle">Informes</text>
+  <text class="label-soft" x="360" y="264" text-anchor="middle">JSON canónico · Markdown</text>
+  <rect class="node" x="20" y="216" width="200" height="64" rx="8" />
+  <text class="label" x="120" y="242" text-anchor="middle">Servicio HTTP y MCP</text>
+  <text class="label-soft" x="120" y="264" text-anchor="middle">OpenAPI · agentes supervisados</text>
+  <rect class="node" x="260" y="128" width="200" height="56" rx="8" stroke-dasharray="4 4" />
+  <text class="label" x="360" y="152" text-anchor="middle">Reparar y revalidar</text>
+  <text class="label-soft" x="360" y="172" text-anchor="middle">el ciclo vuelve a la entrada</text>
+  <path class="flow" d="M220 72H258" marker-end="url(#ca-arrow)" />
+  <path class="flow" d="M460 72H498" marker-end="url(#ca-arrow)" />
+  <path class="flow" d="M600 104V214" marker-end="url(#ca-arrow)" />
+  <path class="flow flow-accent" d="M500 248H462" marker-end="url(#ca-arrow-accent)" />
+  <path class="flow" d="M260 248H222" marker-end="url(#ca-arrow)" />
+  <path class="flow" d="M500 232H480V156H462" marker-end="url(#ca-arrow)" stroke-dasharray="4 4" />
+  <path class="flow" d="M260 156H120V106" marker-end="url(#ca-arrow)" stroke-dasharray="4 4" />
+</svg>
