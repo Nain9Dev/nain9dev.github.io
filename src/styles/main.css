@@ -317,11 +317,6 @@ main > .section:not(.hero) {
 }
 
 /* The same for blocks that rule never matched: later service groups, strips and the footer (PERF-021). */
-.service-group + .service-group {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 560px;
-}
-
 .live-demos,
 .site-footer {
   content-visibility: auto;
@@ -953,7 +948,6 @@ main[tabindex="-1"]:focus {
   padding: 1.8rem;
 }
 
-
 .card-number {
   display: block;
   margin-bottom: 1.25rem;
@@ -1113,15 +1107,6 @@ main[tabindex="-1"]:focus {
 
 .project-grid {
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 27rem), 1fr));
-}
-
-.service-group {
-  margin-top: clamp(2.5rem, 6vw, 4rem);
-}
-
-.service-group-title {
-  margin-bottom: 1.5rem;
-  font-size: clamp(1.4rem, 2.6vw, 1.9rem);
 }
 
 .catalog-index {
@@ -1564,258 +1549,6 @@ main[tabindex="-1"]:focus {
   font-weight: 500;
 }
 
-.page-top {
-  padding-top: 8rem;
-}
-
-.blog-main {
-  min-height: 70vh;
-  margin-top: 8rem;
-}
-
-.blog-action {
-  display: inline-flex;
-  margin-top: 1.5rem;
-}
-
-.case-study-card.lead-page {
-  max-width: 50rem;
-  margin: 0 auto;
-  padding: 0;
-  border: none;
-  background: transparent;
-  box-shadow: none;
-}
-
-.section-heading.page-intro {
-  display: block;
-  text-align: center;
-}
-
-.page-intro h1 {
-  max-width: none;
-  margin-bottom: 1.5rem;
-  font-size: clamp(2rem, 4.4vw, 2.8rem);
-}
-
-.page-intro p {
-  color: var(--color-text-muted);
-  font-size: 1.1rem;
-}
-
-.center-actions {
-  justify-content: center;
-  margin-top: 2rem;
-}
-
-.terminal-wrap {
-  margin-top: 4rem;
-}
-
-.thanks-emoji {
-  margin-bottom: 1rem;
-  font-size: 4rem;
-}
-
-.thanks-page {
-  text-align: center;
-}
-
-.thanks-page h1 {
-  max-width: none;
-  margin-bottom: 1.5rem;
-  font-size: clamp(2rem, 4.4vw, 2.8rem);
-}
-
-.thanks-lead {
-  margin-bottom: 2rem;
-  color: var(--color-text-muted);
-  font-size: 1.2rem;
-}
-
-.thanks-card {
-  margin-top: 3rem;
-  padding: 2.5rem;
-  border: 1px solid var(--color-primary);
-  border-radius: var(--radius-medium);
-  background: linear-gradient(160deg, color-mix(in srgb, var(--color-cobalt-bright) 12%, transparent), color-mix(in srgb, var(--color-cobalt-bright) 3%, transparent));
-  text-align: left;
-}
-
-.thanks-card .eyebrow {
-  color: var(--color-primary);
-}
-
-.thanks-card h2 {
-  margin-bottom: 1rem;
-  font-size: 1.8rem;
-}
-
-.thanks-card p:not(.eyebrow) {
-  margin-bottom: 1.5rem;
-  color: var(--color-text-muted);
-  line-height: 1.6;
-}
-
-.thanks-actions {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 2rem;
-  gap: 1rem;
-}
-
-.back-link {
-  color: var(--color-text-muted);
-  font-size: 0.95rem;
-  text-decoration: underline;
-}
-
-.related-services {
-  margin-top: 4rem;
-}
-
-.related-title {
-  margin-bottom: 2rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--color-line);
-  font-size: 1.8rem;
-}
-
-.tech-grid {
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fill, minmax(18.75rem, 1fr));
-}
-
-.tech-link-card {
-  text-decoration: none;
-}
-
-.tech-link-card:hover,
-.tech-link-card:focus-visible {
-  border-color: var(--color-green);
-  box-shadow: var(--shadow-raised);
-  transform: translate(-2px, -2px);
-}
-
-.tech-link-card h3 {
-  margin-bottom: 0.5rem;
-  color: var(--color-text);
-  font-size: 1.25rem;
-}
-
-.tech-link-card p {
-  color: var(--color-text-muted);
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
-.lead-layout {
-  display: grid;
-  margin-top: 3rem;
-  gap: 3rem;
-  grid-template-columns: 1fr 1fr;
-}
-
-.lead-layout h2 {
-  margin-bottom: 1.5rem;
-  font-size: 1.5rem;
-}
-
-.check-list {
-  margin-left: 0;
-  list-style: none;
-}
-
-.check-list li {
-  position: relative;
-  margin-bottom: 1rem;
-  padding-left: 2rem;
-}
-
-.check-list li::before {
-  position: absolute;
-  top: 0.15rem;
-  left: 0;
-  display: grid;
-  width: 1.3rem;
-  height: 1.3rem;
-  border-radius: 50%;
-  background: color-mix(in srgb, var(--color-cobalt-bright) 18%, transparent);
-  color: var(--color-primary-strong);
-  content: "✓";
-  font-size: 0.8rem;
-  font-weight: 700;
-  place-items: center;
-}
-
-.lead-quote {
-  margin: 2rem 0 0;
-  padding-left: 1.5rem;
-  border-left: 3px solid var(--color-primary);
-  color: var(--color-text-muted);
-  font-style: italic;
-}
-
-.lead-quote span {
-  color: var(--color-ink);
-  font-size: 0.9rem;
-}
-
-.lead-card {
-  padding: 2rem;
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-medium);
-  background: linear-gradient(160deg, color-mix(in srgb, var(--color-cobalt-bright) 10%, transparent), var(--color-surface) 55%);
-}
-
-.lead-card h3 {
-  margin: 0 0 1.5rem;
-  font-size: 1.3rem;
-}
-
-.lead-card p {
-  color: var(--color-text-muted);
-}
-
-.lead-action {
-  margin-top: 1.5rem;
-  text-align: center;
-}
-
-.lead-action p {
-  margin: 0;
-}
-
-.lead-action .button {
-  width: 100%;
-}
-
-.lead-note {
-  margin-top: 1.5rem;
-  font-size: 0.8rem;
-  text-align: center;
-}
-
-.lead-note a {
-  color: var(--color-primary);
-}
-
-@media (max-width: 48rem) {
-  .lead-layout {
-    grid-template-columns: 1fr;
-  }
-}
-
-.card-action {
-  margin-top: 1.5rem;
-}
-
-.page-cta {
-  margin-top: 4rem;
-  text-align: center;
-}
-
 .footer-layout {
   display: flex;
   align-items: center;
@@ -1827,27 +1560,6 @@ main[tabindex="-1"]:focus {
   margin: 0;
   color: var(--color-text-muted);
   font-size: 0.78rem;
-}
-
-.error-page {
-  display: grid;
-  min-height: 100vh;
-  place-items: center;
-}
-
-.error-panel {
-  max-width: 42rem;
-  padding-block: 5rem;
-  text-align: center;
-}
-
-.error-panel h1 {
-  max-width: none;
-}
-
-.error-panel p {
-  margin-bottom: 2rem;
-  color: var(--color-text-muted);
 }
 
 .motion-ready [data-reveal] {
@@ -2083,15 +1795,6 @@ main[tabindex="-1"]:focus {
   }
 }
 
-.project-grid-container {
-  transition: opacity var(--dur-fast) var(--ease-standard);
-}
-
-.project-grid-container.is-filtering {
-  opacity: 0;
-  pointer-events: none;
-}
-
 /* ==========================================================================
    Tech Stack Section
    ========================================================================== */
@@ -2143,63 +1846,6 @@ a.tech-badge:focus-visible {
 }
 
 /* --- Content cards (shared by privacy, resource and technology pages) --- */
-.case-study-card {
-  display: flex;
-  flex-direction: column;
-  background-color: var(--color-surface-warm);
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius);
-  padding: 2rem;
-  transition:
-    transform var(--dur-base) var(--ease-standard),
-    box-shadow var(--dur-base) var(--ease-standard),
-    border-color var(--dur-fast) var(--ease-standard);
-  height: 100%;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .case-study-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-glow);
-    border-color: color-mix(in srgb, var(--color-cobalt-bright) 40%, transparent);
-  }
-}
-
-.case-study-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.case-study-list li {
-  position: relative;
-  padding-left: 1.5rem;
-  color: var(--color-text-soft);
-}
-
-.case-study-list li::before {
-  content: "→";
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: var(--color-primary);
-  font-weight: bold;
-}
-
-.tech-badge-small {
-  display: inline-block;
-  padding: 0.25rem 0.75rem;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--color-primary-strong);
-  background-color: color-mix(in srgb, var(--color-cobalt-bright) 10%, transparent);
-  border: 1px solid color-mix(in srgb, var(--color-cobalt-bright) 20%, transparent);
-  border-radius: 9999px;
-  white-space: nowrap;
-}
 
 /* --- What I offer, at a glance (HERO-023) --- */
 .offer-row {
@@ -2296,165 +1942,7 @@ a.tech-badge:focus-visible {
 }
 
 /* --- Blog Structure --- */
-.blog-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.blog-card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius);
-  padding: 2rem;
-  transition:
-    transform var(--dur-base) var(--ease-standard),
-    box-shadow var(--dur-base) var(--ease-standard),
-    border-color var(--dur-fast) var(--ease-standard);
-}
-
-.blog-card:hover,
-.blog-card:focus-within {
-  border-color: var(--color-line-strong);
-  box-shadow: var(--shadow-raised);
-  transform: translateY(-4px);
-}
-
-.blog-card h2 {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  margin: 1rem 0;
-}
-
-.blog-card h2 a {
-  text-decoration: none;
-  color: var(--color-text);
-}
-
-.blog-card p {
-  color: var(--color-text-muted);
-  font-size: 0.95rem;
-}
-
-.blog-card .tag-list {
-  display: flex;
-  gap: 0.5rem;
-  list-style: none;
-  padding: 0;
-  margin: 1.5rem 0 0 0;
-}
-
-.blog-card .tag-list li {
-  font-size: 0.75rem;
-  padding: 0.25rem 0.5rem;
-  background: var(--color-background-soft);
-  border: 1px solid var(--color-line);
-  border-radius: 4px;
-}
-
 /* --- Servicios SMB --- */
-.service-hero {
-  padding-top: calc(var(--header-height) + clamp(4rem, 10vh, 8rem));
-  padding-bottom: 4rem;
-  text-align: center;
-}
-.service-hero-content {
-  max-width: 800px;
-  margin: 0 auto;
-}
-.service-hero h1 {
-  font-family: var(--font-display);
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  line-height: 1.1;
-  max-width: 25ch;
-  margin: 1.5rem auto;
-  background: linear-gradient(to right, var(--color-text), var(--color-text-muted));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.service-hero .hero-summary {
-  max-width: 70ch;
-  margin: 1.5rem auto 2.5rem;
-}
-.service-hero .button-group {
-  margin: 2rem auto 0;
-  display: flex;
-  justify-content: center;
-}
-.pain-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
-}
-.pain-card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius);
-  padding: 2.5rem 2rem;
-  text-align: center;
-}
-.pain-icon {
-  font-size: 2.5rem;
-  display: block;
-  margin-bottom: 1rem;
-}
-.pain-card h3 {
-  font-family: var(--font-display);
-  color: var(--color-text);
-  margin-bottom: 1rem;
-  font-size: 1.25rem;
-}
-.pain-card p {
-  color: var(--color-text-muted);
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
-.service-process {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 3rem;
-  margin-top: 3rem;
-}
-.process-step {
-  position: relative;
-  background: var(--color-surface);
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-medium);
-  padding: 2.5rem 2rem;
-  overflow: hidden;
-  z-index: 1;
-}
-.step-number {
-  font-family: var(--font-mono);
-  font-size: 8rem;
-  font-weight: 800;
-  color: var(--color-line-strong);
-  opacity: 0.3;
-  position: absolute;
-  top: -1.5rem;
-  right: -1rem;
-  left: auto;
-  z-index: -1;
-  line-height: 1;
-  pointer-events: none;
-}
-.process-step h3 {
-  position: relative;
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
-  color: var(--color-primary-strong);
-}
-.process-step p {
-  position: relative;
-  color: var(--color-text-muted);
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
 /* Adaptive low-performance overrides: eliminate CPU bottlenecks on devices without hardware acceleration */
 html.low-performance {
   scroll-behavior: auto !important;
@@ -2496,15 +1984,9 @@ html.low-performance .hero::before {
   border-color: color-mix(in srgb, var(--color-cobalt-bright) 12%, transparent) !important;
 }
 
-html.low-performance .card {
-  box-shadow: 0 4px 16px color-mix(in srgb, var(--color-black) 30%, transparent) !important;
-  transition: border-color 0.15s ease !important;
-}
-
 html.low-performance .hero-3d-canvas {
   display: none !important;
 }
-
 
 html.low-performance body::after {
   display: none !important;
@@ -2533,7 +2015,6 @@ html.low-performance .modal {
 html.low-performance [data-parallax="true"] {
   transform: none !important;
 }
-
 
 /* --- Spec 045 PR 2: hero entrance, scroll progress and phone menu --- */
 
@@ -3182,60 +2663,7 @@ html.low-performance .system-map::after {
 }
 
 /* Services hub: compact cards, glyph first. */
-.service-group .service-card {
-  display: grid;
-  min-height: 0;
-  align-content: start;
-  gap: var(--s3);
-}
-
-.service-group .service-card:hover .service-glyph,
-.service-group .service-card:focus-within .service-glyph {
-  stroke: var(--color-green);
-}
-
-.service-group .service-card h3 {
-  margin: 0;
-  font-size: var(--text-md);
-}
-
-.service-group .service-card p {
-  margin: 0;
-  font-size: var(--text-sm);
-}
-
-.service-group .service-card .card-action {
-  justify-self: start;
-  margin-top: var(--s2);
-}
-
-.service-group-title {
-  max-width: 26ch;
-  font-size: var(--text-xl);
-}
-
 /* Service page: glyph and title head the article; body paragraphs keep a reading measure. */
-.service-head {
-  display: grid;
-  margin-bottom: var(--s8);
-  gap: var(--s4);
-}
-
-.service-head .service-glyph {
-  width: 3.5rem;
-  height: 3.5rem;
-  padding: 0.8rem;
-}
-
-.service-head h1 {
-  margin: 0;
-  max-width: 20ch;
-}
-
-.service-article :is(p, li, blockquote) {
-  max-width: 68ch;
-}
-
 .service-article h2,
 .article h2 {
   margin-top: var(--s12);
@@ -3255,76 +2683,9 @@ html.low-performance .system-map::after {
 }
 
 /* Blog index: each card opens with a numbered cover band; the number is silent for screen readers. */
-.blog-grid {
-  counter-reset: post;
-}
-
-.blog-card {
-  position: relative;
-  display: grid;
-  padding: 0 var(--s6) var(--s6);
-  gap: var(--s3);
-  counter-increment: post;
-  overflow: hidden;
-}
-
-.blog-card::before {
-  display: grid;
-  height: 7.5rem;
-  margin: 0 calc(-1 * var(--s6)) var(--s2);
-  padding: var(--s4) var(--s6);
-  align-items: end;
-  border-bottom: 1px solid var(--color-line);
-  background: linear-gradient(135deg, color-mix(in srgb, var(--color-cobalt) 45%, var(--color-bg-raised)), var(--color-bg-raised));
-  color: color-mix(in srgb, var(--color-ink) 22%, transparent);
-  content: counter(post, decimal-leading-zero) / "";
-  font-family: var(--font-display);
-  font-size: 3rem;
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 1;
-}
-
-.blog-card:nth-child(3n + 2)::before {
-  background: linear-gradient(135deg, color-mix(in srgb, var(--color-green) 16%, var(--color-bg-raised)), var(--color-bg-raised));
-}
-
-.blog-card:nth-child(3n)::before {
-  background: linear-gradient(135deg, color-mix(in srgb, var(--color-link) 30%, var(--color-bg-raised)), var(--color-bg-raised));
-}
-
-.blog-card time.eyebrow,
-.blog-card h2,
-.blog-card .tag-list,
-.blog-card .quiet {
-  margin: 0;
-}
-
-.blog-card h2 {
-  font-size: var(--text-lg);
-}
-
-.blog-card .blog-action {
-  justify-self: start;
-  margin-top: auto;
-}
-
 /* Article: byline as a label, reading measure, share row without inline styles. */
 .article h1 {
   max-width: 22ch;
-}
-
-.article-byline {
-  margin-bottom: var(--s8);
-  color: var(--color-ink-muted);
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  letter-spacing: var(--tracking-label);
-  text-transform: uppercase;
-}
-
-.article-byline a {
-  color: var(--color-link);
 }
 
 .article :is(p, ul, ol, blockquote) {
@@ -3336,35 +2697,9 @@ html.low-performance .system-map::after {
   border-radius: var(--radius);
 }
 
-.share-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  margin-top: var(--s16);
-  padding-top: var(--s8);
-  gap: var(--s4);
-  border-top: 1px solid var(--color-line);
-}
-
-.share-label {
-  color: var(--color-ink-muted);
-  font-weight: 600;
-}
-
 /* --- Spec 047 follow-up: covers, technology header, about order --- */
 
 /* Technology page: the stack mark heads the title. */
-.tech-hero-icon {
-  width: 4rem;
-  height: 4rem;
-  margin-bottom: var(--s4);
-  padding: 0.75rem;
-  filter: none;
-  border: 1px solid color-mix(in srgb, var(--color-cobalt-bright) 35%, transparent);
-  border-radius: var(--radius);
-  background: color-mix(in srgb, var(--color-cobalt-bright) 12%, transparent);
-}
-
 /* About: the profile links come first, the long copy stays behind the toggle below them. */
 .about-copy {
   display: grid;

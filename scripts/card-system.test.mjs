@@ -10,7 +10,7 @@ const read = (file) => readFile(join(ROOT, file), 'utf8');
 const rule = (css, selector) => css.match(new RegExp(`\\n${selector.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')} \\{([^}]*)\\}`))?.[1];
 
 test('VP-004: every card family uses the shared radius', async () => {
-  const css = await read('src/styles/main.css');
+  const css = (await read('src/styles/main.css')) + '\n' + (await read('src/styles/inner-pages.css')); // inner-page rules moved (specs/next-case-pages IS-001)
   for (const selector of ['.live-demo', '.blog-card', '.pain-card', '.case-study-card', '.catalog-index li', '.tech-badge', '.case-media']) {
     const body = rule(css, selector);
     assert.ok(body, `${selector} rule exists`);
@@ -19,7 +19,7 @@ test('VP-004: every card family uses the shared radius', async () => {
 });
 
 test('VP-008: hover lifts have a keyboard equivalent', async () => {
-  const css = await read('src/styles/main.css');
+  const css = (await read('src/styles/main.css')) + '\n' + (await read('src/styles/inner-pages.css')); // inner-page rules moved (specs/next-case-pages IS-001)
   assert.match(css, /\.service-card:hover,\s*\.service-card:focus-within \{/);
   assert.match(css, /\.project-row:hover,\s*\.project-row:focus-within \{/);
   assert.match(css, /\.live-demo:hover,\s*\.live-demo:focus-visible \{[^}]*box-shadow: var\(--shadow-raised\)/);

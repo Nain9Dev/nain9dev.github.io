@@ -76,7 +76,9 @@ test('PERF-004: no stylesheet is served unbundled', async () => {
   assert.equal((await walk('public/assets/css')).length, 0, 'public/assets/css must be empty');
   const layout = await read('src/layouts/BaseLayout.astro');
   assert.doesNotMatch(layout, /href="\/assets\/css\//);
-  assert.match(layout, /import '\.\.\/styles\/main\.css'/);
+  // The pages import the stylesheets so the cascade order is theirs (specs/next-case-pages IS-001).
+  assert.match(await read('src/styles/site.css'), /@import '\.\/main\.css'/);
+  assert.match(await read('src/pages/index.astro'), /import '\.\.\/styles\/site\.css'/);
 });
 
 test('PERF-005: the document head never creates a WebGL context', async () => {
@@ -125,7 +127,8 @@ test('PERF-021: blocks outside the main > .section rule also skip rendering unti
   // /servicios/ nests its groups inside main.section, and the proof strip, the live demos strip and the
   // footer are not .section children, so PERF-008 never covered them (spec next-portfolio-ecosystem-hero).
   const main = await read('src/styles/main.css');
-  const rule = main.match(/\.service-group \+ \.service-group[^{]*\{([^}]*)\}/);
+  const inner = await read('src/styles/inner-pages.css'); // service-group rules live with the inner pages (specs/next-case-pages IS-001)
+  const rule = inner.match(/\.service-group \+ \.service-group[^{]*\{([^}]*)\}/);
   assert.ok(rule, 'missing content-visibility rule for the later service groups');
   assert.match(rule[1], /content-visibility:\s*auto/);
   assert.match(rule[1], /contain-intrinsic-size:\s*auto \d+px/);

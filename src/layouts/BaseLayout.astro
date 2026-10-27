@@ -7,9 +7,8 @@ import { defaultSEO } from '../utils/seo';
 import runtimeMessages from '../i18n/runtime.json';
 import interFont from '../assets/fonts/inter-var.woff2?url';
 import urbanistFont from '../assets/fonts/urbanist-var.woff2?url';
-import '../styles/main.css';
-import '../styles/terminal.css';
-import '../styles/locales.css';
+// Stylesheets are imported by the pages (site.css on the home, inner.css elsewhere): a layout import would
+// bundle them after the page's own CSS and change the cascade (specs/next-case-pages, IS-001).
 
 interface Props {
   title?: string;

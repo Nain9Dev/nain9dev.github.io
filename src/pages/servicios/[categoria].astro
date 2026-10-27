@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ServiceIcon from '../../components/ServiceIcon.astro';
 import { serializeJsonLd } from '../../utils/seo';
+import '../../styles/inner.css';
 
 export async function getStaticPaths() {
   const servicios = await getCollection('servicios', ({ data }) => data.draft !== true);

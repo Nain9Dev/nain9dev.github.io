@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { defaultSEO } from '../../utils/seo';
+import '../../styles/inner.css';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => data.draft !== true);

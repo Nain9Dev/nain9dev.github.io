@@ -4,6 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getTechnologyRouteParam } from '../../utils/technologyRoutes';
 import Quiet from '../../components/home/Quiet.astro';
 import techStackData from '../../../public/assets/data/tech-stack.json';
+import '../../styles/inner.css';
 
 export async function getStaticPaths() {
   const servicios = await getCollection('servicios', ({ data }) => !data.draft);
