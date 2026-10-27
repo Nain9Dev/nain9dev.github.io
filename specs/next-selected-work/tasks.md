@@ -46,7 +46,7 @@ New strings (all with reviewed English targets in `src/i18n/en-US.json`, 20 segm
 
 ## Measurements (2026-10-27, local production build)
 
-- `gzip(dist/index.html)`: 29 916 B (limit 30 720 B, ADR-0013); `/en/`: about 29 300 B. The budget is tight: the next home change should first move page-specific CSS out of `main.css` (ADR-0013 follow-up).
+- `gzip(dist/index.html)`: 29 916 B before merging `main`, 30 030 B after (`main` #33 added five captured project pages to the strip); `/en/`: 29 423 B. Limit 30 720 B (ADR-0013). The budget is tight: the next home change should first move page-specific CSS out of `main.css` (ADR-0013 follow-up).
 - Home: 10 `<section>` elements, 4 cases, `npm run check` exit 0 (all guards, astro check, bilingual build, performance build tests, fonts, brand icons, SEO, locales, case studies, claims).
 - axe (11 page types, 1440 and 390, dark and paper): 0 violations after the `.repo-code` fix. Before it, the only violations were WCAG 2.5.8 target size on the open-ecosystem `.repo-code` links (23.6 px tall), which production already showed on 2026-10-27 (4 to 6 nodes per home); fixed in passing with `min-height: 24px`.
 - Reduced-motion probe: no animation runs on `/`, `/en/`, `/servicios/`, `/blog/`, `/404.html`.
@@ -56,4 +56,4 @@ New strings (all with reviewed English targets in `src/i18n/en-US.json`, 20 segm
 ## Session log
 
 - 2026-10-27 · Interview done (four owner decisions in `spec.md`), spec, plan, tasks and ADR written in worktree `D:/wt/nain9dev.github.io-feat-selected-work` (branch `feat/selected-work`).
-- 2026-10-27 · T01 to T05 implemented test first; `npm run check` green; selected work, catalog rows, stack strip and the terminal fold checked in the browser at 1280 px (terminal opens and runs inside the disclosure); audits above. Changes staged in the worktree, nothing committed, no pull request yet. Next (T06): the owner reads the story appendix in `spec.md`; commit, before/after captures with the local capture tool, pull request with base `main` carrying the measurements; the owner approves the twelve lines and merges.
+- 2026-10-27 · T01 to T05 implemented test first; `npm run check` green; selected work, catalog rows, stack strip and the terminal fold checked in the browser at 1280 px (terminal opens and runs inside the disclosure); audits above. Committed (3e30a92), captures taken (`.astro/visual-polish/selected-work/`), pull request #35 opened with base `main`; `main` (#33, #34) merged into the branch with the translation catalog re-appended, `npm run check` green again. Next (T06): the owner approves the twelve story lines in the spec appendix and merges #35.

@@ -6,6 +6,7 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ### Added
 
+- Project pages: nain-mcp-validator, engineering-handbook, both full-stack templates and the organisation `.github` repository now have a static page on their own subdomain; the catalog and the open-ecosystem tiles link them and show captures of them in place of the README captures (`specs/next-project-sites`).
 - Micro-interactions: press scale, social pill lift, theme toggle icon turn and language switcher hover tint, all CSS and all movement under `prefers-reduced-motion: no-preference` (`specs/next-micro-interactions`).
 - Spec 048: light theme from the brandbook paper palette, applied by the system preference or chosen from a header toggle (persisted, applied before first paint); the terminal keeps its dark skin; solid shadows take a `--color-shadow` role. ADR-0014 (Proposed).
 - Spec 048: light theme from the brandbook paper palette, applied by the system preference or chosen from a header toggle (persisted, applied before first paint); the terminal keeps its dark skin; solid shadows take a `--color-shadow` role. ADR-0014 (Proposed).

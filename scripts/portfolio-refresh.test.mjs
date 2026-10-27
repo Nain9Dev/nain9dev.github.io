@@ -53,8 +53,8 @@ test('PRJ-023: NainProspect and NainWrite are public catalog entries', async () 
 test('VIS-003: every live demo has a small lazy-loaded thumbnail on its card', async () => {
   const projects = await readJson('public/assets/data/projects.json');
   const live = projects.filter((project) => project.links.some((link) => /^https:\/\/[a-z0-9-]+\.naindev\.com(\/|$)/.test(link.url)));
-  // 15 since PRJ-024 linked the NainLegacyModernizer demo (specs/next-portfolio-coverage).
-  assert.equal(live.length, 15);
+  // 15 since PRJ-024 linked the NainLegacyModernizer demo (specs/next-portfolio-coverage); 16 with the nain-mcp-validator page (PRJ-026).
+  assert.equal(live.length, 16);
   for (const project of live) {
     assert.equal(project.thumbnail, `/assets/images/demos/${project.id}.webp`);
     const { size } = await stat(join(ROOT, 'public', project.thumbnail));
@@ -112,18 +112,34 @@ test('PRJ-024: a catalogued repository with a live site links it first, with the
 
 test('PRJ-025: every public catalog entry carries a picture; without a live site it is the README capture', async () => {
   const projects = await readJson('public/assets/data/projects.json');
+  const live = (project) => project.links.some((link) => /^https:\/\/[a-z0-9-]+\.naindev\.com(\/|$)/.test(link.url));
   for (const project of projects.filter((project) => !project.private)) {
     assert.ok(project.thumbnail, `${project.id} carries a picture`);
+    // Without a live site the picture is a README capture; no entry is in that case today.
+    if (!live(project)) assert.match(project.thumbnail, /^\/assets\/images\/repos\//, `${project.id} README capture`);
   }
+});
+
+test('PRJ-026: nain-mcp-validator links its project page first and shows a capture of it', async () => {
+  const projects = await readJson('public/assets/data/projects.json');
   const validator = projects.find((project) => project.id === 'nain-mcp-validator');
-  assert.equal(validator.thumbnail, '/assets/images/repos/nain-mcp-validator.webp');
-  const { size } = await stat(join(ROOT, 'public', validator.thumbnail));
-  assert.ok(size > 1000 && size < 30000, `README capture weighs ${size} bytes`);
+  assert.deepEqual(urlsOf(validator), ['https://mcp.naindev.com/', 'https://github.com/Nain9Dev/nain-mcp-validator']);
+  assert.equal(validator.thumbnail, '/assets/images/demos/nain-mcp-validator.webp');
+  const small = await stat(join(ROOT, 'public/assets/images/demos/nain-mcp-validator-400.webp'));
+  assert.ok(small.size > 500 && small.size <= 10000, `small capture weighs ${small.size} bytes`);
 });
 
 test('ECO-022 and ECO-023: every ecosystem tile shows a capture and links the live site when one exists', async () => {
   const section = await read('src/components/home/OpenEcosystem.astro');
-  const sites = { brandbook: 'https://brand.naindev.com/', status: 'https://status.naindev.com/' };
+  // The four project pages of spec next-project-sites (ECO-025) joined brandbook and status.
+  const sites = {
+    'engineering-handbook': 'https://handbook.naindev.com/',
+    'template-dotnet-clean-arch': 'https://template-dotnet.naindev.com/',
+    'template-fastapi-vue-clean-arch': 'https://template-fastapi.naindev.com/',
+    brandbook: 'https://brand.naindev.com/',
+    status: 'https://status.naindev.com/',
+    '.github': 'https://standards.naindev.com/',
+  };
   // `\r?` because a Windows checkout converts the file to CRLF and the pattern used to miss every entry there.
   const entries = [...section.matchAll(/\{ name: '([^']+)'(.*?)\},?\r?\n/g)];
   assert.equal(entries.length, 6);
