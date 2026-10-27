@@ -9283,5 +9283,30 @@
     "source": "fusión campo a campo",
     "target": "field-by-field merge",
     "status": "reviewed"
+  },
+  "533502218a524c72f592c560620eebf84ea093a6081f0147ba24a4898fecda08": {
+    "source": "⟦0⟧⟦1⟧Código de este sitio⟦/1⟧⟦2/⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1⟧Source code of this site⟦/1⟧⟦2/⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "55b1e2024d7dc34b6534ea30211188fb60a71e2317c0ca70d51e61a694cd351d": {
+    "source": "Comprobable",
+    "target": "Verifiable",
+    "status": "reviewed"
+  },
+  "9b690007e6a092a43fc88344364c898952331f6fd506b81f1805e340c2ea3cea": {
+    "source": "⟦0⟧⟦1⟧Comprobaciones en cada cambio⟦/1⟧⟦2⟧Validación, build bilingüe y presupuesto Lighthouse en GitHub Actions⟦/2⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1⟧Checks on every change⟦/1⟧⟦2⟧Validation, bilingual build and Lighthouse budget on GitHub Actions⟦/2⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "e5344b234118d131f84ba4f99baa2d382004731b281576852d04135c1bafc78b": {
+    "source": "⟦0⟧⟦1⟧Estado de los servicios⟦/1⟧⟦2⟧Monitor público de disponibilidad y latencia⟦/2⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1⟧Service status⟦/1⟧⟦2⟧Public availability and latency monitor⟦/2⟧⟦/0⟧",
+    "status": "reviewed"
+  },
+  "e8e27c9126a0bf09f79716cbc7bfc6199a4db209b862066aa72beb616464f7e8": {
+    "source": "⟦0⟧⟦1⟧Última publicación⟦/1⟧⟦2⟧⟦3/⟧ · ⟦4/⟧⟦/2⟧⟦/0⟧",
+    "target": "⟦0⟧⟦1⟧Last publication⟦/1⟧⟦2⟧⟦3/⟧ · ⟦4/⟧⟦/2⟧⟦/0⟧",
+    "status": "reviewed"
   }
 }

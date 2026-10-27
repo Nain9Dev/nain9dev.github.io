@@ -1,5 +1,11 @@
 ---
 // Hero.astro
+// The receipts band (specs/next-receipts-strip, RC-001) closes the hero with four facts a visitor can check by
+// following a link; the publication receipt is the commit being built (RC-002).
+import { buildInfo } from '../../utils/build-info';
+
+const build = buildInfo();
+const repository = 'https://github.com/Nain9Dev/nain9dev.github.io';
 ---
 <section class="hero section" aria-labelledby="hero-title">
   <canvas id="hero-3d-canvas" class="hero-3d-canvas canvas-placeholder" aria-hidden="true"></canvas>
@@ -64,5 +70,35 @@
       <p class="panel-stack">Python · C# · FastAPI · .NET · PostgreSQL · SQL Server · Vue 3 · MCP</p>
       <p class="panel-hint">Cada bloque te lleva a una evidencia relacionada.</p>
     </aside>
+  </div>
+
+  <div class="shell receipts-band">
+    <p class="eyebrow receipts-lead" id="receipts-lead">Comprobable</p>
+    <ul class="receipts" aria-labelledby="receipts-lead">
+      <li>
+        <a href={repository} target="_blank" rel="noopener noreferrer">
+          <span class="receipt-label">Código de este sitio</span>
+          <span class="receipt-value" translate="no">Nain9Dev/nain9dev.github.io</span>
+        </a>
+      </li>
+      <li>
+        <a href={`${repository}/actions`} target="_blank" rel="noopener noreferrer">
+          <span class="receipt-label">Comprobaciones en cada cambio</span>
+          <span class="receipt-value">Validación, build bilingüe y presupuesto Lighthouse en GitHub Actions</span>
+        </a>
+      </li>
+      <li>
+        <a href={`${repository}/commit/${build.sha}`} target="_blank" rel="noopener noreferrer">
+          <span class="receipt-label">Última publicación</span>
+          <span class="receipt-value"><code translate="no">{build.shortSha}</code> · <time datetime={build.date} translate="no">{build.date}</time></span>
+        </a>
+      </li>
+      <li>
+        <a href="https://status.naindev.com/" target="_blank" rel="noopener noreferrer">
+          <span class="receipt-label">Estado de los servicios</span>
+          <span class="receipt-value">Monitor público de disponibilidad y latencia</span>
+        </a>
+      </li>
+    </ul>
   </div>
 </section>

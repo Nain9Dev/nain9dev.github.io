@@ -528,6 +528,8 @@ main[tabindex="-1"]:focus {
   position: relative;
   display: grid;
   min-height: min(55rem, calc(100vh - var(--header-height)));
+  /* The copy row takes the free height; the receipts band sits at the bottom edge of the first screen (RC-001). */
+  grid-template-rows: minmax(0, 1fr) auto;
   align-items: start;
   overflow: hidden;
   padding-block: clamp(2.5rem, 4vw, 3.5rem) clamp(2.5rem, 4vw, 4rem);
@@ -662,6 +664,74 @@ main[tabindex="-1"]:focus {
 
 .scroll-cue:hover span:last-child {
   transform: translateY(0.25rem);
+}
+
+/* Receipts band (specs/next-receipts-strip, RC-005): four facts a visitor checks by following a link. */
+.receipts-band {
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding-top: var(--s4);
+  border-top: 1px solid var(--color-line);
+}
+
+.receipts-lead {
+  margin-bottom: var(--s3);
+}
+
+.receipts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2) var(--s8);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.receipts li {
+  flex: 1 1 14rem;
+  min-width: 0;
+}
+
+.receipts a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 44px;
+  gap: 0.2rem;
+  text-decoration: none;
+}
+
+.receipt-label {
+  color: var(--color-text-soft);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 650;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.receipt-value {
+  color: var(--color-text);
+  font-size: 0.88rem;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.receipt-value code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+}
+
+.receipts a:hover .receipt-value,
+.receipts a:focus-visible .receipt-value {
+  color: var(--color-link);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+@media (max-width: 36rem) {
+  .receipts li {
+    flex: 1 1 100%;
+  }
 }
 
 .hero-panel {
