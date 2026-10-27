@@ -67,13 +67,14 @@ test('IP-007: the technology page heads with the stack mark and discloses its in
   assert.doesNotMatch(page, /style=/);
 });
 
-test('IP-008: project cards without a capture open with a silent numbered cover', async () => {
+test('IP-008 (as revised by HN-004): every catalog row keeps its index in the markup', async () => {
+  // The numbered cover band went with the tall cards (specs/next-selected-work); the row shows the index as text.
   const view = await read('src/scripts/project-view.js');
   assert.match(view, /article\.dataset\.index = String\(index \+ 1\)\.padStart\(2, "0"\);/);
-  assert.match(view, /if \(!project\.thumbnail\) article\.classList\.add\("project-card-plain"\);/);
+  assert.match(view, /createElement\("span", "project-index", String\(index \+ 1\)\.padStart\(2, "0"\)\)/);
   const css = await read('src/styles/main.css');
-  assert.match(css, /\.project-card-plain::before \{[^}]*content: attr\(data-index\) \/ "";/);
-  assert.match(css, /\.project-card-plain \.project-index \{[^}]*clip-path: inset\(50%\);/, 'the small index stays in the markup, hidden');
+  assert.doesNotMatch(css, /\.project-card-plain/);
+  assert.match(css, /\n\.project-row \{/);
 });
 
 test('IP-009: the about links come before the disclosed copy', async () => {

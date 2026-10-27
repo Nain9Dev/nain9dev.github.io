@@ -46,7 +46,7 @@ test('CAT-001: the project catalog is rendered in the static markup, not only af
 });
 
 test('AVAIL-001: availability is stated as part-time remote work, without weekend wording or a bare "Disponible"', async () => {
-  const proof = text(await read('src/components/home/ProofStrip.astro'));
+  const proof = text(await read('src/components/home/AboutSection.astro'));
   assert.doesNotMatch(proof, /fines? de semana/i);
   assert.match(proof, /tiempo parcial y en remoto/);
   const hero = await read('src/components/home/Hero.astro');

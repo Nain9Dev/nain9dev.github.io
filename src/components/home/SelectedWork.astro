@@ -1,0 +1,54 @@
+---
+// SelectedWork.astro: four selected projects told as a story (problem, approach, result) beside their capture
+// (specs/next-selected-work, SW-001 to SW-006). Static HTML built from projects.json; no client JavaScript.
+import projects from '../../../public/assets/data/projects.json';
+import { isOwnDemo } from '../../utils/projects';
+
+const cases = projects
+  .flatMap((project) => {
+    const demo = project.links.find((link) => isOwnDemo(link.url));
+    const story = project.story;
+    return project.selected && story && demo ? [{ project, demo, story }] : [];
+  })
+  .sort((a, b) => a.project.order - b.project.order);
+---
+<section class="section" id="selected-work" aria-labelledby="selected-work-title">
+  <div class="shell">
+    <div class="section-heading" data-reveal>
+      <div>
+        <p class="eyebrow">Portfolio</p>
+        <h2 id="selected-work-title">Trabajo seleccionado</h2>
+      </div>
+    </div>
+
+    <ol class="case-list">
+      {cases.map(({ project, demo, story }, index) => (
+        <li class="case" data-reveal>
+          <figure class="case-media">
+            {/* The capture is decorative: the title and the story carry the meaning (SW-009). */}
+            <a class="case-link" href={demo.url} target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+              <img class="case-capture" src={project.thumbnail} alt="" width="640" height="360" loading={index === 0 ? 'eager' : 'lazy'} fetchpriority={index === 0 ? 'high' : undefined} decoding="async" />
+            </a>
+          </figure>
+          <div class="case-body">
+            <p class="case-eyebrow"><span class="case-index" translate="no">{String(index + 1).padStart(2, '0')}</span><span class="case-status">{project.status}</span></p>
+            <h3 class="case-title">{project.title}</h3>
+            <dl class="case-story">
+              <div><dt>Problema</dt><dd>{story.problem}</dd></div>
+              <div><dt>Enfoque</dt><dd>{story.approach}</dd></div>
+              <div><dt>Resultado</dt><dd>{story.result}</dd></div>
+            </dl>
+            <ul class="tag-list case-tags" translate="no">
+              {project.technologies.slice(0, 5).map((technology) => <li>{technology}</li>)}
+            </ul>
+            <p class="case-links">
+              {project.links.map((link) => (
+                <a class="card-link" href={link.url} target="_blank" rel="noopener noreferrer">{link.label} <span aria-hidden="true">↗</span></a>
+              ))}
+            </p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import TerminalSection from '../components/home/TerminalSection.astro';
+import Quiet from '../components/home/Quiet.astro';
+import Terminal from '../components/home/Terminal.astro';
 
 const title = "Página no encontrada | NainDev";
 const description = "Lo sentimos, la página que buscas no existe. Explora la terminal o vuelve al inicio.";
@@ -22,7 +23,19 @@ const description = "Lo sentimos, la página que buscas no existe. Explora la te
     </div>
 
     <div class="terminal-wrap">
-      <TerminalSection />
+      {/* The terminal keeps its own section here; on the home it is folded into the about section (specs/next-selected-work). */}
+      <section class="terminal-section section section-accent" id="terminal" aria-labelledby="terminal-title">
+        <div class="shell">
+          <div class="section-heading" data-reveal>
+            <div>
+              <p class="eyebrow">Interactúa con mi perfil</p>
+              <h2 id="terminal-title">Terminal Profesional</h2>
+            </div>
+            <Quiet><p>Prueba mi terminal interactiva. Escribe <code>help</code> para empezar.</p></Quiet>
+          </div>
+          <Terminal />
+        </div>
+      </section>
     </div>
   </main>
 </BaseLayout>

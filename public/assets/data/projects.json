@@ -82,6 +82,11 @@
     "status": "Demo pública activa",
     "summary": "Motor CAD paramétrico determinista con validación topológica de mallas y visor 3D web.",
     "proof": "Construye sólidos B-Rep con OpenCASCADE y comprueba que la malla sea estanca, 2-variedad y con normales hacia fuera. Exporta GLB, glTF, STL, STEP y DXF. Extrae parámetros con un analizador de reglas sin conexión o, de forma opcional, con un LLM.",
+    "story": {
+      "problem": "Pedir geometría CAD a un modelo de lenguaje sin comprobarla produce mallas abiertas o con normales invertidas, inútiles para fabricar.",
+      "approach": "Motor paramétrico determinista con CadQuery y OpenCASCADE; el modelo de lenguaje solo extrae parámetros, y es opcional; la validación topológica es obligatoria.",
+      "result": "Cada sólido se comprueba estanco y 2-variedad antes de exportar a GLB, STL, STEP o DXF; la demo lo enseña en el visor web."
+    },
     "technologies": [
       "Python",
       "FastAPI",
@@ -109,6 +114,7 @@
     ],
     "thumbnail": "/assets/images/demos/parametricad-ai.webp",
     "featured": true,
+    "selected": true,
     "order": 3
   },
   {
@@ -117,6 +123,11 @@
     "status": "Demo pública activa",
     "summary": "Motor de validación geométrica determinista para activos 3D y pasarela de conformidad Khronos, con backend en Python y cliente Vue 3 con Three.js.",
     "proof": "Mide la malla con OpenCASCADE y trimesh y devuelve un veredicto reproducible para el mismo archivo. Es un caso de estudio de ingeniería: contratos explícitos, pruebas y despliegue propio.",
+    "story": {
+      "problem": "Un activo 3D generado por IA puede parecer correcto y romper el proceso aguas abajo; hacía falta un veredicto que no dependa de quién lo mira.",
+      "approach": "Validación geométrica determinista con OpenCASCADE y trimesh, contratos explícitos y pasarela de conformidad Khronos, con pruebas y despliegue propio.",
+      "result": "El mismo archivo devuelve siempre el mismo veredicto; la demo pública permite comprobarlo con cualquier GLB."
+    },
     "technologies": [
       "Python",
       "OpenCASCADE",
@@ -142,6 +153,7 @@
     ],
     "thumbnail": "/assets/images/demos/nain3d-conformance-gateway.webp",
     "featured": true,
+    "selected": true,
     "order": 4
   },
   {
@@ -184,6 +196,11 @@
     "status": "Demo pública disponible",
     "summary": "API del ciclo de vida de pólizas con aislamiento de datos por organización e historial auditable. Usa datos sintéticos.",
     "proof": "Ciclo Borrador, Activa y Cancelada con roles JWT. Concurrencia con rowversion, ETag e If-Match, y ProblemDetails en los errores. Integración continua contra un SQL Server real.",
+    "story": {
+      "problem": "El ciclo de vida de una póliza exige aislar los datos de cada organización, auditar cada cambio y resolver ediciones concurrentes sin perder ninguna.",
+      "approach": "API .NET 10 con roles JWT, concurrencia optimista (rowversion, ETag e If-Match), errores ProblemDetails y CI contra un SQL Server real.",
+      "result": "Con datos sintéticos, la API pública permite recorrer Borrador, Activa y Cancelada y provocar un conflicto de concurrencia controlado."
+    },
     "technologies": [
       "C#",
       ".NET 10",
@@ -209,6 +226,7 @@
     ],
     "thumbnail": "/assets/images/demos/financial-management-api.webp",
     "featured": true,
+    "selected": true,
     "order": 6
   },
   {
@@ -217,6 +235,11 @@
     "status": "Demo pública activa",
     "summary": "Harness de modernización para monolitos .NET heredados mediante Strangler Fig con proxy inverso YARP y auditoría de escritura dual en paralelo.",
     "proof": "Enrutamiento transparente entre monolito heredado y microservicios modernos en .NET 10, ejecución paralela Shadow Runner con comparación semántica de payloads y cero tiempo de inactividad.",
+    "story": {
+      "problem": "Un monolito .NET heredado no se reescribe de golpe, y cada migración parcial arriesga el comportamiento que hoy funciona en producción.",
+      "approach": "Strangler Fig con proxy inverso YARP y Shadow Runner: el servicio nuevo corre en paralelo y sus respuestas se comparan semánticamente con las del monolito.",
+      "result": "La demo muestra el enrutamiento transparente entre monolito y microservicios .NET 10 y la auditoría de cada diferencia detectada."
+    },
     "technologies": [
       "C#",
       ".NET 10",
@@ -242,6 +265,7 @@
     "thumbnail": "/assets/images/demos/nain-legacy-modernizer.webp",
     "private": false,
     "featured": true,
+    "selected": true,
     "order": 7
   },
   {

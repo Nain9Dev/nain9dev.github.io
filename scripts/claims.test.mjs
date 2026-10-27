@@ -58,9 +58,10 @@ test('tracked sources publish no blocked claims', async () => {
   assert.deepEqual(await scanSources(), []);
 });
 
-test('home page keeps the checklist call to action', async () => {
-  const markup = await readFile(new URL('../src/components/home/ImpactMetrics.astro', import.meta.url), 'utf8');
-  assert.match(markup, /href="\/recursos\/checklist-ia"/);
+test('the site keeps a checklist call to action in the footer', async () => {
+  // The home box left with specs/next-selected-work (HN-005); the footer link reaches every page.
+  const markup = await readFile(new URL('../src/components/Footer.astro', import.meta.url), 'utf8');
+  assert.match(markup, /href="\/recursos\/checklist-ia/);
 });
 
 test('thank-you page shows no Zero Downtime badge', async () => {

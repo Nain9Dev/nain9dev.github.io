@@ -61,18 +61,21 @@ test('VIS-003: every live demo has a small lazy-loaded thumbnail on its card', a
     assert.ok(size > 1000 && size < 30000, `${project.id} thumbnail weighs ${size} bytes`);
   }
   assert.ok(projects.filter((project) => project.private).every((project) => !project.thumbnail));
-  const view = await read('src/scripts/project-view.js');
-  assert.match(view, /project\.thumbnail/);
-  assert.match(view, /loading = "lazy"/);
-  assert.match(view, /width = 640/);
+  // The captures render in the selected work and the demo strip; catalog rows carry no picture (HN-004).
+  const section = await read('src/components/home/SelectedWork.astro');
+  assert.match(section, /project\.thumbnail/);
+  assert.match(section, /width="640" height="360"/);
+  assert.match(section, /loading=\{index === 0 \? 'eager' : 'lazy'\}/);
 });
 
 test('VIS-001 and VIS-002: the home page shows a static live-demos strip', async () => {
   const home = await read('src/pages/index.astro');
   assert.match(home, /import LiveDemos from '\.\.\/components\/home\/LiveDemos\.astro'/);
-  // HERO-021: the strip follows the hero directly.
-  assert.ok(home.indexOf('<Hero />') < home.indexOf('<LiveDemos />'));
-  assert.ok(home.indexOf('<LiveDemos />') < home.indexOf('<TerminalSection />'));
+  // HERO-021 superseded by HN-001 (specs/next-selected-work): selected work, then services, then the strip.
+  assert.ok(home.indexOf('<Hero />') < home.indexOf('<SelectedWork />'));
+  assert.ok(home.indexOf('<SelectedWork />') < home.indexOf('<ServicesSection>'));
+  assert.ok(home.indexOf('</ServicesSection>') < home.indexOf('<LiveDemos />'));
+  assert.ok(home.indexOf('<LiveDemos />') < home.indexOf('<ProjectsSection />'));
   const strip = await read('src/components/home/LiveDemos.astro');
   assert.match(strip, /projects\.json/);
   assert.match(strip, /naindev\\\.com/);
@@ -221,12 +224,10 @@ test('VIS-008: the about links are icon pills and the resource call to action ha
   for (const url of ['https://github.com/Nain9Dev', 'https://github.com/naindev-contrast3d', 'https://www.linkedin.com/in/aitor-nain-mendoza-vallejo/', 'https://x.com/Nain9Dev']) {
     assert.ok(about.includes(`href="${url}"`), `${url} stays linked`);
   }
-  const impact = await read('src/components/home/ImpactMetrics.astro');
-  assert.doesNotMatch(impact, /style=/);
-  assert.match(impact, /class="resource-cta"/);
+  // The resource call to action left the home (specs/next-selected-work, HN-005); the checklist keeps its page.
   const css = await read('src/styles/main.css');
   assert.match(css, /\.social-pill\s*\{/);
-  assert.match(css, /\.resource-cta\s*\{/);
+  assert.doesNotMatch(css, /\.resource-cta\s*\{/);
 });
 
 test('VIS-010: page titles stay readable and the service detail page has no inline style', async () => {
@@ -312,7 +313,8 @@ test('VIS-012: the 404, thank-you and technology pages are styled by classes, no
 });
 
 test('VIS-013: proof strip and partnership cards lead with icons, the stack badges use a class', async () => {
-  const proof = await read('src/components/home/ProofStrip.astro');
+  // The three principles moved into the about section (specs/next-selected-work, HN-005).
+  const proof = await read('src/components/home/AboutSection.astro');
   assert.equal(proof.match(/<svg class="proof-icon"[^>]*aria-hidden="true"/g)?.length, 3);
   const partnership = await read('src/components/home/PartnershipSection.astro');
   assert.equal(partnership.match(/<svg class="service-icon"[^>]*aria-hidden="true"/g)?.length, 2);

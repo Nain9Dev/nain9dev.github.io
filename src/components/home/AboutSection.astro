@@ -1,6 +1,8 @@
 ---
-// AboutSection.astro
+// AboutSection.astro: profile links first, the long copy behind the quiet toggle, the working principles that
+// used to be the proof strip, and the interactive terminal folded in a disclosure (specs/next-selected-work, HN-002, HN-005).
 import Quiet from './Quiet.astro';
+import Terminal from './Terminal.astro';
 ---
 <section class="section section-accent" id="about">
   <div class="shell about-grid">
@@ -28,6 +30,27 @@ import Quiet from './Quiet.astro';
         <a class="social-pill" href="https://x.com/Nain9Dev" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m5 5 14 14M19 5 5 19" /></svg>X <span
             aria-hidden="true">↗</span></a>
       </div>
+      <div class="about-proof" aria-label="Principios de trabajo">
+        <p>
+          <svg class="proof-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3 4 6.5v5.5c0 4.5 3.3 7.8 8 9 4.7-1.2 8-4.5 8-9V6.5L12 3Z" /><path d="m8.5 12 2.5 2.5 4.5-5" /></svg>
+          <strong>Experiencia real</strong><span>Trabajo a diario con .NET y SQL Server.</span>
+        </p>
+        <p>
+          <svg class="proof-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16" /></svg>
+          <strong>Código revisable</strong><span>Los proyectos y las demos están enlazados.</span>
+        </p>
+        <p>
+          <svg class="proof-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="4.5" /><path d="M12 3v3M12 18v3M3 12h3M18 12h3" /></svg>
+          <strong>Alcance claro</strong><span>Proyectos a tiempo parcial y en remoto, con el alcance acordado desde la primera llamada.</span>
+        </p>
+      </div>
     </div>
+
+    <details class="fold terminal-fold" id="terminal">
+      <summary>Terminal interactiva</summary>
+      <p class="eyebrow">Interactúa con mi perfil</p>
+      <p class="terminal-hint">Prueba mi terminal interactiva. Escribe <code>help</code> para empezar.</p>
+      <Terminal />
+    </details>
   </div>
 </section>
