@@ -21,7 +21,7 @@ This supersedes the 2026-10-22 rule "no home section restructuring" (spec 045 an
 
 - **SW-001 (section)**: When the home page renders, a section `#selected-work` with an H2 ("Trabajo seleccionado") shall follow the hero directly, before the services, and shall present exactly the projects whose `selected` flag is true (a new boolean, set only on `featured` entries; eight entries are `featured`, so that flag alone cannot pick four) and whose `links` include a demo on a `naindev.com` subdomain, in catalog `order`; with the current data that is `parametricad-ai`, `nain3d-conformance-gateway`, `financial-management-api` and `nain-legacy-modernizer`.
 - **SW-002 (case layout)**: When a selected case renders, it shall show, in this reading order: an eyebrow with its two-digit index and its catalog `status`; the project title as an H3; a three-line story rendered as a description list whose terms are "Problema", "Enfoque" and "Resultado"; up to five technology chips from `technologies`; and the project's links (demo first, then code), each with `target="_blank"` and `rel="noopener noreferrer"`. The capture (`thumbnail`, 640 px WebP, explicit 640x360 dimensions, `loading="lazy"` except for the first case, which is `eager` with `fetchpriority="high"`) sits beside the text on wide screens, alternating sides case by case, and above the text on phones.
-- **SW-003 (story source)**: The story lines live in a new `story` object of each selected entry in `public/assets/data/projects.json` (`problem`, `approach`, `result`, Spanish, each at most 160 characters) and nowhere else; a selected entry with a demo and no complete `story` fails the guard test, and a non-selected entry with a `story` fails it too. The drafts are in the appendix of this spec and in `tasks.md` and are the only new sentences this spec introduces, besides the three term labels and the section heading.
+- **SW-003 (story source, Approved by the owner on 2026-10-27)**: The story lines live in a new `story` object of each selected entry in `public/assets/data/projects.json` (`problem`, `approach`, `result`, Spanish, each at most 160 characters) and nowhere else; a selected entry with a demo and no complete `story` fails the guard test, and a non-selected entry with a `story` fails it too. The drafts are in the appendix of this spec and in `tasks.md` and are the only new sentences this spec introduces, besides the three term labels and the section heading.
 - **SW-004 (no claims)**: The story lines shall contain no figure, percentage, duration, client, employer, "zero downtime" or guarantee; `npm run check:claims` and `scripts/claims.test.mjs` shall pass unchanged. The result line describes what the demo shows or lets the visitor do.
 - **SW-005 (structured data)**: The home `ItemList` (SEO-020) shall keep listing every public catalog project with the same URLs; the selected cases add no new node. The `Person`/`Organization` nodes do not change.
 - **SW-006 (motion)**: Where the visitor has not asked for reduced motion, each case shall enter with the existing scroll reveal (`data-reveal`, opacity and translate only) and the capture shall scale to 1.03 inside its clipped frame on hover and keyboard focus of the case link; under reduced motion or `html.low-performance` nothing moves. No JavaScript is added for the section.
@@ -63,12 +63,12 @@ This supersedes the 2026-10-22 rule "no home section restructuring" (spec 045 an
 
 - `npm run check` green, including the new guard; `check:budget` within limits on a quiet host (ADR-0011).
 - Home section count on `/`: ten `<section>` elements inside `main` (eleven with an approved testimonial).
-- The owner approved the twelve Spanish lines and the twelve English lines in the pull request.
+- The owner approved the twelve Spanish lines and the twelve English lines in the pull request. Done: approved on 2026-10-27 as written in the appendix (SW-003).
 - Captures before and after attached to the pull request.
 
-## Appendix: story drafts (Spanish, for the owner's approval)
+## Appendix: story lines (Spanish, approved by the owner on 2026-10-27)
 
-Written only from the published `summary` and `proof` fields; no figure, client or promise.
+Written only from the published `summary` and `proof` fields; no figure, client or promise. Approved as written; the English targets in `src/i18n/en-US.json` are the reviewed translations of these lines.
 
 **ParametriCAD AI**
 - Problema: Pedir geometría CAD a un modelo de lenguaje sin comprobarla produce mallas abiertas o con normales invertidas, inútiles para fabricar.
@@ -93,6 +93,6 @@ Written only from the published `summary` and `proof` fields; no figure, client 
 ## Session state
 
 - Last updated: 2026-10-27, selected-work session.
-- Done: interview (four decisions above), live-site review, research of reference portfolios, spec, plan, tasks, ADR `Proposed`; T01 to T05 implemented in worktree `D:/wt/nain9dev.github.io-feat-selected-work` on `feat/selected-work`: `npm run check` green, axe 0 violations in both themes, reduced-motion probe clean, Lighthouse mobile 0.99 / 1.00 on `/`, home document 29 916 B gzip (limit 30 720). Staged, not committed.
-- Next: T06, owner reads the appendix; commit, captures, pull request with base `main`; owner approves the story lines and merges. Follow-up candidates from the interview, not started: a new hero visual, a verifiable-receipts strip, case pages under `/trabajo/<id>/`, and moving page-specific CSS out of `main.css` before the next home change (budget tight).
-- Blocked: nothing external. The story lines need the owner's approval before the pull request merges (`[M]`).
+- Done: interview (four decisions above), live-site review, research of reference portfolios, spec, plan, tasks, ADR `Proposed`; T01 to T05 implemented in worktree `D:/wt/nain9dev.github.io-feat-selected-work` on `feat/selected-work`: `npm run check` green, axe 0 violations in both themes, reduced-motion probe clean, Lighthouse mobile 0.99 / 1.00 on `/`, home document 30 030 B gzip after merging `main` (limit 30 720). Committed, captures taken, pull request #35 open with base `main`. The owner approved the twelve story lines on 2026-10-27 (SW-003).
+- Next: owner merges #35 (ruleset). After merge: consolidate SW and HN requirements into `docs/10-requirements.md` and `docs/50-traceability.md`, changelog entry, `wt-clean.sh`. Follow-up candidates from the interview, not started: a new hero visual, a verifiable-receipts strip, case pages under `/trabajo/<id>/`, and moving page-specific CSS out of `main.css` before the next home change (budget tight).
+- Blocked: nothing. The only remaining `[M]` step is the merge itself.

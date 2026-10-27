@@ -17,7 +17,7 @@
   - **Done when**: `gzip(dist/index.html)` ≤ 30 KiB, catalog filters and counts unchanged, `stack-method` and `portfolio-refresh` guards updated and green.
 - [ ] **T06** `[M]` Audits and pull request: axe both themes, reduced-motion probe, Lighthouse mobile and desktop, before and after captures, document size; PR with base `main`.
   - **Covers**: SW-008, SW-009, SW-010
-  - **Needs from owner**: approval of the twelve Spanish and twelve English story lines; merge.
+  - **Needs from owner**: approval of the twelve Spanish and twelve English story lines (given on 2026-10-27, recorded in `spec.md`); merge.
   - **Done when**: the PR description carries the evidence and the owner has merged.
 
 ## Sentences relocated from the home (HN-006)
@@ -56,4 +56,4 @@ New strings (all with reviewed English targets in `src/i18n/en-US.json`, 20 segm
 ## Session log
 
 - 2026-10-27 · Interview done (four owner decisions in `spec.md`), spec, plan, tasks and ADR written in worktree `D:/wt/nain9dev.github.io-feat-selected-work` (branch `feat/selected-work`).
-- 2026-10-27 · T01 to T05 implemented test first; `npm run check` green; selected work, catalog rows, stack strip and the terminal fold checked in the browser at 1280 px (terminal opens and runs inside the disclosure); audits above. Committed (3e30a92), captures taken (`.astro/visual-polish/selected-work/`), pull request #35 opened with base `main`; `main` (#33, #34) merged into the branch with the translation catalog re-appended, `npm run check` green again. Next (T06): the owner approves the twelve story lines in the spec appendix and merges #35.
+- 2026-10-27 · T01 to T05 implemented test first; `npm run check` green; selected work, catalog rows, stack strip and the terminal fold checked in the browser at 1280 px (terminal opens and runs inside the disclosure); audits above. Committed (3e30a92), captures taken (`.astro/visual-polish/selected-work/`), pull request #35 opened with base `main`; `main` (#33, #34) merged into the branch with the translation catalog re-appended, `npm run check` green again. The owner approved the twelve story lines as written in the spec appendix (SW-003 marked approved). Next (T06): the owner merges #35.
