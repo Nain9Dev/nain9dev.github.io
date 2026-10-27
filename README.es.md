@@ -1,18 +1,28 @@
-# NainDev - Arquitectura Full Stack y Conformidad de Producto
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/banner-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="docs/assets/banner-light.svg">
+  <img src="docs/assets/banner-dark.svg" alt="NainDev Portfolio - Arquitectura Full Stack y Conformidad de Producto" width="100%">
+</picture>
 
-[![English](https://img.shields.io/badge/Language-English-blue?style=flat-square)](README.md)
-[![Español](https://img.shields.io/badge/Idioma-Espa%C3%B1ol-emerald?style=flat-square)](README.es.md)
-[![Astro](https://img.shields.io/badge/Astro-7.x-FF5D01?style=for-the-badge&logo=astro&logoColor=white)](https://astro.build/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![DotNet](https://img.shields.io/badge/.NET-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)](https://dotnet.microsoft.com/)
-[![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![Three.js](https://img.shields.io/badge/Three.js-WebGL-black?style=for-the-badge&logo=three.js&logoColor=white)](https://threejs.org/)
-[![License](https://img.shields.io/badge/License-All_Rights_Reserved-red?style=for-the-badge)](LICENSE)
-[![Deployed on GitHub Pages](https://img.shields.io/badge/Deployed_on-GitHub_Pages-222222?style=for-the-badge&logo=github&logoColor=white)](https://naindev.com)
+<div align="center">
 
-Portfolio profesional y escaparate técnico centrado en arquitectura de software: APIs empresariales en .NET, procesamiento de datos e integraciones de IA en Python, validación determinista de producto (modelos 3D y especificaciones técnicas) y visualización interactiva WebGL/WebGPU.
+[![Versión en Español](https://img.shields.io/badge/Idioma-Espa%C3%B1ol-red?style=flat-square)](README.es.md)
+[![English Version](https://img.shields.io/badge/Language-English-blue?style=flat-square)](README.md)
+[![Demostración en Vivo](https://img.shields.io/badge/Demo%20en%20Vivo-naindev.com-38bdf8?style=flat-square&logo=google-chrome&logoColor=white)](https://naindev.com)
+[![Astro](https://img.shields.io/badge/Astro-7.x-FF5D01?style=flat-square&logo=astro&logoColor=white)](https://astro.build/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-007ACC?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![.NET](https://img.shields.io/badge/.NET-10.0-512BD4?style=flat-square&logo=dotnet&logoColor=white)](https://dotnet.microsoft.com/)
+[![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
+[![Three.js](https://img.shields.io/badge/Three.js-WebGL-black?style=flat-square&logo=three.js&logoColor=white)](https://threejs.org/)
+[![WCAG 2.2 AA](https://img.shields.io/badge/WCAG-2.2%20AA%20Conforme-80FF00?style=flat-square&logo=checkmarx&logoColor=black)](https://www.w3.org/WAI/WCAG22/quickref/)
+[![Licencia](https://img.shields.io/badge/Licencia-Todos_los_Derechos_Reservados-red?style=flat-square)](LICENSE)
+[![Desplegado en GitHub Pages](https://img.shields.io/badge/Desplegado_en-GitHub_Pages-222222?style=flat-square&logo=github&logoColor=white)](https://naindev.com)
 
-Sitio en Producción: [www.naindev.com](https://www.naindev.com) | Inglés: [www.naindev.com/en/](https://www.naindev.com/en/)
+**Portfolio profesional y escaparate técnico centrado en arquitectura de software: APIs empresariales en .NET, procesamiento de datos en Python, validación determinista de producto y visualización 3D interactiva WebGL.**
+
+[Portal de Producción](https://www.naindev.com) &bull; [Versión en Inglés](https://www.naindev.com/en/) &bull; [Manual de Operación de Arquitectura](docs/60-runbook.md)
+
+</div>
 
 ---
 
