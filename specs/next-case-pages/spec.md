@@ -29,7 +29,7 @@ The home now tells four projects as a three-line story (spec 049, SW-001 to SW-0
 - **WK-008 (structured data and SEO)**: When a work page is built, its head shall carry a title of at most 60 characters, a description of at most 160, a canonical URL, the alternate language links, an Open Graph image (the project capture), the `BreadcrumbList` the SEO component already emits for every page (Inicio › project, since `/trabajo/` is a redirect and not a hub) and a `SoftwareSourceCode` node (`name`, `description`, `codeRepository`, `programmingLanguage` from `technologies`, `url`, `author` → `#person`); `npm run check:seo` passes and the sitemap lists the four pages in both locales.
 - **WK-009 (home link)**: When the home renders, each selected case (SW-002) shall link to its work page from the title and from a last link "Cómo está hecho" in the links row, after the demo and code links; the home `ItemList` (SEO-020) does not change and the home document stays at or under 30 KiB gzip (CSS-002, ADR-0013).
 - **WK-010 (motion and themes)**: When a work page renders, it shall use only the existing reveal (`data-reveal`) on its sections, nothing on the diagram; under reduced motion or `html.low-performance` nothing moves; both themes render the diagram and the chips with token colours only; axe-core reports no violation at 1440 and 390 px in both themes.
-- **WK-011 (approval)**: When the pull request opens, it shall carry the four Spanish texts (also in the appendix of this spec) and their English targets for the owner's approval, captures of the four pages at 1440 and 390 px, the document sizes, Lighthouse mobile and desktop on one work page and the `npm run check` result; it is merged only by the owner.
+- **WK-011 (approval, texts Approved by the owner on 2026-10-27)**: When the pull request opens, it shall carry the four Spanish texts (also in the appendix of this spec) and their English targets for the owner's approval, captures of the four pages at 1440 and 390 px, the document sizes, Lighthouse mobile and desktop on one work page and the `npm run check` result; it is merged only by the owner.
 - **WK-012 (navigation)**: When the header or footer renders, they shall not gain a "Trabajo" entry in this spec (the pages are reached from the home cases, from the sitemap and from search); the hub redirect `/trabajo/` → `/#selected-work` is served as a `noindex` redirect document in both locales so a shortened URL never answers 404.
 
 ### Inner-page styles out of `main.css`
@@ -62,9 +62,9 @@ The home now tells four projects as a three-line story (spec 049, SW-001 to SW-0
 - The owner approved the four Spanish texts and their English targets in the pull request.
 - Captures of the four pages and of the inner pages before and after the split attached to the pull request.
 
-## Appendix: page texts (Spanish, for the owner's approval)
+## Appendix: page texts (Spanish, approved by the owner on 2026-10-27)
 
-The four write-ups are the files of `src/content/work/` in this branch; the owner reviews them in the pull request. Title, description and lead of each, so the approval covers the head of the page too:
+The four write-ups are the files of `src/content/work/` in this branch, approved as written (commit `2091fca`); the English targets in `src/i18n/en-US.json` are their reviewed translations. Title, description and lead of each, so the approval covers the head of the page too:
 
 **parametricad-ai.mdx** · title "ParametriCAD AI: geometría CAD validada antes de exportar" · description "De un formulario o una frase a un sólido CAD comprobado: motor determinista, validación topológica y exportación a GLB, STL, STEP y DXF." · lead "Un modelo de lenguaje puede proponer parámetros, pero no decide si una pieza se puede fabricar. Aquí la geometría la construye un motor determinista y la publica solo la validación topológica."
 
@@ -76,7 +76,11 @@ The four write-ups are the files of `src/content/work/` in this branch; the owne
 
 Sources: each repository's `README.md`, `docs/` and ADRs as of 2026-10-27, read for this spec; the modernizer text describes what `origin/main` of that repository publishes (static demo, parity CLI), not the control panel commit still being published. Every figure, benchmark, client and vendor name found in those documents was left out.
 
-### Open point for the owner: the Nain3D catalog entry
+### Nain3D catalog entry (decided by the owner on 2026-10-27: correction applied)
+
+Applied in this branch: `technologies` → `["Python", "trimesh", "NumPy", "Vue 3", "Three.js"]`; `story.approach` → "Validación geométrica determinista con Trimesh y NumPy, agregador que falla cerrado y el mismo motor en Python y en el navegador, con pruebas de paridad."; and, because they carried the same two claims, `summary` → "Motor de validación geométrica determinista para activos 3D, con el mismo motor en Python y en el navegador, backend FastAPI y cliente Vue 3 con Three.js." and `proof` → "Mide la malla con Trimesh y NumPy y devuelve un veredicto reproducible para el mismo archivo. Es un proyecto de ingeniería: contratos explícitos, pruebas de paridad y despliegue propio." (the old proof also said "caso de estudio"). Reviewed English targets replaced in the catalog. `public/assets/data/ecosystem.v1.json` still names OpenCASCADE and a Khronos conformance gate for Nain3D: that file feeds the ecosystem bar shared with the demos and is the owner's open action A-030 in the SEO folder, not touched here. The original record follows.
+
+Original note:
 
 Reading the Nain3D repository for this spec showed that its engine is Trimesh and NumPy and that it has no Khronos conformance gateway (Khronos appears only as a future step in its docs). The catalog entry in `public/assets/data/projects.json` (`technologies` lists OpenCASCADE; the story line approved on 2026-10-27 reads "Validación geométrica determinista con OpenCASCADE y trimesh, contratos explícitos y pasarela de conformidad Khronos, con pruebas y despliegue propio.") predates this reading. The work page does not repeat those two claims. Proposed correction, not applied, for the owner's decision in the pull request: `technologies` → `["Python", "trimesh", "NumPy", "Vue 3", "Three.js"]`; `story.approach` → "Validación geométrica determinista con Trimesh y NumPy, agregador que falla cerrado y el mismo motor en Python y en el navegador, con pruebas de paridad entre ambos." (reviewed English target to add with it).
 
@@ -84,5 +88,6 @@ Reading the Nain3D repository for this spec showed that its engine is Trimesh an
 
 - Last updated: 2026-10-27, case-pages session.
 - Done: owner interview (four decisions above); worktree created from `origin/main` at `26e614b` (spec 049 consolidated, #36); spec, plan, tasks and two ADRs written; T01 guard; T02 split (two passes, 106 rules, `site.css` / `inner.css` import order fix); T03 collection, route, redirect, diagrams, `work.css`, `trabajo → work`, SVG text translation in the localization build; T04 four texts and 137 reviewed English segments; T05 home links. `npm run check` running; captures and audits next.
-- Next: T06 audits (axe both themes, reduced motion, Lighthouse on one work page), captures, PR with base `main`; owner approves the texts and decides the Nain3D catalog correction.
-- Blocked: nothing external. The texts need the owner's approval before merge (`[M]`).
+- Done (T06): audits, captures, PR Nain9Dev/nain9dev.github.io#37 with base `main`; the owner approved the four texts and the Nain3D catalog correction on 2026-10-27, both recorded above and applied.
+- Next: owner merges #37. After merge: consolidate WK-001 to WK-012 and IS-001 to IS-004 into `docs/10-requirements.md` and `docs/50-traceability.md`, number the spec and the two ADRs (owner sets them to Approved), changelog, remove the worktree by hand.
+- Blocked: nothing. The only remaining `[M]` step is the merge.
