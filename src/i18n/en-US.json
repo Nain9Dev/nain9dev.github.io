@@ -7709,11 +7709,6 @@
     "target": "⟦0⟧⟦1⟧NainOrder (order engine)⟦/1⟧⟦2/⟧⟦3/⟧⟦/0⟧",
     "status": "reviewed"
   },
-  "1027ae2d8826acc2bd4e9368bb38a25b2be0c2acd5051d4931a5c017cb0d361e": {
-    "source": "Motor de validación geométrica determinista para activos 3D y pasarela de conformidad Khronos, con backend en Python y cliente Vue 3 con Three.js.",
-    "target": "Deterministic geometric validation engine for 3D assets and Khronos conformance gateway, with a Python backend and a Vue 3 client using Three.js.",
-    "status": "reviewed"
-  },
   "143568d2a0f1601e08698a42103f0ee25f8998836d3c06e5fbfc0d49154a1f3d": {
     "source": "⟦0⟧⟦1⟧Nain3D⟦/1⟧⟦2/⟧⟦3/⟧⟦/0⟧",
     "target": "⟦0⟧⟦1⟧Nain3D⟦/1⟧⟦2/⟧⟦3/⟧⟦/0⟧",
@@ -7757,11 +7752,6 @@
   "988abaae6ba9b182807dfbb2f770d7dc7a079827ea99c5c5dba23d4853a53ac7": {
     "source": "⟦0⟧⟦1⟧Facturación determinista para autoescuelas⟦/1⟧⟦2/⟧⟦3/⟧⟦/0⟧",
     "target": "⟦0⟧⟦1⟧Deterministic billing for driving schools⟦/1⟧⟦2/⟧⟦3/⟧⟦/0⟧",
-    "status": "reviewed"
-  },
-  "cdb419cb2bf293c32251a1674b213315418c86f705af0e30c0f63c4ffbe0a4a0": {
-    "source": "Mide la malla con OpenCASCADE y trimesh y devuelve un veredicto reproducible para el mismo archivo. Es un caso de estudio de ingeniería: contratos explícitos, pruebas y despliegue propio.",
-    "target": "Measures the mesh with OpenCASCADE and trimesh and returns a reproducible verdict for the same file. It is an engineering case study: explicit contracts, tests and its own deployment.",
     "status": "reviewed"
   },
   "4d4f94eece2e2efb34775610dcc0eede91ad3cf5ddde274fc4c3305eb6b9a80c": {
@@ -8272,11 +8262,6 @@
   "2b8c38ae0f397d45d6d508b167bacec80d990c25e076db015edcf021bbaf06b4": {
     "source": "Trabajo seleccionado",
     "target": "Selected work",
-    "status": "reviewed"
-  },
-  "40f77e701815f2be7bba9a6ac44fa0906dbcb3a8ee4ff07f453038853141de5b": {
-    "source": "Validación geométrica determinista con OpenCASCADE y trimesh, contratos explícitos y pasarela de conformidad Khronos, con pruebas y despliegue propio.",
-    "target": "Deterministic geometric validation with OpenCASCADE and trimesh, explicit contracts and a Khronos conformance gateway, with tests and its own deployment.",
     "status": "reviewed"
   },
   "5dc60049cf452f9448c68f0694cb88c32e55219be1f06b56a4d96010d165bbaa": {
@@ -9037,6 +9022,26 @@
   "e7426923d87d66bd2aa232eb2946aa11ca003718e16eec651e990c1276253b65": {
     "source": "Diagrama de arquitectura; en pantallas estrechas se desplaza en horizontal",
     "target": "Architecture diagram; on narrow screens it scrolls sideways",
+    "status": "reviewed"
+  },
+  "ddf9be5e39c8624b0f9ca6d4cefa45040fca8e67f61d6eac1d87838fb5b3ed08": {
+    "source": "Motor de validación geométrica determinista para activos 3D, con el mismo motor en Python y en el navegador, backend FastAPI y cliente Vue 3 con Three.js.",
+    "target": "Deterministic geometric validation engine for 3D assets, with the same engine in Python and in the browser, a FastAPI backend and a Vue 3 client with Three.js.",
+    "status": "reviewed"
+  },
+  "8406e9d0b0c57ed7b02396ca5f39d0c368109c750b5f94f1d2e8857e442a3554": {
+    "source": "Mide la malla con Trimesh y NumPy y devuelve un veredicto reproducible para el mismo archivo. Es un proyecto de ingeniería: contratos explícitos, pruebas de paridad y despliegue propio.",
+    "target": "Measures the mesh with Trimesh and NumPy and returns a reproducible verdict for the same file. It is an engineering project: explicit contracts, parity tests and its own deployment.",
+    "status": "reviewed"
+  },
+  "2e73ad93364d3006a6939ad320458240285303de00472530a70b86bb8dff49c5": {
+    "source": "Validación geométrica determinista con Trimesh y NumPy, agregador que falla cerrado y el mismo motor en Python y en el navegador, con pruebas de paridad.",
+    "target": "Deterministic geometric validation with Trimesh and NumPy, a fail-closed aggregator and the same engine in Python and in the browser, with parity tests.",
+    "status": "reviewed"
+  },
+  "20f3bd11a0565a60adc35f9199e889c70eb841db6935eb8143827978bdba316a": {
+    "source": "NumPy",
+    "target": "NumPy",
     "status": "reviewed"
   }
 }

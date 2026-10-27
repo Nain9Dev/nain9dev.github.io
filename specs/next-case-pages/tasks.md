@@ -11,7 +11,7 @@
   - **Done when**: the four pages build in both locales with placeholder bodies, `check:seo` passes, the diagrams render in both themes at 1440 and 390 px.
 - [ ] **T04** `[M]` Texts: four Spanish MDX bodies drafted from each repository's public docs, 450 to 900 words, no claims; English targets drafted locally and reviewed; appendix of `spec.md` filled.
   - **Covers**: WK-003, WK-005, WK-006, WK-007 (segments)
-  - **Needs from owner**: approval of the four Spanish texts and their English in the pull request.
+  - **Needs from owner**: approval of the four Spanish texts and their English in the pull request (given on 2026-10-27, recorded in `spec.md`, with the Nain3D catalog correction).
   - **Done when**: `check:claims`, `check:case-studies`, `check:locales` pass; the guard's word count passes for the four pages.
 - [ ] **T05** `[A]` Home: title link and "Cómo está hecho" link on each selected case; `selected-work.test.mjs` SW-002 assertion extended; home gzip measured.
   - **Covers**: WK-009
