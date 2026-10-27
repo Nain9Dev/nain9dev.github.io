@@ -1,0 +1,33 @@
+---
+project: "nain-legacy-modernizer"
+title: "Harness de modernización .NET: migrar sin reescribir"
+description: "Harness para migrar un monolito .NET por porciones: pasarela YARP, ejecución en sombra y un informe de paridad que decide si cada ruta está lista para cortar."
+lead: "Un monolito .NET heredado no se reescribe de golpe. Este harness mueve una porción cada vez, compara el servicio nuevo con el viejo sobre tráfico real y solo corta cuando la paridad lo permite."
+---
+import Architecture from '../../components/work/Architecture.astro';
+
+## Contexto
+
+Las aplicaciones sobre .NET Framework, MVC y Entity Framework clásico siguen en producción porque funcionan. Reescribirlas enteras es un riesgo que casi nadie puede asumir, y migrarlas a trozos sin red de seguridad es otro: cada porción movida puede cambiar un comportamiento que hoy nadie documenta.
+
+El harness aplica el patrón Strangler Fig con ejecución en sombra. Una pasarela recibe todo el tráfico y decide por ruta quién responde: el monolito o la API moderna. Una familia de rutas, por ejemplo la de pedidos, puede migrar mientras la de facturas sigue en el monolito. Antes de cortar, la versión nueva corre en paralelo y sus respuestas se comparan con las del monolito.
+
+El repositorio incluye los dos sustitutos (un monolito que responde en PascalCase y una API moderna que responde en camelCase), la pasarela, el comparador, una demo que arranca los tres procesos y una herramienta de línea de comandos que genera el informe de paridad.
+
+<Architecture project="nain-legacy-modernizer">
+La pasarela YARP reenvía cada petición según la ruta. En modo sombra el monolito sigue respondiendo a quien llama y la petición se repite contra la API moderna; el comparador analiza los dos JSON por significado, no byte a byte, y registra cada diferencia. El informe de paridad resume lo registrado y decide si una ruta está lista para cortar.
+</Architecture>
+
+## Decisiones
+
+1. **Migrar por ruta, no por reescritura.** El patrón Strangler Fig deja el monolito como respuesta por defecto y mueve una familia de rutas cada vez; lo que no coincide con ninguna ruta migrada sigue yendo al legado.
+2. **Comparación semántica del JSON.** El monolito y la API moderna no tienen por qué serializar igual: la comparación normaliza los nombres de los campos y permite declarar campos ignorados, como marcas de tiempo o el origen de la respuesta, para que solo cuenten las diferencias reales.
+3. **El informe de paridad como puerta de integración continua.** La herramienta envía las mismas peticiones a los dos sistemas, compara y escribe un informe HTML autocontenido. Sus códigos de salida distinguen listo, no listo y argumentos incorrectos; un informe vacío nunca está listo.
+4. **Sustitutos deliberadamente distintos.** Los dos servicios de ejemplo responden con convenciones diferentes a propósito, para que la demo muestre diferencias reales en lugar de un ejercicio trivial. La demo pública es una página estática sin servidor, en español e inglés.
+
+## Qué puedes comprobar en la demo
+
+- Mover el control de tráfico migrado y ver cómo la ruta de pedidos pasa a la API moderna mientras la de facturas sigue en el monolito.
+- Leer un panel de ejecución en sombra con las dos respuestas lado a lado: una coincide y otra discrepa en un importe, con el recuento de campos de cada veredicto.
+- Seguir el recorrido en cuatro pasos: aislar la porción, ejecutar en sombra, comparar y cortar.
+- Abrir dos informes de paridad de muestra: uno no listo, con un campo distinto y otro ausente, y otro listo, con los campos ignorados declarados.

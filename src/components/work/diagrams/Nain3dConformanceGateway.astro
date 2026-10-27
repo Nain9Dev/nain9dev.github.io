@@ -1,0 +1,37 @@
+{/* Nain3D: from the uploaded GLB to a deterministic verdict. Source: docs/assets/diagrams/work-nain3d-conformance-gateway.mmd */}
+<svg viewBox="0 0 720 320" role="img" aria-labelledby="n3-title n3-desc" data-translate="yes" xmlns="http://www.w3.org/2000/svg">
+  <title id="n3-title">Arquitectura de Nain3D</title>
+  <desc id="n3-desc">La interfaz web lee el archivo GLB y calcula su hash. El motor determinista mide la geometría y ejecuta las comprobaciones del perfil. El agregador rechaza si falla cualquier comprobación bloqueante y emite el veredicto. La propuesta de la IA solo se muestra junto al veredicto.</desc>
+  <defs>
+    <marker id="n3-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="arrow" /></marker>
+    <marker id="n3-arrow-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" class="arrow arrow-accent" /></marker>
+  </defs>
+  <rect class="node" x="20" y="40" width="200" height="64" rx="8" />
+  <text class="label" x="120" y="66" text-anchor="middle">Interfaz web</text>
+  <text class="label-soft" x="120" y="88" text-anchor="middle">Vue 3 · three.js</text>
+  <rect class="node" x="260" y="40" width="200" height="64" rx="8" />
+  <text class="label" x="360" y="66" text-anchor="middle">Lectura del GLB</text>
+  <text class="label-soft" x="360" y="88" text-anchor="middle">cabecera binaria · hash SHA-256</text>
+  <rect class="node" x="500" y="40" width="200" height="64" rx="8" />
+  <text class="label" x="600" y="66" text-anchor="middle">Motor determinista</text>
+  <text class="label-soft" x="600" y="88" text-anchor="middle">Trimesh · NumPy</text>
+  <rect class="node" x="500" y="216" width="200" height="64" rx="8" />
+  <text class="label" x="600" y="242" text-anchor="middle">Comprobaciones del perfil</text>
+  <text class="label-soft" x="600" y="264" text-anchor="middle">escala · triángulos · estanqueidad</text>
+  <rect class="node node-accent" x="260" y="216" width="200" height="64" rx="8" />
+  <text class="label" x="360" y="242" text-anchor="middle">Agregador fail-closed</text>
+  <text class="label-soft" x="360" y="264" text-anchor="middle">un bloqueo basta para rechazar</text>
+  <rect class="node" x="20" y="216" width="200" height="64" rx="8" />
+  <text class="label" x="120" y="240" text-anchor="middle">Veredicto</text>
+  <text class="label-soft" x="120" y="258" text-anchor="middle">conforme · con hallazgos</text>
+  <text class="label-soft" x="120" y="273" text-anchor="middle">no conforme</text>
+  <rect class="node" x="20" y="128" width="200" height="56" rx="8" stroke-dasharray="4 4" />
+  <text class="label" x="120" y="152" text-anchor="middle">Propuesta de la IA</text>
+  <text class="label-soft" x="120" y="172" text-anchor="middle">categoría y confianza, sin voto</text>
+  <path class="flow" d="M220 72H258" marker-end="url(#n3-arrow)" />
+  <path class="flow" d="M460 72H498" marker-end="url(#n3-arrow)" />
+  <path class="flow" d="M600 104V214" marker-end="url(#n3-arrow)" />
+  <path class="flow" d="M500 248H462" marker-end="url(#n3-arrow)" />
+  <path class="flow flow-accent" d="M260 248H222" marker-end="url(#n3-arrow-accent)" />
+  <path class="flow" d="M120 184V214" marker-end="url(#n3-arrow)" stroke-dasharray="4 4" />
+</svg>

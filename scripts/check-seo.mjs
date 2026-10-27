@@ -39,14 +39,16 @@ for (const file of files.filter(file => file.endsWith('.html'))) {
     continue;
   }
 
-  const title = text(elements('title')[0]);
+  // Only the document title counts: an inline SVG diagram carries its own <title> (specs/next-case-pages WK-004).
+  const titles = elements('title').filter(node => node.parentNode?.tagName === 'head');
+  const title = text(titles[0]);
   const canonical = attr(elements('link').find(node => attr(node, 'rel') === 'canonical'), 'href');
   const indexable = !robots.includes('noindex');
   pages.push({ path, title, description: value('description'), canonical, indexable });
 
   const isEnglish = path.startsWith('/en/');
   check(attr(elements('html')[0], 'lang') === (isEnglish ? 'en-US' : 'es-ES'), `${path}: incorrect page language`);
-  check(elements('title').length === 1 && title.trim(), `${path}: must have one title`);
+  check(titles.length === 1 && title.trim(), `${path}: must have one title`);
   check(meta('description').length === 1 && value('description')?.trim(), `${path}: must have one description`);
   check(meta('robots').length === 1 && /\b(index|noindex)\b/.test(robots), `${path}: missing explicit index policy`);
   check(elements('link').filter(node => attr(node, 'rel') === 'canonical').length === 1, `${path}: must have one canonical`);

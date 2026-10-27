@@ -16,6 +16,17 @@ const blog = defineCollection({
   })
 });
 
+// Work pages: one write-up per selected project of projects.json (specs/next-case-pages, WK-001).
+const work = defineCollection({
+  loader: glob({ pattern: "**/*.mdx", base: "./src/content/work" }),
+  schema: z.object({
+    project: z.string(),
+    title: z.string().max(60, "SEO title must be <= 60 characters."),
+    description: z.string().max(160, "SEO description must be <= 160 characters."),
+    lead: z.string().max(220),
+  })
+});
+
 const servicios = defineCollection({
   loader: glob({ pattern: "**/*.mdx", base: "./src/content/servicios" }),
   schema: z.object({
@@ -52,4 +63,4 @@ const testimonials = defineCollection({
   })
 });
 
-export const collections = { blog, servicios, testimonials };
+export const collections = { blog, servicios, testimonials, work };

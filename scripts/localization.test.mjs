@@ -11,6 +11,20 @@ test('English routes preserve Spanish addresses and fragments', () => {
   assert.equal(englishPath('/en/services/'), '/en/services/');
   assert.equal(englishPath('/blog/article#example'), '/en/blog/article/#example');
   assert.equal(englishPath('/404.html'), '/en/404.html');
+  assert.equal(englishPath('/trabajo/nain3d-conformance-gateway/'), '/en/work/nain3d-conformance-gateway/', 'work pages (specs/next-case-pages WK-007)');
+});
+
+test('Inline diagrams translate their title, description and labels only when they opt in (WK-004)', () => {
+  const html = '<figure><svg role="img" data-translate="yes" aria-labelledby="t d"><title id="t">Flujo de la petición</title><desc id="d">Tres cajas en fila.</desc><text x="0" y="0">Interfaz web</text><text><tspan>Motor</tspan></text></svg></figure>'
+    + '<p><svg aria-hidden="true"><title>Icono</title><path d="M0 0"/></svg> Texto del párrafo</p>';
+  const sources = extractSegments(parse(html)).map(segment => segment.source);
+  assert.deepEqual(sources, ['Flujo de la petición', 'Tres cajas en fila.', 'Interfaz web', 'Motor', '⟦0/⟧ Texto del párrafo']);
+  const catalog = makeCatalog(extractSegments(parse(html)), ['Request flow', 'Three boxes in a row.', 'Web interface', 'Engine', '⟦0/⟧ Paragraph text']);
+  const localized = localizeDocument(html, catalog);
+  assert.match(localized, /<title id="t">Request flow<\/title>/);
+  assert.match(localized, /<text x="0" y="0">Web interface<\/text>/);
+  assert.match(localized, /<tspan>Engine<\/tspan>/);
+  assert.match(localized, /<title>Icono<\/title>/, 'icon titles stay as they are');
 });
 
 test('Extraction retains complete prose and protects inline markup and code', () => {

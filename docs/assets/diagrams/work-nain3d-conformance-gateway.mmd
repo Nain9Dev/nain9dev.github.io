@@ -1,0 +1,8 @@
+%% Source of src/components/work/diagrams/Nain3dConformanceGateway.astro (specs/next-case-pages, WK-004).
+flowchart LR
+  UI["Interfaz web<br/>Vue 3 · three.js"] --> READ["Lectura del GLB<br/>cabecera binaria · hash SHA-256"]
+  READ --> ENGINE["Motor determinista<br/>Trimesh · NumPy"]
+  ENGINE --> CHECKS["Comprobaciones del perfil<br/>escala · triángulos · estanqueidad"]
+  CHECKS --> AGG["Agregador fail-closed<br/>un bloqueo basta para rechazar"]
+  AGG --> VERDICT["Veredicto<br/>conforme · con hallazgos · no conforme"]
+  AI["Propuesta de la IA<br/>categoría y confianza, sin voto"] -.-> VERDICT

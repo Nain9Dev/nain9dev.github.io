@@ -1,0 +1,215 @@
+/* Work pages (specs/next-case-pages, WK-002): one write-up per selected project. Imported only by
+   src/pages/trabajo/[id].astro; tokens only, no colour literal, transitions named. */
+
+/* Reading order is copy, capture, links (WK-002); on wide screens the capture takes the second column. */
+.work-head {
+  display: grid;
+  grid-template-areas: "copy" "media" "links";
+  gap: var(--s6);
+  align-items: start;
+}
+
+.work-copy {
+  grid-area: copy;
+}
+
+.work-media {
+  grid-area: media;
+}
+
+.work-links {
+  grid-area: links;
+}
+
+.work-eyebrow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 0 var(--s3);
+  gap: var(--s3);
+  color: var(--color-ink-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+.work-index {
+  color: var(--color-green);
+}
+
+.work-head h1 {
+  margin: 0 0 var(--s4);
+  max-width: 22ch;
+}
+
+.work-lead {
+  margin: 0 0 var(--s6);
+  max-width: 60ch;
+  color: var(--color-text-soft);
+  font-size: var(--text-md);
+  line-height: var(--leading-body);
+}
+
+.work-media {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-panel);
+}
+
+.work-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.work-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s3) var(--s6);
+  margin: 0;
+}
+
+/* Body copy keeps a reading measure; headings mark the five sections. */
+.work-body {
+  max-width: 68ch;
+}
+
+.work-body h2 {
+  margin: var(--s8) 0 var(--s4);
+  font-size: var(--text-lg);
+}
+
+.work-body :is(p, li) {
+  line-height: var(--leading-body);
+}
+
+.work-body ol,
+.work-body ul {
+  padding-left: 1.25rem;
+}
+
+.work-body li {
+  margin: 0 0 var(--s3);
+}
+
+.work-body li::marker {
+  color: var(--color-green);
+}
+
+/* Architecture: the diagram scales with the column; labels stay readable because the viewBox is 720 wide
+   and the column never drops under 320 px. */
+.work-diagram {
+  margin: var(--s6) 0;
+  padding: var(--s4);
+  overflow-x: auto;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+}
+
+/* Phones scroll the diagram sideways instead of shrinking its labels under 12 px: the SVG keeps a floor of
+   40rem, so a 14 px label never renders smaller than about 12.4 px. The figure is focusable so keyboard users
+   can scroll it (WCAG 2.1.1). */
+.work-diagram svg {
+  display: block;
+  width: 100%;
+  min-width: 40rem;
+  height: auto;
+  font-family: var(--font-body);
+}
+
+.work-diagram:focus-visible {
+  outline: 2px solid var(--color-green);
+  outline-offset: 2px;
+}
+
+.work-diagram .node {
+  fill: var(--color-bg-raised);
+  stroke: var(--color-line-strong);
+  stroke-width: 1.5;
+}
+
+.work-diagram .node-accent {
+  fill: var(--color-surface-strong);
+  stroke: var(--color-green);
+}
+
+.work-diagram .label {
+  fill: var(--color-text);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.work-diagram .label-soft {
+  fill: var(--color-text-muted);
+  font-size: 11.5px;
+  font-weight: 400;
+}
+
+.work-diagram .flow {
+  fill: none;
+  stroke: var(--color-text-muted);
+  stroke-width: 1.5;
+}
+
+.work-diagram .flow-accent {
+  stroke: var(--color-green);
+}
+
+.work-diagram .arrow {
+  fill: var(--color-text-muted);
+}
+
+.work-diagram .arrow-accent {
+  fill: var(--color-green);
+}
+
+/* Stack: every technology, as the chips of the catalog. */
+.work-stack {
+  margin: var(--s8) 0 0;
+}
+
+.work-stack h2 {
+  margin: 0 0 var(--s4);
+  font-size: var(--text-lg);
+}
+
+/* Footer navigation between the selected projects. */
+.work-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--s4);
+  margin: var(--s8) 0 0;
+  padding-top: var(--s6);
+  border-top: 1px solid var(--color-line);
+}
+
+.work-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  gap: var(--s2);
+  color: var(--color-link);
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease-standard);
+}
+
+.work-nav a:hover,
+.work-nav a:focus-visible {
+  color: var(--color-green);
+  text-decoration: underline;
+}
+
+@media (min-width: 60rem) {
+  .work-head {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    grid-template-areas: "copy media" "links media";
+    gap: var(--s4) var(--s8);
+  }
+}

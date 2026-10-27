@@ -1,0 +1,8 @@
+%% Source of src/components/work/diagrams/ParametricadAi.astro (specs/next-case-pages, WK-004).
+flowchart LR
+  UI["Interfaz web<br/>React · Three.js"] --> API["API<br/>FastAPI · Pydantic"]
+  API --> EXTRACT["Extracción de parámetros<br/>reglas o modelo de lenguaje"]
+  EXTRACT --> KERNEL["Motor paramétrico<br/>CadQuery · OpenCASCADE"]
+  KERNEL --> VALIDATE["Validación topológica<br/>sólido estanco y 2-variedad"]
+  VALIDATE --> EXPORT["Exportación<br/>GLB · STL · STEP · DXF"]
+  EXPORT -. respuesta .-> UI

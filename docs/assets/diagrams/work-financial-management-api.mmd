@@ -1,0 +1,7 @@
+%% Source of src/components/work/diagrams/FinancialManagementApi.astro (specs/next-case-pages, WK-004).
+flowchart LR
+  UI["Interfaz web<br/>Vue 3 · GitHub Pages"] --> API["API .NET<br/>JWT · ETag e If-Match · ProblemDetails"]
+  API --> APP["Aplicación<br/>casos de uso · transiciones"]
+  APP --> DOMAIN["Dominio<br/>Draft → Active → Cancelled"]
+  DOMAIN --> INFRA["Infraestructura<br/>EF Core · rowversion"]
+  INFRA --> SQL["SQL Server<br/>póliza y auditoría, una transacción"]
