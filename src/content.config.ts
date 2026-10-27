@@ -16,7 +16,7 @@ const blog = defineCollection({
   })
 });
 
-// Work pages: one write-up per selected project of projects.json (specs/next-case-pages, WK-001).
+// Work pages: one write-up per selected project of projects.json (specs/050-work-pages, WK-001).
 const work = defineCollection({
   loader: glob({ pattern: "**/*.mdx", base: "./src/content/work" }),
   schema: z.object({

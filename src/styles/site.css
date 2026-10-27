@@ -1,4 +1,4 @@
-/* Site-wide styles, imported by every page (ADR-next-inner-page-stylesheets, specs/next-case-pages IS-001).
+/* Site-wide styles, imported by every page (ADR-0017, specs/050-work-pages IS-001).
    The pages import the stylesheets, not the layout: Astro bundles a page's own CSS before the CSS of the
    components it renders, so a layout import would place the inner-page rules before these and change the
    cascade. Inner pages import inner.css, which pulls this file first. */

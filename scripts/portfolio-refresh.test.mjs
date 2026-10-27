@@ -247,7 +247,7 @@ test('VIS-009: the footer shows specialties as chips and the services index has 
   assert.match(footer, /class="status-pill"/);
   const services = await read('src/pages/servicios/index.astro');
   assert.doesNotMatch(services, /style=/);
-  const css = (await read('src/styles/main.css')) + '\n' + (await read('src/styles/inner-pages.css')); // inner-page rules moved (specs/next-case-pages IS-001)
+  const css = (await read('src/styles/main.css')) + '\n' + (await read('src/styles/inner-pages.css')); // inner-page rules moved (specs/050-work-pages IS-001)
   assert.match(css, /\.footer-chip\s*\{/);
   assert.match(css, /\.status-pill\s*\{/);
   assert.match(css, /\.page-cta\s*\{/);
@@ -287,14 +287,14 @@ test('VIS-011: the checklist and blog index pages are styled by classes, not inl
   assert.match(checklist, /<!--email_off-->/);
   assert.match(checklist, /mailto:contact@naindev\.com/);
   assert.match(blog, /class="blog-card-link"|button-outline blog-action/);
-  const css = (await read('src/styles/main.css')) + '\n' + (await read('src/styles/inner-pages.css')); // inner-page rules moved (specs/next-case-pages IS-001)
+  const css = (await read('src/styles/main.css')) + '\n' + (await read('src/styles/inner-pages.css')); // inner-page rules moved (specs/050-work-pages IS-001)
   for (const selector of ['.check-list', '.lead-layout', '.lead-card', '.blog-action', '.page-intro']) {
     assert.ok(css.includes(`${selector} {`) || css.includes(`${selector}\n`) || css.includes(`${selector},`), `${selector} is styled`);
   }
 });
 
 test('VIS-012: the 404, thank-you and technology pages are styled by classes, not inline styles', async () => {
-  const css = (await read('src/styles/main.css')) + '\n' + (await read('src/styles/inner-pages.css')); // inner-page rules moved (specs/next-case-pages IS-001)
+  const css = (await read('src/styles/main.css')) + '\n' + (await read('src/styles/inner-pages.css')); // inner-page rules moved (specs/050-work-pages IS-001)
   const pages = {
     'src/pages/404.astro': ['page-intro', 'center-actions'],
     'src/pages/recursos/gracias.astro': ['lead-page', 'thanks-card', 'thanks-emoji'],
