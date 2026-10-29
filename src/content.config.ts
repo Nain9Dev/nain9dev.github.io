@@ -10,7 +10,7 @@ const blog = defineCollection({
     pubDate: z.date(),
     tags: z.array(z.string()),
     keywords: z.array(z.string()).optional().default([]),
-    ogImage: z.string().optional().default('/assets/images/og-cover-v4.jpg'),
+    ogImage: z.string().optional().default('/assets/images/og-cover-v5.jpg'),
     draft: z.boolean().default(false),
     readingTime: z.string().optional(),
   })
@@ -35,7 +35,7 @@ const servicios = defineCollection({
     keywords: z.array(z.string()).optional().default([]),
     icon: z.string().optional(),
     techStack: z.array(z.string()).optional(),
-    ogImage: z.string().optional().default('/assets/images/og-cover-v4.jpg'),
+    ogImage: z.string().optional().default('/assets/images/og-cover-v5.jpg'),
     draft: z.boolean().default(false),
     renderTitle: z.boolean().default(true),
     order: z.number().default(99)

@@ -6,6 +6,7 @@ import { existsSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
+import sharp from 'sharp';
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const read = (file) => readFile(join(ROOT, file), 'utf8');
@@ -49,6 +50,26 @@ test('DF-006: the SVG mark and the icons use the designer geometry on the deep b
   const layout = await read('src/layouts/BaseLayout.astro');
   assert.match(layout, /rel="icon" type="image\/png" sizes="96x96" href="\/favicon-96x96\.png"/);
   assert.match(layout, /rel="apple-touch-icon" sizes="180x180" href="\/apple-touch-icon\.png"/);
+});
+
+test('DF-007: the default social image shows the new isotype in white, not the old cyan and cobalt logo', async () => {
+  const { data, info } = await sharp(join(ROOT, 'public/assets/images/og-cover-v5.jpg')).raw().toBuffer({ resolveWithObject: true });
+  const at = (x, y) => [0, 1, 2].map((offset) => data[(y * info.width + x) * info.channels + offset]);
+  let oldLogo = 0;
+  for (let y = 500; y < info.height; y += 1) {
+    for (let x = 40; x < 260; x += 1) {
+      const [r, , b] = at(x, y);
+      if (r < 60 && b > 150) oldLogo += 1;
+    }
+  }
+  assert.equal(oldLogo, 0, 'no cyan or cobalt pixels of the old logo remain at the bottom left');
+  let mark = 0;
+  for (let y = 535; y < 568; y += 1) {
+    for (let x = 72; x < 108; x += 1) {
+      if (at(x, y).every((value) => value > 225)) mark += 1;
+    }
+  }
+  assert.ok(mark >= 150, `the white isotype is drawn at the old logo position (${mark} white pixels)`);
 });
 
 test('DF-007: the Organization logo URL still points at the touch icon, so it shows the new mark', async () => {

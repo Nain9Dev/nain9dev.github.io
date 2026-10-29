@@ -37,7 +37,7 @@ Prototype pin: `design/home-redesign` at `89e15d8` (2026-10-26); viewer `design/
   - **Done when**: guard green, header measured at 1440 and 390 px in both themes (done, see Measurements).
 - [ ] **T07** `[M]` Pull request and external profile update list.
   - **Needs from owner**: review and merge; upload the new avatars to the brand accounts (list below).
-- [ ] **T07b** `[A]` Open Graph image `og-cover-v4.jpg` still shows the old horizontal logo; regenerate it with the new mark (spec 026 weight budget applies).
+- [x] **T07b** `[A]` Open Graph image: the old logo band is covered with the band one grid period above and the new isotype and "NainDev" (Urbanist 800) are composited at the same place, saved as `og-cover-v5.jpg` (1200×630 JPEG, 57 594 B, under the 200 KB limit of spec 026). A guard in `design-logo.test.mjs` (red first) checks that no cyan or cobalt pixel of the old logo remains and that the white isotype is there. References moved from v4 to v5 in `seo.ts`, `content.config.ts`, four blog posts, `social-image.test.mjs` and the data model. After the merge, the owner can refresh the LinkedIn and Facebook previews with their debuggers.
 - [ ] **T07c** `[H]` Vector wordmark from David, then the full lockup in the header (DF-005).
 
 ## Layer 3: surfaces
