@@ -16,7 +16,11 @@ Two owner decisions, taken in the interview of 2026-10-29:
 | D1 | What the home shows in "Proyectos y demos" | Six featured projects and a "see all" link |
 | D2 | Which six | Collaborative CRM (private, in production), Policy Operations API, .NET modernization harness, NainOrder, notification microservice, driving-school invoicing |
 | D3 | How 3D is handled | A bridge to Contrast3D: the 3D projects leave the catalog, one entry points to DSE and Contrast Viewer, the 3D service page and the Nain3D case stay as bridge pages with links to those products, no URL is removed |
-| D4 | Destinations | `datumstatutum.com` (DSE, public today), `viewer.contrast3dhub.com` for the viewer (answers 403 today, so it is linked only once public; B-022), `www.contrast3d.com` (studio) |
+| D4 | Destinations | `datumstatutum.com` (DSE, public today), `viewer.contrast3d.com` (Contrast Viewer product site, to be created; D5), `www.contrast3d.com` (studio) |
+| D5 | Contrast Viewer site (owner, later the same day) | A new static marketing site on `viewer.contrast3d.com`, cloned from the DSE `web/` generator on Cloudflare Pages. The app host `viewer.contrast3dhub.com` keeps its access gate untouched, and no public path is added to it (ADR-0012 of the viewer rejected one). The site reuses only public material and names no client |
+| D6 | DSE indexing (owner, later the same day) | The `noindex` of `datumstatutum.com` (meta, `_headers`, `robots.txt`) is lifted now; the change is prepared in the DSE repository and published by the owner |
+| D7 | Contrast Hub | Mentioned on naindev.com only as an example of private software built (CRM, calculations), with no screenshots, no host and no client data |
+| D8 | Goal | naindev.com promotes DSE and Contrast Viewer as products with their own public sites, and stays focused on software, full stack and backend; the 3D bridge becomes a "products" band that links to both |
 
 ## Functional requirements (EARS)
 
@@ -24,7 +28,8 @@ Two owner decisions, taken in the interview of 2026-10-29:
 - **NPR-002 (catalog page)**: When `/proyectos/` and `/en/projects/` are built, they shall show every catalog project with the existing filters (all, production, .NET, Python and data, demos), the static text index without JavaScript, and the same status wording as the home.
 - **NPR-003 (3D leaves the catalog)**: When the catalog is built, the projects `conformance-architecture`, `interactive-3d-viewer`, `nain3d-conformance-gateway`, `nain-mcp-validator`, `parametricad-ai`, `orbe-runner-3d` and `pong-arcade` shall not be listed as separate projects; one bridge entry shall name DSE, Contrast Viewer and Contrast3D with a link each.
 - **NPR-004 (no URL removed)**: While the migration runs, every URL in the sitemap today (`/servicios/validacion-3d`, `/trabajo/nain3d-conformance-gateway/` and the English paths) shall keep answering 200 or a permanent redirect, and the SEO contract (`check:seo`) shall list no broken internal link.
-- **NPR-005 (links only to public pages)**: A link to Contrast Viewer shall be rendered only when `viewer.contrast3dhub.com` answers publicly; until then the bridge shall show DSE and Contrast3D alone.
+- **NPR-005 (links only to public pages)**: A link to Contrast Viewer shall point to `viewer.contrast3d.com` and be rendered only when that site answers 200; until then the bridge shall show DSE and Contrast3D alone. No page of naindev.com shall link `viewer.contrast3dhub.com` or any host of the Contrast Hub.
+- **NPR-007 (Contrast Viewer site)**: When the Contrast Viewer site is built, it shall be static, bilingual and free of client names, internal hostnames, keys and demo models without a CC0 or CC-BY credit; it shall not use the words "certified" or "AI-powered" nor state a public price.
 - **NPR-006 (message)**: When the hero, the services and the structured data mention 3D, they shall describe NainDev's own work (validation architecture, contracts, tooling) and point to DSE for the product, and no sentence shall claim that NainDev sells 3D production or CGI.
 
 ## Edge cases and error handling
@@ -36,7 +41,7 @@ Two owner decisions, taken in the interview of 2026-10-29:
 
 ## Out of scope
 
-- Building the DSE or Contrast Viewer sites, and opening `viewer.contrast3dhub.com` (owner action, B-022).
+- Building the Contrast Viewer site (its own repository and specification, T07) and the DSE site changes (in the DSE repository). DNS and the Pages project for `viewer.contrast3d.com` are owner actions (B-022).
 - David's services diagrams and the credit to David (separate layers of `specs/next-design-fusion`).
 - Removing any 3D URL (a later ADR, with redirects, if the owner wants it).
 
