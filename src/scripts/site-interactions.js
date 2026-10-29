@@ -203,6 +203,7 @@ export function initializeThemeToggle({ button }) {
   const onClick = () => {
     const next = isLight() ? "dark" : "light";
     root.dataset.theme = next;
+    document.querySelectorAll('meta[name="theme-color"]').forEach((bar) => bar.setAttribute("content", next === "light" ? "#edf1f6" : "#070b16"));
     try {
       localStorage.setItem("theme", next);
     } catch {}

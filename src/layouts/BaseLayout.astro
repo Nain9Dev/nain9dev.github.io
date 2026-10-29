@@ -53,7 +53,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://www.nain
     <script is:inline>
       try {
         const theme = localStorage.getItem("theme");
-        if (theme === "light" || theme === "dark") document.documentElement.dataset.theme = theme;
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.dataset.theme = theme;
+          document.querySelectorAll('meta[name="theme-color"]').forEach((bar) => bar.setAttribute("content", theme === "light" ? "#edf1f6" : "#070b16"));
+        }
       } catch (e) {}
       document.documentElement.classList.add("motion-ready");
       try {

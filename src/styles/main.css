@@ -80,6 +80,19 @@
   --color-green: #80ff00;
   --color-red: #ff001f;
 
+  /* Round 4 roles (next-design-fusion, DF-001): the designer's names for wells, headings, the brand stroke,
+     the focus ring, error text and the logo; the paper values sit in the light blocks below. */
+  --color-sunken: #070b16;
+  --color-heading: #edf1f6;
+  --color-stroke: #80ff00;
+  --color-focus: #80ff00;
+  --color-red-ink: #ff5c6c;
+  --color-logo: #ffffff;
+  --brand-deep: #002b66;
+  --brand-green: #80ff00;
+  --brand-red: #ff001f;
+  --brand-black: #1d1d1b;
+
   /* Type: fluid modular scale, display in Urbanist, body in Inter */
   --font-display: "Urbanist", "Urbanist Fallback", ui-sans-serif, system-ui, sans-serif;
   --font-body: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -354,8 +367,8 @@ main[tabindex="-1"]:focus {
   z-index: 100;
   padding: 0.75rem 1rem;
   border-radius: var(--radius-small);
-  background: var(--color-secondary);
-  color: var(--color-primary-ink);
+  background: var(--color-cobalt);
+  color: var(--color-cobalt-ink);
   font-weight: 750;
   text-decoration: none;
   transform: translateY(-180%);
@@ -2806,6 +2819,12 @@ html.low-performance .system-map::after {
   --color-green: #2e6b00;
   --color-red: #c4001a;
   --color-shadow: #1d1d1b;
+  --color-sunken: #dee6f0;
+  --color-heading: #0047ab;
+  --color-stroke: #0047ab;
+  --color-focus: #2e6b00;
+  --color-red-ink: #c4001a;
+  --color-logo: #0047ab;
 }
 
 @media (prefers-color-scheme: light) {
@@ -2825,6 +2844,12 @@ html.low-performance .system-map::after {
   --color-green: #2e6b00;
   --color-red: #c4001a;
   --color-shadow: #1d1d1b;
+  --color-sunken: #dee6f0;
+  --color-heading: #0047ab;
+  --color-stroke: #0047ab;
+  --color-focus: #2e6b00;
+  --color-red-ink: #c4001a;
+  --color-logo: #0047ab;
   }
 }
 
