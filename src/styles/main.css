@@ -998,6 +998,33 @@ main[tabindex="-1"]:focus {
   margin-bottom: 0;
 }
 
+/* Dimension (next-design-fusion DF-016): a measuring line with ticks and a label that states a real count.
+   Static: it measures, it does not move. */
+.dimension {
+  display: flex;
+  align-items: center;
+  max-width: 24rem;
+  margin: var(--s4) 0 0;
+  gap: var(--s3);
+  color: var(--color-ink-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+.dimension-line {
+  flex: 1;
+  min-width: 2rem;
+  height: 0.75rem;
+  border-inline: 1px solid var(--color-stroke);
+  background: linear-gradient(var(--color-stroke), var(--color-stroke)) center / 100% 1px no-repeat;
+}
+
+.dimension-label {
+  white-space: nowrap;
+}
+
 .section-heading > p,
 .section-intro,
 .about-copy,

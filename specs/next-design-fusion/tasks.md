@@ -48,6 +48,13 @@ Prototype pin: `design/home-redesign` at `89e15d8` (2026-10-26); viewer `design/
 - [x] **T08b** `[H]` Owner decided DF-009 on 2026-10-29: the vignette, grid and pointer glow stay (discarded).
 - [ ] **T08c** `[A]` Measure code blocks and diagrams on `--brand-deep` and decide whether they join DF-008.
 
+## Layer 3b: section heads and key cards
+
+- [x] **T12** `[A]` Guard `scripts/design-cota.test.mjs` first (red on three of five), then the `Dimension` component on the four section heads, its CSS, and reviewed English units in `src/i18n/en-US.json` (three entries appended). The solid shadow part needed no change (already offset-only); the guard keeps it.
+  - **Done when**: `npm run check` green (done), home size recorded (below), browser pass in both themes and on a phone (done).
+  - **Needs from owner**: review of the green dimension line in the dark theme (extends ADR-0012's green rule).
+- [ ] **T07b** (above) Open Graph image with the new mark is the next pull request.
+
 ## Layers 4 to 6
 
 - [x] **T09** `[H]` Owner answered DF-011 on 2026-10-29 (recorded in `spec.md`).
@@ -75,7 +82,12 @@ Prototype pin: `design/home-redesign` at `89e15d8` (2026-10-26); viewer `design/
 
 Two 1024 px avatars were generated outside the repository from the same geometry: the blue isotype on white (brand accounts show the logo on white) and the green isotype on the deep blue tile. Accounts that show the NainDev logo and need the new one: LinkedIn page NainDev, GitLab, X `@Nain9Dev`, Instagram `@nainndev`, TikTok `@nain9dev`, YouTube NainDev and Google Business. Personal accounts keep the photo; "Hábitos de un Dev" keeps its own avatar.
 
+- Layer 3b: home document 29 051 B gzip (`/en/` 28 434 B) against the 30 720 B tripwire; 28 898 B after layer 2, so +153 B (four labels, the component markup and the dimension rules). About 1.6 KB of headroom is left for the hero and later layers.
+- Dimension: 384 x 19 px under the head (358 px on a phone), no horizontal overflow, line and ticks `rgb(128, 255, 0)` in dark and `rgb(0, 71, 171)` in paper, label in muted ink; axe `color-contrast` on the element in 20 runs (five targets, both themes and widths): 0. English labels "22 projects", "4 selected projects" and "15 services" on `/en/`. Captures read correctly in both themes and on a phone.
+
 ## Guard changes
+
+- `scripts/design-cota.test.mjs` (new, registered in `npm run check`): DF-016 (component markup, labels from data, stroke and muted ink, no motion, solid shadows without blur, built counts in both languages when `dist/` exists).
 
 - `scripts/design-logo.test.mjs` (new, registered in `npm run check`): DF-004 to DF-007. `scripts/check-brand-icons.mjs` now measures the green strokes against the circular mask (the tile is not part of the framing) and expects the inline mark in the header; PERF-009 now asserts the header serves no image.
 
