@@ -7,13 +7,15 @@
   - **Covers**: HERO-008, HERO-009
 - [x] **T04** `[A]` Requirements: HERO-001 to HERO-004 marked Superseded, HERO-005 to HERO-009 added; traceability and changelog updated.
 - [x] **T05** `[A]` Browser pass in both themes.
-- [ ] **T06** `[A]` Lighthouse budget run (`npm run check:budget`), result recorded below.
+- [x] **T06** `[A]` Lighthouse budget run (`npm run check:budget`), result recorded below.
 - [ ] **T07** `[M]` Pull request. **Needs from owner**: review and merge.
 
 ## Measurements
 
 - `npm run check` green. Chunk `hero-field` 4 530 B (limit 8 KiB). Home document 29 058 B gzip (`/en/` 28 441 B) against the 30 720 B tripwire; 29 051 B before, so +7 B.
 - Browser (headless Chrome with GPU flags, 1440 x 900): field canvas 1440 x 1032 drawn in both themes (about 81 000 painted pixels), stroke `#80ff00` on dark and `#0047ab` on paper, no console errors, display not hidden, `low-performance` unset. Idle animation frames arrive at the display rate (median 10 ms) because the page stays smooth; the field itself draws one frame in three. After a pointer move and a press the strokes shrink around the pointer and the ripple tints them red. Captures read correctly; the text column and the summary stay clear.
+
+- Lighthouse budget (`npm run check:budget`, host benchmark 4034, CPU slowdown 9x, 3 pages x 5 runs, attempt 1 of 3): `/` and `/en/` performance 0.99, LCP 1 803 ms, TBT 0 ms, CLS 0, 197 172 B and 196 418 B; `/servicios/` performance 1.00, LCP 1 541 ms, TBT 0 ms. All limits met.
 
 ## Session log
 
