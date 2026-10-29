@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Quiet from '../../components/home/Quiet.astro';
+import Dimension from '../../components/home/Dimension.astro';
 import ServiceIcon from '../../components/ServiceIcon.astro';
 import '../../styles/inner.css';
 
@@ -51,6 +52,7 @@ if (unassigned.length > 0) groups.push({ title: 'Otros servicios', items: unassi
         <div>
           <p class="eyebrow">Consultoría y Desarrollo</p>
           <h1>Servicios de Ingeniería</h1>
+          <Dimension count={sortedServicios.length} unit="servicios" />
         </div>
         <Quiet><p>Soluciones arquitectónicas de alto nivel para problemas complejos. Ayudo a empresas B2B e industrias técnicas a escalar sus plataformas de forma segura y determinista.</p></Quiet>
       </div>

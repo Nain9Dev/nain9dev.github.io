@@ -9308,5 +9308,20 @@
     "source": "⟦0⟧⟦1⟧Última publicación⟦/1⟧⟦2⟧⟦3/⟧ · ⟦4/⟧⟦/2⟧⟦/0⟧",
     "target": "⟦0⟧⟦1⟧Last publication⟦/1⟧⟦2⟧⟦3/⟧ · ⟦4/⟧⟦/2⟧⟦/0⟧",
     "status": "reviewed"
+  },
+  "22fd21d0fc91cd9be9063ba24cbe4388ed63c289bd75f9e2401864967da0489b": {
+    "source": "⟦0/⟧⟦1⟧⟦2/⟧ proyectos⟦/1⟧",
+    "target": "⟦0/⟧⟦1⟧⟦2/⟧ projects⟦/1⟧",
+    "status": "reviewed"
+  },
+  "109b9f654621679848c86367880113f671209d3646bebd83f14043ccb35c1527": {
+    "source": "⟦0/⟧⟦1⟧⟦2/⟧ proyectos seleccionados⟦/1⟧",
+    "target": "⟦0/⟧⟦1⟧⟦2/⟧ selected projects⟦/1⟧",
+    "status": "reviewed"
+  },
+  "94ad758f57f80c6c435bcebd49504ab333630becbc7695eb33a811a2d4cb4854": {
+    "source": "⟦0/⟧⟦1⟧⟦2/⟧ servicios⟦/1⟧",
+    "target": "⟦0/⟧⟦1⟧⟦2/⟧ services⟦/1⟧",
+    "status": "reviewed"
   }
 }

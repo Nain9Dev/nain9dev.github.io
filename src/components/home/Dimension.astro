@@ -1,0 +1,10 @@
+---
+// Dimension.astro: the designer's measuring line under a section head (next-design-fusion DF-016).
+// The label states a real count passed in from data; the number is never translated, the unit is.
+interface Props {
+  count: number;
+  unit: string;
+}
+const { count, unit } = Astro.props;
+---
+<p class="dimension"><span class="dimension-line" aria-hidden="true"></span><span class="dimension-label"><span translate="no">{count}</span> {unit}</span></p>
