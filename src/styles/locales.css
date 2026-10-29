@@ -61,5 +61,5 @@
   .terminal-input { flex-basis: 100%; min-width: 0; }
   .header-actions { max-width: 12rem; }
   .header-layout > .brand { min-width: 0; max-width: 100%; }
-  .header-layout .brand-logo { width: 100%; max-width: 11rem; height: auto; }
+  .header-layout .brand-name { font-size: 1.3rem; }
 }

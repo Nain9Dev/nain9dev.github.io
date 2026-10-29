@@ -1,13 +1,15 @@
 ---
 // Header.astro
-import { Image } from 'astro:assets';
-import logo from '../assets/images/logo_horizontal.png';
 ---
 
 <header class="site-header" data-site-header>
   <div class="shell header-layout" data-nosnippet>
     <a class="brand" href="/#top" aria-label="NainDev, volver al inicio" title="Volver al inicio">
-      <Image src={logo} alt="NainDev" class="brand-logo" format="webp" width={536} widths={[268, 536]} sizes="268px" priority />
+      <!-- Isotype from its three strokes (next-design-fusion DF-004): one colour, so it follows the theme. -->
+      <svg class="brand-mark" viewBox="91 91 818 818" aria-hidden="true" focusable="false">
+        <path d="M148 148V848M308 288L686 738M848 148V848" />
+      </svg>
+      <span class="brand-name" translate="no">NainDev</span>
     </a>
 
     <!-- Phone menu toggle (spec 045, VP-009): shown only when the head script ran (html.motion-ready),

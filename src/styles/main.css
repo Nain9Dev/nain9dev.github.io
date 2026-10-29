@@ -423,15 +423,29 @@ main[tabindex="-1"]:focus {
   z-index: 100;
 }
 
-.brand-logo {
-  height: clamp(3.2rem, 5vh, 4.2rem);
-  width: auto;
+/* The isotype is three round-capped strokes in a 1000 box (next-design-fusion DF-004); the stroke is 113 units. */
+.brand-mark {
   display: block;
+  width: clamp(2.4rem, 4vh, 3rem);
+  height: auto;
+  aspect-ratio: 1;
+  fill: none;
+  stroke: var(--color-logo);
+  stroke-width: 113;
+  stroke-linecap: round;
   transition: transform 300ms var(--ease-spring), opacity 300ms ease;
-  will-change: transform;
 }
 
-.brand:hover .brand-logo {
+.brand-name {
+  color: var(--color-logo);
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.2vw, 1.6rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.brand:hover .brand-mark {
   transform: scale(1.05);
   opacity: 0.95;
 }

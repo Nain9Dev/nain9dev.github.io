@@ -1,6 +1,6 @@
 # ADR-next: Adopt the designer's isotype as the site mark, as a vector
 
-Status: Proposed
+Status: Approved (owner, in chat, 2026-10-29: isotype now, full lockup when the vector wordmark arrives)
 Date: 2026-10-29
 
 ## Context
@@ -9,7 +9,7 @@ The site header shows `src/assets/images/logo_horizontal.png`, a 1600 x 400 rast
 
 A logo is a public identity, not a style choice: it appears on the site, in the structured data, in social images and on external profiles (LinkedIn, Google Business, freelance platforms), and the owner may file it as a trademark.
 
-## Decision (proposed)
+## Decision
 
 - The site mark becomes the designer's isotype, drawn as inline SVG from his stroke geometry and coloured by one role, `--color-logo` (brand blue on paper, white on deep blue).
 - The wordmark is published only as a vector. Until the designer delivers it, the header shows the isotype and the text "NainDev" in the heading font. His raster wordmark is not published: at 38 px high it blurs on dense screens and cannot follow the theme.
@@ -22,6 +22,8 @@ A logo is a public identity, not a style choice: it appears on the site, in the 
 - External profiles keep the old logo until the owner replaces it; the pull request lists them.
 - The credit to the designer and any mention of Contrast3D follow the partnership rules in `design/README.md`, decided by him.
 - Approving this ADR approves the isotype only; the full lockup waits for the vector wordmark.
+- The icons keep one design for both themes: the isotype in brand green on a rounded deep blue tile, as the designer drew it. The tile reads on any tab or home screen, which a bare mark on a transparent background does not. The icon contract now measures the green strokes against the circular mask instead of every opaque pixel.
+- The old `logo_horizontal.png` is deleted; `naindev/legacy` and `naindev/legacy-2` keep it.
 
 ## Alternatives considered
 

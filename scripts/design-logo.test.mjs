@@ -1,0 +1,58 @@
+// Guards for specs/next-design-fusion, layer 2 (DF-004 to DF-007): the site mark is the designer's isotype,
+// drawn as an inline SVG, and the icons are rendered from the same geometry.
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { existsSync } from 'node:fs';
+import { readFile } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
+
+const ROOT = fileURLToPath(new URL('..', import.meta.url));
+const read = (file) => readFile(join(ROOT, file), 'utf8');
+
+// The three round-capped strokes of the isotype, in a 1000 box, as delivered in the designer's favicons.
+const STROKES = 'M148 148V848M308 288L686 738M848 148V848';
+const STROKE_WIDTH = '113';
+
+test('DF-004: the header brand is the isotype as inline SVG coloured by --color-logo, with a text name', async () => {
+  const header = await read('src/components/Header.astro');
+  const brand = header.match(/<a class="brand"[\s\S]*?<\/a>/)?.[0] ?? '';
+  assert.match(brand, /aria-label="NainDev, volver al inicio"/, 'the link keeps its accessible name and target');
+  assert.match(brand, /href="\/#top"/);
+  assert.match(brand, new RegExp(`<svg class="brand-mark"[^>]*aria-hidden="true"[^>]*>\\s*<path d="${STROKES}"`), 'the isotype strokes');
+  assert.match(brand, /<span class="brand-name" translate="no">NainDev<\/span>/, 'the name is real text, not an image, and is never translated');
+  assert.doesNotMatch(header, /<Image|logo_horizontal/, 'no raster logo in the header');
+  const css = await read('src/styles/main.css');
+  const mark = css.match(/\.brand-mark \{([\s\S]*?)\n\}/)?.[1] ?? '';
+  assert.match(mark, /stroke: var\(--color-logo\);/);
+  assert.match(mark, new RegExp(`stroke-width: ${STROKE_WIDTH};`));
+  assert.match(mark, /stroke-linecap: round;/);
+  assert.match(mark, /fill: none;/);
+  const name = css.match(/\.brand-name \{([\s\S]*?)\n\}/)?.[1] ?? '';
+  assert.match(name, /color: var\(--color-logo\);/);
+});
+
+test('DF-005: no raster wordmark is published and the old raster logo is gone', async () => {
+  assert.equal(existsSync(join(ROOT, 'src/assets/images/logo_horizontal.png')), false, 'the old 1600 px logo is removed');
+  for (const file of ['src/components/Header.astro', 'src/components/Footer.astro', 'src/layouts/BaseLayout.astro']) {
+    assert.doesNotMatch(await read(file), /wordmark|logo_horizontal/i, file);
+  }
+});
+
+test('DF-006: the SVG mark and the icons use the designer geometry on the deep blue tile', async () => {
+  const svg = await read('public/assets/images/favicon-optimized.svg');
+  assert.ok(svg.includes(STROKES), 'the favicon draws the isotype strokes');
+  assert.match(svg, new RegExp(`stroke-width="${STROKE_WIDTH}"`));
+  assert.match(svg, /stroke-linecap="round"/);
+  assert.match(svg, /fill="#002B66"/i, 'the tile is the deep blue');
+  assert.match(svg, /stroke="#80FF00"/i, 'the mark is the brand green');
+  const layout = await read('src/layouts/BaseLayout.astro');
+  assert.match(layout, /rel="icon" type="image\/png" sizes="96x96" href="\/favicon-96x96\.png"/);
+  assert.match(layout, /rel="apple-touch-icon" sizes="180x180" href="\/apple-touch-icon\.png"/);
+});
+
+test('DF-007: the Organization logo URL still points at the touch icon, so it shows the new mark', async () => {
+  const seo = await read('src/components/SEO.astro');
+  assert.match(seo, /"logo": new URL\('\/apple-touch-icon\.png', siteURL\)\.toString\(\)/);
+  assert.ok((await readFile(join(ROOT, 'public/apple-touch-icon.png'))).length > 0);
+});

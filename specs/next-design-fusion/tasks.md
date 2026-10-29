@@ -31,24 +31,27 @@ Prototype pin: `design/home-redesign` at `89e15d8` (2026-10-26); viewer `design/
 
 ## Layer 2: logo
 
-- [ ] **T04** `[H]` Owner approves `ADR-next-design-fusion-logo`.
-- [ ] **T05** `[A]` Guard for DF-004 to DF-007 first (isotype inline, no raster wordmark, icons present, Organization logo URL resolves).
-- [ ] **T06** `[A]` Isotype SVG in `Header.astro`, text wordmark interim, icons regenerated, structured data and OG checked.
-  - **Done when**: guard green, header measured at 1440 and 390 px in both themes.
+- [x] **T04** `[H]` Owner approved `ADR-next-design-fusion-logo` in chat on 2026-10-29.
+- [x] **T05** `[A]` Guard `scripts/design-logo.test.mjs` for DF-004 to DF-007 first (red on three of four tests); `check-brand-icons.mjs` and PERF-009 adapted to the inline mark.
+- [x] **T06** `[A]` Isotype SVG in `Header.astro`, text name interim, SVG mark and PNG and ICO icons regenerated with `scripts/generate-brand-icons.mjs`, old raster logo deleted.
+  - **Done when**: guard green, header measured at 1440 and 390 px in both themes (done, see Measurements).
 - [ ] **T07** `[M]` Pull request and external profile update list.
+  - **Needs from owner**: review and merge; upload the new avatars to the brand accounts (list below).
+- [ ] **T07b** `[A]` Open Graph image `og-cover-v4.jpg` still shows the old horizontal logo; regenerate it with the new mark (spec 026 weight budget applies).
+- [ ] **T07c** `[H]` Vector wordmark from David, then the full lockup in the header (DF-005).
 
 ## Layer 3: surfaces
 
 - [x] **T08** `[A]` Guard and implementation of DF-008 for the footer and the terminal (`scripts/design-surfaces.test.mjs` written first, red on both tests, then green).
   - **Covers**: DF-008
   - **Done when**: `npm run check` green; sizes and the browser pass recorded below. DF-010 needs no change.
-- [ ] **T08b** `[H]` Owner decides DF-009 (flat page): superseding the retained effects of spec 045 and ADR-0012 and the guards that assert them.
+- [x] **T08b** `[H]` Owner decided DF-009 on 2026-10-29: the vignette, grid and pointer glow stay (discarded).
 - [ ] **T08c** `[A]` Measure code blocks and diagrams on `--brand-deep` and decide whether they join DF-008.
 
 ## Layers 4 to 6
 
-- [ ] **T09** `[H]` Owner answers DF-011.
-- [ ] **T10** `[A]` Layer 4 plan from a measured diff of the two home compositions (after T09).
+- [x] **T09** `[H]` Owner answered DF-011 on 2026-10-29 (recorded in `spec.md`).
+- [ ] **T10** `[A]` Layer 4 plan: the 2D stroke field in place of the WebGL scene (HERO-001 to HERO-004 superseded by a new requirement), keeping the current section order.
 - [ ] **T11** `[A]` Specs for `/proyectos/` and the inner pages (after layer 4).
 
 ## Measurements
@@ -63,13 +66,25 @@ Prototype pin: `design/home-redesign` at `89e15d8` (2026-10-26); viewer `design/
 - Footer: computed background `rgb(0, 43, 102)` with no gradient on `/`, `/en/` and `/servicios/`, 1440 and 390 px, system dark and light; captures in both themes and on a phone read correctly (chips, status pill, links). Terminal skin: computed background and header `rgb(0, 43, 102)` in both themes; its text roles measure 4.55:1 or more on the band (error text on `#ff5c6c` 4.55:1, the old mixed red was below AA). A capture of the terminal itself was not obtained from the headless run (the section stays unpainted until it scrolls into view); open for the browser pass of the pull request.
 - axe-core on the twelve runs above: no new violation. `target-size` on `.quiet > summary` and the fifth `.repo-code` link, and one `color-contrast` on a catalog `.project-link` at 390 px paper in `/en/`, appear identically on the `main` build.
 
+- Layer 2: home document 28 898 B gzip (`/en/` 28 269 B) against the 30 720 B tripwire; 28 824 B after layer 3, so +74 B (inline mark and name instead of an image tag). The header serves no image request now (the 1600 px raster was a priority image).
+- Header: brand 146 x 38 px at 1440 and 128 x 38 px at 390 (mark 38 px), stroke and name `rgb(255, 255, 255)` in dark and `rgb(0, 71, 171)` in paper, Urbanist 800, no horizontal overflow; header height 97 px at 1440 and 61 px at 390. Captures read correctly in both themes.
+- Icons: `scripts/generate-brand-icons.mjs` renders the SVG mark to `favicon-96x96.png`, `apple-touch-icon.png` and four ICO frames (16, 32, 48, 64); `npm run check:brand-icons` passes.
+- axe-core on eight runs: the only `color-contrast` findings are footer elements at 390 px in paper, where axe reads the footer background as the page paper because the footer (`content-visibility: auto`) has not been painted yet; with the footer scrolled into view there are none. `target-size` findings are the same as on `main`.
+
+## Social profiles to update (owner, T07)
+
+Two 1024 px avatars were generated outside the repository from the same geometry: the blue isotype on white (brand accounts show the logo on white) and the green isotype on the deep blue tile. Accounts that show the NainDev logo and need the new one: LinkedIn page NainDev, GitLab, X `@Nain9Dev`, Instagram `@nainndev`, TikTok `@nain9dev`, YouTube NainDev and Google Business. Personal accounts keep the photo; "Hábitos de un Dev" keeps its own avatar.
+
 ## Guard changes
+
+- `scripts/design-logo.test.mjs` (new, registered in `npm run check`): DF-004 to DF-007. `scripts/check-brand-icons.mjs` now measures the green strokes against the circular mask (the tile is not part of the framing) and expects the inline mark in the header; PERF-009 now asserts the header serves no image.
 
 - `scripts/design-surfaces.test.mjs` (new, registered in `npm run check`): the terminal and footer bands and their text contrast. `scripts/themes.test.mjs` TH-002 now pins `--terminal-bg: #002b66` (value moves with its requirement, ADR-0012 consequences).
 - `scripts/design-tokens.test.mjs` (new, registered in `npm run check`): DF-001 (new roles in dark and both light blocks, no existing role changed, AA contrast of heading and error text on every surface, 3:1 for stroke and focus), DF-002, DF-003.
 
 ## Session log
 
+- 2026-10-29 · Layers 1 and 3 merged (#42, #43). Owner interview answered DF-011 and DF-009; owner approved the logo ADR. Layer 2 in `D:/wt/nain9dev.github.io-feat-design-logo` on `feat/design-logo`: inline isotype and text name in the header, new SVG mark and regenerated icons, old raster logo deleted, social avatars generated. Next: pull request; T07b (OG image), T07c (vector wordmark), layer 4 plan.
 - 2026-10-29 · Worktree `D:/wt/nain9dev.github.io-feat-design-fusion` on `feat/design-fusion` from `origin/main` `dd53c76`; backup branch `naindev/legacy-2` created at the same commit; spec, plan, tasks and ADR written; claim registered. Next: owner decision on the logo ADR; ask David for the vector wordmark.
 - 2026-10-29 · Layer 1 implemented test first (guard red on the skip link, roles and bar colour, then green): roles and brand constants in `main.css` (dark root and both light blocks), skip link on the action colour, two `theme-color` tags by scheme, updated by the head script and the toggle when a choice is stored. Nothing committed. Next: T03 (browser pass, axe, pull request).
 - 2026-10-29 · Layer 1 merged to `main` as #42. Layer 3 in `D:/wt/nain9dev.github.io-feat-design-surfaces` on `feat/design-surfaces` from `origin/main` `9aecce7`: DF-008 for footer and terminal done test first; DF-009 not implemented because it supersedes spec 045, ADR-0012 and two guards (needs the owner); DF-010 already satisfied. Next: pull request, then T08b and T08c, T04 (logo ADR).
