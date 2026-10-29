@@ -48,6 +48,12 @@ Prototype pin: `design/home-redesign` at `89e15d8` (2026-10-26); viewer `design/
 - [x] **T08b** `[H]` Owner decided DF-009 on 2026-10-29: the vignette, grid and pointer glow stay (discarded).
 - [ ] **T08c** `[A]` Measure code blocks and diagrams on `--brand-deep` and decide whether they join DF-008.
 
+## Layer 3b: section heads and key cards
+
+- [ ] **T12** `[A]` Guard first for DF-016 (dimension markup with data-derived labels, solid shadow tokens, no script), then the section head dimension and key card shadow, one block at a time with captures.
+  - **Done when**: `npm run check` green, home size recorded against CSS-002, captures in both themes and on a phone.
+- [ ] **T07b** (above) Open Graph image with the new mark goes in the same step.
+
 ## Layers 4 to 6
 
 - [x] **T09** `[H]` Owner answered DF-011 on 2026-10-29 (recorded in `spec.md`).
