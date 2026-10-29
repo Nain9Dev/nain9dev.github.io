@@ -275,10 +275,15 @@ Spec 005 is committed as `c78c854`; production confirmation after deployment is 
 
 | ID | Requirement | Source | Status |
 | :--- | :--- | :--- | :--- |
-| HERO-001 | When the hero scene is drawn, the wireframe shall match `THREE.IcosahedronGeometry(2.2, 1)` in wireframe, `#3B82F6` at 0.25 opacity with normal blending. | specs/030-lightweight-hero-scene | Implemented |
-| HERO-002 | When the hero scene is drawn, 350 points between radius 2.4 and 7.6 shall be drawn in `#60A5FA` at 0.45 opacity with additive blending and attenuated size 0.025. | specs/030-lightweight-hero-scene | Implemented |
-| HERO-003 | While the scene runs, camera, rotations, parallax, pausing, low-frame-rate fallback and `low-power` context shall behave as before. | specs/030-lightweight-hero-scene | Implemented |
-| HERO-004 | When the site is built, no Three.js file shall be published and the scene module shall weigh at most 8 KiB. | specs/030-lightweight-hero-scene | Implemented |
+| HERO-001 | When the hero scene is drawn, the wireframe shall match `THREE.IcosahedronGeometry(2.2, 1)` in wireframe, `#3B82F6` at 0.25 opacity with normal blending. | specs/030-lightweight-hero-scene | Superseded by HERO-005 to HERO-009 (specs/next-hero-field) |
+| HERO-002 | When the hero scene is drawn, 350 points between radius 2.4 and 7.6 shall be drawn in `#60A5FA` at 0.45 opacity with additive blending and attenuated size 0.025. | specs/030-lightweight-hero-scene | Superseded by HERO-005 to HERO-009 (specs/next-hero-field) |
+| HERO-003 | While the scene runs, camera, rotations, parallax, pausing, low-frame-rate fallback and `low-power` context shall behave as before. | specs/030-lightweight-hero-scene | Superseded by HERO-005 to HERO-009 (specs/next-hero-field) |
+| HERO-004 | When the site is built, no Three.js file shall be published and the scene module shall weigh at most 8 KiB. | specs/030-lightweight-hero-scene | Superseded by HERO-008 (specs/next-hero-field) |
+| HERO-005 | When the hero is drawn on a device that is not `low-performance`, a 2D canvas shall paint a staggered grid of short round-capped strokes (30 px at -52°, 26 px step, deterministic) in `--color-stroke`, empty up to 55% of the hero width and denser toward the right, batched into 11 opacity levels. | specs/next-hero-field | Implemented |
+| HERO-006 | While the hero is on screen, the field shall run, one frame in three while nothing touches it; it shall pause when the hero leaves the viewport or the tab is hidden, and on 5 slow frames within the first 60 it shall hide itself and set `low-performance`. | specs/next-hero-field | Implemented |
+| HERO-007 | While a fine pointer is over the hero, strokes within 210 px shall shrink away from it, and a press shall send a ripple that tints the strokes it crosses toward `--color-red`, with at most four ripples at once. | specs/next-hero-field | Implemented |
+| HERO-008 | When the site is built, no Three.js, WebGL scene or `hero-scene` file shall be published, the field shall load only from the idle queue as a chunk of at most 8 KiB, and no page shall load it eagerly. | specs/next-hero-field | Implemented |
+| HERO-009 | While a theme is shown, the field shall read `--color-stroke` and `--color-red` and repaint when the theme attribute or the system scheme changes; it shall fade out above the receipts band and fade in after its first frame. | specs/next-hero-field | Implemented |
 
 ## Inline styles (spec 031)
 

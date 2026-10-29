@@ -33,9 +33,9 @@ test('PERF-003: pages load first-party scripts only as hashed bundles', async ()
   }
 });
 
-test('HERO-004: the hero scene is a lazy chunk, never loaded by a page script tag', async () => {
+test('HERO-008: the hero field is a lazy chunk, never loaded by a page script tag', async () => {
   for (const page of pages) {
-    assert.doesNotMatch(await read(page), /hero-scene\.[\w-]+\.js"/, `${page} loads the hero scene eagerly`);
+    assert.doesNotMatch(await read(page), /hero-field\.[\w-]+\.js"/, `${page} loads the hero field eagerly`);
   }
 });
 
@@ -84,7 +84,7 @@ test('PERF-012: entry scripts carry no home-only module code', async () => {
     const html = await read(page);
     for (const script of tags(html, 'script').filter((s) => s.src?.startsWith('/_astro/'))) {
       const code = await read(join('dist', script.src));
-      for (const marker of ['[ImpactMetricsManager]', '[HeroScene]', 'Unable to render the project catalog.']) {
+      for (const marker of ['[ImpactMetricsManager]', '[HeroField]', 'Unable to render the project catalog.']) {
         assert.ok(!code.includes(marker), `${page}: ${script.src} contains ${marker}`);
       }
     }

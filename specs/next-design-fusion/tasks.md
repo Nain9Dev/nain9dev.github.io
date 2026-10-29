@@ -58,7 +58,8 @@ Prototype pin: `design/home-redesign` at `89e15d8` (2026-10-26); viewer `design/
 ## Layers 4 to 6
 
 - [x] **T09** `[H]` Owner answered DF-011 on 2026-10-29 (recorded in `spec.md`).
-- [ ] **T10** `[A]` Layer 4 plan: the 2D stroke field in place of the WebGL scene (HERO-001 to HERO-004 superseded by a new requirement), keeping the current section order.
+- [x] **T10** `[A]` Layer 4a: the 2D stroke field in place of the WebGL scene (HERO-001 to HERO-004 superseded by HERO-005 to HERO-009), keeping the current section order. Spec and tasks in `specs/next-hero-field/`.
+- [ ] **T10b** `[A]` Layer 4b: the hybrid hero (message and call button first, on a phone right after the H1; the three offer tiles move to the services section).
 - [ ] **T11** `[A]` Specs for `/proyectos/` and the inner pages (after layer 4).
 
 ## Measurements

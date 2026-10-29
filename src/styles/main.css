@@ -568,17 +568,20 @@ main[tabindex="-1"]:focus {
   padding-block: clamp(2.5rem, 4vw, 3.5rem) clamp(2.5rem, 4vw, 4rem);
 }
 
-.hero-3d-canvas {
+/* The stroke field (hero-field.js, HERO-005 to HERO-009). It fades out in the lower part so it never sits
+   behind the receipts band, and the field itself is empty in the text column. */
+.hero-field {
   position: absolute;
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  opacity: 0.8;
+  opacity: 0.9;
   transition: opacity 600ms linear;
+  mask-image: linear-gradient(to bottom, black 62%, transparent 92%);
 }
 
-/* The scene fades in once its first frame is drawn (hero-scene.js removes the class), so it never pops. */
-.hero-3d-canvas.canvas-placeholder {
+/* The field fades in once its first frame is drawn (hero-field.js removes the class), so it never pops. */
+.hero-field.canvas-placeholder {
   opacity: 0;
 }
 
@@ -2126,7 +2129,7 @@ html.low-performance .hero::before {
   border-color: color-mix(in srgb, var(--color-cobalt-bright) 12%, transparent) !important;
 }
 
-html.low-performance .hero-3d-canvas {
+html.low-performance .hero-field {
   display: none !important;
 }
 

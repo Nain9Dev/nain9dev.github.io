@@ -112,6 +112,6 @@ test('ENG-004: client scripts, logs, and comments are in professional English', 
   assert.doesNotMatch(terminal, /Limitar el n[uú]mero/i);
   assert.doesNotMatch(terminal, /Limpiando recursos/i);
 
-  const heroScene = await read('src/scripts/hero-scene.js');
-  assert.doesNotMatch(heroScene, /Referencias a listeners|Iniciando|Cargando|Limpiando/i);
+  const heroField = await read('src/scripts/hero-field.js');
+  assert.doesNotMatch(heroField, /Referencias a listeners|Iniciando|Cargando|Limpiando/i);
 });

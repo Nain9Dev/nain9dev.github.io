@@ -45,12 +45,12 @@ test('PERF-011: the decorative terminal prompt is excluded from Cloudflare email
 
 test('PERF-012: home-only modules are loaded on demand, not from the entry bundle', async () => {
   const app = await read('src/scripts/app.js');
-  for (const module of ['project-catalog', 'project-view', 'project-filters', 'impact-metrics', 'hero-scene']) {
+  for (const module of ['project-catalog', 'project-view', 'project-filters', 'impact-metrics', 'hero-field']) {
     assert.doesNotMatch(app, new RegExp(`^import[^;]*["']\\./${module}\\.js["']`, 'm'), `${module} is statically imported`);
   }
   assert.match(app, /import\(["']\.\/home-catalog\.js["']\)/);
   assert.match(app, /import\(["']\.\/impact-metrics\.js["']\)/);
-  assert.match(app, /import\(["']\.\/hero-scene\.js["']\)/);
+  assert.match(app, /import\(["']\.\/hero-field\.js["']\)/);
 });
 
 test('PERF-013: project filters initialise without reading layout', async () => {
