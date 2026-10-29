@@ -72,7 +72,7 @@
 .term-text-green { color: var(--terminal-green); }
 .term-text-blue { color: var(--terminal-link); }
 .term-text-yellow { color: var(--terminal-amber); }
-.term-text-red { color: color-mix(in srgb, var(--terminal-red) 70%, var(--terminal-ink)); }
+.term-text-red { color: var(--terminal-red-ink); }
 .term-ascii { 
   font-size: 0.75rem; 
   white-space: pre; 
