@@ -1,0 +1,65 @@
+# Tasks: Port the good parts of the round 4 design
+
+Prototype pin: `design/home-redesign` at `89e15d8` (2026-10-26); viewer `design/round-4-preview` at `3ba9447` (2026-10-29).
+
+## Blockers (external, listed before code)
+
+| Item | What it is | Who | Unblocks | Ready when |
+| :--- | :--- | :--- | :--- | :--- |
+| Vector wordmark | SVG or `.ai` of the NAINDEV wordmark and the full lockup | `[H]` David | DF-005, full lockup | File received and read |
+| Logo ADR approval | `ADR-next-design-fusion-logo` moves to `Approved` | `[H]` owner | Layer 2 | Status changed by the owner |
+| Home decisions | DF-011 (a) to (d) | `[H]` owner | Layer 4 | Answers recorded in `spec.md` |
+| Credit wording | Form and place of David's credit | `[H]` David | DF-014 | Written in the README by him |
+| External profiles | Replace the old logo on LinkedIn, Google Business, Workana, Freelancer, Upwork | `[H]` owner | Identity consistency after layer 2 | Owner confirms |
+
+## Layer 0
+
+- [x] **T00** `[A]` Worktree, claim, spec, plan, tasks and ADR `Proposed`.
+  - **Done when**: the four files exist and the claim is in `D:/wt/CLAIMS.md`.
+
+## Layer 1: tokens
+
+- [x] **T01** `[A]` Guard `scripts/design-tokens.test.mjs`, written first and registered in `npm run check`: asserts DF-001 (roles exist, existing values unchanged) and DF-002 (skip link contrast).
+  - **Covers**: DF-001, DF-002
+  - **Done when**: it fails on `main` for the expected reasons.
+- [x] **T02** `[A]` Add the roles and constants in `src/styles/main.css`; fix the skip link; `theme-color` follows the theme.
+  - **Covers**: DF-001 to DF-003
+  - **Done when**: the guard passes and `npm run check` is green; sizes recorded below.
+- [ ] **T03** `[M]` Browser pass and pull request with captures in both themes and on a phone, axe, document size.
+  - **Covers**: DF-013
+  - **Needs from owner**: review and merge.
+
+## Layer 2: logo
+
+- [ ] **T04** `[H]` Owner approves `ADR-next-design-fusion-logo`.
+- [ ] **T05** `[A]` Guard for DF-004 to DF-007 first (isotype inline, no raster wordmark, icons present, Organization logo URL resolves).
+- [ ] **T06** `[A]` Isotype SVG in `Header.astro`, text wordmark interim, icons regenerated, structured data and OG checked.
+  - **Done when**: guard green, header measured at 1440 and 390 px in both themes.
+- [ ] **T07** `[M]` Pull request and external profile update list.
+
+## Layer 3: surfaces
+
+- [ ] **T08** `[A]` Guard and implementation for DF-008 to DF-010, one removal at a time with captures.
+
+## Layers 4 to 6
+
+- [ ] **T09** `[H]` Owner answers DF-011.
+- [ ] **T10** `[A]` Layer 4 plan from a measured diff of the two home compositions (after T09).
+- [ ] **T11** `[A]` Specs for `/proyectos/` and the inner pages (after layer 4).
+
+## Measurements
+
+- Layer 1: home document 28 772 B gzip (`/en/` 28 146 B) against the 30 720 B tripwire; 28 589 B on `main` `dd53c76`, so the layer costs about 183 B (16 role lines in three blocks, the skip link and the second `theme-color` tag).
+- Skip link: white on `--color-cobalt`, 8.44:1 in both themes (2.74:1 before).
+- `npm run check` green with the new guard (build, performance tripwire, locales, claims).
+- Browser pass (headless Chrome on the built `dist/`, `/` and `/en/`, 1440 and 390 px, system dark and light): the skip link takes focus with `rgb(0, 71, 171)` background and white text; the two `theme-color` tags carry the dark and light values; a stored `light` choice on a dark system gives `#edf1f6` in both tags before the first paint, and the toggle flips them to `#070b16` (and the reverse for a stored `dark`).
+- axe-core 4.13 (WCAG 2.0 to 2.2 A/AA), eight runs: 0 `color-contrast` violations. Only `target-size` remains, on `.quiet > summary` (method and about sections) and the fifth `.repo-code` link, in every run. The same elements fail the same rule on `main` `dd53c76` (baseline run on its build), where the skip link also failed `color-contrast` in the dark runs; this layer removes that one and does not touch the others. The `target-size` findings are open for a separate fix.
+
+## Guard changes
+
+- `scripts/design-tokens.test.mjs` (new, registered in `npm run check`): DF-001 (new roles in dark and both light blocks, no existing role changed, AA contrast of heading and error text on every surface, 3:1 for stroke and focus), DF-002, DF-003.
+
+## Session log
+
+- 2026-10-29 · Worktree `D:/wt/nain9dev.github.io-feat-design-fusion` on `feat/design-fusion` from `origin/main` `dd53c76`; backup branch `naindev/legacy-2` created at the same commit; spec, plan, tasks and ADR written; claim registered. Next: owner decision on the logo ADR; ask David for the vector wordmark.
+- 2026-10-29 · Layer 1 implemented test first (guard red on the skip link, roles and bar colour, then green): roles and brand constants in `main.css` (dark root and both light blocks), skip link on the action colour, two `theme-color` tags by scheme, updated by the head script and the toggle when a choice is stored. Nothing committed. Next: T03 (browser pass, axe, pull request).
