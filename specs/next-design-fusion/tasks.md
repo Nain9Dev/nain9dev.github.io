@@ -39,7 +39,11 @@ Prototype pin: `design/home-redesign` at `89e15d8` (2026-10-26); viewer `design/
 
 ## Layer 3: surfaces
 
-- [ ] **T08** `[A]` Guard and implementation for DF-008 to DF-010, one removal at a time with captures.
+- [x] **T08** `[A]` Guard and implementation of DF-008 for the footer and the terminal (`scripts/design-surfaces.test.mjs` written first, red on both tests, then green).
+  - **Covers**: DF-008
+  - **Done when**: `npm run check` green; sizes and the browser pass recorded below. DF-010 needs no change.
+- [ ] **T08b** `[H]` Owner decides DF-009 (flat page): superseding the retained effects of spec 045 and ADR-0012 and the guards that assert them.
+- [ ] **T08c** `[A]` Measure code blocks and diagrams on `--brand-deep` and decide whether they join DF-008.
 
 ## Layers 4 to 6
 
@@ -55,11 +59,17 @@ Prototype pin: `design/home-redesign` at `89e15d8` (2026-10-26); viewer `design/
 - Browser pass (headless Chrome on the built `dist/`, `/` and `/en/`, 1440 and 390 px, system dark and light): the skip link takes focus with `rgb(0, 71, 171)` background and white text; the two `theme-color` tags carry the dark and light values; a stored `light` choice on a dark system gives `#edf1f6` in both tags before the first paint, and the toggle flips them to `#070b16` (and the reverse for a stored `dark`).
 - axe-core 4.13 (WCAG 2.0 to 2.2 A/AA), eight runs: 0 `color-contrast` violations. Only `target-size` remains, on `.quiet > summary` (method and about sections) and the fifth `.repo-code` link, in every run. The same elements fail the same rule on `main` `dd53c76` (baseline run on its build), where the skip link also failed `color-contrast` in the dark runs; this layer removes that one and does not touch the others. The `target-size` findings are open for a separate fix.
 
+- Layer 3: home document 28 824 B gzip (`/en/` 28 198 B) against the 30 720 B tripwire; 28 772 B after layer 1, so +52 B (the band tokens, the footer scope and `--terminal-red-ink`).
+- Footer: computed background `rgb(0, 43, 102)` with no gradient on `/`, `/en/` and `/servicios/`, 1440 and 390 px, system dark and light; captures in both themes and on a phone read correctly (chips, status pill, links). Terminal skin: computed background and header `rgb(0, 43, 102)` in both themes; its text roles measure 4.55:1 or more on the band (error text on `#ff5c6c` 4.55:1, the old mixed red was below AA). A capture of the terminal itself was not obtained from the headless run (the section stays unpainted until it scrolls into view); open for the browser pass of the pull request.
+- axe-core on the twelve runs above: no new violation. `target-size` on `.quiet > summary` and the fifth `.repo-code` link, and one `color-contrast` on a catalog `.project-link` at 390 px paper in `/en/`, appear identically on the `main` build.
+
 ## Guard changes
 
+- `scripts/design-surfaces.test.mjs` (new, registered in `npm run check`): the terminal and footer bands and their text contrast. `scripts/themes.test.mjs` TH-002 now pins `--terminal-bg: #002b66` (value moves with its requirement, ADR-0012 consequences).
 - `scripts/design-tokens.test.mjs` (new, registered in `npm run check`): DF-001 (new roles in dark and both light blocks, no existing role changed, AA contrast of heading and error text on every surface, 3:1 for stroke and focus), DF-002, DF-003.
 
 ## Session log
 
 - 2026-10-29 · Worktree `D:/wt/nain9dev.github.io-feat-design-fusion` on `feat/design-fusion` from `origin/main` `dd53c76`; backup branch `naindev/legacy-2` created at the same commit; spec, plan, tasks and ADR written; claim registered. Next: owner decision on the logo ADR; ask David for the vector wordmark.
 - 2026-10-29 · Layer 1 implemented test first (guard red on the skip link, roles and bar colour, then green): roles and brand constants in `main.css` (dark root and both light blocks), skip link on the action colour, two `theme-color` tags by scheme, updated by the head script and the toggle when a choice is stored. Nothing committed. Next: T03 (browser pass, axe, pull request).
+- 2026-10-29 · Layer 1 merged to `main` as #42. Layer 3 in `D:/wt/nain9dev.github.io-feat-design-surfaces` on `feat/design-surfaces` from `origin/main` `9aecce7`: DF-008 for footer and terminal done test first; DF-009 not implemented because it supersedes spec 045, ADR-0012 and two guards (needs the owner); DF-010 already satisfied. Next: pull request, then T08b and T08c, T04 (logo ADR).

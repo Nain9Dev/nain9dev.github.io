@@ -92,6 +92,11 @@
   --brand-green: #80ff00;
   --brand-red: #ff001f;
   --brand-black: #1d1d1b;
+  /* Text on the deep blue band, the same in both themes (footer; DF-008). */
+  --band-ink: #edf1f6;
+  --band-ink-soft: #c9d3e3;
+  --band-ink-muted: #a9b8cf;
+  --band-link: #6d9bf5;
 
   /* Type: fluid modular scale, display in Urbanist, body in Inter */
   --font-display: "Urbanist", "Urbanist Fallback", ui-sans-serif, system-ui, sans-serif;
@@ -146,14 +151,15 @@
   /* Solid shadows take this colour: deep cobalt on the dark surface, brand black on paper (spec 048). */
   --color-shadow: var(--color-cobalt-deep);
 
-  /* The terminal keeps its dark skin in both themes (spec 048). */
-  --terminal-bg: #111c36;
-  --terminal-raised: #0d1730;
+  /* The terminal keeps its dark skin in both themes (spec 048), on the deep blue band (next-design-fusion DF-008). */
+  --terminal-bg: #002b66;
+  --terminal-raised: #002b66;
   --terminal-ink: #edf1f6;
   --terminal-muted: #a9b8cf;
   --terminal-green: #80ff00;
   --terminal-link: #6d9bf5;
   --terminal-red: #ff001f;
+  --terminal-red-ink: #ff5c6c;
   --terminal-amber: #f9e2af;
   --terminal-line: color-mix(in srgb, var(--terminal-ink) 10%, transparent);
   --terminal-line-strong: color-mix(in srgb, var(--terminal-ink) 18%, transparent);
@@ -1526,12 +1532,24 @@ main[tabindex="-1"]:focus {
   text-align: right;
 }
 
-/* Footer as a deep-blue band that closes every page (spec 045). */
+/* Footer as a deep-blue band that closes every page (spec 045). It is the same band in both themes
+   (next-design-fusion DF-008), so it carries the dark role values; aliases are re-resolved here because
+   a custom property keeps the value it had where it was declared. */
 .site-footer {
   padding-block: var(--s12) var(--s8);
+  --color-ink: var(--band-ink);
+  --color-ink-soft: var(--band-ink-soft);
+  --color-ink-muted: var(--band-ink-muted);
+  --color-text: var(--color-ink);
+  --color-text-soft: var(--color-ink-soft);
+  --color-text-muted: var(--color-ink-muted);
+  --color-link: var(--band-link);
+  --color-primary-strong: var(--color-link);
+  --color-green: var(--brand-green);
+  --color-line: color-mix(in srgb, var(--color-ink) 10%, transparent);
+  --color-line-strong: color-mix(in srgb, var(--color-ink) 18%, transparent);
   border-top: 1px solid var(--color-line-strong);
-  background:
-    linear-gradient(180deg, var(--color-band), var(--color-bg));
+  background: var(--brand-deep);
 }
 
 .footer-specialties {

@@ -37,9 +37,9 @@ This spec ports only the parts that make the portfolio better, in small layers t
 
 ### Layer 3: surfaces and states
 
-- **DF-008 (invariant bands)**: Terminal, code blocks, diagrams, footer and the hero scene shall use `--brand-deep` in both themes.
-- **DF-009 (flat page)**: The page background shall be flat `--color-bg`; the cobalt vignette, the grid and the pointer glow shall be removed together with `src/scripts/ambient-glow.js`, and no request or script they needed shall remain.
-- **DF-010 (pressed button)**: While a button is pressed, its shadow shall shrink and turn `--color-red`.
+- **DF-008 (invariant bands)**: The footer and the terminal shall use `--brand-deep` in both themes, the footer carrying the dark role values and the terminal text keeping AA contrast on the band (error text on `--terminal-red-ink`). Implemented in `feat/design-surfaces`. Code blocks, diagrams and the hero scene stay as they are until they are measured on their own.
+- **DF-009 (flat page, blocked)**: The page background shall be flat `--color-bg`; the cobalt vignette, the grid and the pointer glow shall be removed together with `src/scripts/ambient-glow.js`. **Not implemented: it supersedes approved work.** Spec 045 and ADR-0012 keep the vignette, the 4 rem grid and the pointer-lit grid as retained effects, and `scripts/hero-nav.test.mjs` and `scripts/post-paint.test.mjs` assert them. The owner decides whether it is superseded; until then the layer leaves them.
+- **DF-010 (pressed button, already satisfied)**: While a button is pressed, its shadow shall shrink and turn `--color-red`. `main` already does it (`.button:active` moves the button back and draws a 2 px red ring), so nothing changes.
 
 ### Layer 4: home composition (blocked)
 

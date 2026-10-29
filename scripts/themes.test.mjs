@@ -45,7 +45,7 @@ test('TH-002: the dark palette stays the default and the terminal keeps its dark
   const root = css.match(/\n:root \{([\s\S]*?)\n\}/)?.[1] ?? '';
   assert.match(root, /color-scheme: dark;/);
   assert.match(root, /--color-shadow: var\(--color-cobalt-deep\);/);
-  assert.match(root, /--terminal-bg: #111c36;/);
+  assert.match(root, /--terminal-bg: #002b66;/);
   const terminal = await read('src/styles/terminal.css');
   assert.doesNotMatch(terminal, /var\(--color-[a-z-]+\)/, 'terminal colours come from the terminal tokens');
   assert.match(terminal, /\.terminal-input:focus-visible \{[^}]*outline: 2px solid var\(--terminal-green\)/);

@@ -26,7 +26,7 @@ The isotype is three strokes with round caps, taken from the prototype's favicon
 
 ### Layer 3
 
-Footer, terminal, code and diagram surfaces take `--brand-deep` in both themes (today the paper footer is a washed gradient). Removing the body vignette, grid and pointer glow deletes `ambient-glow.js`, which is a net saving. Each removal gets a before and after capture.
+Footer and terminal take `--brand-deep` in both themes (today the paper footer is a washed gradient); the footer re-declares the dark roles it reads, because aliases keep the value they had where they were declared. Code blocks and diagrams are measured separately (T08c). The pressed button already matches the prototype. Removing the body vignette, grid and pointer glow is not part of the layer: it supersedes spec 045, ADR-0012 and two guards, so it waits for the owner (DF-009, T08b). The earlier version of this plan said layers 1 to 3 touch no approved requirement; that was wrong for DF-009.
 
 ### Layer 4
 
