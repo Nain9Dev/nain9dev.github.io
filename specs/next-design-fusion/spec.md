@@ -49,6 +49,17 @@ This spec ports only the parts that make the portfolio better, in small layers t
   - (d) **Fonts stay as on `main`** (Urbanist, Inter, the system mono stack); FONT-001 is unchanged.
   - (e) **A `/proyectos/` route** with the 22 projects is adopted, with its own spec after the home (DF-012).
   - (f) **Logo**: the isotype is adopted, the full lockup waits for the vector wordmark (ADR-next-design-fusion-logo).
+  - (g) **Stroke system**: only the dimension (a measuring line with a real label in each section head) and the solid shadow on key cards are ported (DF-016). The interruption and the pattern are not adopted for now.
+  - (h) **Services**: the current grouping by problem stays and each group gains the designer's stroke diagram; no regrouping and no route change.
+  - (i) **Motion**: ADR-0012's rules stay; the only addition is a one-time stroke construction on entry that respects reduced motion. No permanent loops and no port of the designer's `motion.js` (the mark-to-agenda loop is not adopted).
+  - (j) **Credit**: David's credit lives only in the home's collaboration section (Contrast3D x NainDev), in the form he chooses (DF-014); it is not added to the footer.
+  - (k) **Brandbook v2.0** stays in the repository as reference and is not published at any route.
+  - (l) **Hero content**: hybrid. The message and the call button lead (on a phone right after the H1); the three offer cards move to the services section.
+  - (m) **Order**: section heads and cards (with the Open Graph image), then the hero with the 2D field, then `/proyectos/` and the inner pages, one pull request each.
+
+### Layer 3b: section heads and key cards (next)
+
+- **DF-016 (dimension and solid shadow)**: When a section head renders on the home and on the inner pages, it shall carry a dimension: a line with ticks in `--color-stroke` and a label that states a real count taken from data (for example the number of projects), never a decorative text. Key cards shall use the 6 px solid shadow with no blur, in line with ADR-0012's "one card system". The dimension is static (no loop), adds no script and keeps the home within CSS-002 and ADR-0013; the pull request records the measured size.
 
 ### Layers 5 and 6: catalog route and inner pages (not started)
 
