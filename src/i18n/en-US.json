@@ -9338,5 +9338,25 @@
     "source": "Proyectos y demos de software",
     "target": "Software projects and demos",
     "status": "reviewed"
+  },
+  "ed02770b233c714144b15820be88b8925a13c80b5bbdd2388afce02f9ee6bf45": {
+    "source": "Proyectos destacados",
+    "target": "Featured projects",
+    "status": "reviewed"
+  },
+  "a2b3e75c36842358983c2cd20606868bc77304b885baadfcf40cc1da90cc31a1": {
+    "source": "⟦0/⟧⟦1⟧⟦2/⟧ proyectos destacados⟦/1⟧",
+    "target": "⟦0/⟧⟦1⟧⟦2/⟧ featured projects⟦/1⟧",
+    "status": "reviewed"
+  },
+  "11e3ebdff42f33fc27eb46fdfa6c2ee7852dd87527f76d3a6f83319618855472": {
+    "source": "Ver todos los proyectos y demos →",
+    "target": "See all projects and demos →",
+    "status": "reviewed"
+  },
+  "9a494bb8b0e5108c7e949ee9c46d261608db2d6e30c405b678447c042a6dbe7c": {
+    "source": "⟦0⟧Ver todos los proyectos y demos →⟦/0⟧",
+    "target": "⟦0⟧See all projects and demos →⟦/0⟧",
+    "status": "reviewed"
   }
 }

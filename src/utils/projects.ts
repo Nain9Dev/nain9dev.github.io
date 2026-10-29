@@ -9,6 +9,8 @@ export interface Project {
   status: string;
   order: number;
   featured?: boolean;
+  /** 1 to 6 for the projects the home shows, in order (specs/next-projects-route, NPR-001). */
+  featuredOrder?: number;
   selected?: boolean;
   technologies: string[];
   links: ProjectLink[];

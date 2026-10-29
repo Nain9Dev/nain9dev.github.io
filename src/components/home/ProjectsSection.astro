@@ -1,23 +1,29 @@
 ---
 // ProjectsSection.astro
+// The home shows the six featured software projects and links to /proyectos/, which holds the whole filterable
+// catalog (specs/next-projects-route, NPR-001).
 import Quiet from './Quiet.astro';
 import Dimension from './Dimension.astro';
 import ProjectCatalog from '../ProjectCatalog.astro';
 import projects from '../../../public/assets/data/projects.json';
 
-const catalog = [...projects].sort((a, b) => a.order - b.order);
+const selection = projects.filter((project) => project.featuredOrder !== undefined);
 ---
 <section class="section section-muted" id="projects">
   <div class="shell">
     <div class="section-heading" data-reveal>
       <div>
         <p class="eyebrow">Portfolio</p>
-        <h2>Proyectos y demos</h2>
-        <Dimension count={catalog.length} unit="proyectos" />
+        <h2>Proyectos destacados</h2>
+        <Dimension count={selection.length} unit="proyectos destacados" />
       </div>
       <Quiet><p>Indico el estado real de cada proyecto. Los privados se describen solo por arquitectura y stack, sin nombres ni datos de clientes.</p></Quiet>
     </div>
 
-    <ProjectCatalog />
+    <ProjectCatalog selection />
+
+    <div class="page-cta" data-reveal>
+      <a class="button button-outline" href="/proyectos/">Ver todos los proyectos y demos →</a>
+    </div>
   </div>
 </section>

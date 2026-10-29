@@ -54,3 +54,46 @@ test('NPR-002: the catalog markup is one component shared by the home and the pa
   assert.match(page, /<ProjectCatalog/);
   assert.match(page, /import '\.\.\/\.\.\/styles\/inner\.css';/, 'pages import the stylesheet, not the layout (ADR-0017)');
 });
+
+// Step 2 (NPR-001): the home shows six software projects and links to the catalog page.
+const SELECTION = [
+  'collaborative-crm',
+  'financial-management-api',
+  'nain-legacy-modernizer',
+  'nainorder-ecommerce-api',
+  'notification-worker',
+  'driving-school-management',
+];
+
+test('NPR-001: exactly six projects carry a featured order, and they are the six the owner chose', () => {
+  const ordered = projects.filter((project) => project.featuredOrder !== undefined)
+    .sort((a, b) => a.featuredOrder - b.featuredOrder);
+  assert.deepEqual(ordered.map((project) => project.featuredOrder), [1, 2, 3, 4, 5, 6]);
+  assert.deepEqual(ordered.map((project) => project.id), SELECTION);
+});
+
+test('NPR-001: the home lists the six in order without filters and links to /proyectos/', async () => {
+  for (const [file, hub] of [['dist/index.html', '/proyectos/'], ['dist/en/index.html', '/en/projects/']]) {
+    const home = await read(file);
+    const section = home.match(/<section[^>]*id="projects"[\s\S]*?<\/section>/)?.[0] ?? '';
+    const titles = [...section.matchAll(/<li><h3>([^<]+)<\/h3>/g)];
+    assert.equal(titles.length, 6, `${file}: six static entries`);
+    assert.match(section, /data-project-selection/, `${file}: the grid is marked as a selection`);
+    assert.doesNotMatch(section, /data-project-filter|data-project-toolbar/, `${file}: no filter bar on the home`);
+    assert.ok(section.includes(`href="${hub}"`), `${file}: links the catalog page`);
+  }
+  const spanish = await read('dist/index.html');
+  const order = [...spanish.matchAll(/<li><h3>([^<]+)<\/h3>/g)].map((match) => match[1]);
+  const expected = SELECTION.map((id) => projects.find((project) => project.id === id).title);
+  assert.deepEqual(order.slice(0, 6), expected, 'the static order follows the featured order');
+});
+
+test('NPR-001: the client renderer shows only the selection when the grid says so', async () => {
+  const catalog = await read('src/scripts/home-catalog.js');
+  assert.match(catalog, /selection/);
+  assert.match(catalog, /featuredOrder/);
+  const app = await read('src/scripts/app.js');
+  assert.match(app, /data-project-selection/);
+  const component = await read('src/components/ProjectCatalog.astro');
+  assert.match(component, /selection/);
+});

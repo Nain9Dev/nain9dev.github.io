@@ -6,6 +6,7 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ### Added
 
+- Next-projects-route step 2 (NPR-001): the home shows the six featured software projects (a `featuredOrder` in `projects.json`: CRM, Policy Operations API, .NET modernization harness, NainOrder, notification microservice, driving-school invoicing) under "Proyectos destacados", with no filter bar, and links to `/proyectos/`; the catalog component and the client renderer take a `selection` mode. The home document drops from 28 824 to 27 531 B gzip.
 - Next-projects-route step 1 (NPR-002): `/proyectos/` and `/en/projects/` show the whole filterable catalog; its markup is now one component (`ProjectCatalog.astro`) shared with the home, the sitemap lists both pages and the guard `scripts/projects-route.test.mjs` checks them after the build. The home output is unchanged (28 824 B gzip).
 - Next-design-fusion layer 4b: the hero reads title, free-call button, summary and availability, also on phones; the three offer tiles are removed because the services section carries the same three offers (HERO-023 rewritten); the home document drops 236 B gzip.
 - Brand kit: `design/brand/` keeps the designer's logo, wordmark, LinkedIn banner and demo captures as delivered, with a README on contents, colours and rules, and a vector wordmark rebuilt from the delivered rasters in green, blue and white; a guard checks the kit and that none of it is published.

@@ -40,7 +40,7 @@ test('CAT-001: the project catalog is rendered in the static markup, not only af
   assert.match(section, /import projects from '\.\.\/\.\.\/public\/assets\/data\/projects\.json'/);
   const list = section.match(/<ul class="catalog-index"[\s\S]*?<\/ul>/)?.[0] ?? '';
   assert.match(list, /catalog\.map\(/);
-  assert.match(section, /const catalog = \[\.\.\.projects\]/);
+  assert.match(section, /: \[\.\.\.projects\]\.sort\(/, 'the whole catalog is the default');
   assert.match(list, /project\.title/);
   assert.match(list, /project\.status/);
   assert.match(section, /<div class="project-grid" data-project-list/, 'the client renderer keeps its container');
