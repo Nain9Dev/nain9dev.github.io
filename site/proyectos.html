@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es" data-title-es="Proyectos y demos | NainDev" data-title-en="Projects and demos | NainDev">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; connect-src 'self' https://plausible.io; font-src 'self' https://fonts.gstatic.com; form-action 'self'; frame-src 'none'; img-src 'self' data: https:; object-src 'none'; script-src 'self' 'unsafe-inline' https://plausible.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" id="themeColor" content="#070B16">
+<title>Proyectos y demos | NainDev</title>
+<meta name="description" content="Los 22 proyectos de Aitor Nain Mendoza Vallejo (NainDev): demos públicas, código abierto y sistemas privados en producción, descritos por arquitectura y stack.">
+<meta name="description-en" content="The 22 projects of Aitor Nain Mendoza Vallejo (NainDev): public demos, open source and private systems in production, described by architecture and stack.">
+<link rel="icon" id="favicon" type="image/svg+xml" href="assets/logo/favicon-deep.svg">
+<script src="assets/theme.js?v=1"></script>
+<script src="assets/boot.js?v=1"></script>
+<link rel="stylesheet" href="assets/nain.css?v=5">
+<script src="assets/nain.js?v=1" defer></script>
+<script src="assets/motion.js?v=2" defer></script>
+<script src="assets/fix.data.js?v=1" defer></script>
+<script src="assets/fix.js?v=1" defer></script>
+</head>
+<body data-page="proyectos" data-brk="a" data-trama="a" data-pulse="a" data-scan="a">
+<a class="skip" href="#contenido"><span class="es">Saltar al contenido</span><span class="en">Skip to content</span></a>
+<header class="top">
+  <div class="shell">
+    <a class="brand" href="index.html" id="brandMark"><svg viewBox="0 0 1000 1000" aria-hidden="true" focusable="false"><g stroke="currentColor" stroke-width="113" stroke-linecap="round" fill="none"><line id="mkL" pathLength="1" x1="148" y1="148" x2="148" y2="848"/><line id="mkD" pathLength="1" x1="308" y1="288" x2="686" y2="738"/><line id="mkR" pathLength="1" x1="848" y1="148" x2="848" y2="848"/></g></svg><img class="wm only-deep" src="assets/logo/wordmark-white.png" alt="" width="423" height="38"><img class="wm only-paper" src="assets/logo/wordmark-blue.png" alt="" width="423" height="38"><span class="sr">NainDev · <span class="es">inicio</span><span class="en">home</span></span></a>
+    <nav class="main" aria-label="Principal / Main">
+      <a class="u" href="servicios.html"><span class="es">Servicios</span><span class="en">Services</span></a>
+      <a class="u" href="proyectos.html" aria-current="page"><span class="es">Proyectos</span><span class="en">Projects</span></a>
+      <a class="u" href="casos.html"><span class="es">Casos</span><span class="en">Case studies</span></a>
+      <a class="u" href="escritos.html"><span class="es">Escritos</span><span class="en">Writing</span></a>
+      <a class="u" href="index.html#sobre"><span class="es">Sobre mí</span><span class="en">About</span></a>
+      <a class="u" href="contacto.html"><span class="es">Contacto</span><span class="en">Contact</span></a>
+    </nav>
+    <div class="tools">
+      <div class="lang" role="group" aria-label="Idioma / Language"><button type="button" data-lang="es" aria-pressed="true" lang="es">ES</button><i aria-hidden="true">/</i><button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button></div>
+      <button class="themesw" type="button" data-theme-toggle aria-pressed="false"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><span class="sr"><span class="es">Modo claro</span><span class="en">Light mode</span></span></button>
+      <a class="btn btn-p btn-call" href="https://calendly.com/aitornainmendozavallejo-ksez/30min" target="_blank" rel="noopener noreferrer"><span class="es">Agendar llamada<span class="xl"> gratuita</span></span><span class="en">Book a<span class="xl"> free</span> call</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="sheet" id="menuOpen">
+        <b aria-hidden="true"></b><span class="es">Menú</span><span class="en">Menu</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" hidden>
+  <div class="bar">
+    <span class="sheet-mark" aria-hidden="true"><svg viewBox="0 0 1000 1000" aria-hidden="true" focusable="false"><g stroke="currentColor" stroke-width="113" stroke-linecap="round" fill="none"><line pathLength="1" x1="148" y1="148" x2="148" y2="848"/><line pathLength="1" x1="308" y1="288" x2="686" y2="738"/><line pathLength="1" x1="848" y1="148" x2="848" y2="848"/></g></svg></span>
+    <h2 class="sr" id="sheetTitle"><span class="es">Menú</span><span class="en">Menu</span></h2>
+    <div class="tools">
+      <div class="lang" role="group" aria-label="Idioma / Language"><button type="button" data-lang="es" aria-pressed="true" lang="es">ES</button><i aria-hidden="true">/</i><button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button></div>
+      <button class="burger is-close" type="button" id="menuClose"><b aria-hidden="true"></b><span class="es">Cerrar</span><span class="en">Close</span></button>
+    </div>
+  </div>
+  <nav aria-label="Menú móvil / Mobile menu">
+      <a class="u" href="servicios.html"><span class="es">Servicios</span><span class="en">Services</span></a>
+      <a class="u" href="proyectos.html" aria-current="page"><span class="es">Proyectos</span><span class="en">Projects</span></a>
+      <a class="u" href="casos.html"><span class="es">Casos</span><span class="en">Case studies</span></a>
+      <a class="u" href="escritos.html"><span class="es">Escritos</span><span class="en">Writing</span></a>
+      <a class="u" href="index.html#sobre"><span class="es">Sobre mí</span><span class="en">About</span></a>
+      <a class="u" href="contacto.html"><span class="es">Contacto</span><span class="en">Contact</span></a>
+  </nav>
+  <div class="foot">
+    <a class="btn btn-p btn-lg btn-block" href="https://calendly.com/aitornainmendozavallejo-ksez/30min" target="_blank" rel="noopener noreferrer"><span class="es">Agendar llamada gratuita</span><span class="en">Book a free call</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a>
+    <p class="avail-line"><span class="es">Acepto proyectos a tiempo parcial y en remoto para empresas de cualquier país.</span><span class="en">I take on part-time, remote projects for companies in any country.</span></p>
+    <div class="theme-row"><span class="lbl"><span class="es">Expresión papel (modo claro)</span><span class="en">Paper expression (light mode)</span></span><button class="themesw" type="button" data-theme-toggle aria-pressed="false"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><span class="sr"><span class="es">Modo claro</span><span class="en">Light mode</span></span></button></div>
+  </div>
+</div>
+<aside class="pbanner" id="pbanner" aria-labelledby="pbannerTitle" data-nosnippet>
+  <div class="pbanner-in">
+    <p class="lbl" id="pbannerTitle"><span class="es">Privacidad</span><span class="en">Privacy</span></p>
+    <p><span class="es">Este sitio no utiliza cookies de seguimiento invasivas. Tu privacidad está protegida.</span><span class="en">This site does not use invasive tracking cookies. Your privacy is protected.</span>
+      <span class="es"><a href="https://www.naindev.com/privacidad/" target="_blank" rel="noopener noreferrer"><span class="es">Política de privacidad</span><span class="en">Privacy policy</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a href="https://www.naindev.com/en/privacy/" target="_blank" rel="noopener noreferrer"><span class="es">Política de privacidad</span><span class="en">Privacy policy</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></p>
+    <button type="button" class="pbanner-x" id="pbannerClose"><span aria-hidden="true">×</span><span class="sr"><span class="es">Cerrar aviso de privacidad</span><span class="en">Close privacy notice</span></span></button>
+  </div>
+</aside>
+<main id="contenido" tabindex="-1">
+
+<section class="apar pagehead" aria-labelledby="pageTitle">
+  <div class="shell">
+    <p class="dnote cae" style="--o:1"><span class="lbl"><span class="es">Nota de diseño</span><span class="en">Design note</span></span> <span class="es">Página nueva: el catálogo completo de main (public/assets/data/projects.json en 0419dfc), con sus textos en inglés de src/i18n/en-US.json. La home enseña seis; aquí están los 22.</span><span class="en">New page: main&#x27;s full catalog (public/assets/data/projects.json at 0419dfc), with its English from src/i18n/en-US.json. The home shows six; all 22 are here.</span></p>
+    <div class="ph-grid">
+      <div>
+        <p class="kick cae" style="--o:2"><span class="es">Proyectos</span><span class="en">Projects</span></p>
+        <h1 id="pageTitle"><span class="masc"><span class="linea" style="--o:3"><span class="es">Proyectos y demos</span><span class="en">Projects and demos</span></span></span></h1>
+        <p class="lede cae" style="--o:4"><span class="es">Indico el estado real de cada proyecto. Los privados se describen solo por arquitectura y stack, sin nombres ni datos de clientes.</span><span class="en">I state the real status of each project. Private ones are described by architecture and stack only, with no names or client data.</span></p>
+      </div>
+      <div class="ph-agd" aria-hidden="true"><svg class="agd" viewBox="0 0 1000 700" focusable="false"><g fill="none" stroke="currentColor" stroke-width="45" stroke-linecap="round" stroke-linejoin="round"><g class="ag-top"><path d="M240 300V228A28 28 0 0 1 268 200H500"/><path d="M760 300V228A28 28 0 0 0 732 200H500"/></g><g class="ag-bot"><path d="M240 300V572A28 28 0 0 0 268 600H500"/><path d="M760 300V572A28 28 0 0 1 732 600H500"/></g><g class="ag-ring"><line x1="380" y1="245" x2="380" y2="150"/><line x1="620" y1="245" x2="620" y2="150"/></g><line class="ag-d" style="--i:0" x1="315" y1="400" x2="365" y2="400"/><line class="ag-d" style="--i:1" x1="475" y1="400" x2="525" y2="400"/><line class="ag-d" style="--i:2" x1="635" y1="400" x2="685" y2="400"/><line class="ag-d" style="--i:3" x1="315" y1="510" x2="365" y2="510"/><line class="ag-d" style="--i:4" x1="475" y1="510" x2="525" y2="510"/><path class="ag-ok" d="M626 508L650 532L694 482"/><line class="ag-hd" x1="240" y1="300" x2="760" y2="300"/><line class="mk mk-l" x1="0" y1="-140" x2="0" y2="140"/><line class="mk mk-d" x1="0" y1="-117.5" x2="0" y2="117.5"/><line class="mk mk-r" x1="0" y1="-140" x2="0" y2="140"/></g></svg></div>
+    </div>
+    <div class="cota-w" style="--o:4"><div class="cota q3" aria-hidden="true"><i></i><i></i><i></i><i></i></div><span class="cota-lbl mono"><span class="es" style="--n:47">22 PROYECTOS · 15 CON DEMO PÚBLICA · 6 PRIVADOS</span><span class="en" style="--n:43">22 PROJECTS · 15 WITH A PUBLIC DEMO · 6 PRIVATE</span></span></div>
+  </div>
+</section>
+
+<section id="catalogo" class="apar on-sunken" aria-labelledby="catalogTitle">
+  <div class="shell">
+    <h2 class="sr" id="catalogTitle"><span class="es">Catálogo</span><span class="en">Catalog</span></h2>
+    <div class="pfilters" role="group" aria-label="Filtrar proyectos / Filter projects" hidden>
+      <button type="button" class="chip" data-filter="all" aria-pressed="true"><span class="es">Todos</span><span class="en">All</span><span class="cnt mono">22</span></button><button type="button" class="chip" data-filter="production" aria-pressed="false"><span class="es">Producción</span><span class="en">Production</span><span class="cnt mono">3</span></button><button type="button" class="chip" data-filter="dotnet" aria-pressed="false">.NET / C#<span class="cnt mono">9</span></button><button type="button" class="chip" data-filter="python" aria-pressed="false"><span class="es">Python y datos</span><span class="en">Python & data</span><span class="cnt mono">9</span></button><button type="button" class="chip" data-filter="3d" aria-pressed="false">3D<span class="cnt mono">9</span></button><button type="button" class="chip" data-filter="demo" aria-pressed="false"><span class="es">Con demo pública</span><span class="en">With a public demo</span><span class="cnt mono">15</span></button>
+      <p class="pcount lbl" id="projCount" aria-live="polite"></p>
+    </div>
+    <div class="cat" id="projList">
+      <article class="card pcard v resp is-prod cae" style="--o:3" data-project="conformance-architecture" data-cats="production backend data 3d python">
+        <div class="shot cover trama-blk" data-seed="5" data-dir="r" aria-hidden="true"></div>
+        <div class="pbody">
+          <p class="pst lbl"><i class="pmark" aria-hidden="true"></i><span class="es">Privado · En producción (dominio 3D)</span><span class="en">Private · In production (3D domain)</span><span class="pn mono" aria-hidden="true">01</span></p>
+          <h3><span class="es">Arquitectura de conformidad determinista</span><span class="en">Deterministic conformance architecture</span></h3>
+          <p class="sum"><span class="es">Arquitectura multidominio que recibe un producto, identifica qué es, mide sus características, aplica el perfil versionado de su dominio y emite un veredicto reproducible. El primer dominio son los modelos 3D glTF/GLB.</span><span class="en">Multi-domain architecture that receives a product, identifies what it is, measures its characteristics, applies the versioned profile for its domain and issues a reproducible verdict. Its first domain is glTF/GLB 3D models.</span></p>
+          <p class="proof"><span class="es">Análisis binario del contenedor, invariantes geométricos exactos y ciclo validar, reparar y revalidar. Informes en JSON canónico y Markdown, servicio HTTP con OpenAPI y herramientas MCP para que agentes de IA validen con supervisión humana.</span><span class="en">Binary container parsing, exact geometric invariants and a validate, repair and revalidate loop. Canonical JSON and Markdown reports, an HTTP service with OpenAPI and MCP tools so AI agents run validations under human oversight.</span></p>
+          <p class="ptech mono">Python · FastAPI · Pydantic · PostgreSQL · MCP · Hypothesis</p>
+          <p class="plinks"><span class="lbl"><span class="es">Código privado</span><span class="en">Private code</span></span></p>
+        </div>
+      </article>
+      <article class="card pcard v resp is-prod cae" style="--o:4" data-project="interactive-3d-viewer" data-cats="production 3d data">
+        <div class="shot cover trama-blk" data-seed="12" data-dir="r" aria-hidden="true"></div>
+        <div class="pbody">
+          <p class="pst lbl"><i class="pmark" aria-hidden="true"></i><span class="es">Privado · En producción</span><span class="en">Private · In production</span><span class="pn mono" aria-hidden="true">02</span></p>
+          <h3><span class="es">Visor 3D interactivo y gemelos digitales</span><span class="en">Interactive 3D viewer and digital twins</span></h3>
+          <p class="sum"><span class="es">Componente Web Component agnóstico y ultraligero con aislamiento en Shadow DOM, adaptable mediante perfiles JSON para inspección industrial, despiece procedimental y peritaje con marcado de daños.</span><span class="en">Framework-agnostic, lightweight Web Component with Shadow DOM isolation, dynamically adaptable via JSON profiles for industrial inspection, procedural exploded views and damage assessment.</span></p>
+          <p class="proof"><span class="es">Motor Three.js optimizado, descompresión Draco en Web Worker, puerta de integridad SHA-256 ligada a conformidad determinista, pruebas E2E y visuales con Playwright y accesibilidad WCAG 2.2 AA.</span><span class="en">Optimized Three.js engine, Draco decompression in dedicated Web Worker, SHA-256 integrity gate bound to deterministic conformance, E2E and visual tests with Playwright, and WCAG 2.2 AA accessibility.</span></p>
+          <p class="ptech mono">TypeScript · Three.js · Web Components · Vite · Playwright · Vitest</p>
+          <p class="plinks"><span class="lbl"><span class="es">Código privado</span><span class="en">Private code</span></span></p>
+        </div>
+      </article>
+      <article class="card pcard v resp is-prod cae" style="--o:5" data-project="collaborative-crm" data-cats="production backend data python">
+        <div class="shot cover trama-blk" data-seed="19" data-dir="r" aria-hidden="true"></div>
+        <div class="pbody">
+          <p class="pst lbl"><i class="pmark" aria-hidden="true"></i><span class="es">Privado · En producción</span><span class="en">Private · In production</span><span class="pn mono" aria-hidden="true">03</span></p>
+          <h3><span class="es">CRM web colaborativo</span><span class="en">Collaborative web CRM</span></h3>
+          <p class="sum"><span class="es">Plataforma web multiusuario de gestión comercial, con estado en PostgreSQL.</span><span class="en">Multi-user web platform for sales management, with state in PostgreSQL.</span></p>
+          <p class="proof"><span class="es">Edición concurrente sin pérdida de datos: control de versión por entidad y fusión por campo ante conflictos HTTP 409. Duplicados bloqueados con citext e índices únicos parciales, y registro de actividad en la misma transacción que el cambio.</span><span class="en">Concurrent editing without data loss: per-entity versioning and field-level merge on HTTP 409 conflicts. Duplicates blocked with citext and partial unique indexes, and activity logged in the same transaction as the change.</span></p>
+          <p class="ptech mono">Python · FastAPI · SQLAlchemy · PostgreSQL · Vue 3 · TypeScript · Tailwind CSS · Docker</p>
+          <p class="plinks"><span class="lbl"><span class="es">Código privado</span><span class="en">Private code</span></span></p>
+        </div>
+      </article>
+      <article class="card pcard v resp cae" style="--o:3" data-project="parametricad-ai" data-cats="backend 3d python demo">
+        <img class="shot" src="assets/projects/parametricad-ai-400.webp" srcset="assets/projects/parametricad-ai-400.webp 400w, assets/projects/parametricad-ai.webp 640w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 384px" alt="" width="400" height="225" loading="lazy" decoding="async">
+        <div class="pbody">
+          <p class="pst lbl"><i class="live" aria-hidden="true"></i><span class="es">Demo pública activa</span><span class="en">Active public demo</span><span class="pn mono" aria-hidden="true">04</span></p>
+          <h3>ParametriCAD AI</h3>
+          <p class="sum"><span class="es">Motor CAD paramétrico determinista con validación topológica de mallas y visor 3D web.</span><span class="en">Deterministic parametric CAD engine with topological mesh validation and a 3D web viewer.</span></p>
+          <p class="proof"><span class="es">Construye sólidos B-Rep con OpenCASCADE y comprueba que la malla sea estanca, 2-variedad y con normales hacia fuera. Exporta GLB, glTF, STL, STEP y DXF. Extrae parámetros con un analizador de reglas sin conexión o, de forma opcional, con un LLM.</span><span class="en">Builds B-Rep solids with OpenCASCADE and checks that the mesh is watertight, 2-manifold and outward-facing. Exports GLB, glTF, STL, STEP and DXF. Extracts parameters with an offline rule-based parser or, optionally, an LLM.</span></p>
+          <p class="ptech mono">Python · FastAPI · CadQuery · OpenCASCADE · React · Three.js · Docker</p>
+          <p class="plinks"><a class="ext" href="https://parametricad.naindev.com/" target="_blank" rel="noopener noreferrer"><span class="es">Probar demo</span><span class="en">Try the demo</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a> <a class="ext" href="https://github.com/Nain9Dev/parametricad-ai" target="_blank" rel="noopener noreferrer"><span class="es">Revisar código</span><span class="en">Review code</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></p>
+        </div>
+      </article>
+      <article class="card pcard v resp cae" style="--o:4" data-project="nain3d-conformance-gateway" data-cats="backend 3d python demo">
+        <img class="shot" src="assets/projects/nain3d-conformance-gateway-400.webp" srcset="assets/projects/nain3d-conformance-gateway-400.webp 400w, assets/projects/nain3d-conformance-gateway.webp 640w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 384px" alt="" width="400" height="225" loading="lazy" decoding="async">
+        <div class="pbody">
+          <p class="pst lbl"><i class="live" aria-hidden="true"></i><span class="es">Demo pública activa</span><span class="en">Active public demo</span><span class="pn mono" aria-hidden="true">05</span></p>
+          <h3>Nain3D</h3>
+          <p class="sum"><span class="es">Motor de validación geométrica determinista para activos 3D y pasarela de conformidad Khronos, con backend en Python y cliente Vue 3 con Three.js.</span><span class="en">Deterministic geometric validation engine for 3D assets and Khronos conformance gateway, with a Python backend and a Vue 3 client using Three.js.</span></p>
+          <p class="proof"><span class="es">Mide la malla con OpenCASCADE y trimesh y devuelve un veredicto reproducible para el mismo archivo. Es un caso de estudio de ingeniería: contratos explícitos, pruebas y despliegue propio.</span><span class="en">Measures the mesh with OpenCASCADE and trimesh and returns a reproducible verdict for the same file. It is an engineering case study: explicit contracts, tests and its own deployment.</span></p>
+          <p class="ptech mono">Python · OpenCASCADE · trimesh · Vue 3 · Three.js</p>
+          <p class="plinks"><a class="ext" href="https://3d.naindev.com/" target="_blank" rel="noopener noreferrer"><span class="es">Probar demo</span><span class="en">Try the demo</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a> <a class="ext" href="https://github.com/Nain9Dev/Nain3D" target="_blank" rel="noopener noreferrer"><span class="es">Revisar código</span><span class="en">Review code</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></p>
+        </div>
+      </article>
+      <article class="card pcard v resp cae" style="--o:5" data-project="nain-mcp-validator" data-cats="3d python backend data">
+        <img class="shot" src="assets/projects/nain-mcp-validator-400.webp" srcset="assets/projects/nain-mcp-validator-400.webp 400w, assets/projects/nain-mcp-validator.webp 640w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 384px" alt="" width="400" height="225" loading="lazy" decoding="async">
+        <div class="pbody">
+          <p class="pst lbl"><i class="pmark" aria-hidden="true"></i><span class="es">Herramienta pública</span><span class="en">Public Tool</span><span class="pn mono" aria-hidden="true">06</span></p>
+          <h3><span class="es">Servidor MCP de validación 3D determinista</span><span class="en">Deterministic 3D Validation MCP Server</span></h3>
+          <p class="sum"><span class="es">Servidor Model Context Protocol (MCP) en Python que expone herramientas de validación de mallas 3D para agentes de IA.</span><span class="en">Python Model Context Protocol (MCP) server exposing 3D mesh validation tools for AI agents.</span></p>
+          <p class="proof"><span class="es">Chequeos topológicos C1 a C10 con umbral cuántico de 1e-12 m², direccionamiento inmutable por SHA-256 e informes conformes en JSON canónico y Markdown sin tolerar alucinaciones.</span><span class="en">Topological checks C1 to C10 with a quantum threshold of 1e-12 m², SHA-256 immutable content addressing, and canonical JSON and Markdown conformance reports without tolerating hallucinations.</span></p>
+          <p class="ptech mono">Python · Pydantic · FastAPI · MCP · Hypothesis</p>
+          <p class="plinks"><a class="ext" href="https://github.com/Nain9Dev/nain-mcp-validator" target="_blank" rel="noopener noreferrer"><span class="es">Revisar código</span><span class="en">Review code</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></p>
+        </div>
+      </article>
+      <article class="card pcard v resp cae" style="--o:3" data-project="financial-management-api" data-cats="backend data dotnet demo">
+        <img class="shot" src="assets/projects/financial-management-api-400.webp" srcset="assets/projects/financial-management-api-400.webp 400w, assets/projects/financial-management-api.webp 640w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 384px" alt="" width="400" height="225" loading="lazy" decoding="async">
+        <div class="pbody">
+          <p class="pst lbl"><i class="live" aria-hidden="true"></i><span class="es">Demo pública disponible</span><span class="en">Public demo available</span><span class="pn mono" aria-hidden="true">07</span></p>
+          <h3><span class="es">API de Operaciones de Pólizas</span><span class="en">Policy Operations API</span></h3>
+          <p class="sum"><span class="es">API del ciclo de vida de pólizas con aislamiento de datos por organización e historial auditable. Usa datos sintéticos.</span><span class="en">Insurance policy lifecycle API with per-organization data isolation and an auditable history. Uses synthetic data.</span></p>
+          <p class="proof"><span class="es">Ciclo Borrador, Activa y Cancelada con roles JWT. Concurrencia con rowversion, ETag e If-Match, y ProblemDetails en los errores. Integración continua contra un SQL Server real.</span><span class="en">Draft, Active and Cancelled lifecycle with JWT roles. Concurrency with rowversion, ETag and If-Match, and ProblemDetails for errors. Continuous integration against a real SQL Server.</span></p>
+          <p class="ptech mono">C# · .NET 10 · EF Core · SQL Server · Azure</p>
+          <p class="plinks"><a class="ext" href="https://policy.naindev.com/" target="_blank" rel="noopener noreferrer"><span class="es">Probar API</span><span class="en">Test API</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a> <a class="ext" href="https://github.com/Nain9Dev/NainPolicy" target="_blank" rel="noopener noreferrer"><span class="es">Revisar código</span><span class="en">Review code</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></p>
+        </div>
+      </article>
+      <article class="card pcard v resp cae" style="--o:4" data-project="nain-legacy-modernizer" data-cats="backend dotnet demo">
+        <img class="shot" src="assets/projects/nain-legacy-modernizer-400.webp" srcset="assets/projects/nain-legacy-modernizer-400.webp 400w, assets/projects/nain-legacy-modernizer.webp 640w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 384px" alt="" width="400" height="225" loading="lazy" decoding="async">
+        <div class="pbody">
+          <p class="pst lbl"><i class="live" aria-hidden="true"></i><span class="es">Demo pública activa</span><span class="en">Active public demo</span><span class="pn mono" aria-hidden="true">08</span></p>
+          <h3><span class="es">Harness de modernización .NET (YARP y Shadow Runner)</span><span class="en">.NET Modernization Harness (YARP & Shadow Runner)</span></h3>
+          <p class="sum"><span class="es">Harness de modernización para monolitos .NET heredados mediante Strangler Fig con proxy inverso YARP y auditoría de escritura dual en paralelo.</span><span class="en">Modernization harness for legacy .NET monoliths via Strangler Fig with YARP reverse proxying and parallel dual-write auditing.</span></p>
+          <p class="proof"><span class="es">Enrutamiento transparente entre monolito heredado y microservicios modernos en .NET 10, ejecución paralela Shadow Runner con comparación semántica de payloads.</span><span class="en">Transparent routing between legacy monolith and modern .NET 10 microservices, parallel Shadow Runner execution with semantic payload diffing.</span></p>
+          <p class="ptech mono">C# · .NET 10 · YARP · Clean Architecture · xUnit</p>
+          <p class="plinks"><a class="ext" href="https://modernizer.naindev.com/" target="_blank" rel="noopener noreferrer"><span class="es">Probar demo</span><span class="en">Try the demo</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a> <a class="ext" href="https://github.com/Nain9Dev/NainLegacyModernizer" target="_blank" rel="noopener noreferrer"><span class="es">Revisar código</span><span class="en">Review code</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></p>
+        </div>
+      </article>
+      <article class="card pcard v resp cae" style="--o:5" data-project="nainorder-ecommerce-api" data-cats="backend data dotnet demo">
+        <img class="shot" src="assets/projects/nainorder-ecommerce-api-400.webp" srcset="assets/projects/nainorder-ecommerce-api-400.webp 400w, assets/projects/nainorder-ecommerce-api.webp 640w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 384px" alt="" width="400" height="225" loading="lazy" decoding="async">
+        <div class="pbody">
+          <p class="pst lbl"><i class="live" aria-hidden="true"></i><span class="es">Demo pública activa</span><span class="en">Active public demo</span><span class="pn mono" aria-hidden="true">09</span></p>
+          <h3><span class="es">NainOrder (motor de pedidos)</span><span class="en">NainOrder (order engine)</span></h3>
+          <p class="sum"><span class="es">Motor de pedidos para comercio electrónico con Clean Architecture, DDD táctico, CQRS en lectura y panel de cliente propio.</span><span class="en">E-commerce order engine with Clean Architecture, tactical DDD, read-side CQRS and its own customer panel.</span></p>
+          <p class="proof"><span class="es">Máquina de estados del pedido con reserva de stock en la misma transacción, concurrencia optimista (409), importes en céntimos enteros y errores RFC 7807. Panel sin compilación ni dependencias de Node.</span><span class="en">Order state machine with stock reserved in the same transaction, optimistic concurrency (409), amounts in integer cents and RFC 7807 errors. Customer panel with no build step and no Node dependencies.</span></p>
+          <p class="ptech mono">C# · .NET 10 · ASP.NET Core · EF Core · SQLite · xUnit</p>
+          <p class="plinks"><a class="ext" href="https://order.naindev.com/" target="_blank" rel="noopener noreferrer"><span class="es">Probar API</span><span class="en">Test API</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a> <a class="ext" href="https://github.com/Nain9Dev/NainOrder" target="_blank" rel="noopener noreferrer"><span class="es">Revisar código</span><span class="en">Review code</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></p>
+        </div>
+      </article>
+      <article class="card pcard v resp cae" style="--o:3" data-project="notification-worker" data-cats="backend dotnet demo">
+        <div class="shot cover trama-blk" data-seed="68" data-dir="r" aria-hidden="true"></div>
+        <div class="pbody">
+          <p class="pst lbl"><i class="live" aria-hidden="true"></i><span class="es">Demo en local con Docker</span><span class="en">Local demo with Docker</span><span class="pn mono" aria-hidden="true">10</span></p>
+          <h3><span class="es">Microservicio de notificaciones</span><span class="en">Notification microservice</span></h3>
+          <p class="sum"><span class="es">Despacho asíncrono de correos con Clean Architecture y DDD, con la pasarela HTTP separada del worker.</span><span class="en">Asynchronous email dispatch with Clean Architecture and DDD, with the HTTP gateway separated from the worker.</span></p>
+          <p class="proof"><span class="es">Plantillas HTML y texto compatibles con Outlook, enmascarado de datos personales en los logs, limitación de peticiones y ejecución en un proceso o escalada con workers de RabbitMQ.</span><span class="en">HTML and text templates that render in Outlook, personal data masking in logs, rate limiting, and in-process execution or scale-out with RabbitMQ workers.</span></p>
+          <p class="ptech mono">C# · .NET 10 · MassTransit · RabbitMQ · Docker</p>
+          <p class="plinks"><a class="ext" href="https://notify.naindev.com/" target="_blank" rel="noopener noreferrer"><span class="es">Probar demo</span><span class="en">Try the demo</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a> <a class="ext" href="https://github.com/Nain9Dev/NainNotify" target="_blank" rel="noopener noreferrer"><span class="es">Revisar código</span><span class="en">Review code</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></p>
+        </div>
+      </article>
+      <article class="card pcard v resp cae" style="--o:4" data-project="nainconfigurator" data-cats="backend data 3d dotnet demo">
+        <img class="shot" src="assets/projects/nainconfigurator-400.webp" srcset="assets/projects/nainconfigurator-400.webp 400w, assets/projects/nainconfigurator.webp 640w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 384px" alt="" width="400" height="225" loading="lazy" decoding="async">
+        <div class="pbody">
+          <p class="pst lbl"><i class="live" aria-hidden="true"></i><span class="es">Demo técnica en preparación</span><span class="en">Technical demo in preparation</span><span class="pn mono" aria-hidden="true">11</span></p>
+          <h3>NainConfigurator</h3>
+          <p class="sum"><span class="es">Configurador de productos B2B dirigido por catálogo, que admite productos distintos sin código específico por cliente.</span><span class="en">Catalog-driven B2B product configurator that supports different products without customer-specific code.</span></p>
+          <p class="proof"><span class="es">Aislamiento por empresa, validación y precios en el servidor, y flujo completo de configurar, guardar y presupuestar aunque el visor 3D no esté disponible.</span><span class="en">Per-company isolation, server-side validation and pricing, and a complete configure, save and quote flow even when the 3D viewer is unavailable.</span></p>
+          <p class="ptech mono">C# · ASP.NET Core · React · TypeScript · SQL Server</p>
+          <p class="plinks"><a class="ext" href="https://configurator.naindev.com/" target="_blank" rel="noopener noreferrer"><span class="es">Probar demo</span><span class="en">Try the demo</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a> <a class="ext" href="https://github.com/Nain9Dev/NainConfigurator" target="_blank" rel="noopener noreferrer"><span class="es">Revisar código</span><span class="en">Review code</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></p>
+        </div>
+      </article>
+      <article class="card pcard v resp cae" style="--o:5" data-project="driving-school-management" data-cats="backend data python demo">
+        <div class="shot cover trama-blk" data-seed="82" data-dir="r" aria-hidden="true"></div>
+        <div class="pbody">
+          <p class="pst lbl"><i class="live" aria-hidden="true"></i><span class="es">Demo interactiva disponible</span><span class="en">Interactive demo available</span><span class="pn mono" aria-hidden="true">12</span></p>
+          <h3><span class="es">Facturación determinista para autoescuelas</span><span class="en">Deterministic billing for driving schools</span></h3>
+          <p class="sum"><span class="es">Motor de facturación donde la aritmética es verificable. Es una pieza de portfolio, no un producto.</span><span class="en">Billing engine where the arithmetic is verifiable. A portfolio piece, not a product.</span></p>
+          <p class="proof"><span class="es">Importes en Decimal con redondeo explícito, totales que cuadran sin tolerancia, DNI y NIE validados con la letra de control y generación de PDF en memoria.</span><span class="en">Decimal amounts with explicit rounding, totals that reconcile with no tolerance, DNI and NIE checked with their control letter, and in-memory PDF generation.</span></p>
+          <p class="ptech mono">Python · Pydantic · SQLAlchemy · SQLite · Streamlit</p>
+          <p class="plinks"><a class="ext" href="https://drive.naindev.com/" target="_blank" rel="noopener noreferrer"><span class="es">Probar demo</span><span class="en">Try the demo</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a> <a class="ext" href="https://github.com/Nain9Dev/NainDrive" target="_blank" rel="noopener noreferrer"><span class="es">Revisar código</span><span class="en">Review code</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></p>
+        </div>
+      </article>
+      <article class="card pcard v resp cae" style="--o:3" data-project="tai-study-system" data-cats="backend data dotnet demo">
+        <img class="shot" src="assets/projects/tai-study-system-400.webp" srcset="assets/projects/tai-study-system-400.webp 400w, assets/projects/tai-study-system.webp 640w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 384px" alt="" width="400" height="225" loading="lazy" decoding="async">
+        <div class="pbody">
+          <p class="pst lbl"><i class="live" aria-hidden="true"></i><span class="es">Demo pública activa</span><span class="en">Active public demo</span><span class="pn mono" aria-hidden="true">13</span></p>
+          <h3><span class="es">Simulacros de oposición TAI</span><span class="en">TAI civil service exam simulator</span></h3>
+          <p class="sum"><span class="es">Simulador de exámenes de la oposición TAI (INAP): API de preguntas y corrección, y cliente web que funciona también sin servidor.</span><span class="en">Exam simulator for the Spanish TAI civil service exam (INAP): a question and marking API, and a web client that also works without a server.</span></p>
+          <p class="proof"><span class="es">Corrección en el servidor con la escala oficial, sesiones con cookie HttpOnly y token CSRF, cola sin conexión en IndexedDB y panel ordenado por el bloque más débil.</span><span class="en">Server-side marking with the official scale, HttpOnly cookie sessions with a CSRF token, an offline queue in IndexedDB and a dashboard ordered by the weakest block.</span></p>
+          <p class="ptech mono">C# · .NET 10 · Dapper · PostgreSQL · React · TypeScript</p>
+          <p class="plinks"><a class="ext" href="https://tai.naindev.com" target="_blank" rel="noopener noreferrer"><span class="es">Abrir demo</span><span class="en">Open demo</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a> <a class="ext" href="https://github.com/Nain9Dev/NainTAI" target="_blank" rel="noopener noreferrer"><span class="es">Código de la API</span><span class="en">API code</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a> <a class="ext" href="https://github.com/Nain9Dev/tai-study-system-js" target="_blank" rel="noopener noreferrer"><span class="es">Código del cliente</span><span class="en">Client code</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></p>
+        </div>
+      </article>
+      <article class="card pcard v resp cae" style="--o:4" data-project="self-hosted-ci-runners" data-cats="backend">
+        <div class="shot cover trama-blk" data-seed="96" data-dir="r" aria-hidden="true"></div>
+        <div class="pbody">
+          <p class="pst lbl"><i class="pmark" aria-hidden="true"></i><span class="es">Privado · En uso</span><span class="en">Private · In use</span><span class="pn mono" aria-hidden="true">14</span></p>
+          <h3><span class="es">Flota local de runners de GitHub Actions</span><span class="en">Self-hosted GitHub Actions runner fleet</span></h3>
+          <p class="sum"><span class="es">CLI que gestiona runners self-hosted de GitHub Actions en un equipo de escritorio para repositorios privados.</span><span class="en">CLI that manages self-hosted GitHub Actions runners on a desktop machine for private repositories.</span></p>
+          <p class="proof"><span class="es">Rechaza repositorios públicos, no guarda tokens de registro y permite devolver los trabajos a los runners de GitHub con una variable. Tiene pruebas herméticas.</span><span class="en">Refuses public repositories, never stores registration tokens and can send jobs back to GitHub's runners with one variable. Covered by hermetic tests.</span></p>
+          <p class="ptech mono">Bash · WSL · Docker · GitHub Actions</p>
+          <p class="plinks"><span class="lbl"><span class="es">Código privado</span><span class="en">Private code</span></span></p>
+        </div>
+      </article>
+      <article class="card pcard v resp cae" style="--o:5" data-project="orbe-runner-3d" data-cats="3d demo">
+        <img class="shot" src="assets/projects/orbe-runner-3d-400.webp" srcset="assets/projects/orbe-runner-3d-400.webp 400w, assets/projects/orbe-runner-3d.webp 640w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 384px" alt="" width="400" height="225" loading="lazy" decoding="async">
+        <div class="pbody">
+          <p class="pst lbl"><i class="live" aria-hidden="true"></i><span class="es">Juego público</span><span class="en">Public game</span><span class="pn mono" aria-hidden="true">15</span></p>
+          <h3>Orbe Runner 3D</h3>
+          <p class="sum"><span class="es">Runner 3D arcade hecho sin motor de juego, con modelos y audio procedurales.</span><span class="en">3D arcade runner built without a game engine, with procedural models and audio.</span></p>
+          <p class="proof"><span class="es">ECS propio, niveles compuestos por bloques cuya alcanzabilidad se comprueba antes de construirlos, paso de simulación fijo y controles táctiles.</span><span class="en">Custom ECS, levels built from chunks whose reachability is checked before they are built, a fixed simulation step and touch controls.</span></p>
+          <p class="ptech mono">TypeScript · Three.js · Web Audio · Vite · Vitest</p>
+          <p class="plinks"><a class="ext" href="https://orbe.naindev.com" target="_blank" rel="noopener noreferrer"><span class="es">Jugar</span><span class="en">Play</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a> <a class="ext" href="https://github.com/Nain9Dev/Orbe3D" target="_blank" rel="noopener noreferrer"><span class="es">Ver código</span><span class="en">View code</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></p>
+        </div>
+      </article>
+      <article class="card pcard v resp cae" style="--o:3" data-project="pong-arcade" data-cats="3d demo">
+        <img class="shot" src="assets/projects/pong-arcade-400.webp" srcset="assets/projects/pong-arcade-400.webp 400w, assets/projects/pong-arcade.webp 640w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 384px" alt="" width="400" height="225" loading="lazy" decoding="async">
+        <div class="pbody">
+          <p class="pst lbl"><i class="live" aria-hidden="true"></i><span class="es">Juego público</span><span class="en">Public game</span><span class="pn mono" aria-hidden="true">16</span></p>
+          <h3>Pong Arcade 3D</h3>
+          <p class="sum"><span class="es">Pong reconstruido como juego 3D en el navegador, sin instalación ni recursos externos.</span><span class="en">Pong rebuilt as a 3D browser game, with no install and no external assets.</span></p>
+          <p class="proof"><span class="es">Detección continua de colisiones, paso fijo con interpolación de render, IA predictiva con cuatro niveles y partidas reproducibles a partir de una semilla.</span><span class="en">Continuous collision detection, a fixed step with render interpolation, predictive AI with four levels and matches reproducible from a seed.</span></p>
+          <p class="ptech mono">TypeScript · Three.js · Web Audio · Vite</p>
+          <p class="plinks"><a class="ext" href="https://pong.naindev.com" target="_blank" rel="noopener noreferrer"><span class="es">Jugar</span><span class="en">Play</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a> <a class="ext" href="https://github.com/Nain9Dev/PongArcade" target="_blank" rel="noopener noreferrer"><span class="es">Ver código</span><span class="en">View code</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></p>
+        </div>
+      </article>
+      <article class="card pcard v resp cae" style="--o:4" data-project="b2b-prospecting-pipeline" data-cats="data python demo">
+        <img class="shot" src="assets/projects/b2b-prospecting-pipeline-400.webp" srcset="assets/projects/b2b-prospecting-pipeline-400.webp 400w, assets/projects/b2b-prospecting-pipeline.webp 640w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 384px" alt="" width="400" height="225" loading="lazy" decoding="async">
+        <div class="pbody">
+          <p class="pst lbl"><i class="live" aria-hidden="true"></i><span class="es">Proyecto público · Prototipo en simulación</span><span class="en">Public project · Simulation prototype</span><span class="pn mono" aria-hidden="true">17</span></p>
+          <h3><span class="es">Pipeline de prospección B2B con IA</span><span class="en">AI-assisted B2B prospecting pipeline</span></h3>
+          <p class="sum"><span class="es">Pipeline de bajo coste que localiza empresas a partir de datos públicos, las clasifica con un LLM y genera plantillas de email. No envía correo.</span><span class="en">Low-cost pipeline that finds companies from public data, classifies them with an LLM and generates email templates. It does not send email.</span></p>
+          <p class="proof"><span class="es">Clasificación de sector, tamaño y prioridad con un modelo ligero, alertas y ejecución programada. Se detiene antes del envío, en modo simulación.</span><span class="en">Classifies sector, size and priority with a lightweight model, with alerts and scheduled runs. It stops before sending, in simulation mode.</span></p>
+          <p class="ptech mono">Python · LLM · GitHub Actions</p>
+          <p class="plinks"><a class="ext" href="https://prospect.naindev.com/" target="_blank" rel="noopener noreferrer"><span class="es">Probar demo</span><span class="en">Try the demo</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a> <a class="ext" href="https://github.com/Nain9Dev/NainProspect" target="_blank" rel="noopener noreferrer"><span class="es">Revisar código</span><span class="en">Review code</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></p>
+        </div>
+      </article>
+      <article class="card pcard v resp cae" style="--o:5" data-project="local-rewriting-agent" data-cats="data python demo">
+        <img class="shot" src="assets/projects/local-rewriting-agent-400.webp" srcset="assets/projects/local-rewriting-agent-400.webp 400w, assets/projects/local-rewriting-agent.webp 640w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 384px" alt="" width="400" height="225" loading="lazy" decoding="async">
+        <div class="pbody">
+          <p class="pst lbl"><i class="live" aria-hidden="true"></i><span class="es">Proyecto público · Preliminar</span><span class="en">Public project · Preliminary</span><span class="pn mono" aria-hidden="true">18</span></p>
+          <h3><span class="es">Agente local de reescritura en español</span><span class="en">Local Spanish rewriting agent</span></h3>
+          <p class="sum"><span class="es">Agente local que reescribe borradores en español de España conservando el significado, las condiciones y los literales protegidos.</span><span class="en">Local agent that rewrites drafts in Spanish from Spain while preserving meaning, conditions and protected literals.</span></p>
+          <p class="proof"><span class="es">Un LLM local reescribe y un validador determinista de invariantes lo comprueba. Si dos auditores independientes no aprueban, el resultado pasa a revisión humana.</span><span class="en">A local LLM rewrites and a deterministic invariant validator checks it. If two independent auditors do not approve, the result goes to human review.</span></p>
+          <p class="ptech mono">Python · Ollama · LanguageTool</p>
+          <p class="plinks"><a class="ext" href="https://write.naindev.com/" target="_blank" rel="noopener noreferrer"><span class="es">Probar demo</span><span class="en">Try the demo</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a> <a class="ext" href="https://github.com/Nain9Dev/NainWrite" target="_blank" rel="noopener noreferrer"><span class="es">Revisar código</span><span class="en">Review code</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></p>
+        </div>
+      </article>
+      <article class="card pcard v resp cae" style="--o:3" data-project="local-quotation-generator" data-cats="data python">
+        <div class="shot cover trama-blk" data-seed="131" data-dir="r" aria-hidden="true"></div>
+        <div class="pbody">
+          <p class="pst lbl"><i class="pmark" aria-hidden="true"></i><span class="es">Privado · Primera versión</span><span class="en">Private · First version</span><span class="pn mono" aria-hidden="true">19</span></p>
+          <h3><span class="es">Generador local de presupuestos y borradores de factura</span><span class="en">Local quotation and invoice-draft generator</span></h3>
+          <p class="sum"><span class="es">Preparación local de presupuestos, proformas y borradores de factura con exportación a PDF. No emite facturas fiscales definitivas.</span><span class="en">Local preparation of quotations, proformas and invoice drafts with PDF export. It does not issue final tax invoices.</span></p>
+          <p class="proof"><span class="es">Funciona solo en la máquina local, con ayuda opcional de un LLM local para redactar.</span><span class="en">Runs only on the local machine, with optional drafting help from a local LLM.</span></p>
+          <p class="ptech mono">Python · Ollama</p>
+          <p class="plinks"><span class="lbl"><span class="es">Código privado</span><span class="en">Private code</span></span></p>
+        </div>
+      </article>
+      <article class="card pcard v resp cae" style="--o:4" data-project="gamehaven-blazor-store" data-cats="backend dotnet demo">
+        <img class="shot" src="assets/projects/gamehaven-blazor-store-400.webp" srcset="assets/projects/gamehaven-blazor-store-400.webp 400w, assets/projects/gamehaven-blazor-store.webp 640w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 384px" alt="" width="400" height="225" loading="lazy" decoding="async">
+        <div class="pbody">
+          <p class="pst lbl"><i class="live" aria-hidden="true"></i><span class="es">Proyecto de formación · Demo web</span><span class="en">Training project · Web demo</span><span class="pn mono" aria-hidden="true">20</span></p>
+          <h3>GameHaven</h3>
+          <p class="sum"><span class="es">Tienda de juegos independientes en Blazor WebAssembly con API propia, evolución de una primera versión de escritorio.</span><span class="en">Indie game store in Blazor WebAssembly with its own API, evolved from an earlier desktop version.</span></p>
+          <p class="proof"><span class="es">Separación en capas de API, aplicación, dominio e infraestructura, con despliegue del frontend en GitHub Pages.</span><span class="en">Layered API, application, domain and infrastructure, with the frontend deployed to GitHub Pages.</span></p>
+          <p class="ptech mono">C# · .NET 10 · Blazor WebAssembly · SQLite</p>
+          <p class="plinks"><a class="ext" href="https://gamehaven.naindev.com/" target="_blank" rel="noopener noreferrer"><span class="es">Probar tienda</span><span class="en">Try the store</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a> <a class="ext" href="https://github.com/Nain9Dev/GameHaven" target="_blank" rel="noopener noreferrer"><span class="es">Revisar código</span><span class="en">Review code</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></p>
+        </div>
+      </article>
+      <article class="card pcard v resp cae" style="--o:5" data-project="havetickets" data-cats="backend dotnet demo">
+        <div class="shot cover trama-blk" data-seed="145" data-dir="r" aria-hidden="true"></div>
+        <div class="pbody">
+          <p class="pst lbl"><i class="live" aria-hidden="true"></i><span class="es">Proyecto de formación · En desarrollo</span><span class="en">Training project · In development</span><span class="pn mono" aria-hidden="true">21</span></p>
+          <h3>HaveTickets</h3>
+          <p class="sum"><span class="es">Sistema de tickets de soporte con cliente en Blazor WebAssembly y Minimal API.</span><span class="en">Support ticketing system with a Blazor WebAssembly client and a Minimal API.</span></p>
+          <p class="proof"><span class="es">Proyectos separados de dominio, aplicación, infraestructura y contratos.</span><span class="en">Separate domain, application, infrastructure and contracts projects.</span></p>
+          <p class="ptech mono">C# · .NET 10 · Blazor WebAssembly · ASP.NET Core</p>
+          <p class="plinks"><a class="ext" href="https://tickets.naindev.com/" target="_blank" rel="noopener noreferrer"><span class="es">Probar demo</span><span class="en">Try the demo</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a> <a class="ext" href="https://github.com/Nain9Dev/HaveTickets" target="_blank" rel="noopener noreferrer"><span class="es">Revisar código</span><span class="en">Review code</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></p>
+        </div>
+      </article>
+      <article class="card pcard v resp cae" style="--o:3" data-project="driving-exam-simulator" data-cats="3d dotnet">
+        <div class="shot cover trama-blk" data-seed="152" data-dir="r" aria-hidden="true"></div>
+        <div class="pbody">
+          <p class="pst lbl"><i class="pmark" aria-hidden="true"></i><span class="es">Privado · En planificación</span><span class="en">Private · In planning</span><span class="pn mono" aria-hidden="true">22</span></p>
+          <h3><span class="es">Simulador de conducción 3D para el examen práctico</span><span class="en">3D driving-exam simulator</span></h3>
+          <p class="sum"><span class="es">Simulador 3D del examen práctico del permiso B con puntuación determinista de las faltas.</span><span class="en">3D simulator of the Class B practical driving exam with deterministic fault scoring.</span></p>
+          <p class="proof"><span class="es">Diseño de la transmisión manual (embrague, calado y marchas), comprobaciones previas del vehículo y clasificación de faltas en leves, deficientes y eliminatorias.</span><span class="en">Manual transmission design (clutch, stalling and gears), pre-drive vehicle checks and fault classification into minor, deficient and eliminatory.</span></p>
+          <p class="ptech mono">C# · .NET · TypeScript · Three.js</p>
+          <p class="plinks"><span class="lbl"><span class="es">Código privado</span><span class="en">Private code</span></span></p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="ecosistema" class="apar" aria-labelledby="ecoTitle">
+  <div class="shell">
+    <div class="head">
+      <p class="kick cae" style="--o:0"><span class="es">Código abierto</span><span class="en">Open source</span></p>
+      <h2 id="ecoTitle"><span class="masc"><span class="linea" style="--o:1"><span class="es">Ecosistema abierto</span><span class="en">Open ecosystem</span></span></span></h2>
+      <div class="cota-w" style="--o:2"><div class="cota q2" aria-hidden="true"><i></i><i></i><i></i></div><span class="cota-lbl mono"><span class="es" style="--n:17">6 PIEZAS PÚBLICAS</span><span class="en" style="--n:15">6 PUBLIC PIECES</span></span></div>
+    </div>
+    <p class="intro soft cae" style="--o:3"><span class="es">Plantillas, estándares y herramientas que uso en todos mis proyectos.</span><span class="en">Templates, standards and tools I use across all my projects.</span></p>
+    <div class="cat mt6">
+      <article class="card pcard v resp cae" style="--o:3">
+        <img class="shot" src="assets/projects/eco-engineering-handbook-400.webp" srcset="assets/projects/eco-engineering-handbook-400.webp 400w, assets/projects/eco-engineering-handbook.webp 640w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 384px" alt="" width="400" height="225" loading="lazy" decoding="async">
+        <div class="pbody">
+          <h3 class="mono" translate="no">engineering-handbook</h3>
+          <p class="sum"><span class="es">Manual de ingeniería: arquitectura limpia, validación determinista y pruebas.</span><span class="en">Engineering handbook: clean architecture, deterministic validation and testing.</span></p>
+          <p class="plinks"><a class="ext" href="https://github.com/Nain9Dev/engineering-handbook" target="_blank" rel="noopener noreferrer">github.com<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></p>
+        </div>
+      </article>
+      <article class="card pcard v resp cae" style="--o:4">
+        <img class="shot" src="assets/projects/eco-template-dotnet-clean-arch-400.webp" srcset="assets/projects/eco-template-dotnet-clean-arch-400.webp 400w, assets/projects/eco-template-dotnet-clean-arch.webp 640w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 384px" alt="" width="400" height="225" loading="lazy" decoding="async">
+        <div class="pbody">
+          <h3 class="mono" translate="no">template-dotnet-clean-arch</h3>
+          <p class="sum"><span class="es">Plantilla full stack con .NET, Vue 3 y Docker Compose.</span><span class="en">Full stack template with .NET, Vue 3 and Docker Compose.</span></p>
+          <p class="plinks"><a class="ext" href="https://github.com/Nain9Dev/template-dotnet-clean-arch" target="_blank" rel="noopener noreferrer">github.com<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></p>
+        </div>
+      </article>
+      <article class="card pcard v resp cae" style="--o:5">
+        <img class="shot" src="assets/projects/eco-template-fastapi-vue-clean-arch-400.webp" srcset="assets/projects/eco-template-fastapi-vue-clean-arch-400.webp 400w, assets/projects/eco-template-fastapi-vue-clean-arch.webp 640w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 384px" alt="" width="400" height="225" loading="lazy" decoding="async">
+        <div class="pbody">
+          <h3 class="mono" translate="no">template-fastapi-vue-clean-arch</h3>
+          <p class="sum"><span class="es">Plantilla full stack con FastAPI, Vue 3 y Docker Compose.</span><span class="en">Full stack template with FastAPI, Vue 3 and Docker Compose.</span></p>
+          <p class="plinks"><a class="ext" href="https://github.com/Nain9Dev/template-fastapi-vue-clean-arch" target="_blank" rel="noopener noreferrer">github.com<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></p>
+        </div>
+      </article>
+      <article class="card pcard v resp cae" style="--o:3">
+        <img class="shot" src="assets/projects/eco-brandbook-400.webp" srcset="assets/projects/eco-brandbook-400.webp 400w, assets/projects/eco-brandbook.webp 640w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 384px" alt="" width="400" height="225" loading="lazy" decoding="async">
+        <div class="pbody">
+          <h3 class="mono" translate="no">brandbook</h3>
+          <p class="sum"><span class="es">Sistema de diseño y manual de marca de NainDev.</span><span class="en">NainDev design system and brand book.</span></p>
+          <p class="plinks"><a class="ext" href="https://brand.naindev.com/" target="_blank" rel="noopener noreferrer">brand.naindev.com<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></p>
+        </div>
+      </article>
+      <article class="card pcard v resp cae" style="--o:4">
+        <img class="shot" src="assets/projects/eco-status-400.webp" srcset="assets/projects/eco-status-400.webp 400w, assets/projects/eco-status.webp 640w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 384px" alt="" width="400" height="225" loading="lazy" decoding="async">
+        <div class="pbody">
+          <h3 class="mono" translate="no">status</h3>
+          <p class="sum"><span class="es">Estado y latencia de los servicios públicos.</span><span class="en">Status and latency of the public services.</span></p>
+          <p class="plinks"><a class="ext" href="https://status.naindev.com/" target="_blank" rel="noopener noreferrer">status.naindev.com<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></p>
+        </div>
+      </article>
+      <article class="card pcard v resp cae" style="--o:5">
+        <img class="shot" src="assets/projects/eco-dot-github-400.webp" srcset="assets/projects/eco-dot-github-400.webp 400w, assets/projects/eco-dot-github.webp 640w" sizes="(max-width:600px) 100vw, (max-width:980px) 50vw, 384px" alt="" width="400" height="225" loading="lazy" decoding="async">
+        <div class="pbody">
+          <h3 class="mono" translate="no">.github</h3>
+          <p class="sum"><span class="es">Estándares de ingeniería y flujos de CI reutilizables.</span><span class="en">Engineering standards and reusable CI workflows.</span></p>
+          <p class="plinks"><a class="ext" href="https://github.com/Nain9Dev/.github" target="_blank" rel="noopener noreferrer">github.com<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="apar">
+  <div class="shell">
+    <div class="fhead">
+      <a class="flogo-lock cae" style="--o:0" href="index.html"><svg viewBox="0 0 1000 1000" aria-hidden="true" focusable="false"><g stroke="currentColor" stroke-width="113" stroke-linecap="round" fill="none"><line pathLength="1" x1="148" y1="148" x2="148" y2="848"/><line pathLength="1" x1="308" y1="288" x2="686" y2="738"/><line pathLength="1" x1="848" y1="148" x2="848" y2="848"/></g></svg><img class="wm" src="assets/logo/wordmark-white.png" alt="" width="423" height="38"><span class="sr">NainDev · <span class="es">inicio</span><span class="en">home</span></span></a>
+      <div class="trama-blk ftrama" data-seed="23" data-dir="r" aria-hidden="true"></div>
+    </div>
+    <div class="fcols">
+      <div>
+        <h2 class="lbl"><span class="es">Servicios</span><span class="en">Services</span></h2>
+        <ul>
+          <li><a href="servicios.html#backend"><span class="es">Backend crítico en Python y .NET</span><span class="en">Critical backend in Python and .NET</span></a></li>
+          <li><a href="servicios.html#ia"><span class="es">IA generativa con revisión humana</span><span class="en">Generative AI with human review</span></a></li>
+          <li><a href="servicios.html#conformidad"><span class="es">Conformidad determinista y 3D</span><span class="en">Deterministic conformance and 3D</span></a></li>
+          <li><a href="servicios.html"><span class="es">Los 15 servicios</span><span class="en">All 15 services</span></a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="lbl"><span class="es">Contenido</span><span class="en">Content</span></h2>
+        <ul>
+          <li><a href="proyectos.html"><span class="es">Proyectos</span><span class="en">Projects</span></a></li>
+          <li><a href="casos.html"><span class="es">Casos</span><span class="en">Case studies</span></a></li>
+          <li><a href="escritos.html"><span class="es">Escritos</span><span class="en">Writing</span></a></li>
+          <li><span class="es"><a href="https://www.naindev.com/recursos/checklist-ia/" target="_blank" rel="noopener noreferrer"><span class="es">Checklist de arquitectura IA</span><span class="en">AI architecture checklist</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a href="https://www.naindev.com/en/resources/checklist-ia/" target="_blank" rel="noopener noreferrer"><span class="es">Checklist de arquitectura IA</span><span class="en">AI architecture checklist</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="lbl"><span class="es">Tecnología</span><span class="en">Technology</span></h2>
+        <ul>
+          <li><a href="tecnologia.html">C#</a></li>
+          <li><span class="es"><a href="https://www.naindev.com/tecnologia/.NET/" target="_blank" rel="noopener noreferrer">.NET<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a href="https://www.naindev.com/en/technology/.NET/" target="_blank" rel="noopener noreferrer">.NET<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></li>
+          <li><span class="es"><a href="https://www.naindev.com/tecnologia/Python/" target="_blank" rel="noopener noreferrer">Python<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a href="https://www.naindev.com/en/technology/Python/" target="_blank" rel="noopener noreferrer">Python<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></li>
+          <li><span class="es"><a href="https://www.naindev.com/tecnologia/Three.js/" target="_blank" rel="noopener noreferrer">Three.js<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a href="https://www.naindev.com/en/technology/Three.js/" target="_blank" rel="noopener noreferrer">Three.js<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></li>
+          <li><span class="es"><a href="https://www.naindev.com/tecnologia/Azure/" target="_blank" rel="noopener noreferrer">Azure<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a href="https://www.naindev.com/en/technology/Azure/" target="_blank" rel="noopener noreferrer">Azure<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="lbl"><span class="es">Contacto</span><span class="en">Contact</span></h2>
+        <ul>
+          <li><a href="https://calendly.com/aitornainmendozavallejo-ksez/30min" target="_blank" rel="noopener noreferrer"><span class="es">Agendar llamada gratuita</span><span class="en">Book a free call</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></li>
+          <li><a href="mailto:contact@naindev.com">contact@naindev.com</a></li>
+          <li><a href="https://www.linkedin.com/in/aitor-nain-mendoza-vallejo/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></li>
+          <li><a href="https://github.com/Nain9Dev" target="_blank" rel="noopener noreferrer">GitHub<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fin">
+      <p>© 2026 NainDev · <span class="es">Analítica sin cookies</span><span class="en">Cookie-free analytics</span></p>
+      <p><a href="https://status.naindev.com/" target="_blank" rel="noopener noreferrer"><i class="live" aria-hidden="true"></i><span class="es">Estado del servicio</span><span class="en">Service status</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></p>
+      <p><span class="es"><a href="https://www.naindev.com/privacidad/" target="_blank" rel="noopener noreferrer"><span class="es">Política de privacidad</span><span class="en">Privacy policy</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a href="https://www.naindev.com/en/privacy/" target="_blank" rel="noopener noreferrer"><span class="es">Política de privacidad</span><span class="en">Privacy policy</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></p>
+      <p class="credit"><span class="es">Diseño</span><span class="en">Design</span>: <a href="https://contrast3d.com" target="_blank" rel="noopener noreferrer">David Suárez<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

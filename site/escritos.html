@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es" data-title-es="Blog de arquitectura backend, 3D e IA | NainDev" data-title-en="Backend architecture, 3D and AI blog | NainDev">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; connect-src 'self' https://plausible.io; font-src 'self' https://fonts.gstatic.com; form-action 'self'; frame-src 'none'; img-src 'self' data: https:; object-src 'none'; script-src 'self' 'unsafe-inline' https://plausible.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" id="themeColor" content="#070B16">
+<title>Blog de arquitectura backend, 3D e IA | NainDev</title>
+<meta name="description" content="Artículos técnicos sobre validación 3D, IA generativa en sistemas críticos y rendimiento en .NET.">
+<meta name="description-en" content="Technical articles on 3D validation, generative AI in critical systems and .NET performance.">
+<link rel="icon" id="favicon" type="image/svg+xml" href="assets/logo/favicon-deep.svg">
+<script src="assets/theme.js?v=1"></script>
+<script src="assets/boot.js?v=1"></script>
+<link rel="stylesheet" href="assets/nain.css?v=5">
+<script src="assets/nain.js?v=1" defer></script>
+<script src="assets/motion.js?v=2" defer></script>
+<script src="assets/fix.data.js?v=1" defer></script>
+<script src="assets/fix.js?v=1" defer></script>
+</head>
+<body data-page="escritos" data-brk="a" data-trama="a" data-pulse="a" data-scan="a">
+<a class="skip" href="#contenido"><span class="es">Saltar al contenido</span><span class="en">Skip to content</span></a>
+<header class="top">
+  <div class="shell">
+    <a class="brand" href="index.html" id="brandMark"><svg viewBox="0 0 1000 1000" aria-hidden="true" focusable="false"><g stroke="currentColor" stroke-width="113" stroke-linecap="round" fill="none"><line id="mkL" pathLength="1" x1="148" y1="148" x2="148" y2="848"/><line id="mkD" pathLength="1" x1="308" y1="288" x2="686" y2="738"/><line id="mkR" pathLength="1" x1="848" y1="148" x2="848" y2="848"/></g></svg><img class="wm only-deep" src="assets/logo/wordmark-white.png" alt="" width="423" height="38"><img class="wm only-paper" src="assets/logo/wordmark-blue.png" alt="" width="423" height="38"><span class="sr">NainDev · <span class="es">inicio</span><span class="en">home</span></span></a>
+    <nav class="main" aria-label="Principal / Main">
+      <a class="u" href="servicios.html"><span class="es">Servicios</span><span class="en">Services</span></a>
+      <a class="u" href="proyectos.html"><span class="es">Proyectos</span><span class="en">Projects</span></a>
+      <a class="u" href="casos.html"><span class="es">Casos</span><span class="en">Case studies</span></a>
+      <a class="u" href="escritos.html" aria-current="page"><span class="es">Escritos</span><span class="en">Writing</span></a>
+      <a class="u" href="index.html#sobre"><span class="es">Sobre mí</span><span class="en">About</span></a>
+      <a class="u" href="contacto.html"><span class="es">Contacto</span><span class="en">Contact</span></a>
+    </nav>
+    <div class="tools">
+      <div class="lang" role="group" aria-label="Idioma / Language"><button type="button" data-lang="es" aria-pressed="true" lang="es">ES</button><i aria-hidden="true">/</i><button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button></div>
+      <button class="themesw" type="button" data-theme-toggle aria-pressed="false"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><span class="sr"><span class="es">Modo claro</span><span class="en">Light mode</span></span></button>
+      <a class="btn btn-p btn-call" href="https://calendly.com/aitornainmendozavallejo-ksez/30min" target="_blank" rel="noopener noreferrer"><span class="es">Agendar llamada<span class="xl"> gratuita</span></span><span class="en">Book a<span class="xl"> free</span> call</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="sheet" id="menuOpen">
+        <b aria-hidden="true"></b><span class="es">Menú</span><span class="en">Menu</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" hidden>
+  <div class="bar">
+    <span class="sheet-mark" aria-hidden="true"><svg viewBox="0 0 1000 1000" aria-hidden="true" focusable="false"><g stroke="currentColor" stroke-width="113" stroke-linecap="round" fill="none"><line pathLength="1" x1="148" y1="148" x2="148" y2="848"/><line pathLength="1" x1="308" y1="288" x2="686" y2="738"/><line pathLength="1" x1="848" y1="148" x2="848" y2="848"/></g></svg></span>
+    <h2 class="sr" id="sheetTitle"><span class="es">Menú</span><span class="en">Menu</span></h2>
+    <div class="tools">
+      <div class="lang" role="group" aria-label="Idioma / Language"><button type="button" data-lang="es" aria-pressed="true" lang="es">ES</button><i aria-hidden="true">/</i><button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button></div>
+      <button class="burger is-close" type="button" id="menuClose"><b aria-hidden="true"></b><span class="es">Cerrar</span><span class="en">Close</span></button>
+    </div>
+  </div>
+  <nav aria-label="Menú móvil / Mobile menu">
+      <a class="u" href="servicios.html"><span class="es">Servicios</span><span class="en">Services</span></a>
+      <a class="u" href="proyectos.html"><span class="es">Proyectos</span><span class="en">Projects</span></a>
+      <a class="u" href="casos.html"><span class="es">Casos</span><span class="en">Case studies</span></a>
+      <a class="u" href="escritos.html" aria-current="page"><span class="es">Escritos</span><span class="en">Writing</span></a>
+      <a class="u" href="index.html#sobre"><span class="es">Sobre mí</span><span class="en">About</span></a>
+      <a class="u" href="contacto.html"><span class="es">Contacto</span><span class="en">Contact</span></a>
+  </nav>
+  <div class="foot">
+    <a class="btn btn-p btn-lg btn-block" href="https://calendly.com/aitornainmendozavallejo-ksez/30min" target="_blank" rel="noopener noreferrer"><span class="es">Agendar llamada gratuita</span><span class="en">Book a free call</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a>
+    <p class="avail-line"><span class="es">Acepto proyectos a tiempo parcial y en remoto para empresas de cualquier país.</span><span class="en">I take on part-time, remote projects for companies in any country.</span></p>
+    <div class="theme-row"><span class="lbl"><span class="es">Expresión papel (modo claro)</span><span class="en">Paper expression (light mode)</span></span><button class="themesw" type="button" data-theme-toggle aria-pressed="false"><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><span class="sr"><span class="es">Modo claro</span><span class="en">Light mode</span></span></button></div>
+  </div>
+</div>
+<aside class="pbanner" id="pbanner" aria-labelledby="pbannerTitle" data-nosnippet>
+  <div class="pbanner-in">
+    <p class="lbl" id="pbannerTitle"><span class="es">Privacidad</span><span class="en">Privacy</span></p>
+    <p><span class="es">Este sitio no utiliza cookies de seguimiento invasivas. Tu privacidad está protegida.</span><span class="en">This site does not use invasive tracking cookies. Your privacy is protected.</span>
+      <span class="es"><a href="https://www.naindev.com/privacidad/" target="_blank" rel="noopener noreferrer"><span class="es">Política de privacidad</span><span class="en">Privacy policy</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a href="https://www.naindev.com/en/privacy/" target="_blank" rel="noopener noreferrer"><span class="es">Política de privacidad</span><span class="en">Privacy policy</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></p>
+    <button type="button" class="pbanner-x" id="pbannerClose"><span aria-hidden="true">×</span><span class="sr"><span class="es">Cerrar aviso de privacidad</span><span class="en">Close privacy notice</span></span></button>
+  </div>
+</aside>
+<main id="contenido" tabindex="-1">
+<section class="apar pagehead" aria-labelledby="pageTitle">
+  <div class="shell">
+    <p class="cae dnote" style="--o:1"><span class="lbl"><span class="es">Nota de diseño</span><span class="en">Design note</span></span> <span class="es">URL en producción: /blog/. «Clean Architecture en .NET para Sistemas de IA Generativa» abre la plantilla de artículo; los otros diez abren su página actual en naindev.com.</span><span class="en">Production URL: /blog/. «Clean Architecture in .NET for Generative AI Systems» opens the article template; the other ten open their current page on naindev.com.</span></p>
+    <div class="ph-grid">
+      <div>
+        <p class="cae kick" style="--o:2"><span class="es">Blog</span><span class="en">Blog</span></p>
+        <h1 id="pageTitle"><span class="masc"><span class="linea" style="--o:3"><span class="es">Artículos sobre arquitectura backend, 3D e IA</span><span class="en">Articles on backend architecture, 3D and AI</span></span></span></h1>
+        <p class="cae lede" style="--o:4"><span class="es">Once artículos técnicos, del más reciente al más antiguo. Tratan de validación 3D, IA generativa en sistemas críticos y rendimiento en .NET.</span><span class="en">Eleven technical articles, newest first. They cover 3D validation, generative AI in critical systems and .NET performance.</span></p>
+      </div>
+      <div class="ph-agd" aria-hidden="true"><svg class="agd" viewBox="0 0 1000 700" focusable="false"><g fill="none" stroke="currentColor" stroke-width="45" stroke-linecap="round" stroke-linejoin="round"><g class="ag-top"><path d="M240 300V228A28 28 0 0 1 268 200H500"/><path d="M760 300V228A28 28 0 0 0 732 200H500"/></g><g class="ag-bot"><path d="M240 300V572A28 28 0 0 0 268 600H500"/><path d="M760 300V572A28 28 0 0 1 732 600H500"/></g><g class="ag-ring"><line x1="380" y1="245" x2="380" y2="150"/><line x1="620" y1="245" x2="620" y2="150"/></g><line class="ag-d" style="--i:0" x1="315" y1="400" x2="365" y2="400"/><line class="ag-d" style="--i:1" x1="475" y1="400" x2="525" y2="400"/><line class="ag-d" style="--i:2" x1="635" y1="400" x2="685" y2="400"/><line class="ag-d" style="--i:3" x1="315" y1="510" x2="365" y2="510"/><line class="ag-d" style="--i:4" x1="475" y1="510" x2="525" y2="510"/><path class="ag-ok" d="M626 508L650 532L694 482"/><line class="ag-hd" x1="240" y1="300" x2="760" y2="300"/><line class="mk mk-l" x1="0" y1="-140" x2="0" y2="140"/><line class="mk mk-d" x1="0" y1="-117.5" x2="0" y2="117.5"/><line class="mk mk-r" x1="0" y1="-140" x2="0" y2="140"/></g></svg></div>
+    </div>
+    <div class="cota-w" style="--o:4"><div class="cota q2" aria-hidden="true"><i></i><i></i><i></i></div><span class="cota-lbl mono"><span class="es" style="--n:12">11 ARTÍCULOS</span><span class="en" style="--n:11">11 ARTICLES</span></span></div>
+  </div>
+</section>
+
+<section aria-label="Artículos / Articles" class="apar on-raised">
+  <div class="shell">
+    <ol class="cae entries" style="--o:1">
+      <li class="cae entry" style="--o:2">
+        <span class="num">01</span>
+        <div>
+          <h2 class="h3s"><span class="masc"><span class="linea" style="--o:3"><span class="es"><a class="ext" href="https://www.naindev.com/blog/escalar-procesamiento-3d-csharp-nube/" target="_blank" rel="noopener noreferrer"><span class="es">Escalar Procesamiento de Modelos 3D en la Nube con C# y .NET</span><span class="en">Scaling 3D Model Processing in the Cloud with C# and .NET</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a class="ext" href="https://www.naindev.com/en/blog/escalar-procesamiento-3d-csharp-nube/" target="_blank" rel="noopener noreferrer"><span class="es">Escalar Procesamiento de Modelos 3D en la Nube con C# y .NET</span><span class="en">Scaling 3D Model Processing in the Cloud with C# and .NET</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></span></span></h2>
+          <p><span class="es">Descubre cómo escalar la validación geométrica de mallas 3D en la nube utilizando C#, .NET 8 y arquitecturas basadas en mensajes.</span><span class="en">Discover how to scale 3D mesh geometric validation in the cloud using C#, .NET 8, and message-based architectures.</span></p>
+        </div>
+        <span class="t mono"><time datetime="2026-08-29"><span class="es">29 ago 2026</span><span class="en">29 Aug 2026</span></time></span>
+      </li><li class="cae entry" style="--o:4">
+        <span class="num">02</span>
+        <div>
+          <h2 class="h3s"><span class="masc"><span class="linea" style="--o:5"><span class="es"><a class="ext" href="https://www.naindev.com/blog/optimizacion-procesamiento-mallas-3d/" target="_blank" rel="noopener noreferrer"><span class="es">Cómo procesar masivamente modelos 3D sin colgar tu Backend</span><span class="en">How to process 3D models in bulk without crashing your backend</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a class="ext" href="https://www.naindev.com/en/blog/optimizacion-procesamiento-mallas-3d/" target="_blank" rel="noopener noreferrer"><span class="es">Cómo procesar masivamente modelos 3D sin colgar tu Backend</span><span class="en">How to process 3D models in bulk without crashing your backend</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></span></span></h2>
+          <p><span class="es">Patrones de arquitectura distribuida para la validación, decimation y renderizado de mallas 3D pesadas usando Azure y colas de mensajes.</span><span class="en">Distributed architecture patterns for validating, decimating, and rendering heavy 3D meshes using Azure and message queues.</span></p>
+        </div>
+        <span class="t mono"><time datetime="2026-08-28"><span class="es">28 ago 2026</span><span class="en">28 Aug 2026</span></time></span>
+      </li><li class="cae entry" style="--o:6">
+        <span class="num">03</span>
+        <div>
+          <h2 class="h3s"><span class="masc"><span class="linea" style="--o:7"><span class="es"><a class="ext" href="https://www.naindev.com/blog/estrategia-finops-openai-azure/" target="_blank" rel="noopener noreferrer"><span class="es">FinOps para IA: Cómo reducir tu factura de OpenAI un 80% en Azure</span><span class="en">FinOps for AI: How to reduce your OpenAI bill by 80% on Azure</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a class="ext" href="https://www.naindev.com/en/blog/estrategia-finops-openai-azure/" target="_blank" rel="noopener noreferrer"><span class="es">FinOps para IA: Cómo reducir tu factura de OpenAI un 80% en Azure</span><span class="en">FinOps for AI: How to reduce your OpenAI bill by 80% on Azure</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></span></span></h2>
+          <p><span class="es">Descubre estrategias arquitectónicas para reducir drásticamente el coste de las llamadas a LLMs en producción mediante cachés semánticas y vectoriales.</span><span class="en">Discover architectural strategies to drastically reduce the cost of LLM calls in production using semantic and vector caches.</span></p>
+        </div>
+        <span class="t mono"><time datetime="2026-08-25"><span class="es">25 ago 2026</span><span class="en">25 Aug 2026</span></time></span>
+      </li><li class="cae entry" style="--o:7">
+        <span class="num">04</span>
+        <div>
+          <h2 class="h3s"><span class="masc"><span class="linea" style="--o:7"><span class="es"><a class="ext" href="https://www.naindev.com/blog/arquitectura-backend-ia-generativa-3d/" target="_blank" rel="noopener noreferrer"><span class="es">Arquitectura Backend para IA Generativa en entornos 3D</span><span class="en">Backend Architecture for Generative AI in 3D Environments</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a class="ext" href="https://www.naindev.com/en/blog/arquitectura-backend-ia-generativa-3d/" target="_blank" rel="noopener noreferrer"><span class="es">Arquitectura Backend para IA Generativa en entornos 3D</span><span class="en">Backend Architecture for Generative AI in 3D Environments</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></span></span></h2>
+          <p><span class="es">Cómo diseñar una arquitectura backend robusta en C# para orquestar modelos de IA generativa que producen assets 3D a escala.</span><span class="en">How to design a robust backend architecture in C# to orchestrate generative AI models that produce 3D assets at scale.</span></p>
+        </div>
+        <span class="t mono"><time datetime="2026-08-24"><span class="es">24 ago 2026</span><span class="en">24 Aug 2026</span></time></span>
+      </li><li class="cae entry" style="--o:7">
+        <span class="num">05</span>
+        <div>
+          <h2 class="h3s"><span class="masc"><span class="linea" style="--o:7"><span class="es"><a class="ext" href="https://www.naindev.com/blog/optimizacion-modelos-3d-nube-csharp/" target="_blank" rel="noopener noreferrer"><span class="es">Optimización de modelos 3D en la nube con C#</span><span class="en">Optimizing 3D models in the cloud with C#</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a class="ext" href="https://www.naindev.com/en/blog/optimizacion-modelos-3d-nube-csharp/" target="_blank" rel="noopener noreferrer"><span class="es">Optimización de modelos 3D en la nube con C#</span><span class="en">Optimizing 3D models in the cloud with C#</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></span></span></h2>
+          <p><span class="es">Aprende a procesar y optimizar modelos 3D masivos en la nube usando C# y Azure, reduciendo costes y evitando memory leaks en tu backend.</span><span class="en">Learn to process and optimize massive 3D models in the cloud using C# and Azure, reducing costs and preventing memory leaks in your backend.</span></p>
+        </div>
+        <span class="t mono"><time datetime="2026-08-23"><span class="es">23 ago 2026</span><span class="en">23 Aug 2026</span></time></span>
+      </li><li class="cae entry" style="--o:7">
+        <span class="num">06</span>
+        <div>
+          <h2 class="h3s"><span class="masc"><span class="linea" style="--o:7"><span class="es"><a class="ext" href="https://www.naindev.com/blog/arquitectura-agentes-ia-csharp/" target="_blank" rel="noopener noreferrer"><span class="es">Arquitectura de Agentes de IA en C# con Semantic Kernel: Guía Práctica</span><span class="en">AI Agent Architecture in C# with Semantic Kernel: A Practical Guide</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a class="ext" href="https://www.naindev.com/en/blog/arquitectura-agentes-ia-csharp/" target="_blank" rel="noopener noreferrer"><span class="es">Arquitectura de Agentes de IA en C# con Semantic Kernel: Guía Práctica</span><span class="en">AI Agent Architecture in C# with Semantic Kernel: A Practical Guide</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></span></span></h2>
+          <p><span class="es">Construye ecosistemas de agentes autónomos, deterministas y tolerantes a fallos en entornos corporativos utilizando C#, .NET, Semantic Kernel y Redis.</span><span class="en">Build ecosystems of autonomous, deterministic, and fault-tolerant agents in enterprise environments using C#, .NET, Semantic Kernel, and Redis.</span></p>
+        </div>
+        <span class="t mono"><time datetime="2026-08-23"><span class="es">23 ago 2026</span><span class="en">23 Aug 2026</span></time></span>
+      </li><li class="cae entry" style="--o:7">
+        <span class="num">07</span>
+        <div>
+          <h2 class="h3s"><span class="masc"><span class="linea" style="--o:7"><span class="es"><a class="ext" href="https://www.naindev.com/blog/validacion-3d-backend-csharp/" target="_blank" rel="noopener noreferrer"><span class="es">Procesamiento y Validación de Modelos 3D en el Backend con C# y .NET</span><span class="en">3D Model Processing and Validation on the Backend with C# and .NET</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a class="ext" href="https://www.naindev.com/en/blog/validacion-3d-backend-csharp/" target="_blank" rel="noopener noreferrer"><span class="es">Procesamiento y Validación de Modelos 3D en el Backend con C# y .NET</span><span class="en">3D Model Processing and Validation on the Backend with C# and .NET</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></span></span></h2>
+          <p><span class="es">Aprende a validar y optimizar miles de archivos glTF/OBJ de forma asíncrona usando C#, RabbitMQ y SharpGLTF en arquitecturas backend de misión crítica.</span><span class="en">Learn to validate and optimize thousands of glTF/OBJ files asynchronously using C#, RabbitMQ, and SharpGLTF in mission-critical backend architectures.</span></p>
+        </div>
+        <span class="t mono"><time datetime="2026-08-20"><span class="es">20 ago 2026</span><span class="en">20 Aug 2026</span></time></span>
+      </li><li class="cae entry" style="--o:7">
+        <span class="num">08</span>
+        <div>
+          <h2 class="h3s"><span class="masc"><span class="linea" style="--o:7"><a href="articulo.html"><span class="es">Clean Architecture en .NET para Sistemas de IA Generativa: Guía Práctica</span><span class="en">Clean Architecture in .NET for Generative AI Systems: A Practical Guide</span></a></span></span></h2>
+          <p><span class="es">Aprende a integrar IA estocástica en backends críticos con C# .NET y Clean Architecture. Protege tu dominio de la incertidumbre con puertos y adaptadores.</span><span class="en">Learn to integrate stochastic AI into critical backends with C# .NET and Clean Architecture. Protect your domain from uncertainty with ports and adapters.</span></p>
+        </div>
+        <span class="t mono"><time datetime="2026-08-20"><span class="es">20 ago 2026</span><span class="en">20 Aug 2026</span></time></span>
+      </li><li class="cae entry" style="--o:7">
+        <span class="num">09</span>
+        <div>
+          <h2 class="h3s"><span class="masc"><span class="linea" style="--o:7"><span class="es"><a class="ext" href="https://www.naindev.com/blog/arquitectura-backend-validacion-3d/" target="_blank" rel="noopener noreferrer"><span class="es">Arquitectura Backend para Sistemas de Validación 3D Deterministas</span><span class="en">Backend Architecture for Deterministic 3D Validation Systems</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a class="ext" href="https://www.naindev.com/en/blog/arquitectura-backend-validacion-3d/" target="_blank" rel="noopener noreferrer"><span class="es">Arquitectura Backend para Sistemas de Validación 3D Deterministas</span><span class="en">Backend Architecture for Deterministic 3D Validation Systems</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></span></span></h2>
+          <p><span class="es">Descubre cómo diseñar una infraestructura robusta y escalable en .NET (C#) capaz de procesar y validar en volumen modelos 3D generados por IA.</span><span class="en">Discover how to design a robust and scalable infrastructure in .NET (C#) capable of processing and validating AI-generated 3D models in volume.</span></p>
+        </div>
+        <span class="t mono"><time datetime="2026-08-20"><span class="es">20 ago 2026</span><span class="en">20 Aug 2026</span></time></span>
+      </li><li class="cae entry" style="--o:7">
+        <span class="num">10</span>
+        <div>
+          <h2 class="h3s"><span class="masc"><span class="linea" style="--o:7"><span class="es"><a class="ext" href="https://www.naindev.com/blog/concurrencia-optimista-3d/" target="_blank" rel="noopener noreferrer"><span class="es">Control de Concurrencia Optimista en Sistemas Distribuidos para Validación 3D con IA</span><span class="en">Optimistic Concurrency Control in Distributed Systems for 3D Validation with AI</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a class="ext" href="https://www.naindev.com/en/blog/concurrencia-optimista-3d/" target="_blank" rel="noopener noreferrer"><span class="es">Control de Concurrencia Optimista en Sistemas Distribuidos para Validación 3D con IA</span><span class="en">Optimistic Concurrency Control in Distributed Systems for 3D Validation with AI</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></span></span></h2>
+          <p><span class="es">Evita los bloqueos de base de datos en tus pipelines de IA 3D. Aprende a implementar Control de Concurrencia Optimista en C# para multiplicar la capacidad.</span><span class="en">Avoid database deadlocks in your 3D AI pipelines. Learn to implement Optimistic Concurrency Control in C# to multiply capacity.</span></p>
+        </div>
+        <span class="t mono"><time datetime="2026-08-19"><span class="es">19 ago 2026</span><span class="en">19 Aug 2026</span></time></span>
+      </li><li class="cae entry" style="--o:7">
+        <span class="num">11</span>
+        <div>
+          <h2 class="h3s"><span class="masc"><span class="linea" style="--o:7"><span class="es"><a class="ext" href="https://www.naindev.com/blog/clean-architecture-3d/" target="_blank" rel="noopener noreferrer"><span class="es">Clean Architecture aplicada a sistemas de validación 3D con IA</span><span class="en">Clean Architecture applied to 3D validation systems with AI</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a class="ext" href="https://www.naindev.com/en/blog/clean-architecture-3d/" target="_blank" rel="noopener noreferrer"><span class="es">Clean Architecture aplicada a sistemas de validación 3D con IA</span><span class="en">Clean Architecture applied to 3D validation systems with AI</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></span></span></h2>
+          <p><span class="es">¿Tus modelos de IA rompen la producción? Descubre cómo separar la lógica de negocio de la infraestructura usando C# y Clean Architecture. Incluye código.</span><span class="en">Are your AI models breaking production? Discover how to separate business logic from infrastructure using C# and Clean Architecture. Includes code.</span></p>
+        </div>
+        <span class="t mono"><time datetime="2026-08-19"><span class="es">19 ago 2026</span><span class="en">19 Aug 2026</span></time></span>
+      </li>
+    </ol>
+  </div>
+</section>
+<section class="on-deep closing apar" aria-labelledby="closingTitle">
+  <div class="shell">
+    <div class="contact">
+      <div>
+        <p class="kick cae" style="--o:0"><span class="es">Siguiente paso</span><span class="en">Next step</span></p>
+        <h2 id="closingTitle"><span class="masc"><span class="linea" style="--o:1"><span class="es">Una llamada de 30 minutos para ver tu caso</span><span class="en">A 30-minute call to look at your case</span></span></span></h2>
+        <p class="big on-paper-text mt6 cae" style="--o:2"><span class="es">Es una conversación para entender qué necesitas y ver si encaja con lo que hago. No tiene coste. Si hay proyecto, el presupuesto se habla ahí.</span><span class="en">It is a conversation to understand what you need and see whether it fits what I do. It is free. If there is a project, the budget is discussed there.</span></p>
+        <div class="cta cae" style="--o:3">
+          <a class="btn btn-g btn-lg" href="https://calendly.com/aitornainmendozavallejo-ksez/30min" target="_blank" rel="noopener noreferrer"><span class="es">Agendar llamada gratuita</span><span class="en">Book a free call</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a>
+          <a class="btn btn-s btn-lg" href="#whatsapp"><span class="es">Escríbeme por WhatsApp</span><span class="en">Message me on WhatsApp</span></a>
+        </div>
+      </div>
+      <div class="cae" style="--o:4">
+        <p class="lbl block"><span class="es">Otros canales</span><span class="en">Other channels</span></p>
+        <ul class="channels">
+          <li><span class="lbl">Email</span><a href="mailto:contact@naindev.com">contact@naindev.com</a></li>
+          <li><span class="lbl">LinkedIn</span><a href="https://www.linkedin.com/in/aitor-nain-mendoza-vallejo/" target="_blank" rel="noopener noreferrer">aitor-nain-mendoza-vallejo<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></li>
+        </ul>
+        <p class="lbl block mt8"><span class="es">Disponibilidad</span><span class="en">Availability</span></p>
+        <p class="soft"><span class="es">Acepto proyectos a tiempo parcial y en remoto para empresas de cualquier país.</span><span class="en">I take on part-time, remote projects for companies in any country.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="apar">
+  <div class="shell">
+    <div class="fhead">
+      <a class="flogo-lock cae" style="--o:0" href="index.html"><svg viewBox="0 0 1000 1000" aria-hidden="true" focusable="false"><g stroke="currentColor" stroke-width="113" stroke-linecap="round" fill="none"><line pathLength="1" x1="148" y1="148" x2="148" y2="848"/><line pathLength="1" x1="308" y1="288" x2="686" y2="738"/><line pathLength="1" x1="848" y1="148" x2="848" y2="848"/></g></svg><img class="wm" src="assets/logo/wordmark-white.png" alt="" width="423" height="38"><span class="sr">NainDev · <span class="es">inicio</span><span class="en">home</span></span></a>
+      <div class="trama-blk ftrama" data-seed="23" data-dir="r" aria-hidden="true"></div>
+    </div>
+    <div class="fcols">
+      <div>
+        <h2 class="lbl"><span class="es">Servicios</span><span class="en">Services</span></h2>
+        <ul>
+          <li><a href="servicios.html#backend"><span class="es">Backend crítico en Python y .NET</span><span class="en">Critical backend in Python and .NET</span></a></li>
+          <li><a href="servicios.html#ia"><span class="es">IA generativa con revisión humana</span><span class="en">Generative AI with human review</span></a></li>
+          <li><a href="servicios.html#conformidad"><span class="es">Conformidad determinista y 3D</span><span class="en">Deterministic conformance and 3D</span></a></li>
+          <li><a href="servicios.html"><span class="es">Los 15 servicios</span><span class="en">All 15 services</span></a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="lbl"><span class="es">Contenido</span><span class="en">Content</span></h2>
+        <ul>
+          <li><a href="proyectos.html"><span class="es">Proyectos</span><span class="en">Projects</span></a></li>
+          <li><a href="casos.html"><span class="es">Casos</span><span class="en">Case studies</span></a></li>
+          <li><a href="escritos.html"><span class="es">Escritos</span><span class="en">Writing</span></a></li>
+          <li><span class="es"><a href="https://www.naindev.com/recursos/checklist-ia/" target="_blank" rel="noopener noreferrer"><span class="es">Checklist de arquitectura IA</span><span class="en">AI architecture checklist</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a href="https://www.naindev.com/en/resources/checklist-ia/" target="_blank" rel="noopener noreferrer"><span class="es">Checklist de arquitectura IA</span><span class="en">AI architecture checklist</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="lbl"><span class="es">Tecnología</span><span class="en">Technology</span></h2>
+        <ul>
+          <li><a href="tecnologia.html">C#</a></li>
+          <li><span class="es"><a href="https://www.naindev.com/tecnologia/.NET/" target="_blank" rel="noopener noreferrer">.NET<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a href="https://www.naindev.com/en/technology/.NET/" target="_blank" rel="noopener noreferrer">.NET<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></li>
+          <li><span class="es"><a href="https://www.naindev.com/tecnologia/Python/" target="_blank" rel="noopener noreferrer">Python<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a href="https://www.naindev.com/en/technology/Python/" target="_blank" rel="noopener noreferrer">Python<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></li>
+          <li><span class="es"><a href="https://www.naindev.com/tecnologia/Three.js/" target="_blank" rel="noopener noreferrer">Three.js<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a href="https://www.naindev.com/en/technology/Three.js/" target="_blank" rel="noopener noreferrer">Three.js<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></li>
+          <li><span class="es"><a href="https://www.naindev.com/tecnologia/Azure/" target="_blank" rel="noopener noreferrer">Azure<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a href="https://www.naindev.com/en/technology/Azure/" target="_blank" rel="noopener noreferrer">Azure<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="lbl"><span class="es">Contacto</span><span class="en">Contact</span></h2>
+        <ul>
+          <li><a href="https://calendly.com/aitornainmendozavallejo-ksez/30min" target="_blank" rel="noopener noreferrer"><span class="es">Agendar llamada gratuita</span><span class="en">Book a free call</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></li>
+          <li><a href="mailto:contact@naindev.com">contact@naindev.com</a></li>
+          <li><a href="https://www.linkedin.com/in/aitor-nain-mendoza-vallejo/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></li>
+          <li><a href="https://github.com/Nain9Dev" target="_blank" rel="noopener noreferrer">GitHub<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fin">
+      <p>© 2026 NainDev · <span class="es">Analítica sin cookies</span><span class="en">Cookie-free analytics</span></p>
+      <p><a href="https://status.naindev.com/" target="_blank" rel="noopener noreferrer"><i class="live" aria-hidden="true"></i><span class="es">Estado del servicio</span><span class="en">Service status</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></p>
+      <p><span class="es"><a href="https://www.naindev.com/privacidad/" target="_blank" rel="noopener noreferrer"><span class="es">Política de privacidad</span><span class="en">Privacy policy</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span><span class="en"><a href="https://www.naindev.com/en/privacy/" target="_blank" rel="noopener noreferrer"><span class="es">Política de privacidad</span><span class="en">Privacy policy</span><span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></span></p>
+      <p class="credit"><span class="es">Diseño</span><span class="en">Design</span>: <a href="https://contrast3d.com" target="_blank" rel="noopener noreferrer">David Suárez<span class="sr"> <span class="es">(se abre en una pestaña nueva)</span><span class="en">(opens in a new tab)</span></span></a></p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

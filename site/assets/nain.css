@@ -1,0 +1,1086 @@
+/* ============================================================
+   NainDev · prototype visual system (round 4, 26-10-2026, brandbook v2.0)
+   Self-hosted fonts, Latin subset, OFL licence (see assets/fonts).
+   No request leaves the site's own domain.
+   ============================================================ */
+@font-face{font-family:"Urbanist";font-style:normal;font-weight:300 600;font-display:swap;
+  src:url("fonts/urbanist-latin-300-600.woff2") format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:400;font-display:swap;
+  src:url("fonts/ibm-plex-mono-latin-400.woff2") format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"IBM Plex Mono";font-style:normal;font-weight:500;font-display:swap;
+  src:url("fonts/ibm-plex-mono-latin-500.woff2") format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+/* ============================================================
+   THE TWO EXPRESSIONS · brandbook v2.0, chapter 03
+   One set of roles, two sets of values. Role names are the ones main already uses
+   (src/styles/main.css, specs 045 and 048), so porting means copying values.
+   Deep blue is the default. Paper applies when the visitor chose it (data-theme="light",
+   set before first paint by assets/theme.js) or when the system prefers light and no choice
+   was made. .xp-deep scopes the deep blue values to the elements that never change with the
+   theme: the hero scene, the terminal, code blocks, diagrams, the mesh and the deep blue bands.
+   ============================================================ */
+:root{
+  /* brand constants: the same in both expressions */
+  --brand-cobalt:#0047AB; --brand-deep:#002B66; --brand-green:#80FF00; --brand-red:#FF001F;
+  --brand-black:#1D1D1B; --brand-paper:#EDF1F6;
+  /* solid shadow: inherited, so an invariant element casts the shadow of the surface it sits on */
+  --color-shadow:#0B2E6B;
+}
+/* deep blue values: the default, and always on the invariant elements */
+:root,.xp-deep,.on-deep,.hero,footer,.term,pre.panel,.diagram,.mesh-box,.fic{
+  color-scheme:dark;
+  --color-bg:#070B16;          /* página */
+  --color-bg-raised:#0D1730;   /* superficie elevada */
+  --color-band:#0B1E45;        /* banda */
+  --color-surface:#111C36;     /* tarjeta sobre banda o elevada */
+  --color-sunken:#070B16;      /* superficie hundida (pozos dentro de una superficie) */
+  --color-ink:#EDF1F6;         /* tinta */
+  --color-ink-soft:#C9D3E3;    /* tinta suave */
+  --color-ink-muted:#A9B8CF;   /* etiquetas, metadatos, bordes de control */
+  --color-heading:#EDF1F6;     /* titulares */
+  --color-line:rgba(237,241,246,.10);
+  --color-line-strong:rgba(237,241,246,.18);
+  --color-cobalt:#0047AB;      /* acción */
+  --color-cobalt-bright:#1F63D1;
+  --color-cobalt-ink:#FFFFFF;  /* texto sobre acción */
+  --color-link:#6D9BF5;        /* enlace */
+  --color-stroke:#80FF00;      /* trazos de marca: cota, interrupción, trama */
+  --color-green:#80FF00;       /* marca viva */
+  --color-focus:#80FF00;       /* foco */
+  --color-red:#FF001F;         /* halo pulsado, marcas de error */
+  --color-red-ink:#FF5C6C;     /* error en texto: #FF001F no llega a 4,5:1 sobre las superficies elevadas */
+  --color-logo:#FFFFFF;
+  --only-deep:block; --only-paper:none;
+}
+:root[data-theme="light"]{
+  color-scheme:light;
+  --color-bg:#EDF1F6; --color-bg-raised:#F7F9FC; --color-band:#DEE6F0; --color-surface:#FFFFFF; --color-sunken:#DEE6F0;
+  --color-ink:#002B66; --color-ink-soft:#1F3B6E; --color-ink-muted:#3C5F94; --color-heading:#0047AB;
+  --color-line:rgba(0,43,102,.10); --color-line-strong:rgba(0,43,102,.18);
+  --color-cobalt:#0047AB; --color-cobalt-bright:#1F63D1; --color-cobalt-ink:#FFFFFF; --color-link:#0047AB;
+  --color-stroke:#0047AB; --color-green:#2E6B00; --color-focus:#2E6B00; --color-red:#C4001A; --color-red-ink:#C4001A;
+  --color-shadow:#1D1D1B; --color-logo:#0047AB; --only-deep:none; --only-paper:block;
+}
+@media (prefers-color-scheme:light){
+  :root:not([data-theme="dark"]){
+    color-scheme:light;
+    --color-bg:#EDF1F6; --color-bg-raised:#F7F9FC; --color-band:#DEE6F0; --color-surface:#FFFFFF; --color-sunken:#DEE6F0;
+    --color-ink:#002B66; --color-ink-soft:#1F3B6E; --color-ink-muted:#3C5F94; --color-heading:#0047AB;
+    --color-line:rgba(0,43,102,.10); --color-line-strong:rgba(0,43,102,.18);
+    --color-cobalt:#0047AB; --color-cobalt-bright:#1F63D1; --color-cobalt-ink:#FFFFFF; --color-link:#0047AB;
+    --color-stroke:#0047AB; --color-green:#2E6B00; --color-focus:#2E6B00; --color-red:#C4001A; --color-red-ink:#C4001A;
+    --color-shadow:#1D1D1B; --color-logo:#0047AB; --only-deep:none; --only-paper:block;
+  }
+}
+/* the deep blue bands carry the deep blue values and a black shadow for what sits inside them */
+.xp-deep,.on-deep{color:var(--color-ink)}
+.on-deep,.hero{background:var(--brand-deep);--color-shadow:var(--brand-black)}
+.only-deep{display:var(--only-deep)!important}
+.only-paper{display:var(--only-paper)!important}
+
+:root{
+  --font:"Urbanist",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --track-brand:.32em; --track-label:.14em;
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s6:24px; --s8:32px;
+  --s12:48px; --s16:64px; --s20:80px; --s32:128px;
+  --sec:var(--s16);
+  --radius:4px; --cap:999px; --shell:1200px; --measure:68ch; --header-h:64px; --gutter:24px;
+}
+*{box-sizing:border-box}
+html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 16px);background:var(--color-bg)}
+body{margin:0;background:var(--color-bg);color:var(--color-ink);
+     font-family:var(--font);font-size:17px;font-weight:400;line-height:1.6;overflow-wrap:break-word}
+img{max-width:100%;height:auto}
+:focus-visible{outline:3px solid var(--color-focus);outline-offset:3px;border-radius:2px}
+.shell{max-width:var(--shell);margin:0 auto;padding:0 var(--gutter)}
+.shell.narrow{max-width:800px}
+h1,h2,h3{font-family:var(--font);font-weight:300;color:var(--color-heading);margin:0;line-height:1.12}
+h1{font-size:clamp(28px,4.2vw,42px);font-weight:600;text-transform:uppercase;letter-spacing:.02em}
+h1.h1-article{text-transform:none;letter-spacing:0;font-size:clamp(28px,3.6vw,38px);line-height:1.18}
+h2{font-size:clamp(26px,3.4vw,34px)}
+h3{font-size:20px;font-weight:500}
+.h2s{font-size:clamp(24px,2.8vw,30px)}
+.h3s{font-size:20px;font-weight:500}
+p{margin:0 0 var(--s4);max-width:var(--measure)}
+p:last-child{margin-bottom:0}
+strong{font-weight:600}
+a{color:var(--color-link);text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
+code{font-family:var(--font-mono);font-size:.88em}
+.kick{font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:var(--track-brand);color:var(--color-link);margin:0 0 var(--s3)}
+.lbl{font-family:var(--font-mono);font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:var(--track-label);color:var(--color-ink-muted);margin:0}
+.lbl.block{display:block;margin-bottom:var(--s3)}
+.mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+.big{font-size:19px}
+.soft{font-size:15px;color:var(--color-ink-muted)}
+.intro{max-width:60ch}
+.mt2{margin-top:var(--s2)} .mt3{margin-top:var(--s3)} .mt4{margin-top:var(--s4)} .mt6{margin-top:var(--s6)}
+.mt8{margin-top:var(--s8)} .mt12{margin-top:var(--s12)} .mt20{margin-top:var(--s20)}
+.sr{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.ph{font-family:var(--font-mono);font-size:.9em;color:var(--color-red-ink);white-space:nowrap}
+ul.plain{list-style:none;padding:0;margin:0}
+ul.plain li{padding:var(--s2) 0;border-bottom:1px solid var(--color-line)}
+ul.plain li:first-child{border-top:1px solid var(--color-line)}
+/* — language: two routes in production (/ and /en/) — */
+html[lang="es"] .en,html[lang="en"] .es{display:none!important}
+/* — link to another tab: a visible mark as well as the text for screen readers — */
+a.ext:after{content:"";display:inline-block;width:.62em;height:.62em;margin-left:.3em;vertical-align:.05em;
+  background:currentColor;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M2 8L8 2M3.5 2H8V6.5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
+          mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M2 8L8 2M3.5 2H8V6.5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat}
+.btn.ext:after{display:none}
+/* — skip link — */
+.skip{position:absolute;left:var(--s4);top:-60px;z-index:60;background:var(--color-cobalt);color:var(--color-cobalt-ink);padding:var(--s3) var(--s4);border-radius:var(--radius)}
+.skip:focus{top:var(--s3)}
+main:focus{outline:none}
+/* — header — */
+header.top{position:sticky;top:0;z-index:40;background:var(--color-bg);border-bottom:1px solid var(--color-line)}
+header.top .shell{height:var(--header-h);display:flex;align-items:center;justify-content:space-between;gap:var(--s3)}
+/* the logo: the isotype is the stroke geometry of the mark (round 2), the word is David's PNG until the SVG
+   from the .ai arrives. One colour for the whole logo: brand blue on paper, white on deep blue. */
+.brand{display:flex;align-items:center;gap:12px;min-width:44px;min-height:44px;color:var(--color-logo);text-decoration:none}
+.brand svg{height:28px;width:28px;display:block;overflow:visible;flex:none}
+.brand .wm{height:11px;width:auto;flex:none}
+nav.main{display:flex;gap:var(--s6)}
+nav.main a{position:relative;text-decoration:none;color:var(--color-ink);font-size:15px;padding:var(--s3) 0}
+nav.main a[aria-current="page"]{color:var(--color-heading);font-weight:500}
+nav.main a:hover{color:var(--color-link)}
+.tools{display:flex;align-items:center;gap:var(--s3)}
+.lang{display:flex;align-items:center;gap:2px;font-family:var(--font-mono);font-size:12px;letter-spacing:var(--track-label)}
+.lang button{background:none;border:0;padding:0 6px;min-height:44px;min-width:32px;font:inherit;color:var(--color-ink-muted);cursor:pointer;letter-spacing:inherit}
+.lang button[aria-pressed="true"]{color:var(--color-heading);font-weight:500;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px}
+.lang i{color:var(--color-ink-muted);font-style:normal}
+/* — the expression switch (ADR-0014): pressed means paper; hidden until theme.js ran — */
+.themesw{display:none;align-items:center;justify-content:center;width:44px;height:44px;padding:0;flex:none;
+         background:none;border:1px solid var(--color-line-strong);border-radius:var(--radius);color:var(--color-ink);cursor:pointer}
+.js-theme .themesw{display:inline-flex}
+.themesw svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.themesw .i-sun{display:var(--only-paper)}
+.themesw .i-moon{display:var(--only-deep)}
+.themesw:hover,.themesw:focus-visible{border-color:var(--color-ink-muted)}
+/* its 4 px response shadow: see RESPONSE in the motion section */
+.burger{display:none;align-items:center;gap:var(--s2);height:44px;padding:0 var(--s3);background:none;
+        border:1px solid var(--color-ink-muted);border-radius:var(--radius);font:inherit;font-size:14px;color:var(--color-ink);cursor:pointer}
+.burger b{display:block;width:16px;height:2px;border-radius:var(--cap);background:var(--color-heading);position:relative}
+.burger b:before,.burger b:after{content:"";position:absolute;left:0;width:16px;height:2px;border-radius:var(--cap);background:var(--color-heading)}
+.burger b:before{top:-5px} .burger b:after{top:5px}
+.burger.is-close b{background:transparent}
+.burger.is-close b:before{top:0;transform:rotate(45deg)} .burger.is-close b:after{top:0;transform:rotate(-45deg)}
+/* — buttons — */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 var(--s6);
+     border-radius:var(--radius);font-family:var(--font);font-size:15px;font-weight:500;line-height:1.2;text-align:center;
+     text-decoration:none;border:1px solid transparent;cursor:pointer}
+/* 7.7 · response: on hover and focus a 6 px solid shadow in the focus colour (green; green ink on paper).
+   When the fill is already green it takes the ink. Pressed, it shrinks to 2 px in red: the pressed halo.
+   The shadow is a block that moves (RESPONSE, in the motion section), not an animated box-shadow. */
+.btn-p{background:var(--color-cobalt);color:var(--color-cobalt-ink)}
+/* on a deep blue band the main action is green: cobalt on #002B66 is 1.6:1 and the button would not separate */
+.btn-g{background:var(--brand-green);color:var(--brand-black)}
+.btn-s{background:transparent;color:var(--color-ink);border-color:var(--color-ink-muted)}
+.btn-s:hover{border-color:var(--color-heading);color:var(--color-heading)}
+.btn-lg{min-height:48px}
+.btn-block{display:flex;width:100%}
+.btn-call{min-height:40px;padding:0 var(--s4);font-size:14px;white-space:nowrap}
+@media (max-width:1100px){.btn-call .xl{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}}
+/* a text link that leads somewhere: the 7.3 stroke as its underline */
+.tlink{display:inline-flex;align-items:center;gap:10px;min-height:44px;font-weight:500;text-decoration:none;color:var(--color-heading)}
+/* the stroke grows from 22 to 34 px with scaleX from its left end: the link keeps its width (no layout change) */
+.tlink:after{content:"";width:22px;height:2px;border-radius:var(--cap);background:var(--color-stroke);transform-origin:left}
+.tlink:hover:after,.tlink:focus-visible:after{transform:scaleX(1.5455)}
+.tlink:hover{text-decoration:none}
+/* — surfaces: page, raised, band; deep blue bands stay deep in both expressions — */
+section{padding:var(--sec) 0}
+section.slim{padding:var(--s16) 0}
+.on-raised{background:var(--color-bg-raised)}
+.on-sunken{background:var(--color-band)}
+.on-deep{color:var(--color-ink)}
+.on-deep .soft{color:var(--color-ink-soft)}
+.on-paper-text{color:var(--color-ink)}
+/* — the dimension and the interruption (7.3, 7.1) — */
+.cota{position:relative;height:2px;border-radius:var(--cap);background:var(--color-stroke);margin-top:var(--s6)}
+.cota i{position:absolute;top:-9px;width:2px;height:20px;border-radius:var(--cap);background:inherit}
+.cota i:first-child{left:0} .cota i:last-child{right:0}
+.cota.q2 i:nth-child(2){left:50%}
+.cota.q3 i:nth-child(2){left:33.3%} .cota.q3 i:nth-child(3){left:66.6%}
+.cota.q4 i:nth-child(2){left:25%} .cota.q4 i:nth-child(3){left:50%} .cota.q4 i:nth-child(4){left:75%}
+.brk{display:inline-flex;align-items:center;vertical-align:middle}
+.brk s{display:block;width:40px;height:4px;border-radius:var(--cap);background:var(--color-stroke);text-decoration:none}
+.brk u{display:block;width:26px}
+.brk.sm s{height:2px;width:14px} .brk.sm u{width:12px}
+.cause .brk{margin-right:var(--s4)}
+/* — design note: for review, not site copy — */
+.dnote{max-width:none;margin:0 0 var(--s8);padding:var(--s3) var(--s4);border:1px dashed var(--color-ink-muted);border-radius:var(--radius);
+       background:var(--color-bg-raised);font-size:14px;color:var(--color-ink)}
+.dnote .lbl{margin-right:var(--s2);color:var(--color-heading)}
+/* — the section plate (round 3, kept for inner pages) — */
+.fic{background:var(--brand-deep);border-radius:var(--radius);padding:var(--s8);display:flex;
+     gap:var(--s8);align-items:flex-start;margin-top:var(--s12)}
+.fic img{width:84px;flex:none}
+.fic>div{min-width:0}
+.fic .k{font-family:var(--font-mono);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:var(--track-brand);color:var(--color-green);margin:0 0 var(--s3)}
+.fic .t{font-size:26px;font-weight:300;line-height:1.15;color:var(--color-heading);margin:0 0 var(--s3)}
+.fic .p{font-size:15px;color:var(--color-ink);margin:0 0 var(--s6);max-width:56ch}
+.fic .r{height:2px;width:120px;border-radius:var(--cap);background:var(--color-green)}
+.fic .n{font-family:var(--font-mono);font-size:12px;color:var(--color-ink-muted);margin:var(--s4) 0 0}
+/* — the console: a deep blue element in both expressions (ADR-0014) — */
+.term{background:var(--brand-deep);border-radius:var(--radius);overflow:hidden;box-shadow:22px 22px 0 var(--color-shadow);cursor:text}
+.termbar{display:flex;align-items:center;gap:var(--s4);padding:var(--s3) var(--s6);border-bottom:1px solid var(--color-line-strong)}
+.termbar .t{font-family:var(--font-mono);font-size:13px;color:var(--color-ink-muted);letter-spacing:var(--track-label)}
+.termbar .r{margin-left:auto;font-family:var(--font-mono);font-size:12px;color:var(--color-ink-muted);letter-spacing:var(--track-label);text-transform:uppercase}
+.termbody{font-family:var(--font-mono);font-size:14px;line-height:1.8;color:var(--color-ink);margin:0;
+          padding:var(--s6);height:340px;overflow:auto;white-space:pre-wrap}
+pre.termbody.auto{height:auto;white-space:pre;cursor:auto}
+.termbody::-webkit-scrollbar{width:10px;height:10px}
+.termbody::-webkit-scrollbar-thumb{background:var(--color-ink-muted);border-radius:var(--cap)}
+.termbody b{color:var(--color-green);font-weight:500}
+.termbody .mut{color:var(--color-ink-muted)}
+.termbody .cmd{color:var(--color-green)}
+.termbody a{color:var(--color-green)}
+.termbody .trow{display:grid;grid-template-columns:150px 1fr;gap:var(--s4)}
+.termbody .trow span:first-child{color:var(--color-green)}
+.termline{display:flex;align-items:center;gap:var(--s3);padding:var(--s4) var(--s6);border-top:1px solid var(--color-line-strong)}
+.termline .p{font-family:var(--font-mono);font-size:14px;color:var(--color-green);white-space:nowrap}
+.termline input{flex:1;min-width:0;min-height:32px;background:none;border:0;outline:none;color:var(--color-ink);
+                font-family:var(--font-mono);font-size:16px;caret-color:var(--color-green)}
+.termline input::placeholder{color:var(--color-ink-muted)}
+.term:focus-within{box-shadow:22px 22px 0 var(--color-shadow),0 0 0 2px var(--color-green)}
+.term .brk s{background:var(--color-green)}
+.termchips{display:flex;flex-wrap:wrap;gap:var(--s2);margin-top:var(--s8)}
+.chip{font-family:var(--font-mono);font-size:13px;min-height:36px;padding:0 var(--s4);
+      display:inline-flex;align-items:center;border:1px solid var(--color-ink-muted);border-radius:var(--radius);
+      background:none;color:var(--color-ink);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--color-cobalt);border-color:var(--color-cobalt);color:var(--color-cobalt-ink)}
+/* — diagrams: drawn on deep blue in both expressions — */
+.diagram{background:var(--brand-deep);border-radius:var(--radius);padding:var(--s8);margin-left:0;margin-right:0;
+         box-shadow:22px 22px 0 var(--color-shadow)}
+.diagram svg,.figure svg{width:100%;height:auto;display:block}
+.diagram .diagram-v{display:none}
+.dg-mono{font-family:var(--font-mono);font-size:13px;letter-spacing:1.6px}
+.dg-sans{font-family:var(--font);font-size:17px}
+/* — the pattern as a static file, no canvas, no JavaScript — */
+.tramaBand{height:120px;background:var(--brand-deep) url("trama.svg") left center/auto 100% repeat-x}
+/* — grid — */
+.grid{display:grid;grid-template-columns:2fr 1fr;gap:var(--s12);align-items:start}
+.grid>*{min-width:0}
+.head{margin-bottom:var(--s12)}
+.note-col{border-left:1px solid var(--color-line-strong);padding-left:var(--s6)}
+.lede{font-size:19px;color:var(--color-ink);max-width:58ch}
+.cta{display:flex;flex-wrap:wrap;gap:var(--s3);margin:var(--s8) 0}
+.facts{display:grid;grid-template-columns:repeat(4,auto);gap:var(--s6);margin:var(--s8) 0 0}
+.facts dd{margin:var(--s1) 0 0;font-family:var(--font-mono);font-size:14px;color:var(--color-ink)}
+.avail{margin-top:var(--s8);padding-left:var(--s6);border-left:4px solid var(--color-stroke)}
+/* — blocks — */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s6)}
+.cards>*{min-width:0}
+/* 7.7 · one card system: raised surface, 1 px line, 4 px radius. On a band or a raised section the card
+   steps up to the card surface. The key variant carries the solid shadow, once per section at most. */
+.card{background:var(--color-bg-raised);border:1px solid var(--color-line-strong);border-radius:var(--radius);padding:var(--s8);color:var(--color-ink)}
+.on-sunken .card,.on-raised .card,.on-deep .card{background:var(--color-surface)}
+.card.key{box-shadow:10px 10px 0 var(--color-shadow);border-color:var(--color-ink-muted)}
+.card .n{font-family:var(--font-mono);font-size:12px;font-weight:500;color:var(--color-link);letter-spacing:var(--track-label);margin:0}
+.card h3{margin:var(--s3) 0}
+.svc{border-top:1px solid var(--color-line-strong);padding:var(--s8) 0;display:grid;grid-template-columns:1fr 1.3fr;gap:var(--s8)}
+.svc:last-of-type{border-bottom:1px solid var(--color-line-strong)}
+.family .svc{border:0;padding:0}
+.family{padding:var(--s16) 0;border-top:1px solid var(--color-line-strong)}
+.svc>*{min-width:0}
+.num{font-family:var(--font-mono);font-size:12px;color:var(--color-link);letter-spacing:var(--track-label);margin:0}
+.deliv{display:grid;grid-template-columns:1fr 1fr;gap:var(--s6);margin-top:var(--s6)}
+.deliv .lbl{display:block;margin-bottom:var(--s2)}
+.deliv p{font-size:15px;margin:0}
+.svlist{list-style:none;padding:0;margin:var(--s6) 0 0}
+.svitem{padding:var(--s6) 0;border-top:1px solid var(--color-line-strong)}
+.svitem:last-child{border-bottom:1px solid var(--color-line-strong)}
+.svitem h3{font-size:19px;font-weight:500}
+.svitem h3 a{text-decoration:none}
+.svitem h3 a:hover{text-decoration:underline}
+.svitem p{font-size:15px;margin:var(--s2) 0 0}
+.svitem .path{font-size:12px;color:var(--color-ink-muted)}
+.rows{list-style:none;margin:0;padding:0;border-top:1px solid var(--color-line-strong)}
+.row{display:grid;grid-template-columns:auto 1fr 1.2fr;gap:var(--s6);padding:var(--s6) 0;border-bottom:1px solid var(--color-line-strong);align-items:baseline}
+.row h3{font-size:18px}
+.row p{font-size:15px;margin:0;color:var(--color-ink-soft)}
+.pair2{display:grid;grid-template-columns:1fr 1fr;gap:var(--s6)}
+.pair2>*{min-width:0}
+.case{background:var(--color-bg-raised);border:1px solid var(--color-line-strong);border-radius:var(--radius);padding:var(--s12)}
+.on-sunken .case,.on-raised .case{background:var(--color-surface)}
+.case .meta{margin-bottom:var(--s4)}
+.case dl{margin:var(--s6) 0 0;display:grid;grid-template-columns:auto 1fr;gap:var(--s3) var(--s6);font-size:15px}
+.case dt{font-family:var(--font-mono);font-size:11px;letter-spacing:var(--track-label);text-transform:uppercase;color:var(--color-ink-muted);padding-top:4px}
+.case dd{margin:0;overflow-wrap:anywhere}
+.case dd.mono{font-size:14px}
+.posts{list-style:none;margin:0;padding:0}
+.posts li{display:grid;grid-template-columns:auto 1fr auto;gap:var(--s6);align-items:baseline;
+          padding:var(--s6) 0;border-bottom:1px solid var(--color-line-strong)}
+.posts li:first-child{border-top:1px solid var(--color-line-strong)}
+.posts .num{color:var(--color-ink-muted)}
+.posts h3{font-size:18px;font-weight:400;color:var(--color-ink)}
+.posts h3 a{color:var(--color-ink);text-decoration:none}
+.posts h3 a:hover{color:var(--color-link);text-decoration:underline}
+.posts .t{font-size:12px;color:var(--color-ink-muted);white-space:nowrap}
+.entries{list-style:none;margin:0;padding:0}
+.entry{display:grid;grid-template-columns:auto 1fr auto;gap:var(--s6);align-items:baseline;padding:var(--s8) 0;border-bottom:1px solid var(--color-line-strong)}
+.entry:first-child{border-top:1px solid var(--color-line-strong)}
+.entry .num{color:var(--color-ink-muted)}
+.entry h2 a{text-decoration:none;color:var(--color-heading)}
+.entry h2 a:hover{text-decoration:underline}
+.entry p{font-size:15px;margin:var(--s2) 0 0}
+.entry .t{font-size:12px;color:var(--color-ink-muted);white-space:nowrap}
+ul.ticks{list-style:none;padding:0;margin:var(--s4) 0 0}
+ul.ticks li{position:relative;padding:var(--s2) 0 var(--s2) var(--s8);max-width:var(--measure)}
+ul.ticks li:before{content:"";position:absolute;left:0;top:19px;width:14px;height:2px;border-radius:var(--cap);background:var(--color-stroke)}
+ul.ticks li:after{content:"";position:absolute;left:18px;top:19px;width:6px;height:2px;border-radius:var(--cap);background:var(--color-stroke)}
+ul.links{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:var(--s2) var(--s6)}
+ul.links a{display:inline-flex;align-items:center;min-height:44px}
+/* — projects — */
+.pfilters{display:flex;flex-wrap:wrap;gap:var(--s2);align-items:center;margin-bottom:var(--s8)}
+.pfilters .pcount{margin-left:auto}
+.projs{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s6)}
+.proj{background:var(--color-bg-raised);border:1px solid var(--color-line-strong);border-radius:var(--radius);padding:var(--s8);display:flex;flex-direction:column;min-width:0}
+.on-sunken .proj{background:var(--color-surface)}
+.proj[hidden]{display:none}
+.proj .pst{display:flex;justify-content:space-between;gap:var(--s3);margin:0 0 var(--s3)}
+.proj .pn{font-size:12px;color:var(--color-ink-muted)}
+.proj h3{font-size:19px;margin-bottom:var(--s3)}
+.proj p{font-size:15px}
+.proj .proof{color:var(--color-ink-soft)}
+.proj .ptech{font-size:12px;color:var(--color-ink);margin-top:auto;padding-top:var(--s4);border-top:1px solid var(--color-line-strong)}
+.plinks{list-style:none;padding:0;margin:var(--s3) 0 0;display:flex;flex-wrap:wrap;gap:0 var(--s4)}
+.plinks a{display:inline-flex;align-items:center;min-height:36px;font-size:15px}
+p.plinks{display:block;min-height:36px;line-height:36px}
+/* — checklist — */
+.checkbox{display:grid;grid-template-columns:1fr auto;gap:var(--s8);align-items:center;background:var(--color-bg-raised);
+          border:1px solid var(--color-line-strong);border-left:4px solid var(--color-stroke);border-radius:var(--radius);padding:var(--s12)}
+/* — contact — */
+.contact{display:grid;grid-template-columns:1.3fr 1fr;gap:var(--s12);align-items:start}
+.contact>*{min-width:0}
+.channels{list-style:none;padding:0;margin:0}
+.channels li{display:flex;flex-wrap:wrap;gap:var(--s1) var(--s4);align-items:baseline;padding:var(--s3) 0;border-bottom:1px solid var(--color-line-strong)}
+.channels li:first-child{border-top:1px solid var(--color-line-strong)}
+.channels .lbl{min-width:76px}
+.channels a{font-family:var(--font-mono);font-size:15px;display:inline-flex;align-items:center;min-height:32px}
+.chgrid{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s6)}
+.chcard{background:var(--color-bg-raised);border:1px solid var(--color-line-strong);border-radius:var(--radius);padding:var(--s6);display:flex;flex-direction:column;gap:var(--s3);min-width:0}
+.chcard.primary{border:2px solid var(--color-heading);box-shadow:10px 10px 0 var(--color-shadow)}
+.chcard h3{font-size:18px;overflow-wrap:anywhere}
+.chcard p{font-size:15px}
+.chcard .btn{margin-top:auto}
+.chgrid+.dnote{margin-top:var(--s8)}
+.avail-line{font-size:14px;color:var(--color-ink-muted);margin-top:var(--s3)}
+/* — footer: a deep blue band in both expressions — */
+footer{background:var(--brand-deep);color:var(--color-ink-soft);padding:var(--s12) 0 var(--s12);--color-shadow:var(--brand-black)}
+footer .flogo{height:56px;width:auto}
+footer a:not(.btn){color:var(--color-ink)}
+footer .fcols{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s8);margin-top:var(--s8)}
+footer .fcols h2{color:var(--color-ink-muted);margin-bottom:var(--s3)}
+footer .fcols ul{list-style:none;padding:0;margin:0}
+footer .fcols li a{display:inline-flex;align-items:center;min-height:36px;font-size:15px}
+footer .fin{display:flex;flex-wrap:wrap;gap:var(--s3) var(--s8);justify-content:space-between;align-items:center;
+            border-top:1px solid var(--color-line-strong);padding-top:var(--s6);margin-top:var(--s8);font-size:14px}
+footer .fin p{margin:0}
+/* the live mark: a green dot that says a service answers (green = something alive) */
+.live{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--color-green);margin-right:8px;vertical-align:.08em;flex:none}
+/* — privacy notice — */
+.pbanner{position:fixed;left:var(--s4);right:var(--s4);bottom:var(--s4);z-index:45;display:flex;justify-content:center;pointer-events:none}
+.pbanner[hidden]{display:none}
+.pbanner-in{pointer-events:auto;display:grid;grid-template-columns:auto 1fr auto;gap:var(--s4);align-items:center;
+            max-width:760px;background:var(--color-bg-raised);border:1px solid var(--color-ink-muted);border-radius:var(--radius);
+            padding:var(--s3) var(--s3) var(--s3) var(--s6);box-shadow:6px 6px 0 var(--color-shadow)}
+.pbanner-in .lbl{color:var(--color-heading)}
+.pbanner-in p{margin:0;font-size:14px;line-height:1.5;color:var(--color-ink)}
+.pbanner-in p a{white-space:nowrap;display:inline-flex;align-items:center;min-height:24px}
+.pbanner-x{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;background:none;
+           border:1px solid var(--color-ink-muted);border-radius:var(--radius);color:var(--color-ink);font:inherit;font-size:22px;line-height:1;cursor:pointer}
+.pbanner-x:hover{border-color:var(--color-heading);color:var(--color-heading)}
+body.has-banner footer{padding-bottom:calc(var(--s16) + 96px)}
+/* — mobile menu — */
+.sheet{position:fixed;inset:0;z-index:50;background:var(--color-bg);padding:0 var(--gutter) var(--s6);
+       display:flex;flex-direction:column;overflow-y:auto}
+.sheet[hidden]{display:none}
+.sheet .bar{position:sticky;top:0;background:var(--color-bg);height:var(--header-h);display:flex;align-items:center;justify-content:space-between;
+            margin:0 calc(var(--gutter)*-1);padding:0 var(--gutter);border-bottom:1px solid var(--color-line)}
+.sheet-mark{display:flex;color:var(--color-logo)}
+.sheet-mark svg{width:28px;height:28px}
+.sheet nav{display:flex;flex-direction:column;margin-top:var(--s4);flex:1}
+.sheet nav a{position:relative;display:flex;align-items:center;min-height:56px;font-size:19px;color:var(--color-ink);
+             text-decoration:none;padding-left:var(--s6);border-bottom:1px solid var(--color-line)}
+.sheet nav a[aria-current="page"]{color:var(--color-heading);font-weight:500}
+.sheet nav a[aria-current="page"]:before{content:"";position:absolute;left:0;top:16px;bottom:16px;width:4px;border-radius:var(--cap);background:var(--color-stroke)}
+.sheet .foot{padding-top:var(--s6)}
+.sheet .theme-row{display:flex;align-items:center;justify-content:space-between;gap:var(--s4);padding:var(--s4) 0 0}
+body.menu-open{overflow:hidden}
+
+/* — inner page — */
+.pagehead{padding:var(--s20) 0 var(--s16)}
+.pagehead h1{margin:0}
+.pagehead .lede{margin-top:var(--s6);max-width:60ch}
+/* — article — */
+.prose{max-width:68ch}
+.prose>p,.prose li{font-size:18px;line-height:1.75;color:var(--color-ink)}
+.prose>p{margin:var(--s6) 0}
+.prose p.lede{font-size:21px;line-height:1.6}
+.prose h2{font-size:26px;font-weight:300;margin-top:var(--s16)}
+.prose h3{font-size:19px;font-weight:500;margin-top:var(--s8)}
+.prose ul,.prose ol{padding-left:1.4em;margin:var(--s4) 0}
+.prose li{margin:var(--s2) 0}
+.prose code{background:var(--color-sunken);padding:.05em .3em;border-radius:3px}
+.prose .svlist,.prose .posts{padding-left:0}
+.prose .svitem p,.prose .posts li{font-size:15px}
+.artmeta{font-size:13px;color:var(--color-ink-muted);margin-top:var(--s4)}
+.figure{background:var(--color-bg-raised);border:1px solid var(--color-line-strong);border-radius:var(--radius);
+        padding:var(--s8);margin:var(--s8) 0}
+.figure figcaption{font-size:14px;color:var(--color-ink-muted);margin-top:var(--s4)}
+/* code blocks stay deep blue in both expressions */
+pre.panel{background:var(--brand-deep);color:var(--color-ink);border-radius:var(--radius);padding:var(--s6);
+          font-family:var(--font-mono);font-size:14px;line-height:1.7;overflow-x:auto;white-space:pre;margin:var(--s6) 0;tab-size:4}
+pre.panel code{background:none;padding:0;font-size:inherit}
+pre.panel .c{color:var(--color-green)}
+.related{margin:var(--s16) 0 0;padding:var(--s6) 0 0;border-top:2px solid var(--color-stroke)}
+.related h2{margin-bottom:var(--s3)}
+
+@media (max-width:980px){
+  :root{--gutter:16px;--sec:56px}
+  .grid,.contact,.cards,.svc,.deliv,.pair2,.projs{grid-template-columns:1fr}
+  .chgrid{grid-template-columns:1fr 1fr}
+  footer .fcols{grid-template-columns:1fr 1fr}
+  .row{grid-template-columns:auto 1fr}
+  .row p{grid-column:2}
+  .facts{grid-template-columns:repeat(2,1fr);gap:var(--s4)}
+  nav.main{display:none}
+  .burger{display:inline-flex}
+  .diagram,.term{box-shadow:12px 12px 0 var(--color-shadow);margin-right:12px}
+  .term:focus-within{box-shadow:12px 12px 0 var(--color-shadow),0 0 0 2px var(--color-green)}
+  .diagram{padding:var(--s4)}
+  .termbody{font-size:13px;height:300px}
+  .termbar .r{display:none}
+  .fic{flex-wrap:wrap;gap:var(--s6);padding:var(--s6)}
+  .fic img{width:56px}
+  .fic .t{font-size:21px}
+  .termbody .trow{grid-template-columns:110px 1fr;gap:var(--s3)}
+  .posts li,.entry{grid-template-columns:auto 1fr}
+  .posts .t,.entry .t{grid-column:2;white-space:normal}
+  .case{padding:var(--s6)}
+  .case dl{grid-template-columns:1fr;gap:var(--s1) 0}
+  .case dd{margin-bottom:var(--s3)}
+  .checkbox{grid-template-columns:1fr;padding:var(--s6)}
+  .note-col{border-left:0;padding-left:0;border-top:1px solid var(--color-line-strong);padding-top:var(--s6)}
+  .pagehead{padding:var(--s12) 0 var(--s12)}
+  .family{padding:var(--s12) 0}
+  .pfilters .pcount{margin-left:0;width:100%}
+}
+@media (max-width:600px){
+  :root{--sec:48px}
+  .chgrid,footer .fcols{grid-template-columns:1fr}
+  .tools{gap:var(--s2)}
+  .burger{padding:0 var(--s2)}
+  .btn-call{padding:0 var(--s3)}
+  /* on a phone the notice is a band in the page flow, under the header: it covers nothing */
+  .pbanner{position:static;display:block;border-bottom:1px solid var(--color-line);background:var(--color-bg-raised)}
+  .pbanner-in{max-width:none;border:0;box-shadow:none;background:none;border-radius:0;
+              grid-template-columns:1fr auto;padding:var(--s3) var(--gutter);gap:var(--s1) var(--s3)}
+  .diagram .diagram-h{display:none}
+  .diagram .diagram-v{display:block;max-width:420px}
+  .pbanner-in .lbl{grid-column:1/-1;grid-row:1}
+  .pbanner-in p{grid-column:1;grid-row:2}
+  .pbanner-x{grid-column:2;grid-row:1/3}
+  body.has-banner footer{padding-bottom:var(--s16)}
+  .prose>p,.prose li{font-size:17px}
+  .prose p.lede{font-size:19px}
+}
+@media (max-width:360px){
+  .btn-call{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*:before,*:after{transition:none!important;animation:none!important}
+}
+
+/* ============================================================
+   ROUND 3 · layout fixes from the visual critique
+   ============================================================ */
+/* grids never push the page wider than the screen */
+.grid{grid-template-columns:minmax(0,2fr) minmax(0,1fr)}
+.cards{grid-template-columns:repeat(3,minmax(0,1fr))}
+.projs{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pair2,.deliv{grid-template-columns:repeat(2,minmax(0,1fr))}
+.contact{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}
+.svc{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr)}
+.chgrid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.cards>*,.projs>*,.pair2>*,.svc>*,.contact>*,.grid>*,.chgrid>*{min-width:0}
+/* inner page heads: the mark that becomes an agenda in the empty right column */
+.ph-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,340px);gap:var(--s12);align-items:stretch}
+.ph-agd{min-height:200px;border-radius:var(--radius);background:var(--color-band);color:var(--color-stroke);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.ph-agd svg{display:block;width:100%;height:auto;max-height:100%}
+.on-sunken .ph-agd{background:var(--color-bg)}
+/* footer: the pattern as a bounded block, not a strip */
+footer .fhead{display:flex;justify-content:space-between;align-items:flex-start;gap:var(--s8)}
+footer .flogo-lock{display:flex;flex-direction:column;align-items:flex-start;gap:14px;color:var(--color-logo)}
+footer .flogo-lock svg{width:56px;height:56px}
+footer .flogo-lock .wm{height:14px;width:auto}
+.ftrama{width:min(360px,60%);height:120px;flex:none;color:var(--color-green)}
+/* services: a flow diagram in the empty side column */
+.svc-side{display:flex;flex-direction:column}
+.flow{width:100%;max-width:300px;height:auto;margin-top:var(--s6);color:var(--color-stroke);overflow:visible}
+.flow .fl-t{font-size:11px;fill:var(--color-ink-muted)}
+/* project cards: production marker and the 7.7 response */
+.pmark{display:inline-block;width:14px;height:2px;margin-right:8px;vertical-align:middle;border-radius:var(--cap);background:var(--color-ink-muted)}
+.is-prod .pmark{height:4px;background:var(--color-stroke)}
+/* the 6 px shadow is the moving block of RESPONSE (motion section); the border changes at once */
+.proj:hover,.proj:focus-within,.card.resp:hover,.card.resp:focus-within{border-color:var(--color-ink-muted)}
+/* checklist: text and its pattern block */
+.checkbox{grid-template-columns:minmax(0,1fr) minmax(240px,320px);align-items:stretch}
+.check-trama{min-height:180px;border-radius:var(--radius);color:var(--color-stroke)}
+/* the 7.2 block before it is built (or without script) */
+.trama-blk{position:relative;overflow:hidden}
+.trama-blk:not(.built){background:url("trama.svg") left center/auto 100% repeat-x}
+.trama-blk svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.check-trama:not(.built){background-color:var(--brand-deep)}
+.check-trama.built{background:var(--color-sunken)}
+.on-sunken .check-trama.built{background:var(--color-bg)}
+/* the 7.1 interruption, with its label */
+.brk2{display:flex;align-items:center;gap:var(--s3);margin-top:var(--s6);max-width:none}
+.brk-l{position:relative;display:block;width:96px;height:4px;flex:none}
+.brk-l i{position:absolute;top:0;width:calc(50% - 12px);height:4px;border-radius:var(--cap);background:var(--color-stroke)}
+.brk-l i:first-child{left:0}
+.brk-l i:last-child{right:0}
+.brk-t{font-size:11px;font-weight:500;letter-spacing:var(--track-label);text-transform:uppercase;color:var(--color-ink-muted)}
+.case dd .brk2{margin-top:var(--s2)}
+/* the 7.3 dimension that points: a label in Plex Mono */
+.cota-w{position:relative;margin-top:var(--s8)}
+.cota-w .cota{margin-top:0}
+.cota-lbl{position:absolute;right:0;bottom:12px;font-size:11px;font-weight:500;letter-spacing:var(--track-label);color:var(--color-stroke);white-space:nowrap}
+.cota-lbl>span{display:inline-block}
+/* the diagram that runs */
+.diagram{cursor:default}
+.diagram .pl{opacity:0}
+.diagram:focus-visible{outline:2px solid var(--color-green);outline-offset:4px}
+/* the mesh that validates: deep blue in both expressions */
+.meshfig{margin:0}
+.meshfig:focus-visible{outline:2px solid var(--color-focus);outline-offset:6px}
+.mesh-box{background:var(--brand-deep);border-radius:var(--radius);padding:var(--s8);box-shadow:22px 22px 0 var(--color-shadow)}
+.mesh{width:100%;height:auto;display:block;touch-action:manipulation}
+.m-e,.m-n{vector-effect:non-scaling-stroke}
+.m-leg{list-style:none;padding:0;margin:var(--s12) 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s6)}
+.m-leg li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:var(--s2) var(--s3);align-items:center}
+.m-leg .m-k{font-size:12px;font-weight:500;letter-spacing:var(--track-label);color:var(--color-ink)}
+.m-leg .m-k b{font-weight:500}
+.m-leg .m-d{grid-column:2;font-size:15px;color:var(--color-ink)}
+.m-cap{font-size:14px;color:var(--color-ink-muted);margin-top:var(--s6);max-width:68ch}
+/* footer links and the main nav: the dimension underline */
+footer .fcols li a{position:relative;text-decoration:none}
+footer .fcols li a:after,nav.main a:after{content:"";position:absolute;left:0;right:0;height:2px;border-radius:var(--cap);background:currentColor;transform:scaleX(0);transform-origin:left}
+footer .fcols li a:after{bottom:6px}
+nav.main a:after{bottom:4px}
+nav.main a[aria-current="page"]:after{transform:none;background:var(--color-stroke)}
+nav.main a:hover:after,nav.main a:focus-visible:after,footer .fcols li a:hover:after,footer .fcols li a:focus-visible:after{transform:none}
+.mo nav.main a:after,.mo footer .fcols li a:after{transition:transform 350ms var(--ease-std)}
+
+@media (max-width:980px){
+  .grid,.contact,.cards,.svc,.deliv,.pair2,.projs{grid-template-columns:minmax(0,1fr)}
+  .chgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ph-grid{grid-template-columns:minmax(0,1fr)}
+  .ph-agd{min-height:160px}
+  .checkbox{grid-template-columns:minmax(0,1fr)}
+  .mesh-box{padding:var(--s4);box-shadow:12px 12px 0 var(--color-shadow);margin-right:12px}
+  .m-leg{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:600px){
+  .chgrid{grid-template-columns:minmax(0,1fr)}
+  .ph-agd{display:none}
+  footer .fhead{flex-direction:column}
+  .ftrama{width:100%}
+  .cota-lbl{position:static;display:block;margin-top:var(--s3);text-align:right;white-space:normal}
+}
+/* ============================================================
+   MOTION · brandbook v2.0 (addendum 1.1, ADR-0012 decision 4)
+   Only transform, opacity, clip-path and mask animate. Every movement lasts 120–520 ms (delays,
+   in steps of 85 ms, are not durations) and a section's construction ends within 1.2 s.
+   Two easings: --ease-out (main's --ease-out-quart) for construction and arrivals, --ease-std
+   (main's --ease-standard) for responses and returns. Nothing else, anywhere.
+   Three classes: construction (plays once on entry and ends still), response (only while the
+   visitor acts, then back to rest), living surface (one per page: the hero field on the home,
+   the agenda below in the inner page heads).
+   Construction and the living surface only apply under html.mo (set by boot.js when the visitor
+   has not asked for reduced motion). Without it every element is in its final state and the
+   responses change at once.
+   ============================================================ */
+:root{--ease-out:cubic-bezier(.22,1,.36,1);--ease-std:cubic-bezier(.2,0,0,1);--step:85ms;--dur:480ms}
+
+/* — RESPONSE (7.7): the solid shadow is a block that moves, not an animated box-shadow.
+     The block is the element's ::before, the same size and radius, in the element's own stacking
+     context (z-index -1): it never changes layout and the focus outline is painted after it.
+     Being in that context it would cover the element's own background, so clip-path keeps only the
+     part outside the element: an L whose inner corner is cut at 45° along the 4 px radius. Out, the L
+     reaches 0.5 px into the element, so a box with a fractional size shows no hairline between the two
+     (backgrounds snap to device pixels, clip paths do not). transform and clip-path move together, with
+     the same curve. Colours change at once: the focus colour on
+     hover and focus (green; green ink on paper), the ink when the fill is already green, red at
+     2 px while pressed (the pressed halo). The switch keeps its smaller 4 px shadow. — */
+.btn,.chip,.themesw,.card.resp,.proj{position:relative;z-index:0}
+.btn:before,.chip:before,.themesw:before,.card.resp:before,.proj:before{content:"";position:absolute;inset:-1px;z-index:-1;
+  border-radius:var(--radius);background:var(--color-focus);pointer-events:none;
+  clip-path:polygon(100% 0,100% 0,100% 100%,0 100%,0 100%,calc(100% - 2.34px) 100%,100% calc(100% - 2.34px))}
+.btn-g:before{background:var(--color-ink)}
+.btn:hover:before,.btn:focus-visible:before,.chip:hover:before,.chip:focus-visible:before,
+.card.resp:hover:before,.card.resp:focus-within:before,.proj:hover:before,.proj:focus-within:before{transform:translate(6px,6px);
+  clip-path:polygon(calc(100% - 6.5px) 0,100% 0,100% 100%,0 100%,0 calc(100% - 6.5px),calc(100% - 8.84px) calc(100% - 6.5px),calc(100% - 6.5px) calc(100% - 8.84px))}
+.themesw:hover:before,.themesw:focus-visible:before{transform:translate(4px,4px);
+  clip-path:polygon(calc(100% - 4.5px) 0,100% 0,100% 100%,0 100%,0 calc(100% - 4.5px),calc(100% - 6.84px) calc(100% - 4.5px),calc(100% - 4.5px) calc(100% - 6.84px))}
+.btn:active:before,.chip:active:before,.themesw:active:before{transform:translate(2px,2px);background:var(--color-red);
+  clip-path:polygon(calc(100% - 2.5px) 0,100% 0,100% 100%,0 100%,0 calc(100% - 2.5px),calc(100% - 4.84px) calc(100% - 2.5px),calc(100% - 2.5px) calc(100% - 4.84px))}
+/* the project card clipped its capture with overflow:hidden, which would clip the shadow as well:
+   the capture takes the card's inner radius instead (4 px minus the 1 px border) */
+.pcard.resp{overflow:visible}
+.pcard.resp>.shot{border-radius:3px 0 0 3px}
+.pcard.resp.v>.shot{border-radius:3px 3px 0 0}
+@media (max-width:600px){.pcard.resp>.shot{border-radius:3px 3px 0 0}}
+.mo .btn:before,.mo .chip:before,.mo .themesw:before,.mo .card.resp:before,.mo .proj:before{transition:transform 180ms var(--ease-std),clip-path 180ms var(--ease-std)}
+.mo .btn:active:before,.mo .chip:active:before,.mo .themesw:active:before{transition-duration:120ms}
+/* the button contracts while pressed and comes back, without overshoot */
+.mo .btn{transition:transform 160ms var(--ease-std)}
+.mo .btn:active{transform:scale(.97);transition-duration:120ms}
+/* the stroke of a text link grows with scaleX (nav and footer underlines: see "footer links and the main nav") */
+.mo .tlink:after{transition:transform 200ms var(--ease-std)}
+
+/* — construction: section entrance: 480 ms per element, 85 ms apart (the last of eight ends at 1.16 s) — */
+.mo .apar .cae{opacity:0;transform:translateY(18px);transition:opacity var(--dur) var(--ease-out),transform var(--dur) var(--ease-out);transition-delay:calc(var(--o,0) * var(--step))}
+.mo .apar .masc{display:block;clip-path:inset(0 -100vw)}
+.mo .apar .linea{display:block;transform:translateY(-112%);transition:transform var(--dur) var(--ease-out);transition-delay:calc(var(--o,0) * var(--step))}
+.mo .apar.aparece .cae,.mo .apar.aparece .linea{opacity:1;transform:none}
+/* — construction: the dimension measures (7.3): the line (360 ms), its ticks left to right (160 ms each),
+     then its label is uncovered from the left (320 ms; before, it was typed in character by character) — */
+.mo .apar .cota{transform:scaleX(0);transform-origin:left;transition:transform 360ms var(--ease-out);transition-delay:calc(var(--o,0) * var(--step))}
+.mo .apar .cota i{transform:scaleY(0);transition:transform 160ms var(--ease-out);transition-delay:calc(var(--o,0) * var(--step) + var(--ti,0) * 90ms + 120ms)}
+.cota i:nth-child(2){--ti:1} .cota i:nth-child(3){--ti:2} .cota i:nth-child(4){--ti:3} .cota i:nth-child(5){--ti:4}
+.mo .apar .cota-lbl>span{clip-path:inset(0 100% 0 0);transition:clip-path 320ms var(--ease-out);transition-delay:calc(var(--o,0) * var(--step) + 360ms)}
+.mo .apar.aparece .cota,.mo .apar.aparece .cota i{transform:none}
+.mo .apar.aparece .cota-lbl>span{clip-path:inset(0 0 0 0)}
+/* — construction: the interruption opens (7.1) — variant a: the stroke draws whole (320 ms), then the gap
+     opens (240 ms) and the label comes (200 ms) — */
+.mo [data-brk] .apar .brk-l{transform:scaleX(0);transform-origin:left}
+.mo [data-brk] .apar .brk-t{opacity:0}
+.mo [data-brk="a"] .apar.aparece .brk-l{animation:brkDraw 320ms var(--ease-out) both;animation-delay:calc(var(--o,0) * var(--step))}
+.mo [data-brk="a"] .apar.aparece .brk-l i:first-child{animation:brkOpenL 240ms var(--ease-out) both;animation-delay:calc(var(--o,0) * var(--step) + 320ms)}
+.mo [data-brk="a"] .apar.aparece .brk-l i:last-child{animation:brkOpenR 240ms var(--ease-out) both;animation-delay:calc(var(--o,0) * var(--step) + 320ms)}
+.mo [data-brk] .apar.aparece .brk-t{animation:fadeIn 200ms var(--ease-out) both;animation-delay:calc(var(--o,0) * var(--step) + 560ms)}
+/* variant b: the whole line appears, then the gap opens from the middle */
+.mo [data-brk="b"] .apar .brk-l{transform:none;opacity:0}
+.mo [data-brk="b"] .apar.aparece .brk-l{animation:fadeIn 150ms var(--ease-out) both;animation-delay:calc(var(--o,0) * var(--step))}
+.mo [data-brk="b"] .apar.aparece .brk-l i:first-child{animation:brkOpenL 420ms var(--ease-out) both;animation-delay:calc(var(--o,0) * var(--step) + 150ms)}
+.mo [data-brk="b"] .apar.aparece .brk-l i:last-child{animation:brkOpenR 420ms var(--ease-out) both;animation-delay:calc(var(--o,0) * var(--step) + 150ms)}
+/* variant c: the line draws, then the gap is cut out of it */
+.mo [data-brk="c"] .apar.aparece .brk-l{animation:brkDraw 320ms var(--ease-out) both;animation-delay:calc(var(--o,0) * var(--step))}
+.mo [data-brk="c"] .apar .brk-l:after{content:"";position:absolute;left:calc(50% - 13px);width:26px;top:0;height:4px;background:var(--color-stroke);transform-origin:center}
+.mo [data-brk="c"] .apar.aparece .brk-l:after{animation:brkCut 250ms var(--ease-out) both;animation-delay:calc(var(--o,0) * var(--step) + 380ms)}
+@keyframes brkDraw{from{transform:scaleX(0)}to{transform:none}}
+@keyframes brkOpenL{from{transform:translateX(12px)}to{transform:none}}
+@keyframes brkOpenR{from{transform:translateX(-12px)}to{transform:none}}
+@keyframes brkCut{from{transform:scaleX(1)}to{transform:scaleX(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes fadeOut{from{opacity:1}to{opacity:0}}
+/* — construction: the pattern builds once (7.2 amended): twelve groups, 68 ms apart (--td, motion.js),
+     260 ms each (1.01 s in all) — a: densest first, b: a sweep, c: each group grows from its lower
+     left corner, where its strokes start — */
+.mo .apar .trama-blk.built .tb{opacity:0}
+.mo [data-trama="a"] .apar.aparece .trama-blk .tb,.mo [data-trama="b"] .apar.aparece .trama-blk .tb{animation:fadeIn 260ms var(--ease-out) both;animation-delay:var(--td)}
+.mo [data-trama="c"] .apar.aparece .trama-blk .tb{opacity:1;transform-box:fill-box;transform-origin:0 100%;animation:tbGrow 300ms var(--ease-out) both;animation-delay:var(--td)}
+@keyframes tbGrow{from{transform:scale(0)}to{transform:none}}
+/* — construction: the diagram runs (lab.html). Each path is a line along +x inside a group that
+     places and turns it, so one rule moves any of them along its own direction.
+     Variant a: a short pulse (a quarter of the path) travels it with translate; the one from the
+     AI stops at the gap, holds, and goes out — */
+.mo [data-pulse] .apar:not(.aparece) .gap-lbl{opacity:0}
+.diagram .pl{transform-box:fill-box}
+.mo [data-pulse="a"] .apar.aparece .diagram .pl{animation:plGo 320ms var(--ease-out) forwards,fadeOut 120ms var(--ease-std) forwards;
+  animation-delay:calc(var(--o,0) * var(--step) + 200ms),calc(var(--o,0) * var(--step) + 520ms)}
+.mo [data-pulse="a"] .apar.aparece .diagram .pl.p4{animation-duration:280ms,120ms;animation-delay:calc(var(--o,0) * var(--step) + 480ms),calc(var(--o,0) * var(--step) + 760ms)}
+.mo [data-pulse="a"] .apar.aparece .diagram .pl.p2{animation-duration:320ms,160ms;animation-delay:calc(var(--o,0) * var(--step) + 200ms),calc(var(--o,0) * var(--step) + 720ms)}
+.mo [data-pulse] .apar.aparece .diagram .gap-lbl{animation:fadeIn 240ms var(--ease-out) both;animation-delay:calc(var(--o,0) * var(--step) + 560ms)}
+@keyframes plGo{from{opacity:1;transform:none}to{opacity:1;transform:translateX(300%)}}
+/* variant b: the path draws itself (clip-path uncovers each line from its start); the line from the AI ends at the gap */
+.mo [data-pulse="b"] .apar .diagram .dp{clip-path:inset(-8px calc(100% + 8px) -8px -8px)}
+.mo [data-pulse="b"] .apar.aparece .diagram .dp{animation:dpDraw 300ms var(--ease-out) both;animation-delay:calc(var(--o,0) * var(--step) + 200ms)}
+.mo [data-pulse="b"] .apar.aparece .diagram .dp.p4{animation-delay:calc(var(--o,0) * var(--step) + 480ms)}
+.mo [data-pulse="b"] .apar.aparece .diagram .dp.p3{animation-delay:calc(var(--o,0) * var(--step) + 600ms)}
+@keyframes dpDraw{from{clip-path:inset(-8px calc(100% + 8px) -8px -8px)}to{clip-path:inset(-8px)}}
+/* variant c: relay, each box takes the data in turn (opacity) */
+.mo [data-pulse="c"] .apar.aparece .diagram .bx{animation:relay 240ms var(--ease-out) both}
+.mo [data-pulse="c"] .apar.aparece .diagram .b1{animation-delay:calc(var(--o,0) * var(--step) + 150ms)}
+.mo [data-pulse="c"] .apar.aparece .diagram .b2{animation-delay:calc(var(--o,0) * var(--step) + 250ms)}
+.mo [data-pulse="c"] .apar.aparece .diagram .b3{animation-delay:calc(var(--o,0) * var(--step) + 400ms)}
+.mo [data-pulse="c"] .apar.aparece .diagram .b4{animation-delay:calc(var(--o,0) * var(--step) + 550ms)}
+@keyframes relay{from{opacity:.25}to{opacity:1}}
+/* — construction: the mesh is validated — variant a: a scanning dimension sweeps it once (translate)
+     and each defect is marked when the eased scan passes it: motion.js turns its position (--x) into
+     that moment of the curve (--xt) — */
+.mesh .m-scan{opacity:0}
+.mo [data-scan] .apar:not(.aparece) .mesh .m-def,.mo [data-scan] .apar:not(.aparece) .m-leg li{opacity:0}
+.mo [data-scan="a"] .apar.aparece .mesh .m-e{animation:fadeIn 300ms var(--ease-out) both;animation-delay:calc(var(--o,0) * var(--step) + var(--c) * 12ms)}
+.mo [data-scan="a"] .apar.aparece .mesh .m-scan{animation:scan 520ms var(--ease-out) forwards,fadeOut 120ms var(--ease-std) forwards;
+  animation-delay:calc(var(--o,0) * var(--step) + 200ms),calc(var(--o,0) * var(--step) + 720ms)}
+.mo [data-scan="a"] .apar.aparece .mesh .m-def,.mo [data-scan="a"] .apar.aparece .m-leg li{animation:fadeIn 200ms var(--ease-out) both;animation-delay:calc(var(--o,0) * var(--step) + 200ms + var(--xt,var(--x)) * 520ms)}
+@keyframes scan{from{opacity:1;transform:none}to{opacity:1;transform:translateX(640px)}}
+/* variant b: edges build column by column (opacity), then the defects are marked */
+.mo [data-scan="b"] .apar.aparece .mesh .m-e{animation:fadeIn 250ms var(--ease-out) both;animation-delay:calc(var(--o,0) * var(--step) + var(--c) * 45ms)}
+.mo [data-scan="b"] .apar.aparece .mesh .m-def,.mo [data-scan="b"] .apar.aparece .m-leg li{animation:fadeIn 250ms var(--ease-out) both;animation-delay:calc(var(--o,0) * var(--step) + 560ms)}
+/* variant c: a radial scan opens from the centre (clip-path) */
+.mo [data-scan="c"] .apar.aparece .mesh{animation:radial 520ms var(--ease-out) both;animation-delay:calc(var(--o,0) * var(--step))}
+.mo [data-scan="c"] .apar.aparece .mesh .m-def,.mo [data-scan="c"] .apar.aparece .m-leg li{animation:fadeIn 250ms var(--ease-out) both;animation-delay:calc(var(--o,0) * var(--step) + 480ms)}
+@keyframes radial{from{clip-path:circle(0% at 50% 50%)}to{clip-path:circle(75% at 50% 50%)}}
+/* replay without leaving the section: every animation inside restarts */
+.rst,.rst *{animation:none!important}
+/* — construction: the mark assembles, once per browser session: its three strokes are uncovered in
+     place (clip-path, 60 units past the stroke so the round caps are never cut), D 80 ms and R 160 ms
+     behind. motion.js removes mk-build when R has arrived. — */
+.mo.mk-build #brandMark line{animation:mkBuildY 360ms var(--ease-out) both}
+.mo.mk-build #brandMark #mkD{animation-name:mkBuildD;animation-delay:80ms}
+.mo.mk-build #brandMark #mkR{animation-delay:160ms}
+@keyframes mkBuildY{from{clip-path:inset(-60px -60px calc(100% + 60px) -60px)}to{clip-path:inset(-60px)}}
+@keyframes mkBuildD{from{clip-path:inset(-60px calc(100% + 60px) -60px -60px)}to{clip-path:inset(-60px)}}
+/* — response: the mark folds on hover and focus (7.9). The N folds into one stroke (280 ms, standard,
+     D first), holds 120 ms and opens again (360 ms, out), no overshoot. L and R slide to x = 500;
+     D turns about its centre (497, 513) to the vertical and moves onto the bar (its 588 units fit in
+     the 700-unit bar, so no length changes). motion.js adds .mk-fold and removes it at the end. — */
+#brandMark line{transform-box:view-box}
+#mkD{transform-origin:497px 513px}
+.mo #brandMark.mk-fold #mkL{animation:mkFoldL 280ms var(--ease-std) 70ms both,mkOpenL 360ms var(--ease-out) 530ms forwards}
+.mo #brandMark.mk-fold #mkR{animation:mkFoldR 280ms var(--ease-std) 130ms both,mkOpenR 360ms var(--ease-out) 590ms forwards}
+.mo #brandMark.mk-fold #mkD{animation:mkFoldD 280ms var(--ease-std) both,mkOpenD 360ms var(--ease-out) 650ms forwards}
+@keyframes mkFoldL{from{transform:none}to{transform:translateX(352px)}}
+@keyframes mkFoldR{from{transform:none}to{transform:translateX(-348px)}}
+@keyframes mkFoldD{from{transform:none}to{transform:translate(3px,-15px) rotate(40.03deg)}}
+@keyframes mkOpenL{from{transform:translateX(352px)}to{transform:none}}
+@keyframes mkOpenR{from{transform:translateX(-348px)}to{transform:none}}
+@keyframes mkOpenD{from{transform:translate(3px,-15px) rotate(40.03deg)}to{transform:none}}
+/* — LAB (lab.html, noindex) — */
+.lab-sec{padding:var(--s16) 0;border-top:1px solid var(--color-line-strong)}
+.lab-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s6);margin-top:var(--s8)}
+.lab-cell{background:var(--color-bg-raised);border:1px solid var(--color-line-strong);border-radius:var(--radius);padding:var(--s6);min-width:0}
+.lab-head{display:flex;justify-content:space-between;align-items:center;gap:var(--s3)}
+.lab-desc{font-size:15px;margin:var(--s3) 0 var(--s6)}
+.lab-stage{min-height:120px}
+.lab-trama{height:200px;border-radius:var(--radius)}
+.lab-trama.built{background:var(--color-bg);color:var(--color-stroke)}
+.lab-stage .diagram{margin:0;padding:var(--s4);box-shadow:12px 12px 0 var(--color-shadow)}
+.lab-stage .mesh-box{padding:var(--s4);box-shadow:12px 12px 0 var(--color-shadow)}
+.lab-stage .m-leg{grid-template-columns:minmax(0,1fr);gap:var(--s3);margin-top:var(--s8)}
+@media (max-width:980px){.lab-grid{grid-template-columns:minmax(0,1fr)}}
+/* — weight: content below the first section is laid out only when it comes near the screen, in
+     small pieces (blocks, and the items of long lists), so neither the first load nor scrolling builds a
+     long task on a slow phone — */
+
+.proj,.svitem,.entry,.lab-cell,.fcols > *{content-visibility:auto;contain-intrinsic-block-size:auto 320px;overflow-clip-margin:24px}
+/* Block by block inside each section, so a fast scroll never lays out a whole section in one frame.
+   One level only: a long list gets it per item and its container is left out, because nested
+   content-visibility makes the browser run style and layout twice in the same frame.
+   content-visibility clips like paint containment: the 24 px margin keeps the 18 px drop of .cae,
+   the 6 px solid shadows and the focus stroke visible. */
+main > section ~ section > .shell > :not(.projs):not(.entries):not(.svc):not(.lab-grid),main > article ~ section > .shell > *,footer > .shell > :not(.fcols){content-visibility:auto;contain-intrinsic-block-size:auto 360px;overflow-clip-margin:24px}
+
+/* ============================================================
+   THE MARK THAT BECOMES AN AGENDA — living surface of the inner page heads (addendum 1.1).
+   One 8 s cycle (1 % = 80 ms) made of movements of 120–520 ms with holds between them: the N folds
+   into one stroke (7.9, D first), the stroke lies down and spreads into the header line of an
+   agenda, the frame is uncovered from that line, then the rings rise, the days appear and the
+   booked one is ticked; the agenda leaves, the line gathers, stands up and opens into the N again.
+   The three strokes of the N are three lines of fixed length (280, 235 and 280 units: the isotype
+   at 0.4) moved only by translate + rotate, so their round caps never stretch. Spread end to end
+   they cover the header line (.ag-hd, one 520-unit stroke): while they cover it, the line fades in
+   under them and they fade out on top of it, and back before they gather, so the agenda never shows
+   the seams of three overlapping strokes. Reveals use clip-path 40 units past the box, so the caps
+   are never cut. At rest (no motion, reduced motion, ?vivo=0, script missing) it is the agenda,
+   still, with its single header line. motion.js runs it only while it is on screen (.on) and stops
+   it with ?vivo=0 (.still).
+   ============================================================ */
+.agd .mk{transform-box:view-box;transform-origin:0 0;opacity:0}
+.agd .mk-l{transform:translate(380px,300px) rotate(90deg)}
+.agd .mk-d{transform:translate(500px,300px) rotate(90deg)}
+.agd .mk-r{transform:translate(620px,300px) rotate(90deg)}
+.mo .agd:not(.still) .mk,.mo .agd:not(.still) .ag-hd,.mo .agd:not(.still) .ag-top,.mo .agd:not(.still) .ag-bot,.mo .agd:not(.still) .ag-ring,.mo .agd:not(.still) .ag-d,.mo .agd:not(.still) .ag-ok{
+  animation-duration:8s;animation-iteration-count:infinite;animation-fill-mode:both;animation-play-state:paused;
+  animation-timing-function:var(--ease-std)}
+.mo .agd.on:not(.still) *{animation-play-state:running}
+.mo .agd:not(.still) .mk-l{animation-name:agL}
+.mo .agd:not(.still) .mk-d{animation-name:agD}
+.mo .agd:not(.still) .mk-r{animation-name:agR}
+.mo .agd:not(.still) .ag-hd{animation-name:agHd}
+.mo .agd:not(.still) .ag-top{animation-name:agTop}
+.mo .agd:not(.still) .ag-bot{animation-name:agBot}
+.mo .agd:not(.still) .ag-ring{animation-name:agRing}
+.mo .agd:not(.still) .ag-d{animation-name:agDay;animation-delay:calc(var(--i,0) * 68ms)}
+.mo .agd:not(.still) .ag-ok{animation-name:agOk}
+/* Stops of the strokes: N (L x 360, R x 640, D at -40.03°) · one stroke standing at x 500 ·
+   lying at y 300 · spread (L 380, D 500, R 620: the header line from 240 to 760).
+   Segments run with --ease-std; arrivals of construction (spread, the N again) with --ease-out,
+   written as its value: cubic-bezier(.22,1,.36,1). The strokes hand over to the header line
+   between 35.5 % and 38.5 % and take it back between 82 % and 85 %. */
+@keyframes agL{
+  0%,16.8%{transform:translate(360px,350px) rotate(0deg);opacity:1}
+  20.8%,25%{transform:translate(500px,350px) rotate(0deg)}
+  30%,31%{transform:translate(500px,300px) rotate(90deg);animation-timing-function:cubic-bezier(.22,1,.36,1)}
+  35.5%,85.5%{transform:translate(380px,300px) rotate(90deg)}
+  37%{opacity:1}
+  38.5%,82%{opacity:0}
+  83.5%{opacity:1}
+  90%,90.5%{transform:translate(500px,300px) rotate(90deg)}
+  95%,95.5%{transform:translate(500px,350px) rotate(0deg);animation-timing-function:cubic-bezier(.22,1,.36,1)}
+  100%{transform:translate(360px,350px) rotate(0deg);opacity:1}}
+@keyframes agR{
+  0%,17.6%{transform:translate(640px,350px) rotate(0deg);opacity:1}
+  21.6%,25%{transform:translate(500px,350px) rotate(0deg)}
+  30%,31%{transform:translate(500px,300px) rotate(90deg);animation-timing-function:cubic-bezier(.22,1,.36,1)}
+  35.5%,85.5%{transform:translate(620px,300px) rotate(90deg)}
+  37%{opacity:1}
+  38.5%,82%{opacity:0}
+  83.5%{opacity:1}
+  90%,90.5%{transform:translate(500px,300px) rotate(90deg)}
+  95%,95.5%{transform:translate(500px,350px) rotate(0deg);animation-timing-function:cubic-bezier(.22,1,.36,1)}
+  100%{transform:translate(640px,350px) rotate(0deg);opacity:1}}
+@keyframes agD{
+  0%,16%{transform:translate(499.6px,356px) rotate(-40.03deg);opacity:1}
+  20%,25%{transform:translate(500px,350px) rotate(0deg)}
+  30%,90.5%{transform:translate(500px,300px) rotate(90deg)}
+  37%{opacity:1}
+  38.5%,82%{opacity:0}
+  83.5%{opacity:1}
+  95%,95.5%{transform:translate(500px,350px) rotate(0deg);animation-timing-function:cubic-bezier(.22,1,.36,1)}
+  100%{transform:translate(499.6px,356px) rotate(-40.03deg);opacity:1}}
+@keyframes agHd{
+  0%,35.5%{opacity:0}
+  37%,83.5%{opacity:1}
+  85%,100%{opacity:0}}
+/* the frame is uncovered from the header line, up and down; then the rings rise, the days appear
+   (68 ms apart) and the booked day is ticked from the left; at 80 % the agenda leaves */
+@keyframes agTop{
+  0%,36%{opacity:1;clip-path:inset(calc(100% + 40px) -40px -40px -40px);animation-timing-function:cubic-bezier(.22,1,.36,1)}
+  41%,80%{opacity:1;clip-path:inset(-40px)}
+  84%,100%{opacity:0;clip-path:inset(-40px)}}
+@keyframes agBot{
+  0%,36%{opacity:1;clip-path:inset(-40px -40px calc(100% + 40px) -40px);animation-timing-function:cubic-bezier(.22,1,.36,1)}
+  42%,80%{opacity:1;clip-path:inset(-40px)}
+  84%,100%{opacity:0;clip-path:inset(-40px)}}
+@keyframes agRing{
+  0%,41%{opacity:0;transform:translateY(24px);animation-timing-function:cubic-bezier(.22,1,.36,1)}
+  44%,80%{opacity:1;transform:none}
+  84%,100%{opacity:0;transform:none}}
+@keyframes agDay{
+  0%,44%{opacity:0;animation-timing-function:cubic-bezier(.22,1,.36,1)}
+  46.5%,80%{opacity:1}
+  84%,100%{opacity:0}}
+@keyframes agOk{
+  0%,50%{opacity:1;clip-path:inset(-40px calc(100% + 40px) -40px -40px);animation-timing-function:cubic-bezier(.22,1,.36,1)}
+  54%,80%{opacity:1;clip-path:inset(-40px)}
+  84%,100%{opacity:0;clip-path:inset(-40px)}}
+
+/* ============================================================
+   ROUND 4 · the home in seven screens, one card system, heads glued to their content
+   ============================================================ */
+.head{margin-bottom:var(--s8)}
+.head .cota-w{margin-top:var(--s6)}
+.hrow{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:var(--s3) var(--s8)}
+.hrow h2{min-width:0}
+.hrow .tlink{flex:none}
+/* — hero: the message on the left, the 7.5 field on the right, on deep blue in both expressions — */
+.hero{position:relative;padding:0;overflow:hidden;touch-action:pan-y}
+.hero-in{position:relative;z-index:1;display:flex;align-items:center;min-height:min(calc(100vh - var(--header-h)),700px)}
+.hero-txt{width:50%;padding:var(--s16) var(--s12) var(--s16) 0}
+.hero .role{margin:var(--s1) 0 var(--s6)}
+.hero h1{font-size:clamp(30px,3.3vw,46px);line-height:1.1}
+/* the signature underline (7.3 stroke, 4 px, green): the half of the title that says what he delivers */
+.hero h1 .acc{background:linear-gradient(var(--color-green),var(--color-green)) left 100%/100% 4px no-repeat;padding-bottom:8px;
+              -webkit-box-decoration-break:clone;box-decoration-break:clone}
+.hero .lede{margin-top:var(--s6);color:var(--color-ink-soft)}
+.hero .cta{align-items:center;gap:var(--s3) var(--s8);margin:var(--s8) 0 0}
+.hero .avail{margin-top:var(--s8);padding-left:0;border-left:0;font-size:15px;color:var(--color-ink-soft)}
+.hero-field{position:absolute;top:0;bottom:0;left:50%;right:0}
+#field{position:absolute;inset:0;width:100%;height:100%;display:block}
+.heroHint{position:absolute;left:var(--s8);right:var(--gutter);bottom:var(--s6);display:flex;flex-wrap:wrap;gap:var(--s3) var(--s6);
+          justify-content:space-between;pointer-events:none}
+.heroHint .t,.heroHint .c{background:var(--brand-deep);border-radius:var(--radius);padding:6px 10px;
+              font-family:var(--font-mono);font-size:12px;letter-spacing:var(--track-label);text-transform:uppercase}
+.heroHint .t{color:var(--color-ink-muted)}
+.heroHint .c{color:var(--color-green)}
+.heroHint .c b{font-weight:500;font-variant-numeric:tabular-nums}
+/* — services: three client problems, each with its pages — */
+.fams{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s6);align-items:stretch}
+.fam{display:flex;flex-direction:column;min-width:0}
+.fam .what{color:var(--color-heading)}
+.fam h3{font-size:21px;font-weight:400;line-height:1.3;margin:var(--s3) 0 var(--s2)}
+.fam .ans{font-size:15px;color:var(--color-ink-soft);margin:0}
+.fam .flow{max-width:250px;margin:var(--s4) 0 var(--s2)}
+.svl{list-style:none;padding:0;margin:var(--s4) 0 var(--s4);border-top:1px solid var(--color-line-strong)}
+.svl li{border-bottom:1px solid var(--color-line)}
+.svl a{display:flex;align-items:center;min-height:38px;padding:var(--s1) 0;font-size:15px;line-height:1.35;text-decoration:none;color:var(--color-ink)}
+.svl a:hover{color:var(--color-link);text-decoration:underline}
+.fam>.tlink{margin-top:auto}
+.terms{display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--s2) var(--s8);margin-top:var(--s6);padding-top:var(--s4);border-top:1px solid var(--color-line-strong)}
+.terms p{margin:0;font-size:15px;color:var(--color-ink-soft)}
+.terms .lbl{color:var(--color-heading)}
+/* — featured projects: six with a public demo, one capture each — */
+.feat{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s6)}
+.pcard{display:grid;grid-template-columns:minmax(0,0.85fr) minmax(0,1.15fr);padding:0;overflow:hidden;min-width:0}
+.pcard .shot{display:block;width:100%;height:100%;min-height:150px;object-fit:cover;object-position:left top;background:var(--brand-deep);border-right:1px solid var(--color-line-strong)}
+.pcard .pbody{display:flex;flex-direction:column;gap:var(--s2);padding:var(--s4) var(--s6) var(--s4);min-width:0}
+.pcard .pst{margin:0;display:flex;align-items:center;font-size:11px}
+.pcard h3{font-size:18px;line-height:1.25;margin:0}
+.pcard .sum{font-size:14px;line-height:1.5;color:var(--color-ink-soft);margin:0;
+            display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pcard .ptech{font-size:12px;color:var(--color-ink-muted);margin:0}
+.pcard .plinks{margin:auto 0 0}
+.pcard .plinks a{min-height:32px;font-size:14px}
+/* — the catalog page: the same card, standing (capture on top) — */
+.cat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s6)}
+.pcard.v{display:flex;flex-direction:column}
+.pcard.v .shot{height:auto;aspect-ratio:16/9;min-height:0;border-right:0;border-bottom:1px solid var(--color-line-strong)}
+.pcard.v .pbody{padding:var(--s4) var(--s6) var(--s6);flex:1}
+.pcard.v .sum{display:block;-webkit-line-clamp:none;overflow:visible}
+.pcard .proof{font-size:13px;line-height:1.55;color:var(--color-ink-muted);margin:0}
+.pcard .pst .pn{margin-left:auto;padding-left:var(--s3);color:var(--color-ink-muted)}
+/* no capture (private code, or a capture that cannot be shown): the 7.2 pattern in cobalt, quieter than the live green */
+.pcard .cover{display:block;width:100%;background:var(--brand-deep);color:var(--color-cobalt-bright)}
+.pcard .cover.trama-blk:not(.built){background:var(--brand-deep)}
+.pcard[hidden]{display:none}
+.chip .cnt{margin-left:var(--s2);font-size:11px;color:var(--color-ink-muted)}
+.chip[aria-pressed="true"] .cnt{color:var(--color-cobalt-ink)}
+/* — cases and recent writing — */
+.cases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--s6);align-items:stretch}
+.case-list{display:contents}
+.case.card{padding:var(--s6);display:flex;flex-direction:column}
+.case.card .tlink{margin-top:auto}
+.case.card h3{margin:var(--s2) 0}
+.case.card p{font-size:15px}
+.recent .posts li{grid-template-columns:minmax(0,1fr);gap:var(--s1);padding:var(--s3) 0}
+.recent .posts h3{font-size:16px;line-height:1.35}
+.recent .posts .t{white-space:normal}
+/* — how I work: four steps under one dimension, the stack in one line, the console and the checklist — */
+.steps{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s6)}
+.steps li{min-width:0;padding-top:var(--s4)}
+.steps h3{font-size:19px;margin:var(--s2) 0}
+.steps p{font-size:15px;color:var(--color-ink-soft);margin:0}
+.stack{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:var(--s4) var(--s6);margin:var(--s8) 0 0;padding:var(--s4) 0;
+       border-top:1px solid var(--color-line-strong);border-bottom:1px solid var(--color-line-strong)}
+.stack>div{min-width:0}
+.stack dd{margin:var(--s1) 0 0;font-family:var(--font-mono);font-size:13px;line-height:1.6;color:var(--color-ink)}
+.stack dd a{color:var(--color-link)}
+.work{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:var(--s8) var(--s12);margin-top:var(--s8);align-items:start}
+.term.compact{box-shadow:12px 12px 0 var(--color-shadow);margin-right:12px}
+.term.compact:focus-within{box-shadow:12px 12px 0 var(--color-shadow),0 0 0 2px var(--color-green)}
+.term.compact .termbar{padding:var(--s2) var(--s4)}
+.term.compact .termbody{height:172px;padding:var(--s4);font-size:13px;line-height:1.7}
+.term.compact .termline{padding:var(--s3) var(--s4)}
+.term.compact .termbody .trow{grid-template-columns:120px minmax(0,1fr)}
+.termchips.compact{margin-top:var(--s6)}
+.side{display:grid;gap:var(--s6)}
+.side .card{padding:var(--s6)}
+.side h3{font-size:19px;margin:var(--s2) 0}
+.side p{font-size:15px}
+/* — about and the collaboration — */
+.collab{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:var(--s8) var(--s12);align-items:start}
+.collab .bio{font-size:15px;color:var(--color-ink-soft)}
+.duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s4)}
+.duo .card{padding:var(--s6)}
+.duo h3{font-size:19px;margin:0 0 var(--s2)}
+.duo p{font-size:15px;margin:0}
+.duo-x{display:flex;align-items:center;gap:var(--s3);margin:0 0 var(--s4)}
+.duo-x .lbl{color:var(--color-heading)}
+/* — contact band — */
+.closing .contact h2{color:var(--color-heading)}
+
+@media (max-width:1180px){
+  .stack{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (max-width:980px){
+  .hero-in{min-height:0;display:block}
+  .hero-txt{width:auto;padding:var(--s12) 0 var(--s8)}
+  .hero-field{position:relative;left:auto;height:220px}
+  .heroHint{left:var(--gutter)}
+  .heroHint .t{display:none}
+  .fams,.feat,.cases,.work,.collab,.steps{grid-template-columns:minmax(0,1fr)}
+  .cat{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .steps{gap:var(--s4)}
+  .term.compact{margin-right:12px}
+}
+@media (max-width:600px){
+  .hero .cta{order:3;margin:var(--s6) 0 0}
+  .pcard{grid-template-columns:minmax(0,1fr)}
+  .pcard .shot{height:auto;aspect-ratio:16/9;min-height:0;border-right:0;border-bottom:1px solid var(--color-line-strong)}
+  .stack{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .duo{grid-template-columns:minmax(0,1fr)}
+  .cat{grid-template-columns:minmax(0,1fr)}
+}
+/* header: the word of the lockup leaves when the row is full; on phones the expression switch lives in the menu */
+@media (min-width:981px) and (max-width:1180px){.brand .wm{display:none!important}}
+@media (max-width:600px){
+  .brand .wm{display:none!important}
+  header.top .tools .themesw{display:none!important}
+}
+
+/* ============================================================
+   ROUND 4 · inner pages
+   servicios, servicio-validacion-3d, casos, escritos, articulo, tecnologia, contacto and lab in both
+   expressions. Additions only: where an earlier rule had to change it is overridden here, and the
+   comment says which one.
+   ============================================================ */
+/* — role colours for inline SVG: the drawing says currentColor and each part takes a role. Inside the
+     invariant deep blue panels (.diagram, .mesh-box) the roles resolve to the deep blue values in both
+     expressions; on a themed surface (the article's .figure) they follow the expression. — */
+.c-ink{color:var(--color-ink)}
+.c-muted{color:var(--color-ink-muted)}
+.c-link{color:var(--color-link)}
+.c-stroke{color:var(--color-stroke)}
+.c-green{color:var(--color-green)}
+/* — every fr track as minmax(0,…): overrides .row, .case dl, .posts li, .entry, .termbody .trow,
+     footer .fcols and .pbanner-in (bare 1fr in the earlier rules), with their breakpoints — */
+.row{grid-template-columns:auto minmax(0,1fr) minmax(0,1.2fr)}
+.case dl{grid-template-columns:auto minmax(0,1fr)}
+.posts li,.entry{grid-template-columns:auto minmax(0,1fr) auto}
+.termbody .trow{grid-template-columns:150px minmax(0,1fr)}
+footer .fcols{grid-template-columns:repeat(4,minmax(0,1fr))}
+.pbanner-in{grid-template-columns:auto minmax(0,1fr) auto}
+@media (max-width:980px){
+  .row{grid-template-columns:auto minmax(0,1fr)}
+  .case dl{grid-template-columns:minmax(0,1fr)}
+  .posts li,.entry{grid-template-columns:auto minmax(0,1fr)}
+  .termbody .trow{grid-template-columns:110px minmax(0,1fr)}
+  footer .fcols{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:600px){
+  footer .fcols{grid-template-columns:minmax(0,1fr)}
+  .pbanner-in{grid-template-columns:minmax(0,1fr) auto}
+}
+/* — services: each family is named by the client's problem; the capability stays as its label — */
+.family .num .what{color:var(--color-heading)}
+/* — deep blue panels on a deep blue page: panel and solid shadow sit at 1.2–1.5:1 from the band, the
+     raised surface or the page, so they take the 1 px edge main gives its terminal and its code blocks.
+     The edge is the page's own line, read on :root before the panel scopes the deep blue roles: on paper
+     it is the paper line over deep blue, which does not show. The home's compact console is left as it is. — */
+:root{--line-page:var(--color-line-strong)}
+.mesh-box,.diagram,pre.panel,.term:not(.compact){border:1px solid var(--line-page)}
+/* — inline code: a well of the sunken role vanishes on the deep blue page (both are #070B16); the band
+     role is the same #DEE6F0 on paper and a visible well on deep blue (overrides .prose code) — */
+.prose code{background:var(--color-band)}
+/* — placeholders inside code keep the size of the code around them — */
+.termbody .ph,pre.panel .ph{font-size:inherit}
+/* — lists where only some titles are links (tecnologia: projects without a page of their own): a title
+     that is not a link takes the ink, because on paper titles and links share #0047AB — */
+.svlist.nolink h3{color:var(--color-ink)}
+/* — the mesh legend: its keys are the defects drawn in green in the mesh, so they take the live green
+     (green ink on paper, 5.18:1 on the band) instead of the brand stroke (cobalt on paper) — */
+.m-leg .brk-l i{background:var(--color-green)}
+/* — contact: the channel cards are the one card system on a band (card surface), and the Calendly card
+     is its key card: 1 px muted border and the 10 px solid shadow, as .card.key (overrides .chcard and the
+     2 px heading border of .chcard.primary, white on deep blue) — */
+.on-sunken .chcard,.on-raised .chcard{background:var(--color-surface)}
+.chcard.primary{border:1px solid var(--color-ink-muted);box-shadow:10px 10px 0 var(--color-shadow)}
+
+/* ============================================================
+   ROUND 4 · last touches
+   ============================================================ */
+/* the switch's border is its only boundary: the control-border role (5.1:1 paper, 9.8:1 deep blue) */
+.themesw{border-color:var(--color-ink-muted)}
+/* contact and footer are both deep blue bands: a rule tells them apart */
+footer{border-top:1px solid var(--color-line-strong)}
