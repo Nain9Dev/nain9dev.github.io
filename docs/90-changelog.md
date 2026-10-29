@@ -6,6 +6,7 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ### Added
 
+- Next-projects-route step 1 (NPR-002): `/proyectos/` and `/en/projects/` show the whole filterable catalog; its markup is now one component (`ProjectCatalog.astro`) shared with the home, the sitemap lists both pages and the guard `scripts/projects-route.test.mjs` checks them after the build. The home output is unchanged (28 824 B gzip).
 - Next-design-fusion layer 4b: the hero reads title, free-call button, summary and availability, also on phones; the three offer tiles are removed because the services section carries the same three offers (HERO-023 rewritten); the home document drops 236 B gzip.
 - Brand kit: `design/brand/` keeps the designer's logo, wordmark, LinkedIn banner and demo captures as delivered, with a README on contents, colours and rules, and a vector wordmark rebuilt from the delivered rasters in green, blue and white; a guard checks the kit and that none of it is published.
 - Next-hero-field: the hero's WebGL icosahedron and point cloud are replaced by a 2D canvas field of round-capped strokes in the theme's stroke colour (green on dark, brand blue on paper), empty in the text column, denser toward the right, pushed away by a fine pointer and tinted red by a press; it loads from the idle queue as a 4.5 KB chunk, pauses off screen, breathes at about 20 fps and degrades to the static hero on slow frames. HERO-001 to HERO-004 are superseded by HERO-005 to HERO-009.

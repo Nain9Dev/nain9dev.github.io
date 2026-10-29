@@ -9323,5 +9323,20 @@
     "source": "⟦0/⟧⟦1⟧⟦2/⟧ servicios⟦/1⟧",
     "target": "⟦0/⟧⟦1⟧⟦2/⟧ services⟦/1⟧",
     "status": "reviewed"
+  },
+  "85e41b97334a18035a69899146613b4790b8b37f027b9a7816cd097e534e168b": {
+    "source": "Proyectos y demos de software | NainDev",
+    "target": "Software projects and demos | NainDev",
+    "status": "reviewed"
+  },
+  "80b8766767762be78e6efd69c8556fac0e8a8d046248ca8c836d59fecd50a96b": {
+    "source": "Catálogo completo de proyectos de Aitor Nain: backend crítico en Python y .NET, IA con revisión humana y herramientas, con el estado real de cada uno y enlaces a demos y código.",
+    "target": "Full catalog of Aitor Nain's projects: critical backend in Python and .NET, AI with human review and tooling, with the real status of each one and links to demos and code.",
+    "status": "reviewed"
+  },
+  "1406ed131403133ab988feeaef98c11b05a697ba7dd4cb809e2f5e4fdab3beb1": {
+    "source": "Proyectos y demos de software",
+    "target": "Software projects and demos",
+    "status": "reviewed"
   }
 }
