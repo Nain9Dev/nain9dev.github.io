@@ -326,23 +326,20 @@ test('VIS-013: proof strip and partnership cards lead with icons, the stack badg
   assert.match(css, /\.tech-link\s*\{/);
 });
 
-test('HERO-023: the hero shows what is offered as three icon tiles linked to the services', async () => {
+test('HERO-023: the hero puts the call to action right after the title; the offer lives in the services cards', async () => {
   const hero = await read('src/components/home/Hero.astro');
-  const tiles = hero.match(/<a class="offer-tile"[\s\S]*?<\/a>/g) ?? [];
-  assert.equal(tiles.length, 3);
-  // Visual order: title, offer tiles, actions, then the short summary.
+  // Reading order, on phones too: title, actions, short summary, availability.
   const at = (needle) => hero.indexOf(needle);
-  assert.ok(at('<h1') < at('class="offer-row"') && at('class="offer-row"') < at('class="button-group"') && at('class="button-group"') < at('class="hero-summary"'));
+  assert.ok(at('<h1') < at('class="button-group"') && at('class="button-group"') < at('class="hero-summary"') && at('class="hero-summary"') < at('class="availability"'));
+  assert.match(hero.match(/<div class="button-group"[\s\S]*?<\/div>/)[0], /class="button button-primary"[^>]*calendly\.com/, 'the free call is the primary button');
+  assert.doesNotMatch(hero, /offer-row|offer-tile|offer-icon/, 'the three offer tiles left the hero');
   const summaryWords = hero.match(/<p class="hero-summary"[^>]*>([\s\S]*?)<\/p>/)[1].trim().split(/\s+/).length;
   assert.ok(summaryWords <= 25, `hero summary has ${summaryWords} words`);
-  const targets = ['/servicios/sistemas-criticos-dotnet', '/servicios/arquitectura-ia-generativa', '/servicios/validacion-3d'];
-  tiles.forEach((tile, index) => {
-    assert.ok(tile.includes(`href="${targets[index]}"`), `tile ${index} links ${targets[index]}`);
-    assert.match(tile, /<svg class="offer-icon"[^>]*aria-hidden="true"/);
-    assert.match(tile, /<strong>[^<]+<\/strong>/);
-  });
+  const services = await read('src/components/home/ServicesSection.astro');
+  for (const target of ['/servicios/sistemas-criticos-dotnet', '/servicios/arquitectura-ia-generativa', '/servicios/validacion-3d']) {
+    assert.ok(services.includes(`href="${target}"`), `the services section still links ${target}`);
+  }
   assert.doesNotMatch(hero, /badge-icon|⚙️|🧪/, 'the emoji badges are gone');
   const css = await read('src/styles/main.css');
-  assert.match(css, /\.offer-tile\s*\{/);
-  assert.doesNotMatch(css, /\.trust-badges/, 'dead badge styles are removed');
+  assert.doesNotMatch(css, /\.offer-(row|tile|icon)|\.trust-badges/, 'dead tile and badge styles are removed');
 });
