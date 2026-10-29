@@ -3,7 +3,6 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile, readdir } from 'node:fs/promises';
 import { join } from 'node:path';
-import sharp from 'sharp';
 
 const read = (path) => readFile(path, 'utf8');
 const pages = ['dist/index.html', 'dist/en/index.html', 'dist/servicios/index.html'];
@@ -92,15 +91,10 @@ test('PERF-012: entry scripts carry no home-only module code', async () => {
   }
 });
 
-test('PERF-009: the header logo is never served wider than twice its rendered width', async () => {
-  // .brand-logo renders at most 4.2rem tall with a 4:1 aspect ratio: 4.2 * 16 * 4 = 268.8 px.
-  const limit = Math.ceil(268.8 * 2);
+test('PERF-009: the header logo is inline SVG, so it is never a raster file wider than its rendered width', async () => {
+  // Since next-design-fusion DF-004 the brand is an inline isotype plus text: no image request at all.
   const html = await read('dist/index.html');
-  const logo = tags(html, 'img').find((img) => (img.class ?? '').includes('brand-logo'));
-  assert.ok(logo, 'logo not found');
-  const candidates = [logo.src, ...(logo.srcset ?? '').split(',').map((c) => c.trim().split(' ')[0])].filter(Boolean);
-  for (const candidate of new Set(candidates)) {
-    const { width } = await sharp(join('dist', decodeURI(candidate))).metadata();
-    assert.ok(width <= limit, `${candidate} is ${width}px wide (limit ${limit})`);
-  }
+  const brand = html.match(/<a class="brand"[\s\S]*?<\/a>/)?.[0] ?? '';
+  assert.ok(brand.includes('class="brand-mark"'), 'inline brand mark not found');
+  assert.equal(tags(brand, 'img').length, 0, 'the header brand serves no image');
 });

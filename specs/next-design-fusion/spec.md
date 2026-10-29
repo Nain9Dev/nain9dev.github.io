@@ -32,18 +32,23 @@ This spec ports only the parts that make the portfolio better, in small layers t
 
 - **DF-004 (isotype)**: When the header renders, the brand link shall show the N isotype as inline SVG drawn from the prototype's stroke geometry, coloured by `--color-logo`, with the accessible name "NainDev" and the same link target as today.
 - **DF-005 (wordmark)**: The wordmark shall be published only as a vector. Until David delivers it, the header shall show the isotype followed by the text "NainDev" in the heading font; no raster wordmark shall be published.
-- **DF-006 (icons)**: When the site is built, `favicon.ico`, `favicon-96x96.png`, `apple-touch-icon.png` and an SVG favicon shall show the new mark, the SVG favicon following the theme.
-- **DF-007 (consistency)**: The Organization structured data `logo` URL, the default Open Graph image and every other file that shows the old logo shall be listed and updated in the same pull request, or listed as open in `tasks.md`.
+- **DF-006 (icons)**: When the site is built, `favicon.ico`, `favicon-96x96.png`, `apple-touch-icon.png` and the SVG mark shall show the new mark: the isotype in `#80FF00` on a rounded `#002B66` tile, the same in both themes (the SVG is not declared as a favicon, PERF-018, so it does not need a theme variant). The icon contract (`scripts/check-brand-icons.mjs`) measures the green strokes, not the tile, against the circular mask.
+- **DF-007 (consistency)**: The Organization structured data `logo` URL, the default Open Graph image and every other file that shows the old logo shall be listed and updated in the same pull request, or listed as open in `tasks.md`. The logo URL points at the touch icon, so it shows the new mark; the Open Graph image `og-cover-v4.jpg` still carries the old horizontal logo and is open (T07b).
 
 ### Layer 3: surfaces and states
 
 - **DF-008 (invariant bands)**: The footer and the terminal shall use `--brand-deep` in both themes, the footer carrying the dark role values and the terminal text keeping AA contrast on the band (error text on `--terminal-red-ink`). Implemented in `feat/design-surfaces`. Code blocks, diagrams and the hero scene stay as they are until they are measured on their own.
-- **DF-009 (flat page, blocked)**: The page background shall be flat `--color-bg`; the cobalt vignette, the grid and the pointer glow shall be removed together with `src/scripts/ambient-glow.js`. **Not implemented: it supersedes approved work.** Spec 045 and ADR-0012 keep the vignette, the 4 rem grid and the pointer-lit grid as retained effects, and `scripts/hero-nav.test.mjs` and `scripts/post-paint.test.mjs` assert them. The owner decides whether it is superseded; until then the layer leaves them.
+- **DF-009 (flat page, discarded)**: The prototype's flat page background (no vignette, grid or pointer glow) is **not adopted**. The owner decided on 2026-10-29 to keep direction B: spec 045 and ADR-0012 keep the vignette, the 4 rem grid and the pointer-lit grid, and `scripts/hero-nav.test.mjs` and `scripts/post-paint.test.mjs` keep asserting them.
 - **DF-010 (pressed button, already satisfied)**: While a button is pressed, its shadow shall shrink and turn `--color-red`. `main` already does it (`.button:active` moves the button back and draws a 2 px red ring), so nothing changes.
 
 ### Layer 4: home composition (blocked)
 
-- **DF-011 (owner decisions)**: Before any home change, the owner shall decide: (a) whether the 2D stroke field replaces the WebGL scene, superseding HERO-001 to HERO-004; (b) whether LiveDemos and ProofStrip leave the home, with an exception to VP-010; (c) how selected work (spec 049) and the receipts band (`next-receipts-strip`) sit with the new hero; (d) fonts, keeping Inter and the system mono stack or moving to IBM Plex Mono (FONT-001).
+- **DF-011 (owner decisions, answered 2026-10-29 in an interview)**:
+  - (a) The 2D stroke field **replaces** the WebGL scene, which supersedes HERO-001 to HERO-004 and `scripts/hero-scene.test.mjs`; the layer 4 spec states the new requirement and moves the guards with it.
+  - (b), (c) **The current structure leads**: selected work, the work pages and the receipts band keep their place. Hero, strokes and surfaces from the prototype enter; LiveDemos and ProofStrip leave only if a later decision says so (VP-010 stays as is until then).
+  - (d) **Fonts stay as on `main`** (Urbanist, Inter, the system mono stack); FONT-001 is unchanged.
+  - (e) **A `/proyectos/` route** with the 22 projects is adopted, with its own spec after the home (DF-012).
+  - (f) **Logo**: the isotype is adopted, the full lockup waits for the vector wordmark (ADR-next-design-fusion-logo).
 
 ### Layers 5 and 6: catalog route and inner pages (not started)
 

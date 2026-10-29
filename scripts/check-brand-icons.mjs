@@ -9,7 +9,10 @@ const checkFraming = async (input, label) => {
   const bounds = { left: size, top: size, right: -1, bottom: -1 };
   for (let y = 0; y < size; y += 1) {
     for (let x = 0; x < size; x += 1) {
-      if (data[(y * size + x) * 4 + 3] < 32) continue;
+      // The mark is the brand green strokes; the deep blue tile around it is not part of the framing (a launcher
+      // that crops to a circle shows the tile edge to edge, so only the strokes must stay inside it).
+      const at = (y * size + x) * 4;
+      if (data[at + 3] < 32 || data[at + 1] < 149) continue;
       bounds.left = Math.min(bounds.left, x);
       bounds.top = Math.min(bounds.top, y);
       bounds.right = Math.max(bounds.right, x);
@@ -86,6 +89,8 @@ assert.doesNotMatch(layout, /rel="icon"[^>]*image\/svg\+xml/);
 assert.doesNotMatch(layout, /apple-touch-icon[^>]+\.svg/);
 
 const header = await readFile('src/components/Header.astro', 'utf8');
-assert.match(header, /<Image[^>]+\bpriority\b[^>]*\/>/s);
+// The header mark is inline SVG (next-design-fusion DF-004): nothing to preload or to size, and no request.
+assert.match(header, /<svg class="brand-mark"/);
+assert.doesNotMatch(header, /<Image/);
 
-console.log('Brand icon contract passed: PNG, touch icon, SVG and four ICO frames fit a circular mask.');
+console.log('Brand icon contract passed: PNG, touch icon, SVG and four ICO frames keep the mark inside a circular mask.');
