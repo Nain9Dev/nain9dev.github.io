@@ -23,7 +23,7 @@ erDiagram
         date pubDate
         string_array tags
         string_array keywords "default []"
-        string ogImage "default /assets/images/og-cover-v4.jpg"
+        string ogImage "default /assets/images/og-cover-v5.jpg"
         boolean draft "default false"
         string readingTime "optional"
     }
@@ -34,7 +34,7 @@ erDiagram
         string_array keywords "default []"
         string icon "optional"
         string_array techStack "optional"
-        string ogImage "default /assets/images/og-cover-v4.jpg"
+        string ogImage "default /assets/images/og-cover-v5.jpg"
         boolean draft "default false"
         boolean renderTitle "default true"
         number order "default 99"
