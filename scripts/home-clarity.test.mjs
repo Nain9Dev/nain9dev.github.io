@@ -34,9 +34,10 @@ test('HERO-003: the eyebrow does not repeat the job title', async () => {
 });
 
 test('CAT-001: the project catalog is rendered in the static markup, not only after JavaScript runs', async () => {
-  const section = await read('src/components/home/ProjectsSection.astro');
+  // The markup lives in the component shared by the home and /proyectos/ (specs/next-projects-route, NPR-002).
+  const section = await read('src/components/ProjectCatalog.astro');
   assert.doesNotMatch(section, /Cargando proyectos/);
-  assert.match(section, /import projects from '\.\.\/\.\.\/\.\.\/public\/assets\/data\/projects\.json'/);
+  assert.match(section, /import projects from '\.\.\/\.\.\/public\/assets\/data\/projects\.json'/);
   const list = section.match(/<ul class="catalog-index"[\s\S]*?<\/ul>/)?.[0] ?? '';
   assert.match(list, /catalog\.map\(/);
   assert.match(section, /const catalog = \[\.\.\.projects\]/);

@@ -1,0 +1,43 @@
+---
+// ProjectCatalog.astro
+// The filterable catalog shared by the home and /proyectos/ (specs/next-projects-route, NPR-002).
+// It renders a static index of the catalog so crawlers and visitors without JavaScript see real text;
+// the client renderer (home-catalog.js, loaded on demand) replaces it with the filterable cards.
+import projects from '../../public/assets/data/projects.json';
+
+const catalog = [...projects].sort((a, b) => a.order - b.order);
+---
+<div class="project-toolbar" data-project-toolbar hidden>
+  <div class="filter-group" role="group" aria-label="Filtrar proyectos">
+    <button class="filter-button is-active" type="button" data-project-filter="all"
+      aria-pressed="true"><span class="filter-label">Todos</span><span class="filter-badge" data-filter-count="all" translate="no"></span></button>
+    <button class="filter-button" type="button" data-project-filter="production"
+      aria-pressed="false"><span class="filter-label">Producción</span><span class="filter-badge" data-filter-count="production" translate="no"></span></button>
+    <button class="filter-button" type="button" data-project-filter="dotnet"
+      aria-pressed="false"><span class="filter-label">.NET / C#</span><span class="filter-badge" data-filter-count="dotnet" translate="no"></span></button>
+    <button class="filter-button" type="button" data-project-filter="python"
+      aria-pressed="false"><span class="filter-label">Python &amp; Datos</span><span class="filter-badge" data-filter-count="python" translate="no"></span></button>
+    <button class="filter-button" type="button" data-project-filter="3d"
+      aria-pressed="false"><span class="filter-label">3D</span><span class="filter-badge" data-filter-count="3d" translate="no"></span></button>
+    <button class="filter-button" type="button" data-project-filter="demo"
+      aria-pressed="false"><span class="filter-label">Demos</span><span class="filter-badge" data-filter-count="demo" translate="no"></span></button>
+  </div>
+  <p class="project-count" data-project-count aria-live="polite"></p>
+</div>
+
+<div class="project-grid" data-project-list aria-live="polite" aria-busy="true">
+  <ul class="catalog-index">
+    {catalog.map((project) => (
+      <li>
+        <h3>{project.title}</h3>
+        <p class="catalog-index-status">{project.status}</p>
+        <p>{project.summary}</p>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<noscript>
+  <p class="notice">Activa JavaScript para filtrar el catálogo y ver el detalle de cada proyecto. También puedes
+    revisar el código directamente en <a href="https://github.com/Nain9Dev">GitHub</a>.</p>
+</noscript>
