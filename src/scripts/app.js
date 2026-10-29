@@ -65,8 +65,8 @@ function initApp() {
     () => safeInit('ScrollTracking', initializeScrollTracking),
     // The effects above have already run the capability probe, so constrained devices skip the download.
     () => {
-      if (document.getElementById('hero-3d-canvas') && !document.documentElement.classList.contains('low-performance')) {
-        loadOnDemand('HeroScene', () => import("./hero-scene.js"), ({ initializeHeroScene }) => initializeHeroScene());
+      if (document.getElementById('hero-field') && !document.documentElement.classList.contains('low-performance')) {
+        loadOnDemand('HeroField', () => import("./hero-field.js"), ({ initializeHeroField }) => initializeHeroField());
       }
     },
     () => {
