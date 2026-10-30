@@ -58,7 +58,7 @@ test('DF-016: the built pages show the real counts in both languages', { skip: !
   assert.ok(counts.some(([n, unit]) => n === featured && unit === 'proyectos destacados'), 'the home counts its featured projects');
   assert.ok(counts.some(([n, unit]) => n === selected && unit === 'proyectos seleccionados'));
   const catalogPage = await read('dist/proyectos/index.html');
-  assert.ok(catalogPage.includes(`class="dimension-label"><span translate="no">${projects.length}</span> proyectos<`), 'the catalog page counts the whole catalog');
+  assert.ok(catalogPage.includes(`class="dimension-label"><span translate="no">${projects.filter((project) => !project.bridge).length}</span> proyectos<`), 'the catalog page counts what it shows (the bridged 3D projects are one row)');
   const en = await read('dist/en/index.html');
   assert.match(en, /class="dimension-label"><span translate="no">\d+<\/span> featured projects</);
   assert.match(en, /class="dimension-label"><span translate="no">\d+<\/span> selected projects</);

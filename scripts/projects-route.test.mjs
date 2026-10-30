@@ -29,8 +29,9 @@ test('NPR-002: /proyectos/ and its English twin are built, indexable and listed 
 test('NPR-002: the page lists every catalog project as text without JavaScript and keeps the filters', async () => {
   const page = await read('dist/proyectos/index.html');
   const entries = page.match(/<li><h3>[^<]+<\/h3><p class="catalog-index-status">/g) ?? [];
-  assert.equal(entries.length, projects.length, 'one static entry per project');
-  for (const project of projects) {
+  const shown = projects.filter((project) => !project.bridge); // the bridged 3D projects stand behind one row (NPR-003)
+  assert.equal(entries.length, shown.length, 'one static entry per project');
+  for (const project of shown) {
     assert.ok(page.includes(`<h3>${project.title.replaceAll('&', '&amp;')}</h3>`), `${project.id} is listed`);
   }
   assert.match(page, /data-project-toolbar/);
@@ -129,4 +130,60 @@ test('NPR-006: the band keeps the copy rules of the products (no certification c
   assert.doesNotMatch(text, /certific|estándar|inteligencia artificial|€|\$|\bprecio/i);
   assert.doesNotMatch(text, /\bIA\b/, 'no AI claim (case sensitive: "propia" ends in "ia")');
   assert.match(text, /Contrast Hub[\s\S]*privad/, 'the Hub is named only as private software');
+});
+
+// Step 3b (NPR-003, NPR-004, NPR-006): the 3D projects leave the catalog and become one bridge row.
+const BRIDGED = [
+  'conformance-architecture',
+  'interactive-3d-viewer',
+  'nain3d-conformance-gateway',
+  'nain-mcp-validator',
+  'parametricad-ai',
+  'orbe-runner-3d',
+  'pong-arcade',
+];
+const BRIDGE_ROW = 'contrast3d-products';
+const shownInCatalog = projects.filter((project) => !project.bridge);
+
+test('NPR-003: the seven 3D projects are marked as bridged and one row stands for them', () => {
+  assert.deepEqual(projects.filter((project) => project.bridge === true).map((project) => project.id).sort(), [...BRIDGED].sort());
+  const row = projects.find((project) => project.id === BRIDGE_ROW);
+  assert.ok(row && !row.bridge, 'the bridge row exists and is itself shown');
+  assert.ok(row.links.some((link) => link.url === 'https://datumstatutum.com/'), 'it links DSE');
+  assert.ok(row.links.every((link) => !/contrast3dhub\.com/i.test(link.url)), 'and never the gated app host');
+  assert.ok(projects.some((project) => project.id === 'nainconfigurator') && !projects.find((project) => project.id === 'nainconfigurator').bridge, 'the two application projects with a 3D tag stay');
+  assert.ok(!projects.find((project) => project.id === 'driving-exam-simulator').bridge);
+});
+
+test('NPR-003: the catalog page and the client renderer leave the bridged projects out', async () => {
+  const page = await read('dist/proyectos/index.html');
+  for (const id of BRIDGED) {
+    const title = projects.find((project) => project.id === id).title.replaceAll('&', '&amp;');
+    assert.ok(!page.includes(`<h3>${title}</h3>`), `${id} is not in the static index`);
+  }
+  assert.ok(page.includes(`<h3>${projects.find((project) => project.id === BRIDGE_ROW).title}</h3>`), 'the bridge row is');
+  assert.equal((page.match(/<li><h3>/g) ?? []).length, shownInCatalog.length);
+  assert.ok(page.includes(`<span translate="no">${shownInCatalog.length}</span> proyectos<`), 'the dimension counts what is shown');
+  assert.match(await read('src/scripts/home-catalog.js'), /\.bridge/, 'the client renderer filters them too');
+});
+
+test('NPR-004: every 3D URL that was indexed still answers, and the Nain3D page points to DSE', async () => {
+  const sitemap = await read('dist/sitemap-0.xml');
+  for (const path of ['/servicios/validacion-3d/', '/trabajo/nain3d-conformance-gateway/', '/trabajo/parametricad-ai/', '/en/work/nain3d-conformance-gateway/']) {
+    assert.ok(sitemap.includes(`https://www.naindev.com${path}`), `${path} stays in the sitemap`);
+    assert.ok(existsSync(join(ROOT, `dist${path}index.html`)), `${path} is built`);
+  }
+  const nain3d = await read('dist/trabajo/nain3d-conformance-gateway/index.html');
+  assert.match(nain3d, /Nain3D es la demostración original del trabajo de conformidad 3D que hoy se publica como/);
+  assert.ok(nain3d.includes('href="https://datumstatutum.com/"'));
+  assert.doesNotMatch(await read('dist/trabajo/parametricad-ai/index.html'), /publica como/, 'ParametriCAD is not a conformance demo');
+  assert.match(await read('dist/en/work/nain3d-conformance-gateway/index.html'), /Nain3D is the original demo of the 3D conformance work that is now published as/);
+});
+
+test('NPR-006: the hero and the services card describe NainDev\'s architecture and point to DSE', async () => {
+  const hero = await read('src/components/home/Hero.astro');
+  assert.ok(hero.includes('Producto completo en Python y .NET, con IA bajo revisión humana y conformidad determinista de productos, hoy aplicada a modelos 3D en DSE.'));
+  const services = await read('src/components/home/ServicesSection.astro');
+  assert.ok(services.includes('Arquitectura multidominio que valida cada producto contra especificaciones versionadas. Su primer producto es DSE, para modelos 3D.'));
+  assert.doesNotMatch(hero, /su primer dominio son los modelos 3D/i, 'the old hero sentence is gone');
 });

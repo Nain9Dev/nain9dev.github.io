@@ -10,7 +10,7 @@ import projects from '../../public/assets/data/projects.json';
 const { selection = false } = Astro.props;
 const catalog = selection
   ? projects.filter((project) => project.featuredOrder !== undefined).sort((a, b) => a.featuredOrder - b.featuredOrder)
-  : [...projects].sort((a, b) => a.order - b.order);
+  : projects.filter((project) => !project.bridge).sort((a, b) => a.order - b.order);
 ---
 {!selection && (<div class="project-toolbar" data-project-toolbar hidden>
   <div class="filter-group" role="group" aria-label="Filtrar proyectos">

@@ -107,8 +107,10 @@ test('COPY-008: the terminal story describes the same approach', async () => {
   assert.match(text, FIRST_DOMAIN);
 });
 
-test('COPY-009: public copy keeps the product confidential in both locales', async () => {
-  const internal = /\bDSE\b|Datum Statutum|\bE3C\b|\bRT-(?:FIN-)?\d+/i;
+test('COPY-009: public copy keeps the internal profile identifiers confidential in both locales', async () => {
+  // Amended on 2026-10-29: the owner made DSE a public product with its own site (specs/next-projects-route, D5 to D8),
+  // so its name is public. The internal profile identifiers (E3C, RT-nnn) stay out of public copy.
+  const internal = /\bE3C\b|\bRT-(?:FIN-)?\d+/i;
   assert.doesNotMatch(await read('src/components/home/AboutSection.astro'), internal);
   assert.doesNotMatch(await read('public/assets/data/terminal-commands.json'), internal);
   const catalog = JSON.parse(await read('src/i18n/en-US.json'));
