@@ -42,6 +42,9 @@ test('SW-002: each case reads eyebrow, title, three-term story, chips and links 
   assert.ok(at('<dl class="case-story">') < at('class="tag-list case-tags"'));
   assert.ok(at('class="tag-list case-tags"') < at('class="case-links"'));
   for (const term of ['Problema', 'Enfoque', 'Resultado']) assert.match(section, new RegExp(`<dt>${term}</dt>`));
+  // DF-028: the result is open, the problem and the approach sit in the "+" details, after it and before the chips.
+  assert.ok(at('<dt>Resultado</dt>') < at('<Quiet>'), 'the result comes first');
+  assert.ok(at('<Quiet>') < at('<dt>Problema</dt>') && at('<dt>Enfoque</dt>') < at('class="tag-list case-tags"'), 'the story rows follow inside Quiet');
   assert.match(section, /<dd>\{story\.problem\}<\/dd>/);
   assert.match(section, /<dd>\{story\.approach\}<\/dd>/);
   assert.match(section, /<dd>\{story\.result\}<\/dd>/);

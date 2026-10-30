@@ -3172,8 +3172,16 @@ html.low-performance .system-map::after {
   text-transform: uppercase;
 }
 
-.case-story > div:last-child dt {
+.case-story > .case-result dt {
   color: var(--color-green);
+}
+
+.case-body .quiet {
+  margin-top: var(--s2);
+}
+
+.case-body .quiet > :not(summary) {
+  margin-top: var(--s3);
 }
 
 .case-story dd {
