@@ -27,14 +27,14 @@ const description = "Artículos de Aitor Nain sobre arquitectura de software, .N
           <time datetime={post.data.pubDate.toISOString()} class="eyebrow">
             {post.data.pubDate.toLocaleDateString('es-ES', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' })}
           </time>
-          <h2><a href={`/blog/${post.id}`}>{post.data.title}</a></h2>
+          <h2><a class="card-stretch" href={`/blog/${post.id}`}>{post.data.title}</a></h2>
           <Quiet><p>{post.data.description}</p></Quiet>
           <ul class="tag-list">
             {post.data.tags.map(tag => (
               <li>{tag}</li>
             ))}
           </ul>
-          <a href={`/blog/${post.id}`} class="button button-small button-outline blog-action">Leer artículo →</a>
+          <span class="blog-action" aria-hidden="true">→</span>
         </article>
       ))}
     </div>
