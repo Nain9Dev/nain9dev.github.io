@@ -28,22 +28,12 @@ test('VS-001: explanatory paragraphs are disclosed by an accessible details elem
   assert.match(css, /\.quiet > summary:hover,\s*\.quiet > summary:focus-visible,/, 'keyboard parity');
 });
 
-test('VS-003: the demo gallery shows lazy captures and keeps host and technologies in the markup', async () => {
-  const strip = await read(`${HOME}LiveDemos.astro`);
-  // The 400 px variant is the default; the 640 px capture only where the rendered size asks for it (spec 032 transfer budget).
-  assert.match(strip, /<img class="live-demo-thumb" src=\{demo\.small\} srcset=\{`\$\{demo\.small\} 400w, \$\{demo\.thumbnail\} 640w`\} sizes="\(max-width: 42rem\) 54vw, 12rem" alt="" width="400" height="225" loading="lazy" decoding="async" \/>/);
-  assert.match(strip, /-400\.webp/);
-  assert.match(strip, /<span class="live-demo-host" translate="no">/);
-  assert.match(strip, /<span class="live-demo-tech" translate="no">/);
+test('VS-003 (retired by DF-029): the open-ecosystem tiles keep the capture tile and a hidden note', async () => {
   const css = await read('src/styles/main.css');
-  assert.match(css, /\.live-demos \.live-demo-host,\s*\.live-demos \.live-demo-tech \{[^}]*clip-path: inset\(50%\);/);
-  assert.match(css, /\.live-demos \.live-demo \{[^}]*aspect-ratio: 16 \/ 10;/, 'gallery styles scoped to the strip');
-  // The open-ecosystem tiles share the grid classes but are repositories, not demos: mark plus name, note hidden.
+  assert.doesNotMatch(css, /\.live-demos \./, 'the strip rules left with the strip');
   const ecosystem = await read(`${HOME}OpenEcosystem.astro`);
   assert.match(ecosystem, /<svg class="repo-icon"[^>]*aria-hidden="true"/);
   assert.match(css, /#open-ecosystem \.live-demo-tech \{[^}]*clip-path: inset\(50%\);/);
-  assert.match(css, /scroll-snap-type: x mandatory;/);
-  assert.match(css, /@media \(prefers-reduced-motion: reduce\) \{\s*\.live-demos \.live-demo:hover \.live-demo-thumb/);
 });
 
 test('VS-010: service lists fold behind the toggle and captured project cards keep their summary in the detail', async () => {

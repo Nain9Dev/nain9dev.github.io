@@ -336,14 +336,9 @@ main > .section:not(.hero) {
 }
 
 /* The same for blocks that rule never matched: later service groups, strips and the footer (PERF-021). */
-.live-demos,
 .site-footer {
   content-visibility: auto;
   contain-intrinsic-size: auto 220px;
-}
-
-.live-demos {
-  contain-intrinsic-size: auto 440px;
 }
 
 .section-muted {
@@ -863,29 +858,6 @@ main[tabindex="-1"]:focus {
 .tech-link {
   color: inherit;
   text-decoration: none;
-}
-
-.live-demos {
-  padding-block: clamp(2rem, 4vw, 3rem);
-}
-
-.live-demos-title {
-  display: flex;
-  align-items: center;
-  margin: 0 0 1.25rem;
-  gap: 0.6rem;
-  color: var(--color-text-muted);
-  font-size: 0.8rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.live-dot {
-  width: 0.55rem;
-  height: 0.55rem;
-  border-radius: 50%;
-  background: var(--color-green);
-  box-shadow: 0 0 0 0.25rem color-mix(in srgb, var(--color-green) 18%, transparent);
 }
 
 .live-demos-grid {
@@ -2322,19 +2294,7 @@ html.low-performance [data-parallax="true"] {
   margin-inline: auto;
 }
 
-/* Demo gallery (VS-003): the capture is the tile. */
-.live-demos .live-demos-grid {
-  gap: var(--s3);
-  grid-template-columns: repeat(auto-fill, minmax(11.5rem, 1fr));
-}
-
-.live-demos .live-demo {
-  position: relative;
-  overflow: hidden;
-  padding: 0;
-  aspect-ratio: 16 / 10;
-}
-
+/* Capture tile base, shared with the open-ecosystem tiles. */
 .live-demo-thumb {
   position: absolute;
   inset: 0;
@@ -2344,56 +2304,6 @@ html.low-performance [data-parallax="true"] {
   object-position: top;
   opacity: 0.82;
   transition: transform var(--dur-slow) var(--ease-out-quart), opacity var(--dur-base) var(--ease-standard);
-}
-
-.live-demos .live-demo strong {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: var(--s6) var(--s3) var(--s2);
-  background: linear-gradient(transparent, color-mix(in srgb, var(--color-bg) 94%, transparent) 60%);
-  font-size: var(--text-sm);
-  line-height: 1.25;
-}
-
-.live-demos .live-demo-host,
-.live-demos .live-demo-tech {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip-path: inset(50%);
-  white-space: nowrap;
-}
-
-.live-demos .live-demo:hover .live-demo-thumb,
-.live-demos .live-demo:focus-visible .live-demo-thumb {
-  opacity: 1;
-  transform: scale(1.04);
-}
-
-@media (max-width: 42rem) {
-  .live-demos .live-demos-grid {
-    display: flex;
-    margin-inline: calc(-1 * var(--s3));
-    padding-inline: var(--s3);
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-  }
-
-  .live-demos .live-demos-grid > li {
-    flex: 0 0 54%;
-    scroll-snap-align: start;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .live-demos .live-demo:hover .live-demo-thumb,
-  .live-demos .live-demo:focus-visible .live-demo-thumb {
-    transform: none;
-  }
 }
 
 /* --- Spec 046 PR 7: stack map and method timeline --- */
