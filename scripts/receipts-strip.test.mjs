@@ -42,9 +42,9 @@ test('RC-001: the hero ends with a named list of four receipts, each one link to
     assert.match(item, /rel="noopener noreferrer"/);
     assert.ok(item.indexOf('class="receipt-label"') < item.indexOf('class="receipt-value"'), 'label before value');
   }
-  // The band is appended after the hero grid and its panel, so the existing reading order holds.
+  // The band is appended after the hero grid, so the existing reading order holds.
   const at = (needle) => hero.indexOf(needle);
-  assert.ok(at('class="hero-panel"') < at('class="receipts"'), 'the band follows the hero grid');
+  assert.ok(at('class="hero-copy"') < at('class="receipts"'), 'the band follows the hero grid');
   assert.ok(at('class="receipts"') < hero.lastIndexOf('</section>'), 'the band stays inside the hero section');
 });
 
@@ -89,9 +89,9 @@ test('RC-004: the band requests nothing from a third party', async () => {
 test('RC-005: the band styles use tokens, keep 44 px targets and wrap', async () => {
   const css = await read('src/styles/main.css');
   const start = css.indexOf('.receipts {');
-  assert.ok(start > css.indexOf('.scroll-cue {'), 'the band rules sit with the hero rules');
-  const block = css.slice(start, css.indexOf('.hero-panel {', start));
-  assert.ok(block.length > 0, 'the band block precedes the panel rules');
+  assert.ok(start > css.indexOf('.availability'), 'the band rules sit with the hero rules');
+  const block = css.slice(start, css.indexOf('.proof-icon {', start));
+  assert.ok(block.length > 0, 'the band block precedes the proof rules');
   assert.match(block, /\.receipts \{[^}]*display: flex;[^}]*flex-wrap: wrap;/s);
   assert.match(block, /\.receipts a \{[^}]*min-height: 44px;/s);
   assert.match(block, /\.receipt-label \{[^}]*font-family: var\(--font-mono\);/s);
