@@ -9473,5 +9473,125 @@
     "source": "Ver DSE",
     "target": "See DSE",
     "status": "reviewed"
+  },
+  "cecd0485259d944934335455f04b0d7c273fc7cdc808fc9b09000c83536e185a": {
+    "source": "⟦0/⟧⟦1⟧Servicios⟦/1⟧",
+    "target": "⟦0/⟧⟦1⟧Services⟦/1⟧",
+    "status": "reviewed"
+  },
+  "7f651ac23e716b12dcda6776e575f4550aa6e906c9b7c63a9069eb111b0d6955": {
+    "source": "⟦0/⟧⟦1⟧Proyectos⟦/1⟧",
+    "target": "⟦0/⟧⟦1⟧Projects⟦/1⟧",
+    "status": "reviewed"
+  },
+  "9f20eb1274af63a6ac76f21be029adfe443fb9df42e5ee0bcd87983b95fcab06": {
+    "source": "⟦0/⟧⟦1⟧Blog⟦/1⟧",
+    "target": "⟦0/⟧⟦1⟧Blog⟦/1⟧",
+    "status": "reviewed"
+  },
+  "e430e20fd377cf605d7e2508bf3843f3fcdbdbf19773e693424e92b53a4eef95": {
+    "source": "Más enlaces",
+    "target": "More links",
+    "status": "reviewed"
+  },
+  "197c7a8551b91c79a00295ba8e38d439c7487a84383769cd95dbec9263e0803b": {
+    "source": "Contenido",
+    "target": "Content",
+    "status": "reviewed"
+  },
+  "17c282eff9d3c418a956b0a414ece3b23a9037d4a4d9e2e7288b3146ecf7d97c": {
+    "source": "Tecnología",
+    "target": "Technology",
+    "status": "reviewed"
+  },
+  "eda23e5fe22c8d1cbe14888968f883287ecf2e12f2fddd7dda312dcb9db8e1d0": {
+    "source": "⟦0⟧Backend crítico en Python y .NET⟦/0⟧",
+    "target": "⟦0⟧Critical backend in Python and .NET⟦/0⟧",
+    "status": "reviewed"
+  },
+  "7f655b0030b0c7caef4491722a888f3a9025fa50f71171fd94b1bacad98ac8ca": {
+    "source": "⟦0⟧IA con revisión humana⟦/0⟧",
+    "target": "⟦0⟧AI with human review⟦/0⟧",
+    "status": "reviewed"
+  },
+  "04223a8b308d7347451e40d92ac3433ade14be068bf9848cf69aa99f21b04dd4": {
+    "source": "⟦0⟧Conformidad determinista y 3D⟦/0⟧",
+    "target": "⟦0⟧Deterministic conformance and 3D⟦/0⟧",
+    "status": "reviewed"
+  },
+  "060e87fb8df3ba9aef998526bd64f4e65aabc287303031651dea408d4e09b6fd": {
+    "source": "⟦0⟧Todos los servicios⟦/0⟧",
+    "target": "⟦0⟧All services⟦/0⟧",
+    "status": "reviewed"
+  },
+  "1e7e043ae4c4aca70a3177d9c60bf4b3f0dcce3762ad0694933090a6e2062538": {
+    "source": "⟦0⟧Proyectos⟦/0⟧",
+    "target": "⟦0⟧Projects⟦/0⟧",
+    "status": "reviewed"
+  },
+  "c8ec4372bd20523c12eb806f1173fa9502aba03a0699ce76bfe460e2cbb59039": {
+    "source": "⟦0⟧Blog⟦/0⟧",
+    "target": "⟦0⟧Blog⟦/0⟧",
+    "status": "reviewed"
+  },
+  "3f8049ee71899e98091c5a209ad7a5d0ea6b8376746f71481ceaaf620e754104": {
+    "source": "⟦0⟧Arquitectura Frontend⟦/0⟧",
+    "target": "⟦0⟧Frontend architecture⟦/0⟧",
+    "status": "reviewed"
+  },
+  "585398be18c5550a0053d171b0eea8b7c7a88a15ccec3d259ea3a1a345015121": {
+    "source": "⟦0⟧Cómo trabajo⟦/0⟧",
+    "target": "⟦0⟧How I work⟦/0⟧",
+    "status": "reviewed"
+  },
+  "16931813e483e2e19215d0d77c51e12fee0fe9b09e2bd626ee1d211079527892": {
+    "source": "⟦0⟧Sobre mí⟦/0⟧",
+    "target": "⟦0⟧About me⟦/0⟧",
+    "status": "reviewed"
+  },
+  "0bc9d8be6b818b524f30cc873110ffe3c9471fab18764a866577d2daa463c5f5": {
+    "source": "⟦0⟧Checklist de arquitectura IA⟦/0⟧",
+    "target": "⟦0⟧AI architecture checklist⟦/0⟧",
+    "status": "reviewed"
+  },
+  "2030caaf34c77e962302ea6c4cbcc1c2f0978c0da9212249708f17a0cdcf89f2": {
+    "source": "⟦0⟧C#⟦/0⟧",
+    "target": "⟦0⟧C#⟦/0⟧",
+    "status": "reviewed"
+  },
+  "7485ff55fd9d9ef1a5af6e02d1fe986864247a3e6eab42f8029a928e00c7165a": {
+    "source": "⟦0⟧.NET⟦/0⟧",
+    "target": "⟦0⟧.NET⟦/0⟧",
+    "status": "reviewed"
+  },
+  "524c0040bf596c7373c0a52f020bc662b2c32d4987f90186a1ee54f30042297c": {
+    "source": "⟦0⟧Azure⟦/0⟧",
+    "target": "⟦0⟧Azure⟦/0⟧",
+    "status": "reviewed"
+  },
+  "a52a0d5b569f30308838e59a0a16d537cf1c1e53eb7bb9cf41cbc1128c606a47": {
+    "source": "⟦0⟧Microservicios⟦/0⟧",
+    "target": "⟦0⟧Microservices⟦/0⟧",
+    "status": "reviewed"
+  },
+  "88d0133e671ebd2b53fb7eb1a16f6e83c4d0de08c502379bf1b7da196b0464b9": {
+    "source": "⟦0⟧Arquitectura⟦/0⟧",
+    "target": "⟦0⟧Architecture⟦/0⟧",
+    "status": "reviewed"
+  },
+  "4f153fb5ceb0903e6b56c94925143a1be11004c2201d58cf923ffdd91c4daa85": {
+    "source": "© ⟦0/⟧ NainDev · Analítica sin cookies",
+    "target": "© ⟦0/⟧ NainDev · Cookie-free analytics",
+    "status": "reviewed"
+  },
+  "0f0b5ce45fd9978cc50f464e48b64c2d180df652bd4a6aba3b6ddc2f3a210902": {
+    "source": "© ⟦0⟧2026⟦/0⟧ NainDev · Analítica sin cookies",
+    "target": "© ⟦0⟧2026⟦/0⟧ NainDev · Cookie-free analytics",
+    "status": "reviewed"
+  },
+  "b365e53d7fbb83b1f22234eaa7c2e341cc7e269dcc290c41dda111a07c2ddff0": {
+    "source": "⟦0⟧⟦1/⟧⟦2⟧Estado del servicio⟦/2⟧⟦/0⟧⟦3⟧Privacidad⟦/3⟧⟦4⟧Volver arriba⟦/4⟧",
+    "target": "⟦0⟧⟦1/⟧⟦2⟧Service status⟦/2⟧⟦/0⟧⟦3⟧Privacy⟦/3⟧⟦4⟧Back to top⟦/4⟧",
+    "status": "reviewed"
   }
 }

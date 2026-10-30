@@ -38,17 +38,17 @@ test('DF-004: the header brand is the isotype as inline SVG coloured by --color-
 
 test('DF-005: the wordmark is published only as a vector and draws the kit geometry; the old raster logo is gone', async () => {
   assert.equal(existsSync(join(ROOT, 'src/assets/images/logo_horizontal.png')), false, 'the old 1600 px logo is removed');
-  const header = await read('src/components/Header.astro');
-  const wordmark = header.match(/<svg class="brand-wordmark"[\s\S]*?<\/svg>/)?.[0] ?? '';
   const kit = await read('design/brand/wordmark-green.svg');
   const paths = [...kit.matchAll(/ d="([^"]+)"/g)].map((match) => match[1]);
   assert.ok(paths.length >= 4);
-  for (const d of paths) assert.ok(wordmark.includes(` d="${d}"`), 'the header draws the same path as design/brand/wordmark-green.svg');
-  assert.match(wordmark, /fill="currentColor"/);
-  assert.match(wordmark, /stroke="currentColor"/);
-  for (const file of ['src/components/Footer.astro', 'src/layouts/BaseLayout.astro']) {
-    assert.doesNotMatch(await read(file), /wordmark|logo_horizontal/i, file);
+  // The header and the footer (DF-021) draw the wordmark; both use the kit geometry in the current colour.
+  for (const [file, svgClass] of [['src/components/Header.astro', 'brand-wordmark'], ['src/components/Footer.astro', 'footer-wordmark']]) {
+    const wordmark = (await read(file)).match(new RegExp(`<svg class="${svgClass}"[\\s\\S]*?</svg>`))?.[0] ?? '';
+    for (const d of paths) assert.ok(wordmark.includes(` d="${d}"`), `${file} draws the same path as design/brand/wordmark-green.svg`);
+    assert.match(wordmark, /fill="currentColor"/);
+    assert.match(wordmark, /stroke="currentColor"/);
   }
+  assert.doesNotMatch(await read('src/layouts/BaseLayout.astro'), /wordmark|logo_horizontal/i, 'the layout');
 });
 
 test('DF-006: the SVG mark and the icons use the designer geometry on the deep blue tile', async () => {

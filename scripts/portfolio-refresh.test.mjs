@@ -240,16 +240,16 @@ test('VIS-010: page titles stay readable and the service detail page has no inli
   assert.doesNotMatch(detail, /style=/);
 });
 
-test('VIS-009: the footer shows specialties as chips and the services index has no inline styles', async () => {
+test('VIS-009: the footer shows its columns (DF-021 replaced the specialty chips) and the services index has no inline styles', async () => {
   const footer = await read('src/components/Footer.astro');
   // The status dot colour moved to the green token in spec 045, so the footer has no inline style left.
   assert.equal(footer.match(/style=/g)?.length ?? 0, 0, 'the footer has no inline style');
-  assert.match(footer, /class="footer-chip"/);
+  assert.match(footer, /class="footer-column"/);
   assert.match(footer, /class="status-pill"/);
   const services = await read('src/pages/servicios/index.astro');
   assert.doesNotMatch(services, /style=/);
   const css = (await read('src/styles/main.css')) + '\n' + (await read('src/styles/inner-pages.css')); // inner-page rules moved (specs/050-work-pages IS-001)
-  assert.match(css, /\.footer-chip\s*\{/);
+  assert.match(css, /\.footer-columns\s*\{/);
   assert.match(css, /\.status-pill\s*\{/);
   assert.match(css, /\.page-cta\s*\{/);
 });
