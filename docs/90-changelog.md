@@ -9,6 +9,10 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 - The footer "Escribirme un mensaje" now links `/contacto/` (it linked the home section) and the contact page is the one that carries the copy button for the footer's visitors; DF-024 adds the page: free call, copy-email button and LinkedIn, in both languages, no WhatsApp.
 - The footer column Contacto printed the public address and linked it with `mailto:`, which MAIL-006 forbids on the home; it now links the contact section ("Escribirme un mensaje"), where the copy button lives. The MAIL-006 guard covers the footer, header, hero and products band.
 
+### Changed
+
+- Next-design-fusion DF-030: the products band links the public Contrast Viewer site (`viewer.contrast3dhub.com`) instead of "Web pública en preparación"; B-022 is resolved.
+
 ### Removed
 
 - Next-design-fusion DF-029: the live-demos strip left the home; its demos stay in selected work, the featured catalog and `/proyectos/`.

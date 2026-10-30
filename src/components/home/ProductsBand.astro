@@ -1,10 +1,9 @@
 ---
 // ProductsBand.astro: the products built with Contrast3D, each with its own public site
-// (specs/next-projects-route, NPR-005 to NPR-007). The Contrast Viewer link stays off until viewer.contrast3d.com
-// answers 200 (blocker B-022); no page of this site links the gated app host or any Contrast Hub host.
+// (specs/next-projects-route, NPR-005 to NPR-007). The Contrast Viewer card links its public commercial site
+// (owner decision of 2026-10-30, OQ-018); no page of this site links the gated app host or any other Contrast Hub host.
 import Quiet from './Quiet.astro';
 
-const viewerSiteLive = false;
 ---
 <section class="section" id="products" aria-labelledby="products-title">
   <div class="shell">
@@ -26,9 +25,7 @@ const viewerSiteLive = false;
       <article class="service-card" data-reveal>
         <h3><span translate="no">Contrast Viewer</span> · Visor 3D para la web</h3>
         <p>Componente web que muestra modelos 3D con vistas despiezadas y puntos de interés, listo para integrar en una página.</p>
-        {viewerSiteLive
-          ? <a class="card-link" href="https://viewer.contrast3d.com/" target="_blank" rel="noopener noreferrer" translate="no">viewer.contrast3d.com ↗</a>
-          : <p class="card-note">Web pública en preparación.</p>}
+        <a class="card-link" href="https://viewer.contrast3dhub.com/" target="_blank" rel="noopener noreferrer" translate="no">viewer.contrast3dhub.com ↗</a>
       </article>
 
       <article class="service-card" data-reveal>

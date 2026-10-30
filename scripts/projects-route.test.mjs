@@ -100,26 +100,27 @@ test('NPR-001: the client renderer shows only the selection when the grid says s
 });
 
 // Step 3a (NPR-005 to NPR-007): the products band promotes DSE and Contrast Viewer and names Contrast Hub.
-test('NPR-005: the products band follows the catalog, links DSE and the studio, and shows no viewer link before its site exists', async () => {
+test('NPR-005: the products band follows the catalog, links DSE, the Viewer site and the studio', async () => {
   const source = await read('src/components/home/ProductsBand.astro');
-  assert.match(source, /const viewerSiteLive = false;/, 'the viewer link waits for viewer.contrast3d.com (B-022)');
+  assert.doesNotMatch(source, /viewerSiteLive/, 'the viewer link is permanent (OQ-018)');
   for (const [file, studio] of [['dist/index.html', 'Contrast3D'], ['dist/en/index.html', 'Contrast3D']]) {
     const home = await read(file);
     const band = home.match(/<section[^>]*id="products"[\s\S]*?<\/section>/)?.[0] ?? '';
     assert.equal((band.match(/<article class="service-card"/g) ?? []).length, 3, `${file}: DSE, Contrast Viewer and Contrast Hub`);
     assert.ok(band.includes('href="https://datumstatutum.com/"'), `${file}: DSE link`);
     assert.ok(band.includes('href="https://www.contrast3d.com/"') && band.includes(studio), `${file}: studio credit`);
-    assert.ok(!band.includes('viewer.contrast3d.com'), `${file}: no viewer link yet`);
+    assert.ok(band.includes('href="https://viewer.contrast3dhub.com/"'), `${file}: Viewer site link`);
     assert.ok(home.indexOf('id="projects"') < home.indexOf('id="products"') && home.indexOf('id="products"') < home.indexOf('id="open-ecosystem"'), `${file}: after the projects, before the open ecosystem`);
   }
 });
 
-test('NPR-005: no page links the gated viewer app or any Contrast Hub host', async () => {
+test('NPR-005: no page links the gated viewer app or any Contrast Hub host except the public Viewer site', async () => {
+  const otherHub = (text) => text.replaceAll('viewer.contrast3dhub.com', '');
   for (const file of ['dist/index.html', 'dist/en/index.html', 'dist/proyectos/index.html']) {
-    assert.doesNotMatch(await read(file), /contrast3dhub\.com/i, file);
+    assert.doesNotMatch(otherHub(await read(file)), /contrast3dhub\.com/i, file);
   }
   for (const file of ['src/components/home/ProductsBand.astro', 'public/assets/data/projects.json']) {
-    assert.doesNotMatch(await read(file), /contrast3dhub\.com/i, file);
+    assert.doesNotMatch(otherHub(await read(file)), /contrast3dhub\.com/i, file);
   }
 });
 
