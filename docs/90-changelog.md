@@ -6,6 +6,7 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ### Added
 
+- Next-design-fusion DF-019: the language switch shows the short codes ES and EN in the mono face, keeping 44 px targets and the full language name as the accessible name; built by `scripts/build-locales.mjs` on every page of both languages.
 - Next-design-fusion DF-017: `/servicios/` and `/en/services/` show the designer's agenda diagram after the heading, as thirteen round-capped strokes in the stroke colour that draw in once without a reduced-motion preference and never loop; phones skip it. The home is unchanged.
 - Next-projects-route step 3b (NPR-003, NPR-004, NPR-006): the seven 3D projects carry `bridge: true` and leave `/proyectos/` and the client catalog, where one row "Productos 3D: DSE y Contrast Viewer" stands for them; Nain3D and ParametriCAD stay as selected work and every 3D URL stays in the sitemap; the hero summary and the first service card point to DSE, and the Nain3D page says it is the original demo of the work now published as DSE (texts approved by the owner on 2026-10-29). COPY-009 and the confidential-name guard are amended because DSE is now public.
 - Next-design-fusion T07d: the header shows the isotype with the vector wordmark in the theme's logo colour from 48 rem up, the isotype alone on phones; the text name is removed and the guard compares the header paths with `design/brand/wordmark-green.svg`.
