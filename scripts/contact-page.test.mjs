@@ -38,7 +38,7 @@ test('DF-024: the approved texts, three ways to reach the owner and nothing else
   ]) assert.ok(es.includes(sentence), sentence);
   const en = text(await read('dist/en/contact/index.html'));
   assert.match(en, /A 30-minute call to look at your case/);
-  assert.match(en, /Book a free call/);
+  assert.match(en, /Schedule a free call/, 'the site-wide English wording of the call button');
   assert.match(en, /Copy email/);
 });
 
