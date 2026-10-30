@@ -4,6 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Quiet from '../../components/home/Quiet.astro';
 import Dimension from '../../components/home/Dimension.astro';
 import ServiceIcon from '../../components/ServiceIcon.astro';
+import ServicesDiagram from '../../components/ServicesDiagram.astro';
 import '../../styles/inner.css';
 
 const servicios = await getCollection('servicios', ({ data }) => data.draft !== true);
@@ -56,6 +57,8 @@ if (unassigned.length > 0) groups.push({ title: 'Otros servicios', items: unassi
         </div>
         <Quiet><p>Soluciones arquitectónicas de alto nivel para problemas complejos. Ayudo a empresas B2B e industrias técnicas a escalar sus plataformas de forma segura y determinista.</p></Quiet>
       </div>
+
+      <ServicesDiagram />
 
       {groups.map((group, index) => (
         <section class="service-group" aria-labelledby={`service-group-${index}`}>
