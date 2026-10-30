@@ -11,6 +11,7 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ### Changed
 
+- Next-design-fusion DF-032: each service card on `/servicios/` is now one link (stretched title anchor and an arrow) instead of carrying its own "Ver detalles" button.
 - Next-design-fusion DF-031: the Contrast3D x NainDev collaboration is now a row of two chips at the end of the products band (descriptions behind "+"), the three product cards lead with icons, and the standalone collaboration section and the credit line below the cards are removed.
 - Next-design-fusion DF-030: the products band links the public Contrast Viewer site (`viewer.contrast3dhub.com`) instead of "Web pública en preparación"; B-022 is resolved.
 
