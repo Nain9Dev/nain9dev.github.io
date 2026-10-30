@@ -1,12 +1,12 @@
 ---
 // Footer.astro
+// The brand on top, four short columns and one legal line (specs/next-design-fusion, DF-021). The links that left
+// the top bar (DF-018) live in the Contenido column.
 import { getTechnologyHref } from '../utils/technologyRoutes';
 
-const specialtyTechnologies = [
+const technologies = [
   { name: 'C#', label: 'C#' },
   { name: '.NET', label: '.NET' },
-  { name: 'Three.js', label: 'Three.js' },
-  { name: 'ONNX', label: 'ONNX' },
   { name: 'Azure', label: 'Azure' },
   { name: 'Microservicios', label: 'Microservicios' },
   { name: 'Arquitectura de Software', label: 'Arquitectura' }
@@ -14,32 +14,75 @@ const specialtyTechnologies = [
 ---
 
 <footer class="site-footer">
-  <div class="shell footer-specialties" data-nosnippet>
-    <h2 class="footer-title">Especialidades Técnicas</h2>
-    <div class="footer-chips">
-      {specialtyTechnologies.map(technology => (
-        <a class="footer-chip" href={getTechnologyHref(technology.name)}>{technology.label}</a>
-      ))}
-    </div>
+  <div class="shell footer-top" data-nosnippet>
+    <a class="footer-brand" href="/#top" aria-label="NainDev, volver al inicio">
+      <svg class="footer-mark" viewBox="91 91 818 818" aria-hidden="true" focusable="false">
+        <path d="M148 148V848M308 288L686 738M848 148V848" />
+      </svg>
+      <svg class="footer-wordmark" viewBox="0 0 423 38" aria-hidden="true" focusable="false">
+        <defs><clipPath id="footer-wordmark-clip"><rect x="0" y="2.36" width="423" height="32.97" /></clipPath></defs>
+        <g clip-path="url(#footer-wordmark-clip)" fill="currentColor" stroke="none">
+          <path d="M3.02 0H7.92V40H3.02ZM33.83 0H38.73V40H33.83ZM181.3 0H186.2V40H181.3ZM212.15 0H217.05V40H212.15ZM142.85 0H147.75V40H142.85ZM320.5 0H325.4V40H320.5ZM320.5 2.36H349.9V5.7H320.5ZM320.5 15.88H345.7V19.37H320.5ZM320.5 31.8H349.9V35.33H320.5ZM249.55 0H254.45V40H249.55Z" />
+          <path fill-rule="evenodd" d="M249.55 2.36H268C282.5 2.36 289.85 10 289.85 18.7C289.85 27.4 282.5 35.33 268 35.33H249.55ZM254.45 5.7H267C277 5.7 284.9 11 284.9 18.7C284.9 26.4 277 32 267 32H254.45Z" />
+        </g>
+        <g clip-path="url(#footer-wordmark-clip)" fill="none" stroke="currentColor" stroke-linejoin="miter" stroke-miterlimit="10">
+          <path stroke-width="4.5" d="M5.72 2.36L37.1 35.33M184.0 2.36L215.4 35.33" />
+          <path stroke-width="4.6" d="M72.1 35.33L90.53 1.19L108.9 35.33" />
+          <path stroke-width="4.6" d="M382.09 1.2L400.36 35.4L418.76 1.2" />
+        </g>
+      </svg>
+    </a>
   </div>
 
   <div class="shell" data-nosnippet>
-    <nav class="footer-nav" aria-label="Más enlaces">
-      <a href="/servicios/arquitectura-frontend-alto-rendimiento/">Arquitectura Frontend</a>
-      <a href="/#method">Cómo trabajo</a>
-      <a href="/#about">Sobre mí</a>
-      <a href="/blog/">Blog</a>
-    </nav>
+  <nav class="footer-columns footer-nav" aria-label="Más enlaces">
+    <div class="footer-column">
+      <h2 class="footer-title">Servicios</h2>
+      <ul>
+        <li><a href="/servicios/sistemas-criticos-dotnet/">Backend crítico en Python y .NET</a></li>
+        <li><a href="/servicios/arquitectura-ia-generativa/">IA con revisión humana</a></li>
+        <li><a href="/servicios/validacion-3d/">Conformidad determinista y 3D</a></li>
+        <li><a href="/servicios/">Todos los servicios</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h2 class="footer-title">Contenido</h2>
+      <ul>
+        <li><a href="/proyectos/">Proyectos</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/servicios/arquitectura-frontend-alto-rendimiento/">Arquitectura Frontend</a></li>
+        <li><a href="/#method">Cómo trabajo</a></li>
+        <li><a href="/#about">Sobre mí</a></li>
+        <li><a class="footer-checklist" href="/recursos/checklist-ia" data-calendly-track="footer">Checklist de arquitectura IA</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h2 class="footer-title">Tecnología</h2>
+      <ul>
+        {technologies.map(technology => (
+          <li><a href={getTechnologyHref(technology.name)}>{technology.label}</a></li>
+        ))}
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h2 class="footer-title">Contacto</h2>
+      <ul>
+        <li><a href="https://calendly.com/aitornainmendozavallejo-ksez/30min" target="_blank" rel="noopener noreferrer">Agendar llamada gratuita</a></li>
+        <li><a href="mailto:contact@naindev.com" translate="no">contact@naindev.com</a></li>
+        <li><a href="https://www.linkedin.com/in/aitor-nain-mendoza-vallejo/" target="_blank" rel="noopener noreferrer" translate="no">LinkedIn</a></li>
+        <li><a href="https://github.com/Nain9Dev" target="_blank" rel="noopener noreferrer" translate="no">GitHub</a></li>
+      </ul>
+    </div>
+  </nav>
   </div>
 
   <div class="shell footer-layout" data-nosnippet>
-    <p>© <span data-current-year>2026</span> NainDev. Analytics privacy-first integradas (0% cookies). Sin dependencias de terceros que rastreen datos personales.</p>
+    <p>© <span data-current-year>2026</span> NainDev · Analítica sin cookies</p>
     <div class="footer-links">
       <a class="status-pill" href="https://status.naindev.com/" target="_blank" rel="noopener noreferrer" title="Ver monitor público de disponibilidad y latencia">
         <span aria-hidden="true" class="status-dot"></span>
         <span>Estado del servicio</span>
       </a>
-      <a class="footer-checklist" href="/recursos/checklist-ia" data-calendly-track="footer">📥 Checklist Arquitectura IA</a>
       <a href="/privacidad">Privacidad</a>
       <a href="#top">Volver arriba</a>
     </div>

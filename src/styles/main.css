@@ -491,14 +491,6 @@ main[tabindex="-1"]:focus {
   stroke-width: 1.9;
 }
 
-/* The links that left the bar sit in a quiet row above the footer line. */
-.footer-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--s2) var(--s5);
-  padding-block: var(--s4) 0;
-}
-
 /* Signature sweep: a green line draws from the left on hover and keyboard focus, and stays for the current section. */
 .primary-navigation a::after {
   position: absolute;
@@ -1652,10 +1644,61 @@ main[tabindex="-1"]:focus {
   background: var(--brand-deep);
 }
 
-.footer-specialties {
+/* The brand on top and four short columns (specs/next-design-fusion, DF-021). */
+.footer-top {
+  margin-bottom: var(--s8);
+}
+
+.site-footer a.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  color: var(--color-ink);
+}
+
+.footer-mark {
+  display: block;
+  width: 2.6rem;
+  height: 2.6rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 113;
+  stroke-linecap: round;
+}
+
+.footer-wordmark {
+  display: block;
+  width: auto;
+  height: 1rem;
+  aspect-ratio: 423 / 38;
+}
+
+.footer-columns {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--s8) var(--s6);
   margin-bottom: var(--s8);
   padding-bottom: var(--s8);
   border-bottom: 1px solid var(--color-line);
+}
+
+.footer-column ul {
+  display: grid;
+  gap: var(--s2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-column a {
+  display: inline-block;
+  min-height: 24px;
+}
+
+@media (max-width: 48rem) {
+  .footer-columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .footer-title {
@@ -1669,37 +1712,11 @@ main[tabindex="-1"]:focus {
   text-transform: uppercase;
 }
 
-.footer-chips,
 .footer-links {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 0.6rem 1.5rem;
-}
-
-.footer-chips {
-  gap: 0.6rem;
-}
-
-.site-footer a.footer-chip {
-  display: inline-flex;
-  align-items: center;
-  min-height: 2.25rem;
-  padding: 0.4rem 0.85rem;
-  border: 1px solid var(--color-line-strong);
-  border-radius: var(--radius-pill);
-  font-size: 0.85rem;
-  transition:
-    border-color var(--dur-fast) var(--ease-standard),
-    color var(--dur-fast) var(--ease-standard),
-    transform var(--dur-base) var(--ease-standard);
-}
-
-.site-footer a.footer-chip:hover,
-.site-footer a.footer-chip:focus-visible {
-  border-color: var(--color-green);
-  color: var(--color-ink);
-  transform: translateY(-2px);
 }
 
 /* Plain footer links draw the same green underline as the navigation. */

@@ -6,6 +6,7 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ### Added
 
+- Next-design-fusion DF-021: the footer shows the brand and four short columns (Servicios, Contenido, Tecnología, Contacto) with one legal line, in both languages; the specialty chips, the emoji and the long legal sentence are gone.
 - Next-design-fusion DF-018: the top bar has three links (Servicios, Proyectos, Blog), each a stroke icon and one word, with the current section marked; Arquitectura Frontend, Cómo trabajo and Sobre mí move to a footer navigation, in both languages.
 - Next-design-fusion DF-017: `/servicios/` and `/en/services/` show the designer's agenda diagram after the heading, as thirteen round-capped strokes in the stroke colour that draw in once without a reduced-motion preference and never loop; phones skip it. The home is unchanged.
 - Next-projects-route step 3b (NPR-003, NPR-004, NPR-006): the seven 3D projects carry `bridge: true` and leave `/proyectos/` and the client catalog, where one row "Productos 3D: DSE y Contrast Viewer" stands for them; Nain3D and ParametriCAD stay as selected work and every 3D URL stays in the sitemap; the hero summary and the first service card point to DSE, and the Nain3D page says it is the original demo of the work now published as DSE (texts approved by the owner on 2026-10-29). COPY-009 and the confidential-name guard are amended because DSE is now public.
