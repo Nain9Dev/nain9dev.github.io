@@ -1053,6 +1053,40 @@ main[tabindex="-1"]:focus {
   transform: translateY(-3px);
 }
 
+/* Flow diagram of a service card (DF-027): strokes in the stroke colour, the result in green, drawn once. */
+.flow {
+  display: block;
+  width: auto;
+  height: 3.5rem;
+  margin-bottom: 1.5rem;
+  fill: none;
+  stroke: var(--color-primary-strong);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.5;
+}
+
+.flow .ok {
+  stroke: var(--color-green);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.low-performance) .flow > * {
+    stroke-dasharray: 1;
+    animation: flow-draw 800ms var(--ease-out-quart) backwards;
+  }
+
+  html:not(.low-performance) .flow > :nth-child(2) { animation-delay: 90ms; }
+  html:not(.low-performance) .flow > :nth-child(3) { animation-delay: 180ms; }
+  html:not(.low-performance) .flow > :nth-child(n + 4) { animation-delay: 270ms; }
+}
+
+@keyframes flow-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+}
+
 .card-link {
   display: inline-block;
   min-height: 24px;
