@@ -14,7 +14,7 @@ import '../../styles/inner.css';
         <div>
           <p class="eyebrow">Portfolio</p>
           <h1>Proyectos y demos</h1>
-          <Dimension count={projects.length} unit="proyectos" />
+          <Dimension count={projects.filter((project) => !project.bridge).length} unit="proyectos" />
         </div>
         <Quiet><p>Indico el estado real de cada proyecto. Los privados se describen solo por arquitectura y stack, sin nombres ni datos de clientes.</p></Quiet>
       </div>

@@ -70,7 +70,7 @@ function finishPage(html, spanishURL, englishURL, language, indexable) {
     const label = language === 'en-US' ? 'Language' : 'Idioma';
     const spanishPath = new URL(spanishURL).pathname;
     const errorPage = /^\/404(?:\.html)?\/?$/.test(spanishPath);
-    addChildren(actions, `<nav class="language-switcher" aria-label="${label}" translate="no"><a href="${escapeAttribute(errorPage ? '/' : spanishPath)}" lang="es-ES" hreflang="es"${language === 'es-ES' ? ' aria-current="page"' : ''}>Español</a><a href="${escapeAttribute(errorPage ? '/en/' : new URL(englishURL).pathname)}" lang="en-US" hreflang="en"${language === 'en-US' ? ' aria-current="page"' : ''}>English</a></nav>`);
+    addChildren(actions, `<nav class="language-switcher" aria-label="${label}" translate="no"><a href="${escapeAttribute(errorPage ? '/' : spanishPath)}" lang="es-ES" hreflang="es"${language === 'es-ES' ? ' aria-current="page"' : ''} aria-label="Español">ES</a><a href="${escapeAttribute(errorPage ? '/en/' : new URL(englishURL).pathname)}" lang="en-US" hreflang="en"${language === 'en-US' ? ' aria-current="page"' : ''} aria-label="English">EN</a></nav>`);
     header.childNodes.push(actions);
   }
   if (preview) {

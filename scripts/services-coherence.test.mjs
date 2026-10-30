@@ -27,7 +27,7 @@ async function cards() {
 test('COPY-015: the first service card describes multi-domain conformance', async () => {
   const [first] = await cards();
   assert.match(first, /conformidad determinista/i);
-  assert.match(first, /primer dominio/i);
+  assert.match(first, /primer producto es DSE/i);
   assert.match(first, /glTF\/GLB/);
   assert.doesNotMatch(first, /USD|tiempo real/i);
 });
