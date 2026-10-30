@@ -4,6 +4,10 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ## [Unreleased]
 
+### Fixed
+
+- The footer column Contacto printed the public address and linked it with `mailto:`, which MAIL-006 forbids on the home; it now links the contact section ("Escribirme un mensaje"), where the copy button lives. The MAIL-006 guard covers the footer, header, hero and products band.
+
 ### Added
 
 - Next-design-fusion DF-022: the header mark draws itself once at load and section titles are uncovered by a mask once as their head comes into view, only without a reduced-motion preference and not on low-performance devices; no loop, nothing hidden at rest.
