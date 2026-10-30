@@ -1,18 +1,17 @@
 ---
 // OpenEcosystem.astro: public repositories that are not products (spec next-portfolio-ecosystem-hero, ECO-020).
-// Each tile shows a capture of the live site when the repository publishes one, otherwise of its README on GitHub,
-// and links the site when there is one while a chip keeps the repository link (spec next-portfolio-coverage, ECO-022, ECO-023).
-// Every tile now has a site: the project pages of spec next-project-sites (ECO-025).
+// One row of chips: the repository mark and name link the project site, a small chip keeps the repository link
+// (spec next-portfolio-coverage, ECO-023); the note stays in the markup, visually hidden (DF-034).
+// Every repository has a site: the project pages of spec next-project-sites (ECO-025).
 import Quiet from './Quiet.astro';
-const repositories: { name: string; note: string; thumbnail: string; site?: string }[] = [
-  { name: 'engineering-handbook', note: 'Manual de ingeniería: arquitectura limpia, validación determinista y pruebas.', site: 'https://handbook.naindev.com/', thumbnail: '/assets/images/demos/engineering-handbook.webp' },
-  { name: 'template-dotnet-clean-arch', note: 'Plantilla full stack con .NET, Vue 3 y Docker Compose.', site: 'https://template-dotnet.naindev.com/', thumbnail: '/assets/images/demos/template-dotnet-clean-arch.webp' },
-  { name: 'template-fastapi-vue-clean-arch', note: 'Plantilla full stack con FastAPI, Vue 3 y Docker Compose.', site: 'https://template-fastapi.naindev.com/', thumbnail: '/assets/images/demos/template-fastapi-vue-clean-arch.webp' },
-  { name: 'brandbook', note: 'Sistema de diseño y manual de marca de NainDev.', site: 'https://brand.naindev.com/', thumbnail: '/assets/images/demos/brandbook.webp' },
-  { name: 'status', note: 'Estado y latencia de los servicios públicos.', site: 'https://status.naindev.com/', thumbnail: '/assets/images/demos/status.webp' },
-  { name: '.github', note: 'Estándares de ingeniería y flujos de CI reutilizables.', site: 'https://standards.naindev.com/', thumbnail: '/assets/images/demos/dot-github.webp' },
+const repositories: { name: string; note: string; site: string }[] = [
+  { name: 'engineering-handbook', note: 'Manual de ingeniería: arquitectura limpia, validación determinista y pruebas.', site: 'https://handbook.naindev.com/' },
+  { name: 'template-dotnet-clean-arch', note: 'Plantilla full stack con .NET, Vue 3 y Docker Compose.', site: 'https://template-dotnet.naindev.com/' },
+  { name: 'template-fastapi-vue-clean-arch', note: 'Plantilla full stack con FastAPI, Vue 3 y Docker Compose.', site: 'https://template-fastapi.naindev.com/' },
+  { name: 'brandbook', note: 'Sistema de diseño y manual de marca de NainDev.', site: 'https://brand.naindev.com/' },
+  { name: 'status', note: 'Estado y latencia de los servicios públicos.', site: 'https://status.naindev.com/' },
+  { name: '.github', note: 'Estándares de ingeniería y flujos de CI reutilizables.', site: 'https://standards.naindev.com/' },
 ];
-const small = (thumbnail: string) => thumbnail.replace(/\.webp$/, '-400.webp');
 ---
 <section class="section" id="open-ecosystem" aria-labelledby="open-ecosystem-title">
   <div class="shell">
@@ -23,17 +22,15 @@ const small = (thumbnail: string) => thumbnail.replace(/\.webp$/, '-400.webp');
       </div>
       <Quiet><p>Plantillas, estándares y herramientas que uso en todos mis proyectos.</p></Quiet>
     </div>
-    <ul class="live-demos-grid">
+    <ul class="eco-chips">
       {repositories.map((repository) => (
-        <li>
-          <a class="live-demo" href={repository.site ?? `https://github.com/Nain9Dev/${repository.name}`} target="_blank" rel="noopener noreferrer">
-            <img class="live-demo-thumb" src={small(repository.thumbnail)} srcset={`${small(repository.thumbnail)} 400w, ${repository.thumbnail} 640w`} sizes="(max-width: 42rem) 54vw, 12rem" alt="" width="400" height="225" loading="lazy" decoding="async" />
+        <li class="eco-chip">
+          <a class="eco-chip-main" href={repository.site} target="_blank" rel="noopener noreferrer">
             <svg class="repo-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="6" cy="5" r="2" /><circle cx="6" cy="19" r="2" /><circle cx="18" cy="9" r="2" /><path d="M6 7v10M18 11c0 3-3 4-6 4H9" /></svg>
             <strong translate="no">{repository.name}</strong>
-            <span class="live-demo-host" translate="no">{repository.site ? new URL(repository.site).hostname : 'github.com'}</span>
-            <span class="live-demo-tech">{repository.note}</span>
           </a>
-          {repository.site && <a class="repo-code" href={`https://github.com/Nain9Dev/${repository.name}`} target="_blank" rel="noopener noreferrer" translate="no">GitHub</a>}
+          <p class="eco-note">{repository.note}</p>
+          <a class="repo-code" href={`https://github.com/Nain9Dev/${repository.name}`} target="_blank" rel="noopener noreferrer" translate="no">GitHub</a>
         </li>
       ))}
     </ul>

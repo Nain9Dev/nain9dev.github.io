@@ -859,48 +859,6 @@ main[tabindex="-1"]:focus {
   text-decoration: none;
 }
 
-.live-demos-grid {
-  display: grid;
-  margin: 0;
-  padding: 0;
-  gap: 0.85rem;
-  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
-  list-style: none;
-}
-
-.live-demo {
-  display: grid;
-  height: 100%;
-  padding: 1rem 1.1rem;
-  gap: 0.2rem;
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius);
-  background: var(--color-surface);
-  color: inherit;
-  text-decoration: none;
-  transition:
-    transform var(--dur-base) var(--ease-standard),
-    box-shadow var(--dur-base) var(--ease-standard),
-    border-color var(--dur-fast) var(--ease-standard);
-}
-
-.live-demo:hover,
-.live-demo:focus-visible {
-  border-color: var(--color-green);
-  box-shadow: var(--shadow-raised);
-  transform: translate(-2px, -2px);
-}
-
-.live-demo-host {
-  color: var(--color-primary-strong);
-  font-size: 0.8rem;
-}
-
-.live-demo-tech {
-  color: var(--color-text-muted);
-  font-size: 0.75rem;
-}
-
 .section-heading {
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(17rem, 0.75fr);
@@ -2321,18 +2279,6 @@ html.low-performance [data-parallax="true"] {
   margin-inline: auto;
 }
 
-/* Capture tile base, shared with the open-ecosystem tiles. */
-.live-demo-thumb {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
-  opacity: 0.82;
-  transition: transform var(--dur-slow) var(--ease-out-quart), opacity var(--dur-base) var(--ease-standard);
-}
-
 /* Catalog gate of the home (DF-033): six captures and one button, the whole block is the link. */
 .catalog-gate {
   display: grid;
@@ -2532,66 +2478,56 @@ html.low-performance [data-parallax="true"] {
   margin-top: var(--s3);
 }
 
-/* Open ecosystem tiles: a capture of the site or of the README, the repository mark as a corner badge and the
-   name over a gradient; the host and the note stay in the markup, visually hidden (spec next-portfolio-coverage). */
-#open-ecosystem .live-demo {
-  position: relative;
-  display: block;
-  overflow: hidden;
+/* Open ecosystem chips (DF-034): the repository mark and name link the site, a small chip links the code; the note
+   stays in the markup, visually hidden. */
+.eco-chips {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
   padding: 0;
-  aspect-ratio: 16 / 10;
+  gap: var(--s3);
+  list-style: none;
 }
 
-/* README and site captures are left-aligned documents: anchor them to the top-left corner so the 16:10 tile
-   crops the right side, never the first letters. The repository mark sits in the bottom-right corner. */
-#open-ecosystem .live-demo-thumb {
-  object-position: left top;
-}
-
-.repo-icon {
-  position: absolute;
-  right: var(--s3);
-  bottom: var(--s3);
-  width: 1.75rem;
-  height: 1.75rem;
-  padding: 0.3rem;
+.eco-chip {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: var(--s2) var(--s3) var(--s2) var(--s4);
+  gap: var(--s3);
+  border: 1px solid var(--color-line);
   border-radius: var(--radius);
-  background: color-mix(in srgb, var(--color-bg) 85%, transparent);
-  fill: none;
-  stroke: var(--color-link);
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 2;
-  transition: stroke var(--dur-fast) var(--ease-standard);
+  background: var(--color-surface);
+  transition:
+    transform var(--dur-base) var(--ease-standard),
+    box-shadow var(--dur-base) var(--ease-standard),
+    border-color var(--dur-fast) var(--ease-standard);
 }
 
-#open-ecosystem .live-demo:hover .repo-icon,
-#open-ecosystem .live-demo:focus-visible .repo-icon {
-  stroke: var(--color-green);
+.eco-chip:hover,
+.eco-chip:focus-within {
+  border-color: var(--color-green);
+  box-shadow: var(--shadow-raised);
+  transform: translate(-2px, -2px);
 }
 
-#open-ecosystem .live-demo strong {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  padding: var(--s6) var(--s3) var(--s2);
-  background: linear-gradient(transparent, color-mix(in srgb, var(--color-bg) 94%, transparent) 60%);
+.eco-chip-main {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  gap: var(--s2);
+  color: inherit;
+  text-decoration: none;
+}
+
+.eco-chip strong {
   font-family: var(--font-mono);
   font-size: var(--text-sm);
   font-weight: 600;
-  line-height: 1.25;
   overflow-wrap: anywhere;
 }
 
-#open-ecosystem .live-demo:hover .live-demo-thumb,
-#open-ecosystem .live-demo:focus-visible .live-demo-thumb {
-  opacity: 1;
-  transform: scale(1.04);
-}
-
-#open-ecosystem .live-demo-host,
-#open-ecosystem .live-demo-tech {
+.eco-note {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -2600,22 +2536,30 @@ html.low-performance [data-parallax="true"] {
   white-space: nowrap;
 }
 
-/* Secondary link to the repository when the tile opens the live site (ECO-023). */
-#open-ecosystem .live-demos-grid > li {
-  position: relative;
+.repo-icon {
+  width: 1.4rem;
+  height: 1.4rem;
+  flex: none;
+  fill: none;
+  stroke: var(--color-link);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+  transition: stroke var(--dur-fast) var(--ease-standard);
+}
+
+.eco-chip:hover .repo-icon,
+.eco-chip:focus-within .repo-icon {
+  stroke: var(--color-green);
 }
 
 .repo-code {
-  position: absolute;
-  top: var(--s3);
-  right: var(--s3);
   display: inline-flex;
   align-items: center;
   min-height: 24px;
   padding: 0.15rem var(--s2);
   border: 1px solid color-mix(in srgb, var(--color-link) 45%, transparent);
   border-radius: var(--radius);
-  background: color-mix(in srgb, var(--color-bg) 88%, transparent);
   font-family: var(--font-mono);
   font-size: var(--text-xs, 0.75rem);
   line-height: 1.4;
@@ -2629,8 +2573,8 @@ html.low-performance [data-parallax="true"] {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  #open-ecosystem .live-demo:hover .live-demo-thumb,
-  #open-ecosystem .live-demo:focus-visible .live-demo-thumb {
+  .eco-chip:hover,
+  .eco-chip:focus-within {
     transform: none;
   }
 }
