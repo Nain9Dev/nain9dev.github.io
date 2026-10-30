@@ -69,6 +69,7 @@ This spec ports only the parts that make the portfolio better, in small layers t
 
 ### Guards for every layer
 
+- **DF-019 (language switch)**: When any page is built, the language switch shall show the short codes ES and EN in the mono face, each link keeping a 44 px target, its `lang`, `hreflang` and `aria-current` and its full language name (Español, English) as the accessible name. Decided by the owner on 2026-10-29 from the designer's compact switch.
 - **DF-013 (verification)**: Before each pull request, `npm run check` shall pass, the home document shall stay within the CSS-002 and ADR-0013 limits with the measured value recorded in `tasks.md`, axe-core shall report no violation on `/` and `/en/` at 1440 and 390 px in both themes, and the pull request shall carry captures in both themes and on a phone.
 - **DF-014 (attribution)**: When any layer that uses David's design is published, the repository README shall credit his design in the form he chooses; the credit and any mention of Contrast3D are his decision, and nothing shall claim joint clients or projects.
 - **DF-015 (size of the change)**: Each layer shall be one pull request that can be reverted without touching the others, and shall not import prototype files that the layer does not use.
