@@ -19,10 +19,10 @@ test('HERO-001: the H1 states the full stack architect profile and a concrete va
   assert.doesNotMatch(h1, /reglas deterministas/);
 });
 
-test('HERO-002: the summary keeps conformance with 3D first and names the stack and human review', async () => {
+test('HERO-002: the summary keeps conformance applied to 3D in DSE and names the stack and human review', async () => {
   const hero = text(await read('src/components/home/Hero.astro'));
   assert.match(hero, /conformidad determinista/i);
-  assert.match(hero, /primer dominio[^.]*3D/i);
+  assert.match(hero, /modelos 3D en DSE/); // the 3D work is promoted as the DSE product (specs/next-projects-route, NPR-006)
   assert.match(hero, /Python y \.NET/);
   assert.match(hero, /revisión humana/i);
 });
@@ -40,7 +40,7 @@ test('CAT-001: the project catalog is rendered in the static markup, not only af
   assert.match(section, /import projects from '\.\.\/\.\.\/public\/assets\/data\/projects\.json'/);
   const list = section.match(/<ul class="catalog-index"[\s\S]*?<\/ul>/)?.[0] ?? '';
   assert.match(list, /catalog\.map\(/);
-  assert.match(section, /: \[\.\.\.projects\]\.sort\(/, 'the whole catalog is the default');
+  assert.match(section, /: projects\.filter\(\(project\) => !project\.bridge\)\.sort\(/, 'the whole catalog is the default, without the bridged 3D projects');
   assert.match(list, /project\.title/);
   assert.match(list, /project\.status/);
   assert.match(section, /<div class="project-grid" data-project-list/, 'the client renderer keeps its container');

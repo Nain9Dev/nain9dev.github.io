@@ -11,6 +11,8 @@ export interface Project {
   featured?: boolean;
   /** 1 to 6 for the projects the home shows, in order (specs/next-projects-route, NPR-001). */
   featuredOrder?: number;
+  /** True for the 3D projects that stand behind one catalog row; they stay available to the work pages (NPR-003). */
+  bridge?: boolean;
   selected?: boolean;
   technologies: string[];
   links: ProjectLink[];

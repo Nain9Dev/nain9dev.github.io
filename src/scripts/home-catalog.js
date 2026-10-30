@@ -13,7 +13,7 @@ export async function initializeHomeCatalog({ container, toolbar, count, selecti
     const loaded = await loadProjects(dataUrl('projects.json'));
     const projects = selection
       ? loaded.filter((project) => project.featuredOrder !== undefined).sort((a, b) => a.featuredOrder - b.featuredOrder)
-      : loaded;
+      : loaded.filter((project) => !project.bridge); // the 3D projects stand behind one bridge row (NPR-003)
     renderProjects(container, projects);
     if (!selection) cleanups.push(initializeProjectFilters({ container, count, toolbar }));
     cleanups.push(initializeRevealMotion(container.querySelectorAll('[data-reveal]')));

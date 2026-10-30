@@ -9413,5 +9413,45 @@
     "source": "Diseño y CGI: ⟦0⟧⟦1/⟧ ↗⟦/0⟧",
     "target": "Design and CGI: ⟦0⟧⟦1/⟧ ↗⟦/0⟧",
     "status": "reviewed"
+  },
+  "4d7ef966ab2d95f00d706e323707cf0550c4f3b4cf36726a90338943bc0852ed": {
+    "source": "Nain3D es la demostración original del trabajo de conformidad 3D que hoy se publica como ⟦0/⟧.",
+    "target": "Nain3D is the original demo of the 3D conformance work that is now published as ⟦0/⟧.",
+    "status": "reviewed"
+  },
+  "785205d387d7463cb96929680b891ae64de85d87ac82930012fe2b6c2820ec87": {
+    "source": "Producto completo en Python y .NET, con IA bajo revisión humana y conformidad determinista de productos, hoy aplicada a modelos 3D en DSE.",
+    "target": "Complete product in Python and .NET, with AI under human review and deterministic product conformance, today applied to 3D models in DSE.",
+    "status": "reviewed"
+  },
+  "bbd96bcc46c545835e634ef543920dd2fab89fb1fdd09e08ada562927a4f9482": {
+    "source": "Arquitectura multidominio que valida cada producto contra especificaciones versionadas. Su primer producto es DSE, para modelos 3D.",
+    "target": "Multi-domain architecture that validates every product against versioned specifications. Its first product is DSE, for 3D models.",
+    "status": "reviewed"
+  },
+  "dcd35b961df36ff74dc66d74a902d0148d97f194027938cf8034b027828fe775": {
+    "source": "Productos 3D: DSE y Contrast Viewer",
+    "target": "3D products: DSE and Contrast Viewer",
+    "status": "reviewed"
+  },
+  "7724acfba64ae61c58af51e739ea043f3cf92d2b5316bc33b1b7ca7f1c24d634": {
+    "source": "Producto público · Con web propia",
+    "target": "Public product · With its own website",
+    "status": "reviewed"
+  },
+  "77448ad13f743c897dd3fb13d4602a9e2d30f35874fd31452c1b691cedecb53c": {
+    "source": "Validación de conformidad y visualización 3D, publicadas como productos con su propio sitio. NainDev aporta la arquitectura, los contratos y el backend.",
+    "target": "Conformance validation and 3D visualization, published as products with their own site. NainDev provides the architecture, the contracts and the backend.",
+    "status": "reviewed"
+  },
+  "f93c7c14aa94f9993481d1600c4cca89c8bb0b4e7b27d752c8bc1e2bba517c5a": {
+    "source": "DSE valida cada producto contra perfiles versionados y emite un veredicto reproducible; Contrast Viewer muestra los modelos 3D en el navegador como componente web.",
+    "target": "DSE validates every product against versioned profiles and issues a reproducible verdict; Contrast Viewer shows the 3D models in the browser as a web component.",
+    "status": "reviewed"
+  },
+  "b17ad113be0d39e3b57064d15528f99ede8a064f7bdb3eabb48a5bd87b1e03bf": {
+    "source": "Ver DSE",
+    "target": "See DSE",
+    "status": "reviewed"
   }
 }
