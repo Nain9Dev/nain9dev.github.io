@@ -9718,5 +9718,35 @@
     "source": "⟦0⟧Procesamiento y Validación de Modelos 3D⟦/0⟧",
     "target": "⟦0⟧3D Model Processing and Validation⟦/0⟧",
     "status": "reviewed"
+  },
+  "ee3e4b3926f03811df42853e8f7d2ceff0360800e32a8429db4fd01279e8599c": {
+    "source": "Manual de ingeniería: arquitectura limpia, validación determinista y pruebas.",
+    "target": "Engineering handbook: clean architecture, deterministic validation and testing.",
+    "status": "reviewed"
+  },
+  "3b439302cab4c09b245d24edf329728c3cf99266662cf851311a52db17052f75": {
+    "source": "Plantilla full stack con .NET, Vue 3 y Docker Compose.",
+    "target": "Full stack template with .NET, Vue 3 and Docker Compose.",
+    "status": "reviewed"
+  },
+  "0bb39860bae879e728b4d96a4b451edbe8baef5841c6314ca3d655b1a4fe2c36": {
+    "source": "Plantilla full stack con FastAPI, Vue 3 y Docker Compose.",
+    "target": "Full stack template with FastAPI, Vue 3 and Docker Compose.",
+    "status": "reviewed"
+  },
+  "b12d7d14bee411074130f6d549a4ce26b1cc21e830acb7e7ae7a810d72b7f1a1": {
+    "source": "Sistema de diseño y manual de marca de NainDev.",
+    "target": "NainDev design system and brand book.",
+    "status": "reviewed"
+  },
+  "0b227076c9399fb3eb60b1e7db42e4cca910cad9ae8f0c3c816766f13f2aa895": {
+    "source": "Estado y latencia de los servicios públicos.",
+    "target": "Status and latency of the public services.",
+    "status": "reviewed"
+  },
+  "6624cdbcfa89ec9c2afaa7c93aab81d27727c5678a5ba7e45753fd3f7ca5b401": {
+    "source": "Estándares de ingeniería y flujos de CI reutilizables.",
+    "target": "Engineering standards and reusable CI workflows.",
+    "status": "reviewed"
   }
 }

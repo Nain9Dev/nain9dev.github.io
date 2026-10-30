@@ -121,7 +121,7 @@ test('PRJ-026: nain-mcp-validator links its project page first and shows a captu
   assert.ok(small.size > 500 && small.size <= 10000, `small capture weighs ${small.size} bytes`);
 });
 
-test('ECO-022 and ECO-023: every ecosystem tile shows a capture and links the live site when one exists', async () => {
+test('ECO-022 and ECO-023 (amended by DF-034): every ecosystem chip links its live site and keeps a code link', async () => {
   const section = await read('src/components/home/OpenEcosystem.astro');
   // The four project pages of spec next-project-sites (ECO-025) joined brandbook and status.
   const sites = {
@@ -136,24 +136,14 @@ test('ECO-022 and ECO-023: every ecosystem tile shows a capture and links the li
   const entries = [...section.matchAll(/\{ name: '([^']+)'(.*?)\},?\r?\n/g)];
   assert.equal(entries.length, 6);
   for (const [, name, rest] of entries) {
-    const thumbnail = rest.match(/thumbnail: '([^']+)'/)?.[1];
-    assert.ok(thumbnail, `${name} has a capture`);
-    const big = await stat(join(ROOT, 'public', thumbnail));
-    const small = await stat(join(ROOT, 'public', thumbnail.replace(/\.webp$/, '-400.webp')));
-    assert.ok(big.size > 1000 && big.size < 30000, `${name} capture weighs ${big.size} bytes`);
-    assert.ok(small.size > 500 && small.size <= 10000, `${name} small capture weighs ${small.size} bytes`);
-    const site = rest.match(/site: '([^']+)'/)?.[1];
-    assert.equal(site, sites[name], `${name} links its live site only when it has one`);
-    assert.ok(thumbnail.startsWith(site ? '/assets/images/demos/' : '/assets/images/repos/'), `${name} capture lives in the right folder`);
+    assert.equal(rest.match(/site: '([^']+)'/)?.[1], sites[name], `${name} links its live site`);
+    assert.doesNotMatch(rest, /thumbnail/, `${name} carries no capture`);
   }
-  assert.match(section, /href=\{repository\.site \?\? `https:\/\/github\.com\/Nain9Dev\/\$\{repository\.name\}`\}/);
+  assert.match(section, /<a class="eco-chip-main" href=\{repository\.site\}/);
   assert.match(section, /<a class="repo-code" href=\{`https:\/\/github\.com\/Nain9Dev\/\$\{repository\.name\}`\} target="_blank" rel="noopener noreferrer"/);
-  assert.match(section, /<img class="live-demo-thumb"[^>]*alt=""[^>]*width="400" height="225" loading="lazy" decoding="async"/);
-  assert.doesNotMatch(section, /<script|<iframe/);
+  assert.doesNotMatch(section, /<img|<script|<iframe/);
   const css = await read('src/styles/main.css');
-  assert.match(css, /#open-ecosystem \.live-demo \{[^}]*aspect-ratio: 16 \/ 10;/);
   assert.match(css, /\.repo-code \{/);
-  assert.match(css, /#open-ecosystem \.live-demo-host,\s*#open-ecosystem \.live-demo-tech \{[^}]*clip-path: inset\(50%\);/);
 });
 
 test('VIS-004: technology chips carry a decorative icon when the repository ships one', async () => {
