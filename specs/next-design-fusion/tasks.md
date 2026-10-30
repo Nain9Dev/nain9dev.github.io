@@ -47,7 +47,7 @@ Prototype pin: `design/home-redesign` at `89e15d8` (2026-10-26); viewer `design/
   - **Covers**: DF-008
   - **Done when**: `npm run check` green; sizes and the browser pass recorded below. DF-010 needs no change.
 - [x] **T08b** `[H]` Owner decided DF-009 on 2026-10-29: the vignette, grid and pointer glow stay (discarded).
-- [ ] **T08c** `[A]` Measure code blocks and diagrams on `--brand-deep` and decide whether they join DF-008.
+- [x] **T08c** `[A]` Code blocks and diagrams measured on `main` of 2026-10-30 (all layers merged): axe-core with the WCAG 2.2 AA rules on the whole page, at 1440 and 390 px in both themes, finds no violation on a blog post with two code blocks, on a work page with its architecture diagram, and on `/`, `/proyectos/`, `/contacto/` and `/servicios/` (24 runs). **Decision: they stay on their current surfaces and do not join DF-008**; the band stays limited to the hero, the footer and the terminal, and the contrast of the blocks is already within AA.
 
 ## Layer 3b: section heads and key cards
 
