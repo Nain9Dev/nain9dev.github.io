@@ -178,3 +178,18 @@ test('NPR-006: the hero and the services card describe NainDev\'s architecture a
   assert.ok(services.includes('Arquitectura multidominio que valida cada producto contra especificaciones versionadas. Su primer producto es DSE, para modelos 3D.'));
   assert.doesNotMatch(hero, /su primer dominio son los modelos 3D/i, 'the old hero sentence is gone');
 });
+
+test('DF-036: every catalog row leads with a decorative capture or technology mark and keeps its text', async () => {
+  const view = await read('src/scripts/project-view.js');
+  assert.match(view, /function createCapture\(project\)/);
+  assert.match(view, /setAttribute\("aria-hidden", "true"\)/);
+  assert.match(view, /replace\(\/\\\.webp\$\/, "-400\.webp"\)/, 'rows load the small capture variant');
+  assert.match(view, /image\.alt = "";/);
+  assert.match(view, /image\.loading = "lazy";/);
+  assert.match(view, /article\.append\(createCapture\(project\), body\);/);
+  const css = await read('src/styles/main.css');
+  assert.match(css, /\.project-capture \{[^}]*aspect-ratio: 16 \/ 10;/);
+  assert.match(css, /\.project-row \{[^}]*grid-template-columns: 6\.5rem minmax\(0, 1fr\);/);
+  const page = await read('dist/proyectos/index.html');
+  assert.equal((page.match(/<ul class="catalog-index"[\s\S]*?<\/ul>/)?.[0].match(/<li>/g) ?? []).length, projects.filter((project) => !project.bridge).length, 'the static index still lists every project as text');
+});

@@ -11,6 +11,7 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ### Changed
 
+- Next-design-fusion DF-036: each row of `/proyectos/` leads with the capture of its demo (or the mark of its first technology), at no cost to the static text index.
 - Next-design-fusion DF-035: the four method steps lead with an icon on the rail and keep their sentence behind a "+" button.
 - Next-design-fusion DF-034: the open ecosystem on the home is a row of six chips (mark, name and a GitHub chip) instead of six capture tiles; the capture CSS is removed.
 - Next-design-fusion DF-033: the home projects band is one visual gate (six captures and a button) to `/proyectos/` instead of six catalog rows; the selection mode of the catalog component and its client script is removed.
