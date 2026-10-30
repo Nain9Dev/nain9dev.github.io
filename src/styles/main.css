@@ -436,6 +436,23 @@ main[tabindex="-1"]:focus {
   transition: transform 300ms var(--ease-spring), opacity 300ms ease;
 }
 
+/* The mark draws itself once when the page loads, one stroke after another (the designer's build, DF-022). Only
+   without a reduced-motion preference and not on low-performance devices; it never loops and the end state is the
+   plain mark. */
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.low-performance) .brand-mark .mk {
+    stroke-dasharray: 1;
+    animation: mark-draw 420ms var(--ease-out-quart) backwards;
+    animation-delay: calc(var(--i, 0) * 90ms);
+  }
+}
+
+@keyframes mark-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+}
+
 /* The wordmark is the vector of design/brand/wordmark-green.svg in a 423 x 38 box; it follows the theme and
    phones keep only the isotype, where the thin letters would not read. */
 .brand-wordmark {
@@ -1839,6 +1856,19 @@ main[tabindex="-1"]:focus {
   transform: translateY(0);
 }
 
+/* A section title is uncovered by a mask as its head comes into view, the designer's line mask (DF-022): once, in
+   the same reveal that already moves the head. The mask reaches past the box so descenders are never cut. */
+.motion-ready .section-heading[data-reveal] h2 {
+  clip-path: inset(0 -100vw 100% -100vw);
+  transform: translateY(-35%);
+  transition: clip-path 520ms var(--ease-out-quart) 120ms, transform 520ms var(--ease-out-quart) 120ms;
+}
+
+.motion-ready .section-heading[data-reveal].is-visible h2 {
+  clip-path: inset(-0.2em -100vw -0.3em -100vw);
+  transform: none;
+}
+
 /* Siblings in a grid enter one after another; after the sixth they share the last step. */
 .motion-ready :is(.card-grid, .project-grid, .tech-category) > [data-reveal]:nth-child(2) { transition-delay: calc(var(--stagger) * 1); }
 .motion-ready :is(.card-grid, .project-grid, .tech-category) > [data-reveal]:nth-child(3) { transition-delay: calc(var(--stagger) * 2); }
@@ -2029,6 +2059,11 @@ main[tabindex="-1"]:focus {
     opacity: 1;
     transform: none;
   }
+
+  .motion-ready .section-heading[data-reveal] h2 {
+    clip-path: none;
+    transform: none;
+  }
 }
 
 @media (prefers-contrast: more) {
@@ -2135,6 +2170,10 @@ html.low-performance [data-reveal] {
   opacity: 1 !important;
   transform: none !important;
   transition: none !important;
+}
+
+html.low-performance .motion-ready .section-heading[data-reveal] h2 {
+  clip-path: none !important;
 }
 
 html.low-performance .tech-badge {

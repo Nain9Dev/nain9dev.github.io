@@ -9,9 +9,12 @@ const current = ['servicios', 'proyectos', 'blog'].includes(section) ? section :
 <header class="site-header" data-site-header>
   <div class="shell header-layout" data-nosnippet>
     <a class="brand" href="/#top" aria-label="NainDev, volver al inicio" title="Volver al inicio">
-      <!-- Isotype from its three strokes (next-design-fusion DF-004): one colour, so it follows the theme. -->
+      <!-- Isotype from its three strokes (next-design-fusion DF-004): one colour, so it follows the theme. The strokes
+           are separate paths so the mark can draw itself once, one stroke after another (DF-022). -->
       <svg class="brand-mark" viewBox="91 91 818 818" aria-hidden="true" focusable="false">
-        <path d="M148 148V848M308 288L686 738M848 148V848" />
+        <path class="mk" pathLength="1" style="--i:0" d="M148 148V848" />
+        <path class="mk" pathLength="1" style="--i:1" d="M308 288L686 738" />
+        <path class="mk" pathLength="1" style="--i:2" d="M848 148V848" />
       </svg>
       <!-- Wordmark: the vector rebuilt in design/brand/wordmark-green.svg, drawn in the theme's logo colour; the link
            carries the accessible name and phones show the isotype alone. -->
