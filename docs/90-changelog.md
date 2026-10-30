@@ -6,6 +6,7 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ### Added
 
+- Next-design-fusion DF-019: the language switch shows the short codes ES and EN in the mono face, keeping 44 px targets and the full language name as the accessible name; built by `scripts/build-locales.mjs` on every page of both languages.
 - Next-design-fusion DF-017: `/servicios/` and `/en/services/` show the designer's agenda diagram after the heading, as thirteen round-capped strokes in the stroke colour that draw in once without a reduced-motion preference and never loop; phones skip it. The home is unchanged.
 - Next-design-fusion T07d: the header shows the isotype with the vector wordmark in the theme's logo colour from 48 rem up, the isotype alone on phones; the text name is removed and the guard compares the header paths with `design/brand/wordmark-green.svg`.
 - Next-projects-route step 3a (NPR-005 to NPR-007): a "Software propio con web propia" band after the featured projects promotes DSE (link to `datumstatutum.com`) and Contrast Viewer (link off until `viewer.contrast3d.com` exists, B-022), names Contrast Hub only as private software, and credits Contrast3D for design and CGI; the texts were approved by the owner on 2026-10-29. A guard checks that no page links `contrast3dhub.com` and that the band keeps the product copy rules. The home document is 27 931 B gzip.

@@ -16,11 +16,16 @@
 .language-switcher a {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  min-width: 44px;
   min-height: 44px;
   padding: 0.25rem 0.5rem;
   border-radius: var(--radius);
   color: var(--color-text-muted);
+  font-family: var(--font-mono);
   font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-decoration: none;
 }
 
