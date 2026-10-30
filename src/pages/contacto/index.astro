@@ -1,0 +1,46 @@
+---
+// Contact page (specs/next-design-fusion, DF-024): the three ways to reach the owner, with the texts the owner
+// approved on 2026-10-30. No WhatsApp (B-014 and OQ-014 are open) and the address stays out of the markup (MAIL-006).
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Quiet from '../../components/home/Quiet.astro';
+import '../../styles/inner.css';
+---
+
+<BaseLayout title="Contacto | NainDev" description="Una llamada de 30 minutos para ver tu caso: agenda una llamada gratuita, escribe por correo o contacta por LinkedIn. Disponible a tiempo parcial y en remoto.">
+  <main class="section page-top" id="main-content" tabindex="-1">
+    <div class="shell">
+      <div class="section-heading" data-reveal>
+        <div>
+          <p class="eyebrow">Contacto</p>
+          <h1>Una llamada de 30 minutos para ver tu caso</h1>
+        </div>
+        <Quiet><p>Si hay encaje, hablamos de alcance y presupuesto. Si no, te lo digo en la misma llamada.</p></Quiet>
+      </div>
+
+      <p class="contact-availability" data-reveal><strong>Disponibilidad:</strong> acepto proyectos a tiempo parcial y en remoto para empresas de cualquier país. No hay tarifas publicadas: dependen del alcance y se hablan en la llamada.</p>
+
+      <h2 class="service-group-title" data-reveal>Elige el que te resulte más cómodo</h2>
+      <div class="card-grid card-grid-three">
+        <article class="service-card" data-reveal>
+          <h3>Llamada de 30 minutos</h3>
+          <p>Eliges hueco en el calendario y recibes el enlace de la videollamada.</p>
+          <a class="button button-primary card-action" href="https://calendly.com/aitornainmendozavallejo-ksez/30min" target="_blank" rel="noopener noreferrer" data-calendly-track="contacto">Agendar llamada gratuita</a>
+        </article>
+
+        <article class="service-card" data-reveal>
+          <h3>Correo</h3>
+          <p>Si prefieres escribir con calma o adjuntar un diagrama.</p>
+          {/* The address is split so Cloudflare email obfuscation finds nothing to rewrite (MAIL-006). */}
+          <button class="button button-secondary card-action" type="button" data-copy-email data-email-user="contact" data-email-domain="naindev.com">Copiar email</button>
+          <p class="copy-status" data-copy-status role="status"></p>
+        </article>
+
+        <article class="service-card" data-reveal>
+          <h3>LinkedIn</h3>
+          <p>Para ver la trayectoria o escribir por mensaje privado.</p>
+          <a class="button button-outline card-action" href="https://www.linkedin.com/in/aitor-nain-mendoza-vallejo/" target="_blank" rel="noopener noreferrer">Ver el perfil</a>
+        </article>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
