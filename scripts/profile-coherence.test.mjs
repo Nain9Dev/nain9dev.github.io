@@ -157,7 +157,7 @@ test('PRJ-009: projects declare supported strategic categories (specs/017-catalo
 });
 
 test('PRJ-010: filter buttons in markup match supported categories and have badge spans (specs/017-catalog-complexity-ordering-and-filters)', async () => {
-  const markup = await read('src/components/home/ProjectsSection.astro');
+  const markup = await read('src/components/ProjectCatalog.astro');
   const expectedFilters = ['all', 'production', 'dotnet', 'python', '3d', 'demo'];
   for (const filter of expectedFilters) {
     assert.match(markup, new RegExp(`data-project-filter="${filter}"`));

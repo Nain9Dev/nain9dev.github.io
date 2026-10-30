@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Quiet from '../../components/home/Quiet.astro';
+import Dimension from '../../components/home/Dimension.astro';
+import ProjectCatalog from '../../components/ProjectCatalog.astro';
+import projects from '../../../public/assets/data/projects.json';
+import '../../styles/inner.css';
+---
+
+<BaseLayout title="Proyectos y demos de software | NainDev" description="Catálogo completo de proyectos de Aitor Nain: backend crítico en Python y .NET, IA con revisión humana y herramientas, con el estado real de cada uno y enlaces a demos y código.">
+  <main class="section page-top" id="main-content" tabindex="-1">
+    <div class="shell">
+      <div class="section-heading" data-reveal>
+        <div>
+          <p class="eyebrow">Portfolio</p>
+          <h1>Proyectos y demos</h1>
+          <Dimension count={projects.length} unit="proyectos" />
+        </div>
+        <Quiet><p>Indico el estado real de cada proyecto. Los privados se describen solo por arquitectura y stack, sin nombres ni datos de clientes.</p></Quiet>
+      </div>
+
+      <ProjectCatalog />
+
+      <div class="page-cta" data-reveal>
+        <a class="button button-primary" href="https://calendly.com/aitornainmendozavallejo-ksez/30min" target="_blank" rel="noopener noreferrer" data-calendly-track="proyectos-index">
+          Agendar llamada gratuita
+        </a>
+      </div>
+    </div>
+  </main>
+</BaseLayout>
