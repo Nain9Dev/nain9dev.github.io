@@ -67,11 +67,9 @@ if (unassigned.length > 0) groups.push({ title: 'Otros servicios', items: unassi
             {group.items.map((servicio) => (
               <article class="service-card" data-reveal>
                 <ServiceIcon name={servicio.data.icon} />
-                <h3>{servicio.data.title}</h3>
+                <h3><a class="card-stretch" href={`/servicios/${servicio.id}`}>{servicio.data.title}</a></h3>
                 <p>{servicio.data.description}</p>
-                <a href={`/servicios/${servicio.id}`} class="button button-outline button-small card-action">
-                  Ver detalles
-                </a>
+                <span class="card-arrow" aria-hidden="true">→</span>
               </article>
             ))}
           </div>

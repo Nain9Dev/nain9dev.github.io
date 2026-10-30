@@ -9638,5 +9638,80 @@
     "source": "⟦0⟧Escribirme un mensaje⟦/0⟧",
     "target": "⟦0⟧Send me a message⟦/0⟧",
     "status": "reviewed"
+  },
+  "072ddd93d25604f9fd0b5013a8ca02a337614c8276947af34917eb647db70532": {
+    "source": "⟦0⟧Arquitectura Frontend de Alto Rendimiento⟦/0⟧",
+    "target": "⟦0⟧High-Performance Frontend Architecture⟦/0⟧",
+    "status": "reviewed"
+  },
+  "91b68232351a29aeb0df23980173755c3cfd74609d5b44244681ea3bacb484b3": {
+    "source": "⟦0⟧Arquitectura Backend Escalar para Sistemas de IA⟦/0⟧",
+    "target": "⟦0⟧Scalable Backend Architecture for AI Systems⟦/0⟧",
+    "status": "reviewed"
+  },
+  "a58a2634b1128be690d63e3412455c4b987a1e8c22611567cdf368885a4e5abf": {
+    "source": "⟦0⟧Arquitectura IA para Fintech: Seguridad y Precisión⟦/0⟧",
+    "target": "⟦0⟧AI Architecture for Fintech: Security and Precision⟦/0⟧",
+    "status": "reviewed"
+  },
+  "2f4edb4e2af096195908c2c4358b7edd6673cf0d24b949e0f4b0cdb1d32ffa76": {
+    "source": "⟦0⟧Arquitectura de IA Generativa para Startups SaaS⟦/0⟧",
+    "target": "⟦0⟧Generative AI Architecture for SaaS Startups⟦/0⟧",
+    "status": "reviewed"
+  },
+  "275c784682d858d654d53f8e2eeba952ecc36b6f34993052ed9b4c61aa89be01": {
+    "source": "⟦0⟧Arquitectura Backend para IA Generativa⟦/0⟧",
+    "target": "⟦0⟧Backend Architecture for Generative AI⟦/0⟧",
+    "status": "reviewed"
+  },
+  "fb0179db44bb8ff658dde22c3c86177ca8ab3c6b6c1c5af5784889f5358b3236": {
+    "source": "⟦0⟧Auditoría de Sistemas Legacy & Refactoring B2B⟦/0⟧",
+    "target": "⟦0⟧Legacy System Auditing & B2B Refactoring⟦/0⟧",
+    "status": "reviewed"
+  },
+  "610fa767dbaf9fbf39caed98b7ec730800ee6ef65a7cf0a50a3d1099843a4ad0": {
+    "source": "⟦0⟧Sistemas Críticos Backend para Logística⟦/0⟧",
+    "target": "⟦0⟧Critical Backend Systems for Logistics⟦/0⟧",
+    "status": "reviewed"
+  },
+  "79cda96ebecd3c8599257360b2149263bad7dd0de9fb10172d6b1cea7fd63748": {
+    "source": "⟦0⟧Backend Escalable para Procesamiento de Modelos 3D en Azure⟦/0⟧",
+    "target": "⟦0⟧Scalable Backend for 3D Model Processing on Azure⟦/0⟧",
+    "status": "reviewed"
+  },
+  "84bcc2f63985f1934990208cb08c8aa3c898dad5b7b61258dd8cc50326921826": {
+    "source": "⟦0⟧Migración de Monolitos a Microservicios con IA en C#⟦/0⟧",
+    "target": "⟦0⟧Migrating Monoliths to Microservices with AI in C#⟦/0⟧",
+    "status": "reviewed"
+  },
+  "2adcce7b53eaba994fac0089a7814071f3042c9a383736b0a5132d7c64f55dd1": {
+    "source": "⟦0⟧Optimización de Carga y Procesamiento de Modelos 3D⟦/0⟧",
+    "target": "⟦0⟧3D Model Loading and Processing Optimization⟦/0⟧",
+    "status": "reviewed"
+  },
+  "b63f79c1d3af4b167eb707370d34637b42e55790d7e40b0be8ad976996b10ae2": {
+    "source": "⟦0⟧Optimización Extrema de Rendimiento en APIs REST .NET⟦/0⟧",
+    "target": "⟦0⟧Extreme Performance Optimization in .NET REST APIs⟦/0⟧",
+    "status": "reviewed"
+  },
+  "4afeac6a666a42728ba436f45037ab57dcab340c08fa743f7ae327b16995ed49": {
+    "source": "⟦0⟧Procesamiento 3D para Healthcare⟦/0⟧",
+    "target": "⟦0⟧3D Processing for Healthcare⟦/0⟧",
+    "status": "reviewed"
+  },
+  "3418d8599e43639556a589791c0ddb4316ffcf4b10b1604e81fea163ca8328a4": {
+    "source": "⟦0⟧Optimización de Sistemas Críticos en .NET⟦/0⟧",
+    "target": "⟦0⟧Optimizing Critical Systems in .NET⟦/0⟧",
+    "status": "reviewed"
+  },
+  "a5097b1598a1cdf6dd62b2f6296674505e48e87d327b36ffdc0c2c619f0df211": {
+    "source": "⟦0⟧Sistemas de Validación Geométrica de Mallas 3D en la Nube⟦/0⟧",
+    "target": "⟦0⟧Cloud-Based 3D Mesh Geometric Validation Systems⟦/0⟧",
+    "status": "reviewed"
+  },
+  "841d087b0165c8b767735a208408e5be6b43f0a5880ffe1bc2bec61a19b429e4": {
+    "source": "⟦0⟧Procesamiento y Validación de Modelos 3D⟦/0⟧",
+    "target": "⟦0⟧3D Model Processing and Validation⟦/0⟧",
+    "status": "reviewed"
   }
 }

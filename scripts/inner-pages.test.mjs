@@ -25,7 +25,8 @@ test('IP-001: every published service resolves to a glyph', async () => {
 test('IP-002: the services hub leads each card with its glyph and discloses the intro', async () => {
   const page = await read('src/pages/servicios/index.astro');
   assert.match(page, /import ServiceIcon from '\.\.\/\.\.\/components\/ServiceIcon\.astro'/);
-  assert.match(page, /<ServiceIcon name=\{servicio\.data\.icon\} \/>\s*<h3>\{servicio\.data\.title\}<\/h3>/);
+  assert.match(page, /<ServiceIcon name=\{servicio\.data\.icon\} \/>\s*<h3><a class="card-stretch" href=\{`\/servicios\/\$\{servicio\.id\}`\}>\{servicio\.data\.title\}<\/a><\/h3>/);
+  assert.doesNotMatch(page, /Ver detalles/, 'the whole card is the link (DF-032)');
   assert.match(page, /<Quiet><p>Soluciones arquitectónicas[\s\S]*?<\/p><\/Quiet>/);
   assert.doesNotMatch(page, /style=/);
   const css = (await read('src/styles/main.css')) + '\n' + (await read('src/styles/inner-pages.css')); // inner-page rules moved (specs/050-work-pages IS-001)

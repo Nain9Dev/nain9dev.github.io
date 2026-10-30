@@ -34,7 +34,7 @@ test('SVC-001: the index groups services under problem headings', async () => {
   const found = await groups();
   assert.equal(found.length, 5);
   assert.match(page, /<h2[^>]*>\{group\.title\}<\/h2>/);
-  assert.match(page, /<h3>\{servicio\.data\.title\}<\/h3>/);
+  assert.match(page, /<h3><a class="card-stretch" href=\{`\/servicios\/\$\{servicio\.id\}`\}>\{servicio\.data\.title\}<\/a><\/h3>/);
   for (const group of found) assert.match(group.title, /^(Mi|Tengo|Quiero)\b/, group.title);
 });
 
