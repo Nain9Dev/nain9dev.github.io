@@ -473,6 +473,32 @@ main[tabindex="-1"]:focus {
   transition: color 150ms ease;
 }
 
+/* Each top-bar link is a stroke icon and one word (DF-018). */
+.primary-navigation a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.nav-icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.9;
+}
+
+/* The links that left the bar sit in a quiet row above the footer line. */
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2) var(--s5);
+  padding-block: var(--s4) 0;
+}
+
 /* Signature sweep: a green line draws from the left on hover and keyboard focus, and stays for the current section. */
 .primary-navigation a::after {
   position: absolute;
@@ -490,13 +516,15 @@ main[tabindex="-1"]:focus {
 .primary-navigation a:hover,
 .primary-navigation a:focus-visible,
 .primary-navigation a[aria-current="location"],
+.primary-navigation a[aria-current="page"],
 .site-footer a:hover {
   color: var(--color-ink);
 }
 
 .primary-navigation a:hover::after,
 .primary-navigation a:focus-visible::after,
-.primary-navigation a[aria-current="location"]::after {
+.primary-navigation a[aria-current="location"]::after,
+.primary-navigation a[aria-current="page"]::after {
   transform: scaleX(1);
 }
 

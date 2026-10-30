@@ -1,5 +1,9 @@
 ---
 // Header.astro
+// The top bar has three links, each a stroke icon and one word (specs/next-design-fusion, DF-018); the other
+// links live in the footer. The link of the section the visitor is in is marked as the current page.
+const section = Astro.url.pathname.split('/').filter(Boolean)[0];
+const current = ['servicios', 'proyectos', 'blog'].includes(section) ? section : undefined;
 ---
 
 <header class="site-header" data-site-header>
@@ -32,11 +36,18 @@
     </button>
 
     <nav class="primary-navigation" id="primary-navigation" aria-label="Navegación principal">
-      <a href="/servicios/">Servicios</a>
-      <a href="/servicios/arquitectura-frontend-alto-rendimiento/">Arquitectura Frontend</a>
-      <a href="/blog/">Blog</a>
-      <a href="/#method" data-section-link>Cómo trabajo</a>
-      <a href="/#about" data-section-link>Sobre mí</a>
+      <a href="/servicios/" aria-current={current === 'servicios' ? 'page' : undefined}>
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3 3 8l9 5 9-5-9-5ZM3 13l9 5 9-5" /></svg>
+        <span>Servicios</span>
+      </a>
+      <a href="/proyectos/" aria-current={current === 'proyectos' ? 'page' : undefined}>
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 4h6v6H4ZM14 4h6v6h-6ZM4 14h6v6H4ZM14 14h6v6h-6Z" /></svg>
+        <span>Proyectos</span>
+      </a>
+      <a href="/blog/" aria-current={current === 'blog' ? 'page' : undefined}>
+        <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 3h8l4 4v14H6ZM14 3v4h4M9 12h6M9 16h4" /></svg>
+        <span>Blog</span>
+      </a>
     </nav>
 
     <div class="header-actions" data-nosnippet>

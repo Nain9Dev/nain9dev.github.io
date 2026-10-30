@@ -72,6 +72,7 @@ This spec ports only the parts that make the portfolio better, in small layers t
 - **DF-013 (verification)**: Before each pull request, `npm run check` shall pass, the home document shall stay within the CSS-002 and ADR-0013 limits with the measured value recorded in `tasks.md`, axe-core shall report no violation on `/` and `/en/` at 1440 and 390 px in both themes, and the pull request shall carry captures in both themes and on a phone.
 - **DF-014 (attribution)**: When any layer that uses David's design is published, the repository README shall credit his design in the form he chooses; the credit and any mention of Contrast3D are his decision, and nothing shall claim joint clients or projects.
 - **DF-015 (size of the change)**: Each layer shall be one pull request that can be reverted without touching the others, and shall not import prototype files that the layer does not use.
+- **DF-018 (top bar)**: When any page is built, the top bar shall have three links, Services, Projects and Blog, each a stroke icon and one word, with the link of the section the visitor is in marked `aria-current="page"` and drawn with the signature sweep. The links that left the bar (Arquitectura Frontend, Cómo trabajo, Sobre mí) shall stay one click away in a footer navigation, in both languages. Decided by the owner on 2026-10-29 after comparing with the designer's bar, which has six text links; the designer's compact language switch and menu sheet are not part of this layer.
 
 ## Edge cases and error handling
 
