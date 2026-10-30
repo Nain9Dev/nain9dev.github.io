@@ -43,14 +43,13 @@ test('NPR-002: the page lists every catalog project as text without JavaScript a
   assert.equal((page.match(/<h1[\s>]/g) ?? []).length, 1);
 });
 
-test('NPR-002: the catalog markup is one component shared by the home and the page', async () => {
+test('NPR-002: the catalog markup is one component, rendered by the catalog page only (DF-033)', async () => {
   const component = await read('src/components/ProjectCatalog.astro');
   assert.match(component, /data-project-toolbar/);
   assert.match(component, /data-project-list/);
   assert.match(component, /class="catalog-index"/);
   const home = await read('src/components/home/ProjectsSection.astro');
-  assert.match(home, /<ProjectCatalog/, 'the home renders the component');
-  assert.doesNotMatch(home, /data-project-filter/, 'no duplicated filter markup');
+  assert.doesNotMatch(home, /<ProjectCatalog|data-project-filter/, 'the home renders no catalog rows');
   const page = await read('src/pages/proyectos/index.astro');
   assert.match(page, /<ProjectCatalog/);
   assert.match(page, /import '\.\.\/\.\.\/styles\/inner\.css';/, 'pages import the stylesheet, not the layout (ADR-0017)');
@@ -73,30 +72,21 @@ test('NPR-001: exactly six projects carry a featured order, and they are the six
   assert.deepEqual(ordered.map((project) => project.id), SELECTION);
 });
 
-test('NPR-001: the home lists the six in order without filters and links to /proyectos/', async () => {
+test('NPR-001 (superseded by DF-033): the home shows one visual gate to the catalog and no project rows', async () => {
   for (const [file, hub] of [['dist/index.html', '/proyectos/'], ['dist/en/index.html', '/en/projects/']]) {
     const home = await read(file);
     const section = home.match(/<section[^>]*id="projects"[\s\S]*?<\/section>/)?.[0] ?? '';
-    const titles = [...section.matchAll(/<li><h3>([^<]+)<\/h3>/g)];
-    assert.equal(titles.length, 6, `${file}: six static entries`);
-    assert.match(section, /data-project-selection/, `${file}: the grid is marked as a selection`);
-    assert.doesNotMatch(section, /data-project-filter|data-project-toolbar/, `${file}: no filter bar on the home`);
+    assert.doesNotMatch(section, /<li><h3>|data-project-list|data-project-filter|data-project-toolbar/, `${file}: no catalog rows or filters on the home`);
+    assert.equal((section.match(/class="catalog-gate"/g) ?? []).length, 1, `${file}: one gate`);
     assert.ok(section.includes(`href="${hub}"`), `${file}: links the catalog page`);
+    assert.equal((section.match(/<img /g) ?? []).length, 6, `${file}: six capture tiles`);
   }
-  const spanish = await read('dist/index.html');
-  const order = [...spanish.matchAll(/<li><h3>([^<]+)<\/h3>/g)].map((match) => match[1]);
-  const expected = SELECTION.map((id) => projects.find((project) => project.id === id).title);
-  assert.deepEqual(order.slice(0, 6), expected, 'the static order follows the featured order');
 });
 
-test('NPR-001: the client renderer shows only the selection when the grid says so', async () => {
-  const catalog = await read('src/scripts/home-catalog.js');
-  assert.match(catalog, /selection/);
-  assert.match(catalog, /featuredOrder/);
-  const app = await read('src/scripts/app.js');
-  assert.match(app, /data-project-selection/);
-  const component = await read('src/components/ProjectCatalog.astro');
-  assert.match(component, /selection/);
+test('NPR-001 (superseded by DF-033): the client renderer and the component no longer carry a selection mode', async () => {
+  for (const file of ['src/scripts/home-catalog.js', 'src/scripts/app.js', 'src/components/ProjectCatalog.astro']) {
+    assert.doesNotMatch(await read(file), /data-project-selection|selection/, file);
+  }
 });
 
 // Step 3a (NPR-005 to NPR-007): the products band promotes DSE and Contrast Viewer and names Contrast Hub.
