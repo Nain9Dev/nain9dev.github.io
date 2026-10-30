@@ -41,3 +41,12 @@ test('MAIL-006: the contact section keeps the address out of plain text', async 
   assert.match(section, /data-copy-email[^>]*data-email-user="contact"[^>]*data-email-domain="naindev\.com"/);
   assert.ok(!section.includes(ADDRESS), 'the full address must not appear in the markup');
 });
+
+test('MAIL-006: no component of the home, the footer included, prints the address or links it with mailto', async () => {
+  for (const file of ['src/components/Footer.astro', 'src/components/Header.astro', 'src/components/home/ProductsBand.astro', 'src/components/home/Hero.astro']) {
+    const source = await readFile(file, 'utf8');
+    assert.ok(!source.includes(ADDRESS) && !/mailto:/.test(source), `${file} keeps the address out of the markup`);
+  }
+  // The footer reaches the copy button of the contact section instead (the home has the only wired button).
+  assert.match(await readFile('src/components/Footer.astro', 'utf8'), /href="\/#contact"/);
+});
