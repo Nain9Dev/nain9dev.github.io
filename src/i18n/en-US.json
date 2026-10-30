@@ -9593,5 +9593,10 @@
     "source": "⟦0⟧⟦1/⟧⟦2⟧Estado del servicio⟦/2⟧⟦/0⟧⟦3⟧Privacidad⟦/3⟧⟦4⟧Volver arriba⟦/4⟧",
     "target": "⟦0⟧⟦1/⟧⟦2⟧Service status⟦/2⟧⟦/0⟧⟦3⟧Privacy⟦/3⟧⟦4⟧Back to top⟦/4⟧",
     "status": "reviewed"
+  },
+  "4f805032905a100d95ade6a0da3d19af73550ff71593ffef8e49dea4e91568b9": {
+    "source": "⟦0⟧Escribirme un mensaje⟦/0⟧",
+    "target": "⟦0⟧Send me a message⟦/0⟧",
+    "status": "reviewed"
   }
 }
