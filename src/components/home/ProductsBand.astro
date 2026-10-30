@@ -1,39 +1,71 @@
 ---
 // ProductsBand.astro: the products built with Contrast3D, each with its own public site
-// (specs/next-projects-route, NPR-005 to NPR-007). The Contrast Viewer card links its public commercial site
-// (owner decision of 2026-10-30, OQ-018); no page of this site links the gated app host or any other Contrast Hub host.
+// (specs/next-projects-route, NPR-005 to NPR-007), and the Contrast3D x NainDev collaboration row that used to be its
+// own section (DF-031). The Contrast Viewer card links its public commercial site (owner decision of 2026-10-30,
+// OQ-018); no page of this site links the gated app host or any other Contrast Hub host.
 import Quiet from './Quiet.astro';
-
 ---
 <section class="section" id="products" aria-labelledby="products-title">
   <div class="shell">
     <div class="section-heading" data-reveal>
       <div>
         <p class="eyebrow">Productos</p>
-        <h2 id="products-title">Software propio con web propia</h2>
+        <h2 id="products-title">Contrast3D x NainDev: diseño y software, de la idea a producción</h2>
       </div>
-      <Quiet><p>NainDev es el software y el backend. El 3D se publica como productos con su propio sitio.</p></Quiet>
     </div>
 
     <div class="card-grid card-grid-three">
       <article class="service-card" data-reveal>
+        <svg class="service-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <path d="M24 5 8 11v12c0 10 7 17 16 20 9-3 16-10 16-20V11L24 5ZM17 24l5 5 9-10" />
+        </svg>
         <h3><span translate="no">DSE</span> · Conformidad determinista</h3>
         <p>Valida un producto contra perfiles versionados y emite un veredicto reproducible. Su primer dominio son los modelos 3D glTF/GLB.</p>
         <a class="card-link" href="https://datumstatutum.com/" target="_blank" rel="noopener noreferrer" translate="no">datumstatutum.com ↗</a>
       </article>
 
       <article class="service-card" data-reveal>
+        <svg class="service-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <path d="M24 5 8 14v20l16 9 16-9V14L24 5ZM24 24 8 14M24 24l16-10M24 24v19" />
+        </svg>
         <h3><span translate="no">Contrast Viewer</span> · Visor 3D para la web</h3>
         <p>Componente web que muestra modelos 3D con vistas despiezadas y puntos de interés, listo para integrar en una página.</p>
         <a class="card-link" href="https://viewer.contrast3dhub.com/" target="_blank" rel="noopener noreferrer" translate="no">viewer.contrast3dhub.com ↗</a>
       </article>
 
       <article class="service-card" data-reveal>
+        <svg class="service-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <rect x="9" y="21" width="30" height="21" rx="4" />
+          <path d="M16 21v-6a8 8 0 0 1 16 0v6M24 29v6" />
+        </svg>
         <h3><span translate="no">Contrast Hub</span> · Plataforma privada</h3>
         <p>CRM y cálculos a medida, en producción con un equipo real. Es privado y no tiene demo pública.</p>
       </article>
     </div>
 
-    <p class="products-credit" data-reveal>Diseño y CGI: <a href="https://www.contrast3d.com/" target="_blank" rel="noopener noreferrer"><span translate="no">Contrast3D</span> ↗</a></p>
+    <div class="partner-row" data-reveal>
+      <a class="partner" href="https://www.contrast3d.com/" target="_blank" rel="noopener noreferrer">
+        <svg class="service-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <circle cx="24" cy="24" r="17" />
+          <path d="M20 16l12 8-12 8Z" />
+        </svg>
+        <span><strong translate="no">Contrast3D</strong> <span aria-hidden="true">↗</span></span>
+      </a>
+      <span class="partner-x" aria-hidden="true">×</span>
+      <div class="partner">
+        <svg class="service-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <rect x="7" y="9" width="34" height="13" rx="4" />
+          <rect x="7" y="26" width="34" height="13" rx="4" />
+          <path d="M14 15.5h.01M14 32.5h.01M22 15.5h12M22 32.5h12" />
+        </svg>
+        <span><strong translate="no">NainDev</strong></span>
+      </div>
+    </div>
+    <Quiet>
+      <p>NainDev colabora con Contrast3D, un estudio de dirección creativa, CGI y 3D en tiempo real. Cada uno se
+        ocupa de lo suyo para que un producto se vea bien y funcione de forma fiable.</p>
+      <p>Dirección creativa, CGI y movimiento, 3D en tiempo real y diseño visual de producto.</p>
+      <p>Backend en .NET y Python, validación determinista y auditoría de sistemas críticos.</p>
+    </Quiet>
   </div>
 </section>

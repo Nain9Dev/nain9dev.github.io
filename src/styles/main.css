@@ -324,8 +324,7 @@ h3 {
   padding-block: var(--section-lg);
 }
 
-#open-ecosystem,
-#partnership {
+#open-ecosystem {
   padding-block: var(--section-md);
 }
 
@@ -967,8 +966,46 @@ main[tabindex="-1"]:focus {
   min-height: 0;
 }
 
-.partnership-links {
-  margin-top: 2rem;
+.partner-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--s6);
+  gap: var(--s4);
+}
+
+.partner {
+  display: flex;
+  align-items: center;
+  padding: var(--s3) var(--s4);
+  gap: var(--s3);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  color: inherit;
+  text-decoration: none;
+}
+
+.partner .service-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  margin: 0;
+  padding: 0.5rem;
+}
+
+.partner-row + .quiet {
+  margin-top: var(--s3);
+  text-align: center;
+}
+
+a.partner:hover,
+a.partner:focus-visible {
+  border-color: var(--color-primary);
+}
+
+.partner-x {
+  color: var(--color-text-muted);
+  font-size: var(--text-lg);
 }
 
 .service-card {
@@ -1084,16 +1121,6 @@ main[tabindex="-1"]:focus {
 .service-card .card-note {
   margin-top: 1rem;
   font-size: var(--text-sm);
-}
-
-.products-credit {
-  margin-top: 2rem;
-  color: var(--color-text-muted);
-}
-
-.products-credit a {
-  color: var(--color-primary);
-  font-weight: 600;
 }
 
 .service-card p,

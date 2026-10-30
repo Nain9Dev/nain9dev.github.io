@@ -84,7 +84,7 @@ test('SW-004: the story lines carry no figure, client, guarantee or downtime cla
 
 test('HN-001: the home renders ten sections in the narrative order', async () => {
   const home = await read('src/pages/index.astro');
-  const order = ['<Hero />', '<SelectedWork />', '<ServicesSection>', '<TechStack />', '</ServicesSection>', '<ProjectsSection />', '<OpenEcosystem />', '<MethodSection />', '<AboutSection />', '<PartnershipSection />', '<Testimonials />', '<ContactSection />'];
+  const order = ['<Hero />', '<SelectedWork />', '<ServicesSection>', '<TechStack />', '</ServicesSection>', '<ProjectsSection />', '<OpenEcosystem />', '<MethodSection />', '<AboutSection />', '<Testimonials />', '<ContactSection />'];
   const positions = order.map((needle) => home.indexOf(needle));
   positions.forEach((position, index) => assert.ok(position >= 0, `${order[index]} is rendered`));
   assert.deepEqual([...positions].sort((a, b) => a - b), positions, 'sections keep the narrative order');

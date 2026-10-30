@@ -14,7 +14,7 @@ test('VS-001: explanatory paragraphs are disclosed by an accessible details elem
   assert.match(quiet, /<details class="quiet">\s*<summary aria-label="[^"]+">\s*<svg[^>]*aria-hidden="true"/);
   assert.doesNotMatch(quiet, /<script/);
   // TerminalSection and ImpactMetrics left the home (specs/049-selected-work, HN-002, HN-005).
-  const sections = ['ServicesSection', 'TechStack', 'ProjectsSection', 'OpenEcosystem', 'PartnershipSection', 'MethodSection', 'AboutSection', 'ContactSection'];
+  const sections = ['ServicesSection', 'TechStack', 'ProjectsSection', 'OpenEcosystem', 'MethodSection', 'AboutSection', 'ContactSection'];
   for (const name of sections) {
     const markup = await read(`${HOME}${name}.astro`);
     assert.match(markup, /import Quiet from '\.\/Quiet\.astro'/, `${name} imports Quiet`);
