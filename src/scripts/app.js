@@ -81,7 +81,8 @@ function initApp() {
         loadOnDemand('ProjectCatalog', () => import("./home-catalog.js"), ({ initializeHomeCatalog }) => initializeHomeCatalog({
           container: projectContainer,
           toolbar: document.querySelector("[data-project-toolbar]"),
-          count: document.querySelector("[data-project-count]")
+          count: document.querySelector("[data-project-count]"),
+          selection: projectContainer.hasAttribute("data-project-selection")
         }));
       }
     },
