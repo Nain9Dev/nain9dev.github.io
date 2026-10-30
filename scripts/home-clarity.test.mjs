@@ -51,8 +51,7 @@ test('AVAIL-001: availability is stated as part-time remote work, without weeken
   assert.doesNotMatch(proof, /fines? de semana/i);
   assert.match(proof, /tiempo parcial y en remoto/);
   const hero = await read('src/components/home/Hero.astro');
-  assert.doesNotMatch(hero, /<span class="panel-state">Disponible<\/span>/);
-  assert.match(hero, /<span class="panel-state">Tiempo parcial<\/span>/);
+  assert.match(hero, /<p class="availability">Acepto proyectos a tiempo parcial y en remoto/);
 });
 
 test('SIM-001: the services page has no scope simulator with invented timelines or deliverables', async () => {
