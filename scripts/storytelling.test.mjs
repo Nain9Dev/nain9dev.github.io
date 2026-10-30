@@ -28,12 +28,13 @@ test('VS-001: explanatory paragraphs are disclosed by an accessible details elem
   assert.match(css, /\.quiet > summary:hover,\s*\.quiet > summary:focus-visible,/, 'keyboard parity');
 });
 
-test('VS-003 (retired by DF-029): the open-ecosystem tiles keep the capture tile and a hidden note', async () => {
+test('VS-003 (retired by DF-029, DF-034): the open ecosystem is a row of chips with the note kept hidden', async () => {
   const css = await read('src/styles/main.css');
-  assert.doesNotMatch(css, /\.live-demos \./, 'the strip rules left with the strip');
+  assert.doesNotMatch(css, /\.live-demo/, 'the capture tiles left with the strip and the wall');
   const ecosystem = await read(`${HOME}OpenEcosystem.astro`);
   assert.match(ecosystem, /<svg class="repo-icon"[^>]*aria-hidden="true"/);
-  assert.match(css, /#open-ecosystem \.live-demo-tech \{[^}]*clip-path: inset\(50%\);/);
+  assert.match(ecosystem, /<p class="eco-note">\{repository\.note\}<\/p>/);
+  assert.match(css, /\.eco-note \{[^}]*clip-path: inset\(50%\);/);
 });
 
 test('VS-010: service lists fold behind the toggle and captured project cards keep their summary in the detail', async () => {
