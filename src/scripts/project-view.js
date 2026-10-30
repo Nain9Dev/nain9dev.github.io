@@ -51,6 +51,25 @@ function createDiagram(project, detail) {
   return figure;
 }
 
+// The picture of a row (DF-036): the capture of the demo when there is one, otherwise the mark of the first
+// technology that has one. It is decorative: the title and the status already name the project.
+function createCapture(project) {
+  const media = createElement("div", project.thumbnail ? "project-capture" : "project-capture is-mark");
+  media.setAttribute("aria-hidden", "true");
+  const source = project.thumbnail ? project.thumbnail.replace(/\.webp$/, "-400.webp") : project.technologies.map(techIcon).find(Boolean);
+  if (source) {
+    const image = createElement("img");
+    image.src = source;
+    image.alt = "";
+    image.width = project.thumbnail ? 400 : 28;
+    image.height = project.thumbnail ? 225 : 28;
+    image.loading = "lazy";
+    image.decoding = "async";
+    media.append(image);
+  }
+  return media;
+}
+
 function createProjectCard(project, index) {
   // Compact row: the catalog is the complete inventory; the selected work above tells the stories
   // (specs/049-selected-work, HN-004).
@@ -104,7 +123,9 @@ function createProjectCard(project, index) {
   }
   project.links.forEach((link) => links.append(createProjectLink(link)));
 
-  article.append(header, technologies, detail, links);
+  const body = createElement("div", "project-row-body");
+  body.append(header, technologies, detail, links);
+  article.append(createCapture(project), body);
   return article;
 }
 
