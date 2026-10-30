@@ -1,0 +1,42 @@
+---
+// ProductsBand.astro: the products built with Contrast3D, each with its own public site
+// (specs/next-projects-route, NPR-005 to NPR-007). The Contrast Viewer link stays off until viewer.contrast3d.com
+// answers 200 (blocker B-022); no page of this site links the gated app host or any Contrast Hub host.
+import Quiet from './Quiet.astro';
+
+const viewerSiteLive = false;
+---
+<section class="section" id="products" aria-labelledby="products-title">
+  <div class="shell">
+    <div class="section-heading" data-reveal>
+      <div>
+        <p class="eyebrow">Productos</p>
+        <h2 id="products-title">Software propio con web propia</h2>
+      </div>
+      <Quiet><p>NainDev es el software y el backend. El 3D se publica como productos con su propio sitio.</p></Quiet>
+    </div>
+
+    <div class="card-grid card-grid-three">
+      <article class="service-card" data-reveal>
+        <h3><span translate="no">DSE</span> · Conformidad determinista</h3>
+        <p>Valida un producto contra perfiles versionados y emite un veredicto reproducible. Su primer dominio son los modelos 3D glTF/GLB.</p>
+        <a class="card-link" href="https://datumstatutum.com/" target="_blank" rel="noopener noreferrer" translate="no">datumstatutum.com ↗</a>
+      </article>
+
+      <article class="service-card" data-reveal>
+        <h3><span translate="no">Contrast Viewer</span> · Visor 3D para la web</h3>
+        <p>Componente web que muestra modelos 3D con vistas despiezadas y puntos de interés, listo para integrar en una página.</p>
+        {viewerSiteLive
+          ? <a class="card-link" href="https://viewer.contrast3d.com/" target="_blank" rel="noopener noreferrer" translate="no">viewer.contrast3d.com ↗</a>
+          : <p class="card-note">Web pública en preparación.</p>}
+      </article>
+
+      <article class="service-card" data-reveal>
+        <h3><span translate="no">Contrast Hub</span> · Plataforma privada</h3>
+        <p>CRM y cálculos a medida, en producción con un equipo real. Es privado y no tiene demo pública.</p>
+      </article>
+    </div>
+
+    <p class="products-credit" data-reveal>Diseño y CGI: <a href="https://www.contrast3d.com/" target="_blank" rel="noopener noreferrer"><span translate="no">Contrast3D</span> ↗</a></p>
+  </div>
+</section>

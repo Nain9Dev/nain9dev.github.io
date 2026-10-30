@@ -1134,6 +1134,27 @@ main[tabindex="-1"]:focus {
   text-decoration-line: underline;
 }
 
+/* Products band (specs/next-projects-route): a card without a public site says so, and the studio is credited below.
+   The cards are short text blocks, so they do not keep the tall service-card height. */
+#products .service-card {
+  min-height: 0;
+}
+
+.service-card .card-note {
+  margin-top: 1rem;
+  font-size: var(--text-sm);
+}
+
+.products-credit {
+  margin-top: 2rem;
+  color: var(--color-text-muted);
+}
+
+.products-credit a {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
 .service-card p,
 .project-summary,
 .project-proof {

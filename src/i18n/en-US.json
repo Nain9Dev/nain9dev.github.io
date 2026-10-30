@@ -9338,5 +9338,80 @@
     "source": "Proyectos y demos de software",
     "target": "Software projects and demos",
     "status": "reviewed"
+  },
+  "ed02770b233c714144b15820be88b8925a13c80b5bbdd2388afce02f9ee6bf45": {
+    "source": "Proyectos destacados",
+    "target": "Featured projects",
+    "status": "reviewed"
+  },
+  "a2b3e75c36842358983c2cd20606868bc77304b885baadfcf40cc1da90cc31a1": {
+    "source": "⟦0/⟧⟦1⟧⟦2/⟧ proyectos destacados⟦/1⟧",
+    "target": "⟦0/⟧⟦1⟧⟦2/⟧ featured projects⟦/1⟧",
+    "status": "reviewed"
+  },
+  "11e3ebdff42f33fc27eb46fdfa6c2ee7852dd87527f76d3a6f83319618855472": {
+    "source": "Ver todos los proyectos y demos →",
+    "target": "See all projects and demos →",
+    "status": "reviewed"
+  },
+  "9a494bb8b0e5108c7e949ee9c46d261608db2d6e30c405b678447c042a6dbe7c": {
+    "source": "⟦0⟧Ver todos los proyectos y demos →⟦/0⟧",
+    "target": "⟦0⟧See all projects and demos →⟦/0⟧",
+    "status": "reviewed"
+  },
+  "f598138f026c1d91c2a6a23b2225d68b38fc2a3025aaae0301e234f5b52a15ee": {
+    "source": "Productos",
+    "target": "Products",
+    "status": "reviewed"
+  },
+  "91a217bc01c2cb2f334f258d64c6137cdeb0d3dd335ad6c2d6e1f0b6611f5a65": {
+    "source": "Software propio con web propia",
+    "target": "Our own software with its own website",
+    "status": "reviewed"
+  },
+  "02900b9470c5ef77eaea48974128be5492be9ec8a170a7ad75a6f208b3d7b0f8": {
+    "source": "NainDev es el software y el backend. El 3D se publica como productos con su propio sitio.",
+    "target": "NainDev is the software and the backend. The 3D work is published as products with their own site.",
+    "status": "reviewed"
+  },
+  "0c50eb5b36e5053abebe3d803ff801945811b4dcff5f764c96bbd1244b996009": {
+    "source": "⟦0/⟧ · Conformidad determinista",
+    "target": "⟦0/⟧ · Deterministic conformance",
+    "status": "reviewed"
+  },
+  "836102d675f8bcd4af3892adc807c368c981fc0258eeacdaa0658df0a89a2eba": {
+    "source": "Valida un producto contra perfiles versionados y emite un veredicto reproducible. Su primer dominio son los modelos 3D glTF/GLB.",
+    "target": "Validates a product against versioned profiles and issues a reproducible verdict. Its first domain is glTF/GLB 3D models.",
+    "status": "reviewed"
+  },
+  "74f5cc0a2940463e62bbf54ccc17d4380ce335befa4d96d3b2a61ab2d2e5ccbb": {
+    "source": "⟦0/⟧ · Visor 3D para la web",
+    "target": "⟦0/⟧ · 3D viewer for the web",
+    "status": "reviewed"
+  },
+  "5a67f8f90b7215c7ada41ea9d6d2dc4cbeb6e37d95fff31bb5f21e3fc02fa4c1": {
+    "source": "Componente web que muestra modelos 3D con vistas despiezadas y puntos de interés, listo para integrar en una página.",
+    "target": "A web component that shows 3D models with exploded views and points of interest, ready to embed in a page.",
+    "status": "reviewed"
+  },
+  "dddbab63c5a9e186095ddcf4ffa9ed58ac57086eba6f0b35f70452bd32cda446": {
+    "source": "Web pública en preparación.",
+    "target": "Public website in preparation.",
+    "status": "reviewed"
+  },
+  "9b299ac9a741a6bd564b18c850da3d07aa94d08dd7f752dbfe57574c9bfda9ea": {
+    "source": "⟦0/⟧ · Plataforma privada",
+    "target": "⟦0/⟧ · Private platform",
+    "status": "reviewed"
+  },
+  "6c70bb4ad3917addfd3773d9190c79b1d14ae53c8618b736ab1706dae5c44460": {
+    "source": "CRM y cálculos a medida, en producción con un equipo real. Es privado y no tiene demo pública.",
+    "target": "Custom CRM and calculations, in production with a real team. It is private and has no public demo.",
+    "status": "reviewed"
+  },
+  "c8754ff3c499175bd6cbe0d733f66f47e85255e488d3fd569f373e18b7cb1728": {
+    "source": "Diseño y CGI: ⟦0⟧⟦1/⟧ ↗⟦/0⟧",
+    "target": "Design and CGI: ⟦0⟧⟦1/⟧ ↗⟦/0⟧",
+    "status": "reviewed"
   }
 }
