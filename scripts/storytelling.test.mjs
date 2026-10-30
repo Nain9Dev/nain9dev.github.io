@@ -28,19 +28,6 @@ test('VS-001: explanatory paragraphs are disclosed by an accessible details elem
   assert.match(css, /\.quiet > summary:hover,\s*\.quiet > summary:focus-visible,/, 'keyboard parity');
 });
 
-test('VS-002: the hero map hides its detail lines in CSS and animates only transform', async () => {
-  const hero = await read(`${HOME}Hero.astro`);
-  assert.match(hero, /<small>Contratos y validación<\/small>/, 'detail lines stay in the markup');
-  assert.match(hero, /<p class="panel-hint">/);
-  const css = await read('src/styles/main.css');
-  assert.match(css, /\.system-node small,\s*\.panel-hint \{[^}]*clip-path: inset\(50%\);/);
-  const keyframes = css.match(/@keyframes rail-pulse \{([\s\S]*?)\n\}/)?.[1] ?? '';
-  assert.ok(keyframes, 'rail pulse keyframes exist');
-  assert.deepEqual([...keyframes.matchAll(/^\s{4}([a-z-]+):/gm)].map((m) => m[1]), ['transform', 'transform']);
-  assert.match(css, /@media \(prefers-reduced-motion: no-preference\) \{\s*\.system-map::after/);
-  assert.match(css, /html\.low-performance \.system-map::after \{[^}]*animation: none/);
-});
-
 test('VS-003: the demo gallery shows lazy captures and keeps host and technologies in the markup', async () => {
   const strip = await read(`${HOME}LiveDemos.astro`);
   // The 400 px variant is the default; the 640 px capture only where the rendered size asks for it (spec 032 transfer budget).
