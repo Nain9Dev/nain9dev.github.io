@@ -22,7 +22,7 @@ test('DF-016: the Dimension component is static markup with the count as a never
 
 test('DF-016: each label is a count taken from data, not typed by hand', async () => {
   const uses = {
-    'src/components/home/ProjectsSection.astro': /<Dimension count=\{selection\.length\} unit="proyectos destacados" \/>/,
+    'src/components/home/ProjectsSection.astro': /<Dimension count=\{shown\.length\} unit="proyectos" \/>/,
     'src/components/home/SelectedWork.astro': /<Dimension count=\{cases\.length\} unit="proyectos seleccionados" \/>/,
     'src/components/home/ServicesSection.astro': /<Dimension count=\{services\.length\} unit="servicios" \/>/,
     'src/pages/servicios/index.astro': /<Dimension count=\{sortedServicios\.length\} unit="servicios" \/>/,
@@ -54,13 +54,13 @@ test('DF-016: the built pages show the real counts in both languages', { skip: !
   const counts = [...es.matchAll(/class="dimension-label"><span translate="no">(\d+)<\/span> ([^<]+)</g)].map((m) => [Number(m[1]), m[2]]);
   assert.equal(counts.length, 3, 'three dimensions on the home');
   assert.ok(counts.some(([n, unit]) => n === Number(services) && unit === 'servicios'));
-  const featured = projects.filter((project) => project.featuredOrder !== undefined).length;
-  assert.ok(counts.some(([n, unit]) => n === featured && unit === 'proyectos destacados'), 'the home counts its featured projects');
+  const listed = projects.filter((project) => !project.bridge).length;
+  assert.ok(counts.some(([n, unit]) => n === listed && unit === 'proyectos'), 'the home counts the projects of the catalog');
   assert.ok(counts.some(([n, unit]) => n === selected && unit === 'proyectos seleccionados'));
   const catalogPage = await read('dist/proyectos/index.html');
   assert.ok(catalogPage.includes(`class="dimension-label"><span translate="no">${projects.filter((project) => !project.bridge).length}</span> proyectos<`), 'the catalog page counts what it shows (the bridged 3D projects are one row)');
   const en = await read('dist/en/index.html');
-  assert.match(en, /class="dimension-label"><span translate="no">\d+<\/span> featured projects</);
+  assert.match(en, /class="dimension-label"><span translate="no">\d+<\/span> projects</);
   assert.match(en, /class="dimension-label"><span translate="no">\d+<\/span> selected projects</);
   assert.match(en, /class="dimension-label"><span translate="no">\d+<\/span> services</);
 });

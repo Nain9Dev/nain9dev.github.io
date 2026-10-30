@@ -34,13 +34,13 @@ test('HERO-003: the eyebrow does not repeat the job title', async () => {
 });
 
 test('CAT-001: the project catalog is rendered in the static markup, not only after JavaScript runs', async () => {
-  // The markup lives in the component shared by the home and /proyectos/ (specs/next-projects-route, NPR-002).
+  // The markup lives in the component of /proyectos/ (specs/next-projects-route, NPR-002; the home only links it, DF-033).
   const section = await read('src/components/ProjectCatalog.astro');
   assert.doesNotMatch(section, /Cargando proyectos/);
   assert.match(section, /import projects from '\.\.\/\.\.\/public\/assets\/data\/projects\.json'/);
   const list = section.match(/<ul class="catalog-index"[\s\S]*?<\/ul>/)?.[0] ?? '';
   assert.match(list, /catalog\.map\(/);
-  assert.match(section, /: projects\.filter\(\(project\) => !project\.bridge\)\.sort\(/, 'the whole catalog is the default, without the bridged 3D projects');
+  assert.match(section, /const catalog = projects\.filter\(\(project\) => !project\.bridge\)\.sort\(/, 'the whole catalog is the default, without the bridged 3D projects');
   assert.match(list, /project\.title/);
   assert.match(list, /project\.status/);
   assert.match(section, /<div class="project-grid" data-project-list/, 'the client renderer keeps its container');

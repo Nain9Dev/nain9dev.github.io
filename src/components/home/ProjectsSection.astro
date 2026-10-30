@@ -1,29 +1,35 @@
 ---
 // ProjectsSection.astro
-// The home shows the six featured software projects and links to /proyectos/, which holds the whole filterable
-// catalog (specs/next-projects-route, NPR-001).
+// The home shows no catalog rows: the four selected cases above already tell the story, so this band is one visual
+// gate to /proyectos/, which holds the whole filterable catalog (specs/next-design-fusion, DF-033).
 import Quiet from './Quiet.astro';
 import Dimension from './Dimension.astro';
-import ProjectCatalog from '../ProjectCatalog.astro';
 import projects from '../../../public/assets/data/projects.json';
 
-const selection = projects.filter((project) => project.featuredOrder !== undefined);
+const shown = projects.filter((project) => !project.bridge);
+const tiles = [...shown]
+  .sort((a, b) => a.order - b.order)
+  .flatMap((project) => (project.thumbnail && !project.selected ? [project.thumbnail.replace(/\.webp$/, '-400.webp')] : []))
+  .slice(0, 6);
 ---
 <section class="section section-muted" id="projects">
   <div class="shell">
     <div class="section-heading" data-reveal>
       <div>
         <p class="eyebrow">Portfolio</p>
-        <h2>Proyectos destacados</h2>
-        <Dimension count={selection.length} unit="proyectos destacados" />
+        <h2>Proyectos y demos</h2>
+        <Dimension count={shown.length} unit="proyectos" />
       </div>
       <Quiet><p>Indico el estado real de cada proyecto. Los privados se describen solo por arquitectura y stack, sin nombres ni datos de clientes.</p></Quiet>
     </div>
 
-    <ProjectCatalog selection />
-
-    <div class="page-cta" data-reveal>
-      <a class="button button-outline" href="/proyectos/">Ver todos los proyectos y demos →</a>
-    </div>
+    <a class="catalog-gate" href="/proyectos/" data-reveal>
+      <ul class="catalog-gate-tiles" aria-hidden="true">
+        {tiles.map((src) => (
+          <li><img src={src} alt="" width="400" height="225" loading="lazy" decoding="async" /></li>
+        ))}
+      </ul>
+      <span class="button button-primary catalog-gate-cta">Ver todos los proyectos y demos →</span>
+    </a>
   </div>
 </section>
