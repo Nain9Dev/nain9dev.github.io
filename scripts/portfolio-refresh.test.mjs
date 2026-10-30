@@ -113,7 +113,8 @@ test('PRJ-024: a catalogued repository with a live site links it first, with the
 test('PRJ-025: every public catalog entry carries a picture; without a live site it is the README capture', async () => {
   const projects = await readJson('public/assets/data/projects.json');
   const live = (project) => project.links.some((link) => /^https:\/\/[a-z0-9-]+\.naindev\.com(\/|$)/.test(link.url));
-  for (const project of projects.filter((project) => !project.private)) {
+  // The bridge row stands for two products with their own sites and shows no capture of its own (NPR-003).
+  for (const project of projects.filter((project) => !project.private && project.id !== 'contrast3d-products')) {
     assert.ok(project.thumbnail, `${project.id} carries a picture`);
     // Without a live site the picture is a README capture; no entry is in that case today.
     if (!live(project)) assert.match(project.thumbnail, /^\/assets\/images\/repos\//, `${project.id} README capture`);
@@ -266,7 +267,7 @@ test('HERO-020: the hero summary is at most two sentences and keeps its required
   const summary = hero.match(/<p class="hero-summary"[^>]*>([\s\S]*?)<\/p>/)[1].replace(/\s+/g, ' ').trim();
   assert.ok((summary.match(/[.!?](\s|$)/g) ?? []).length <= 2, summary);
   assert.match(summary, /conformidad determinista/i);
-  assert.match(summary, /primer dominio[^.]*3D/i);
+  assert.match(summary, /modelos 3D en DSE/);
   assert.match(summary, /Python y \.NET/);
   assert.match(summary, /revisión humana/i);
 });

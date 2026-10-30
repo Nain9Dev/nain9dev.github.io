@@ -24,7 +24,8 @@
     "private": true,
     "diagram": "/assets/diagrams/conformance-architecture.svg",
     "featured": true,
-    "order": 0
+    "order": 0,
+    "bridge": true
   },
   {
     "id": "interactive-3d-viewer",
@@ -49,7 +50,8 @@
     "private": true,
     "diagram": "/assets/diagrams/interactive-3d-viewer.svg",
     "featured": true,
-    "order": 1
+    "order": 1,
+    "bridge": true
   },
   {
     "id": "collaborative-crm",
@@ -119,7 +121,8 @@
     "thumbnail": "/assets/images/demos/parametricad-ai.webp",
     "featured": true,
     "selected": true,
-    "order": 3
+    "order": 3,
+    "bridge": true
   },
   {
     "id": "nain3d-conformance-gateway",
@@ -158,7 +161,8 @@
     "thumbnail": "/assets/images/demos/nain3d-conformance-gateway.webp",
     "featured": true,
     "selected": true,
-    "order": 4
+    "order": 4,
+    "bridge": true
   },
   {
     "id": "nain-mcp-validator",
@@ -192,7 +196,8 @@
     "thumbnail": "/assets/images/demos/nain-mcp-validator.webp",
     "private": false,
     "featured": true,
-    "order": 5
+    "order": 5,
+    "bridge": true
   },
   {
     "id": "financial-management-api",
@@ -495,7 +500,8 @@
     ],
     "thumbnail": "/assets/images/demos/orbe-runner-3d.webp",
     "featured": false,
-    "order": 14
+    "order": 14,
+    "bridge": true
   },
   {
     "id": "pong-arcade",
@@ -525,7 +531,8 @@
     ],
     "thumbnail": "/assets/images/demos/pong-arcade.webp",
     "featured": false,
-    "order": 15
+    "order": 15,
+    "bridge": true
   },
   {
     "id": "b2b-prospecting-pipeline",
@@ -685,5 +692,28 @@
     "private": true,
     "featured": false,
     "order": 21
+  },
+  {
+    "id": "contrast3d-products",
+    "title": "Productos 3D: DSE y Contrast Viewer",
+    "status": "Producto público · Con web propia",
+    "summary": "Validación de conformidad y visualización 3D, publicadas como productos con su propio sitio. NainDev aporta la arquitectura, los contratos y el backend.",
+    "proof": "DSE valida cada producto contra perfiles versionados y emite un veredicto reproducible; Contrast Viewer muestra los modelos 3D en el navegador como componente web.",
+    "technologies": [
+      "Python",
+      "FastAPI",
+      "TypeScript",
+      "Three.js"
+    ],
+    "categories": [
+      "3d"
+    ],
+    "links": [
+      {
+        "label": "Ver DSE",
+        "url": "https://datumstatutum.com/"
+      }
+    ],
+    "order": 22
   }
 ]
