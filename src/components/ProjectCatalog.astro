@@ -1,18 +1,13 @@
 ---
 // ProjectCatalog.astro
-// The filterable catalog shared by the home and /proyectos/ (specs/next-projects-route, NPR-002).
+// The filterable catalog of /proyectos/ (specs/next-projects-route, NPR-002); the home only links it (DF-033).
 // It renders a static index of the catalog so crawlers and visitors without JavaScript see real text;
 // the client renderer (home-catalog.js, loaded on demand) replaces it with the filterable cards.
-// With `selection` it lists only the projects that carry a `featuredOrder`, in that order, and drops the filter bar
-// (the home shows six and links the catalog page, NPR-001).
 import projects from '../../public/assets/data/projects.json';
 
-const { selection = false } = Astro.props;
-const catalog = selection
-  ? projects.filter((project) => project.featuredOrder !== undefined).sort((a, b) => a.featuredOrder - b.featuredOrder)
-  : projects.filter((project) => !project.bridge).sort((a, b) => a.order - b.order);
+const catalog = projects.filter((project) => !project.bridge).sort((a, b) => a.order - b.order);
 ---
-{!selection && (<div class="project-toolbar" data-project-toolbar hidden>
+<div class="project-toolbar" data-project-toolbar hidden>
   <div class="filter-group" role="group" aria-label="Filtrar proyectos">
     <button class="filter-button is-active" type="button" data-project-filter="all"
       aria-pressed="true"><span class="filter-label">Todos</span><span class="filter-badge" data-filter-count="all" translate="no"></span></button>
@@ -28,9 +23,9 @@ const catalog = selection
       aria-pressed="false"><span class="filter-label">Demos</span><span class="filter-badge" data-filter-count="demo" translate="no"></span></button>
   </div>
   <p class="project-count" data-project-count aria-live="polite"></p>
-</div>)}
+</div>
 
-<div class="project-grid" data-project-list data-project-selection={selection ? '' : undefined} aria-live="polite" aria-busy="true">
+<div class="project-grid" data-project-list aria-live="polite" aria-busy="true">
   <ul class="catalog-index">
     {catalog.map((project) => (
       <li>

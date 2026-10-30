@@ -2279,6 +2279,56 @@ html.low-performance [data-parallax="true"] {
   margin-inline: auto;
 }
 
+/* Catalog gate of the home (DF-033): six captures and one button, the whole block is the link. */
+.catalog-gate {
+  display: grid;
+  gap: var(--s6);
+  justify-items: center;
+  color: inherit;
+  text-decoration: none;
+}
+
+.catalog-gate-tiles {
+  display: grid;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  gap: var(--s3);
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  list-style: none;
+}
+
+.catalog-gate-tiles li {
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+}
+
+.catalog-gate-tiles img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  opacity: 0.82;
+  transition: transform var(--dur-slow) var(--ease-out-quart), opacity var(--dur-base) var(--ease-standard);
+}
+
+.catalog-gate:hover img,
+.catalog-gate:focus-visible img {
+  opacity: 1;
+  transform: scale(1.04);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .catalog-gate:hover img,
+  .catalog-gate:focus-visible img {
+    transform: none;
+  }
+}
+
 /* --- Spec 046 PR 7: stack map and method timeline --- */
 
 /* Stack strip (HN-003, specs/049-selected-work): one wrapping row of badges after the service cards; the
