@@ -1,5 +1,6 @@
 ---
 // MethodSection.astro
+// Four steps on a rail, each led by an icon; the sentence of each step stays in the document behind its "+" (DF-035).
 import Quiet from './Quiet.astro';
 ---
 <section class="section" id="method">
@@ -13,31 +14,31 @@ import Quiet from './Quiet.astro';
 
     <ol class="step-list" data-reveal>
       <li>
-        <span>01</span>
+        <span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="6" /><path d="m20 20-4.2-4.2" /></svg></span>
         <div>
           <h3>Entender la tarea</h3>
-          <p>Objetivo, contexto, restricciones y resultado esperado.</p>
+          <Quiet><p>Objetivo, contexto, restricciones y resultado esperado.</p></Quiet>
         </div>
       </li>
       <li>
-        <span>02</span>
+        <span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="5" y="4" width="14" height="17" rx="2" /><path d="M9 4h6M9 11h6M9 15h4" /></svg></span>
         <div>
           <h3>Preparar el cambio</h3>
-          <p>Reviso el código afectado y elijo la solución más sencilla que encaje.</p>
+          <Quiet><p>Reviso el código afectado y elijo la solución más sencilla que encaje.</p></Quiet>
         </div>
       </li>
       <li>
-        <span>03</span>
+        <span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 8-5 4 5 4M15 8l5 4-5 4" /></svg></span>
         <div>
           <h3>Desarrollar y probar</h3>
-          <p>Implemento el cambio y compruebo los casos importantes.</p>
+          <Quiet><p>Implemento el cambio y compruebo los casos importantes.</p></Quiet>
         </div>
       </li>
       <li>
-        <span>04</span>
+        <span><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6" /></svg></span>
         <div>
           <h3>Entregar</h3>
-          <p>Explico qué se ha modificado, cómo se ha probado y qué queda pendiente.</p>
+          <Quiet><p>Explico qué se ha modificado, cómo se ha probado y qué queda pendiente.</p></Quiet>
         </div>
       </li>
     </ol>

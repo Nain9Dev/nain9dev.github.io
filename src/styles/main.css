@@ -1449,6 +1449,20 @@ a.partner:focus-visible {
   place-items: center;
 }
 
+.step-list > li > span svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.step-list .quiet {
+  margin-top: var(--s2);
+}
+
 .social-pill {
   display: inline-flex;
   align-items: center;
