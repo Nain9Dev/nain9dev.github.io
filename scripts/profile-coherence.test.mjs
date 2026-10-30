@@ -19,12 +19,14 @@ const PUBLIC_REPOS = [
 // Owner decision 2026-10-19 (specs/next-portfolio-refresh): NainProspect and NainWrite became public projects.
 const PRIVATE_COUNT = 6;
 // Names of private products, partners and the employer that must never reach the catalog.
-const CONFIDENTIAL = /\bDSE\b|Datum Statutum|\bE3C\b|\bRT-(?:FIN-)?\d+|Contrast|crm-platform|ProspectAI|Facturae|gha-local-runners|NainDriveSimulator|Avalisto|Fidelidade|Alcal[aá]|Torrej[oó]n/i;
+// DSE, Datum Statutum and Contrast Viewer left this list on 2026-10-29: the owner made them public products
+// (specs/next-projects-route, D5 to D8); Contrast Hub stays private through its repository name.
+const CONFIDENTIAL = /\bE3C\b|\bRT-(?:FIN-)?\d+|Contrast Hub|contrast3dhub|crm-platform|ProspectAI|Facturae|gha-local-runners|NainDriveSimulator|Avalisto|Fidelidade|Alcal[aá]|Torrej[oó]n/i;
 
 test('COPY-010: the hero presents multi-domain conformance without industrial-scale claims', async () => {
   const hero = text(await read('src/components/home/Hero.astro'));
   assert.match(hero, /conformidad determinista/i);
-  assert.match(hero, /primer dominio[^.]*3D/i);
+  assert.match(hero, /modelos 3D en DSE/);
   assert.doesNotMatch(hero, /escala industrial/i);
 });
 
@@ -138,6 +140,7 @@ test('PRJ-008: projects are ordered by complexity hierarchy (specs/017-catalog-c
     'gamehaven-blazor-store',
     'havetickets',
     'driving-exam-simulator',
+    'contrast3d-products',
   ];
   const actualOrder = [...projects].sort((a, b) => a.order - b.order).map((p) => p.id);
   assert.deepEqual(actualOrder, expectedOrder);
