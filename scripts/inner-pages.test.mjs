@@ -44,7 +44,8 @@ test('IP-003: the service page heads the article with glyph and title, no inline
 test('IP-004: blog cards open with a silent numbered cover and disclose the description', async () => {
   const page = await read('src/pages/blog/index.astro');
   assert.match(page, /<Quiet><p>\{post\.data\.description\}<\/p><\/Quiet>/);
-  assert.match(page, /button-outline blog-action/, 'VIS-011 kept');
+  assert.match(page, /<h2><a class="card-stretch" href=\{`\/blog\/\$\{post\.id\}`\}>/, 'the title is the stretched link of the card (DF-037)');
+  assert.doesNotMatch(page, /Leer artículo|button-outline/, 'no repeated button');
   const css = (await read('src/styles/main.css')) + '\n' + (await read('src/styles/inner-pages.css')); // inner-page rules moved (specs/050-work-pages IS-001)
   assert.match(css, /\.blog-card::before \{[^}]*content: counter\(post, decimal-leading-zero\) \/ "";/);
   assert.match(css, /\.blog-grid \{\s*counter-reset: post;/);

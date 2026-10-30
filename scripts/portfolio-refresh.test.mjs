@@ -268,7 +268,7 @@ test('VIS-011: the checklist and blog index pages are styled by classes, not inl
   assert.match(checklist, /class="[^"]*\bcheck-list\b[^"]*"/);
   assert.match(checklist, /<!--email_off-->/);
   assert.match(checklist, /mailto:contact@naindev\.com/);
-  assert.match(blog, /class="blog-card-link"|button-outline blog-action/);
+  assert.match(blog, /class="card-stretch"/);
   const css = (await read('src/styles/main.css')) + '\n' + (await read('src/styles/inner-pages.css')); // inner-page rules moved (specs/050-work-pages IS-001)
   for (const selector of ['.check-list', '.lead-layout', '.lead-card', '.blog-action', '.page-intro']) {
     assert.ok(css.includes(`${selector} {`) || css.includes(`${selector}\n`) || css.includes(`${selector},`), `${selector} is styled`);

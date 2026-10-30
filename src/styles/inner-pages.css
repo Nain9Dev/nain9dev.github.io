@@ -30,6 +30,41 @@
 .blog-action {
   display: inline-flex;
   margin-top: 1.5rem;
+  color: var(--color-text-muted);
+  font-size: var(--text-lg);
+  transition: transform var(--dur-base) var(--ease-standard), color var(--dur-fast) var(--ease-standard);
+}
+
+.blog-card:hover .blog-action {
+  color: var(--color-primary);
+  transform: translateX(4px);
+}
+
+.blog-card .card-stretch::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+}
+
+.blog-card .card-stretch:focus-visible {
+  outline: none;
+}
+
+/* The disclosure button stays clickable above the stretched link. */
+.blog-card .quiet {
+  position: relative;
+  z-index: 1;
+}
+
+.blog-card .card-stretch:focus-visible::after {
+  outline: 2px solid var(--color-primary);
+  outline-offset: -2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blog-card:hover .blog-action {
+    transform: none;
+  }
 }
 
 .case-study-card.lead-page {
