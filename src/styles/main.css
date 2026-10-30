@@ -600,7 +600,55 @@ main[tabindex="-1"]:focus {
   grid-template-rows: minmax(0, 1fr) auto;
   align-items: start;
   overflow: hidden;
+  /* Its own stacking context: the stroke field sits at z-index -1, which must paint above the hero's own background. */
+  isolation: isolate;
   padding-block: clamp(2.5rem, 4vw, 3.5rem) clamp(2.5rem, 4vw, 4rem);
+  /* The hero is a deep blue band in both themes, like the footer (next-design-fusion, DF-020): the band's ink,
+     link and stroke colours, and surfaces taken from the band so the panel and the receipts read in either theme. */
+  --color-ink: var(--band-ink);
+  --color-ink-soft: var(--band-ink-soft);
+  --color-ink-muted: var(--band-ink-muted);
+  --color-heading: var(--band-ink);
+  --color-text: var(--color-ink);
+  --color-text-soft: var(--color-ink-soft);
+  --color-text-muted: var(--color-ink-muted);
+  --color-link: var(--band-link);
+  --color-primary-strong: var(--color-link);
+  --color-green: var(--brand-green);
+  --color-stroke: var(--brand-green);
+  --color-red: var(--brand-red);
+  --color-bg: color-mix(in srgb, var(--brand-deep) 60%, var(--color-black));
+  --color-bg-raised: color-mix(in srgb, var(--brand-deep) 70%, var(--color-black));
+  --color-surface: color-mix(in srgb, var(--brand-deep) 82%, var(--color-black));
+  --color-sunken: var(--color-bg);
+  --color-line: color-mix(in srgb, var(--color-ink) 10%, transparent);
+  --color-line-strong: color-mix(in srgb, var(--color-ink) 18%, transparent);
+  --color-shadow: color-mix(in srgb, var(--brand-deep) 45%, var(--color-black));
+  /* The aliases and the shadows are resolved where they are declared (:root), so the hero declares them again. */
+  --color-background: var(--color-bg);
+  --color-background-soft: var(--color-bg-raised);
+  --color-surface-strong: var(--color-surface);
+  --color-surface-warm: var(--color-bg-raised);
+  --color-primary: var(--color-link);
+  --color-secondary: var(--color-link);
+  --color-secondary-strong: var(--color-link);
+  --shadow-raised: 8px 8px 0 var(--color-shadow);
+  --shadow-panel: 12px 12px 0 var(--color-shadow);
+  --shadow-card: var(--shadow-panel);
+  --shadow-button: 6px 6px 0 var(--color-green);
+  color: var(--color-text);
+  background: var(--brand-deep);
+}
+
+/* On the band the primary action is the brand green with deep blue ink: the cobalt button would sink into it. */
+.hero .button-primary {
+  background: var(--brand-green);
+  color: var(--brand-deep);
+}
+
+.hero .button-primary:hover,
+.hero .button-primary:focus-visible {
+  background: color-mix(in srgb, var(--brand-green) 86%, var(--color-ink));
 }
 
 /* The stroke field (hero-field.js, HERO-005 to HERO-009). It fades out in the lower part so it never sits

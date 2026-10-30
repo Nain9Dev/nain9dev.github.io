@@ -6,6 +6,7 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ### Added
 
+- Next-design-fusion DF-020: the hero is a full-bleed deep blue band in both themes, with the band's text, link and stroke colours, surfaces taken from the band for the system panel and the receipts, the brand green as the primary button, and the stroke field painted above the band.
 - Next-design-fusion DF-018: the top bar has three links (Servicios, Proyectos, Blog), each a stroke icon and one word, with the current section marked; Arquitectura Frontend, Cómo trabajo and Sobre mí move to a footer navigation, in both languages.
 - Next-design-fusion DF-019: the language switch shows the short codes ES and EN in the mono face, keeping 44 px targets and the full language name as the accessible name; built by `scripts/build-locales.mjs` on every page of both languages.
 - Next-design-fusion DF-017: `/servicios/` and `/en/services/` show the designer's agenda diagram after the heading, as thirteen round-capped strokes in the stroke colour that draw in once without a reduced-motion preference and never loop; phones skip it. The home is unchanged.
