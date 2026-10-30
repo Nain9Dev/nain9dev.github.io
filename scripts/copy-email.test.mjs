@@ -47,6 +47,6 @@ test('MAIL-006: no component of the home, the footer included, prints the addres
     const source = await readFile(file, 'utf8');
     assert.ok(!source.includes(ADDRESS) && !/mailto:/.test(source), `${file} keeps the address out of the markup`);
   }
-  // The footer reaches the copy button of the contact section instead (the home has the only wired button).
-  assert.match(await readFile('src/components/Footer.astro', 'utf8'), /href="\/#contact"/);
+  // The footer reaches the copy button of the contact page instead (DF-024); the first button of a page is the wired one.
+  assert.match(await readFile('src/components/Footer.astro', 'utf8'), /href="\/contacto\/"/);
 });

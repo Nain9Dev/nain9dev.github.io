@@ -9474,26 +9474,6 @@
     "target": "See DSE",
     "status": "reviewed"
   },
-  "cecd0485259d944934335455f04b0d7c273fc7cdc808fc9b09000c83536e185a": {
-    "source": "⟦0/⟧⟦1⟧Servicios⟦/1⟧",
-    "target": "⟦0/⟧⟦1⟧Services⟦/1⟧",
-    "status": "reviewed"
-  },
-  "7f651ac23e716b12dcda6776e575f4550aa6e906c9b7c63a9069eb111b0d6955": {
-    "source": "⟦0/⟧⟦1⟧Proyectos⟦/1⟧",
-    "target": "⟦0/⟧⟦1⟧Projects⟦/1⟧",
-    "status": "reviewed"
-  },
-  "9f20eb1274af63a6ac76f21be029adfe443fb9df42e5ee0bcd87983b95fcab06": {
-    "source": "⟦0/⟧⟦1⟧Blog⟦/1⟧",
-    "target": "⟦0/⟧⟦1⟧Blog⟦/1⟧",
-    "status": "reviewed"
-  },
-  "e430e20fd377cf605d7e2508bf3843f3fcdbdbf19773e693424e92b53a4eef95": {
-    "source": "Más enlaces",
-    "target": "More links",
-    "status": "reviewed"
-  },
   "197c7a8551b91c79a00295ba8e38d439c7487a84383769cd95dbec9263e0803b": {
     "source": "Contenido",
     "target": "Content",
@@ -9592,6 +9572,66 @@
   "b365e53d7fbb83b1f22234eaa7c2e341cc7e269dcc290c41dda111a07c2ddff0": {
     "source": "⟦0⟧⟦1/⟧⟦2⟧Estado del servicio⟦/2⟧⟦/0⟧⟦3⟧Privacidad⟦/3⟧⟦4⟧Volver arriba⟦/4⟧",
     "target": "⟦0⟧⟦1/⟧⟦2⟧Service status⟦/2⟧⟦/0⟧⟦3⟧Privacy⟦/3⟧⟦4⟧Back to top⟦/4⟧",
+    "status": "reviewed"
+  },
+  "f0f1fd543ec7011955f43a65a8bdde1a245eb5c3879df72942ab1dd1dab0ad38": {
+    "source": "Contacto | NainDev",
+    "target": "Contact | NainDev",
+    "status": "reviewed"
+  },
+  "7530b82b84b99f5086cd6fd23982f0f0aea8c706574be7e318f63d1d4733c9eb": {
+    "source": "Una llamada de 30 minutos para ver tu caso: agenda una llamada gratuita, escribe por correo o contacta por LinkedIn. Disponible a tiempo parcial y en remoto.",
+    "target": "A 30-minute call to look at your case: book a free call, write by email or reach out on LinkedIn. Available part-time and remote.",
+    "status": "reviewed"
+  },
+  "d099de4fa96094ff5bd7ffd1e4d0f87651a9b8097363cd0d5e6decb5724506ad": {
+    "source": "Una llamada de 30 minutos para ver tu caso",
+    "target": "A 30-minute call to look at your case",
+    "status": "reviewed"
+  },
+  "1bc9c509febc78254dd39740e09520b2d7f161d9ed29138c75b76f0c4453c1e2": {
+    "source": "Si hay encaje, hablamos de alcance y presupuesto. Si no, te lo digo en la misma llamada.",
+    "target": "If it fits, we talk about scope and budget. If not, I tell you on the same call.",
+    "status": "reviewed"
+  },
+  "4511779dcca45d0b24f2166d5c3770ea0d9a01c7f2fc2af56391bb04e5cb5d6e": {
+    "source": "⟦0⟧Disponibilidad:⟦/0⟧ acepto proyectos a tiempo parcial y en remoto para empresas de cualquier país. No hay tarifas publicadas: dependen del alcance y se hablan en la llamada.",
+    "target": "⟦0⟧Availability:⟦/0⟧ I take on part-time, remote projects for companies in any country. There are no published rates: they depend on scope and are discussed on the call.",
+    "status": "reviewed"
+  },
+  "dd2c5cb3e1805a925fe5fd4aa475896780aeba9751a3959a3c2e124779ad6f9e": {
+    "source": "Elige el que te resulte más cómodo",
+    "target": "Pick whichever suits you",
+    "status": "reviewed"
+  },
+  "6c5ed453532bfe880a023d1a5e8207d9f46c59b582d92f6fc521cd4c1f002f05": {
+    "source": "Llamada de 30 minutos",
+    "target": "30-minute call",
+    "status": "reviewed"
+  },
+  "ec48a8ca9bdd1fca605d9b25802d979ea3886d5377bb31fef216416af20bd660": {
+    "source": "Eliges hueco en el calendario y recibes el enlace de la videollamada.",
+    "target": "You pick a slot in the calendar and get the video call link.",
+    "status": "reviewed"
+  },
+  "0b61df381e1b1d07ba34ba4e25e409bc3d96cff3f94aaf7cda4e8e54246889d5": {
+    "source": "Correo",
+    "target": "Email",
+    "status": "reviewed"
+  },
+  "4604f22fd355f2976523a75f3962dfb8cd69bbebe723fa9d0f03caf385fef03f": {
+    "source": "Si prefieres escribir con calma o adjuntar un diagrama.",
+    "target": "If you prefer to write at your own pace or attach a diagram.",
+    "status": "reviewed"
+  },
+  "359b1df2ec78b1136480a196d08544350f644d8dd6624ba9f41e12360fe9292d": {
+    "source": "Para ver la trayectoria o escribir por mensaje privado.",
+    "target": "To see the background or send a private message.",
+    "status": "reviewed"
+  },
+  "01025a559162d971b634015eb2119a3e10faa441438fb8c1e66908ce3df31693": {
+    "source": "Ver el perfil",
+    "target": "See the profile",
     "status": "reviewed"
   },
   "4f805032905a100d95ade6a0da3d19af73550ff71593ffef8e49dea4e91568b9": {

@@ -24,7 +24,7 @@ test('DF-021: the footer has the brand and four short columns with the expected 
   for (const href of ['/servicios/sistemas-criticos-dotnet/', '/servicios/arquitectura-ia-generativa/', '/servicios/validacion-3d/', '/servicios/']) assert.ok(services.includes(href), href);
   for (const href of ['/proyectos/', '/blog/', '/servicios/arquitectura-frontend-alto-rendimiento/', '/#method', '/#about', '/recursos/checklist-ia']) assert.ok(content.includes(href), href);
   assert.ok(technology.length >= 5 && technology.every((href) => href.startsWith('/tecnologia/')), 'five technology pages');
-  assert.ok(contact.includes('/#contact'), 'the message goes to the contact section, which holds the copy button (MAIL-006)');
+  assert.ok(contact.includes('/contacto/'), 'the message goes to the contact page, which holds the copy button (MAIL-006)');
   assert.ok(!contact.some((href) => href.startsWith('mailto:')), 'no mailto link');
   assert.ok(contact.some((href) => href.startsWith('https://calendly.com/')));
   assert.ok(contact.includes('https://github.com/Nain9Dev'));
