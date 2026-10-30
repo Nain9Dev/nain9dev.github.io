@@ -436,13 +436,20 @@ main[tabindex="-1"]:focus {
   transition: transform 300ms var(--ease-spring), opacity 300ms ease;
 }
 
-.brand-name {
+/* The wordmark is the vector of design/brand/wordmark-green.svg in a 423 x 38 box; it follows the theme and
+   phones keep only the isotype, where the thin letters would not read. */
+.brand-wordmark {
+  display: block;
+  width: auto;
+  height: 1rem;
+  aspect-ratio: 423 / 38;
   color: var(--color-logo);
-  font-family: var(--font-display);
-  font-size: clamp(1.4rem, 2.2vw, 1.6rem);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  line-height: 1;
+}
+
+@media (max-width: 48rem) {
+  .brand-wordmark {
+    display: none;
+  }
 }
 
 .brand:hover .brand-mark {

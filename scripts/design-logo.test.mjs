@@ -21,7 +21,8 @@ test('DF-004: the header brand is the isotype as inline SVG coloured by --color-
   assert.match(brand, /aria-label="NainDev, volver al inicio"/, 'the link keeps its accessible name and target');
   assert.match(brand, /href="\/#top"/);
   assert.match(brand, new RegExp(`<svg class="brand-mark"[^>]*aria-hidden="true"[^>]*>\\s*<path d="${STROKES}"`), 'the isotype strokes');
-  assert.match(brand, /<span class="brand-name" translate="no">NainDev<\/span>/, 'the name is real text, not an image, and is never translated');
+  assert.match(brand, /<svg class="brand-wordmark" viewBox="0 0 423 38" aria-hidden="true" focusable="false">/, 'the wordmark is an inline vector, hidden from assistive tech because the link has its own name');
+  assert.doesNotMatch(brand, /<text|<image|brand-name/, 'no text node and no raster in the lockup');
   assert.doesNotMatch(header, /<Image|logo_horizontal/, 'no raster logo in the header');
   const css = await read('src/styles/main.css');
   const mark = css.match(/\.brand-mark \{([\s\S]*?)\n\}/)?.[1] ?? '';
@@ -29,13 +30,23 @@ test('DF-004: the header brand is the isotype as inline SVG coloured by --color-
   assert.match(mark, new RegExp(`stroke-width: ${STROKE_WIDTH};`));
   assert.match(mark, /stroke-linecap: round;/);
   assert.match(mark, /fill: none;/);
-  const name = css.match(/\.brand-name \{([\s\S]*?)\n\}/)?.[1] ?? '';
-  assert.match(name, /color: var\(--color-logo\);/);
+  const wordmark = css.match(/\.brand-wordmark \{([\s\S]*?)\n\}/)?.[1] ?? '';
+  assert.match(wordmark, /color: var\(--color-logo\);/, 'the wordmark follows the theme like the isotype');
+  assert.match(wordmark, /height: [^;]+;/);
+  assert.match(css, /@media \(max-width: 48rem\) \{[^@]*\.brand-wordmark \{\s*display: none;/, 'phones show the isotype alone');
 });
 
-test('DF-005: no raster wordmark is published and the old raster logo is gone', async () => {
+test('DF-005: the wordmark is published only as a vector and draws the kit geometry; the old raster logo is gone', async () => {
   assert.equal(existsSync(join(ROOT, 'src/assets/images/logo_horizontal.png')), false, 'the old 1600 px logo is removed');
-  for (const file of ['src/components/Header.astro', 'src/components/Footer.astro', 'src/layouts/BaseLayout.astro']) {
+  const header = await read('src/components/Header.astro');
+  const wordmark = header.match(/<svg class="brand-wordmark"[\s\S]*?<\/svg>/)?.[0] ?? '';
+  const kit = await read('design/brand/wordmark-green.svg');
+  const paths = [...kit.matchAll(/ d="([^"]+)"/g)].map((match) => match[1]);
+  assert.ok(paths.length >= 4);
+  for (const d of paths) assert.ok(wordmark.includes(` d="${d}"`), 'the header draws the same path as design/brand/wordmark-green.svg');
+  assert.match(wordmark, /fill="currentColor"/);
+  assert.match(wordmark, /stroke="currentColor"/);
+  for (const file of ['src/components/Footer.astro', 'src/layouts/BaseLayout.astro']) {
     assert.doesNotMatch(await read(file), /wordmark|logo_horizontal/i, file);
   }
 });
