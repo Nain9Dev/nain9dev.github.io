@@ -52,6 +52,7 @@ Prototype pin: `design/home-redesign` at `89e15d8` (2026-10-26); viewer `design/
 ## Layer 3b: section heads and key cards
 
 - [x] **T14** `[A]` Top bar (DF-018): guard `scripts/header-nav.test.mjs` first, three icon links with the current page marked, a footer navigation for the links that left, English entries appended. Home document 28 665 B gzip against 28 479 B before (+186 B, limit 30 720 B).
+- [x] **T13** `[A]` Services diagram (DF-017): guard `scripts/services-diagram.test.mjs` first (red on two of three), `ServicesDiagram.astro`, CSS in `inner-pages.css`. Owner chose the `.agd` diagram first on 2026-10-29; `.flow` (home cards) and `.mesh` (3D page) remain. `/servicios/` document 22 935 B gzip; home unchanged.
 - [x] **T12** `[A]` Guard `scripts/design-cota.test.mjs` first (red on three of five), then the `Dimension` component on the four section heads, its CSS, and reviewed English units in `src/i18n/en-US.json` (three entries appended). The solid shadow part needed no change (already offset-only); the guard keeps it.
   - **Done when**: `npm run check` green (done), home size recorded (below), browser pass in both themes and on a phone (done).
   - **Needs from owner**: review of the green dimension line in the dark theme (extends ADR-0012's green rule).

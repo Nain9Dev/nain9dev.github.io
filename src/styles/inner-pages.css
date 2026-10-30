@@ -583,6 +583,45 @@
   border-radius: 4px;
 }
 
+/* --- Services diagram (specs/next-design-fusion, DF-017) ---
+   The designer's agenda drawn in strokes on the stroke colour. Decorative; phones skip it so the groups stay
+   on the first screen. The draw-in runs once and only without a reduced-motion preference. */
+.services-diagram {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 var(--s6);
+  padding: var(--s4);
+  border-radius: var(--radius);
+  background: var(--color-sunken);
+  color: var(--color-stroke);
+}
+
+.services-diagram-svg {
+  display: block;
+  width: min(100%, 15rem);
+  height: auto;
+}
+
+@media (max-width: 40rem) {
+  .services-diagram {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.low-performance) .services-diagram .sd {
+    stroke-dasharray: 1;
+    animation: services-draw 900ms var(--ease-out-quart) backwards;
+    animation-delay: calc(var(--i, 0) * 80ms);
+  }
+}
+
+@keyframes services-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+}
+
 /* --- Servicios SMB --- */
 
 html.low-performance .card {
