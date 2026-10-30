@@ -63,6 +63,7 @@ Prototype pin: `design/home-redesign` at `89e15d8` (2026-10-26); viewer `design/
 ## Layers 4 to 6
 
 - [x] **T09** `[H]` Owner answered DF-011 on 2026-10-29 (recorded in `spec.md`).
+- [x] **T17** `[A]` Two motions (DF-022): guard `scripts/motion-brand.test.mjs` first, the header mark as three paths drawn once, the section-title mask, `design-logo` DF-004 updated for the split mark. Home document 29 792 B gzip (29 554 B before; 928 B left under the 30 720 B tripwire). Headless Chrome: the strokes draw in sequence and rest at offset 0; with reduced motion all start at 0; the six section titles end uncovered.
 - [x] **T10** `[A]` Layer 4a: the 2D stroke field in place of the WebGL scene (HERO-001 to HERO-004 superseded by HERO-005 to HERO-009), keeping the current section order. Spec and tasks in `specs/next-hero-field/`.
 - [x] **T10b** `[A]` Layer 4b: the hybrid hero. Owner decided on 2026-10-29: the free call stays the primary button, right after the H1 (also on phones: H1, button, summary); the three offer tiles leave the hero. The services section already carries the same three offers with icon and link, so they are not copied there. HERO-023 rewritten test first; the tile styles are removed. Home document 28 822 B gzip (29 058 before). On a 390 px phone the primary button now ends at 404 px, on 1440 x 900 at 555 px.
 - [ ] **T11** `[A]` Specs for `/proyectos/` and the inner pages (after layer 4).

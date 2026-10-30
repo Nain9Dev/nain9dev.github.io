@@ -6,6 +6,7 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ### Added
 
+- Next-design-fusion DF-022: the header mark draws itself once at load and section titles are uncovered by a mask once as their head comes into view, only without a reduced-motion preference and not on low-performance devices; no loop, nothing hidden at rest.
 - Next-design-fusion DF-021: the footer shows the brand and four short columns (Servicios, Contenido, Tecnología, Contacto) with one legal line, in both languages; the specialty chips, the emoji and the long legal sentence are gone.
 - Next-design-fusion DF-020: the hero is a full-bleed deep blue band in both themes, with the band's text, link and stroke colours, surfaces taken from the band for the system panel and the receipts, the brand green as the primary button, and the stroke field painted above the band.
 - Next-design-fusion DF-018: the top bar has three links (Servicios, Proyectos, Blog), each a stroke icon and one word, with the current section marked; Arquitectura Frontend, Cómo trabajo and Sobre mí move to a footer navigation, in both languages.

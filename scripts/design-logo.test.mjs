@@ -20,7 +20,9 @@ test('DF-004: the header brand is the isotype as inline SVG coloured by --color-
   const brand = header.match(/<a class="brand"[\s\S]*?<\/a>/)?.[0] ?? '';
   assert.match(brand, /aria-label="NainDev, volver al inicio"/, 'the link keeps its accessible name and target');
   assert.match(brand, /href="\/#top"/);
-  assert.match(brand, new RegExp(`<svg class="brand-mark"[^>]*aria-hidden="true"[^>]*>\\s*<path d="${STROKES}"`), 'the isotype strokes');
+  // The three strokes are separate paths so they can be drawn one after another (DF-022); together they are STROKES.
+  const markSvg = brand.match(/<svg class="brand-mark"[^>]*aria-hidden="true"[^>]*>[\s\S]*?<\/svg>/)?.[0] ?? '';
+  assert.equal([...markSvg.matchAll(/ d="([^"]+)"/g)].map((match) => match[1]).join(''), STROKES, 'the isotype strokes');
   assert.match(brand, /<svg class="brand-wordmark" viewBox="0 0 423 38" aria-hidden="true" focusable="false">/, 'the wordmark is an inline vector, hidden from assistive tech because the link has its own name');
   assert.doesNotMatch(brand, /<text|<image|brand-name/, 'no text node and no raster in the lockup');
   assert.doesNotMatch(header, /<Image|logo_horizontal/, 'no raster logo in the header');
