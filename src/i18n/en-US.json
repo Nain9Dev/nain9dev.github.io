@@ -9639,6 +9639,11 @@
     "target": "⟦0⟧Send me a message⟦/0⟧",
     "status": "reviewed"
   },
+  "10617d5bd27d90929ef48fc3d499c7a59ced75dd3eb947d5e5cc85951822566e": {
+    "source": "Backend en .NET y Python, validación determinista y auditoría de sistemas críticos.",
+    "target": "Backend in .NET and Python, deterministic validation and critical-system audits.",
+    "status": "reviewed"
+  },
   "072ddd93d25604f9fd0b5013a8ca02a337614c8276947af34917eb647db70532": {
     "source": "⟦0⟧Arquitectura Frontend de Alto Rendimiento⟦/0⟧",
     "target": "⟦0⟧High-Performance Frontend Architecture⟦/0⟧",

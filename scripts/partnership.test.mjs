@@ -7,19 +7,18 @@ import { join } from 'node:path';
 // Contrast3D x NainDev partnership section. See specs/next-contrast3d-partnership-section.
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
 const read = (file) => readFile(join(ROOT, file), 'utf8');
-const COMPONENT = 'src/components/home/PartnershipSection.astro';
+const COMPONENT = 'src/components/home/ProductsBand.astro'; // the collaboration row lives in the products band (DF-031)
 const FORBIDDEN = /clientes? (en común|compartid)|proyectos? conjunt|joint (client|project)|shared client|testimon|casos? de éxito/i;
 
-test('PART-001: the home page renders a partnership section with an H2 and the role split', async () => {
+test('PART-001: the products band carries the collaboration with an H2 and the role split', async () => {
   const section = await read(COMPONENT);
-  assert.match(section, /<section[^>]*id="partnership"/);
+  assert.match(section, /<section[^>]*id="products"/);
   assert.equal(section.match(/<h2[\s>]/g)?.length, 1);
   assert.match(section, /Contrast3D/);
   assert.match(section, /backend/i);
   assert.match(section, /validación determinista/);
   const home = await read('src/pages/index.astro');
-  assert.match(home, /import PartnershipSection from '..\/components\/home\/PartnershipSection\.astro'/);
-  assert.match(home, /<AboutSection \/>\s*<PartnershipSection \/>/);
+  assert.doesNotMatch(home, /PartnershipSection/, 'the standalone section is retired');
 });
 
 test('PART-002: the section links to contrast3d.com safely', async () => {
