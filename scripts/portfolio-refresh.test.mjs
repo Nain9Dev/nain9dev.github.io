@@ -68,20 +68,11 @@ test('VIS-003: every live demo has a small lazy-loaded thumbnail on its card', a
   assert.match(section, /loading=\{index === 0 \? 'eager' : 'lazy'\}/);
 });
 
-test('VIS-001 and VIS-002: the home page shows a static live-demos strip', async () => {
+test('VIS-001 and VIS-002 (retired by DF-029): the home has no live-demos strip', async () => {
   const home = await read('src/pages/index.astro');
-  assert.match(home, /import LiveDemos from '\.\.\/components\/home\/LiveDemos\.astro'/);
-  // HERO-021 superseded by HN-001 (specs/049-selected-work): selected work, then services, then the strip.
-  assert.ok(home.indexOf('<Hero />') < home.indexOf('<SelectedWork />'));
-  assert.ok(home.indexOf('<SelectedWork />') < home.indexOf('<ServicesSection>'));
-  assert.ok(home.indexOf('</ServicesSection>') < home.indexOf('<LiveDemos />'));
-  assert.ok(home.indexOf('<LiveDemos />') < home.indexOf('<ProjectsSection />'));
-  const strip = await read('src/components/home/LiveDemos.astro');
-  assert.match(strip, /projects\.json/);
-  assert.match(strip, /naindev\\\.com/);
-  assert.match(strip, /rel="noopener noreferrer"/);
-  assert.match(strip, /translate="no"/);
-  assert.doesNotMatch(strip, /<script|<iframe/);
+  assert.doesNotMatch(home, /LiveDemos/);
+  await assert.rejects(stat(join(ROOT, 'src/components/home/LiveDemos.astro')), { code: 'ENOENT' });
+  assert.ok(home.indexOf('</ServicesSection>') < home.indexOf('<ProjectsSection />'));
 });
 
 test('ECO-020 and ECO-021: the home page lists the open repositories after the catalog', async () => {
