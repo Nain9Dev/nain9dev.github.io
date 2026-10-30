@@ -196,7 +196,7 @@ test('VIS-006: each service card leads with a decorative icon and the links use 
   const cards = services.match(/<article class="service-card"[\s\S]*?<\/article>/g);
   assert.equal(cards.length, 3);
   for (const card of cards) {
-    assert.match(card, /<svg class="service-icon"[^>]*aria-hidden="true"/);
+    assert.match(card, /<svg class="(?:service-icon|flow)"[^>]*aria-hidden="true"/);
     assert.match(card, /<a class="card-link" href="\/servicios\//);
   }
   assert.doesNotMatch(services, /style=/);
