@@ -308,8 +308,8 @@ test('VIS-013: proof strip and partnership cards lead with icons, the stack badg
   // The three principles moved into the about section (specs/049-selected-work, HN-005).
   const proof = await read('src/components/home/AboutSection.astro');
   assert.equal(proof.match(/<svg class="proof-icon"[^>]*aria-hidden="true"/g)?.length, 3);
-  const partnership = await read('src/components/home/PartnershipSection.astro');
-  assert.equal(partnership.match(/<svg class="service-icon"[^>]*aria-hidden="true"/g)?.length, 2);
+  const partnership = await read('src/components/home/ProductsBand.astro');
+  assert.equal(partnership.match(/<svg class="service-icon"[^>]*aria-hidden="true"/g)?.length, 5);
   const stack = await read('src/components/home/TechStack.astro');
   assert.doesNotMatch(stack, /style=/);
   assert.match(stack, /class="tech-badge tech-link"/);
