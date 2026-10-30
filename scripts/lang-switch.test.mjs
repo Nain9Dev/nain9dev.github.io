@@ -11,27 +11,25 @@ const read = (file) => readFile(join(ROOT, file), 'utf8');
 const switchOf = (html) => html.match(/<nav class="language-switcher"[\s\S]*?<\/nav>/)?.[0] ?? '';
 const links = (nav) => [...nav.matchAll(/<a href="([^"]+)"([^>]*)>([^<]*)<\/a>/g)].map((match) => ({ href: match[1], attrs: match[2], text: match[3] }));
 
-test('DF-019: the switch shows ES and EN and names the languages for assistive technology', async () => {
-  for (const [file, label, current, hrefs] of [
-    ['dist/index.html', 'Idioma', 'ES', ['/', '/en/']],
-    ['dist/en/index.html', 'Language', 'EN', ['/', '/en/']],
-    ['dist/servicios/index.html', 'Idioma', 'ES', ['/servicios/', '/en/services/']],
+test('DF-025: one toggle offers the other language and names it for assistive technology', async () => {
+  for (const [file, label, text, name, lang, href] of [
+    ['dist/index.html', 'Idioma', 'EN', 'English', 'en-US', '/en/'],
+    ['dist/en/index.html', 'Language', 'ES', 'Español', 'es-ES', '/'],
+    ['dist/servicios/index.html', 'Idioma', 'EN', 'English', 'en-US', '/en/services/'],
+    ['dist/en/services/index.html', 'Language', 'ES', 'Español', 'es-ES', '/servicios/'],
   ]) {
     const nav = switchOf(await read(file));
     assert.ok(nav.includes(`aria-label="${label}"`), `${file}: ${label}`);
-    const [es, en] = links(nav);
-    assert.deepEqual([es.text, en.text], ['ES', 'EN'], `${file}: short codes`);
-    assert.deepEqual([es.href, en.href], hrefs, `${file}: targets`);
-    assert.match(es.attrs, /aria-label="Español"/);
-    assert.match(en.attrs, /aria-label="English"/);
-    assert.match(es.attrs, /lang="es-ES"/);
-    assert.match(en.attrs, /lang="en-US"/);
-    const marked = links(nav).filter((link) => /aria-current="page"/.test(link.attrs)).map((link) => link.text);
-    assert.deepEqual(marked, [current], `${file}: the current language is marked`);
+    const all = links(nav);
+    assert.equal(all.length, 1, `${file}: a single link`);
+    assert.equal(all[0].text, text, `${file}: code`);
+    assert.equal(all[0].href, href, `${file}: target`);
+    assert.ok(all[0].attrs.includes(`aria-label="${name}"`), `${file}: name`);
+    assert.ok(all[0].attrs.includes(`lang="${lang}"`), `${file}: lang`);
   }
 });
 
-test('DF-019: the switch keeps a 44 px target and a mono, letter-spaced look', async () => {
+test('DF-025: the toggle keeps a 44 px target and a mono, letter-spaced look', async () => {
   const css = await read('src/styles/locales.css');
   const link = css.match(/\.language-switcher a \{([\s\S]*?)\n\}/)?.[1] ?? '';
   assert.match(link, /min-height: 44px;/);

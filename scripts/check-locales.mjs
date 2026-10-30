@@ -38,7 +38,7 @@ for (const file of files.filter(file => file.endsWith('.html'))) {
   }
   if (preview) check(robots?.includes('noindex'), `${canonical}: preview is indexable`);
   const languageLinks = nodes.filter(node => node.tagName === 'a' && ['es', 'en'].includes(attr(node, 'hreflang')));
-  check(languageLinks.length === 2, `${canonical}: missing equivalent-page language switcher`);
+  check(languageLinks.length === 1, `${canonical}: missing equivalent-page language switcher`);
   for (const link of languageLinks) check(exists(attr(link, 'href')), `${canonical}: broken language switcher`);
   for (const node of nodes.filter(node => node.tagName === 'a')) {
     const href = attr(node, 'href');
