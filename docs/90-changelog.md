@@ -11,6 +11,7 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ### Added
 
+- Next-design-fusion DF-028: each selected project on the home shows its result open and keeps the problem and the approach behind the "+" button (still in the document for search engines and keyboards).
 - Next-design-fusion DF-027: the three service cards on the home lead with a stroke flow diagram (conformity gates, agents with a human review, layers into the database) instead of an icon; drawn once, only without reduced motion and not on low-performance devices.
 - Next-design-fusion DF-026: the hero no longer carries the capability panel ("Cómo conecto el backend") or the scroll cue, about 30 CSS rules and one animation less; VS-002 is superseded. The field and the blue band now fill the right of the hero.
 - Next-design-fusion DF-025: the top bar is now brand, Servicios, Proyectos, Blog, a theme toggle and a single language toggle that offers the other language; "Agendar llamada" left the bar (it stays in the hero, contact section, `/contacto/` and footer). The lang-switch guard and `check-locales` expect one language link.
