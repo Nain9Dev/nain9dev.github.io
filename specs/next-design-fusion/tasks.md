@@ -52,6 +52,7 @@ Prototype pin: `design/home-redesign` at `89e15d8` (2026-10-26); viewer `design/
 ## Layer 3b: section heads and key cards
 
 - [x] **T13** `[A]` Services diagram (DF-017): guard `scripts/services-diagram.test.mjs` first (red on two of three), `ServicesDiagram.astro`, CSS in `inner-pages.css`. Owner chose the `.agd` diagram first on 2026-10-29; `.flow` (home cards) and `.mesh` (3D page) remain. `/servicios/` document 22 935 B gzip; home unchanged.
+- [x] **T15** `[A]` Hero on the deep blue band (DF-020): guard `scripts/hero-surface.test.mjs` first (red on two of three), the band scope and the green primary in `main.css`, `isolation: isolate` so the field paints above the band (found in the first capture: the field vanished). Home document 28 656 B gzip (28 479 B before); Lighthouse budget passed on the first attempt (`/` 1.00, LCP 1 731 ms, TBT 28 ms); axe on `.hero` clean at 1440 and 390 px, both themes, both languages.
 - [x] **T12** `[A]` Guard `scripts/design-cota.test.mjs` first (red on three of five), then the `Dimension` component on the four section heads, its CSS, and reviewed English units in `src/i18n/en-US.json` (three entries appended). The solid shadow part needed no change (already offset-only); the guard keeps it.
   - **Done when**: `npm run check` green (done), home size recorded (below), browser pass in both themes and on a phone (done).
   - **Needs from owner**: review of the green dimension line in the dark theme (extends ADR-0012's green rule).
