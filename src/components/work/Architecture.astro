@@ -1,16 +1,12 @@
 ---
 // Architecture section of a work page (specs/050-work-pages, WK-004): the heading, the project's inline
 // SVG diagram and the paragraph the MDX passes as children. One diagram component per selected project.
-import ParametricadAi from './diagrams/ParametricadAi.astro';
-import Nain3dConformanceGateway from './diagrams/Nain3dConformanceGateway.astro';
 import FinancialManagementApi from './diagrams/FinancialManagementApi.astro';
 import NainLegacyModernizer from './diagrams/NainLegacyModernizer.astro';
 
 interface Props { project: string }
 
 const diagrams: Record<string, (props: Record<string, never>) => unknown> = {
-  'parametricad-ai': ParametricadAi,
-  'nain3d-conformance-gateway': Nain3dConformanceGateway,
   'financial-management-api': FinancialManagementApi,
   'nain-legacy-modernizer': NainLegacyModernizer,
 };

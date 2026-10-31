@@ -1,6 +1,6 @@
 # Specification: Move the 3D showcases out of this portfolio without breaking a URL
 
-Status: Draft. Nothing here is applied; it waits for B-023 and B-024 (the repository moves) and for the owner's answers below.
+Status: Applied on 2026-10-31 by DF-038 (specs/next-design-fusion). The owner clarified that the repositories and demos stay under the NainDev domain and that DSE and Contrast Viewer only promote them, so no repository or host moves; the two case pages redirect to the products band of the home until the DSE and Viewer pages exist, and the home keeps two cases.
 
 ## Objective
 

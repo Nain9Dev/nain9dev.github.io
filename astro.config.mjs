@@ -44,6 +44,9 @@ export default defineConfig({
     '/servicios/renovacion-web': '/servicios/arquitectura-frontend-alto-rendimiento',
     '/servicios/renovacion-web.html': '/servicios/arquitectura-frontend-alto-rendimiento',
     // The work pages have no listing (specs/050-work-pages, WK-012): the bare hub goes back to the home cases.
-    '/trabajo': '/#selected-work'
+    '/trabajo': '/#selected-work',
+    // The two 3D cases moved to the DSE and Contrast Viewer sites (DF-038): their old pages land on the products band.
+    '/trabajo/nain3d-conformance-gateway': '/#products',
+    '/trabajo/parametricad-ai': '/#products'
   }
 });

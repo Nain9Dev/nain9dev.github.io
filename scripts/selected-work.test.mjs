@@ -1,4 +1,4 @@
-// Guards for specs/049-selected-work: four cases told as a story after the hero, and the home narrative order.
+// Guards for specs/049-selected-work: cases told as a story after the hero, and the home narrative order.
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { access, readFile } from 'node:fs/promises';
@@ -31,7 +31,7 @@ test('SW-001: the selected work follows the hero and shows the featured projects
   assert.match(section, /\.sort\(\(a, b\) => a\.project\.order - b\.project\.order\)/);
   assert.doesNotMatch(section, /<script|<iframe/);
   const cases = await featuredCases();
-  assert.deepEqual(cases.map((project) => project.id), ['parametricad-ai', 'nain3d-conformance-gateway', 'financial-management-api', 'nain-legacy-modernizer']);
+  assert.deepEqual(cases.map((project) => project.id), ['financial-management-api', 'nain-legacy-modernizer']); // the two 3D cases moved to DSE and Contrast Viewer (DF-038)
 });
 
 test('SW-002: each case reads eyebrow, title, three-term story, chips and links beside its capture', async () => {
