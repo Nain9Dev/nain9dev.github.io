@@ -51,3 +51,11 @@ test('DF-021: the English footer has the same columns', async () => {
   const content = columnsOf(footer)[1].hrefs;
   for (const href of ['/en/projects/', '/en/blog/', '/en/#method', '/en/#about']) assert.ok(content.includes(href), href);
 });
+
+test('DF-039: the footer carries each link once, with no second row of the column links', async () => {
+  const footer = await readFile(join(ROOT, 'src/components/Footer.astro'), 'utf8');
+  assert.equal((footer.match(/href="\/servicios\/arquitectura-frontend-alto-rendimiento\/"/g) ?? []).length, 1);
+  assert.equal((footer.match(/href="\/#method"/g) ?? []).length, 1);
+  assert.equal((footer.match(/href="\/#about"/g) ?? []).length, 1);
+  assert.equal((footer.match(/aria-label="Más enlaces"/g) ?? []).length, 1);
+});
