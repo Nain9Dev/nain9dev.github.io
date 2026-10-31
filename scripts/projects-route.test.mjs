@@ -127,16 +127,12 @@ test('NPR-006: the band keeps the copy rules of the products (no certification c
 const BRIDGED = [
   'conformance-architecture',
   'interactive-3d-viewer',
-  'nain3d-conformance-gateway',
   'nain-mcp-validator',
-  'parametricad-ai',
-  'orbe-runner-3d',
-  'pong-arcade',
 ];
 const BRIDGE_ROW = 'contrast3d-products';
 const shownInCatalog = projects.filter((project) => !project.bridge);
 
-test('NPR-003: the seven 3D projects are marked as bridged and one row stands for them', () => {
+test('NPR-003: the three 3D projects that remain are marked as bridged and one row stands for them', () => {
   assert.deepEqual(projects.filter((project) => project.bridge === true).map((project) => project.id).sort(), [...BRIDGED].sort());
   const row = projects.find((project) => project.id === BRIDGE_ROW);
   assert.ok(row && !row.bridge, 'the bridge row exists and is itself shown');

@@ -83,78 +83,6 @@
     "order": 2
   },
   {
-    "id": "parametricad-ai",
-    "title": "ParametriCAD AI",
-    "status": "Demo pública activa",
-    "summary": "Motor CAD paramétrico determinista con validación topológica de mallas y visor 3D web.",
-    "proof": "Construye sólidos B-Rep con OpenCASCADE y comprueba que la malla sea estanca, 2-variedad y con normales hacia fuera. Exporta GLB, glTF, STL, STEP y DXF. Extrae parámetros con un analizador de reglas sin conexión o, de forma opcional, con un LLM.",
-    "technologies": [
-      "Python",
-      "FastAPI",
-      "CadQuery",
-      "OpenCASCADE",
-      "React",
-      "Three.js",
-      "Docker"
-    ],
-    "categories": [
-      "backend",
-      "demo",
-      "3d",
-      "python"
-    ],
-    "links": [
-      {
-        "label": "Probar demo",
-        "url": "https://parametricad.naindev.com/"
-      },
-      {
-        "label": "Revisar código",
-        "url": "https://github.com/Nain9Dev/parametricad-ai"
-      }
-    ],
-    "thumbnail": "/assets/images/demos/parametricad-ai.webp",
-    "featured": true,
-    "selected": false,
-    "order": 3,
-    "bridge": true
-  },
-  {
-    "id": "nain3d-conformance-gateway",
-    "title": "Nain3D",
-    "status": "Demo pública activa",
-    "summary": "Motor de validación geométrica determinista para activos 3D, con el mismo motor en Python y en el navegador, backend FastAPI y cliente Vue 3 con Three.js.",
-    "proof": "Mide la malla con Trimesh y NumPy y devuelve un veredicto reproducible para el mismo archivo. Es un proyecto de ingeniería: contratos explícitos, pruebas de paridad y despliegue propio.",
-    "technologies": [
-      "Python",
-      "trimesh",
-      "NumPy",
-      "Vue 3",
-      "Three.js"
-    ],
-    "categories": [
-      "backend",
-      "demo",
-      "3d",
-      "python"
-    ],
-    "links": [
-      {
-        "label": "Probar demo",
-        "url": "https://3d.naindev.com/"
-      },
-      {
-        "label": "Revisar código",
-        "url": "https://github.com/Nain9Dev/Nain3D"
-      }
-    ],
-    "thumbnail": "/assets/images/demos/nain3d-conformance-gateway.webp",
-    "featured": true,
-    "selected": false,
-    "order": 4,
-    "bridge": true
-  },
-  {
     "id": "nain-mcp-validator",
     "title": "Servidor MCP de validación 3D determinista",
     "status": "Herramienta pública",
@@ -186,7 +114,7 @@
     "thumbnail": "/assets/images/demos/nain-mcp-validator.webp",
     "private": false,
     "featured": true,
-    "order": 5,
+    "order": 3,
     "bridge": true
   },
   {
@@ -227,7 +155,7 @@
     "featured": true,
     "featuredOrder": 2,
     "selected": true,
-    "order": 6
+    "order": 4
   },
   {
     "id": "nain-legacy-modernizer",
@@ -267,7 +195,7 @@
     "featured": true,
     "featuredOrder": 3,
     "selected": true,
-    "order": 7
+    "order": 5
   },
   {
     "id": "nainorder-ecommerce-api",
@@ -302,7 +230,7 @@
     "thumbnail": "/assets/images/demos/nainorder-ecommerce-api.webp",
     "featured": true,
     "featuredOrder": 4,
-    "order": 8
+    "order": 6
   },
   {
     "id": "notification-worker",
@@ -334,7 +262,7 @@
     "thumbnail": "/assets/images/demos/notification-worker.webp",
     "featured": true,
     "featuredOrder": 5,
-    "order": 9
+    "order": 7
   },
   {
     "id": "nainconfigurator",
@@ -366,7 +294,7 @@
       }
     ],
     "featured": false,
-    "order": 10,
+    "order": 8,
     "thumbnail": "/assets/images/demos/nainconfigurator.webp"
   },
   {
@@ -401,7 +329,7 @@
     "thumbnail": "/assets/images/demos/driving-school-management.webp",
     "featured": true,
     "featuredOrder": 6,
-    "order": 11
+    "order": 9
   },
   {
     "id": "tai-study-system",
@@ -439,7 +367,7 @@
     ],
     "thumbnail": "/assets/images/demos/tai-study-system.webp",
     "featured": true,
-    "order": 12
+    "order": 10
   },
   {
     "id": "self-hosted-ci-runners",
@@ -459,70 +387,7 @@
     "links": [],
     "private": true,
     "featured": false,
-    "order": 13
-  },
-  {
-    "id": "orbe-runner-3d",
-    "title": "Orbe Runner 3D",
-    "status": "Juego público",
-    "summary": "Runner 3D arcade hecho sin motor de juego, con modelos y audio procedurales.",
-    "proof": "ECS propio, niveles compuestos por bloques cuya alcanzabilidad se comprueba antes de construirlos, paso de simulación fijo y controles táctiles.",
-    "technologies": [
-      "TypeScript",
-      "Three.js",
-      "Web Audio",
-      "Vite",
-      "Vitest"
-    ],
-    "categories": [
-      "demo",
-      "3d"
-    ],
-    "links": [
-      {
-        "label": "Jugar",
-        "url": "https://orbe.naindev.com"
-      },
-      {
-        "label": "Ver código",
-        "url": "https://github.com/Nain9Dev/Orbe3D"
-      }
-    ],
-    "thumbnail": "/assets/images/demos/orbe-runner-3d.webp",
-    "featured": false,
-    "order": 14,
-    "bridge": true
-  },
-  {
-    "id": "pong-arcade",
-    "title": "Pong Arcade 3D",
-    "status": "Juego público",
-    "summary": "Pong reconstruido como juego 3D en el navegador, sin instalación ni recursos externos.",
-    "proof": "Detección continua de colisiones, paso fijo con interpolación de render, IA predictiva con cuatro niveles y partidas reproducibles a partir de una semilla.",
-    "technologies": [
-      "TypeScript",
-      "Three.js",
-      "Web Audio",
-      "Vite"
-    ],
-    "categories": [
-      "demo",
-      "3d"
-    ],
-    "links": [
-      {
-        "label": "Jugar",
-        "url": "https://pong.naindev.com"
-      },
-      {
-        "label": "Ver código",
-        "url": "https://github.com/Nain9Dev/PongArcade"
-      }
-    ],
-    "thumbnail": "/assets/images/demos/pong-arcade.webp",
-    "featured": false,
-    "order": 15,
-    "bridge": true
+    "order": 11
   },
   {
     "id": "b2b-prospecting-pipeline",
@@ -550,7 +415,7 @@
       }
     ],
     "featured": false,
-    "order": 16,
+    "order": 12,
     "thumbnail": "/assets/images/demos/b2b-prospecting-pipeline.webp"
   },
   {
@@ -579,7 +444,7 @@
       }
     ],
     "featured": false,
-    "order": 17,
+    "order": 13,
     "thumbnail": "/assets/images/demos/local-rewriting-agent.webp"
   },
   {
@@ -599,7 +464,7 @@
     "links": [],
     "private": true,
     "featured": false,
-    "order": 18
+    "order": 14
   },
   {
     "id": "gamehaven-blazor-store",
@@ -629,7 +494,7 @@
       }
     ],
     "featured": false,
-    "order": 19,
+    "order": 15,
     "thumbnail": "/assets/images/demos/gamehaven-blazor-store.webp"
   },
   {
@@ -659,7 +524,7 @@
       }
     ],
     "featured": false,
-    "order": 20,
+    "order": 16,
     "thumbnail": "/assets/images/demos/havetickets.webp"
   },
   {
@@ -681,7 +546,7 @@
     "links": [],
     "private": true,
     "featured": false,
-    "order": 21
+    "order": 17
   },
   {
     "id": "contrast3d-products",
@@ -704,6 +569,6 @@
         "url": "https://datumstatutum.com/"
       }
     ],
-    "order": 22
+    "order": 18
   }
 ]

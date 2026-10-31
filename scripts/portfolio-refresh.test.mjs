@@ -20,17 +20,11 @@ test('PRJ-020: public demos use the naindev.com subdomains', async () => {
   assert.doesNotMatch(raw, /onrender\.com|azurewebsites\.net|streamlit\.app/);
 });
 
-test('PRJ-021: Nain3D is listed after ParametriCAD AI with its demo and repository', async () => {
-  const projects = (await readJson('public/assets/data/projects.json')).sort((a, b) => a.order - b.order);
-  const index = projects.findIndex((project) => project.id === 'nain3d-conformance-gateway');
-  assert.equal(index, 4);
-  assert.equal(projects[3].id, 'parametricad-ai');
-  const nain3d = projects[index];
-  assert.deepEqual(urlsOf(nain3d), ['https://3d.naindev.com/', 'https://github.com/Nain9Dev/Nain3D']);
-  assert.ok(!nain3d.categories.includes('production'));
-  assert.ok(!nain3d.private);
-  const copy = [nain3d.title, nain3d.status, nain3d.summary, nain3d.proof].join(' ');
-  assert.doesNotMatch(copy, /\b(showroom|configurador|visor)\b/i);
+test('PRJ-021 (retired by DF-038): the Nain3D and ParametriCAD entries left the catalog data', async () => {
+  const projects = await readJson('public/assets/data/projects.json');
+  for (const id of ['nain3d-conformance-gateway', 'parametricad-ai', 'orbe-runner-3d', 'pong-arcade']) {
+    assert.ok(!projects.some((project) => project.id === id), `${id} is not in the catalog data`);
+  }
 });
 
 test('PRJ-022: NainNotify links its live demo and orders stay sequential', async () => {
@@ -54,7 +48,7 @@ test('VIS-003: every live demo has a small lazy-loaded thumbnail on its card', a
   const projects = await readJson('public/assets/data/projects.json');
   const live = projects.filter((project) => project.links.some((link) => /^https:\/\/[a-z0-9-]+\.naindev\.com(\/|$)/.test(link.url)));
   // 15 since PRJ-024 linked the NainLegacyModernizer demo (specs/next-portfolio-coverage); 16 with the nain-mcp-validator page (PRJ-026).
-  assert.equal(live.length, 16);
+  assert.equal(live.length, 12); // 16 before the Nain3D, ParametriCAD and the two games left (DF-038)
   for (const project of live) {
     assert.equal(project.thumbnail, `/assets/images/demos/${project.id}.webp`);
     const { size } = await stat(join(ROOT, 'public', project.thumbnail));

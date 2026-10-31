@@ -11,11 +11,10 @@ const readJson = async (file) => JSON.parse(await read(file));
 const text = (html) => html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ');
 
 const PUBLIC_REPOS = [
-  'parametricad-ai', 'NainOrder', 'GameHaven', 'NainNotify', 'NainPolicy',
-  'NainDrive', 'NainTAI', 'tai-study-system-js', 'PongArcade',
-  'Orbe3D', 'NainConfigurator', 'HaveTickets', 'NainLegacyModernizer',
-  'nain-mcp-validator', 'Nain3D', 'NainProspect', 'NainWrite',
-];
+  'NainOrder', 'GameHaven', 'NainNotify', 'NainPolicy',
+  'NainDrive', 'NainTAI', 'tai-study-system-js', 'NainConfigurator', 'HaveTickets', 'NainLegacyModernizer',
+  'nain-mcp-validator', 'NainProspect', 'NainWrite',
+]; // Nain3D, ParametriCAD AI, PongArcade and Orbe3D left the catalog data (DF-038)
 // Owner decision 2026-10-19 (specs/next-portfolio-refresh): NainProspect and NainWrite became public projects.
 const PRIVATE_COUNT = 6;
 // Names of private products, partners and the employer that must never reach the catalog.
@@ -121,8 +120,6 @@ test('PRJ-008: projects are ordered by complexity hierarchy (specs/017-catalog-c
     'conformance-architecture',
     'interactive-3d-viewer',
     'collaborative-crm',
-    'parametricad-ai',
-    'nain3d-conformance-gateway',
     'nain-mcp-validator',
     'financial-management-api',
     'nain-legacy-modernizer',
@@ -132,8 +129,6 @@ test('PRJ-008: projects are ordered by complexity hierarchy (specs/017-catalog-c
     'driving-school-management',
     'tai-study-system',
     'self-hosted-ci-runners',
-    'orbe-runner-3d',
-    'pong-arcade',
     'b2b-prospecting-pipeline',
     'local-rewriting-agent',
     'local-quotation-generator',
