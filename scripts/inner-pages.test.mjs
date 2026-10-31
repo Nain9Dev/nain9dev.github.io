@@ -83,3 +83,11 @@ test('IP-009: the about links come before the disclosed copy', async () => {
   const css = await read('src/styles/main.css');
   assert.match(css, /\.about-copy \.text-links \{[^}]*order: -1;/);
 });
+
+test('DF-040: service detail lists read as cards, the process as steps and the booking link as a button, by CSS only', async () => {
+  const css = await read('src/styles/inner-pages.css');
+  assert.match(css, /\.service-article > ul \{[^}]*grid-template-columns: repeat\(auto-fit, minmax\(15rem, 1fr\)\);/);
+  assert.match(css, /\.service-article > ul > li::before \{[^}]*content: "✓";/);
+  assert.match(css, /\.service-article > ol > li::before \{[^}]*content: counter\(step, decimal-leading-zero\);/);
+  assert.match(css, /\.service-article a\[href\*="calendly\.com"\]:not\(\.button\) \{[^}]*min-height: 44px;/);
+});

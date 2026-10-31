@@ -11,6 +11,7 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ### Changed
 
+- Next-design-fusion DF-040: service detail pages draw their lists as cards, their process as numbered steps and their booking link as a button, with CSS only.
 - Next-design-fusion DF-037: each blog card is one link (stretched title anchor and an arrow) instead of carrying its own "Leer artículo" button.
 - Next-design-fusion DF-036: each row of `/proyectos/` leads with the capture of its demo (or the mark of its first technology), at no cost to the static text index.
 - Next-design-fusion DF-035: the four method steps lead with an icon on the rail and keep their sentence behind a "+" button.
