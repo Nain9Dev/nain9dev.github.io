@@ -91,3 +91,11 @@ test('DF-040: service detail lists read as cards, the process as steps and the b
   assert.match(css, /\.service-article > ol > li::before \{[^}]*content: counter\(step, decimal-leading-zero\);/);
   assert.match(css, /\.service-article a\[href\*="calendly\.com"\]:not\(\.button\) \{[^}]*min-height: 44px;/);
 });
+
+test('DF-041: contact cards lead with an icon and the checklist benefits read as cards, by CSS and markup only', async () => {
+  const css = await read('src/styles/inner-pages.css');
+  assert.match(css, /\.contact-icon \{[^}]*border-radius: 50%;/);
+  assert.match(css, /\.check-list li \{[^}]*border: 1px solid var\(--color-line\);/);
+  const contact = await read('src/pages/contacto/index.astro');
+  assert.equal((contact.match(/class="contact-icon"/g) ?? []).length, 3);
+});
