@@ -22,6 +22,7 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ### Removed
 
+- Twelve unused capture files of the open-ecosystem repositories (six captures and their 400 px variants) left `public/assets/images/demos`; DF-034 made the chips replace them.
 - Next-design-fusion DF-029: the live-demos strip left the home; its demos stay in selected work, the featured catalog and `/proyectos/`.
 
 ### Added
