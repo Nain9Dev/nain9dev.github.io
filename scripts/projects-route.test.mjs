@@ -158,17 +158,21 @@ test('NPR-003: the catalog page and the client renderer leave the bridged projec
   assert.match(await read('src/scripts/home-catalog.js'), /\.bridge/, 'the client renderer filters them too');
 });
 
-test('NPR-004: every 3D URL that was indexed still answers, and the Nain3D page points to DSE', async () => {
+test('NPR-004 (as revised by DF-038): the 3D pages that were indexed still answer, the two case pages redirect to the products band', async () => {
   const sitemap = await read('dist/sitemap-0.xml');
-  for (const path of ['/servicios/validacion-3d/', '/trabajo/nain3d-conformance-gateway/', '/trabajo/parametricad-ai/', '/en/work/nain3d-conformance-gateway/']) {
-    assert.ok(sitemap.includes(`https://www.naindev.com${path}`), `${path} stays in the sitemap`);
-    assert.ok(existsSync(join(ROOT, `dist${path}index.html`)), `${path} is built`);
+  assert.ok(sitemap.includes('https://www.naindev.com/servicios/validacion-3d/'), 'the 3D service stays in the sitemap');
+  assert.ok(existsSync(join(ROOT, 'dist/servicios/validacion-3d/index.html')), 'the 3D service is built');
+  for (const [path, target] of [
+    ['/trabajo/nain3d-conformance-gateway/', '/#products'],
+    ['/trabajo/parametricad-ai/', '/#products'],
+    ['/en/work/nain3d-conformance-gateway/', '/en/#products'],
+    ['/en/work/parametricad-ai/', '/en/#products'],
+  ]) {
+    assert.ok(existsSync(join(ROOT, `dist${path}index.html`)), `${path} still answers`);
+    assert.match(await read(`dist${path}index.html`), new RegExp(`http-equiv="refresh" content="0;url=${target}"`), `${path} lands on the products band`);
+    assert.ok(!sitemap.includes(`https://www.naindev.com${path}`), `${path} left the sitemap`);
   }
-  const nain3d = await read('dist/trabajo/nain3d-conformance-gateway/index.html');
-  assert.match(nain3d, /Nain3D es la demostración original del trabajo de conformidad 3D que hoy se publica como/);
-  assert.ok(nain3d.includes('href="https://datumstatutum.com/"'));
-  assert.doesNotMatch(await read('dist/trabajo/parametricad-ai/index.html'), /publica como/, 'ParametriCAD is not a conformance demo');
-  assert.match(await read('dist/en/work/nain3d-conformance-gateway/index.html'), /Nain3D is the original demo of the 3D conformance work that is now published as/);
+  assert.ok(!existsSync(join(ROOT, 'src/content/work/nain3d-conformance-gateway.mdx')) && !existsSync(join(ROOT, 'src/content/work/parametricad-ai.mdx')), 'the two work entries are removed');
 });
 
 test('NPR-006: the hero and the services card describe NainDev\'s architecture and point to DSE', async () => {
