@@ -22,6 +22,7 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ### Removed
 
+- Next-design-fusion DF-039: the footer lost its second link row, which repeated the Contenido column and rendered with no spacing.
 - Next-design-fusion DF-038: the Nain3D and ParametriCAD cases left the home and their work pages now redirect to the products band; the home keeps two selected cases and the two 3D demos stay live on their own subdomains.
 - Twelve unused capture files of the open-ecosystem repositories (six captures and their 400 px variants) left `public/assets/images/demos`; DF-034 made the chips replace them.
 - Next-design-fusion DF-029: the live-demos strip left the home; its demos stay in selected work, the featured catalog and `/proyectos/`.
