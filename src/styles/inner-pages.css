@@ -201,16 +201,25 @@
   list-style: none;
 }
 
-.check-list li {
-  position: relative;
-  margin-bottom: 1rem;
-  padding-left: 2rem;
+.check-list {
+  display: grid;
+  gap: var(--s3);
+  padding: 0;
 }
 
-.check-list li::before {
+ul.check-list li {
+  position: relative;
+  margin-bottom: 0;
+  padding: var(--s4) var(--s4) var(--s4) 3.25rem;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+}
+
+ul.check-list li::before {
   position: absolute;
-  top: 0.15rem;
-  left: 0;
+  top: var(--s4);
+  left: var(--s4);
   display: grid;
   width: 1.3rem;
   height: 1.3rem;
@@ -280,6 +289,29 @@
 
 .card-action {
   margin-top: 1.5rem;
+}
+
+/* Contact cards (DF-041): an icon leads each card; its sentence sits behind the "+". */
+.contact-icon {
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-bottom: var(--s3);
+  border: 1px solid color-mix(in srgb, var(--color-cobalt-bright) 45%, transparent);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--color-cobalt-bright) 12%, transparent);
+  color: var(--color-primary-strong);
+  place-items: center;
+}
+
+.contact-icon svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
 }
 
 .page-cta {

@@ -22,22 +22,25 @@ import '../../styles/inner.css';
       <h2 class="service-group-title" data-reveal>Elige el que te resulte más cómodo</h2>
       <div class="card-grid card-grid-three">
         <article class="service-card" data-reveal>
+          <span class="contact-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="4" y="5" width="16" height="15" rx="2" /><path d="M8 3v4M16 3v4M4 10h16" /></svg></span>
           <h3>Llamada de 30 minutos</h3>
-          <p>Eliges hueco en el calendario y recibes el enlace de la videollamada.</p>
+          <Quiet><p>Eliges hueco en el calendario y recibes el enlace de la videollamada.</p></Quiet>
           <a class="button button-primary card-action" href="https://calendly.com/aitornainmendozavallejo-ksez/30min" target="_blank" rel="noopener noreferrer" data-calendly-track="contacto">Agendar llamada gratuita</a>
         </article>
 
         <article class="service-card" data-reveal>
+          <span class="contact-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></svg></span>
           <h3>Correo</h3>
-          <p>Si prefieres escribir con calma o adjuntar un diagrama.</p>
+          <Quiet><p>Si prefieres escribir con calma o adjuntar un diagrama.</p></Quiet>
           {/* The address is split so Cloudflare email obfuscation finds nothing to rewrite (MAIL-006). */}
           <button class="button button-secondary card-action" type="button" data-copy-email data-email-user="contact" data-email-domain="naindev.com">Copiar email</button>
           <p class="copy-status" data-copy-status role="status"></p>
         </article>
 
         <article class="service-card" data-reveal>
+          <span class="contact-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="3" /><path d="M8 11v5M8 8v.01M12 16v-5M12 13a2.5 2.5 0 0 1 5 0v3" /></svg></span>
           <h3>LinkedIn</h3>
-          <p>Para ver la trayectoria o escribir por mensaje privado.</p>
+          <Quiet><p>Para ver la trayectoria o escribir por mensaje privado.</p></Quiet>
           <a class="button button-outline card-action" href="https://www.linkedin.com/in/aitor-nain-mendoza-vallejo/" target="_blank" rel="noopener noreferrer">Ver el perfil</a>
         </article>
       </div>
