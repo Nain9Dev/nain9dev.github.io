@@ -24,7 +24,7 @@
     "translations:preview": "npm run build:source && node scripts/build-locales.mjs --preview",
     "translations:serve": "astro preview --outDir .astro/localized-preview --host 127.0.0.1",
     "check:brand-icons": "node scripts/check-brand-icons.mjs",
-    "check:seo": "node --test scripts/seo.test.mjs && node scripts/check-seo.mjs",
+    "check:seo": "node --test scripts/seo.test.mjs scripts/seo-discovery.test.mjs && node scripts/check-seo.mjs",
     "generate:brand-icons": "node scripts/generate-brand-icons.mjs",
     "astro": "astro"
   },

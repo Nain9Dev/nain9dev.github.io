@@ -146,6 +146,45 @@ check(robots.includes(`Sitemap: ${origin}/sitemap-index.xml`), 'robots.txt must 
 check(!/^Disallow:\s*\/\s*$/m.test(robots), 'robots.txt blocks the site');
 check(!pages.some(page => page.path.includes('template_service')), 'Template service must not be published');
 
+// Search and AI discovery (specs/next-seo-discovery, DISC-001 to DISC-006).
+const urlBlocks = [...sitemap.matchAll(/<url>(.*?)<\/url>/gs)].map(match => match[1]);
+for (const block of urlBlocks) {
+  const loc = block.match(/<loc>([^<]+)<\/loc>/)?.[1];
+  const alternates = Object.fromEntries([...block.matchAll(/<xhtml:link rel="alternate" hreflang="([^"]+)" href="([^"]+)"\/>/g)].map(match => [match[1], match[2]]));
+  check(['es', 'en', 'x-default'].every(code => alternates[code]), `${loc}: sitemap entry lacks es, en or x-default alternates`);
+  check(Object.values(alternates).every(url => urls.includes(url)), `${loc}: sitemap alternate is not a sitemap URL`);
+  check(Object.values(alternates).includes(loc), `${loc}: sitemap entry is missing from its own alternates`);
+  const lastmod = block.match(/<lastmod>([^<]+)<\/lastmod>/)?.[1];
+  const isPost = /^https:\/\/www\.naindev\.com\/(?:en\/)?blog\/[^/]+\/$/.test(loc ?? '');
+  check(isPost === (lastmod !== undefined), `${loc}: lastmod must be present for blog posts and absent elsewhere`);
+  if (lastmod) check(/^\d{4}-\d{2}-\d{2}$/.test(lastmod), `${loc}: malformed lastmod`);
+}
+for (const crawler of ['GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-SearchBot', 'Claude-User', 'PerplexityBot', 'Perplexity-User', 'Google-Extended', 'Applebot-Extended']) {
+  check(new RegExp(`^User-agent: ${crawler}$`, 'm').test(robots), `robots.txt must name ${crawler}`);
+}
+check(/^User-agent: \*\nAllow: \/$/m.test(robots), 'robots.txt must allow the general crawlers');
+check(robots.includes(`${origin}/llms.txt`), 'robots.txt must point AI systems to llms.txt');
+
+const llms = await readFile('dist/llms.txt', 'utf8').catch(() => '');
+check(llms.startsWith('# NainDev\n\n> '), 'llms.txt must start with the site name and a summary');
+const llmsLinks = [...llms.matchAll(/^- \[[^\]]*(?:\\.[^\]]*)*\]\(([^)]+)\)/gm)].map(match => match[1]);
+check(llmsLinks.length >= 20, 'llms.txt must list the pages of the site');
+for (const link of llmsLinks) {
+  if (!link.startsWith(`${origin}/`)) continue;
+  check(urls.includes(link), `llms.txt links to a page that is not in the sitemap: ${link}`);
+}
+for (const section of ['Main pages', 'Services', 'Selected work', 'Blog articles']) {
+  check(llms.includes(`## ${section}\n`), `llms.txt lacks the ${section} section`);
+}
+check(!llms.includes('---') && !/<[a-z]/i.test(llms), 'llms.txt must be plain Markdown');
+
+for (const file of ['dist/index.html', 'dist/en/index.html']) {
+  const graph = JSON.parse([...(await readFile(file, 'utf8')).matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)][0][1])['@graph'];
+  const person = graph.find(node => node['@type'] === 'Person');
+  check(Array.isArray(person?.knowsAbout) && person.knowsAbout.length >= 6, `${file}: Person must list knowsAbout`);
+  check(typeof person?.description === 'string' && person.description.length > 40, `${file}: Person must have a description`);
+}
+
 if (failures.length) {
   console.error([...new Set(failures)].join('\n'));
   assert.fail(`${failures.length} SEO contract violations`);

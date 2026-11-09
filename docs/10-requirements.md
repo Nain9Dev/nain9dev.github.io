@@ -469,5 +469,17 @@ Owner decisions of 2026-10-27 (depth, inline SVG diagrams, copy sources, scope o
 | MI-001 | Where reduced motion is not requested, social pills lift 2 px on hover and focus, the theme toggle icon turns 18 degrees, and the theme toggle, filter buttons, social pills and quiet toggles scale to 0.96 while pressed; under reduced motion none of these movements runs. | specs/next-micro-interactions | Implemented |
 | MI-002 | When the language switcher is hovered or focused, its link tints the background and raises the text to full ink. | specs/next-micro-interactions | Implemented |
 | MI-003 | The micro-interaction rules read colours from the tokens and do not use `transition: all`. | specs/next-micro-interactions | Implemented |
+
+## Search and AI discovery (specs/next-seo-discovery)
+
+| ID | Requirement | Source | Status |
+| :--- | :--- | :--- | :--- |
+| DISC-001 | When a crawler requests `/llms.txt`, the site shall return a Markdown summary that starts with an H1 `NainDev` and a blockquote, and lists the home, services, work pages, projects and blog posts with absolute URLs and a short description. | specs/next-seo-discovery | Implemented |
+| DISC-002 | Every `www.naindev.com` link in `llms.txt` shall be a page listed in the sitemap. | specs/next-seo-discovery | Implemented |
+| DISC-003 | Every sitemap entry shall carry `es`, `en` and `x-default` alternates, each a sitemap URL. | specs/next-seo-discovery | Implemented |
+| DISC-004 | A blog post sitemap entry shall carry `lastmod` equal to its publication date; other entries shall carry none. | specs/next-seo-discovery | Implemented |
+| DISC-005 | `robots.txt` shall allow the general crawlers, name the OpenAI, Anthropic, Perplexity, Google-Extended and Applebot-Extended crawlers with `Allow: /`, point to `llms.txt` and keep the sitemap index. | specs/next-seo-discovery | Implemented |
+| DISC-006 | The `Person` entity shall list `knowsAbout` and a `description` equal to the site description. | specs/next-seo-discovery | Implemented |
+| DISC-007 | `npm run check:seo` shall fail if DISC-001 to DISC-006 regress. | specs/next-seo-discovery | Implemented |
 | MI-004 | axe reports no violation in either theme and the Lighthouse budget holds. | specs/next-micro-interactions | Implemented |
 

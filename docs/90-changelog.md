@@ -31,6 +31,7 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ### Added
 
+- Next-seo-discovery: `/llms.txt` summarizes the site for AI answer engines; the sitemap carries `es`, `en` and `x-default` alternates and the publication date of each blog post; `robots.txt` names the search and AI crawlers; the `Person` entity lists `knowsAbout` and a description.
 - Next-design-fusion DF-028: each selected project on the home shows its result open and keeps the problem and the approach behind the "+" button (still in the document for search engines and keyboards).
 - Next-design-fusion DF-027: the three service cards on the home lead with a stroke flow diagram (conformity gates, agents with a human review, layers into the database) instead of an icon; drawn once, only without reduced motion and not on low-performance devices.
 - Next-design-fusion DF-026: the hero no longer carries the capability panel ("Cómo conecto el backend") or the scroll cue, about 30 CSS rules and one animation less; VS-002 is superseded. The field and the blue band now fill the right of the hero.

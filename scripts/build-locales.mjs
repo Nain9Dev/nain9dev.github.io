@@ -2,6 +2,7 @@ import { readFile, readdir, writeFile, mkdir, cp, rm } from 'node:fs/promises';
 import { dirname, join, relative, resolve } from 'node:path';
 import { parse, parseFragment, serialize } from 'parse5';
 import { syncTranslations, walk } from './sync-translations.mjs';
+import { buildSitemap } from './lib/sitemap.mjs';
 import { origin, attr, setAttr, descendants, englishPath, localizeDocument, mapData, translated } from './lib/localization.mjs';
 
 const preview = process.argv.includes('--preview');
@@ -20,6 +21,7 @@ for (const segment of sources) translated(segment.source, catalog);
 const runtime = JSON.parse(await readFile('src/i18n/runtime.json', 'utf8'));
 const englishRuntime = Object.fromEntries(Object.entries(runtime).map(([key, value]) => [key, translated(value, catalog)]));
 const pages = [];
+const sitemapEntries = [];
 const pendingWrites = [];
 const addChildren = (parent, html) => {
   const children = parseFragment(html).childNodes;
@@ -27,7 +29,6 @@ const addChildren = (parent, html) => {
   parent.childNodes.push(...children);
 };
 const escapeAttribute = value => value.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;');
-const escapeXml = value => escapeAttribute(value).replaceAll("'", '&apos;').replaceAll('>', '&gt;');
 
 function finishPage(html, spanishURL, englishURL, language, indexable) {
   const doc = parse(html);
@@ -108,7 +109,12 @@ for (const file of (await walk('dist')).filter(file => file.endsWith('.html'))) 
   const enPath = path === '/404.html' ? '/en/404.html' : englishPath(path.replace(/index\.html$/, '')) + 'index.html';
   pendingWrites.push([path.slice(1), finishPage(html, spanishURL, englishURL, 'es-ES', indexable)]);
   pendingWrites.push([decodeURI(enPath.slice(1)), finishPage(translatedHTML, spanishURL, englishURL, 'en-US', indexable)]);
-  if (indexable) pages.push(spanishURL, englishURL);
+  if (indexable) {
+    pages.push(spanishURL, englishURL);
+    // Only a blog post has a known date; it is the publication date, never the build date (DISC-004).
+    const published = attr(nodes.find(node => node.tagName === 'meta' && attr(node, 'property') === 'article:published_time') ?? {}, 'content');
+    sitemapEntries.push({ es: spanishURL, en: englishURL, ...(published ? { lastmod: published.slice(0, 10) } : {}) });
+  }
 }
 
 for (const file of ['projects.json', 'impact-metrics.json', 'tech-stack.json']) {
@@ -130,7 +136,7 @@ for (const file of (await readdir('public/assets/diagrams').catch(() => [])).fil
   const body = descendants(parse(localizeDocument(svg, catalog))).find(node => node.tagName === 'body');
   pendingWrites.push([`en/assets/diagrams/${file}`, serialize(body)]);
 }
-pendingWrites.push(['sitemap-0.xml', `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${pages.map(url => `<url><loc>${escapeXml(url)}</loc></url>`).join('')}</urlset>\n`]);
+pendingWrites.push(['sitemap-0.xml', buildSitemap(sitemapEntries)]);
 
 if (preview) {
   const previewPath = resolve(output);
