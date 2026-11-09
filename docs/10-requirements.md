@@ -481,5 +481,9 @@ Owner decisions of 2026-10-27 (depth, inline SVG diagrams, copy sources, scope o
 | DISC-005 | `robots.txt` shall allow the general crawlers, name the OpenAI, Anthropic, Perplexity, Google-Extended and Applebot-Extended crawlers with `Allow: /`, point to `llms.txt` and keep the sitemap index. | specs/next-seo-discovery | Implemented |
 | DISC-006 | The `Person` entity shall list `knowsAbout` and a `description` equal to the site description. | specs/next-seo-discovery | Implemented |
 | DISC-007 | `npm run check:seo` shall fail if DISC-001 to DISC-006 regress. | specs/next-seo-discovery | Implemented |
+| DISC-008 | When the audit evaluates a public host, it shall report a finding for a missing canonical, a `noindex` page, a description outside 70 to 200 characters, missing Open Graph or Twitter tags, missing JSON-LD, a `robots.txt` that blocks or advertises no same-host sitemap, an invalid advertised sitemap, or a missing `llms.txt`. | specs/next-seo-host-audit | Implemented |
+| DISC-009 | The audited hosts shall be the main site plus every `*.naindev.com` host linked from the project catalog, once each. | specs/next-seo-host-audit | Implemented |
+| DISC-010 | The workflow `seo-audit.yml` shall run weekly and on demand with read-only permissions and shall fail when any host has a finding. | specs/next-seo-host-audit | Implemented |
+| DISC-011 | `npm run check:seo` shall run the unit tests of the audit rules. | specs/next-seo-host-audit | Implemented |
 | MI-004 | axe reports no violation in either theme and the Lighthouse budget holds. | specs/next-micro-interactions | Implemented |
 
