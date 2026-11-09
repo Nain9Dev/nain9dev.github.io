@@ -1,4 +1,26 @@
+# Search engines and AI answer engines are welcome: the site is public marketing content.
+# The named groups are explicit so the policy is visible and a stricter default is never inferred.
+# Machine-readable summary for AI systems: https://www.naindev.com/llms.txt
+
 User-agent: *
+Allow: /
+
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+User-agent: Applebot-Extended
 Allow: /
 
 Sitemap: https://www.naindev.com/sitemap-index.xml

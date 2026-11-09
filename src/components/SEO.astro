@@ -51,6 +51,21 @@ const personSchema = {
   "alternateName": ["NainDev", "Aitor Nain", "Aitor Mendoza", "Aitor Mendoza Vallejo"],
   "url": siteURL,
   "jobTitle": "Arquitecto de Software Full Stack",
+  // The same sentence as the site description, so the English build reuses its reviewed translation (DISC-006).
+  "description": defaultSEO.description,
+  // Fields the site already presents; language-neutral terms, so the schema needs no translation entry.
+  "knowsAbout": [
+    "Software architecture",
+    "Python",
+    "C#",
+    ".NET",
+    "FastAPI",
+    "PostgreSQL",
+    "Deterministic validation",
+    "3D model validation",
+    "Generative AI with human review",
+    "Model Context Protocol"
+  ],
   "affiliation": { "@id": contrast3dId },
   "sameAs": [
     "https://github.com/Nain9Dev",
