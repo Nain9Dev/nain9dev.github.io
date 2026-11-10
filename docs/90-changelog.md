@@ -31,6 +31,7 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ### Added
 
+- Next-seo-indexnow: the site publishes its IndexNow key and `scripts/submit-indexnow.mjs` tells Bing and the other IndexNow engines about the sitemap URLs after a deploy.
 - Next-seo-host-audit: a weekly workflow audits the canonical, description, social tags, JSON-LD, `robots.txt`, sitemap and `llms.txt` of every public host and fails when one regresses.
 - Next-seo-discovery: `/llms.txt` summarizes the site for AI answer engines; the sitemap carries `es`, `en` and `x-default` alternates and the publication date of each blog post; `robots.txt` names the search and AI crawlers; the `Person` entity lists `knowsAbout` and a description.
 - Next-design-fusion DF-028: each selected project on the home shows its result open and keeps the problem and the approach behind the "+" button (still in the document for search engines and keyboards).

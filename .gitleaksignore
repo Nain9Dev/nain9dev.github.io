@@ -1,0 +1,3 @@
+# The IndexNow key is public by design: the protocol proves site ownership by serving it
+# from the site root (public/<key>.txt). It is not a credential (specs/next-seo-indexnow).
+scripts/lib/indexnow.mjs:generic-api-key:4
