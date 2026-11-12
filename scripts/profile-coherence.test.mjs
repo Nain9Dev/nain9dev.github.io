@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { access, readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
+import { findConfidential } from './lib/confidential.mjs';
 
 // Site aligned with the owner's GitHub and LinkedIn profiles. See specs/012-profile-coherence.
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
@@ -18,10 +19,14 @@ const PUBLIC_REPOS = [
 ];
 // Owner decision 2026-10-19 (specs/next-portfolio-refresh): NainProspect and NainWrite became public projects.
 const PRIVATE_COUNT = 6;
-// Names of private products, partners and the employer that must never reach the catalog.
-// DSE, Datum Statutum and Contrast Viewer left this list on 2026-10-29: the owner made them public products
-// (specs/next-projects-route, D5 to D8); Contrast Hub stays private through its repository name.
-const CONFIDENTIAL = /\bE3C\b|\bRT-(?:FIN-)?\d+|Contrast Hub|contrast3dhub|crm-platform|ProspectAI|Facturae|gha-local-runners|NainDriveSimulator|Avalisto|Fidelidade|Alcal[aá]|Torrej[oó]n/i;
+// Names of private repositories, hosts, partners and the employer must never reach the catalog. This
+// repository is public, so the list is kept as hashes (scripts/confidential-hashes.json, scripts/lib/
+// confidential.mjs), not in cleartext. Public products are not on it: DSE, Datum Statutum and Contrast
+// Viewer left it on 2026-10-29 (specs/next-projects-route, D5 to D8) and the owner declared the Contrast
+// Hub name public on 2026-11-12.
+const CONFIDENTIAL_HASHES = await readJson('scripts/confidential-hashes.json');
+// The number of hits only: a failing run must not print the name it found in a public log.
+const leakCount = (value) => findConfidential(value, CONFIDENTIAL_HASHES).length;
 
 test('COPY-010: the hero presents multi-domain conformance without industrial-scale claims', async () => {
   const hero = text(await read('src/components/home/Hero.astro'));
@@ -59,7 +64,8 @@ test('COPY-014: terminal experience and stack match the verified roles', async (
   for (const technology of ['.NET Framework', 'ASP.NET MVC 5', 'ASP.NET Web API 2', 'SQL Server', 'Dapper']) {
     assert.ok(experience.includes(technology), `experience lists ${technology}`);
   }
-  assert.doesNotMatch(experience, /Avalisto|ASP\.NET Core/);
+  assert.equal(leakCount(experience), 0, 'the experience text holds a confidential name');
+  assert.doesNotMatch(experience, /ASP\.NET Core/);
   const stack = text(commands.stack);
   for (const technology of ['Python', 'FastAPI', 'C#', 'Vue 3', 'PostgreSQL', 'SQL Server', 'MCP']) {
     assert.ok(stack.includes(technology), `stack lists ${technology}`);
@@ -79,7 +85,7 @@ test('PRJ-001: the catalog lists every public project and the approved private o
 
 test('PRJ-002: private entries have no links and no confidential names', async () => {
   const raw = await read('public/assets/data/projects.json');
-  assert.doesNotMatch(raw, CONFIDENTIAL);
+  assert.equal(leakCount(raw), 0, 'the catalog holds a confidential name');
   for (const project of JSON.parse(raw).filter((entry) => entry.private)) {
     assert.deepEqual(project.links, [], `${project.id} has no links`);
   }

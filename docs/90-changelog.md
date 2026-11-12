@@ -4,6 +4,15 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ## [Unreleased]
 
+### Security
+
+- The confidential-name guard of `profile-coherence.test.mjs` no longer stores its list in cleartext in this
+  public repository: it keeps SHA-256 hashes of the normalized terms (`scripts/confidential-hashes.json`,
+  `scripts/lib/confidential.mjs`, tested by `scripts/confidential.test.mjs` with made-up terms) and a failing
+  run prints only the number of hits. The Contrast Hub name left the list: the owner declared it public on
+  2026-11-12. The guard is obscurity, not secrecy: nobody can read the list, but anyone who already knows a
+  term can confirm it.
+
 ### Fixed
 
 - The footer "Escribirme un mensaje" now links `/contacto/` (it linked the home section) and the contact page is the one that carries the copy button for the footer's visitors; DF-024 adds the page: free call, copy-email button and LinkedIn, in both languages, no WhatsApp.
