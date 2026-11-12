@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { readdir, readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { join, relative } from 'node:path';
+import { findConfidential } from './lib/confidential.mjs';
 
 // Offer and availability copy decided by the owner. See specs/009-honest-offer-copy.
 const ROOT = fileURLToPath(new URL('..', import.meta.url));
@@ -109,11 +110,13 @@ test('COPY-008: the terminal story describes the same approach', async () => {
 
 test('COPY-009: public copy keeps the internal profile identifiers confidential in both locales', async () => {
   // Amended on 2026-10-29: the owner made DSE a public product with its own site (specs/next-projects-route, D5 to D8),
-  // so its name is public. The internal profile identifiers (E3C, RT-nnn) stay out of public copy.
-  const internal = /\bE3C\b|\bRT-(?:FIN-)?\d+/i;
-  assert.doesNotMatch(await read('src/components/home/AboutSection.astro'), internal);
-  assert.doesNotMatch(await read('public/assets/data/terminal-commands.json'), internal);
+  // so its name is public. The internal profile identifiers stay out of public copy; they are kept as hashes
+  // (scripts/internal-identifier-hashes.json), because this repository is public. Only counts are reported.
+  const hashes = JSON.parse(await read('scripts/internal-identifier-hashes.json'));
+  const leakCount = (value) => findConfidential(value, hashes).length;
+  assert.equal(leakCount(await read('src/components/home/AboutSection.astro')), 0, 'the About section');
+  assert.equal(leakCount(await read('public/assets/data/terminal-commands.json')), 0, 'the terminal commands');
   const catalog = JSON.parse(await read('src/i18n/en-US.json'));
-  const leaks = Object.values(catalog).filter(({ source, target }) => internal.test(source) || internal.test(target));
-  assert.deepEqual(leaks, []);
+  const leaks = Object.values(catalog).filter(({ source, target }) => leakCount(source) > 0 || leakCount(target) > 0);
+  assert.equal(leaks.length, 0, 'the locale catalog holds an internal identifier');
 });

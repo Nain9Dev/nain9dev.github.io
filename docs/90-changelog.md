@@ -12,6 +12,10 @@ Relevant changes, newest first. The project has no version tags; entries are gro
   run prints only the number of hits. The Contrast Hub name left the list: the owner declared it public on
   2026-11-12. The guard is obscurity, not secrecy: nobody can read the list, but anyone who already knows a
   term can confirm it.
+- The same rule reaches the places that named the internal profile identifiers in prose or in a regular
+  expression: COPY-009 (requirement, its spec and test) and a task note now refer to a second hashed list,
+  `scripts/internal-identifier-hashes.json`, and COPY-009 reports counts instead of printing what it found.
+  Commercial product names stay in the text; only internal identifiers and private names are protected.
 
 ### Fixed
 

@@ -21,8 +21,8 @@ profiles, clients or results.
   same multi-domain conformance approach and name 3D assets as the first domain.
 - COPY-009: When the About section or the terminal commands are served in
   either locale, they shall not contain the internal product name ("DSE",
-  "Datum Statutum Exploratum", "E3C"), internal profile identifiers (such as
-  "RT-01" or "RT-FIN-01").
+  "Datum Statutum Exploratum") or internal profile identifiers (kept as hashes,
+  not in cleartext, in `scripts/internal-identifier-hashes.json`).
 
 ## Edge cases
 

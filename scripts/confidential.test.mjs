@@ -48,10 +48,21 @@ test('CONF-007: clean text and an empty list report nothing', () => {
   assert.deepEqual(findConfidential('zebra crossing', []), []);
 });
 
-test('CONF-008: the committed list holds only unique SHA-256 hashes, no readable term', async () => {
-  const file = fileURLToPath(new URL('./confidential-hashes.json', import.meta.url));
-  const list = JSON.parse(await readFile(file, 'utf8'));
-  assert.ok(Array.isArray(list) && list.length > 0, 'the list is a non-empty array');
-  for (const entry of list) assert.match(entry, /^[0-9a-f]{64}$/, 'every entry is a 64-hex hash');
-  assert.equal(new Set(list).size, list.length, 'no duplicates');
+const readList = async (name) =>
+  JSON.parse(await readFile(fileURLToPath(new URL(`./${name}`, import.meta.url)), 'utf8'));
+
+test('CONF-008: each committed list holds only unique SHA-256 hashes, no readable term', async () => {
+  for (const name of ['confidential-hashes.json', 'internal-identifier-hashes.json']) {
+    const list = await readList(name);
+    assert.ok(Array.isArray(list) && list.length > 0, `${name} is a non-empty array`);
+    for (const entry of list) assert.match(entry, /^[0-9a-f]{64}$/, `${name}: every entry is a 64-hex hash`);
+    assert.equal(new Set(list).size, list.length, `${name}: no duplicates`);
+  }
+});
+
+test('CONF-009: the internal identifiers are a subset of the full confidential list', async () => {
+  const full = new Set(await readList('confidential-hashes.json'));
+  for (const entry of await readList('internal-identifier-hashes.json')) {
+    assert.ok(full.has(entry), 'every internal identifier is also in the full list');
+  }
 });
