@@ -21,7 +21,7 @@ One task at a time, test first. Update the `Session state` block in `spec.md` af
   - **Covers**: CLB-003, CLB-008, CLB-010
   - **Done when**: `npm run check` passes in both locales with the entries.
   - **Owner's part**: the companies' own answers stay with the owner (B-027).
-- [ ] **T07** `[M]` Pull request.
+- [ ] **T07** `[M]` Pull request #94, opened on 2026-11-13; waits for the owner's review and merge.
   - **Needs from owner**: approval of the wording (eyebrow, H2, pause control) and of the ADR; merge.
   - **Done when**: the pull request carries the measurements below and the owner has merged. The owner saw the captures in the session and gave the go-ahead to open it on 2026-11-13.
 - [ ] **T08** `[A]` Consolidation after the merge: CLB-001 to CLB-012 into `docs/10-requirements.md` and `docs/50-traceability.md`, the two collections into `docs/21-data-model.md`, changelog entry, numbers for the spec and the ADR, the brief's "no client logos" line in `design/README.md`.
@@ -56,3 +56,4 @@ A static list with a caption under each logo ("Cliente" or "Socio" and one line 
 
 - 2026-11-13 · Worktree `D:/wt/nain9dev.github.io-feat-collaborators-bar` on `feat/collaborators-bar` from `origin/main` `2ee1595`; claim registered in `D:/wt/CLAIMS.md`. Spec, plan and tasks written; guard red (9 of 9), then T02 to T04 green. Browser pass of the first version with temporary local entries (preview entry `wt-collab-preview`, port 4330, in the untracked `.claude/launch.json` of the main checkout).
 - 2026-11-13 · Owner's revision (T05, T06): guard rewritten and red (6 of 11), then the schema, the rules module, the component and the entries. Found in the browser and fixed: the pointer did not stop the strip because the `animation` shorthand of the more specific rule reset the play state, so the pause rules now repeat that rule's gate; the pause label filled its grid cell and is now sized to its content. `npm run check` exit 0. Next: T07.
+- 2026-11-13 · Owner's go-ahead: committed, `main` merged into the branch (one conflict, the `check` line of `package.json`), validation rerun on the merged tree, branch pushed and pull request #94 opened. Next: owner review and merge, then T08.

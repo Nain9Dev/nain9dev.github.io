@@ -60,7 +60,7 @@ The owner asked for this on 2026-11-13: a bar "as other companies do", linked to
 ## Session state
 
 - Last updated: 2026-11-13
-- Done: first version (static list with a caption per company), then the owner's revision of the same day: brands only, optional link, logo with the name for an isotype, moving strip with a pause control. Three entries added on the owner's confirmation, with their logo files; three reviewed English strings. Guard rewritten first (6 of 11 red), then green. Measurements and the browser pass are in `tasks.md`. Not committed.
-- Verified: `npm run check` and the browser checks listed in `tasks.md`.
-- Next: owner go-ahead to commit and open the pull request; owner approval of the wording (eyebrow, H2, pause control) and of the ADR.
+- Done: first version (static list with a caption per company), then the owner's revision of the same day: brands only, optional link, logo with the name for an isotype, moving strip with a pause control. Three entries added on the owner's confirmation, with their logo files; three reviewed English strings. Guard rewritten first (6 of 11 red), then green. Measurements and the browser pass are in `tasks.md`. Committed on the owner's go-ahead and opened as pull request #94, with `main` (`5d26ecd`) merged into the branch.
+- Verified: `npm run check` on the merged tree and the browser checks listed in `tasks.md`.
+- Next: owner reviews and merges #94, approving the wording (eyebrow, H2, pause control) and the ADR; then the consolidation task T08.
 - Blocked: any further brand needs its recorded authorization first (B-027). OQ-019 blocks any page about client work.
