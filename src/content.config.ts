@@ -63,4 +63,36 @@ const testimonials = defineCollection({
   })
 });
 
-export const collections = { blog, servicios, testimonials, work };
+// Companies shown on the home are published only with their recorded authorization (specs/next-collaborators-bar, CLB-001).
+const collaborators = defineCollection({
+  loader: file('src/data/collaborators.json'),
+  schema: z.object({
+    name: z.string(),
+    url: z.url({ protocol: /^https$/ }).optional(),
+    logo: z.object({
+      src: z.string().startsWith('/assets/images/collaborators/'),
+      width: z.number().int().positive(),
+      height: z.number().int().positive(),
+      // An isotype says nothing to someone who does not know the brand: show the name next to it.
+      withName: z.boolean().default(false),
+    }).optional(),
+    order: z.number().int().default(99),
+    status: z.enum(['pending', 'approved']).default('pending'),
+    authorization: z.object({
+      granted: z.literal(true),
+      date: z.coerce.date(),
+      evidence: z.string().min(10),
+    }),
+  })
+});
+
+// Public profiles where anyone can read or leave an opinion about NainDev: linked, never embedded (CLB-006).
+const reviewSources = defineCollection({
+  loader: file('src/data/review-sources.json'),
+  schema: z.object({
+    name: z.string(),
+    url: z.url({ protocol: /^https$/ }),
+  })
+});
+
+export const collections = { blog, servicios, testimonials, work, collaborators, reviewSources };

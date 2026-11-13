@@ -9748,5 +9748,20 @@
     "source": "Estándares de ingeniería y flujos de CI reutilizables.",
     "target": "Engineering standards and reusable CI workflows.",
     "status": "reviewed"
+  },
+  "12e599034328611771888620b601598da4c6a1e8ab9d4d591b143c5d891397df": {
+    "source": "Trabajamos con estas marcas",
+    "target": "We work with these brands",
+    "status": "reviewed"
+  },
+  "170a2764ef6d8dcf06fa4d92d1751473e72fc62f05f88ede833be8aed45e7390": {
+    "source": "Pausar el movimiento",
+    "target": "Pause the motion",
+    "status": "reviewed"
+  },
+  "c6e1e6c552bc0e7d2ef0995c7097e5ac6a94002cc1c40152bc5915b9c7c6f2a6": {
+    "source": "Clientes y colaboradores",
+    "target": "Clients and collaborators",
+    "status": "reviewed"
   }
 }

@@ -97,6 +97,8 @@
   --band-ink-soft: #c9d3e3;
   --band-ink-muted: #a9b8cf;
   --band-link: #6d9bf5;
+  /* The plate behind a third-party logo, the same in both themes (CLB-004). */
+  --color-plate: #ffffff;
 
   /* Type: fluid modular scale, display in Urbanist, body in Inter */
   --font-display: "Urbanist", "Urbanist Fallback", ui-sans-serif, system-ui, sans-serif;
