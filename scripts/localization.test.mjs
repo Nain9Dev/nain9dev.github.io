@@ -12,6 +12,7 @@ test('English routes preserve Spanish addresses and fragments', () => {
   assert.equal(englishPath('/blog/article#example'), '/en/blog/article/#example');
   assert.equal(englishPath('/404.html'), '/en/404.html');
   assert.equal(englishPath('/trabajo/nain3d-conformance-gateway/'), '/en/work/nain3d-conformance-gateway/', 'work pages (specs/050-work-pages WK-007)');
+  assert.equal(englishPath('/manifest.webmanifest'), '/manifest.webmanifest', 'one manifest for both languages (specs/next-pwa-install INS-001)');
 });
 
 test('Inline diagrams translate their title, description and labels only when they opt in (WK-004)', () => {

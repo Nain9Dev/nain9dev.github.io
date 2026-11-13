@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import sharp from 'sharp';
+import { installIcons } from './lib/install-icons.mjs';
 
 const checkFraming = async (input, label) => {
   const { data, info } = await sharp(input).ensureAlpha().raw().toBuffer({ resolveWithObject: true });
@@ -80,6 +81,17 @@ for (let index = 0; index < iconCount; index += 1) {
 }
 assert.deepEqual([...icoSizes].sort((a, b) => a - b), [16, 32, 48, 64]);
 
+// Install icons (INS-005): the committed files are the ones the generator produces from the mark today.
+for (const icon of await installIcons()) {
+  const committed = await readFile(icon.path);
+  assert.deepEqual(readPngSize(committed, icon.path), { width: icon.size, height: icon.size });
+  const expected = await sharp(icon.png).ensureAlpha().raw().toBuffer();
+  const actual = await sharp(committed).ensureAlpha().raw().toBuffer();
+  assert(actual.equals(expected), `${icon.path} must match the SVG mark: run npm run generate:brand-icons`);
+  // The maskable icon has its own, stricter rule (INS-004, scripts/pwa-install.test.mjs).
+  if (icon.purpose === 'any') await checkFraming(committed, icon.path);
+}
+
 const layout = await readFile('src/layouts/BaseLayout.astro', 'utf8');
 assert.match(layout, /rel="icon" type="image\/png" sizes="96x96" href="\/favicon-96x96\.png"/);
 assert.match(layout, /rel="icon" type="image\/x-icon" href="\/favicon-naindev\.ico"/);
@@ -93,4 +105,4 @@ const header = await readFile('src/components/Header.astro', 'utf8');
 assert.match(header, /<svg class="brand-mark"/);
 assert.doesNotMatch(header, /<Image/);
 
-console.log('Brand icon contract passed: PNG, touch icon, SVG and four ICO frames keep the mark inside a circular mask.');
+console.log('Brand icon contract passed: PNG, touch icon, SVG, four ICO frames and the install icons keep the mark inside a circular mask.');
