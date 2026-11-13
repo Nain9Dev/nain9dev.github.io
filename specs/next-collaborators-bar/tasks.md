@@ -31,6 +31,7 @@ One task at a time, test first. Update the `Session state` block in `spec.md` af
 Taken on 2026-11-13 in this worktree, with the three committed entries.
 
 - Home document: 27 994 B gzip (`/en/` 27 456 B) against the 30 720 B tripwire; 27 196 B before this change. The bar costs about 0.8 kB: the rules, the list drawn twice and the pause control.
+- After merging `main` at `5d26ecd` (installable site, #93) into the branch: 28 108 B (`/en/` 27 568 B), and `npm run check` exit 0 on the merged tree. The only conflict was the `check` line of `package.json`; both guards are registered.
 - Logo files: 16 772 B, 1 940 B and 5 360 B, lazy loaded from this origin; the guard checks the 20 kB limit and that the declared size is the file's own.
 - `npm run check` exit 0 (guards, `astro check`, bilingual build, size tripwire, `check:locales` with 0 pending, `check:case-studies`, `check:claims`).
 - Strip at 1440 px: each of the two groups is 1 248 px wide, plates 208 by 88 px, one loop in 30 s (42 px/s measured), edges faded by the mask. Under the pointer the play state is `paused` and the strip does not move; leaving it resumes. The pause control toggles `paused` and `running`; its target is 174 by 44 px.
