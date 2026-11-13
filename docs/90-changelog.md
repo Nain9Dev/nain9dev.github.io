@@ -44,6 +44,7 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ### Added
 
+- Next-pwa-install: the site can be installed from the browser on Android and iOS. It publishes a web app manifest (`NainDev`), install icons generated from the brand mark, one of them maskable, and the iOS home-screen tags on every page in both languages. No service worker: nothing is cached.
 - Next-seo-indexnow: the site publishes its IndexNow key and `scripts/submit-indexnow.mjs` tells Bing and the other IndexNow engines about the sitemap URLs after a deploy.
 - Next-seo-host-audit: a weekly workflow audits the canonical, description, social tags, JSON-LD, `robots.txt`, sitemap and `llms.txt` of every public host and fails when one regresses.
 - Next-seo-discovery: `/llms.txt` summarizes the site for AI answer engines; the sitemap carries `es`, `en` and `x-default` alternates and the publication date of each blog post; `robots.txt` names the search and AI crawlers; the `Person` entity lists `knowsAbout` and a description.

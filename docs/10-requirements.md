@@ -489,3 +489,15 @@ Owner decisions of 2026-10-27 (depth, inline SVG diagrams, copy sources, scope o
 | DISC-013 | The site shall publish the IndexNow key file at the root, with the key as its only content. | specs/next-seo-indexnow | Implemented |
 | MI-004 | axe reports no violation in either theme and the Lighthouse budget holds. | specs/next-micro-interactions | Implemented |
 
+## Installable site (specs/next-pwa-install)
+
+| ID | Requirement | Source | Status |
+| :--- | :--- | :--- | :--- |
+| INS-001 | The site shall publish `/manifest.webmanifest`, and every built page, in both languages, shall link it. A redirect stub is not a page and carries no tags. | specs/next-pwa-install | Implemented |
+| INS-002 | The manifest shall declare `id`, `start_url` and `scope` as `/`, `display` as `standalone`, `lang` as `es`, `name` as `NainDev · Arquitectura de software`, `short_name` as `NainDev`, the site description, and `theme_color` and `background_color` as `#070b16`; it shall not declare `prefer_related_applications`. | specs/next-pwa-install | Implemented |
+| INS-003 | The manifest shall declare three PNG icons that exist at the declared size: 192 px and 512 px with purpose `any`, and 512 px with purpose `maskable`. | specs/next-pwa-install | Implemented |
+| INS-004 | The maskable icon shall be opaque edge to edge and shall keep every pixel of the mark inside the centred circle whose radius is 40% of the icon width. | specs/next-pwa-install | Implemented |
+| INS-005 | The install icons shall be generated from the brand mark by `npm run generate:brand-icons`, and `npm run check:brand-icons` shall fail when a committed icon differs from the generated one. | specs/next-pwa-install | Implemented |
+| INS-006 | Every built page shall carry the iOS tags: `apple-touch-icon` (180 px), `apple-mobile-web-app-title` equal to the manifest `short_name`, `mobile-web-app-capable` and `apple-mobile-web-app-capable` set to `yes`, and `apple-mobile-web-app-status-bar-style` set to `black`. | specs/next-pwa-install | Implemented |
+| INS-007 | `npm run check` shall fail if INS-001 to INS-006 regress. | specs/next-pwa-install | Implemented |
+

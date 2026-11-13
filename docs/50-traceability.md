@@ -211,3 +211,13 @@ Before the copy change, `scripts/offer-copy.test.mjs` failed 6 of 6 and the new 
 | IS-001 (repointed guards) | `scripts/card-system.test.mjs` (VP-004, VP-008), `scripts/inner-pages.test.mjs` (IP-002 to IP-005), `scripts/portfolio-refresh.test.mjs` (VIS-009, VIS-011, VIS-012) read `main.css` and `inner-pages.css` for the moved rules; `scripts/performance.test.mjs` (PERF-004 asserts the chain from the home to `site.css` to `main.css` with no layout import, PERF-021 reads the later-service-group rule from `inner-pages.css`) | unit | Pass: local `npm run check` 2026-10-27 (#37) |
 | IS-002 | CSS-002 at 30 KiB in `scripts/performance-build.test.mjs`; `gzip(dist/index.html)` measured before and after the split and after the home links (`specs/050-work-pages/tasks.md`) | contract + manual | Pass: 30 030 → 28 076 B after the split, 28 140 B with the links (`/en/` 27 537 B), 2026-10-27 (#37) |
 | IS-003 | Captures of eleven page types at 1440 and 390 px compared pixel for pixel against a full build of `origin/main` before the split; axe on the inner pages | manual | Pass: every inner page identical, the home differs only where the links were added, 2026-10-27 (#37) |
+
+## Installable site (specs/next-pwa-install)
+
+| Requirement | Evidence | Kind | Result |
+| :--- | :--- | :--- | :--- |
+| INS-001, INS-006 | `scripts/pwa-install.test.mjs` over every rendered page of `dist/` in both languages (redirect stubs excluded) and over the published manifest and icons; `scripts/localization.test.mjs` (`englishPath('/manifest.webmanifest')` stays at the root, so English pages link the same file) | contract + unit | Pass: local `npm run check` 2026-11-13 |
+| INS-002, INS-003, INS-004 | `scripts/pwa-install.test.mjs` over `public/manifest.webmanifest` and `public/icons/` (members, declared sizes, opacity and safe zone of the maskable icon) | contract | Pass: local `npm run check` 2026-11-13 |
+| INS-005 | `npm run check:brand-icons` compares the committed install icons with the generator output, pixel for pixel | contract | Pass: local `npm run check` 2026-11-13 |
+| INS-007 | `scripts/pwa-install.test.mjs` registered in the post-build group of `npm run check` | contract | Pass |
+| INS acceptance | Chrome `Page.getInstallabilityErrors` over the DevTools protocol on `/`, `/en/` and `/servicios/` of a local build: manifest parsed, no error (the live site before the change answers `no-manifest`) | manual | Pass, 2026-11-13; install on Android and iOS after the deploy is open (T05) |

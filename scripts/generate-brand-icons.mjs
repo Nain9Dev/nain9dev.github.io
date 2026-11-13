@@ -1,5 +1,7 @@
-import { readFile, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { dirname } from 'node:path';
 import sharp from 'sharp';
+import { installIcons } from './lib/install-icons.mjs';
 
 const source = await readFile('public/assets/images/favicon-optimized.svg');
 const render = size => sharp(source).resize(size, size).png().toBuffer();
@@ -26,4 +28,10 @@ frames.forEach((frame, index) => {
 const ico = Buffer.concat([directory, ...frames]);
 await writeFile('public/favicon.ico', ico);
 await writeFile('public/favicon-naindev.ico', ico);
-console.log('Generated stable PNG and ICO assets from the NainDev SVG.');
+
+// Icons of the installed site, declared by public/manifest.webmanifest (specs/next-pwa-install).
+for (const icon of await installIcons()) {
+  await mkdir(dirname(icon.path), { recursive: true });
+  await writeFile(icon.path, icon.png);
+}
+console.log('Generated stable PNG, ICO and install icons from the NainDev SVG.');
