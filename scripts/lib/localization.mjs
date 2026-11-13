@@ -27,7 +27,7 @@ export function englishPath(value) {
   if (!value.startsWith('/') && !absolute) return value;
   const url = new URL(value, origin);
   if (url.origin !== origin || /^\/(?:en|assets|_astro)(?:\/|$)/.test(url.pathname)
-    || /\.(?:png|svg|ico|jpg|jpeg|webp|pdf|json|xml|txt|css|js)$/i.test(url.pathname)) return value;
+    || /\.(?:png|svg|ico|jpg|jpeg|webp|pdf|json|xml|txt|css|js|webmanifest)$/i.test(url.pathname)) return value;
   const hubs = { servicios: 'services', casos: 'case-studies', recursos: 'resources', tecnologia: 'technology', privacidad: 'privacy', trabajo: 'work', proyectos: 'projects', contacto: 'contact' };
   const parts = url.pathname.split('/').filter(Boolean);
   if (parts[0]) parts[0] = hubs[parts[0]] ?? parts[0];
