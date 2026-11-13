@@ -1,55 +1,82 @@
 ---
 // src/components/home/Testimonials.astro
-// Renders only approved recommendations with recorded consent (ADR-0008); nothing at all when there are none.
+// Clients and collaborators, then the recommendations and the public sources. Everything here is published with
+// recorded permission (ADR-0008, specs/next-collaborators-bar); nothing at all renders while no entry is approved.
 import { getCollection } from 'astro:content';
+import CollaboratorsBar from './CollaboratorsBar.astro';
+import { approvedCollaborators } from '../../utils/collaborators';
 
 const approved = (await getCollection('testimonials', ({ data }) => data.status === 'approved'))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const collaborators = approvedCollaborators(await getCollection('collaborators'));
+const sources = await getCollection('reviewSources');
 ---
 
-{approved.length > 0 && (
-  <section class="section" id="recomendaciones">
+{(collaborators.length > 0 || approved.length > 0) && (
+  <section class="section" id="clientes">
     <div class="shell">
-      <div class="section-heading" data-reveal>
-        <div>
-          <p class="eyebrow">Recomendaciones</p>
-          <h2>Qué dicen de trabajar conmigo</h2>
-        </div>
-        <p>Opiniones de personas con las que he trabajado, publicadas con su permiso y con su nombre.</p>
-      </div>
+      {collaborators.length > 0 && <CollaboratorsBar items={collaborators} />}
 
-      <div class="testimonials-grid" data-reveal>
-        {approved.map((testimonial) => (
-          <figure class="testimonial-card">
-            {testimonial.data.relationship === 'partner' && (
-              <p class="testimonial-relation">Recomendación de un socio, no de un cliente</p>
+      {approved.length > 0 && (
+        <Fragment>
+          {collaborators.length > 0
+            ? <h3 class="testimonials-title">Qué dicen de trabajar conmigo</h3>
+            : (
+              <div class="section-heading" data-reveal>
+                <div>
+                  <p class="eyebrow">Recomendaciones</p>
+                  <h2>Qué dicen de trabajar conmigo</h2>
+                </div>
+                <p>Opiniones de personas con las que he trabajado, publicadas con su permiso y con su nombre.</p>
+              </div>
             )}
-            <blockquote class="testimonial-content">
-              <p>{testimonial.data.quote}</p>
-            </blockquote>
-            <figcaption class="testimonial-author">
-              <strong>{testimonial.data.name}</strong>
-              <span>
-                {testimonial.data.role} ·
-                {testimonial.data.companyUrl
-                  ? <a href={testimonial.data.companyUrl} target="_blank" rel="noopener noreferrer">{testimonial.data.company}</a>
-                  : testimonial.data.company}
-              </span>
-              {testimonial.data.sourceUrl && (
-                <a class="testimonial-source" href={testimonial.data.sourceUrl} target="_blank" rel="noopener noreferrer">Ver la fuente original</a>
-              )}
-            </figcaption>
-          </figure>
-        ))}
-      </div>
+
+          <div class="testimonials-grid" data-reveal>
+            {approved.map((testimonial) => (
+              <figure class="testimonial-card">
+                {testimonial.data.relationship === 'partner' && (
+                  <p class="testimonial-relation">Recomendación de un socio, no de un cliente</p>
+                )}
+                <blockquote class="testimonial-content">
+                  <p>{testimonial.data.quote}</p>
+                </blockquote>
+                <figcaption class="testimonial-author">
+                  <strong>{testimonial.data.name}</strong>
+                  <span>
+                    {testimonial.data.role} ·{' '}
+                    {testimonial.data.companyUrl
+                      ? <a href={testimonial.data.companyUrl} target="_blank" rel="noopener noreferrer">{testimonial.data.company}</a>
+                      : testimonial.data.company}
+                  </span>
+                  {testimonial.data.sourceUrl && (
+                    <a class="testimonial-source" href={testimonial.data.sourceUrl} target="_blank" rel="noopener noreferrer">Ver la fuente original</a>
+                  )}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </Fragment>
+      )}
+
+      {sources.length > 0 && (
+        <p class="review-sources">
+          Opiniones públicas sobre NainDev:
+          {sources.map((source) => (
+            <a href={source.data.url} target="_blank" rel="noopener noreferrer"><span translate="no">{source.data.name}</span> <span aria-hidden="true">↗</span></a>
+          ))}
+        </p>
+      )}
     </div>
   </section>
 )}
 
 <style>
+  .testimonials-title {
+    margin: var(--s12) 0 var(--s6);
+  }
   .testimonials-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 34rem));
     gap: 1.5rem;
   }
   .testimonial-card {
@@ -84,5 +111,20 @@ const approved = (await getCollection('testimonials', ({ data }) => data.status 
   }
   .testimonial-source {
     margin-top: 0.5rem;
+  }
+  .review-sources {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0 var(--s3);
+    margin: var(--s6) 0 0;
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+  }
+  .review-sources a {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--s1);
+    min-height: 2.75rem;
   }
 </style>

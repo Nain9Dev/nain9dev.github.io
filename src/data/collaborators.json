@@ -1,0 +1,28 @@
+[
+  {
+    "id": "neomedicals",
+    "name": "NeoMedicals",
+    "url": "https://neomedicalsec.com/",
+    "logo": { "src": "/assets/images/collaborators/neomedicals.webp", "width": 240, "height": 88 },
+    "order": 10,
+    "status": "approved",
+    "authorization": { "granted": true, "date": "2026-11-13", "evidence": "Owner's confirmation of 2026-11-13: permission to link the company website" }
+  },
+  {
+    "id": "contrast3d",
+    "name": "Contrast3D",
+    "url": "https://www.contrast3d.com/",
+    "logo": { "src": "/assets/images/collaborators/contrast3d.png", "width": 96, "height": 96, "withName": true },
+    "order": 20,
+    "status": "approved",
+    "authorization": { "granted": true, "date": "2026-11-13", "evidence": "Owner's confirmation of 2026-11-13: permission to link the company website" }
+  },
+  {
+    "id": "irehma",
+    "name": "IREHMA",
+    "logo": { "src": "/assets/images/collaborators/irehma.webp", "width": 280, "height": 101 },
+    "order": 30,
+    "status": "approved",
+    "authorization": { "granted": true, "date": "2026-11-13", "evidence": "Owner's instruction of 2026-11-13: shown as a client brand, without a link" }
+  }
+]

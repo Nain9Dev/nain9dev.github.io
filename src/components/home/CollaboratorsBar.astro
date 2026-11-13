@@ -1,0 +1,147 @@
+---
+// src/components/home/CollaboratorsBar.astro
+// The brands NainDev works with, each published with its recorded authorization (specs/next-collaborators-bar).
+// Presentational: the section selects the entries (src/utils/collaborators.ts) and passes them in. From three
+// brands on the list moves as a strip; it is drawn twice so the loop has no seam, and the copy is hidden from
+// assistive technology and from the tab order.
+import type { CollectionEntry } from 'astro:content';
+import { movesAsStrip, stripLoopSeconds } from '../../utils/collaborators';
+
+interface Props {
+  items: CollectionEntry<'collaborators'>[];
+}
+
+const { items } = Astro.props;
+const moving = movesAsStrip(items.length);
+const copies = moving ? [false, true] : [false];
+---
+
+<div class="collab-bar">
+  <div class="section-heading" data-reveal>
+    <div>
+      <p class="eyebrow">Clientes y colaboradores</p>
+      <h2>Trabajamos con estas marcas</h2>
+    </div>
+    {moving && (
+      <label class="collab-pause"><input type="checkbox" /> Pausar el movimiento</label>
+    )}
+  </div>
+
+  <div class:list={['collab-strip', { 'is-moving': moving }]} style={`--collab-loop: ${stripLoopSeconds(items.length)}s`} data-reveal>
+    {copies.map((clone) => (
+      <ul class="collab-group" aria-hidden={clone ? 'true' : undefined}>
+        {items.map((item) => {
+          const { name, url, logo } = item.data;
+          const Plate = url ? 'a' : 'span';
+          const link = url ? { href: url, target: '_blank', rel: 'noopener noreferrer', tabindex: clone ? -1 : undefined } : {};
+          return (
+            <li>
+              <Plate class:list={['collab-plate', { 'has-name': logo?.withName }]} translate="no" {...link}>
+                {logo && <img src={logo.src} alt={logo.withName ? '' : name} width={logo.width} height={logo.height} loading="lazy" decoding="async" />}
+                {(!logo || logo.withName) && name}
+              </Plate>
+            </li>
+          );
+        })}
+      </ul>
+    ))}
+  </div>
+</div>
+
+<style>
+  .collab-pause {
+    display: none;
+    justify-self: start;
+    align-items: center;
+    gap: var(--s2);
+    min-height: 2.75rem;
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    cursor: pointer;
+  }
+  .collab-pause input {
+    width: 1.1rem;
+    height: 1.1rem;
+    accent-color: var(--color-link);
+  }
+  .collab-strip {
+    display: flex;
+    gap: var(--s4);
+  }
+  .collab-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s4);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .collab-group[aria-hidden] {
+    display: none;
+  }
+  /* Third-party logos are shown as delivered, so the plate stays light in both themes (CLB-004). */
+  .collab-plate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--s2);
+    width: clamp(9.5rem, 42vw, 13rem);
+    min-height: 5.5rem;
+    padding: var(--s4);
+    border: 1px solid var(--color-line-strong);
+    border-radius: var(--radius);
+    background: var(--color-plate);
+    color: var(--brand-black);
+    font-size: var(--text-lg);
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .collab-plate img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 3rem;
+  }
+  .collab-plate.has-name {
+    font-size: var(--text-base);
+  }
+  .collab-plate.has-name img {
+    max-height: 2.5rem;
+  }
+  a.collab-plate:hover {
+    border-color: var(--color-link);
+  }
+
+  /* The strip moves only without a reduced-motion preference and outside low-performance mode, and it turns
+     back into the plain list while a link inside has keyboard focus, so focus is never on a clipped link. */
+  @media (prefers-reduced-motion: no-preference) {
+    :global(html:not(.low-performance)) .collab-pause {
+      display: inline-flex;
+    }
+    :global(html:not(.low-performance)) .is-moving:not(:has(:focus-visible)) {
+      overflow: hidden;
+      mask-image: linear-gradient(to right, transparent, var(--color-plate) 6%, var(--color-plate) 94%, transparent);
+    }
+    :global(html:not(.low-performance)) .is-moving:not(:has(:focus-visible)) .collab-group {
+      flex-shrink: 0;
+      flex-wrap: nowrap;
+      justify-content: space-around;
+      min-width: 100%;
+      animation: collab-slide var(--collab-loop) linear infinite;
+    }
+    :global(html:not(.low-performance)) .is-moving:not(:has(:focus-visible)) .collab-group[aria-hidden] {
+      display: flex;
+    }
+    /* Same gate as the rule that starts the loop, so these win over the shorthand's own play state. */
+    :global(html:not(.low-performance)) .is-moving:not(:has(:focus-visible)):hover .collab-group,
+    :global(html:not(.low-performance)) .collab-bar:has(.collab-pause input:checked) .collab-group {
+      animation-play-state: paused;
+    }
+
+    @keyframes collab-slide {
+      to {
+        transform: translateX(calc(-100% - var(--s4)));
+      }
+    }
+  }
+</style>
