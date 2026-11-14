@@ -21,7 +21,7 @@ Consolidated task index. Feature-level detail and handoff state live in `../spec
 | next Portfolio coverage | [tasks.md](../specs/next-portfolio-coverage/tasks.md) | Consolidated (#28 merged 2026-10-22); T06 open | 1 (T06, owner decision) |
 | 049 Selected work | [tasks.md](../specs/049-selected-work/tasks.md) | Consolidated (#35 merged 2026-10-27; ADR-0015 Proposed) | 1 (ADR-0015 approval) |
 | 050 Work pages | [tasks.md](../specs/050-work-pages/tasks.md) | Consolidated (#37 merged 2026-10-27, #38 catalog correction; ADR-0016 and ADR-0017 Proposed) | 1 (ADR-0016 and ADR-0017 approval) |
-| next Installable site | [tasks.md](../specs/next-pwa-install/tasks.md) | Implemented on `feat/pwa-install`; T05 open | 1 (T05, owner installs on Android and iOS after the merge) |
+| next Installable site | [tasks.md](../specs/next-pwa-install/tasks.md) | Merged (#93, 2026-11-13); live check passed 2026-11-14; T05 open | 1 (T05, owner installs on Android and iOS) |
 
 ## Open human-dependent tasks
 

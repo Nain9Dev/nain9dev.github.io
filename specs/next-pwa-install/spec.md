@@ -1,6 +1,6 @@
 # Specification: Installable site (Android and iOS)
 
-Status: Implemented on `feat/pwa-install`, not merged
+Status: Implemented and merged (#93, 2026-11-13). The owner's install on real phones is open (T05).
 
 ## Objective
 
@@ -100,9 +100,17 @@ characters so no launcher truncates it; `name` is what the install dialog shows.
 ## Session state
 
 <!-- Session handoff: keep current. What is done, what is verified, what is next, what is blocked. -->
-- Last updated: 2026-11-13, session pwa-install
-- Done: audit of the 19 live hosts; names and scope approved by the owner; T01 to T04.
-- Verified: `npm run check` passes locally; Chrome reports no installability error on a local build.
-- Next: T05 after the merge (live manifest media type, install on Android and iOS). The other 15 product
-  repositories follow the shared contract in their own pull requests.
+- Last updated: 2026-11-14, session pwa-install
+- Done: audit of the 19 live hosts; names and scope approved by the owner; T01 to T04; merged as #93.
+- Verified: `npm run check` passes; on the live site the manifest answers 200 as `application/manifest+json`,
+  the icons answer 200 and Chrome reports no installability error on `/` and `/en/` (2026-11-14).
+- Rollout of the shared contract, state on 2026-11-14: the same Chrome probe reports no installability error
+  on 17 of the 19 live hosts. The 13 hosts merged in this round are `status`, `brand`, `pong`, `orbe`, `mcp`,
+  `write`, `drive`, `notify`, `tickets`, `gamehaven`, `policy`, `prospect` and `tai`; `3d`, `parametricad`
+  and `order` were installable before it. `configurator` and `modernizer` have their pull requests open
+  (NainConfigurator#32, behind the runner fix #33, and NainLegacyModernizer#13).
+- Two owner decisions taken during the rollout: HaveTickets had only the stock icon of its project template
+  and now carries an HT monogram; the size budget of the NainLegacyModernizer demo went from 210 to 220 KB to
+  hold the icons.
+- Next: T05, the owner's install on an Android phone and an iPhone, here and in each product repository.
 - Blocked: nothing. T05 needs the owner's phones.
