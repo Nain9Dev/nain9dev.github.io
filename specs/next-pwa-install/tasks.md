@@ -30,3 +30,7 @@ One task at a time, test first. Stop after each task. Update the `Session state`
     site on Android and on iOS.
   - **Needs from owner**: merge the pull request, then install from Chrome on Android and from Safari on an
     iPhone and confirm icon, label and window.
+  - **Result so far**: merged as #93. On 2026-11-14 the live manifest answers 200 as
+    `application/manifest+json`, the three icons and the Apple icon answer 200, both languages link the
+    manifest, and Chrome reports no installability error on the live `/` and `/en/`. The install on the two
+    phones is the part still open.
