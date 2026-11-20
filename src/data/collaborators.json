@@ -18,11 +18,12 @@
     "authorization": { "granted": true, "date": "2026-11-13", "evidence": "Owner's confirmation of 2026-11-13: permission to link the company website" }
   },
   {
-    "id": "irehma",
-    "name": "IREHMA",
-    "logo": { "src": "/assets/images/collaborators/irehma.webp", "width": 280, "height": 101 },
+    "id": "grupo-empresarial-rm",
+    "name": "Grupo Empresarial RM",
+    "url": "https://grupoempresarialrm.com/",
+    "logo": { "src": "/assets/images/collaborators/grupo-empresarial-rm.svg", "width": 1000, "height": 1000, "withName": true },
     "order": 30,
     "status": "approved",
-    "authorization": { "granted": true, "date": "2026-11-13", "evidence": "Owner's instruction of 2026-11-13: shown as a client brand, without a link" }
+    "authorization": { "granted": true, "date": "2026-11-14", "evidence": "Owner's confirmation of 2026-11-14: permission to link the company website" }
   }
 ]
