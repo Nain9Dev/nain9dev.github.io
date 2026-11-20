@@ -21,7 +21,7 @@
     "id": "grupo-empresarial-rm",
     "name": "Grupo Empresarial RM",
     "url": "https://grupoempresarialrm.com/",
-    "logo": { "src": "/assets/images/collaborators/grupo-empresarial-rm.svg", "width": 1000, "height": 1000, "withName": true },
+    "logo": { "src": "/assets/images/collaborators/grupo-empresarial-rm.webp", "width": 280, "height": 88 },
     "order": 30,
     "status": "approved",
     "authorization": { "granted": true, "date": "2026-11-14", "evidence": "Owner's confirmation of 2026-11-14: permission to link the company website" }
