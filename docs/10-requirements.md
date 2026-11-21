@@ -51,6 +51,8 @@ Status values: `Implemented` (released, evidence recorded in the spec handoff), 
 | SEO-021 | When any page is rendered, the `Person` `sameAs` shall not list the Google Business Profile or Threads. | specs/042-organization-google-threads | Implemented (not deployed) |
 | SEO-022 | When any page is rendered, the `Organization` `sameAs` shall also list the brand Facebook page. | specs/043-organization-facebook-page | Implemented (not deployed) |
 | SEO-023 | When any page is rendered, the `Person` `sameAs` shall not list the brand Facebook page. | specs/043-organization-facebook-page | Implemented (not deployed) |
+| SEO-024 | When any page is rendered, the `Person` `sameAs` shall also list the dev.to profile `https://dev.to/naindev`, once. | specs/next-seo-person-devto | Implemented (not deployed) |
+| SEO-025 | When any page is rendered, the `Organization` `sameAs` shall not list the personal dev.to profile. | specs/next-seo-person-devto | Implemented (not deployed) |
 | SEO-010 | When collection content declares a social image, the generated page shall refer to an existing asset; stale references shall use the collection default. | specs/002-search-brand-presentation | Implemented |
 
 ## English localization
