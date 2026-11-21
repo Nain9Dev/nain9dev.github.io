@@ -13,6 +13,23 @@ export function hostsFromCatalog(catalog) {
   return hosts;
 }
 
+/** Public project pages that the catalog does not link, audited like the demos (DISC-014). */
+export const EXTRA_HOSTS = [
+  'brand.naindev.com',
+  'status.naindev.com',
+  'handbook.naindev.com',
+  'standards.naindev.com',
+  'template-dotnet.naindev.com',
+  'template-fastapi.naindev.com',
+];
+
+/** Catalog hosts plus the extra project pages, once each (DISC-009, DISC-014). */
+export function auditedHosts(catalog) {
+  const hosts = hostsFromCatalog(catalog);
+  for (const extra of EXTRA_HOSTS) if (!hosts.includes(extra)) hosts.push(extra);
+  return hosts;
+}
+
 const attribute = (tag, name) => new RegExp(`\\b${name}="([^"]*)"`).exec(tag)?.[1];
 const tags = (html, name) => [...html.matchAll(new RegExp(`<${name}\\b[^>]*>`, 'gi'))].map(match => match[0]);
 const metaContent = (html, key) => tags(html, 'meta')
@@ -20,7 +37,7 @@ const metaContent = (html, key) => tags(html, 'meta')
   .map(tag => attribute(tag, 'content'));
 
 /** Returns the findings for one host; an empty list means the baseline is met. */
-export function auditHost({ host, page, robots, sitemap, llms }) {
+export function auditHost({ host, page, robots, sitemap, llms, listed = [], httpRedirect }) {
   if (page.status !== 200) return [`${host}: page answered HTTP ${page.status}`];
   const findings = [];
   const report = message => findings.push(`${host}: ${message}`);
@@ -60,6 +77,16 @@ export function auditHost({ host, page, robots, sitemap, llms }) {
   if (sitemap.status !== 200 || !(isIndex || listsRoot)) report('the advertised sitemap must list the canonical root or be a sitemap index');
 
   if (llms.status !== 200 || !/^# \S/.test(llms.body)) report('llms.txt must be Markdown that starts with an H1');
+
+  // A listed URL that is not a 200 wastes crawl budget and shows up as "Not found" in Search Console (DISC-015).
+  for (const entry of listed) {
+    if (entry.status !== 200) report(`sitemap lists a URL that answers HTTP ${entry.status}: ${entry.url}`);
+  }
+
+  // The plain-http entry must hand crawlers to https in one permanent hop (DISC-016); skipped when not measured.
+  if (httpRedirect && !([301, 308].includes(httpRedirect.status) && httpRedirect.location.startsWith(`https://${host}/`))) {
+    report(`http:// must answer a 301 or 308 to https://${host}/`);
+  }
 
   return findings;
 }

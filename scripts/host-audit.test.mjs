@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { auditHost, hostsFromCatalog } from './lib/host-audit.mjs';
+import { auditHost, auditedHosts, EXTRA_HOSTS, hostsFromCatalog } from './lib/host-audit.mjs';
 
 const host = 'demo.naindev.com';
 const canonical = `https://${host}/`;
@@ -110,4 +110,35 @@ test('the host list comes from the catalog demos plus the main site, once each',
     { links: [{ url: 'https://datumstatutum.com/' }] },
   ];
   assert.deepEqual(hostsFromCatalog(catalog), ['www.naindev.com', 'mcp.naindev.com', 'tai.naindev.com']);
+});
+
+test('the audited hosts add the project pages that the catalog does not link, once each (DISC-014)', () => {
+  const catalog = [{ links: [{ url: 'https://mcp.naindev.com/' }, { url: 'https://handbook.naindev.com/' }] }];
+  const hosts = auditedHosts(catalog);
+  for (const extra of EXTRA_HOSTS) assert.ok(hosts.includes(extra), extra);
+  assert.equal(new Set(hosts).size, hosts.length);
+  assert.equal(hosts[0], 'www.naindev.com');
+  for (const extra of ['brand', 'status', 'handbook', 'standards', 'template-dotnet', 'template-fastapi']) {
+    assert.ok(hosts.includes(`${extra}.naindev.com`), extra);
+  }
+});
+
+test('every URL listed in the sitemap must answer 200 (DISC-015)', () => {
+  const bad = healthy();
+  bad.listed = [{ url: `${canonical}`, status: 200 }, { url: `${canonical}configure/x`, status: 404 }];
+  assert.deepEqual(auditHost(bad), [`${host}: sitemap lists a URL that answers HTTP 404: ${canonical}configure/x`]);
+  const good = healthy();
+  good.listed = [{ url: canonical, status: 200 }];
+  assert.deepEqual(auditHost(good), []);
+});
+
+test('http must redirect permanently to https on the same host (DISC-016)', () => {
+  const ok = healthy();
+  ok.httpRedirect = { status: 301, location: canonical };
+  assert.deepEqual(auditHost(ok), []);
+  for (const redirect of [{ status: 200, location: '' }, { status: 302, location: canonical }, { status: 301, location: 'http://other.example/' }]) {
+    const bad = healthy();
+    bad.httpRedirect = redirect;
+    assert.deepEqual(auditHost(bad), [`${host}: http:// must answer a 301 or 308 to https://${host}/`]);
+  }
 });
