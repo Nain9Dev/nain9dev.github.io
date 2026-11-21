@@ -1,13 +1,7 @@
 /**
- * NainDev Ecosystem Navigation Bar (<nain-ecosystem-bar>)
- * Zero-dependency Web Component for cross-project navigation, brand coherence
- * and live architectural telemetry across the NainDev suite.
- *
- * Version: 3.0.0 (core). Specs 038 and 041, ADR-0007.
- * Sibling files, resolved from this script's URL:
- *   - ecosystem-bar-panel.js: architecture panel, loaded when it first opens.
- *   - ../data/ecosystem.v1.json: project catalog and architecture profiles.
- * Without the data file the bar keeps the brand and status links.
+ * NainDev Ecosystem Navigation Bar (<nain-ecosystem-bar>), version 3.1.0 (core).
+ * Specs 038, 041 and 051, ADR-0007. States: handle (default), open bar, edge tab.
+ * Siblings resolved from this script's URL: ecosystem-bar-panel.js (lazy) and ../data/ecosystem.v1.json.
  */
 (() => {
   if (typeof window === 'undefined' || typeof customElements === 'undefined') return;
@@ -17,313 +11,60 @@
   const PANEL_URL = new URL('ecosystem-bar-panel.js', SELF_URL).href;
   const DATA_URL = new URL('../data/ecosystem.v1.json', SELF_URL).href;
   const DATA_SCHEMA_VERSION = 1;
-  // Captured before the telemetry observer wraps fetch, so loading the data is not reported as host traffic.
+  // Captured before the observer wraps fetch, so the data load is not host traffic.
   const nativeFetch = typeof window.fetch === 'function' ? window.fetch.bind(window) : null;
 
   const STYLES = `
-    :host {
-      --bar-bg: rgba(5, 13, 26, 0.95);
-      --bar-border: rgba(0, 71, 171, 0.35);
-      --bar-text: #edf1f6;
-      --bar-text-muted: #8ba2c4;
-      --bar-accent: #0047ab;
-      --bar-green: #80ff00;
-      --bar-green-glow: rgba(128, 255, 0, 0.4);
-      --bar-font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      --bar-mono: ui-monospace, "IBM Plex Mono", SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      --bar-zindex: 2147483647;
-      display: block;
-      font-family: var(--bar-font);
-      font-size: 13px;
-      line-height: 1.4;
-      color: var(--bar-text);
-      box-sizing: border-box;
-    }
-
-    *, *::before, *::after {
-      box-sizing: inherit;
-      margin: 0;
-      padding: 0;
-    }
-
-    .bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 38px;
-      background: var(--bar-bg);
-      border-bottom: 1px solid var(--bar-border);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      z-index: var(--bar-zindex);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 14px;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .bar.collapsed {
-      top: 10px;
-      right: 14px;
-      left: auto;
-      width: auto;
-      height: 32px;
-      border-radius: 9999px;
-      border: 1px solid var(--bar-border);
-      padding: 0 10px;
-      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.6);
-    }
-
-    .bar.collapsed .bar-center,
-    .bar.collapsed .bar-status,
-    .bar.collapsed .dropdown-toggle,
-    .bar.collapsed .btn-telemetry {
-      display: none;
-    }
-
-    .bar-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .brand-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      color: #fff;
-      font-weight: 700;
-      text-decoration: none;
-      letter-spacing: -0.01em;
-    }
-
-    .brand-link:hover, .brand-link:focus-visible {
-      color: var(--bar-green);
-      outline: none;
-    }
-
-    .brand-mark {
-      width: 20px;
-      height: 20px;
-      border-radius: 4px;
-      background: #002b66;
-      border: 1px solid #0047ab;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      font-weight: 900;
-      color: var(--bar-green);
-      font-family: var(--bar-mono);
-    }
-
-    .project-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(0, 43, 102, 0.5);
-      border: 1px solid rgba(0, 71, 171, 0.4);
-      padding: 2px 9px;
-      border-radius: 9999px;
-      font-size: 11px;
-      color: var(--bar-text-muted);
-    }
-
-    .project-pill strong {
-      color: #fff;
-      font-weight: 600;
-    }
-
-    .bar-right {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .dropdown-container {
-      position: relative;
-    }
-
-    .btn {
-      appearance: none;
-      background: transparent;
-      border: 1px solid transparent;
-      color: var(--bar-text);
-      font-family: inherit;
-      font-size: 12px;
-      padding: 4px 10px;
-      border-radius: 5px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.15s ease;
-      font-weight: 500;
-    }
-
-    .btn:hover {
-      background: rgba(255, 255, 255, 0.08);
-    }
-
-    .btn:focus-visible {
-      outline: 2px solid var(--bar-green);
-      outline-offset: 2px;
-    }
-
-    .btn-dropdown {
-      background: rgba(0, 43, 102, 0.4);
-      border-color: rgba(0, 71, 171, 0.4);
-    }
-
-    .btn-dropdown:hover {
-      background: rgba(0, 71, 171, 0.4);
-      border-color: var(--bar-accent);
-    }
-
-    .btn-telemetry {
-      background: rgba(0, 43, 102, 0.6);
-      border: 1px solid var(--bar-accent);
-      color: #fff;
-    }
-
-    .btn-telemetry:hover {
-      background: #002b66;
-      border-color: var(--bar-green);
-      color: var(--bar-green);
-      box-shadow: 0 0 10px var(--bar-green-glow);
-    }
-
-    .btn-telemetry .telemetry-icon {
-      color: var(--bar-green);
-    }
-
-    .menu {
-      position: absolute;
-      top: calc(100% + 8px);
-      right: 0;
-      width: 360px;
-      max-height: 480px;
-      overflow-y: auto;
-      background: #060d1a;
-      border: 1px solid var(--bar-border);
-      border-radius: 8px;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
-      padding: 10px;
-      display: none;
-      flex-direction: column;
-      gap: 12px;
-      z-index: var(--bar-zindex);
-    }
-
-    .menu.open {
-      display: flex;
-    }
-
-    .category-group {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .category-title {
-      font-size: 10px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--bar-green);
-      padding: 2px 6px;
-      font-family: var(--bar-mono);
-    }
-
-    .item-link {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 6px 8px;
-      border-radius: 5px;
-      text-decoration: none;
-      color: var(--bar-text);
-      transition: background 0.12s ease;
-    }
-
-    .item-link:hover, .item-link:focus-visible {
-      background: rgba(0, 71, 171, 0.25);
-    }
-
-    .item-info {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .item-name {
-      font-weight: 600;
-      font-size: 12px;
-      color: #fff;
-    }
-
-    .item-desc {
-      font-size: 11px;
-      color: var(--bar-text-muted);
-    }
-
-    .item-tag {
-      font-size: 10px;
-      font-family: var(--bar-mono);
-      background: rgba(0, 43, 102, 0.8);
-      border: 1px solid rgba(0, 71, 171, 0.6);
-      color: #8ba2c4;
-      padding: 2px 6px;
-      border-radius: 4px;
-    }
-
-    .bar-status {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      text-decoration: none;
-      font-size: 11px;
-      font-family: var(--bar-mono);
-      color: var(--bar-green);
-      background: rgba(0, 43, 102, 0.3);
-      border: 1px solid rgba(128, 255, 0, 0.2);
-      padding: 3px 8px;
-      border-radius: 9999px;
-      transition: all 0.15s ease;
-    }
-
-    .bar-status:hover, .bar-status:focus-visible {
-      border-color: var(--bar-green);
-      box-shadow: 0 0 8px var(--bar-green-glow);
-    }
-
-    .status-dot {
-      width: 6px;
-      height: 6px;
-      background: var(--bar-green);
-      border-radius: 50%;
-      box-shadow: 0 0 6px var(--bar-green-glow);
-    }
-
-    .btn-toggle {
-      color: var(--bar-text-muted);
-      padding: 4px 6px;
-      border-radius: 4px;
-    }
-
-    .btn-toggle:hover {
-      color: #fff;
-    }
-
+    :host { --bar-bg: rgba(5, 13, 26, 0.95); --bar-border: rgba(0, 71, 171, 0.35); --bar-text: #edf1f6; --bar-text-muted: #8ba2c4; --bar-accent: #0047ab; --bar-green: #80ff00; --bar-font: system-ui, "Segoe UI", Roboto, sans-serif; --bar-mono: ui-monospace, "IBM Plex Mono", Menlo, Consolas, monospace; --bar-zindex: 2147483647; display: block; font-family: var(--bar-font); font-size: 13px; line-height: 1.4; color: var(--bar-text); box-sizing: border-box; }
+    *, *::before, *::after { box-sizing: inherit; margin: 0; padding: 0; }
+    .bar { position: fixed; top: 0; left: 0; right: 0; height: 38px; background: var(--bar-bg); border-bottom: 1px solid var(--bar-border); backdrop-filter: blur(16px); z-index: var(--bar-zindex); display: flex; align-items: center; justify-content: space-between; padding: 0 14px; }
+    .dot, .tab { position: fixed; left: env(safe-area-inset-left, 0px); top: 62%; z-index: var(--bar-zindex); cursor: pointer; border: 1px solid var(--bar-border); background: #002b66; color: var(--bar-green); font: 900 11px var(--bar-mono); opacity: 0.45; transition: 0.15s; }
+    .dot { width: 24px; height: 24px; border-radius: 50%; transform: translateX(-55%); }
+    .dot::after { content: ""; position: absolute; inset: -10px -14px -10px 0; }
+    .tab { width: 6px; height: 36px; border-width: 1px 1px 1px 0; border-radius: 0 6px 6px 0; }
+    .dot:hover, .dot:focus-visible, .tab:hover, .tab:focus-visible { opacity: 1; }
+    .dot:hover, .dot:focus-visible { transform: none; }
+    .tab:hover, .tab:focus-visible { width: 12px; }
+    .dot:focus-visible, .tab:focus-visible { outline: 2px solid var(--bar-green); outline-offset: 2px; }
+    @media (prefers-reduced-motion: reduce) { .dot, .tab { transition: none; }
+     }
+    .bar-left { display: flex; align-items: center; gap: 10px; }
+    .brand-link { display: inline-flex; align-items: center; gap: 7px; color: #fff; font-weight: 700; text-decoration: none; letter-spacing: -0.01em; }
+    .brand-link:hover, .brand-link:focus-visible { color: var(--bar-green); outline: none; }
+    .brand-mark { width: 20px; height: 20px; border-radius: 4px; background: #002b66; border: 1px solid #0047ab; display: inline-flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 900; color: var(--bar-green); font-family: var(--bar-mono); }
+    .project-pill { display: inline-flex; align-items: center; gap: 6px; background: rgba(0, 43, 102, 0.5); border: 1px solid rgba(0, 71, 171, 0.4); padding: 2px 9px; border-radius: 9999px; font-size: 11px; color: var(--bar-text-muted); }
+    .project-pill strong { color: #fff; font-weight: 600; }
+    .bar-right { display: flex; align-items: center; gap: 10px; }
+    .dropdown-container { position: relative; }
+    .btn { appearance: none; background: transparent; border: 1px solid transparent; color: var(--bar-text); font-family: inherit; font-size: 12px; padding: 4px 10px; border-radius: 5px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; font-weight: 500; }
+    .btn:hover { background: rgba(255, 255, 255, 0.08); }
+    .btn:focus-visible { outline: 2px solid var(--bar-green); outline-offset: 2px; }
+    .btn-dropdown, .btn-telemetry { background: rgba(0, 43, 102, 0.5); border-color: var(--bar-accent); }
+    .btn-dropdown:hover, .btn-telemetry:hover { background: #002b66; border-color: var(--bar-green); }
+    .telemetry-icon { color: var(--bar-green); }
+    .menu { position: absolute; top: calc(100% + 8px); right: 0; width: 360px; max-height: 480px; overflow-y: auto; background: #060d1a; border: 1px solid var(--bar-border); border-radius: 8px; box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8); padding: 10px; display: none; flex-direction: column; gap: 12px; z-index: var(--bar-zindex); }
+    .menu.open { display: flex; }
+    .category-group { display: flex; flex-direction: column; gap: 4px; }
+    .category-title { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--bar-green); padding: 2px 6px; font-family: var(--bar-mono); }
+    .item-link { display: flex; align-items: center; justify-content: space-between; padding: 6px 8px; border-radius: 5px; text-decoration: none; color: var(--bar-text); }
+    .item-link:hover, .item-link:focus-visible { background: rgba(0, 71, 171, 0.25); }
+    .item-info { display: flex; flex-direction: column; gap: 2px; }
+    .item-name { font-weight: 600; font-size: 12px; color: #fff; }
+    .item-desc { font-size: 11px; color: var(--bar-text-muted); }
+    .item-tag { font-size: 10px; font-family: var(--bar-mono); background: rgba(0, 43, 102, 0.8); border: 1px solid rgba(0, 71, 171, 0.6); color: #8ba2c4; padding: 2px 6px; border-radius: 4px; }
+    .bar-status { display: inline-flex; align-items: center; gap: 6px; text-decoration: none; font-size: 11px; font-family: var(--bar-mono); color: var(--bar-green); background: rgba(0, 43, 102, 0.3); border: 1px solid rgba(128, 255, 0, 0.2); padding: 3px 8px; border-radius: 9999px; }
+    .bar-status:hover, .bar-status:focus-visible { border-color: var(--bar-green); }
+    .status-dot { width: 6px; height: 6px; background: var(--bar-green); border-radius: 50%; }
+    .btn-toggle { color: var(--bar-text-muted); padding: 4px 6px; }
+    .btn-toggle:hover { color: #fff; }
+    @media (max-width: 640px) { .project-pill, .bar-status, .btn-telemetry span { display: none; } .bar { padding: 0 8px; } .menu { position: fixed; top: 44px; left: 8px; right: 8px; width: auto; } }
   `;
 
   class NainEcosystemBar extends HTMLElement {
     constructor() {
       super();
       this.attachShadow({ mode: 'open' });
-      this._collapsed = false;
+      this._state = 'min';
       this._menuOpen = false;
       this._drawerOpen = false;
       this._activeTab = 'invariants';
@@ -338,14 +79,14 @@
 
     attributeChangedCallback(name, oldValue, newValue) {
       if (oldValue !== newValue) {
-        if (name === 'collapsed') {
-          this._collapsed = newValue !== null && newValue !== 'false';
-        }
+        if (name === 'collapsed') this._state = newValue === 'false' ? 'open' : 'min';
         this.render();
       }
     }
 
     connectedCallback() {
+      if (this.getAttribute('collapsed') === 'false') this._state = 'open';
+      else if (this._store('get') === 'off') this._state = 'off';
       this.render();
       this._setupListeners();
       this._setupTelemetryBus();
@@ -363,7 +104,6 @@
         this._detectCurrentProject();
         this.render();
       } catch (_) {
-        // Keep the degraded bar: brand and status links only.
       }
     }
 
@@ -392,14 +132,25 @@
       return profiles.nainorder || null;
     }
 
-    toggleCollapse() {
-      this._collapsed = !this._collapsed;
-      if (this._collapsed) {
-        this._menuOpen = false;
-        this._drawerOpen = false;
+    // Storage can be missing or blocked.
+    _store(op, value) {
+      try {
+        return op === 'get' ? window.localStorage.getItem('nain_bar') : window.localStorage.setItem('nain_bar', value);
+      } catch (_) {
+        return null;
       }
+    }
+
+    _setState(state) {
+      this._state = state;
+      this._menuOpen = this._drawerOpen = false;
+      this._store('set', state === 'off' ? 'off' : 'on');
       this.render();
     }
+
+    open() { this._setState('open'); }
+    minimize() { this._setState('min'); }
+    hide() { this._setState('off'); }
 
     toggleMenu() {
       this._menuOpen = !this._menuOpen;
@@ -436,7 +187,6 @@
     }
 
     _setupTelemetryBus() {
-      // Automatic non-intrusive fetch observer for real HTTP / API calls
       if (window.fetch && !window.__nain_fetch_observed__) {
         window.__nain_fetch_observed__ = true;
         const origFetch = window.fetch;
@@ -444,33 +194,19 @@
           const start = performance.now();
           const rawUrl = typeof args[0] === 'string' ? args[0] : (args[0]?.url || '');
           const method = (args[1]?.method || 'GET').toUpperCase();
+          const endpoint = rawUrl.replace(window.location.origin, '');
+          const emit = (type, status, payload) => window.dispatchEvent(new CustomEvent('nain:telemetry', {
+            detail: { type, name: `${method} ${endpoint}`, latencyMs: Math.round(performance.now() - start), status, payload }
+          }));
           try {
             const res = await origFetch(...args);
-            const duration = Math.round(performance.now() - start);
-            if (rawUrl && !rawUrl.includes('.js') && !rawUrl.includes('.css') && !rawUrl.includes('.svg') && !rawUrl.includes('.ico') && !rawUrl.includes('fonts.googleapis')) {
-              window.dispatchEvent(new CustomEvent('nain:telemetry', {
-                detail: {
-                  type: method === 'GET' ? 'Query' : 'Command',
-                  name: `${method} ${rawUrl.replace(window.location.origin, '')}`,
-                  latencyMs: duration,
-                  status: res.status,
-                  payload: { method, endpoint: rawUrl.replace(window.location.origin, ''), status: res.status, ok: res.ok }
-                }
-              }));
+            if (rawUrl && !/\.(js|css|svg|ico)|fonts\.googleapis/.test(rawUrl)) {
+              emit(method === 'GET' ? 'Query' : 'Command', res.status, { method, endpoint, status: res.status, ok: res.ok });
             }
             return res;
           } catch (err) {
-            const duration = Math.round(performance.now() - start);
-            if (rawUrl && !rawUrl.includes('.js') && !rawUrl.includes('.css')) {
-              window.dispatchEvent(new CustomEvent('nain:telemetry', {
-                detail: {
-                  type: 'Fallback',
-                  name: `${method} ${rawUrl.replace(window.location.origin, '')}`,
-                  latencyMs: duration,
-                  status: 200,
-                  payload: { notice: 'Offline / In-Browser Fallback Engine Engaged', endpoint: rawUrl.replace(window.location.origin, '') }
-                }
-              }));
+            if (rawUrl && !/\.(js|css)/.test(rawUrl)) {
+              emit('Fallback', 200, { notice: 'Offline / In-Browser Fallback Engine Engaged', endpoint });
             }
             throw err;
           }
@@ -496,10 +232,10 @@
 
     _setupListeners() {
       this.shadowRoot.addEventListener('click', (e) => {
-        if (e.target.closest('.btn-toggle')) {
-          this.toggleCollapse();
-          return;
-        }
+        if (e.target.closest('.btn-hide')) return this.hide();
+        if (e.target.closest('.btn-toggle')) return this.minimize();
+        if (e.target.closest('.dot')) return this.open();
+        if (e.target.closest('.tab')) return this.minimize();
 
         if (e.target.closest('.dropdown-toggle')) {
           this.toggleMenu();
@@ -519,12 +255,19 @@
         }
       });
 
+      // Pressing outside the open bar returns it to the handle.
+      window.addEventListener('click', (e) => {
+        if (this._state === 'open' && !(e.composedPath && e.composedPath().includes(this))) this.minimize();
+      });
+
       window.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
           if (this._drawerOpen || this._menuOpen) {
             this._drawerOpen = false;
             this._menuOpen = false;
             this.render();
+          } else if (this._state === 'open') {
+            this.minimize();
           }
         }
         if (e.altKey && (e.key === 'a' || e.key === 'A')) {
@@ -544,7 +287,7 @@
         <div class="category-group">
           <div class="category-title">${cat.category}</div>
           ${cat.items.map(item => `
-            <a href="${item.url}" class="item-link" title="${item.desc}">
+            <a href="${item.url}" class="item-link">
               <div class="item-info">
                 <span class="item-name">${item.name}</span>
                 <span class="item-desc">${item.desc}</span>
@@ -555,6 +298,15 @@
         </div>
       `).join('');
 
+      if (this._state !== 'open') {
+        const off = this._state === 'off';
+        this.shadowRoot.innerHTML = `
+          <style>${STYLES}</style>
+          <button type="button" class="${off ? 'tab' : 'dot'}" aria-label="${off ? 'Mostrar' : 'Abrir'} barra del ecosistema NainDev">${off ? '' : 'N'}</button>
+        `;
+        return;
+      }
+
       const panelStyles = this._panel ? this._panel.styles : '';
       const panelHtml = hasData && this._panel && this._drawerOpen
         ? this._panel.renderDrawer(profile, { activeTab: this._activeTab, customTelemetry: this._customTelemetry })
@@ -562,34 +314,27 @@
 
       this.shadowRoot.innerHTML = `
         <style>${STYLES}${panelStyles}</style>
-        <div class="bar ${this._collapsed ? 'collapsed' : ''}" role="navigation" aria-label="NainDev Suite">
+        <div class="bar" role="navigation" aria-label="NainDev Suite">
           <div class="bar-left">
-            <a href="https://www.naindev.com/" class="brand-link" title="Volver al portfolio principal">
+            <a href="https://www.naindev.com/" class="brand-link">
               <span class="brand-mark">N</span>
               <span>NainDev</span>
             </a>
-            ${!this._collapsed ? `
-              <div class="project-pill">
-                <span>Plataforma</span>
-                <strong>${currentProjectName}</strong>
-              </div>
-            ` : ''}
+            <div class="project-pill">
+              <span>Plataforma</span>
+              <strong>${currentProjectName}</strong>
+            </div>
           </div>
 
-          ${!this._collapsed ? `
             <div class="bar-right">
               ${hasData ? `
-                <button type="button" class="btn btn-telemetry" aria-label="Inspeccionar arquitectura y telemetría" title="Abrir Drawer de Arquitectura & Telemetría (Alt+A)">
-                  <svg class="telemetry-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                    <polyline points="2 17 12 22 22 17"></polyline>
-                    <polyline points="2 12 12 17 22 12"></polyline>
-                  </svg>
+                <button type="button" class="btn btn-telemetry" aria-label="Arquitectura y telemetría" title="Arquitectura y telemetría (Alt+A)">
+                  <svg class="telemetry-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 2 7l10 5 10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                   <span>Arquitectura</span>
                 </button>
 
                 <div class="dropdown-container">
-                  <button type="button" class="btn btn-dropdown dropdown-toggle" aria-expanded="${this._menuOpen}" aria-haspopup="true" aria-label="Explorar proyectos del ecosistema">
+                  <button type="button" class="btn btn-dropdown dropdown-toggle" aria-expanded="${this._menuOpen}" aria-haspopup="true" aria-label="Proyectos del ecosistema">
                     <span>Proyectos (${catalog.reduce((acc, c) => acc + c.items.length, 0)})</span>
                     <span aria-hidden="true">&#9662;</span>
                   </button>
@@ -599,20 +344,14 @@
                 </div>
               ` : ''}
 
-              <a href="https://status.naindev.com/" class="bar-status" title="Observabilidad y estado de los servicios">
+              <a href="https://status.naindev.com/" class="bar-status" title="Estado de los servicios">
                 <span class="status-dot" aria-hidden="true"></span>
                 <span>100% OK</span>
               </a>
 
-              <button type="button" class="btn btn-toggle" aria-label="Minimizar barra del ecosistema" title="Minimizar">
-                &#9650;
-              </button>
+              <button type="button" class="btn btn-toggle" aria-label="Minimizar barra del ecosistema" title="Minimizar">&#9662;</button>
+              <button type="button" class="btn btn-toggle btn-hide" aria-label="Ocultar barra del ecosistema" title="Ocultar">&#10005;</button>
             </div>
-          ` : `
-            <button type="button" class="btn btn-toggle" aria-label="Expandir barra del ecosistema" title="Expandir">
-              &#9660;
-            </button>
-          `}
         </div>
         ${panelHtml}
       `;

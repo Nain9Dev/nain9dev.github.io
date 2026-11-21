@@ -24,6 +24,7 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ### Changed
 
+- Spec 051 (ECO-004, ECO-026 to ECO-029, ECO-031): the suite bar no longer covers the page. By default it is a 24 px faint handle that peeks out of the left edge at mid height, in no corner (it was a pill at the top right that could sit on page navigation and game buttons). The handle opens the bar, the open bar has a minimize button and a hide button, hiding leaves a 6 px edge tab, and the hidden state is remembered. Escape and a press outside return the open bar to the handle. On phones the open bar fits the screen and the project menu is pinned between the edges. `collapsed="false"` still opens it. To stay inside the ECO-003 budget the entry lost unused rules, merged duplicated button styles and the two copies of the telemetry event code, and the icon is one path (version 3.1.0).
 - Next-design-fusion DF-041: the contact cards lead with an icon, and the contact and checklist pages keep their secondary sentences behind a "+"; the checklist benefits are drawn as cards.
 - Next-design-fusion DF-040: service detail pages draw their lists as cards, their process as numbered steps and their booking link as a button, with CSS only.
 - Next-design-fusion DF-037: each blog card is one link (stretched title anchor and an arrow) instead of carrying its own "Leer artículo" button.
@@ -44,6 +45,7 @@ Relevant changes, newest first. The project has no version tags; entries are gro
 
 ### Added
 
+- Spec 051 (ECO-030): the suite bar lists the Playables site (`playables.naindev.com`) in the web games category.
 - Next-pwa-install: the site can be installed from the browser on Android and iOS. It publishes a web app manifest (`NainDev`), install icons generated from the brand mark, one of them maskable, and the iOS home-screen tags on every page in both languages. No service worker: nothing is cached.
 - Next-seo-indexnow: the site publishes its IndexNow key and `scripts/submit-indexnow.mjs` tells Bing and the other IndexNow engines about the sitemap URLs after a deploy.
 - Next-seo-host-audit: a weekly workflow audits the canonical, description, social tags, JSON-LD, `robots.txt`, sitemap and `llms.txt` of every public host and fails when one regresses.

@@ -108,6 +108,12 @@
           "desc": "Continuous collision 3D arena pong",
           "url": "https://pong.naindev.com/",
           "tag": "Canvas / WebGL"
+        },
+        {
+          "name": "Playables",
+          "desc": "Single-file playable ads built with Three.js",
+          "url": "https://playables.naindev.com/",
+          "tag": "Three.js"
         }
       ]
     },
