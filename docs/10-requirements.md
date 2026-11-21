@@ -485,6 +485,9 @@ Owner decisions of 2026-10-27 (depth, inline SVG diagrams, copy sources, scope o
 | DISC-009 | The audited hosts shall be the main site plus every `*.naindev.com` host linked from the project catalog, once each. | specs/next-seo-host-audit | Implemented |
 | DISC-010 | The workflow `seo-audit.yml` shall run weekly and on demand with read-only permissions and shall fail when any host has a finding. | specs/next-seo-host-audit | Implemented |
 | DISC-011 | `npm run check:seo` shall run the unit tests of the audit rules. | specs/next-seo-host-audit | Implemented |
+| DISC-014 | The audited hosts shall also include the project pages that the catalog does not link, once each. | specs/next-seo-host-audit | Implemented |
+| DISC-015 | The audit shall request every URL a sitemap lists and report each one that does not answer HTTP 200. | specs/next-seo-host-audit | Implemented |
+| DISC-016 | The audit shall report a host whose plain `http://` entry does not answer a 301 or 308 to https. | specs/next-seo-host-audit | Implemented |
 | DISC-012 | When the owner runs `scripts/submit-indexnow.mjs`, it shall send the URLs of the live sitemap of `www.naindev.com` to IndexNow with the site key and its key location, and shall refuse URLs of another host and lists of 0 or more than 10000 URLs. | specs/next-seo-indexnow | Implemented |
 | DISC-013 | The site shall publish the IndexNow key file at the root, with the key as its only content. | specs/next-seo-indexnow | Implemented |
 | MI-004 | axe reports no violation in either theme and the Lighthouse budget holds. | specs/next-micro-interactions | Implemented |

@@ -12,6 +12,9 @@ Keep the discoverability gains of `specs/next-seo-discovery` and of the demo-sit
 - DISC-009: The audited hosts shall be the main site plus every `*.naindev.com` host linked from `public/assets/data/projects.json`, once each, so a new demo is covered when it enters the catalog.
 - DISC-010: The workflow `seo-audit.yml` shall run weekly and on demand with read-only permissions, pinned actions and no persisted credentials, and shall fail when any host has a finding.
 - DISC-011: `npm run check:seo` shall run the unit tests of the audit rules.
+- DISC-014: The audited hosts shall also include the project pages that the catalog does not link (`brand`, `status`, `handbook`, `standards`, `template-dotnet`, `template-fastapi`), once each.
+- DISC-015: When a host's sitemap lists URLs, the audit shall request each one and report every URL that does not answer HTTP 200.
+- DISC-016: The audit shall report a host whose plain `http://` entry does not answer a 301 or 308 to `https://<host>/`.
 
 ## Edge cases
 
