@@ -112,6 +112,20 @@ test('SEO-023: the Person does not list the brand Facebook page', async () => {
   assert.ok(!person.includes(FACEBOOK_PAGE), FACEBOOK_PAGE);
 });
 
+const DEVTO_PROFILE = 'https://dev.to/naindev';
+
+test('SEO-024: the Person lists the dev.to profile that carries the owner name and the site link', async () => {
+  const component = await read('src/components/SEO.astro');
+  const person = component.match(/const personSchema = \{([\s\S]*?)\n\};/)?.[1] ?? '';
+  assert.equal(person.match(new RegExp(`"${DEVTO_PROFILE.replaceAll('.', '\\.')}"`, 'g'))?.length, 1);
+});
+
+test('SEO-025: the Organization does not list the personal dev.to profile', async () => {
+  const component = await read('src/components/SEO.astro');
+  const organization = component.match(/const organizationSchema = \{([\s\S]*?)\n\};/)?.[1] ?? '';
+  assert.ok(!organization.includes(DEVTO_PROFILE), DEVTO_PROFILE);
+});
+
 test('SEO-013: the blog and service hubs drop the old positioning', async () => {
   for (const file of ['src/pages/blog/index.astro', 'src/pages/servicios/index.astro']) {
     const page = await read(file);
